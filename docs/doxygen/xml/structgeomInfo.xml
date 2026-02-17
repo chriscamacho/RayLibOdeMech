@@ -22,7 +22,7 @@
         </inbodydescription>
         <location file="raylibODE.h" line="80" column="9" bodyfile="raylibODE.h" bodystart="80" bodyend="-1"/>
         <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
-        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="595" endline="620">CreateStaticTrimesh</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" prot="public" static="no" mutable="no">
         <type>dTriMeshDataID</type>
@@ -39,7 +39,7 @@
         </inbodydescription>
         <location file="raylibODE.h" line="81" column="20" bodyfile="raylibODE.h" bodystart="81" bodyend="-1"/>
         <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
-        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="595" endline="620">CreateStaticTrimesh</referencedby>
       </memberdef>
     </sectiondef>
     <sectiondef kind="public-attrib">
@@ -57,7 +57,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="71" column="10" bodyfile="raylibODE.h" bodystart="71" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</referencedby>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" prot="public" static="no" mutable="no">
@@ -74,8 +74,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="72" column="13" bodyfile="raylibODE.h" bodystart="72" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
-        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -91,8 +91,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="73" column="11" bodyfile="raylibODE.h" bodystart="73" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
-        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -108,8 +108,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="74" column="11" bodyfile="raylibODE.h" bodystart="74" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
-        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1aac9cece1fdb9d0079901008842994523" prot="public" static="no" mutable="no">
         <type>Model</type>
@@ -125,8 +125,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="75" column="11" bodyfile="raylibODE.h" bodystart="75" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
-        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="595" endline="620">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" prot="public" static="no" mutable="no">
         <type>Color</type>
@@ -142,9 +142,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="76" column="11" bodyfile="raylibODE.h" bodystart="76" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
-        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
-        <referencedby refid="raylibODE_8c_1a3aa3473ec30d21671ea9ec98e3e65017" compoundref="raylibODE_8c" startline="894" endline="904">setEntityHew</referencedby>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1a3aa3473ec30d21671ea9ec98e3e65017" compoundref="raylibODE_8c" startline="896" endline="906">setEntityHew</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1a520884eb761f24547c835107a37d024c" prot="public" static="no" mutable="no">
         <type><ref refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kindref="member">TriggerCallback</ref></type>
@@ -160,7 +160,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="84" column="21" bodyfile="raylibODE.h" bodystart="84" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</referencedby>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" prot="public" static="no" mutable="no">

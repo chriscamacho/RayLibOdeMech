@@ -105,9 +105,7 @@ int main(void)
                 // would be more efficient to just reuse the object and
                 // reposition it with zeroed velocities
                 // but this is used to aid testing
-                FreeBodyAndGeoms(bdy);
-                free(ent);
-                clistDeleteNode(physCtx->objList, &node);
+                FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
                 addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
             }
             
@@ -130,7 +128,6 @@ int main(void)
         ClearBackground(BLACK);
 
         BeginMode3D(graphics.camera);
-			//DrawModel(ground,(Vector3){0,0,0},1,WHITE);
 			drawBodies(&graphics, physCtx);
 			drawStatics(&graphics, physCtx);
         EndMode3D();

@@ -111,9 +111,7 @@ shows shapes colliding and coming to rest on a static trimesh
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ would\ be\ more\ efficient\ to\ just\ reuse\ the\ object\ and}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reposition\ it\ with\ zeroed\ velocities}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ this\ is\ used\ to\ aid\ testing}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(bdy);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free(ent);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clistDeleteNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ \&node);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5a6ec4456256b6b4394e5d32b326fae8}{addRandomPhys}}(physCtx,\ \&graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\});}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
@@ -136,7 +134,6 @@ shows shapes colliding and coming to rest on a static trimesh
 \DoxyCodeLine{\ \ \ \ \ \ \ \ ClearBackground(BLACK);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ BeginMode3D(graphics.\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//DrawModel(ground,(Vector3)\{0,0,0\},1,WHITE);}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_adac1e8c721f82c1684b919e4cbe8a883}{drawBodies}}(\&graphics,\ physCtx);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a05b90ca080d0521b6155c1462bfeab90}{drawStatics}}(\&graphics,\ physCtx);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ EndMode3D();}

@@ -31,6 +31,7 @@ var raylibODE_8h =
     [ "drawGeom", "raylibODE_8h.html#ac29c7db14d40f3946075ae2d63aab414", null ],
     [ "drawStatics", "raylibODE_8h.html#a05b90ca080d0521b6155c1462bfeab90", null ],
     [ "FreeBodyAndGeoms", "raylibODE_8h.html#a8f1b86adbb51b8bd80405329b31c87d1", null ],
+    [ "FreeEntity", "raylibODE_8h.html#aa86cbb92909da330ef988d813fb7baed", null ],
     [ "getEntityFromMouse", "raylibODE_8h.html#a9aee3b647643b29e683644a67e7e5f3c", null ],
     [ "odeToRayMat", "raylibODE_8h.html#a5b0792a09d707c97fea36d1e35ab364d", null ],
     [ "rayToOdeMat", "raylibODE_8h.html#a90e81478715d0f9b144a709347d089a0", null ],

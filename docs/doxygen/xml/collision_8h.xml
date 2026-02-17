@@ -57,7 +57,7 @@
         <references refid="collision_8c_1a84bfa512ba2269b77a80f391fbdde0a3" compoundref="collision_8c" startline="41">MAX_CONTACTS</references>
         <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="84">geomInfo::triggerOnCollide</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
-        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="230" endline="253">stepPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="232" endline="255">stepPhysics</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>

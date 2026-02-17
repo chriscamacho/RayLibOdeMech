@@ -171,6 +171,7 @@
     <member refid="raylibODE_8h_1a05b90ca080d0521b6155c1462bfeab90" kind="function"><name>drawStatics</name></member>
     <member refid="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" kind="function"><name>rndf</name></member>
     <member refid="raylibODE_8h_1a218eeb72f46ea3ed00c9010d7002a305" kind="function"><name>stepPhysics</name></member>
+    <member refid="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
   </compound>
   <compound refid="rlights_8h" kind="file"><name>rlights.h</name>
     <member refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kind="define"><name>MAX_LIGHTS</name></member>
@@ -256,6 +257,7 @@
     <member refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" kind="function"><name>drawBodies</name></member>
     <member refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" kind="function"><name>drawBodyGeoms</name></member>
     <member refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" kind="function"><name>drawStatics</name></member>
+    <member refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
   </compound>
   <compound refid="rlights_8c" kind="file"><name>rlights.c</name>
     <member refid="rlights_8c_1a959fef16d77f17db49364491cbd4175b" kind="variable"><name>lightsCount</name></member>

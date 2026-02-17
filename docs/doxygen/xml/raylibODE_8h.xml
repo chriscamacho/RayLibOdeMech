@@ -155,7 +155,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="41" column="9" bodyfile="raylibODE.h" bodystart="41" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="230" endline="253">stepPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="232" endline="255">stepPhysics</referencedby>
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
@@ -291,7 +291,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="43" column="6" bodyfile="raylibODE.c" bodystart="745" bodyend="750" declfile="raylibODE.h" declline="43" declcolumn="6"/>
+        <location file="raylibODE.h" line="43" column="6" bodyfile="raylibODE.c" bodystart="747" bodyend="752" declfile="raylibODE.h" declline="43" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a5b0792a09d707c97fea36d1e35ab364d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -312,8 +312,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="44" column="6" bodyfile="raylibODE.c" bodystart="753" bodyend="759" declfile="raylibODE.h" declline="44" declcolumn="6"/>
-        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <location file="raylibODE.h" line="44" column="6" bodyfile="raylibODE.c" bodystart="755" bodyend="761" declfile="raylibODE.h" declline="44" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1af0307cfb8f3c5c1b8dc01681865f0062" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
@@ -346,17 +346,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="125" column="8" bodyfile="raylibODE.c" bodystart="272" bodyend="279" declfile="raylibODE.h" declline="125" declcolumn="8"/>
+        <location file="raylibODE.h" line="125" column="8" bodyfile="raylibODE.c" bodystart="274" bodyend="281" declfile="raylibODE.h" declline="125" declcolumn="8"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
         <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
         <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
-        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
-        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
-        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
-        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
-        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="318" endline="337">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="446" endline="465">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="403" endline="423">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="492" endline="527">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="360" endline="379">addSphere</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a79db70091e3c86494f485979529984c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structgeomInfo" kindref="compound">geomInfo</ref> *</type>
@@ -420,20 +420,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="128" column="10" bodyfile="raylibODE.c" bodystart="630" bodyend="641" declfile="raylibODE.h" declline="128" declcolumn="10"/>
+        <location file="raylibODE.h" line="128" column="10" bodyfile="raylibODE.c" bodystart="632" bodyend="643" declfile="raylibODE.h" declline="128" declcolumn="10"/>
         <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="71">geomInfo::collidable</references>
         <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
         <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="72">geomInfo::texture</references>
         <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="73">geomInfo::uvScaleU</references>
         <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="74">geomInfo::uvScaleV</references>
-        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
-        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
-        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
-        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
-        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="318" endline="337">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="446" endline="465">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="403" endline="423">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="492" endline="527">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="360" endline="379">addSphere</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" compoundref="raylibODE_8c" startline="282" endline="292">createSphereGeom</referencedby>
-        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" compoundref="raylibODE_8c" startline="284" endline="294">createSphereGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="595" endline="620">CreateStaticTrimesh</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a2a368e091ab99ed0668855778e02ef70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -463,9 +463,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="131" column="9" bodyfile="raylibODE.c" bodystart="282" bodyend="292" declfile="raylibODE.h" declline="131" declcolumn="9"/>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <location file="raylibODE.h" line="131" column="9" bodyfile="raylibODE.c" bodystart="284" bodyend="294" declfile="raylibODE.h" declline="131" declcolumn="9"/>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="210" endline="213">rndf</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
         <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
       </memberdef>
@@ -556,9 +556,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="134" column="9" bodyfile="raylibODE.c" bodystart="593" bodyend="618" declfile="raylibODE.h" declline="134" declcolumn="9"/>
+        <location file="raylibODE.h" line="134" column="9" bodyfile="raylibODE.c" bodystart="595" bodyend="620" declfile="raylibODE.h" declline="134" declcolumn="9"/>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</references>
         <references refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" compoundref="raylibODE_8h" startline="80">geomInfo::indices</references>
         <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
@@ -663,14 +663,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="137" column="8" bodyfile="raylibODE.c" bodystart="316" bodyend="335" declfile="raylibODE.h" declline="137" declcolumn="8"/>
+        <location file="raylibODE.h" line="137" column="8" bodyfile="raylibODE.c" bodystart="318" bodyend="337" declfile="raylibODE.h" declline="137" declcolumn="8"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
-        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="274" endline="281">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="210" endline="213">rndf</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
-        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="545" endline="571">addRandomPhys</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ad709ccf4980935cd9c633f0c270b4a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
@@ -767,14 +767,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="138" column="8" bodyfile="raylibODE.c" bodystart="358" bodyend="377" declfile="raylibODE.h" declline="138" declcolumn="8"/>
+        <location file="raylibODE.h" line="138" column="8" bodyfile="raylibODE.c" bodystart="360" bodyend="379" declfile="raylibODE.h" declline="138" declcolumn="8"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
-        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="274" endline="281">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="210" endline="213">rndf</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
         <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
-        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="545" endline="571">addRandomPhys</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ad0d5151f2ffc020ea6ad6c604d976670" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
@@ -883,14 +883,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="139" column="8" bodyfile="raylibODE.c" bodystart="401" bodyend="421" declfile="raylibODE.h" declline="139" declcolumn="8"/>
+        <location file="raylibODE.h" line="139" column="8" bodyfile="raylibODE.c" bodystart="403" bodyend="423" declfile="raylibODE.h" declline="139" declcolumn="8"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
-        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="274" endline="281">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</references>
         <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="210" endline="213">rndf</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
-        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="545" endline="571">addRandomPhys</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1aea6c527a568187e7377bb733e3693e34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
@@ -997,14 +997,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="140" column="8" bodyfile="raylibODE.c" bodystart="444" bodyend="463" declfile="raylibODE.h" declline="140" declcolumn="8"/>
+        <location file="raylibODE.h" line="140" column="8" bodyfile="raylibODE.c" bodystart="446" bodyend="465" declfile="raylibODE.h" declline="140" declcolumn="8"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
-        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="274" endline="281">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</references>
         <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="210" endline="213">rndf</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
-        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="545" endline="571">addRandomPhys</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a2e7774a715304a8f791a09e863240603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
@@ -1125,14 +1125,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="141" column="8" bodyfile="raylibODE.c" bodystart="490" bodyend="525" declfile="raylibODE.h" declline="141" declcolumn="8"/>
+        <location file="raylibODE.h" line="141" column="8" bodyfile="raylibODE.c" bodystart="492" bodyend="527" declfile="raylibODE.h" declline="141" declcolumn="8"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
-        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="274" endline="281">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="632" endline="643">CreateGeomInfo</references>
         <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="210" endline="213">rndf</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
-        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="545" endline="571">addRandomPhys</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a5a6ec4456256b6b4394e5d32b326fae8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
@@ -1193,13 +1193,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="144" column="8" bodyfile="raylibODE.c" bodystart="543" bodyend="569" declfile="raylibODE.h" declline="144" declcolumn="8"/>
-        <references refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</references>
-        <references refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</references>
-        <references refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</references>
-        <references refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</references>
-        <references refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <location file="raylibODE.h" line="144" column="8" bodyfile="raylibODE.c" bodystart="545" bodyend="571" declfile="raylibODE.h" declline="144" declcolumn="8"/>
+        <references refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="318" endline="337">addBox</references>
+        <references refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="446" endline="465">addCapsule</references>
+        <references refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="403" endline="423">addCylinder</references>
+        <references refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="492" endline="527">addDumbbell</references>
+        <references refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="360" endline="379">addSphere</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="210" endline="213">rndf</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a9aee3b647643b29e683644a67e7e5f3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
@@ -1253,7 +1253,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="147" column="8" bodyfile="raylibODE.c" bodystart="671" bodyend="704" declfile="raylibODE.h" declline="147" declcolumn="8"/>
+        <location file="raylibODE.h" line="147" column="8" bodyfile="raylibODE.c" bodystart="673" bodyend="706" declfile="raylibODE.h" declline="147" declcolumn="8"/>
         <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
         <references refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" compoundref="raylibODE_8h" startline="92">RayHit::depth</references>
         <references refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" compoundref="raylibODE_8h" startline="91">RayHit::geom</references>
@@ -1299,7 +1299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="149" column="6" bodyfile="raylibODE.c" bodystart="894" bodyend="904" declfile="raylibODE.h" declline="149" declcolumn="6"/>
+        <location file="raylibODE.h" line="149" column="6" bodyfile="raylibODE.c" bodystart="896" bodyend="906" declfile="raylibODE.h" declline="149" declcolumn="6"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
       </memberdef>
@@ -1367,7 +1367,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="151" column="10" bodyfile="raylibODE.c" bodystart="861" bodyend="881" declfile="raylibODE.h" declline="151" declcolumn="10"/>
+        <location file="raylibODE.h" line="151" column="10" bodyfile="raylibODE.c" bodystart="863" bodyend="883" declfile="raylibODE.h" declline="151" declcolumn="10"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
       </memberdef>
@@ -1386,8 +1386,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="154" column="6" bodyfile="raylibODE.c" bodystart="707" bodyend="720" declfile="raylibODE.h" declline="154" declcolumn="6"/>
+        <location file="raylibODE.h" line="154" column="6" bodyfile="raylibODE.c" bodystart="709" bodyend="722" declfile="raylibODE.h" declline="154" declcolumn="6"/>
         <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="955" endline="960">FreeEntity</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="483" endline="523">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
       </memberdef>
@@ -1410,22 +1411,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="157" column="6" bodyfile="raylibODE.c" bodystart="763" bodyend="845" declfile="raylibODE.h" declline="157" declcolumn="6"/>
+        <location file="raylibODE.h" line="157" column="6" bodyfile="raylibODE.c" bodystart="765" bodyend="847" declfile="raylibODE.h" declline="157" declcolumn="6"/>
         <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="99">GraphicsContext::ball</references>
         <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="98">GraphicsContext::box</references>
         <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="100">GraphicsContext::cylinder</references>
         <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
-        <references refid="raylibODE_8c_1a4e5c05f3e98813de44bb372e30156724" compoundref="raylibODE_8c" startline="724" endline="741">MyDrawModel</references>
-        <references refid="raylibODE_8c_1ab1c13f5bdcde03502b5028bf6c15ef71" compoundref="raylibODE_8c" startline="753" endline="759">odeToRayMat</references>
+        <references refid="raylibODE_8c_1a4e5c05f3e98813de44bb372e30156724" compoundref="raylibODE_8c" startline="726" endline="743">MyDrawModel</references>
+        <references refid="raylibODE_8c_1ab1c13f5bdcde03502b5028bf6c15ef71" compoundref="raylibODE_8c" startline="755" endline="761">odeToRayMat</references>
         <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
         <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="72">geomInfo::texture</references>
         <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="84">geomInfo::triggerOnCollide</references>
         <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="73">geomInfo::uvScaleU</references>
         <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="74">geomInfo::uvScaleV</references>
         <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="75">geomInfo::visual</references>
-        <referencedby refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" compoundref="raylibODE_8c" startline="919" endline="929">drawBodyGeoms</referencedby>
+        <referencedby refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" compoundref="raylibODE_8c" startline="921" endline="931">drawBodyGeoms</referencedby>
         <referencedby refid="ragdoll_8c_1a15a95f2545a01b96973e728cdd451bf9" compoundref="ragdoll_8c" startline="455" endline="464">DrawRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" compoundref="raylibODE_8c" startline="931" endline="940">drawStatics</referencedby>
+        <referencedby refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" compoundref="raylibODE_8c" startline="933" endline="942">drawStatics</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1adac1e8c721f82c1684b919e4cbe8a883" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1446,10 +1447,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="160" column="6" bodyfile="raylibODE.c" bodystart="906" bodyend="917" declfile="raylibODE.h" declline="160" declcolumn="6"/>
+        <location file="raylibODE.h" line="160" column="6" bodyfile="raylibODE.c" bodystart="908" bodyend="919" declfile="raylibODE.h" declline="160" declcolumn="6"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" compoundref="raylibODE_8c" startline="919" endline="929">drawBodyGeoms</references>
+        <references refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" compoundref="raylibODE_8c" startline="921" endline="931">drawBodyGeoms</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
         <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
@@ -1473,9 +1474,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="163" column="6" bodyfile="raylibODE.c" bodystart="919" bodyend="929" declfile="raylibODE.h" declline="163" declcolumn="6"/>
-        <references refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</references>
-        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="906" endline="917">drawBodies</referencedby>
+        <location file="raylibODE.h" line="163" column="6" bodyfile="raylibODE.c" bodystart="921" bodyend="931" declfile="raylibODE.h" declline="163" declcolumn="6"/>
+        <references refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</references>
+        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="908" endline="919">drawBodies</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a05b90ca080d0521b6155c1462bfeab90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1496,9 +1497,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="166" column="6" bodyfile="raylibODE.c" bodystart="931" bodyend="940" declfile="raylibODE.h" declline="166" declcolumn="6"/>
+        <location file="raylibODE.h" line="166" column="6" bodyfile="raylibODE.c" bodystart="933" bodyend="942" declfile="raylibODE.h" declline="166" declcolumn="6"/>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</references>
+        <references refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="765" endline="847">drawGeom</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
         <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="122">PhysicsContext::statics</references>
@@ -1545,14 +1546,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="169" column="7" bodyfile="raylibODE.c" bodystart="208" bodyend="211" declfile="raylibODE.h" declline="169" declcolumn="7"/>
-        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
-        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
-        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
-        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
-        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
-        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
-        <referencedby refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" compoundref="raylibODE_8c" startline="282" endline="292">createSphereGeom</referencedby>
+        <location file="raylibODE.h" line="169" column="7" bodyfile="raylibODE.c" bodystart="210" bodyend="213" declfile="raylibODE.h" declline="169" declcolumn="7"/>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="318" endline="337">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="446" endline="465">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="403" endline="423">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="492" endline="527">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="545" endline="571">addRandomPhys</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="360" endline="379">addSphere</referencedby>
+        <referencedby refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" compoundref="raylibODE_8c" startline="284" endline="294">createSphereGeom</referencedby>
         <referencedby refid="ragdoll_8c_1ae5044c65f2f6758624a2182347b6d945" compoundref="ragdoll_8c" startline="81" endline="88">GetRagdollSpawnPosition</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a218eeb72f46ea3ed00c9010d7002a305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -1592,14 +1593,61 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="172" column="5" bodyfile="raylibODE.c" bodystart="230" bodyend="253" declfile="raylibODE.h" declline="172" declcolumn="5"/>
+        <location file="raylibODE.h" line="172" column="5" bodyfile="raylibODE.c" bodystart="232" bodyend="255" declfile="raylibODE.h" declline="172" declcolumn="5"/>
         <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="119">PhysicsContext::contactgroup</references>
         <references refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" compoundref="raylibODE_8h" startline="120">PhysicsContext::frameTime</references>
         <references refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" compoundref="raylibODE_8h" startline="41">maxPsteps</references>
         <references refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</references>
-        <references refid="raylibODE_8c_1ad4efdb006e87d1e0709eb9a32edb2f2d" compoundref="raylibODE_8c" startline="197">physSlice</references>
+        <references refid="raylibODE_8c_1ad4efdb006e87d1e0709eb9a32edb2f2d" compoundref="raylibODE_8c" startline="199">physSlice</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FreeEntity</definition>
+        <argsstring>(PhysicsContext *physCtx, entity *ent)</argsstring>
+        <name>FreeEntity</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>physCtx</declname>
+        </param>
+        <param>
+          <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+          <declname>ent</declname>
+        </param>
+        <briefdescription>
+<para>frees an entity </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this is essentially destroying the entity it is no longer part of the world <simplesect kind="note"><para>if iterrating through the global entity list while calling this, ensure you have stored the next node in the chain, for use at the end of the while loop as obviously node-&gt;next won&apos;t work</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>physCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the entity to destroy </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="174" column="6" bodyfile="raylibODE.c" bodystart="955" bodyend="960" declfile="raylibODE.h" declline="174" declcolumn="6"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="709" endline="722">FreeBodyAndGeoms</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1780,9 +1828,11 @@
 <codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment">//<sp/>step<sp/>the<sp/>physics<sp/>world<sp/>enough<sp/>times<sp/>to<sp/>keep<sp/>up<sp/>with<sp/>realtime</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="172"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a218eeb72f46ea3ed00c9010d7002a305" kindref="member">stepPhysics</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx);</highlight></codeline>
 <codeline lineno="173"><highlight class="normal"></highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RAYLIBODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" kindref="member">FreeEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent);</highlight></codeline>
 <codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RAYLIBODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="raylibODE.h"/>
   </compounddef>

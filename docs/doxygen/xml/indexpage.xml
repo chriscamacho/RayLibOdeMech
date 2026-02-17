@@ -8,6 +8,7 @@
     <detaileddescription>
 <sect1 id="index_1overview">
 <title>Overview</title><para>RayLibOdeMech is a physics framework that combines RayLib for graphics rendering with ODE (Open Dynamics Engine) for physics simulation. It provides an easy-to-use API for creating 3D physics simulations with various primitive shapes and complex composite objects.</para>
+<para>The main functionality is documented here <ref refid="raylibODE_8c" kindref="compound">raylibODE.c</ref></para>
 </sect1>
 <sect1 id="index_1preperation">
 <title>Compiling ODE for the framework</title><para>ODE is linked in statically for convienience.</para>

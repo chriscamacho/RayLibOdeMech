@@ -171,6 +171,8 @@ float rndf(float min, float max);
 // step the physics world enough times to keep up with realtime
 int stepPhysics(PhysicsContext* physCtx);
 
+void FreeEntity(PhysicsContext* physCtx, entity* ent);
+
 #endif // RAYLIBODE_H
 
 

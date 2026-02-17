@@ -101,10 +101,7 @@ int main(void)
 
 
             if(pos[1] < -10) {
-                FreeBodyAndGeoms(ent->body);
-                free(ent);
-                clistDeleteNode(physCtx->objList, &node);
-
+                FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
             }
             node = next;
         }

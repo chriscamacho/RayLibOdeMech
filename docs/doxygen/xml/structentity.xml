@@ -18,18 +18,19 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="47" column="9" bodyfile="raylibODE.h" bodystart="47" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
-        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
-        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
-        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
-        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="318" endline="337">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="446" endline="465">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="403" endline="423">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="492" endline="527">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="360" endline="379">addSphere</referencedby>
         <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
-        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="274" endline="281">createBaseEntity</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1acdd1e62ab4a9d0ab632e283e6ccdaf71" compoundref="raylibODE_8c" startline="861" endline="881">createRotor</referencedby>
+        <referencedby refid="raylibODE_8c_1acdd1e62ab4a9d0ab632e283e6ccdaf71" compoundref="raylibODE_8c" startline="863" endline="883">createRotor</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
-        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="906" endline="917">drawBodies</referencedby>
-        <referencedby refid="raylibODE_8c_1a3aa3473ec30d21671ea9ec98e3e65017" compoundref="raylibODE_8c" startline="894" endline="904">setEntityHew</referencedby>
+        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="908" endline="919">drawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="955" endline="960">FreeEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1a3aa3473ec30d21671ea9ec98e3e65017" compoundref="raylibODE_8c" startline="896" endline="906">setEntityHew</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structentity_1a4ba0008223828f414cf5303ca935bcd8" prot="public" static="no" mutable="no">
         <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
@@ -45,9 +46,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="48" column="9" bodyfile="raylibODE.h" bodystart="48" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="274" endline="281">createBaseEntity</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="955" endline="960">FreeEntity</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="483" endline="523">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
       </memberdef>

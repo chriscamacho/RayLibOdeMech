@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"struct____cnode.html":[1,0,1],
+"struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4":[1,0,1,1],
 "struct____cnode.html#ab4ad4dacef59b181bf678d4f5eeda2fa":[1,0,1,2],
 "struct____cnode.html#ae59520f57274323a159b336ee81f565b":[1,0,1,0],
 "structentity.html":[1,0,2],

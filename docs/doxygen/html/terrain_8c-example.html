@@ -200,9 +200,7 @@ $(function(){initNavTree('terrain_8c-example.html','',''); });
 <div class="line">                <span class="comment">// would be more efficient to just reuse the object and</span></div>
 <div class="line">                <span class="comment">// reposition it with zeroed velocities</span></div>
 <div class="line">                <span class="comment">// but this is used to aid testing</span></div>
-<div class="line">                <a id="a18" name="a18"></a><a class="code hl_function" href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a>(bdy);</div>
-<div class="line">                free(ent);</div>
-<div class="line">                <a id="a19" name="a19"></a><a class="code hl_function" href="clist_8c.html#a15dab01e10aa1d60e2d66c5cbfa3a738">clistDeleteNode</a>(physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>, &amp;node);</div>
+<div class="line">                <a id="a18" name="a18"></a><a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(physCtx, ent); <span class="comment">// warning deletes global entity list entry, get your next node before doing this!</span></div>
 <div class="line">                <a class="code hl_function" href="raylibODE_8c.html#a5a6ec4456256b6b4394e5d32b326fae8">addRandomPhys</a>(physCtx, &amp;graphics, (Vector3){<a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(6, 12), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3)});</div>
 <div class="line">            }</div>
 <div class="line">            </div>
@@ -213,7 +211,7 @@ $(function(){initNavTree('terrain_8c-example.html','',''); });
 <div class="line">        <span class="comment">//----------------------------------------------------------------------------------</span></div>
 <div class="line"> </div>
 <div class="line">        physTime = GetTime(); </div>
-<div class="line">        <span class="keywordtype">int</span> pSteps = <a id="a20" name="a20"></a><a class="code hl_function" href="raylibODE_8c.html#a218eeb72f46ea3ed00c9010d7002a305">stepPhysics</a>(physCtx);</div>
+<div class="line">        <span class="keywordtype">int</span> pSteps = <a id="a19" name="a19"></a><a class="code hl_function" href="raylibODE_8c.html#a218eeb72f46ea3ed00c9010d7002a305">stepPhysics</a>(physCtx);</div>
 <div class="line">        physTime = GetTime() - physTime;    </div>
 <div class="line"> </div>
 <div class="line"> </div>
@@ -224,14 +222,13 @@ $(function(){initNavTree('terrain_8c-example.html','',''); });
 <div class="line"> </div>
 <div class="line">        ClearBackground(BLACK);</div>
 <div class="line"> </div>
-<div class="line">        BeginMode3D(graphics.<a id="a21" name="a21"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>);</div>
-<div class="line">            <span class="comment">//DrawModel(ground,(Vector3){0,0,0},1,WHITE);</span></div>
-<div class="line">            <a id="a22" name="a22"></a><a class="code hl_function" href="raylibODE_8c.html#adac1e8c721f82c1684b919e4cbe8a883">drawBodies</a>(&amp;graphics, physCtx);</div>
-<div class="line">            <a id="a23" name="a23"></a><a class="code hl_function" href="raylibODE_8c.html#a05b90ca080d0521b6155c1462bfeab90">drawStatics</a>(&amp;graphics, physCtx);</div>
+<div class="line">        BeginMode3D(graphics.<a id="a20" name="a20"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>);</div>
+<div class="line">            <a id="a21" name="a21"></a><a class="code hl_function" href="raylibODE_8c.html#adac1e8c721f82c1684b919e4cbe8a883">drawBodies</a>(&amp;graphics, physCtx);</div>
+<div class="line">            <a id="a22" name="a22"></a><a class="code hl_function" href="raylibODE_8c.html#a05b90ca080d0521b6155c1462bfeab90">drawStatics</a>(&amp;graphics, physCtx);</div>
 <div class="line">        EndMode3D();</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">if</span> (pSteps &gt; <a id="_a24" name="_a24"></a><a class="code hl_define" href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a>) DrawText(<span class="stringliteral">&quot;WARNING CPU overloaded lagging real time&quot;</span>, 10, 0, 20, RED);</div>
+<div class="line">        <span class="keywordflow">if</span> (pSteps &gt; <a id="_a23" name="_a23"></a><a class="code hl_define" href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a>) DrawText(<span class="stringliteral">&quot;WARNING CPU overloaded lagging real time&quot;</span>, 10, 0, 20, RED);</div>
 <div class="line">        DrawText(TextFormat(<span class="stringliteral">&quot;%2i FPS&quot;</span>, GetFPS()), 10, 20, 20, WHITE);</div>
 <div class="line">        DrawText(<span class="stringliteral">&quot;Press SPACE to apply force to objects&quot;</span>, 10, 60, 20, WHITE);</div>
 <div class="line"> </div>
@@ -246,18 +243,17 @@ $(function(){initNavTree('terrain_8c-example.html','',''); });
 <div class="line">    <span class="comment">// De-Initialization</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
 <div class="line">    </div>
-<div class="line">    <a id="a25" name="a25"></a><a class="code hl_function" href="init_8c.html#afaa0b9510d3f6bf8a8187d25ed17c536">CleanupPhysics</a>(physCtx);</div>
+<div class="line">    <a id="a24" name="a24"></a><a class="code hl_function" href="init_8c.html#afaa0b9510d3f6bf8a8187d25ed17c536">CleanupPhysics</a>(physCtx);</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// only bit of static trimesh that needs manual cleanup</span></div>
 <div class="line">    UnloadModel(ground);</div>
 <div class="line">    </div>
-<div class="line">    <a id="a26" name="a26"></a><a class="code hl_function" href="init_8c.html#a9f01a5c8d21a89463b9e68ec349887f7">CleanupGraphics</a>(&amp;graphics);</div>
+<div class="line">    <a id="a25" name="a25"></a><a class="code hl_function" href="init_8c.html#a9f01a5c8d21a89463b9e68ec349887f7">CleanupGraphics</a>(&amp;graphics);</div>
 <div class="line"> </div>
 <div class="line">    CloseWindow();              <span class="comment">// Close window and OpenGL context</span></div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclist_8c_html_a15dab01e10aa1d60e2d66c5cbfa3a738"><div class="ttname"><a href="clist_8c.html#a15dab01e10aa1d60e2d66c5cbfa3a738">clistDeleteNode</a></div><div class="ttdeci">void clistDeleteNode(clist_t *list, cnode_t **pnode)</div><div class="ttdoc">delete a node</div><div class="ttdef"><b>Definition</b> <a href="clist_8c_source.html#l00146">clist.c:146</a></div></div>
 <div class="ttc" id="aclist_8h_html_a9957c4c04b6e17b9b8fa99e68b94aa9a"><div class="ttname"><a href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a></div><div class="ttdeci">struct __cnode cnode_t</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00007">clist.h:7</a></div></div>
 <div class="ttc" id="aexampleCamera_8c_html_ab694a4e13506da451e4221c6bc1c48f1"><div class="ttname"><a href="exampleCamera_8c.html#ab694a4e13506da451e4221c6bc1c48f1">updateCamera</a></div><div class="ttdeci">void updateCamera(struct GraphicsContext *ctx)</div><div class="ttdoc">update the camera</div><div class="ttdef"><b>Definition</b> <a href="exampleCamera_8c_source.html#l00166">exampleCamera.c:166</a></div></div>
 <div class="ttc" id="aexampleCamera_8c_html_abf1f4204c9ad8cd8061009b9702d7a3f"><div class="ttname"><a href="exampleCamera_8c.html#abf1f4204c9ad8cd8061009b9702d7a3f">initCamera</a></div><div class="ttdeci">void initCamera(struct GraphicsContext *ctx)</div><div class="ttdoc">Initialize the camera.</div><div class="ttdef"><b>Definition</b> <a href="exampleCamera_8c_source.html#l00079">exampleCamera.c:79</a></div></div>
@@ -267,13 +263,13 @@ $(function(){initNavTree('terrain_8c-example.html','',''); });
 <div class="ttc" id="ainit_8c_html_a9f01a5c8d21a89463b9e68ec349887f7"><div class="ttname"><a href="init_8c.html#a9f01a5c8d21a89463b9e68ec349887f7">CleanupGraphics</a></div><div class="ttdeci">void CleanupGraphics(GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00246">init.c:246</a></div></div>
 <div class="ttc" id="ainit_8c_html_afaa0b9510d3f6bf8a8187d25ed17c536"><div class="ttname"><a href="init_8c.html#afaa0b9510d3f6bf8a8187d25ed17c536">CleanupPhysics</a></div><div class="ttdeci">void CleanupPhysics(PhysicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00195">init.c:195</a></div></div>
 <div class="ttc" id="ainit_8h_html"><div class="ttname"><a href="init_8h.html">init.h</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a05b90ca080d0521b6155c1462bfeab90"><div class="ttname"><a href="raylibODE_8c.html#a05b90ca080d0521b6155c1462bfeab90">drawStatics</a></div><div class="ttdeci">void drawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00931">raylibODE.c:931</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a218eeb72f46ea3ed00c9010d7002a305"><div class="ttname"><a href="raylibODE_8c.html#a218eeb72f46ea3ed00c9010d7002a305">stepPhysics</a></div><div class="ttdeci">int stepPhysics(PhysicsContext *physCtx)</div><div class="ttdoc">Step the physics simulation forward.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00230">raylibODE.c:230</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a4a4933f37c736fd2d311be9eaf9b7fa8"><div class="ttname"><a href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a></div><div class="ttdeci">float rndf(float min, float max)</div><div class="ttdoc">Generate a random float in the specified range.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00208">raylibODE.c:208</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a5a6ec4456256b6b4394e5d32b326fae8"><div class="ttname"><a href="raylibODE_8c.html#a5a6ec4456256b6b4394e5d32b326fae8">addRandomPhys</a></div><div class="ttdeci">entity * addRandomPhys(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 pos)</div><div class="ttdoc">Add a random physics object at the specified position.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00543">raylibODE.c:543</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a8f1b86adbb51b8bd80405329b31c87d1"><div class="ttname"><a href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a></div><div class="ttdeci">void FreeBodyAndGeoms(dBodyID bdy)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00707">raylibODE.c:707</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_adac1e8c721f82c1684b919e4cbe8a883"><div class="ttname"><a href="raylibODE_8c.html#adac1e8c721f82c1684b919e4cbe8a883">drawBodies</a></div><div class="ttdeci">void drawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00906">raylibODE.c:906</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_ae8b06665a78b486c57e6795da4b3e265"><div class="ttname"><a href="raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265">CreateStaticTrimesh</a></div><div class="ttdeci">cnode_t * CreateStaticTrimesh(PhysicsContext *physCtx, GraphicsContext *gfxCtx, Model model, Texture *tex, float uvScale)</div><div class="ttdoc">Create a static trimesh collision geometry from a model.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00593">raylibODE.c:593</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a05b90ca080d0521b6155c1462bfeab90"><div class="ttname"><a href="raylibODE_8c.html#a05b90ca080d0521b6155c1462bfeab90">drawStatics</a></div><div class="ttdeci">void drawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00933">raylibODE.c:933</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a218eeb72f46ea3ed00c9010d7002a305"><div class="ttname"><a href="raylibODE_8c.html#a218eeb72f46ea3ed00c9010d7002a305">stepPhysics</a></div><div class="ttdeci">int stepPhysics(PhysicsContext *physCtx)</div><div class="ttdoc">Step the physics simulation forward.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00232">raylibODE.c:232</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a4a4933f37c736fd2d311be9eaf9b7fa8"><div class="ttname"><a href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a></div><div class="ttdeci">float rndf(float min, float max)</div><div class="ttdoc">Generate a random float in the specified range.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00210">raylibODE.c:210</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a5a6ec4456256b6b4394e5d32b326fae8"><div class="ttname"><a href="raylibODE_8c.html#a5a6ec4456256b6b4394e5d32b326fae8">addRandomPhys</a></div><div class="ttdeci">entity * addRandomPhys(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 pos)</div><div class="ttdoc">Add a random physics object at the specified position.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00545">raylibODE.c:545</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00955">raylibODE.c:955</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_adac1e8c721f82c1684b919e4cbe8a883"><div class="ttname"><a href="raylibODE_8c.html#adac1e8c721f82c1684b919e4cbe8a883">drawBodies</a></div><div class="ttdeci">void drawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00908">raylibODE.c:908</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_ae8b06665a78b486c57e6795da4b3e265"><div class="ttname"><a href="raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265">CreateStaticTrimesh</a></div><div class="ttdeci">cnode_t * CreateStaticTrimesh(PhysicsContext *physCtx, GraphicsContext *gfxCtx, Model model, Texture *tex, float uvScale)</div><div class="ttdoc">Create a static trimesh collision geometry from a model.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00595">raylibODE.c:595</a></div></div>
 <div class="ttc" id="araylibODE_8h_html_a5c3a0114b1e58dd42011cae154c7827e"><div class="ttname"><a href="raylibODE_8h.html#a5c3a0114b1e58dd42011cae154c7827e">NUM_OBJ</a></div><div class="ttdeci">#define NUM_OBJ</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00035">raylibODE.h:35</a></div></div>
 <div class="ttc" id="araylibODE_8h_html_afeff8fa28bbbf9c2ddbc85a38993d92e"><div class="ttname"><a href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a></div><div class="ttdeci">#define maxPsteps</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00041">raylibODE.h:41</a></div></div>
 <div class="ttc" id="astructGraphicsContext_html"><div class="ttname"><a href="structGraphicsContext.html">GraphicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00097">raylibODE.h:97</a></div></div>

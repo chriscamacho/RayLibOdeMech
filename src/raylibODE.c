@@ -41,6 +41,8 @@
  * provides an easy-to-use API for creating 3D physics simulations with
  * various primitive shapes and complex composite objects.
  * 
+ * The main functionality is documented here @ref raylibODE.c
+ * 
  * @section preperation Compiling ODE for the framework
  * 
  * ODE is linked in statically for convienience.
@@ -939,3 +941,20 @@ void drawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx)
 	}
 }
 
+/** @brief frees an entity 
+ * 
+ * this is essentially destroying the entity it is no longer part of the world
+ * @note if iterrating through the global entity list while calling this, 
+ * ensure you have stored the next node in the chain, for use at the end of the
+ * while loop as obviously node->next won't work
+ * 
+ * @param physCtx physics context
+ * @param ent the entity to destroy
+ */
+
+void FreeEntity(PhysicsContext* physCtx, entity* ent)
+{
+	FreeBodyAndGeoms(ent->body);
+	clistDeleteNode(physCtx->objList, &ent->node);
+	free(ent);
+}

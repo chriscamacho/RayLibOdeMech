@@ -194,7 +194,7 @@
         <references refid="clist_8c_1a50196c474127f9c1924abae6a1b74b69" compoundref="clist_8c" startline="219" endline="224">clistFreeList</references>
         <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="119">PhysicsContext::contactgroup</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="707" endline="720">FreeBodyAndGeoms</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="709" endline="722">FreeBodyAndGeoms</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" compoundref="raylibODE_8h" startline="80">geomInfo::indices</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>

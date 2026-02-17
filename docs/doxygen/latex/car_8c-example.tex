@@ -116,9 +116,7 @@ use the cursor keys to control a simple vehicle over a trimesh
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ would\ be\ more\ efficient\ to\ just\ reuse\ the\ object\ and}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reposition\ it\ with\ zeroed\ velocities}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ this\ is\ used\ to\ aid\ testing}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(bdy);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free(ent);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clistDeleteNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ \&node);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5a6ec4456256b6b4394e5d32b326fae8}{addRandomPhys}}(physCtx,\ \&graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\});}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }

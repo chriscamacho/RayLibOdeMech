@@ -121,9 +121,7 @@ int main(void)
 
             
             if(pos[1]<-10) {
-                FreeBodyAndGeoms(bdy);
-                free(ent);
-                clistDeleteNode(physCtx->objList, &node);
+                FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
                 addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
 
             }

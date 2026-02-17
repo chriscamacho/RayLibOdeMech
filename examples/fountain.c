@@ -141,10 +141,7 @@ int main(void)
                 // would be more efficient to just reuse the object and
                 // reposition it with zeroed velocities
                 // but this is used to aid testing
-                FreeBodyAndGeoms(bdy);
-                free(ent);
-                clistDeleteNode(physCtx->objList, &node);
-                
+				FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
                 addRandomPhys(physCtx, &graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)});
             }
             

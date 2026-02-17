@@ -108,10 +108,7 @@ place new shapes in the world, and push them about ~\newline
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos[1]\ <\ -\/10)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free(ent);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clistDeleteNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ \&node);}
-\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
