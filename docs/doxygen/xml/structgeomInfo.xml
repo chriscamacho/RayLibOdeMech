@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structgeomInfo" kind="struct" language="C++" prot="public">
+    <compoundname>geomInfo</compoundname>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
+    <sectiondef kind="user-defined">
+      <header>Trimesh Encapsulation</header>
+      <description><para>Members used specifically for raw triangle mesh data. </para>
+</description>
+      <memberdef kind="variable" id="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" prot="public" static="no" mutable="no">
+        <type>int *</type>
+        <definition>int* geomInfo::indices</definition>
+        <argsstring></argsstring>
+        <name>indices</name>
+        <qualifiedname>geomInfo::indices</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the array of vertex indices. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="80" column="9" bodyfile="raylibODE.h" bodystart="80" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" prot="public" static="no" mutable="no">
+        <type>dTriMeshDataID</type>
+        <definition>dTriMeshDataID geomInfo::triData</definition>
+        <argsstring></argsstring>
+        <name>triData</name>
+        <qualifiedname>geomInfo::triData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ODE/Physics-specific trimesh data identifier. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="81" column="20" bodyfile="raylibODE.h" bodystart="81" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool geomInfo::collidable</definition>
+        <argsstring></argsstring>
+        <name>collidable</name>
+        <qualifiedname>geomInfo::collidable</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Toggle for physics engine interaction. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="71" column="10" bodyfile="raylibODE.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" prot="public" static="no" mutable="no">
+        <type>Texture *</type>
+        <definition>Texture* geomInfo::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <qualifiedname>geomInfo::texture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pointer to the associated diffuse/albedo map. set to null for invisible geom </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="72" column="13" bodyfile="raylibODE.h" bodystart="72" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float geomInfo::uvScaleU</definition>
+        <argsstring></argsstring>
+        <name>uvScaleU</name>
+        <qualifiedname>geomInfo::uvScaleU</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Horizontal texture tiling factor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="73" column="11" bodyfile="raylibODE.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float geomInfo::uvScaleV</definition>
+        <argsstring></argsstring>
+        <name>uvScaleV</name>
+        <qualifiedname>geomInfo::uvScaleV</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Vertical texture tiling factor. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="74" column="11" bodyfile="raylibODE.h" bodystart="74" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgeomInfo_1aac9cece1fdb9d0079901008842994523" prot="public" static="no" mutable="no">
+        <type>Model</type>
+        <definition>Model geomInfo::visual</definition>
+        <argsstring></argsstring>
+        <name>visual</name>
+        <qualifiedname>geomInfo::visual</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Model override used for custom static trimeshes. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="75" column="11" bodyfile="raylibODE.h" bodystart="75" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color geomInfo::hew</definition>
+        <argsstring></argsstring>
+        <name>hew</name>
+        <qualifiedname>geomInfo::hew</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>white for normal, used to tint a geom </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="76" column="11" bodyfile="raylibODE.h" bodystart="76" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1a3aa3473ec30d21671ea9ec98e3e65017" compoundref="raylibODE_8c" startline="894" endline="904">setEntityHew</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgeomInfo_1a520884eb761f24547c835107a37d024c" prot="public" static="no" mutable="no">
+        <type><ref refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kindref="member">TriggerCallback</ref></type>
+        <definition>TriggerCallback geomInfo::triggerOnCollide</definition>
+        <argsstring></argsstring>
+        <name>triggerOnCollide</name>
+        <qualifiedname>geomInfo::triggerOnCollide</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>If this is non-NULL, the geom acts as a ghost/trigger </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="84" column="21" bodyfile="raylibODE.h" bodystart="84" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* geomInfo::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>geomInfo::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>user data pointer tag on extra meta data to a geom. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="85" column="10" bodyfile="raylibODE.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Stores geometry metadata for collision, texturing, and trimesh data. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><itemizedlist>
+<listitem><para>This structure encapsulates everything needed to render and handle physics for a specific piece of geometry, including UV scaling and raw mesh indices. </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+    <location file="raylibODE.h" line="70" column="1" bodyfile="raylibODE.h" bodystart="70" bodyend="86"/>
+    <listofallmembers>
+      <member refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>collidable</name></member>
+      <member refid="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>data</name></member>
+      <member refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>hew</name></member>
+      <member refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>indices</name></member>
+      <member refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>texture</name></member>
+      <member refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>triData</name></member>
+      <member refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>triggerOnCollide</name></member>
+      <member refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>uvScaleU</name></member>
+      <member refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>uvScaleV</name></member>
+      <member refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" prot="public" virt="non-virtual"><scope>geomInfo</scope><name>visual</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,221 @@
+\doxysection{example\+Camera.\+c}
+\hypertarget{exampleCamera_8c_source}{}\label{exampleCamera_8c_source}\mbox{\hyperlink{exampleCamera_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00022}00022\ \textcolor{comment}{\ */}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00023}00023\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00024}00024\ \textcolor{comment}{\ *\ @file\ exampleCamera.c}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00025}00025\ \textcolor{comment}{\ *\ @brief\ Camera\ control\ implementations}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00026}00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00027}00027\ \textcolor{comment}{\ *\ This\ file\ provides\ camera\ control\ functions\ for\ the\ examples.}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00028}00028\ \textcolor{comment}{\ *\ It\ includes\ both\ a\ free-\/fly\ camera\ and\ a\ vehicle-\/following\ camera.}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00029}00029\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00030}00030\ \textcolor{comment}{\ *\ @author\ Chris\ Camacho\ (codifies\ -\/\ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00031}00031\ \textcolor{comment}{\ *\ @date\ 2026}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00032}00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00033}00033\ \textcolor{comment}{\ *\ @section\ camera\_controls\ Camera\ Controls}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00034}00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00035}00035\ \textcolor{comment}{\ *\ Free\ camera\ (updateCamera):}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00036}00036\ \textcolor{comment}{\ *\ -\/\ W/S:\ Forward/backward}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00037}00037\ \textcolor{comment}{\ *\ -\/\ A/D:\ Strafe\ left/right}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00038}00038\ \textcolor{comment}{\ *\ -\/\ Q/E:\ Down/up}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00039}00039\ \textcolor{comment}{\ *\ -\/\ Mouse:\ Look\ around}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00040}00040\ \textcolor{comment}{\ *\ -\/\ Shift:\ Speed\ boost}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00041}00041\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00042}00042\ \textcolor{comment}{\ *\ Vehicle\ camera\ (updateVehicleCamera):}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00043}00043\ \textcolor{comment}{\ *\ -\/\ Mouse:\ Look\ around\ relative\ to\ vehicle}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00044}00044\ \textcolor{comment}{\ *\ -\/\ Camera\ follows\ vehicle\ from\ behind}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00045}00045\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00048}00048\ \textcolor{comment}{//\ example\ camera\ intended\ for\ the\ examples\ only\ probably\ more\ useful}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00049}00049\ \textcolor{comment}{//\ to\ make\ something\ more\ specific\ for\ individual\ projects\ }}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00051}00051\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vehicle_8h}{vehicle.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00052}00052\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ cameraYaw;\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00053}00053\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ cameraPitch;\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00055}00055\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00056}00056\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00057}00057\ \textcolor{comment}{\ *\ @brief\ Get\ current\ camera\ yaw\ angle}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00058}00058\ \textcolor{comment}{\ *\ @return\ Current\ yaw\ angle\ in\ radians}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00059}00059\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00060}\mbox{\hyperlink{exampleCamera_8c_a9904774abec2bae71c6d75094d47cbe3}{00060}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{exampleCamera_8c_a9904774abec2bae71c6d75094d47cbe3}{GetCameraYaw}}()\ \{\ \textcolor{keywordflow}{return}\ cameraYaw;\ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00061}00061\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00062}00062\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00063}00063\ \textcolor{comment}{\ *\ @brief\ Get\ current\ camera\ pitch\ angle}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00064}00064\ \textcolor{comment}{\ *\ @return\ Current\ pitch\ angle\ in\ radians}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00065}00065\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00066}\mbox{\hyperlink{exampleCamera_8c_afbfa8af7ad686732f5ddcea617d03d1b}{00066}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{exampleCamera_8c_afbfa8af7ad686732f5ddcea617d03d1b}{GetCameraPitch}}()\ \{\ \textcolor{keywordflow}{return}\ cameraPitch;\ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00067}00067\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00068}00068\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00069}00069\ \textcolor{comment}{\ *\ @brief\ Initialize\ the\ camera}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00070}00070\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00071}00071\ \textcolor{comment}{\ *\ Sets\ up\ the\ camera\ position\ and\ orientation\ for\ the\ scene.}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00072}00072\ \textcolor{comment}{\ *\ Should\ be\ called\ once\ at\ startup.}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00073}00073\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00074}00074\ \textcolor{comment}{\ *\ @param\ ctx\ Pointer\ to\ graphics\ context\ containing\ camera}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00075}00075\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00076}00076\ \textcolor{comment}{\ *\ @note\ Camera\ looks\ at\ origin\ by\ default}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00077}00077\ \textcolor{comment}{\ *\ @note\ Initializes\ yaw/pitch\ based\ on\ initial\ look\ direction}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00078}00078\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00079}\mbox{\hyperlink{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f}{initCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ Define\ the\ camera\ to\ look\ into\ our\ 3d\ world}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00082}00082\ \ \ \ \ Vector3\ cameraTarget\ =\ \{\ 4.0f,\ 2.0f,\ 1.0f\ \};}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00083}00083\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}\ =\ (Camera)\{(Vector3)\{\ 12.0f,\ 8.0f,\ 12.0f\ \},\ cameraTarget,}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Vector3)\{\ 0.0f,\ 1.0f,\ 0.0f\ \},\ 45.0f,\ CAMERA\_PERSPECTIVE\};}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00085}00085\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00086}00086\ \ \ \ \ \textcolor{comment}{//\ Calculate\ initial\ yaw/pitch\ to\ look\ at\ target}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00087}00087\ \ \ \ \ Vector3\ toTarget\ =\ Vector3Subtract(cameraTarget,\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{float}\ dist\ =\ Vector3Length(toTarget);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00089}00089\ \ \ \ \ cameraYaw\ =\ atan2f(toTarget.z,\ toTarget.x);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00090}00090\ \ \ \ \ cameraPitch\ =\ asinf(toTarget.y\ /\ dist);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00092}00092\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00093}00093\ \textcolor{comment}{/**\ @brief\ update\ a\ camera\ but\ attach\ it\ to\ a\ vehicle}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00094}00094\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00095}00095\ \textcolor{comment}{\ *\ if\ you\ call\ this\ instead\ of\ the\ usual\ update\ camera}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00096}00096\ \textcolor{comment}{\ *\ you\ will\ be\ attached\ to\ a\ car,\ you\ won't\ be\ able\ to\ }}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00097}00097\ \textcolor{comment}{\ *\ free\ roam,\ but\ you\ will\ be\ able\ to\ mouse\ look}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00098}00098\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00099}00099\ \textcolor{comment}{\ *\ @param\ ctx\ graphics\ context\ used\ for\ the\ camera\ info}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00100}00100\ \textcolor{comment}{\ *\ @param\ car\ the\ vehicle\ you\ want\ to\ be\ attached\ to}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00101}00101\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00102}\mbox{\hyperlink{exampleCamera_8c_a9ebb8457497dc7cebf88b55573010637}{00102}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_a9ebb8457497dc7cebf88b55573010637}{updateVehicleCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car)}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00103}00103\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00104}00104\ \ \ \ \ \textcolor{comment}{//\ Static\ variables\ for\ vehicle\ camera\ state\ (relative\ to\ car)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00105}00105\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ relativeYaw\ =\ 0.0f;\ \ \ \ \textcolor{comment}{//\ Yaw\ relative\ to\ car's\ forward}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00106}00106\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ relativePitch\ =\ 0.0f;\ \ \textcolor{comment}{//\ Pitch\ relative\ to\ car}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00107}00107\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ Mouse\ look\ (relative\ to\ car)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00109}00109\ \ \ \ \ relativeYaw\ +=\ GetMouseDelta().x\ *\ 0.003f;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00110}00110\ \ \ \ \ relativePitch\ +=\ GetMouseDelta().y\ *\ 0.003f;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00111}00111\ \ \ \ \ relativePitch\ =\ Clamp(relativePitch,\ -\/1.5f,\ 1.5f);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00112}00112\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00113}00113\ \ \ \ \ \textcolor{comment}{//\ Get\ car\ position\ and\ rotation}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00114}00114\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ carPos\ =\ dBodyGetPosition(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0]);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00115}00115\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ carRot\ =\ dBodyGetRotation(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0]);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00116}00116\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00117}00117\ \ \ \ \ \textcolor{comment}{//\ Extract\ car's\ local\ axes\ from\ rotation\ matrix}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00118}00118\ \ \ \ \ Vector3\ carForward\ =\ \{\ carRot[0],\ carRot[4],\ carRot[8]\ \};\ \ \ \textcolor{comment}{//\ X-\/axis\ (forward)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00119}00119\ \ \ \ \ Vector3\ carRight\ =\ \{\ carRot[2],\ carRot[6],\ carRot[10]\ \};\ \ \ \ \textcolor{comment}{//\ Z-\/axis\ (right)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00120}00120\ \ \ \ \ Vector3\ carUp\ =\ \{\ carRot[1],\ carRot[5],\ carRot[9]\ \};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Y-\/axis\ (up)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00121}00121\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00122}00122\ \ \ \ \ Vector3\ carPosition\ =\ \{\ carPos[0],\ carPos[1],\ carPos[2]\ \};}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00123}00123\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00124}00124\ \ \ \ \ \textcolor{comment}{//\ Position\ camera\ at\ car\ position\ (offset\ slightly\ up\ and\ back\ for\ better\ view)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00125}00125\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position\ =\ carPosition;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00126}00126\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ +=\ 4.0f;\ \ \textcolor{comment}{//\ Raise\ camera\ to\ "{}driver's\ eye\ level"{}}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00127}00127\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position\ =\ Vector3Add(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position,\ Vector3Scale(carForward,\ -\/8.0f));\ \textcolor{comment}{//\ Slightly\ back}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00129}00129\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00130}00130\ \ \ \ \ \textcolor{comment}{//\ Calculate\ view\ direction\ in\ car's\ local\ space}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00131}00131\ \ \ \ \ \textcolor{comment}{//\ Start\ with\ car's\ forward\ direction,\ then\ apply\ relative\ yaw\ and\ pitch}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00132}00132\ \ \ \ \ Vector3\ viewDir\ =\ carForward;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00133}00133\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ Apply\ yaw\ rotation\ (around\ car's\ up\ axis)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00135}00135\ \ \ \ \ \textcolor{keywordtype}{float}\ cosYaw\ =\ cosf(relativeYaw);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{float}\ sinYaw\ =\ sinf(relativeYaw);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00137}00137\ \ \ \ \ viewDir\ =\ Vector3Add(}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ Vector3Scale(carForward,\ cosYaw),}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ Vector3Scale(carRight,\ sinYaw)}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00140}00140\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00141}00141\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00142}00142\ \ \ \ \ \textcolor{comment}{//\ Apply\ pitch\ (tilt\ up/down)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00143}00143\ \ \ \ \ viewDir\ =\ Vector3Add(}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ Vector3Scale(viewDir,\ cosf(relativePitch)),}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ Vector3Scale(carUp,\ sinf(relativePitch))}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00146}00146\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00147}00147\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00148}00148\ \ \ \ \ \textcolor{comment}{//\ Normalize\ view\ direction}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00149}00149\ \ \ \ \ viewDir\ =\ Vector3Normalize(viewDir);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00150}00150\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//\ Set\ camera\ target}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00152}00152\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.target\ =\ Vector3Add(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position,\ viewDir);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00153}00153\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ Update\ light\ shader}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00155}00155\ \ \ \ \ SetShaderValue(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}},\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}}.locs[SHADER\_LOC\_VECTOR\_VIEW],\ \&ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.x,\ SHADER\_UNIFORM\_VEC3);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00156}00156\ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00157}00157\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00158}00158\ \textcolor{comment}{/**\ @brief\ update\ the\ camera}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00159}00159\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00160}00160\ \textcolor{comment}{\ *\ This\ will\ also\ move\ the\ camera\ depending\ on\ the\ control\ keys}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00161}00161\ \textcolor{comment}{\ *\ WASD\ as\ expected\ relative\ to\ the\ view\ direction,}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00162}00162\ \textcolor{comment}{\ *\ QE\ move\ up\ and\ down\ the\ world\ axis\ and\ shift\ moves\ faster}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00163}00163\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00164}00164\ \textcolor{comment}{\ *\ @param\ ctx\ pointer\ to\ the\ graphics\ context}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00165}00165\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00166}\mbox{\hyperlink{exampleCamera_8c_ab694a4e13506da451e4221c6bc1c48f1}{00166}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_ab694a4e13506da451e4221c6bc1c48f1}{updateCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00167}00167\ \{\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//\ Update\ camera\ with\ mouse\ look\ (first-\/person\ style)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00170}00170\ \ \ \ \ cameraYaw\ +=\ GetMouseDelta().x\ *\ 0.003f;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00171}00171\ \ \ \ \ cameraPitch\ +=\ GetMouseDelta().y\ *\ 0.003f;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00172}00172\ \ \ \ \ cameraPitch\ =\ Clamp(cameraPitch,\ -\/1.5f,\ 1.5f);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00173}00173\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00174}00174\ \ \ \ \ \textcolor{comment}{//\ Calculate\ forward,\ right,\ and\ up\ vectors\ from\ yaw/pitch}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00175}00175\ \ \ \ \ Vector3\ forward\ =\ \{\ cosf(cameraYaw)\ *\ cosf(cameraPitch),\ sinf(cameraPitch),\ sinf(cameraYaw)\ *\ cosf(cameraPitch)\ \};}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00176}00176\ \ \ \ \ Vector3\ up\ =\ \{\ 0.0f,\ 1.0f,\ 0.0f\ \};}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00177}00177\ \ \ \ \ Vector3\ right\ =\ Vector3CrossProduct(forward,\ up);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00178}00178\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00179}00179\ \ \ \ \ \textcolor{comment}{//\ Camera\ movement\ speed}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00180}00180\ \ \ \ \ \textcolor{keywordtype}{float}\ moveSpeed\ =\ 0.1f\ *\ GetFrameTime()\ *\ 60.0f;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00181}00181\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00182}00182\ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_LEFT\_SHIFT)\ ||\ IsKeyDown(KEY\_RIGHT\_SHIFT))\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ moveSpeed\ *=\ 4.0;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00184}00184\ \ \ \ \ \}\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00185}00185\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//\ W/S\ -\/\ forward/backward\ in\ camera\ direction}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00187}00187\ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_W))\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position\ =\ Vector3Add(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position,\ Vector3Scale(forward,\ moveSpeed));}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00189}00189\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00190}00190\ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_S))\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position\ =\ Vector3Subtract(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position,\ Vector3Scale(forward,\ moveSpeed));}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00192}00192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00193}00193\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00194}00194\ \ \ \ \ \textcolor{comment}{//\ A/D\ -\/\ strafe\ left/right}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00195}00195\ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_D))\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position\ =\ Vector3Add(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position,\ Vector3Scale(right,\ moveSpeed));}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00197}00197\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00198}00198\ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_A))\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position\ =\ Vector3Subtract(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position,\ Vector3Scale(right,\ moveSpeed));}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00200}00200\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00201}00201\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00202}00202\ \ \ \ \ \textcolor{comment}{//\ Q/E\ -\/\ up/down\ (global\ Y)}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00203}00203\ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_E))\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ +=\ moveSpeed;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00205}00205\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00206}00206\ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_Q))\ \{}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ -\/=\ moveSpeed;}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00208}00208\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00209}00209\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00210}00210\ \ \ \ \ \textcolor{comment}{//\ Update\ target\ based\ on\ new\ position}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00211}00211\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.target\ =\ Vector3Add(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position,\ forward);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00213}00213\ \ \ \ \ \textcolor{comment}{//\ update\ the\ light\ shader\ with\ the\ camera\ view\ position}}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00214}00214\ \ \ \ \ SetShaderValue(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}},\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}}.locs[SHADER\_LOC\_VECTOR\_VIEW],\ \&ctx-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.x,\ SHADER\_UNIFORM\_VEC3);}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00215}00215\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00216}00216\ \}}
+
+\end{DoxyCode}

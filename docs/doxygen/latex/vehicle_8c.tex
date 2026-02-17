@@ -1,0 +1,203 @@
+\doxysection{vehicle.\+c File Reference}
+\hypertarget{vehicle_8c}{}\label{vehicle_8c}\index{vehicle.c@{vehicle.c}}
+
+
+Vehicle simulation implementation.  
+
+
+{\ttfamily \#include "{}vehicle.\+h"{}}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{vehicle_8c_af0740a75defe24708df5577107ed9ba7}{Create\+Vehicle}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}pctx, struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx, Vector3 pos, Vector3 car\+Scale, float wheel\+Radius, float wheel\+Width)
+\begin{DoxyCompactList}\small\item\em Create a physics-\/based vehicle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{Update\+Vehicle}} (\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}car, float accel, float steer)
+\begin{DoxyCompactList}\small\item\em Update vehicle control inputs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{Free\+Vehicle}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}pctx, \mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}car)
+\begin{DoxyCompactList}\small\item\em this releases all resources in use by a vehicle struct \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vehicle_8c_a29d7d2d85bf93cf5c13a572a55d94841}{unflip\+Vehicle}} (\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}car)
+\begin{DoxyCompactList}\small\item\em flips an upside down vehicle \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Vehicle simulation implementation. 
+
+This file provides a complete vehicle simulation using ODE\textquotesingle{}s Hinge2 joints to simulate wheels with suspension. The vehicle consists of a chassis body connected to wheel bodies via simulated suspension joints.
+
+\begin{DoxyAuthor}{Author}
+Chris Camacho (codifies -\/ \href{http://bedroomcoders.co.uk/}{\texttt{http\+://bedroomcoders.\+co.\+uk/}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2021-\/2026
+\end{DoxyDate}
+\hypertarget{vehicle_8c_vehicle_structure}{}\doxysubsection{\texorpdfstring{Vehicle Structure}{Vehicle Structure}}\label{vehicle_8c_vehicle_structure}
+The vehicle is composed of\+:
+\begin{DoxyItemize}
+\item 1 chassis body (box shape)
+\item 4 wheel bodies (cylinder shape)
+\item 1 anti-\/sway mass (lowered center of gravity)
+\item 4 Hinge2 joints (suspension + steering)
+\item 1 Fixed joint (anti-\/sway attachment)
+\end{DoxyItemize}\hypertarget{vehicle_8c_control}{}\doxysubsection{\texorpdfstring{Control}{Control}}\label{vehicle_8c_control}
+Use \doxylink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{Update\+Vehicle()} to control\+:
+\begin{DoxyItemize}
+\item accel\+: Forward/backward acceleration
+\item steer\+: Steering angle 
+\end{DoxyItemize}
+
+Definition in file \mbox{\hyperlink{vehicle_8c_source}{vehicle.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{vehicle_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{vehicle_8c_af0740a75defe24708df5577107ed9ba7}\index{vehicle.c@{vehicle.c}!CreateVehicle@{CreateVehicle}}
+\index{CreateVehicle@{CreateVehicle}!vehicle.c@{vehicle.c}}
+\doxysubsubsection{\texorpdfstring{CreateVehicle()}{CreateVehicle()}}
+{\footnotesize\ttfamily \label{vehicle_8c_af0740a75defe24708df5577107ed9ba7} 
+\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*} Create\+Vehicle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{pctx}{, }\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{Vector3}]{pos}{, }\item[{Vector3}]{car\+Scale}{, }\item[{float}]{wheel\+Radius}{, }\item[{float}]{wheel\+Width}{}\end{DoxyParamCaption})}
+
+
+
+Create a physics-\/based vehicle. 
+
+Creates a complete vehicle simulation with chassis, wheels, and suspension. The vehicle uses Hinge2 joints for realistic wheel suspension and steering mechanics.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pctx} & Pointer to physics context \\
+\hline
+{\em ctx} & Pointer to graphics context \\
+\hline
+{\em pos} & Initial position of the vehicle \\
+\hline
+{\em car\+Scale} & Dimensions of the chassis (x=length, y=height, z=width) \\
+\hline
+{\em wheel\+Radius} & Radius of the wheels \\
+\hline
+{\em wheel\+Width} & Width of the wheels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to newly created vehicle structure
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Front wheels are driving wheels 
+
+Front wheels also provide steering 
+
+Anti-\/sway mass lowers center of gravity to prevent tipping
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{Update\+Vehicle} 
+
+\doxylink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{Free\+Vehicle} 
+\end{DoxySeeAlso}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{car_8c-example}{car.\+c}}, and \mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{vehicle_8c_source_l00056}{56}} of file \mbox{\hyperlink{vehicle_8c_source}{vehicle.\+c}}.
+
+
+
+References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{vehicle_8h_source_l00013}{vehicle\+::body\+Count}}, \mbox{\hyperlink{raylibODE_8h_source_l00106}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00630}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{vehicle_8h_source_l00011}{vehicle\+::geoms}}, \mbox{\hyperlink{vehicle_8h_source_l00012}{vehicle\+::joints}}, \mbox{\hyperlink{raylibODE_8h_source_l00048}{entity\+::node}}, \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+
+\Hypertarget{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}\index{vehicle.c@{vehicle.c}!FreeVehicle@{FreeVehicle}}
+\index{FreeVehicle@{FreeVehicle}!vehicle.c@{vehicle.c}}
+\doxysubsubsection{\texorpdfstring{FreeVehicle()}{FreeVehicle()}}
+{\footnotesize\ttfamily \label{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8} 
+void Free\+Vehicle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{pctx}{, }\item[{\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}}]{car}{}\end{DoxyParamCaption})}
+
+
+
+this releases all resources in use by a vehicle struct 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pctx} & the physics context \\
+\hline
+{\em car} & the vehicle to free \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{car_8c-example}{car.\+c}}, and \mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{vehicle_8c_source_l00231}{231}} of file \mbox{\hyperlink{vehicle_8c_source}{vehicle.\+c}}.
+
+
+
+References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{vehicle_8h_source_l00013}{vehicle\+::body\+Count}}, \mbox{\hyperlink{clist_8c_source_l00146}{clist\+Delete\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00707}{Free\+Body\+And\+Geoms()}}, \mbox{\hyperlink{raylibODE_8h_source_l00048}{entity\+::node}}, and \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}.
+
+\Hypertarget{vehicle_8c_a29d7d2d85bf93cf5c13a572a55d94841}\index{vehicle.c@{vehicle.c}!unflipVehicle@{unflipVehicle}}
+\index{unflipVehicle@{unflipVehicle}!vehicle.c@{vehicle.c}}
+\doxysubsubsection{\texorpdfstring{unflipVehicle()}{unflipVehicle()}}
+{\footnotesize\ttfamily \label{vehicle_8c_a29d7d2d85bf93cf5c13a572a55d94841} 
+void unflip\+Vehicle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}}]{car}{}\end{DoxyParamCaption})}
+
+
+
+flips an upside down vehicle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em car} & the vehicle to flip\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+this is a quick hack, it violently pops the vehicle back upright -\/ there are better ways of doing this! 
+\end{DoxyNote}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{vehicle_8c_source_l00256}{256}} of file \mbox{\hyperlink{vehicle_8c_source}{vehicle.\+c}}.
+
+
+
+References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}.
+
+\Hypertarget{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}\index{vehicle.c@{vehicle.c}!UpdateVehicle@{UpdateVehicle}}
+\index{UpdateVehicle@{UpdateVehicle}!vehicle.c@{vehicle.c}}
+\doxysubsubsection{\texorpdfstring{UpdateVehicle()}{UpdateVehicle()}}
+{\footnotesize\ttfamily \label{vehicle_8c_a9c16065d67848dde985d9a21631eb01c} 
+void Update\+Vehicle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}}]{car}{, }\item[{float}]{accel}{, }\item[{float}]{steer}{}\end{DoxyParamCaption})}
+
+
+
+Update vehicle control inputs. 
+
+Applies acceleration and steering to the vehicle. This should be called every frame with current control inputs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em car} & Pointer to the vehicle structure \\
+\hline
+{\em accel} & Acceleration input (-\/1.\+0 to 1.\+0, negative for reverse) \\
+\hline
+{\em steer} & Steering input (-\/1.\+0 to 1.\+0, negative for left)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Set accel to 0 for coasting (wheels spin free) 
+
+Front wheels provide steering and all-\/wheel drive 
+\end{DoxyNote}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{car_8c-example}{car.\+c}}, and \mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{vehicle_8c_source_l00188}{188}} of file \mbox{\hyperlink{vehicle_8c_source}{vehicle.\+c}}.
+
+
+
+References \mbox{\hyperlink{vehicle_8h_source_l00012}{vehicle\+::joints}}.
+

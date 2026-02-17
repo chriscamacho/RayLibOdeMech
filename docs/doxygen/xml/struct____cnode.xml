@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="struct____cnode" kind="struct" language="C++" prot="public">
+    <compoundname>__cnode</compoundname>
+    <includes refid="clist_8h" local="no">clist.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct____cnode" kindref="compound">__cnode</ref> *</type>
+        <definition>struct __cnode* __cnode::prev</definition>
+        <argsstring></argsstring>
+        <name>prev</name>
+        <qualifiedname>__cnode::prev</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to the previous node in the list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="12" column="19" bodyfile="clist.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</referencedby>
+        <referencedby refid="clist_8c_1a97454fa26f4edb61884e4e46b04fc7e6" compoundref="clist_8c" startline="83" endline="102">clistInsertNode</referencedby>
+        <referencedby refid="clist_8c_1a7c84f26dcd770e975590cd5ee144369c" compoundref="clist_8c" startline="267" endline="275">clistIterateBackward</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct____cnode" kindref="compound">__cnode</ref> *</type>
+        <definition>struct __cnode* __cnode::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <qualifiedname>__cnode::next</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to the next node in the list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="13" column="19" bodyfile="clist.h" bodystart="13" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</referencedby>
+        <referencedby refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</referencedby>
+        <referencedby refid="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" compoundref="clist_8c" startline="119" endline="131">clistFindNode</referencedby>
+        <referencedby refid="clist_8c_1a97454fa26f4edb61884e4e46b04fc7e6" compoundref="clist_8c" startline="83" endline="102">clistInsertNode</referencedby>
+        <referencedby refid="clist_8c_1ae9b045d3ebb0516cfaf27f605abc59e6" compoundref="clist_8c" startline="247" endline="255">clistIterateForward</referencedby>
+        <referencedby refid="clist_8c_1a4b391c55e96f84010610ab7a4ea1f2a2" compoundref="clist_8c" startline="286" endline="308">clistSort</referencedby>
+        <referencedby refid="clist_8c_1a68501b7c1ec4ac1a0a67510f34691040" compoundref="clist_8c" startline="317" endline="327">clistTotal</referencedby>
+        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="906" endline="917">drawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" compoundref="raylibODE_8c" startline="931" endline="940">drawStatics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct____cnode_1ae59520f57274323a159b336ee81f565b" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* __cnode::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>__cnode::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>pointer to the data this node is tracking </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="14" column="20" bodyfile="clist.h" bodystart="14" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</referencedby>
+        <referencedby refid="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" compoundref="clist_8c" startline="119" endline="131">clistFindNode</referencedby>
+        <referencedby refid="clist_8c_1a97454fa26f4edb61884e4e46b04fc7e6" compoundref="clist_8c" startline="83" endline="102">clistInsertNode</referencedby>
+        <referencedby refid="clist_8c_1a4b391c55e96f84010610ab7a4ea1f2a2" compoundref="clist_8c" startline="286" endline="308">clistSort</referencedby>
+        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="906" endline="917">drawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" compoundref="raylibODE_8c" startline="931" endline="940">drawStatics</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>__cnode</label>
+        <link refid="struct____cnode"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="clist.h" line="9" column="1" bodyfile="clist.h" bodystart="10" bodyend="16"/>
+    <listofallmembers>
+      <member refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" prot="public" virt="non-virtual"><scope>__cnode</scope><name>data</name></member>
+      <member refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" prot="public" virt="non-virtual"><scope>__cnode</scope><name>next</name></member>
+      <member refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" prot="public" virt="non-virtual"><scope>__cnode</scope><name>prev</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

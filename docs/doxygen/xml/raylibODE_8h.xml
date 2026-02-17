@@ -1,0 +1,1789 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="raylibODE_8h" kind="file" language="C++">
+    <compoundname>raylibODE.h</compoundname>
+    <includes local="yes">raylib.h</includes>
+    <includes local="yes">raymath.h</includes>
+    <includes refid="rlights_8h" local="yes">rlights.h</includes>
+    <includes local="no">ode/ode.h</includes>
+    <includes refid="clist_8h" local="yes">clist.h</includes>
+    <includedby refid="collision_8c" local="yes">collision.c</includedby>
+    <includedby refid="init_8c" local="yes">init.c</includedby>
+    <includedby refid="init_8h" local="yes">init.h</includedby>
+    <includedby refid="ragdoll_8c" local="yes">ragdoll.c</includedby>
+    <includedby refid="raylibODE_8c" local="yes">raylibODE.c</includedby>
+    <includedby refid="vehicle_8h" local="yes">vehicle.h</includedby>
+    <incdepgraph>
+      <node id="6">
+        <label>clist.h</label>
+        <link refid="clist_8h"/>
+      </node>
+      <node id="1">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>rlights.h</label>
+        <link refid="rlights_8h"/>
+      </node>
+      <node id="5">
+        <label>ode/ode.h</label>
+      </node>
+      <node id="2">
+        <label>raylib.h</label>
+      </node>
+      <node id="3">
+        <label>raymath.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="9">
+        <label>exampleCamera.h</label>
+        <link refid="exampleCamera_8h"/>
+      </node>
+      <node id="4">
+        <label>init.h</label>
+        <link refid="init_8h"/>
+      </node>
+      <node id="1">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>vehicle.h</label>
+        <link refid="vehicle_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>collision.c</label>
+        <link refid="collision_8c"/>
+      </node>
+      <node id="8">
+        <label>exampleCamera.c</label>
+        <link refid="exampleCamera_8c"/>
+      </node>
+      <node id="3">
+        <label>init.c</label>
+        <link refid="init_8c"/>
+      </node>
+      <node id="5">
+        <label>ragdoll.c</label>
+        <link refid="ragdoll_8c"/>
+      </node>
+      <node id="6">
+        <label>raylibODE.c</label>
+        <link refid="raylibODE_8c"/>
+      </node>
+      <node id="10">
+        <label>vehicle.c</label>
+        <link refid="vehicle_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structentity" prot="public">entity</innerclass>
+    <innerclass refid="structgeomInfo" prot="public">geomInfo</innerclass>
+    <innerclass refid="structRayHit" prot="public">RayHit</innerclass>
+    <innerclass refid="structGraphicsContext" prot="public">GraphicsContext</innerclass>
+    <innerclass refid="structPhysicsContext" prot="public">PhysicsContext</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" prot="public" static="no">
+        <name>NUM_OBJ</name>
+        <initializer>300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="35" column="9" bodyfile="raylibODE.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" prot="public" static="no">
+        <name>PLANE_SIZE</name>
+        <initializer>20.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="38" column="9" bodyfile="raylibODE.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" prot="public" static="no">
+        <name>PLANE_THICKNESS</name>
+        <initializer>1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="39" column="9" bodyfile="raylibODE.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" prot="public" static="no">
+        <name>maxPsteps</name>
+        <initializer>6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="41" column="9" bodyfile="raylibODE.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="230" endline="253">stepPhysics</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="raylibODE_8h_1a6ba18cca02784a1046f755105545d6cb" prot="public" static="no">
+        <type>struct entity</type>
+        <definition>typedef struct entity entity</definition>
+        <argsstring></argsstring>
+        <name>entity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="50" column="8"/>
+      </memberdef>
+      <memberdef kind="typedef" id="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" prot="public" static="no">
+        <type>void(*</type>
+        <definition>typedef void(* TriggerCallback) (dGeomID trigger, dGeomID intruder)</definition>
+        <argsstring>)(dGeomID trigger, dGeomID intruder)</argsstring>
+        <name>TriggerCallback</name>
+        <briefdescription>
+<para>Function pointer type for physics trigger events. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>This callback is triggered when a geometry designated as a &quot;ghost&quot; or sensor overlaps with another geometry. When this callback is set in <ref refid="structgeomInfo" kindref="compound">geomInfo</ref>, the physics engine will skip standard contact resolution, allowing objects to pass through while still notifying game logic.</para>
+</listitem><listitem><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>trigger</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The dGeomID of the geometry that has the callback assigned. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>intruder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The dGeomID of the geometry that entered or is inside the trigger.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+</listitem><listitem><para><simplesect kind="note"><para>If attached to a dBodyID, the trigger will follow the body&apos;s transform. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structgeomInfo" kindref="compound">geomInfo</ref> </para>
+</simplesect>
+</para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="63" column="9" bodyfile="raylibODE.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" prot="public" static="no">
+        <type>struct geomInfo</type>
+        <definition>typedef struct geomInfo geomInfo</definition>
+        <argsstring></argsstring>
+        <name>geomInfo</name>
+        <briefdescription>
+<para>Stores geometry metadata for collision, texturing, and trimesh data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>This structure encapsulates everything needed to render and handle physics for a specific piece of geometry, including UV scaling and raw mesh indices. </para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="86" column="10"/>
+      </memberdef>
+      <memberdef kind="typedef" id="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" prot="public" static="no">
+        <type>struct RayHit</type>
+        <definition>typedef struct RayHit RayHit</definition>
+        <argsstring></argsstring>
+        <name>RayHit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="94" column="8"/>
+      </memberdef>
+      <memberdef kind="typedef" id="raylibODE_8h_1a92862474db45e097a7381460ac67f859" prot="public" static="no">
+        <type>struct GraphicsContext</type>
+        <definition>typedef struct GraphicsContext GraphicsContext</definition>
+        <argsstring></argsstring>
+        <name>GraphicsContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="113" column="17"/>
+      </memberdef>
+      <memberdef kind="typedef" id="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" prot="public" static="no">
+        <type>struct PhysicsContext</type>
+        <definition>typedef struct PhysicsContext PhysicsContext</definition>
+        <argsstring></argsstring>
+        <name>PhysicsContext</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="123" column="16"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="raylibODE_8h_1a90e81478715d0f9b144a709347d089a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rayToOdeMat</definition>
+        <argsstring>(Matrix *mat, dReal *R)</argsstring>
+        <name>rayToOdeMat</name>
+        <param>
+          <type>Matrix *</type>
+          <declname>mat</declname>
+        </param>
+        <param>
+          <type>dReal *</type>
+          <declname>R</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="43" column="6" bodyfile="raylibODE.c" bodystart="745" bodyend="750" declfile="raylibODE.h" declline="43" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a5b0792a09d707c97fea36d1e35ab364d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void odeToRayMat</definition>
+        <argsstring>(const dReal *R, Matrix *matrix)</argsstring>
+        <name>odeToRayMat</name>
+        <param>
+          <type>const dReal *</type>
+          <declname>R</declname>
+        </param>
+        <param>
+          <type>Matrix *</type>
+          <declname>matrix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="44" column="6" bodyfile="raylibODE.c" bodystart="753" bodyend="759" declfile="raylibODE.h" declline="44" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1af0307cfb8f3c5c1b8dc01681865f0062" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity * createBaseEntity</definition>
+        <argsstring>(PhysicsContext *ctx)</argsstring>
+        <name>createBaseEntity</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Create a base entity with physics body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Internal helper function that creates a new entity with an ODE body and adds it to the physics world&apos;s object list. This reduces code duplication across all shape creation functions.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to newly created entity</para>
+</simplesect>
+<simplesect kind="note"><para>Internal function - but might be useful for manual creation </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="125" column="8" bodyfile="raylibODE.c" bodystart="272" bodyend="279" declfile="raylibODE.h" declline="125" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a79db70091e3c86494f485979529984c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structgeomInfo" kindref="compound">geomInfo</ref> *</type>
+        <definition>geomInfo * CreateGeomInfo</definition>
+        <argsstring>(bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</argsstring>
+        <name>CreateGeomInfo</name>
+        <param>
+          <type>bool</type>
+          <declname>collidable</declname>
+        </param>
+        <param>
+          <type>Texture *</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>uvScaleU</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>uvScaleV</declname>
+        </param>
+        <briefdescription>
+<para>Helper to allocate <ref refid="structgeomInfo" kindref="compound">geomInfo</ref> with collision flag, optional texture, and UV scale this is useful when greating your own custom bodies for special purposes If this is attached to a geom on a body that is in the global entity list then this allocation will be automagically cleaned up. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>collidable</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>should this geom cause collisions </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>texture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>which texture to use for the geom </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uvScaleU</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>texture scaling </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uvScaleV</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>texture scaling </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="128" column="10" bodyfile="raylibODE.c" bodystart="630" bodyend="641" declfile="raylibODE.h" declline="128" declcolumn="10"/>
+        <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="71">geomInfo::collidable</references>
+        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
+        <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="72">geomInfo::texture</references>
+        <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="73">geomInfo::uvScaleU</references>
+        <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="74">geomInfo::uvScaleV</references>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" compoundref="raylibODE_8c" startline="282" endline="292">createSphereGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a2a368e091ab99ed0668855778e02ef70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>dGeomID</type>
+        <definition>dGeomID createSphereGeom</definition>
+        <argsstring>(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, Vector3 pos)</argsstring>
+        <name>createSphereGeom</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="131" column="9" bodyfile="raylibODE.c" bodystart="282" bodyend="292" declfile="raylibODE.h" declline="131" declcolumn="9"/>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1ae8b06665a78b486c57e6795da4b3e265" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t * CreateStaticTrimesh</definition>
+        <argsstring>(PhysicsContext *physCtx, GraphicsContext *gfxCtx, Model model, Texture *tex, float uvScale)</argsstring>
+        <name>CreateStaticTrimesh</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>physCtx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>Model</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>Texture *</type>
+          <declname>tex</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>uvScale</declname>
+        </param>
+        <briefdescription>
+<para>Create a static trimesh collision geometry from a model. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a static trimesh (triangle mesh) collision geometry from a RayLib model. This allows arbitrary 3D models to be used as static collision objects in the physics simulation. The mesh is optimized for collision detection but does not move or respond to physics.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>physCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gfxCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the graphics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>model</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>RayLib model to create collision geometry from </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tex</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Optional texture to apply to the mesh (can be NULL) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>uvScale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>UV scaling factor for texture tiling </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the created node in the statics list</para>
+</simplesect>
+<simplesect kind="note"><para>The mesh is static and cannot be moved after creation </para>
+</simplesect>
+<simplesect kind="note"><para>Supports custom textures and UV scaling for visual appearance </para>
+</simplesect>
+<simplesect kind="note"><para>Stores model data for rendering with custom shaders</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> </para>
+</simplesect>
+<simplesect kind="see"><para>Model </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="134" column="9" bodyfile="raylibODE.c" bodystart="593" bodyend="618" declfile="raylibODE.h" declline="134" declcolumn="9"/>
+        <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" compoundref="raylibODE_8h" startline="80">geomInfo::indices</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="122">PhysicsContext::statics</references>
+        <references refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" compoundref="raylibODE_8h" startline="81">geomInfo::triData</references>
+        <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="75">geomInfo::visual</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a22ae6631054292250c7ed2e6f232d694" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity * addBox</definition>
+        <argsstring>(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</argsstring>
+        <name>addBox</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>rot</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>mass</declname>
+        </param>
+        <briefdescription>
+<para>Add a box-shaped physics body to the world. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new dynamic box in the physics simulation with the specified dimensions, position, rotation, and mass. The box is automatically added to the rendering list and collision detection system.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gfxCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the graphics context for texture assignment </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Dimensions of the box (width, height, depth) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial position of the box center </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial rotation (Euler angles: pitch, yaw, roll) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mass of the box (0 for static object) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the newly created entity</para>
+</simplesect>
+<simplesect kind="note"><para>Box is assigned a random texture from the available box textures </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structentity" kindref="compound">entity</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="137" column="8" bodyfile="raylibODE.c" bodystart="316" bodyend="335" declfile="raylibODE.h" declline="137" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1ad709ccf4980935cd9c633f0c270b4a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity * addSphere</definition>
+        <argsstring>(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)</argsstring>
+        <name>addSphere</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>rot</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>mass</declname>
+        </param>
+        <briefdescription>
+<para>Add a sphere-shaped physics body to the world. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new dynamic sphere in the physics simulation with the specified radius, position, rotation, and mass. Spheres are efficient for collision detection and are commonly used for balls and round objects.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gfxCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the graphics context for texture assignment </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radius of the sphere </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial position of the sphere center </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial rotation (Euler angles) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mass of the sphere (0 for static object) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the newly created entity</para>
+</simplesect>
+<simplesect kind="note"><para>Sphere is assigned a random texture from the available sphere textures </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structentity" kindref="compound">entity</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="138" column="8" bodyfile="raylibODE.c" bodystart="358" bodyend="377" declfile="raylibODE.h" declline="138" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1ad0d5151f2ffc020ea6ad6c604d976670" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity * addCylinder</definition>
+        <argsstring>(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</argsstring>
+        <name>addCylinder</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>rot</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>mass</declname>
+        </param>
+        <briefdescription>
+<para>Add a cylinder-shaped physics body to the world. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new dynamic cylinder in the physics simulation with the specified radius, length, position, rotation, and mass. ODE cylinders are aligned along the Z-axis by default.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gfxCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the graphics context for texture assignment </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radius of the cylinder </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the cylinder (along Z-axis) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial position of the cylinder center </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial rotation (Euler angles) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mass of the cylinder (0 for static object) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the newly created entity</para>
+</simplesect>
+<simplesect kind="note"><para>Cylinder is aligned along Z-axis as per ODE convention </para>
+</simplesect>
+<simplesect kind="note"><para>Cylinder is assigned a random texture from the available cylinder textures </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structentity" kindref="compound">entity</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="139" column="8" bodyfile="raylibODE.c" bodystart="401" bodyend="421" declfile="raylibODE.h" declline="139" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1aea6c527a568187e7377bb733e3693e34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity * addCapsule</definition>
+        <argsstring>(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</argsstring>
+        <name>addCapsule</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>rot</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>mass</declname>
+        </param>
+        <briefdescription>
+<para>Add a capsule-shaped physics body to the world. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a new dynamic capsule in the physics simulation. Capsules are useful for character controllers and objects that need smooth collision with the ground.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gfxCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the graphics context for texture assignment </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radius of the capsule caps </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the cylindrical portion </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial position of the capsule center </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial rotation (Euler angles) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mass of the capsule (0 for static object) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the newly created entity</para>
+</simplesect>
+<simplesect kind="note"><para>Capsule combines a cylinder with two hemispherical ends </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structentity" kindref="compound">entity</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="140" column="8" bodyfile="raylibODE.c" bodystart="444" bodyend="463" declfile="raylibODE.h" declline="140" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a2e7774a715304a8f791a09e863240603" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity * addDumbbell</definition>
+        <argsstring>(PhysicsContext *ctx, GraphicsContext *gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass)</argsstring>
+        <name>addDumbbell</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>shaftRad</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>shaftLen</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>endRad</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>rot</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>mass</declname>
+        </param>
+        <briefdescription>
+<para>Add a dumbbell-shaped composite physics body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a composite physics body consisting of a cylindrical shaft with two spherical ends. This demonstrates how to create custom composite shapes by combining multiple geometries.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gfxCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the graphics context for texture assignment </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shaftRad</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radius of the cylindrical shaft </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>shaftLen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the cylindrical shaft </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>endRad</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radius of the end spheres </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial position of the dumbbell center </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial rotation (Euler angles) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Total mass of the dumbbell </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the newly created entity</para>
+</simplesect>
+<simplesect kind="note"><para>This is an example of creating composite shapes </para>
+</simplesect>
+<simplesect kind="note"><para>Mass is distributed: 50% shaft, 25% each end </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structentity" kindref="compound">entity</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="141" column="8" bodyfile="raylibODE.c" bodystart="490" bodyend="525" declfile="raylibODE.h" declline="141" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a5a6ec4456256b6b4394e5d32b326fae8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity * addRandomPhys</definition>
+        <argsstring>(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 pos)</argsstring>
+        <name>addRandomPhys</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Add a random physics object at the specified position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a random physics body (box, sphere, cylinder, capsule, or dumbbell) at the given position. Useful for testing and creating dynamic scenes without manually specifying each object.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gfxCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the graphics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position where the random object should be created </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to the newly created entity</para>
+</simplesect>
+<simplesect kind="note"><para>Distribution: 20% boxes, 20% spheres, 20% cylinders, 20% capsules, 20% dumbbells </para>
+</simplesect>
+<simplesect kind="note"><para>Mass is fixed at 10.0f for all random objects </para>
+</simplesect>
+<simplesect kind="note"><para>Each type has randomized dimensions within reasonable ranges </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="144" column="8" bodyfile="raylibODE.c" bodystart="543" bodyend="569" declfile="raylibODE.h" declline="144" declcolumn="8"/>
+        <references refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</references>
+        <references refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</references>
+        <references refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</references>
+        <references refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</references>
+        <references refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a9aee3b647643b29e683644a67e7e5f3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity * getEntityFromMouse</definition>
+        <argsstring>(PhysicsContext *physCtx, GraphicsContext *gfxCtx, Vector3 *hitPoint)</argsstring>
+        <name>getEntityFromMouse</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>physCtx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>gfxCtx</declname>
+        </param>
+        <param>
+          <type>Vector3 *</type>
+          <declname>hitPoint</declname>
+        </param>
+        <briefdescription>
+<para>this will return the first entity that the camera is directly pointed at while useful in the examples and likely for other things, it also serves as an example of how you can do this yourself for other things </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>physCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the physics context (global physics info) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gfxCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graphics context (global info usful for graphics) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hitPoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pass a pointer to a Vector3 this will be set with the location of the intersecton</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a pointer to the entity that was found. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="147" column="8" bodyfile="raylibODE.c" bodystart="671" bodyend="704" declfile="raylibODE.h" declline="147" declcolumn="8"/>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
+        <references refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" compoundref="raylibODE_8h" startline="92">RayHit::depth</references>
+        <references refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" compoundref="raylibODE_8h" startline="91">RayHit::geom</references>
+        <references refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" compoundref="raylibODE_8h" startline="93">RayHit::pos</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a3aa3473ec30d21671ea9ec98e3e65017" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setEntityHew</definition>
+        <argsstring>(entity *ent, Color c)</argsstring>
+        <name>setEntityHew</name>
+        <param>
+          <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+          <declname>ent</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>changes the hew (tint) of all entities geoms </para>
+        </briefdescription>
+        <detaileddescription>
+<para>go through each geom attached to the entities body and change their hew or tint</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the entity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new colour to use </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="149" column="6" bodyfile="raylibODE.c" bodystart="894" bodyend="904" declfile="raylibODE.h" declline="149" declcolumn="6"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1acdd1e62ab4a9d0ab632e283e6ccdaf71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>dJointID</type>
+        <definition>dJointID createRotor</definition>
+        <argsstring>(PhysicsContext *physCtx, entity *from, entity *to, Vector3 axis)</argsstring>
+        <name>createRotor</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>physCtx</declname>
+        </param>
+        <param>
+          <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>axis</declname>
+        </param>
+        <briefdescription>
+<para>crates a rotor joint the joint is created with the anchor at the from enties location </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>physCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>physics context holds all the physics globals </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the anchor entity for the joint </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if this is null the joint attaches to the world and is static </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>axis</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>this determines the direction of rotation for the rotor you can think of it as the direction of the axle</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>joints will get tidied up during world destruction, do destroy them if you no longer require them, in the arm example a joint is created and destroyed every time an object is caught and released </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="151" column="10" bodyfile="raylibODE.c" bodystart="861" bodyend="881" declfile="raylibODE.h" declline="151" declcolumn="10"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a8f1b86adbb51b8bd80405329b31c87d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FreeBodyAndGeoms</definition>
+        <argsstring>(dBodyID bdy)</argsstring>
+        <name>FreeBodyAndGeoms</name>
+        <param>
+          <type>dBodyID</type>
+          <declname>bdy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="154" column="6" bodyfile="raylibODE.c" bodystart="707" bodyend="720" declfile="raylibODE.h" declline="154" declcolumn="6"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="483" endline="523">FreeRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1ac29c7db14d40f3946075ae2d63aab414" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void drawGeom</definition>
+        <argsstring>(dGeomID geom, struct GraphicsContext *ctx)</argsstring>
+        <name>drawGeom</name>
+        <param>
+          <type>dGeomID</type>
+          <declname>geom</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="157" column="6" bodyfile="raylibODE.c" bodystart="763" bodyend="845" declfile="raylibODE.h" declline="157" declcolumn="6"/>
+        <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="99">GraphicsContext::ball</references>
+        <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="98">GraphicsContext::box</references>
+        <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="100">GraphicsContext::cylinder</references>
+        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
+        <references refid="raylibODE_8c_1a4e5c05f3e98813de44bb372e30156724" compoundref="raylibODE_8c" startline="724" endline="741">MyDrawModel</references>
+        <references refid="raylibODE_8c_1ab1c13f5bdcde03502b5028bf6c15ef71" compoundref="raylibODE_8c" startline="753" endline="759">odeToRayMat</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+        <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="72">geomInfo::texture</references>
+        <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="84">geomInfo::triggerOnCollide</references>
+        <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="73">geomInfo::uvScaleU</references>
+        <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="74">geomInfo::uvScaleV</references>
+        <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="75">geomInfo::visual</references>
+        <referencedby refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" compoundref="raylibODE_8c" startline="919" endline="929">drawBodyGeoms</referencedby>
+        <referencedby refid="ragdoll_8c_1a15a95f2545a01b96973e728cdd451bf9" compoundref="ragdoll_8c" startline="455" endline="464">DrawRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" compoundref="raylibODE_8c" startline="931" endline="940">drawStatics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1adac1e8c721f82c1684b919e4cbe8a883" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void drawBodies</definition>
+        <argsstring>(struct GraphicsContext *ctx, PhysicsContext *pctx)</argsstring>
+        <name>drawBodies</name>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>pctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="160" column="6" bodyfile="raylibODE.c" bodystart="906" bodyend="917" declfile="raylibODE.h" declline="160" declcolumn="6"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" compoundref="raylibODE_8c" startline="919" endline="929">drawBodyGeoms</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1ace378b6574208ed393d32694b18f44f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void drawBodyGeoms</definition>
+        <argsstring>(dBodyID bdy, struct GraphicsContext *ctx)</argsstring>
+        <name>drawBodyGeoms</name>
+        <param>
+          <type>dBodyID</type>
+          <declname>bdy</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="163" column="6" bodyfile="raylibODE.c" bodystart="919" bodyend="929" declfile="raylibODE.h" declline="163" declcolumn="6"/>
+        <references refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</references>
+        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="906" endline="917">drawBodies</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a05b90ca080d0521b6155c1462bfeab90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void drawStatics</definition>
+        <argsstring>(struct GraphicsContext *ctx, PhysicsContext *pctx)</argsstring>
+        <name>drawStatics</name>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>pctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="166" column="6" bodyfile="raylibODE.c" bodystart="931" bodyend="940" declfile="raylibODE.h" declline="166" declcolumn="6"/>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="122">PhysicsContext::statics</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float rndf</definition>
+        <argsstring>(float min, float max)</argsstring>
+        <name>rndf</name>
+        <param>
+          <type>float</type>
+          <declname>min</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>max</declname>
+        </param>
+        <briefdescription>
+<para>Generate a random float in the specified range. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Minimum value (inclusive) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Maximum value (inclusive) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Random float between min and max</para>
+</simplesect>
+<simplesect kind="note"><para>Uses rand() from stdlib - consider seeding with srand() for better randomness </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="169" column="7" bodyfile="raylibODE.c" bodystart="208" bodyend="211" declfile="raylibODE.h" declline="169" declcolumn="7"/>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" compoundref="raylibODE_8c" startline="543" endline="569">addRandomPhys</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+        <referencedby refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" compoundref="raylibODE_8c" startline="282" endline="292">createSphereGeom</referencedby>
+        <referencedby refid="ragdoll_8c_1ae5044c65f2f6758624a2182347b6d945" compoundref="ragdoll_8c" startline="81" endline="88">GetRagdollSpawnPosition</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a218eeb72f46ea3ed00c9010d7002a305" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int stepPhysics</definition>
+        <argsstring>(PhysicsContext *physCtx)</argsstring>
+        <name>stepPhysics</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>physCtx</declname>
+        </param>
+        <briefdescription>
+<para>Step the physics simulation forward. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This function advances the physics simulation by stepping the world forward using fixed time steps. It handles the frame time accumulation and performs multiple physics steps if necessary to maintain simulation stability and accuracy.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>physCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the physics context containing the world and state </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of physics steps performed this frame</para>
+</simplesect>
+<simplesect kind="note"><para>Uses dWorldQuickStep for faster but less accurate simulation </para>
+</simplesect>
+<simplesect kind="note"><para>Maximum number of steps is limited by maxPsteps to prevent spiral of death</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> </para>
+</simplesect>
+<simplesect kind="see"><para>dWorldQuickStep </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="172" column="5" bodyfile="raylibODE.c" bodystart="230" bodyend="253" declfile="raylibODE.h" declline="172" declcolumn="5"/>
+        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="119">PhysicsContext::contactgroup</references>
+        <references refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" compoundref="raylibODE_8h" startline="120">PhysicsContext::frameTime</references>
+        <references refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" compoundref="raylibODE_8h" startline="41">maxPsteps</references>
+        <references refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</references>
+        <references refid="raylibODE_8c_1ad4efdb006e87d1e0709eb9a32edb2f2d" compoundref="raylibODE_8c" startline="197">physSlice</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2021-26<sp/>Chris<sp/>Camacho<sp/>(codifies<sp/>-<sp/><sp/>http://bedroomcoders.co.uk/)</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RAYLIBODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAYLIBODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;raylib.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;raymath.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rlights_8h" kindref="compound">rlights.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ode/ode.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="clist_8h" kindref="compound">clist.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Object<sp/>counts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OBJ<sp/>300</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Plane<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PLANE_SIZE<sp/>20.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PLANE_THICKNESS<sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>maxPsteps<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a90e81478715d0f9b144a709347d089a0" kindref="member">rayToOdeMat</ref>(Matrix*<sp/>mat,<sp/>dReal*<sp/>R);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a5b0792a09d707c97fea36d1e35ab364d" kindref="member">odeToRayMat</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>R,<sp/>Matrix*<sp/>matrix);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="structentity" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref><sp/>{</highlight></codeline>
+<codeline lineno="47" refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/><ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>;</highlight><highlight class="comment">/**&lt;<sp/>ODE<sp/>physics<sp/>body<sp/>for<sp/>this<sp/>entity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/><ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>all<sp/>entities<sp/>are<sp/>in<sp/>a<sp/>global<sp/>list,<sp/>this<sp/>is<sp/>its<sp/>list<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" kindref="member">data</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>user<sp/>data<sp/>pointer<sp/>tag<sp/>on<sp/>extra<sp/>meta<sp/>data<sp/>to<sp/>a<sp/>geom.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="raylibODE_8h_1a6ba18cca02784a1046f755105545d6cb" refkind="member"><highlight class="normal">}<sp/><ref refid="structentity" kindref="compound">entity</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>pointer<sp/>type<sp/>for<sp/>physics<sp/>trigger<sp/>events</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>*<sp/>This<sp/>callback<sp/>is<sp/>triggered<sp/>when<sp/>a<sp/>geometry<sp/>designated<sp/>as<sp/>a<sp/>&quot;ghost&quot;<sp/>or<sp/>sensor<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>overlaps<sp/>with<sp/>another<sp/>geometry.<sp/>When<sp/>this<sp/>callback<sp/>is<sp/>set<sp/>in<sp/>geomInfo,<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>the<sp/>physics<sp/>engine<sp/>will<sp/>skip<sp/>standard<sp/>contact<sp/>resolution,<sp/>allowing<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>objects<sp/>to<sp/>pass<sp/>through<sp/>while<sp/>still<sp/>notifying<sp/>game<sp/>logic.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>*<sp/>@param<sp/>trigger<sp/><sp/>The<sp/>dGeomID<sp/>of<sp/>the<sp/>geometry<sp/>that<sp/>has<sp/>the<sp/>callback<sp/>assigned.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>@param<sp/>intruder<sp/>The<sp/>dGeomID<sp/>of<sp/>the<sp/>geometry<sp/>that<sp/>entered<sp/>or<sp/>is<sp/>inside<sp/>the<sp/>trigger.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>*<sp/>@note<sp/>If<sp/>attached<sp/>to<sp/>a<sp/>dBodyID,<sp/>the<sp/>trigger<sp/>will<sp/>follow<sp/>the<sp/>body&apos;s<sp/>transform.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>@see<sp/>geomInfo</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kindref="member">TriggerCallback</ref>)(dGeomID<sp/>trigger,<sp/>dGeomID<sp/>intruder);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Stores<sp/>geometry<sp/>metadata<sp/>for<sp/>collision,<sp/>texturing,<sp/>and<sp/>trimesh<sp/>data.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>*<sp/>This<sp/>structure<sp/>encapsulates<sp/>everything<sp/>needed<sp/>to<sp/>render<sp/>and<sp/>handle<sp/>physics<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>for<sp/>a<sp/>specific<sp/>piece<sp/>of<sp/>geometry,<sp/>including<sp/>UV<sp/>scaling<sp/>and<sp/>raw<sp/>mesh<sp/>indices.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="structgeomInfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structgeomInfo" kindref="compound">geomInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="71" refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" kindref="member">collidable</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Toggle<sp/>for<sp/>physics<sp/>engine<sp/>interaction.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture*<sp/><ref refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" kindref="member">texture</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>associated<sp/>diffuse/albedo<sp/>map.<sp/>set<sp/>to<sp/>null<sp/>for<sp/>invisible<sp/>geom*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" kindref="member">uvScaleU</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Horizontal<sp/>texture<sp/>tiling<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" kindref="member">uvScaleV</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Vertical<sp/>texture<sp/>tiling<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" kindref="member">visual</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Model<sp/>override<sp/>used<sp/>for<sp/>custom<sp/>static<sp/>trimeshes.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" kindref="member">hew</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>white<sp/>for<sp/>normal,<sp/>used<sp/>to<sp/>tint<sp/>a<sp/>geom<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/>/**<sp/>@name<sp/>Trimesh<sp/>Encapsulation</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Members<sp/>used<sp/>specifically<sp/>for<sp/>raw<sp/>triangle<sp/>mesh<sp/>data.</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@{<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" kindref="member">indices</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>array<sp/>of<sp/>vertex<sp/>indices.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dTriMeshDataID<sp/><ref refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" kindref="member">triData</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>ODE/Physics-specific<sp/>trimesh<sp/>data<sp/>identifier.<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/>/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kindref="member">TriggerCallback</ref><sp/><ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>;<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>If<sp/>this<sp/>is<sp/>non-NULL,<sp/>the<sp/>geom<sp/>acts<sp/>as<sp/>a<sp/>ghost/trigger<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" kindref="member">data</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>user<sp/>data<sp/>pointer<sp/>tag<sp/>on<sp/>extra<sp/>meta<sp/>data<sp/>to<sp/>a<sp/>geom.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" refkind="member"><highlight class="normal">}<sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Struct<sp/>to<sp/>track<sp/>the<sp/>results<sp/>of<sp/>our<sp/>raycast</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="structRayHit" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRayHit" kindref="compound">RayHit</ref><sp/>{</highlight></codeline>
+<codeline lineno="91" refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/><ref refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" kindref="member">geom</ref>;</highlight></codeline>
+<codeline lineno="92" refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/><ref refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" kindref="member">depth</ref>;<sp/></highlight><highlight class="comment">//<sp/>Distance<sp/>from<sp/>ray<sp/>origin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/><ref refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" kindref="member">pos</ref>;<sp/></highlight><highlight class="comment">//<sp/>Hit<sp/>position<sp/>in<sp/>world<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" refkind="member"><highlight class="normal">}<sp/><ref refid="structRayHit" kindref="compound">RayHit</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Graphics<sp/>context<sp/>-<sp/>holds<sp/>all<sp/>rendering<sp/>resources</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="structGraphicsContext" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref><sp/>{</highlight></codeline>
+<codeline lineno="98" refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" kindref="member">box</ref>;</highlight></codeline>
+<codeline lineno="99" refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" kindref="member">ball</ref>;</highlight></codeline>
+<codeline lineno="100" refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" kindref="member">cylinder</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>capsules<sp/>really<sp/>need<sp/>their<sp/>own<sp/>textures<sp/>not<sp/>cylinder<sp/>texutres</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Texture<sp/>arrays<sp/>for<sp/>different<sp/>geometry<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" kindref="member">sphereTextures</ref>[3];<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ball.png,<sp/>beach-ball.png,<sp/>earth.png</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" kindref="member">boxTextures</ref>[2];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>crate.png,<sp/>grid.png</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" kindref="member">cylinderTextures</ref>[2];<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>drum.png,<sp/>cylinder2.png</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>grass.png</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110" refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Camera<sp/><ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>;</highlight></codeline>
+<codeline lineno="111" refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Shader<sp/><ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>;</highlight></codeline>
+<codeline lineno="112" refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structLight" kindref="compound">Light</ref><sp/><ref refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" kindref="member">lights</ref>[<ref refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kindref="member">MAX_LIGHTS</ref>];</highlight></codeline>
+<codeline lineno="113" refid="raylibODE_8h_1a92862474db45e097a7381460ac67f859" refkind="member"><highlight class="normal">}<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Physics<sp/>context<sp/>-<sp/>holds<sp/>all<sp/>physics<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="structPhysicsContext" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref><sp/>{</highlight></codeline>
+<codeline lineno="117" refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dWorldID<sp/><ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>;</highlight></codeline>
+<codeline lineno="118" refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dSpaceID<sp/><ref refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" kindref="member">space</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119" refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointGroupID<sp/><ref refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" kindref="member">contactgroup</ref>;</highlight></codeline>
+<codeline lineno="120" refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" kindref="member">frameTime</ref>;<sp/></highlight><highlight class="comment">//<sp/>cumlative<sp/>frame<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/><ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>;</highlight></codeline>
+<codeline lineno="122" refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/><ref refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kindref="member">statics</ref>;<sp/></highlight><highlight class="comment">//<sp/>list<sp/>of<sp/>static<sp/>ode<sp/>geoms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" refkind="member"><highlight class="normal">}<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1af0307cfb8f3c5c1b8dc01681865f0062" kindref="member">createBaseEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Helper<sp/>to<sp/>allocate<sp/>geomInfo<sp/>with<sp/>collision<sp/>flag,<sp/>optional<sp/>texture,<sp/>and<sp/>UV<sp/>scale</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/><ref refid="raylibODE_8h_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>collidable,<sp/>Texture*<sp/>texture,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScaleU,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScaleV);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>geom<sp/>only<sp/>but<sp/>with<sp/>geomInfo<sp/>attched</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">dGeomID<sp/><ref refid="raylibODE_8h_1a2a368e091ab99ed0668855778e02ef70" kindref="member">createSphereGeom</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/>Vector3<sp/>pos);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/>helper<sp/>to<sp/>create<sp/>a<sp/>static<sp/>collision<sp/>geom<sp/>from<sp/>a<sp/>model</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/><ref refid="raylibODE_8h_1ae8b06665a78b486c57e6795da4b3e265" kindref="member">CreateStaticTrimesh</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Model<sp/>model,<sp/>Texture*<sp/>tex,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScale);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">//<sp/>add<sp/>a<sp/>physics<sp/>visual<sp/>to<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a22ae6631054292250c7ed2e6f232d694" kindref="member">addBox</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3<sp/>size,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1ad709ccf4980935cd9c633f0c270b4a00" kindref="member">addSphere</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);<sp/></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1ad0d5151f2ffc020ea6ad6c604d976670" kindref="member">addCylinder</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>length,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1aea6c527a568187e7377bb733e3693e34" kindref="member">addCapsule</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>length,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a2e7774a715304a8f791a09e863240603" kindref="member">addDumbbell</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>shaftRad,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>shaftLen,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>endRad,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/>add<sp/>a<sp/>random<sp/>simple<sp/>physics<sp/>object<sp/>to<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a5a6ec4456256b6b4394e5d32b326fae8" kindref="member">addRandomPhys</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3<sp/>pos);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>a<sp/>reference<sp/>to<sp/>an<sp/>entity<sp/>the<sp/>mouse<sp/>is<sp/>pointing<sp/>to...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a9aee3b647643b29e683644a67e7e5f3c" kindref="member">getEntityFromMouse</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3*<sp/>hitPoint);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a3aa3473ec30d21671ea9ec98e3e65017" kindref="member">setEntityHew</ref>(<ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent,<sp/>Color<sp/>c);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8h_1acdd1e62ab4a9d0ab632e283e6ccdaf71" kindref="member">createRotor</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>from,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>to,<sp/>Vector3<sp/>axis);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//<sp/>free<sp/>a<sp/>body,<sp/>freeing<sp/>its<sp/>geoms<sp/>first</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a8f1b86adbb51b8bd80405329b31c87d1" kindref="member">FreeBodyAndGeoms</ref>(dBodyID<sp/>bdy);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>drawAllSpaceGeoms(dSpaceID<sp/>space,<sp/>struct<sp/>GraphicsContext*<sp/>ctx);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1ac29c7db14d40f3946075ae2d63aab414" kindref="member">drawGeom</ref>(dGeomID<sp/>geom,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>all<sp/>the<sp/>bodies<sp/>in<sp/>the<sp/>object<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1adac1e8c721f82c1684b919e4cbe8a883" kindref="member">drawBodies</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>geoms<sp/>attached<sp/>to<sp/>a<sp/>body</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1ace378b6574208ed393d32694b18f44f5" kindref="member">drawBodyGeoms</ref>(dBodyID<sp/>bdy,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>static<sp/>geoms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a05b90ca080d0521b6155c1462bfeab90" kindref="member">drawStatics</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Random<sp/>float<sp/>in<sp/>range<sp/>[min,<sp/>max]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment">//<sp/>step<sp/>the<sp/>physics<sp/>world<sp/>enough<sp/>times<sp/>to<sp/>keep<sp/>up<sp/>with<sp/>realtime</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a218eeb72f46ea3ed00c9010d7002a305" kindref="member">stepPhysics</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RAYLIBODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="raylibODE.h"/>
+  </compounddef>
+</doxygen>

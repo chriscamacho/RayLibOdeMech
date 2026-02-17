@@ -1,0 +1,401 @@
+\doxysection{ragdoll.\+h File Reference}
+\hypertarget{ragdoll_8h}{}\label{ragdoll_8h}\index{ragdoll.h@{ragdoll.h}}
+{\ttfamily \#include "{}raylib.\+h"{}}\newline
+{\ttfamily \#include $<$ode/ode.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structRagDoll}{Rag\+Doll}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ragdoll_8h_a62ae838f84574f00dc0b59766651ae8d}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+CENTER\+\_\+X}}~0.\+0f
+\item 
+\#define \mbox{\hyperlink{ragdoll_8h_ad49513db09a56b09244fe175a4433ae6}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+CENTER\+\_\+Z}}~0.\+0f
+\item 
+\#define \mbox{\hyperlink{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+HALF\+\_\+\+EXTENT}}~3.\+0f
+\item 
+\#define \mbox{\hyperlink{ragdoll_8h_ab3762f5ad156fe8e366ff6f85bca6ebc}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+MIN\+\_\+Y}}~1.\+6f
+\item 
+\#define \mbox{\hyperlink{ragdoll_8h_a2fc164e6dd8fb737a26d1ed64bce2650}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+MAX\+\_\+Y}}~2.\+6f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Rag\+Doll \mbox{\hyperlink{ragdoll_8h_aad57e4f0d680ed2244ce2525d98fa7ee}{Rag\+Doll}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9e}{Ragdoll\+Body\+Part}} \{ \newline
+\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\+\_\+\+HEAD}} = 0
+, \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\+\_\+\+TORSO}}
+, \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\+\_\+\+LEFT\+\_\+\+UPPER\+\_\+\+ARM}}
+, \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\+\_\+\+LEFT\+\_\+\+LOWER\+\_\+\+ARM}}
+, \newline
+\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\+\_\+\+RIGHT\+\_\+\+UPPER\+\_\+\+ARM}}
+, \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\+\_\+\+RIGHT\+\_\+\+LOWER\+\_\+\+ARM}}
+, \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\+\_\+\+LEFT\+\_\+\+UPPER\+\_\+\+LEG}}
+, \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\+\_\+\+LEFT\+\_\+\+LOWER\+\_\+\+LEG}}
+, \newline
+\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\+\_\+\+RIGHT\+\_\+\+UPPER\+\_\+\+LEG}}
+, \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\+\_\+\+RIGHT\+\_\+\+LOWER\+\_\+\+LEG}}
+, \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54}{RAGDOLL\+\_\+\+BODY\+\_\+\+COUNT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structRagDoll}{Rag\+Doll}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ragdoll_8h_a280e6f0bf4084257707b2e69342bfa61}{Create\+Ragdoll}} (struct \mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}pctx, struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx, Vector3 position)
+\begin{DoxyCompactList}\small\item\em Create a ragdoll physics body. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ragdoll_8h_aabb2deb6a54bb247892b4a5fabd6449c}{Update\+Ragdoll\+Motors}} (\mbox{\hyperlink{structRagDoll}{Rag\+Doll}} \texorpdfstring{$\ast$}{*}ragdoll, float \texorpdfstring{$\ast$}{*}motor\+Forces)
+\begin{DoxyCompactList}\small\item\em Update ragdoll joint motors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ragdoll_8h_a15a95f2545a01b96973e728cdd451bf9}{Draw\+Ragdoll}} (\mbox{\hyperlink{structRagDoll}{Rag\+Doll}} \texorpdfstring{$\ast$}{*}ragdoll, struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Render a ragdoll to the screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ragdoll_8h_ab17f6d5cfecd7a8573b900f78460c816}{Free\+Ragdoll}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{structRagDoll}{Rag\+Doll}} \texorpdfstring{$\ast$}{*}ragdoll)
+\begin{DoxyCompactList}\small\item\em Free a ragdoll and all its resources. \end{DoxyCompactList}\item 
+Vector3 \mbox{\hyperlink{ragdoll_8h_ae5044c65f2f6758624a2182347b6d945}{Get\+Ragdoll\+Spawn\+Position}} (void)
+\begin{DoxyCompactList}\small\item\em Get a random spawn position for ragdolls. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{ragdoll_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ragdoll_8h_a62ae838f84574f00dc0b59766651ae8d}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_SPAWN\_CENTER\_X@{RAGDOLL\_SPAWN\_CENTER\_X}}
+\index{RAGDOLL\_SPAWN\_CENTER\_X@{RAGDOLL\_SPAWN\_CENTER\_X}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{RAGDOLL\_SPAWN\_CENTER\_X}{RAGDOLL\_SPAWN\_CENTER\_X}}
+{\footnotesize\ttfamily \label{ragdoll_8h_a62ae838f84574f00dc0b59766651ae8d} 
+\#define RAGDOLL\+\_\+\+SPAWN\+\_\+\+CENTER\+\_\+X~0.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8h_source_l00072}{72}} of file \mbox{\hyperlink{ragdoll_8h_source}{ragdoll.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{ragdoll_8c_source_l00081}{Get\+Ragdoll\+Spawn\+Position()}}.
+
+\Hypertarget{ragdoll_8h_ad49513db09a56b09244fe175a4433ae6}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_SPAWN\_CENTER\_Z@{RAGDOLL\_SPAWN\_CENTER\_Z}}
+\index{RAGDOLL\_SPAWN\_CENTER\_Z@{RAGDOLL\_SPAWN\_CENTER\_Z}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{RAGDOLL\_SPAWN\_CENTER\_Z}{RAGDOLL\_SPAWN\_CENTER\_Z}}
+{\footnotesize\ttfamily \label{ragdoll_8h_ad49513db09a56b09244fe175a4433ae6} 
+\#define RAGDOLL\+\_\+\+SPAWN\+\_\+\+CENTER\+\_\+Z~0.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8h_source_l00073}{73}} of file \mbox{\hyperlink{ragdoll_8h_source}{ragdoll.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{ragdoll_8c_source_l00081}{Get\+Ragdoll\+Spawn\+Position()}}.
+
+\Hypertarget{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_SPAWN\_HALF\_EXTENT@{RAGDOLL\_SPAWN\_HALF\_EXTENT}}
+\index{RAGDOLL\_SPAWN\_HALF\_EXTENT@{RAGDOLL\_SPAWN\_HALF\_EXTENT}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{RAGDOLL\_SPAWN\_HALF\_EXTENT}{RAGDOLL\_SPAWN\_HALF\_EXTENT}}
+{\footnotesize\ttfamily \label{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60} 
+\#define RAGDOLL\+\_\+\+SPAWN\+\_\+\+HALF\+\_\+\+EXTENT~3.\+0f}
+
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8h_source_l00074}{74}} of file \mbox{\hyperlink{ragdoll_8h_source}{ragdoll.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{ragdoll_8c_source_l00081}{Get\+Ragdoll\+Spawn\+Position()}}.
+
+\Hypertarget{ragdoll_8h_a2fc164e6dd8fb737a26d1ed64bce2650}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_SPAWN\_MAX\_Y@{RAGDOLL\_SPAWN\_MAX\_Y}}
+\index{RAGDOLL\_SPAWN\_MAX\_Y@{RAGDOLL\_SPAWN\_MAX\_Y}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{RAGDOLL\_SPAWN\_MAX\_Y}{RAGDOLL\_SPAWN\_MAX\_Y}}
+{\footnotesize\ttfamily \label{ragdoll_8h_a2fc164e6dd8fb737a26d1ed64bce2650} 
+\#define RAGDOLL\+\_\+\+SPAWN\+\_\+\+MAX\+\_\+Y~2.\+6f}
+
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8h_source_l00076}{76}} of file \mbox{\hyperlink{ragdoll_8h_source}{ragdoll.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{ragdoll_8c_source_l00081}{Get\+Ragdoll\+Spawn\+Position()}}.
+
+\Hypertarget{ragdoll_8h_ab3762f5ad156fe8e366ff6f85bca6ebc}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_SPAWN\_MIN\_Y@{RAGDOLL\_SPAWN\_MIN\_Y}}
+\index{RAGDOLL\_SPAWN\_MIN\_Y@{RAGDOLL\_SPAWN\_MIN\_Y}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{RAGDOLL\_SPAWN\_MIN\_Y}{RAGDOLL\_SPAWN\_MIN\_Y}}
+{\footnotesize\ttfamily \label{ragdoll_8h_ab3762f5ad156fe8e366ff6f85bca6ebc} 
+\#define RAGDOLL\+\_\+\+SPAWN\+\_\+\+MIN\+\_\+Y~1.\+6f}
+
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8h_source_l00075}{75}} of file \mbox{\hyperlink{ragdoll_8h_source}{ragdoll.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{ragdoll_8c_source_l00081}{Get\+Ragdoll\+Spawn\+Position()}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{ragdoll_8h_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{ragdoll_8h_aad57e4f0d680ed2244ce2525d98fa7ee}\index{ragdoll.h@{ragdoll.h}!RagDoll@{RagDoll}}
+\index{RagDoll@{RagDoll}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{RagDoll}{RagDoll}}
+{\footnotesize\ttfamily \label{ragdoll_8h_aad57e4f0d680ed2244ce2525d98fa7ee} 
+typedef struct Rag\+Doll Rag\+Doll}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{ragdoll_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9e}\index{ragdoll.h@{ragdoll.h}!RagdollBodyPart@{RagdollBodyPart}}
+\index{RagdollBodyPart@{RagdollBodyPart}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{RagdollBodyPart}{RagdollBodyPart}}
+{\footnotesize\ttfamily \label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9e} 
+enum \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9e}{Ragdoll\+Body\+Part}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_HEAD@{RAGDOLL\_HEAD}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_HEAD@{RAGDOLL\_HEAD}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364} 
+RAGDOLL\+\_\+\+HEAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_TORSO@{RAGDOLL\_TORSO}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_TORSO@{RAGDOLL\_TORSO}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608} 
+RAGDOLL\+\_\+\+TORSO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_LEFT\_UPPER\_ARM@{RAGDOLL\_LEFT\_UPPER\_ARM}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_LEFT\_UPPER\_ARM@{RAGDOLL\_LEFT\_UPPER\_ARM}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68} 
+RAGDOLL\+\_\+\+LEFT\+\_\+\+UPPER\+\_\+\+ARM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_LEFT\_LOWER\_ARM@{RAGDOLL\_LEFT\_LOWER\_ARM}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_LEFT\_LOWER\_ARM@{RAGDOLL\_LEFT\_LOWER\_ARM}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6} 
+RAGDOLL\+\_\+\+LEFT\+\_\+\+LOWER\+\_\+\+ARM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_RIGHT\_UPPER\_ARM@{RAGDOLL\_RIGHT\_UPPER\_ARM}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_RIGHT\_UPPER\_ARM@{RAGDOLL\_RIGHT\_UPPER\_ARM}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3} 
+RAGDOLL\+\_\+\+RIGHT\+\_\+\+UPPER\+\_\+\+ARM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_RIGHT\_LOWER\_ARM@{RAGDOLL\_RIGHT\_LOWER\_ARM}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_RIGHT\_LOWER\_ARM@{RAGDOLL\_RIGHT\_LOWER\_ARM}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0} 
+RAGDOLL\+\_\+\+RIGHT\+\_\+\+LOWER\+\_\+\+ARM&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_LEFT\_UPPER\_LEG@{RAGDOLL\_LEFT\_UPPER\_LEG}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_LEFT\_UPPER\_LEG@{RAGDOLL\_LEFT\_UPPER\_LEG}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3} 
+RAGDOLL\+\_\+\+LEFT\+\_\+\+UPPER\+\_\+\+LEG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_LEFT\_LOWER\_LEG@{RAGDOLL\_LEFT\_LOWER\_LEG}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_LEFT\_LOWER\_LEG@{RAGDOLL\_LEFT\_LOWER\_LEG}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e} 
+RAGDOLL\+\_\+\+LEFT\+\_\+\+LOWER\+\_\+\+LEG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_RIGHT\_UPPER\_LEG@{RAGDOLL\_RIGHT\_UPPER\_LEG}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_RIGHT\_UPPER\_LEG@{RAGDOLL\_RIGHT\_UPPER\_LEG}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34} 
+RAGDOLL\+\_\+\+RIGHT\+\_\+\+UPPER\+\_\+\+LEG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_RIGHT\_LOWER\_LEG@{RAGDOLL\_RIGHT\_LOWER\_LEG}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_RIGHT\_LOWER\_LEG@{RAGDOLL\_RIGHT\_LOWER\_LEG}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0} 
+RAGDOLL\+\_\+\+RIGHT\+\_\+\+LOWER\+\_\+\+LEG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RAGDOLL\_BODY\_COUNT@{RAGDOLL\_BODY\_COUNT}!ragdoll.h@{ragdoll.h}}\index{ragdoll.h@{ragdoll.h}!RAGDOLL\_BODY\_COUNT@{RAGDOLL\_BODY\_COUNT}}}\Hypertarget{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54}\label{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54} 
+RAGDOLL\+\_\+\+BODY\+\_\+\+COUNT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8h_source_l00045}{45}} of file \mbox{\hyperlink{ragdoll_8h_source}{ragdoll.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{ragdoll_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{ragdoll_8h_a280e6f0bf4084257707b2e69342bfa61}\index{ragdoll.h@{ragdoll.h}!CreateRagdoll@{CreateRagdoll}}
+\index{CreateRagdoll@{CreateRagdoll}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{CreateRagdoll()}{CreateRagdoll()}}
+{\footnotesize\ttfamily \label{ragdoll_8h_a280e6f0bf4084257707b2e69342bfa61} 
+\mbox{\hyperlink{structRagDoll}{Rag\+Doll}} \texorpdfstring{$\ast$}{*} Create\+Ragdoll (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{pctx}{, }\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{Vector3}]{position}{}\end{DoxyParamCaption})}
+
+
+
+Create a ragdoll physics body. 
+
+Creates a complete humanoid ragdoll with articulated joints. The ragdoll is fully physics-\/simulated and can be used for character physics, death animations, or as a basis for reinforcement learning control.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pctx} & Pointer to physics context \\
+\hline
+{\em ctx} & Pointer to graphics context \\
+\hline
+{\em position} & Initial position for the ragdoll \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to newly created \doxylink{structRagDoll}{Rag\+Doll} structure
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Bodies\+: 10 (head, torso, 2 upper arms, 2 lower arms, 2 upper legs, 2 lower legs) 
+
+Joints\+: 9 (neck, shoulders, elbows, hips, knees) 
+
+All bodies are registered with framework for rendering
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structRagDoll}{Rag\+Doll} 
+
+\doxylink{ragdoll_8c_aabb2deb6a54bb247892b4a5fabd6449c}{Update\+Ragdoll\+Motors} 
+
+\doxylink{ragdoll_8c_a15a95f2545a01b96973e728cdd451bf9}{Draw\+Ragdoll} 
+
+\doxylink{ragdoll_8c_ab17f6d5cfecd7a8573b900f78460c816}{Free\+Ragdoll} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8c_source_l00118}{118}} of file \mbox{\hyperlink{ragdoll_8c_source}{ragdoll.\+c}}.
+
+
+
+References \mbox{\hyperlink{ragdoll_8h_source_l00035}{Rag\+Doll\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{ragdoll_8h_source_l00039}{Rag\+Doll\+::body\+Count}}, \mbox{\hyperlink{raylibODE_8h_source_l00106}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00630}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{ragdoll_8h_source_l00036}{Rag\+Doll\+::geoms}}, \mbox{\hyperlink{ragdoll_8h_source_l00040}{Rag\+Doll\+::joint\+Count}}, \mbox{\hyperlink{ragdoll_8h_source_l00037}{Rag\+Doll\+::joints}}, \mbox{\hyperlink{ragdoll_8h_source_l00041}{Rag\+Doll\+::motor\+Count}}, \mbox{\hyperlink{ragdoll_8h_source_l00038}{Rag\+Doll\+::motors}}, \mbox{\hyperlink{raylibODE_8h_source_l00048}{entity\+::node}}, \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{ragdoll_8h_source_l00056}{RAGDOLL\+\_\+\+BODY\+\_\+\+COUNT}}, \mbox{\hyperlink{ragdoll_8h_source_l00046}{RAGDOLL\+\_\+\+HEAD}}, \mbox{\hyperlink{ragdoll_8h_source_l00049}{RAGDOLL\+\_\+\+LEFT\+\_\+\+LOWER\+\_\+\+ARM}}, \mbox{\hyperlink{ragdoll_8h_source_l00053}{RAGDOLL\+\_\+\+LEFT\+\_\+\+LOWER\+\_\+\+LEG}}, \mbox{\hyperlink{ragdoll_8h_source_l00048}{RAGDOLL\+\_\+\+LEFT\+\_\+\+UPPER\+\_\+\+ARM}}, \mbox{\hyperlink{ragdoll_8h_source_l00052}{RAGDOLL\+\_\+\+LEFT\+\_\+\+UPPER\+\_\+\+LEG}}, \mbox{\hyperlink{ragdoll_8h_source_l00051}{RAGDOLL\+\_\+\+RIGHT\+\_\+\+LOWER\+\_\+\+ARM}}, \mbox{\hyperlink{ragdoll_8h_source_l00055}{RAGDOLL\+\_\+\+RIGHT\+\_\+\+LOWER\+\_\+\+LEG}}, \mbox{\hyperlink{ragdoll_8h_source_l00050}{RAGDOLL\+\_\+\+RIGHT\+\_\+\+UPPER\+\_\+\+ARM}}, \mbox{\hyperlink{ragdoll_8h_source_l00054}{RAGDOLL\+\_\+\+RIGHT\+\_\+\+UPPER\+\_\+\+LEG}}, \mbox{\hyperlink{ragdoll_8h_source_l00047}{RAGDOLL\+\_\+\+TORSO}}, \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00105}{Graphics\+Context\+::sphere\+Textures}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+
+\Hypertarget{ragdoll_8h_a15a95f2545a01b96973e728cdd451bf9}\index{ragdoll.h@{ragdoll.h}!DrawRagdoll@{DrawRagdoll}}
+\index{DrawRagdoll@{DrawRagdoll}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{DrawRagdoll()}{DrawRagdoll()}}
+{\footnotesize\ttfamily \label{ragdoll_8h_a15a95f2545a01b96973e728cdd451bf9} 
+void Draw\+Ragdoll (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRagDoll}{Rag\+Doll}} \texorpdfstring{$\ast$}{*}}]{ragdoll}{, }\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Render a ragdoll to the screen. 
+
+Renders all body parts of the ragdoll using the framework\textquotesingle{}s existing rendering system.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ragdoll} & Pointer to the ragdoll structure \\
+\hline
+{\em ctx} & Pointer to the graphics context\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Uses the same draw\+Geom system as other physics bodies 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{ragdoll_8c_a280e6f0bf4084257707b2e69342bfa61}{Create\+Ragdoll} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8c_source_l00455}{455}} of file \mbox{\hyperlink{ragdoll_8c_source}{ragdoll.\+c}}.
+
+
+
+References \mbox{\hyperlink{ragdoll_8h_source_l00039}{Rag\+Doll\+::body\+Count}}, \mbox{\hyperlink{raylibODE_8c_source_l00763}{draw\+Geom()}}, and \mbox{\hyperlink{ragdoll_8h_source_l00036}{Rag\+Doll\+::geoms}}.
+
+\Hypertarget{ragdoll_8h_ab17f6d5cfecd7a8573b900f78460c816}\index{ragdoll.h@{ragdoll.h}!FreeRagdoll@{FreeRagdoll}}
+\index{FreeRagdoll@{FreeRagdoll}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{FreeRagdoll()}{FreeRagdoll()}}
+{\footnotesize\ttfamily \label{ragdoll_8h_ab17f6d5cfecd7a8573b900f78460c816} 
+void Free\+Ragdoll (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\mbox{\hyperlink{structRagDoll}{Rag\+Doll}} \texorpdfstring{$\ast$}{*}}]{ragdoll}{}\end{DoxyParamCaption})}
+
+
+
+Free a ragdoll and all its resources. 
+
+Properly destroys all ODE bodies, geoms, joints, and motors associated with the ragdoll, and frees the wrapper structure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & Pointer to physics context \\
+\hline
+{\em ragdoll} & Pointer to the ragdoll structure to free\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Removes ragdoll from framework\textquotesingle{}s object list 
+
+Frees all allocated memory for bodies, geoms, joints
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{ragdoll_8c_a280e6f0bf4084257707b2e69342bfa61}{Create\+Ragdoll} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8c_source_l00483}{483}} of file \mbox{\hyperlink{ragdoll_8c_source}{ragdoll.\+c}}.
+
+
+
+References \mbox{\hyperlink{ragdoll_8h_source_l00035}{Rag\+Doll\+::bodies}}, \mbox{\hyperlink{ragdoll_8h_source_l00039}{Rag\+Doll\+::body\+Count}}, \mbox{\hyperlink{clist_8c_source_l00146}{clist\+Delete\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00707}{Free\+Body\+And\+Geoms()}}, \mbox{\hyperlink{ragdoll_8h_source_l00036}{Rag\+Doll\+::geoms}}, \mbox{\hyperlink{ragdoll_8h_source_l00040}{Rag\+Doll\+::joint\+Count}}, \mbox{\hyperlink{ragdoll_8h_source_l00037}{Rag\+Doll\+::joints}}, \mbox{\hyperlink{ragdoll_8h_source_l00041}{Rag\+Doll\+::motor\+Count}}, \mbox{\hyperlink{ragdoll_8h_source_l00038}{Rag\+Doll\+::motors}}, \mbox{\hyperlink{raylibODE_8h_source_l00048}{entity\+::node}}, and \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}.
+
+\Hypertarget{ragdoll_8h_ae5044c65f2f6758624a2182347b6d945}\index{ragdoll.h@{ragdoll.h}!GetRagdollSpawnPosition@{GetRagdollSpawnPosition}}
+\index{GetRagdollSpawnPosition@{GetRagdollSpawnPosition}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{GetRagdollSpawnPosition()}{GetRagdollSpawnPosition()}}
+{\footnotesize\ttfamily \label{ragdoll_8h_ae5044c65f2f6758624a2182347b6d945} 
+Vector3 Get\+Ragdoll\+Spawn\+Position (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Get a random spawn position for ragdolls. 
+
+Generates a random position within the configured spawn volume for ragdoll objects. This helps spread out multiple ragdolls when they are created.
+
+\begin{DoxyReturn}{Returns}
+Random Vector3 position within spawn bounds
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Spawn bounds are defined by RAGDOLL\+\_\+\+SPAWN\+\_\+\texorpdfstring{$\ast$}{*} constants 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{ragdoll_8h_a62ae838f84574f00dc0b59766651ae8d}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+CENTER\+\_\+X} 
+
+\doxylink{ragdoll_8h_ad49513db09a56b09244fe175a4433ae6}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+CENTER\+\_\+Z} 
+
+\doxylink{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+HALF\+\_\+\+EXTENT} 
+
+\doxylink{ragdoll_8h_ab3762f5ad156fe8e366ff6f85bca6ebc}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+MIN\+\_\+Y} 
+
+\doxylink{ragdoll_8h_a2fc164e6dd8fb737a26d1ed64bce2650}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+MAX\+\_\+Y} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8c_source_l00081}{81}} of file \mbox{\hyperlink{ragdoll_8c_source}{ragdoll.\+c}}.
+
+
+
+References \mbox{\hyperlink{ragdoll_8h_source_l00072}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+CENTER\+\_\+X}}, \mbox{\hyperlink{ragdoll_8h_source_l00073}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+CENTER\+\_\+Z}}, \mbox{\hyperlink{ragdoll_8h_source_l00074}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+HALF\+\_\+\+EXTENT}}, \mbox{\hyperlink{ragdoll_8h_source_l00076}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+MAX\+\_\+Y}}, \mbox{\hyperlink{ragdoll_8h_source_l00075}{RAGDOLL\+\_\+\+SPAWN\+\_\+\+MIN\+\_\+Y}}, and \mbox{\hyperlink{raylibODE_8c_source_l00208}{rndf()}}.
+
+\Hypertarget{ragdoll_8h_aabb2deb6a54bb247892b4a5fabd6449c}\index{ragdoll.h@{ragdoll.h}!UpdateRagdollMotors@{UpdateRagdollMotors}}
+\index{UpdateRagdollMotors@{UpdateRagdollMotors}!ragdoll.h@{ragdoll.h}}
+\doxysubsubsection{\texorpdfstring{UpdateRagdollMotors()}{UpdateRagdollMotors()}}
+{\footnotesize\ttfamily \label{ragdoll_8h_aabb2deb6a54bb247892b4a5fabd6449c} 
+void Update\+Ragdoll\+Motors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRagDoll}{Rag\+Doll}} \texorpdfstring{$\ast$}{*}}]{ragdoll}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{motor\+Forces}{}\end{DoxyParamCaption})}
+
+
+
+Update ragdoll joint motors. 
+
+Applies motor forces to the ragdoll\textquotesingle{}s joints for control. This is useful for neural network or reinforcement learning control of the ragdoll.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ragdoll} & Pointer to the ragdoll structure \\
+\hline
+{\em motor\+Forces} & Array of motor force values (one per joint)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Array should have ragdoll-\/\texorpdfstring{$>$}{>}joint\+Count elements for hinge joints 
+
+For universal joints, uses ragdoll-\/\texorpdfstring{$>$}{>}joint\+Count \texorpdfstring{$\ast$}{*} 2 elements 
+
+Force of 0 disables the motor for that joint
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{ragdoll_8c_a280e6f0bf4084257707b2e69342bfa61}{Create\+Ragdoll} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{ragdoll_8c_source_l00417}{417}} of file \mbox{\hyperlink{ragdoll_8c_source}{ragdoll.\+c}}.
+
+
+
+References \mbox{\hyperlink{ragdoll_8h_source_l00040}{Rag\+Doll\+::joint\+Count}}, and \mbox{\hyperlink{ragdoll_8h_source_l00037}{Rag\+Doll\+::joints}}.
+

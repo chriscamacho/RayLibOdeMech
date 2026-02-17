@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structPhysicsContext" kind="struct" language="C++" prot="public">
+    <compoundname>PhysicsContext</compoundname>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" prot="public" static="no" mutable="no">
+        <type>dWorldID</type>
+        <definition>dWorldID PhysicsContext::world</definition>
+        <argsstring></argsstring>
+        <name>world</name>
+        <qualifiedname>PhysicsContext::world</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="117" column="14" bodyfile="raylibODE.h" bodystart="117" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1acdd1e62ab4a9d0ab632e283e6ccdaf71" compoundref="raylibODE_8c" startline="861" endline="881">createRotor</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" compoundref="init_8c" startline="158" endline="193">InitPhysics</referencedby>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</referencedby>
+        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="230" endline="253">stepPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" prot="public" static="no" mutable="no">
+        <type>dSpaceID</type>
+        <definition>dSpaceID PhysicsContext::space</definition>
+        <argsstring></argsstring>
+        <name>space</name>
+        <qualifiedname>PhysicsContext::space</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="118" column="14" bodyfile="raylibODE.h" bodystart="118" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" compoundref="raylibODE_8c" startline="282" endline="292">createSphereGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="raylibODE_8c_1a9aee3b647643b29e683644a67e7e5f3c" compoundref="raylibODE_8c" startline="671" endline="704">getEntityFromMouse</referencedby>
+        <referencedby refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" compoundref="init_8c" startline="158" endline="193">InitPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="230" endline="253">stepPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" prot="public" static="no" mutable="no">
+        <type>dJointGroupID</type>
+        <definition>dJointGroupID PhysicsContext::contactgroup</definition>
+        <argsstring></argsstring>
+        <name>contactgroup</name>
+        <qualifiedname>PhysicsContext::contactgroup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="119" column="19" bodyfile="raylibODE.h" bodystart="119" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" compoundref="init_8c" startline="158" endline="193">InitPhysics</referencedby>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</referencedby>
+        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="230" endline="253">stepPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float PhysicsContext::frameTime</definition>
+        <argsstring></argsstring>
+        <name>frameTime</name>
+        <qualifiedname>PhysicsContext::frameTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="120" column="11" bodyfile="raylibODE.h" bodystart="120" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" compoundref="raylibODE_8c" startline="230" endline="253">stepPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" prot="public" static="no" mutable="no">
+        <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+        <definition>clist_t* PhysicsContext::objList</definition>
+        <argsstring></argsstring>
+        <name>objList</name>
+        <qualifiedname>PhysicsContext::objList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="121" column="9" bodyfile="raylibODE.h" bodystart="121" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="906" endline="917">drawBodies</referencedby>
+        <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="483" endline="523">FreeRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
+        <referencedby refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" compoundref="init_8c" startline="158" endline="193">InitPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" prot="public" static="no" mutable="no">
+        <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+        <definition>clist_t* PhysicsContext::statics</definition>
+        <argsstring></argsstring>
+        <name>statics</name>
+        <qualifiedname>PhysicsContext::statics</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="122" column="9" bodyfile="raylibODE.h" bodystart="122" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" compoundref="raylibODE_8c" startline="931" endline="940">drawStatics</referencedby>
+        <referencedby refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" compoundref="init_8c" startline="158" endline="193">InitPhysics</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>PhysicsContext</label>
+        <link refid="structPhysicsContext"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>objList</edgelabel>
+          <edgelabel>statics</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>__clist</label>
+        <link refid="struct____clist"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>head</edgelabel>
+          <edgelabel>tail</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>__cnode</label>
+        <link refid="struct____cnode"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="raylibODE.h" line="116" column="1" bodyfile="raylibODE.h" bodystart="116" bodyend="123"/>
+    <listofallmembers>
+      <member refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" prot="public" virt="non-virtual"><scope>PhysicsContext</scope><name>contactgroup</name></member>
+      <member refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" prot="public" virt="non-virtual"><scope>PhysicsContext</scope><name>frameTime</name></member>
+      <member refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" prot="public" virt="non-virtual"><scope>PhysicsContext</scope><name>objList</name></member>
+      <member refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" prot="public" virt="non-virtual"><scope>PhysicsContext</scope><name>space</name></member>
+      <member refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" prot="public" virt="non-virtual"><scope>PhysicsContext</scope><name>statics</name></member>
+      <member refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" prot="public" virt="non-virtual"><scope>PhysicsContext</scope><name>world</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

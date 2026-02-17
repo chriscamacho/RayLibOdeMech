@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="struct____clist" kind="struct" language="C++" prot="public">
+    <compoundname>__clist</compoundname>
+    <includes refid="clist_8h" local="no">clist.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct____clist_1a87719175a9395449ee1db0221b39688a" prot="public" static="no" mutable="no">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t* __clist::head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <qualifiedname>__clist::head</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the first node in the list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="27" column="13" bodyfile="clist.h" bodystart="27" bodyend="-1"/>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</referencedby>
+        <referencedby refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</referencedby>
+        <referencedby refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</referencedby>
+        <referencedby refid="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" compoundref="clist_8c" startline="119" endline="131">clistFindNode</referencedby>
+        <referencedby refid="clist_8c_1a97454fa26f4edb61884e4e46b04fc7e6" compoundref="clist_8c" startline="83" endline="102">clistInsertNode</referencedby>
+        <referencedby refid="clist_8c_1ad3cab96837fd66c4660c60389246993d" compoundref="clist_8c" startline="336" endline="339">clistIsEmpty</referencedby>
+        <referencedby refid="clist_8c_1ae9b045d3ebb0516cfaf27f605abc59e6" compoundref="clist_8c" startline="247" endline="255">clistIterateForward</referencedby>
+        <referencedby refid="clist_8c_1a4b391c55e96f84010610ab7a4ea1f2a2" compoundref="clist_8c" startline="286" endline="308">clistSort</referencedby>
+        <referencedby refid="clist_8c_1a68501b7c1ec4ac1a0a67510f34691040" compoundref="clist_8c" startline="317" endline="327">clistTotal</referencedby>
+        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="906" endline="917">drawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" compoundref="raylibODE_8c" startline="931" endline="940">drawStatics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" prot="public" static="no" mutable="no">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t* __clist::tail</definition>
+        <argsstring></argsstring>
+        <name>tail</name>
+        <qualifiedname>__clist::tail</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the last node in the list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="28" column="13" bodyfile="clist.h" bodystart="28" bodyend="-1"/>
+        <referencedby refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</referencedby>
+        <referencedby refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</referencedby>
+        <referencedby refid="clist_8c_1a7c84f26dcd770e975590cd5ee144369c" compoundref="clist_8c" startline="267" endline="275">clistIterateBackward</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>__clist</label>
+        <link refid="struct____clist"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>head</edgelabel>
+          <edgelabel>tail</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>__cnode</label>
+        <link refid="struct____cnode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="clist.h" line="24" column="1" bodyfile="clist.h" bodystart="25" bodyend="30"/>
+    <listofallmembers>
+      <member refid="struct____clist_1a87719175a9395449ee1db0221b39688a" prot="public" virt="non-virtual"><scope>__clist</scope><name>head</name></member>
+      <member refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" prot="public" virt="non-virtual"><scope>__clist</scope><name>tail</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

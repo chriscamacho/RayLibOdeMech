@@ -1,0 +1,82 @@
+\doxysection{collision.\+c File Reference}
+\hypertarget{collision_8c}{}\label{collision_8c}\index{collision.c@{collision.c}}
+
+
+Collision detection and response for the physics framework.  
+
+
+{\ttfamily \#include "{}raylib\+ODE.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}{MAX\+\_\+\+CONTACTS}}~8
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{collision_8c_ad6680ae487b581622710e22bdfdb3146}{near\+Callback}} (void \texorpdfstring{$\ast$}{*}data, d\+Geom\+ID o1, d\+Geom\+ID o2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Collision detection and response for the physics framework. 
+
+This file handles all collision detection between physics bodies using ODE\textquotesingle{}s collision system. It provides the near\+Callback function that is called by ODE during collision detection.
+
+\begin{DoxyAuthor}{Author}
+Chris Camacho (codifies -\/ \href{http://bedroomcoders.co.uk/}{\texttt{http\+://bedroomcoders.\+co.\+uk/}}) 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2026
+\end{DoxyDate}
+\begin{DoxyNote}{Note}
+This module uses d\+Space\+Collide for broad-\/phase collision detection 
+
+Maximum contacts per collision pair is limited to 8 
+\end{DoxyNote}
+
+
+Definition in file \mbox{\hyperlink{collision_8c_source}{collision.\+c}}.
+
+
+
+\label{doc-define-members}
+\Hypertarget{collision_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}\index{collision.c@{collision.c}!MAX\_CONTACTS@{MAX\_CONTACTS}}
+\index{MAX\_CONTACTS@{MAX\_CONTACTS}!collision.c@{collision.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_CONTACTS}{MAX\_CONTACTS}}
+{\footnotesize\ttfamily \label{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3} 
+\#define MAX\+\_\+\+CONTACTS~8}
+
+
+
+Definition at line \mbox{\hyperlink{collision_8c_source_l00041}{41}} of file \mbox{\hyperlink{collision_8c_source}{collision.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{collision_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{collision_8c_ad6680ae487b581622710e22bdfdb3146}\index{collision.c@{collision.c}!nearCallback@{nearCallback}}
+\index{nearCallback@{nearCallback}!collision.c@{collision.c}}
+\doxysubsubsection{\texorpdfstring{nearCallback()}{nearCallback()}}
+{\footnotesize\ttfamily \label{collision_8c_ad6680ae487b581622710e22bdfdb3146} 
+void near\+Callback (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{d\+Geom\+ID}]{o1}{, }\item[{d\+Geom\+ID}]{o2}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{collision_8c_source_l00043}{43}} of file \mbox{\hyperlink{collision_8c_source}{collision.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00071}{geom\+Info\+::collidable}}, \mbox{\hyperlink{raylibODE_8h_source_l00119}{Physics\+Context\+::contactgroup}}, \mbox{\hyperlink{collision_8c_source_l00041}{MAX\+\_\+\+CONTACTS}}, \mbox{\hyperlink{raylibODE_8h_source_l00084}{geom\+Info\+::trigger\+On\+Collide}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+
+
+
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00230}{step\+Physics()}}.
+

@@ -1,0 +1,88 @@
+\doxysection{rlights.\+h}
+\hypertarget{rlights_8h_source}{}\label{rlights_8h_source}\mbox{\hyperlink{rlights_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00001}00001\ \textcolor{comment}{/**********************************************************************************************}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00002}00002\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00003}00003\ \textcolor{comment}{*\ \ \ raylib.lights\ -\/\ Some\ useful\ functions\ to\ deal\ with\ lights\ data}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00004}00004\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00005}00005\ \textcolor{comment}{*\ \ \ CONFIGURATION:}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00006}00006\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00007}00007\ \textcolor{comment}{*\ \ \ \#define\ RLIGHTS\_IMPLEMENTATION}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00008}00008\ \textcolor{comment}{*\ \ \ \ \ \ \ DEPRECATED:\ Implementation\ is\ now\ in\ rlights.c}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00009}00009\ \textcolor{comment}{*\ \ \ \ \ \ \ This\ header\ now\ only\ contains\ declarations.}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00010}00010\ \textcolor{comment}{*\ \ \ \ \ \ \ modified\ codifies\ (2026)\ under\ same\ licence}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00011}00011\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00012}00012\ \textcolor{comment}{*\ \ \ LICENSE:\ zlib/libpng}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00013}00013\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00014}00014\ \textcolor{comment}{*\ \ \ Copyright\ (c)\ 2017-\/2023\ Victor\ Fisac\ (@victorfisac)\ and\ Ramon\ Santamaria\ (@raysan5)}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00015}00015\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00016}00016\ \textcolor{comment}{*\ \ \ This\ software\ is\ provided\ "{}as-\/is"{},\ without\ any\ express\ or\ implied\ warranty.\ In\ no\ event}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00017}00017\ \textcolor{comment}{*\ \ \ will\ the\ authors\ be\ held\ liable\ for\ any\ damages\ arising\ from\ the\ use\ of\ this\ software.}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00018}00018\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00019}00019\ \textcolor{comment}{*\ \ \ Permission\ is\ granted\ to\ anyone\ to\ use\ this\ software\ for\ any\ purpose,\ including\ commercial}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00020}00020\ \textcolor{comment}{*\ \ \ applications,\ and\ to\ alter\ it\ and\ redistribute\ it\ freely,\ subject\ to\ the\ following\ restrictions:}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00021}00021\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00022}00022\ \textcolor{comment}{*\ \ \ \ \ 1.\ The\ origin\ of\ this\ software\ must\ not\ be\ misrepresented;\ you\ must\ not\ claim\ that\ you}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00023}00023\ \textcolor{comment}{*\ \ \ \ \ wrote\ the\ original\ software.\ If\ you\ use\ this\ software\ in\ a\ product,\ an\ acknowledgment}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00024}00024\ \textcolor{comment}{*\ \ \ \ \ in\ the\ product\ documentation\ would\ be\ appreciated\ but\ is\ not\ required.}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00025}00025\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00026}00026\ \textcolor{comment}{*\ \ \ \ \ 2.\ Altered\ source\ versions\ must\ be\ plainly\ marked\ as\ such,\ and\ must\ not\ be\ misrepresented}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00027}00027\ \textcolor{comment}{*\ \ \ \ \ as\ being\ the\ original\ software.}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00028}00028\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00029}00029\ \textcolor{comment}{*\ \ \ \ \ 3.\ This\ notice\ may\ not\ be\ removed\ or\ altered\ from\ any\ source\ distribution.}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00030}00030\ \textcolor{comment}{*}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00031}00031\ \textcolor{comment}{**********************************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00033}00033\ \textcolor{preprocessor}{\#ifndef\ RLIGHTS\_H}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00034}00034\ \textcolor{preprocessor}{\#define\ RLIGHTS\_H}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00036}00036\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00037}00037\ \textcolor{comment}{//\ Defines\ and\ Macros}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00038}00038\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00039}\mbox{\hyperlink{rlights_8h_a737b417f16ea225cf15e8d4c23df53dc}{00039}}\ \textcolor{preprocessor}{\#define\ MAX\_LIGHTS\ \ 4\ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ Max\ dynamic\ lights\ supported\ by\ shader}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00041}00041\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00042}00042\ \textcolor{comment}{//\ Types\ and\ Structures\ Definition}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00043}00043\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00045}00045\ \textcolor{comment}{//\ Light\ data}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00046}\mbox{\hyperlink{structLight}{00046}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00047}\mbox{\hyperlink{structLight_ad5c0b51a5d09ab56d1119706b58a6941}{00047}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLight_ad5c0b51a5d09ab56d1119706b58a6941}{type}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00048}\mbox{\hyperlink{structLight_a6dfed8051e33dde2baaef3e50d74084e}{00048}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structLight_a6dfed8051e33dde2baaef3e50d74084e}{enabled}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00049}\mbox{\hyperlink{structLight_aaf0e960606cf34ba827b5fef2c74b042}{00049}}\ \ \ \ \ Vector3\ \mbox{\hyperlink{structLight_aaf0e960606cf34ba827b5fef2c74b042}{position}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00050}\mbox{\hyperlink{structLight_ada0bd72079232cbfaba34001229e8cfa}{00050}}\ \ \ \ \ Vector3\ \mbox{\hyperlink{structLight_ada0bd72079232cbfaba34001229e8cfa}{target}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00051}\mbox{\hyperlink{structLight_ad7a168d26aed1bf7cca1a8d8e6f8ada4}{00051}}\ \ \ \ \ Color\ \mbox{\hyperlink{structLight_ad7a168d26aed1bf7cca1a8d8e6f8ada4}{color}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00052}\mbox{\hyperlink{structLight_af8b645352e549c52ace8731a3aca34c4}{00052}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structLight_af8b645352e549c52ace8731a3aca34c4}{attenuation}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ Shader\ locations}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00055}\mbox{\hyperlink{structLight_af606501e4853296552b5cfb03f37fae8}{00055}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLight_af606501e4853296552b5cfb03f37fae8}{enabledLoc}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00056}\mbox{\hyperlink{structLight_a69074799494a828b60170d962675fb90}{00056}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLight_a69074799494a828b60170d962675fb90}{typeLoc}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00057}\mbox{\hyperlink{structLight_a448d502e227576d9ffa8627e050065ef}{00057}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLight_a448d502e227576d9ffa8627e050065ef}{positionLoc}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00058}\mbox{\hyperlink{structLight_a39192f609cfe392cca178e4a7f36937b}{00058}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLight_a39192f609cfe392cca178e4a7f36937b}{targetLoc}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00059}\mbox{\hyperlink{structLight_a98df12cebc437d739f22dd809b66878c}{00059}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLight_a98df12cebc437d739f22dd809b66878c}{colorLoc}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00060}\mbox{\hyperlink{structLight_a45d4a94a276ab0870a108f4a4a460e0a}{00060}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLight_a45d4a94a276ab0870a108f4a4a460e0a}{attenuationLoc}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00061}00061\ \}\ \mbox{\hyperlink{structLight}{Light}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00063}00063\ \textcolor{comment}{//\ Light\ type}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00064}\mbox{\hyperlink{rlights_8h_adc3ec8293e6a97ebe43f0196b9a7f638}{00064}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00065}\mbox{\hyperlink{rlights_8h_adc3ec8293e6a97ebe43f0196b9a7f638ab12dea138375f6dfacbd2ffbb98135a0}{00065}}\ \ \ \ \ \mbox{\hyperlink{rlights_8h_adc3ec8293e6a97ebe43f0196b9a7f638ab12dea138375f6dfacbd2ffbb98135a0}{LIGHT\_DIRECTIONAL}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00066}\mbox{\hyperlink{rlights_8h_adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c}{00066}}\ \ \ \ \ \mbox{\hyperlink{rlights_8h_adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c}{LIGHT\_POINT}}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00067}00067\ \}\ \mbox{\hyperlink{rlights_8h_adc3ec8293e6a97ebe43f0196b9a7f638}{LightType}};}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00069}00069\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00070}00070\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Prevents\ name\ mangling\ of\ functions}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00071}00071\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00073}00073\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00074}00074\ \textcolor{comment}{//\ Module\ Functions\ Declaration}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00075}00075\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00076}00076\ \mbox{\hyperlink{structLight}{Light}}\ \mbox{\hyperlink{rlights_8h_afc243bc3de16abf2627f9ae16dd484de}{CreateLight}}(\textcolor{keywordtype}{int}\ type,\ Vector3\ position,\ Vector3\ target,\ Color\ color,\ Shader\ shader);\ \ \ \textcolor{comment}{//\ Create\ a\ light\ and\ get\ shader\ locations}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00077}00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{rlights_8h_a147b7e5788024577fc8abb7df32e4c5c}{UpdateLightValues}}(Shader\ shader,\ \mbox{\hyperlink{structLight}{Light}}\ light);\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Send\ light\ properties\ to\ shader}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00079}00079\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00081}00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{rlights_8h_source_l00083}00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RLIGHTS\_H}}
+
+\end{DoxyCode}

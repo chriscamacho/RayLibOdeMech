@@ -1,0 +1,918 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="clist_8c" kind="file" language="C++">
+    <compoundname>clist.c</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="clist_8h" local="yes">clist.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>clist.h</label>
+        <link refid="clist_8h"/>
+      </node>
+      <node id="1">
+        <label>clist.c</label>
+        <link refid="clist_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>stdbool.h</label>
+      </node>
+      <node id="2">
+        <label>stdio.h</label>
+      </node>
+      <node id="4">
+        <label>stdlib.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="clist_8c_1aa1b25ffe8dee701771e947e6f9cf06ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+        <definition>clist_t * clistCreateList</definition>
+        <argsstring>()</argsstring>
+        <name>clistCreateList</name>
+        <briefdescription>
+<para>creates a list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates space for the list structure clearing the head and tail pointer ready for use.</para>
+<para><simplesect kind="return"><para>provides a pointer to the newly created list </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="18" column="8" bodyfile="clist.c" bodystart="18" bodyend="33"/>
+        <referencedby refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" compoundref="init_8c" startline="158" endline="193">InitPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a264922774fdf767e31797fe81f2231be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t * clistAddNode</definition>
+        <argsstring>(clist_t *list, void *data)</argsstring>
+        <name>clistAddNode</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>adds a node to a list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>allocates space for a new node and places the node at the end of the list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list to add the node to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data that this node points to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the newly allocated node </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="47" column="8" bodyfile="clist.c" bodystart="47" bodyend="66"/>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
+        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a97454fa26f4edb61884e4e46b04fc7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t * clistInsertNode</definition>
+        <argsstring>(clist_t *list, cnode_t *node, void *data)</argsstring>
+        <name>clistInsertNode</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>inserts a node at any point in the list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The newly created node takes the position of the inserted node, with the insert node and all subsequent nodes coming after it in the list order</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list you want to insert the node into </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the node in the list at the position you want to insert the new node at </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data new node points to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the newly created node is returned </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="83" column="8" bodyfile="clist.c" bodystart="83" bodyend="102"/>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <references refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" compoundref="clist_8h" startline="12">__cnode::prev</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t * clistFindNode</definition>
+        <argsstring>(clist_t *list, void *ptr)</argsstring>
+        <name>clistFindNode</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>search for a node in the list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>brute force search for a node pointing to specific data generally you should be iterating lists and not dealing with specific nodes individually but this could come in handy</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list you want to find the node in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>finds the node that points to this data</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>checks each node in turn looking for a node that points to ptr returns NULL if it doesn&apos;t find a match </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="119" column="8" bodyfile="clist.c" bodystart="119" bodyend="131"/>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <referencedby refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" compoundref="clist_8c" startline="178" endline="187">clistDeleteNodeFromData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistDeleteNode</definition>
+        <argsstring>(clist_t *list, cnode_t **pnode)</argsstring>
+        <name>clistDeleteNode</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> **</type>
+          <declname>pnode</declname>
+        </param>
+        <briefdescription>
+<para>delete a node </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this unlinks the node from the list and then frees its memory (the user is responsible for the data the nodes data pointer points to) the pointer to the node (pnode) is then NULLed to aid bug and resource checking</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list containing the node you wish to delete </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">pnode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to the node pointer you want to delete, the node pointer is returned NULLed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="146" column="6" bodyfile="clist.c" bodystart="146" bodyend="164"/>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <references refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" compoundref="clist_8h" startline="12">__cnode::prev</references>
+        <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
+        <referencedby refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" compoundref="clist_8c" startline="178" endline="187">clistDeleteNodeFromData</referencedby>
+        <referencedby refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</referencedby>
+        <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="483" endline="523">FreeRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistDeleteNodeFromData</definition>
+        <argsstring>(clist_t *list, void *ptr)</argsstring>
+        <name>clistDeleteNodeFromData</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>delete a node (containing a pointer) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this unlinks the node from the list and then frees its memory (the user is responsible for the data the nodes data pointer points to) the pointer to the node (pnode) is then NULLed to aid bug and resource checking the node is found by searching for a node with a matching data pointer</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list containing the node you wish to delete </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to data, for selecting the node </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="178" column="6" bodyfile="clist.c" bodystart="178" bodyend="187"/>
+        <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
+        <references refid="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" compoundref="clist_8c" startline="119" endline="131">clistFindNode</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistEmptyList</definition>
+        <argsstring>(clist_t *list)</argsstring>
+        <name>clistEmptyList</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>empty a list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this will iterate the list freeing all the nodes in it. The list is still valid for use afterwards</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list you want emptying </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="198" column="6" bodyfile="clist.c" bodystart="198" bodyend="206"/>
+        <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <referencedby refid="clist_8c_1a50196c474127f9c1924abae6a1b74b69" compoundref="clist_8c" startline="219" endline="224">clistFreeList</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a50196c474127f9c1924abae6a1b74b69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistFreeList</definition>
+        <argsstring>(clist_t **list)</argsstring>
+        <name>clistFreeList</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> **</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>free a list and all its resources </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this empties and frees all resources used by the list. Once freed it cannot be used...<linebreak/>
+ This does not free what a node is pointing to just the nodes data structure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The address of the list pointer. It will be freed and then set to NULL to aid bug &amp; resource checking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="219" column="6" bodyfile="clist.c" bodystart="219" bodyend="224"/>
+        <references refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</references>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1ae9b045d3ebb0516cfaf27f605abc59e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistIterateForward</definition>
+        <argsstring>(clist_t *list, void(*nodeFunction)(cnode_t *node))</argsstring>
+        <name>clistIterateForward</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void(*)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *node)</type>
+          <declname>nodeFunction</declname>
+        </param>
+        <briefdescription>
+<para>iterate a list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This moves forward through a list calling a callback function for each node in the list. If a callback is not apropriate, because for example you need to access local variables then you should iterate the list in this manner</para>
+<para><programlisting><codeline><highlight class="normal">cnode_t<sp/>*node=list-&gt;head;</highlight></codeline>
+<codeline><highlight class="normal">while<sp/>(node!=NULL)<sp/>{</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>//<sp/>your<sp/>code<sp/>here</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>node=node-&gt;next;</highlight></codeline>
+<codeline><highlight class="normal">}</highlight></codeline>
+</programlisting></para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list to iterate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nodeFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the callback should return nothing and take only a node pointer as its parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="247" column="6" bodyfile="clist.c" bodystart="247" bodyend="255"/>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a7c84f26dcd770e975590cd5ee144369c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistIterateBackward</definition>
+        <argsstring>(clist_t *list, void(*nodeFunction)(cnode_t *node))</argsstring>
+        <name>clistIterateBackward</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void(*)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *node)</type>
+          <declname>nodeFunction</declname>
+        </param>
+        <briefdescription>
+<para>Iterate backwards through a list. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>identical to clistIterateForwards execept in direction</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list to iterate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nodeFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the callback should return nothing and take only a node pointer as its parameter </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="267" column="6" bodyfile="clist.c" bodystart="267" bodyend="275"/>
+        <references refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" compoundref="clist_8h" startline="12">__cnode::prev</references>
+        <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a4b391c55e96f84010610ab7a4ea1f2a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistSort</definition>
+        <argsstring>(clist_t *list, int(*cmpFunction)(cnode_t *n1, cnode_t *n2))</argsstring>
+        <name>clistSort</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int(*)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *n1, <ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *n2)</type>
+          <declname>cmpFunction</declname>
+        </param>
+        <briefdescription>
+<para>sort a list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>does a simple bubble sort on a list depending on node compare callback</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list to iterate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">cmpFunction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the callback which should return 1 if n1 &gt; n2 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="286" column="6" bodyfile="clist.c" bodystart="286" bodyend="308"/>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1a68501b7c1ec4ac1a0a67510f34691040" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int clistTotal</definition>
+        <argsstring>(clist_t *list)</argsstring>
+        <name>clistTotal</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>number of items in list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This iterrates the list counting all the nodes</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list you wish to total </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>[out] the number of nodes in the list </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="317" column="5" bodyfile="clist.c" bodystart="317" bodyend="327"/>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8c_1ad3cab96837fd66c4660c60389246993d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int clistIsEmpty</definition>
+        <argsstring>(clist_t *list)</argsstring>
+        <name>clistIsEmpty</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>is list empty? </para>
+        </briefdescription>
+        <detaileddescription>
+<para>test to see if the list is empty</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 if empty, 0 if at least 1 node </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.c" line="336" column="5" bodyfile="clist.c" bodystart="336" bodyend="339"/>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="clist_8h" kindref="compound">clist.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="9"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>creates<sp/>a<sp/>list</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Allocates<sp/>space<sp/>for<sp/>the<sp/>list<sp/>structure<sp/>clearing<sp/>the</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/>head<sp/>and<sp/>tail<sp/>pointer<sp/>ready<sp/>for<sp/>use.</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@return<sp/>provides<sp/>a<sp/>pointer<sp/>to<sp/>the<sp/>newly<sp/>created<sp/>list</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="clist_8c_1aa1b25ffe8dee701771e947e6f9cf06ed" refkind="member"><highlight class="normal"><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<ref refid="clist_8c_1aa1b25ffe8dee701771e947e6f9cf06ed" kindref="member">clistCreateList</ref>()</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>));</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!</highlight><highlight class="keyword">new</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Couldn&apos;t<sp/>allocate<sp/>memory<sp/>for<sp/>a<sp/>list\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NB<sp/>this<sp/>mini<sp/>library<sp/>was<sp/>previously<sp/>released<sp/>with<sp/>the<sp/>onus<sp/>on</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>end<sp/>user<sp/>to<sp/>check<sp/>return<sp/>values,<sp/>I<sp/>ended<sp/>up<sp/>deleting<sp/>the<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>repo<sp/>because<sp/>I<sp/>was<sp/>sick<sp/>of<sp/>people<sp/>not<sp/>reading<sp/>documentation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>posting<sp/>issues,<sp/>so<sp/>instead<sp/>you<sp/>get<sp/>an<sp/>exit...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(-1);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;head<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;tail<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(</highlight><highlight class="keyword">new</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="35"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/><sp/><sp/>adds<sp/>a<sp/>node<sp/>to<sp/>a<sp/>list</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/><sp/><sp/>allocates<sp/>space<sp/>for<sp/>a<sp/>new<sp/>node<sp/>and<sp/>places<sp/>the<sp/>node<sp/>at</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>end<sp/>of<sp/>the<sp/>list</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>to<sp/>add<sp/>the<sp/>node<sp/>to</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>data<sp/>the<sp/>data<sp/>that<sp/>this<sp/>node<sp/>points<sp/>to</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@return<sp/>the<sp/>newly<sp/>allocated<sp/>node</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="clist_8c_1a264922774fdf767e31797fe81f2231be" refkind="member"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<ref refid="clist_8c_1a264922774fdf767e31797fe81f2231be" kindref="member">clistAddNode</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>));</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!</highlight><highlight class="keyword">new</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Couldn&apos;t<sp/>allocate<sp/>memory<sp/>for<sp/>a<sp/>list\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(-1);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;prev<sp/>=<sp/>list-&gt;<ref refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" kindref="member">tail</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref><sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(new-&gt;prev<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;prev-&gt;next<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref><sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>list-&gt;<ref refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" kindref="member">tail</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref><sp/><sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(</highlight><highlight class="keyword">new</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="68"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/><sp/><sp/>inserts<sp/>a<sp/>node<sp/>at<sp/>any<sp/>point<sp/>in<sp/>the<sp/>list</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/><sp/><sp/>The<sp/>newly<sp/>created<sp/>node<sp/>takes<sp/>the<sp/>position<sp/>of<sp/>the<sp/>inserted</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*<sp/><sp/><sp/>node,<sp/>with<sp/>the<sp/>insert<sp/>node<sp/>and<sp/>all<sp/>subsequent<sp/>nodes<sp/>coming<sp/>after</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>in<sp/>the<sp/>list<sp/>order</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>you<sp/>want<sp/>to<sp/>insert<sp/>the<sp/>node<sp/>into</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>node<sp/>the<sp/>node<sp/>in<sp/>the<sp/>list<sp/>at<sp/>the<sp/>position</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*<sp/><sp/><sp/>you<sp/>want<sp/>to<sp/>insert<sp/>the<sp/>new<sp/>node<sp/>at</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>data<sp/>the<sp/>data<sp/>new<sp/>node<sp/>points<sp/>to</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@return<sp/>the<sp/>newly<sp/>created<sp/>node<sp/>is<sp/>returned</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83" refid="clist_8c_1a97454fa26f4edb61884e4e46b04fc7e6" refkind="member"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<ref refid="clist_8c_1a97454fa26f4edb61884e4e46b04fc7e6" kindref="member">clistInsertNode</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!</highlight><highlight class="keyword">new</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>printf(</highlight><highlight class="stringliteral">&quot;Couldn&apos;t<sp/>allocate<sp/>memory<sp/>for<sp/>a<sp/>node\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>exit(-1);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;next<sp/>=<sp/>node;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref><sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref><sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref>-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref><sp/>==<sp/>node)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal">-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref><sp/>=<sp/>data;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(</highlight><highlight class="keyword">new</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/>*<sp/><sp/><sp/>search<sp/>for<sp/>a<sp/>node<sp/>in<sp/>the<sp/>list</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/><sp/><sp/>brute<sp/>force<sp/>search<sp/>for<sp/>a<sp/>node<sp/>pointing<sp/>to<sp/>specific<sp/>data</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*<sp/><sp/><sp/>generally<sp/>you<sp/>should<sp/>be<sp/>iterating<sp/>lists<sp/>and<sp/>not<sp/>dealing</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/>*<sp/><sp/><sp/>with<sp/>specific<sp/>nodes<sp/>individually<sp/>but<sp/>this<sp/>could<sp/>come</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/>*<sp/><sp/><sp/>in<sp/>handy</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>you<sp/>want<sp/>to<sp/>find<sp/>the<sp/>node<sp/>in</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>ptr<sp/>finds<sp/>the<sp/>node<sp/>that<sp/>points<sp/>to<sp/>this<sp/>data</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@return<sp/>checks<sp/>each<sp/>node<sp/>in<sp/>turn<sp/>looking<sp/>for<sp/>a<sp/>node<sp/>that</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/>*<sp/><sp/><sp/>points<sp/>to<sp/>ptr<sp/>returns<sp/>NULL<sp/>if<sp/>it<sp/>doesn&apos;t<sp/>find<sp/>a<sp/>match</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" refkind="member"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<ref refid="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" kindref="member">clistFindNode</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref><sp/>==<sp/>ptr)<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(node);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>node<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(node);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="133"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/>*<sp/><sp/><sp/>delete<sp/>a<sp/>node</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details<sp/>this<sp/>unlinks<sp/>the<sp/>node<sp/>from<sp/>the<sp/>list<sp/>and<sp/>then<sp/>frees<sp/>its</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/>*<sp/><sp/><sp/>memory<sp/>(the<sp/>user<sp/>is<sp/>responsible<sp/>for<sp/>the<sp/>data<sp/>the<sp/>nodes<sp/>data<sp/>pointer<sp/>points<sp/>to)</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>pointer<sp/>to<sp/>the<sp/>node<sp/>(pnode)<sp/>is<sp/>then<sp/>NULLed<sp/>to<sp/>aid<sp/>bug<sp/>and<sp/>resource</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/>*<sp/><sp/><sp/>checking</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="141"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>containing<sp/>the<sp/>node<sp/>you<sp/>wish<sp/>to<sp/>delete</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in,<sp/>out]<sp/>pnode<sp/>a<sp/>pointer<sp/>to<sp/>the<sp/>node<sp/>pointer<sp/>you<sp/>want<sp/>to<sp/>delete,<sp/></highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>node<sp/>pointer<sp/>is<sp/>returned<sp/>NULLed</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" kindref="member">clistDeleteNode</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>**<sp/>pnode)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>*pnode;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref><sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref>-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref><sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref><sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref><sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref><sp/>==<sp/>node)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref><sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" kindref="member">tail</ref><sp/>==<sp/>node)<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>list-&gt;<ref refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" kindref="member">tail</ref><sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref>;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>free(*pnode);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>*pnode<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/>*<sp/><sp/><sp/>delete<sp/>a<sp/>node<sp/>(containing<sp/>a<sp/>pointer)</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details<sp/>this<sp/>unlinks<sp/>the<sp/>node<sp/>from<sp/>the<sp/>list<sp/>and<sp/>then<sp/>frees<sp/>its</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/>*<sp/><sp/><sp/>memory<sp/>(the<sp/>user<sp/>is<sp/>responsible<sp/>for<sp/>the<sp/>data<sp/>the<sp/>nodes<sp/>data<sp/>pointer<sp/>points<sp/>to)</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>pointer<sp/>to<sp/>the<sp/>node<sp/>(pnode)<sp/>is<sp/>then<sp/>NULLed<sp/>to<sp/>aid<sp/>bug<sp/>and<sp/>resource</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/>*<sp/><sp/><sp/>checking<sp/>the<sp/>node<sp/>is<sp/>found<sp/>by<sp/>searching<sp/>for<sp/>a<sp/>node<sp/>with<sp/>a<sp/>matching</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/>*<sp/><sp/><sp/>data<sp/>pointer</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>containing<sp/>the<sp/>node<sp/>you<sp/>wish<sp/>to<sp/>delete</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>ptr<sp/>a<sp/>pointer<sp/>to<sp/>data,<sp/>for<sp/>selecting<sp/>the<sp/>node</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178" refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" kindref="member">clistDeleteNodeFromData</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>n;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>n<sp/>=<sp/><ref refid="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" kindref="member">clistFindNode</ref>(list,<sp/>ptr);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>==<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" kindref="member">clistDeleteNode</ref>(list,<sp/>&amp;n);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="189"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/>*<sp/><sp/><sp/>empty<sp/>a<sp/>list</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="192"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/>*<sp/><sp/><sp/>this<sp/>will<sp/>iterate<sp/>the<sp/>list<sp/>freeing<sp/>all<sp/>the<sp/>nodes<sp/>in<sp/>it.</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/>*<sp/><sp/><sp/>The<sp/>list<sp/>is<sp/>still<sp/>valid<sp/>for<sp/>use<sp/>afterwards</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>you<sp/>want<sp/>emptying</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" kindref="member">clistEmptyList</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref><sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;<sp/></highlight><highlight class="comment">//<sp/>protect<sp/>head<sp/>from<sp/>nulling<sp/>by<sp/>deleteNode</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" kindref="member">clistDeleteNode</ref>(list,<sp/>&amp;node);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="208"><highlight class="comment">/**<sp/>@brief<sp/>free<sp/>a<sp/>list<sp/>and<sp/>all<sp/>its<sp/>resources</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/>*<sp/>@details</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/>*<sp/>this<sp/>empties<sp/>and<sp/>frees<sp/>all<sp/>resources<sp/>used<sp/>by<sp/>the<sp/>list.</highlight></codeline>
+<codeline lineno="212"><highlight class="comment"><sp/>*<sp/>Once<sp/>freed<sp/>it<sp/>cannot<sp/>be<sp/>used...&lt;br&gt;</highlight></codeline>
+<codeline lineno="213"><highlight class="comment"><sp/>*<sp/>This<sp/>does<sp/>not<sp/>free<sp/>what<sp/>a<sp/>node<sp/>is<sp/>pointing<sp/>to<sp/>just</highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/>*<sp/>the<sp/>nodes<sp/>data<sp/>structure.</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/>*<sp/>@param<sp/>[in,out]<sp/>list<sp/>The<sp/>address<sp/>of<sp/>the<sp/>list<sp/>pointer.<sp/>It<sp/>will<sp/>be<sp/>freed<sp/></highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/>*<sp/>and<sp/>then<sp/>set<sp/>to<sp/>NULL<sp/>to<sp/>aid<sp/>bug<sp/>&amp;<sp/>resource<sp/>checking.</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="219" refid="clist_8c_1a50196c474127f9c1924abae6a1b74b69" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1a50196c474127f9c1924abae6a1b74b69" kindref="member">clistFreeList</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>**<sp/>list)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" kindref="member">clistEmptyList</ref>(*list);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>free(*list);</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>*list<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="226"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="227"><highlight class="comment"><sp/>*<sp/><sp/><sp/>iterate<sp/>a<sp/>list</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>moves<sp/>forward<sp/>through<sp/>a<sp/>list<sp/>calling<sp/>a<sp/>callback<sp/>function</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/>*<sp/><sp/><sp/>for<sp/>each<sp/>node<sp/>in<sp/>the<sp/>list.<sp/>If<sp/>a<sp/>callback<sp/>is<sp/>not<sp/>apropriate,<sp/>because<sp/>for</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/>*<sp/><sp/><sp/>example<sp/>you<sp/>need<sp/>to<sp/>access<sp/>local<sp/>variables<sp/>then<sp/>you<sp/>should<sp/>iterate<sp/>the<sp/>list</highlight></codeline>
+<codeline lineno="233"><highlight class="comment"><sp/>*<sp/><sp/><sp/>in<sp/>this<sp/>manner</highlight></codeline>
+<codeline lineno="234"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="235"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@code</highlight></codeline>
+<codeline lineno="236"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>cnode_t<sp/>*node=list-&gt;head;</highlight></codeline>
+<codeline lineno="237"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>while<sp/>(node!=NULL)<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>//<sp/>your<sp/>code<sp/>here</highlight></codeline>
+<codeline lineno="239"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node=node-&gt;next;</highlight></codeline>
+<codeline lineno="240"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@endcode</highlight></codeline>
+<codeline lineno="242"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="243"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>to<sp/>iterate</highlight></codeline>
+<codeline lineno="244"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>nodeFunction<sp/>the<sp/>callback<sp/>should<sp/>return<sp/>nothing<sp/>and<sp/>take</highlight></codeline>
+<codeline lineno="245"><highlight class="comment"><sp/>*<sp/><sp/><sp/>only<sp/>a<sp/>node<sp/>pointer<sp/>as<sp/>its<sp/>parameter</highlight></codeline>
+<codeline lineno="246"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="247" refid="clist_8c_1ae9b045d3ebb0516cfaf27f605abc59e6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1ae9b045d3ebb0516cfaf27f605abc59e6" kindref="member">clistIterateForward</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*nodeFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node))</highlight></codeline>
+<codeline lineno="248"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeFunction(node);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="257"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Iterate<sp/>backwards<sp/>through<sp/>a<sp/>list</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/>*<sp/><sp/><sp/>identical<sp/>to<sp/>clistIterateForwards<sp/>execept<sp/>in<sp/>direction</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="263"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>to<sp/>iterate</highlight></codeline>
+<codeline lineno="264"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>nodeFunction<sp/>the<sp/>callback<sp/>should<sp/>return<sp/>nothing<sp/>and<sp/>take</highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/>*<sp/><sp/><sp/>only<sp/>a<sp/>node<sp/>pointer<sp/>as<sp/>its<sp/>parameter</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="267" refid="clist_8c_1a7c84f26dcd770e975590cd5ee144369c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1a7c84f26dcd770e975590cd5ee144369c" kindref="member">clistIterateBackward</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>(*nodeFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node))</highlight></codeline>
+<codeline lineno="268"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>list-&gt;<ref refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" kindref="member">tail</ref>;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeFunction(node);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref>;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="277"><highlight class="comment">/**<sp/>@brief</highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/>*<sp/>sort<sp/>a<sp/>list</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/>*<sp/>@details</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/>*<sp/>does<sp/>a<sp/>simple<sp/>bubble<sp/>sort<sp/>on<sp/>a<sp/>list<sp/>depending<sp/>on<sp/>node<sp/>compare<sp/>callback</highlight></codeline>
+<codeline lineno="282"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="283"><highlight class="comment"><sp/>*<sp/>@param<sp/>[in]<sp/>list<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>the<sp/>list<sp/>to<sp/>iterate</highlight></codeline>
+<codeline lineno="284"><highlight class="comment"><sp/>*<sp/>@param<sp/>[in]<sp/>cmpFunction<sp/><sp/>the<sp/>callback<sp/>which<sp/>should<sp/>return<sp/>1<sp/>if<sp/>n1<sp/>&gt;<sp/>n2</highlight></codeline>
+<codeline lineno="285"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="286" refid="clist_8c_1a4b391c55e96f84010610ab7a4ea1f2a2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1a4b391c55e96f84010610ab7a4ea1f2a2" kindref="member">clistSort</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(*cmpFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>n1,<sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>n2))</highlight></codeline>
+<codeline lineno="287"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>hasSwapped<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node1,<sp/>*<sp/>node2;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(hasSwapped<sp/>==<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hasSwapped<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node1<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node1<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node2<sp/>=<sp/>node1-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node2<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cmpFunction(node1,<sp/>node2)<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>v;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>=<sp/>node1-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node1-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref><sp/>=<sp/>node2-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node2-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref><sp/>=<sp/>v;</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>hasSwapped<sp/><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node1<sp/>=<sp/>node1-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="308"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="310"><highlight class="comment">/**<sp/>@brief<sp/>number<sp/>of<sp/>items<sp/>in<sp/>list</highlight></codeline>
+<codeline lineno="311"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="312"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details<sp/>This<sp/>iterrates<sp/>the<sp/>list<sp/>counting<sp/>all<sp/>the<sp/>nodes</highlight></codeline>
+<codeline lineno="313"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="314"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list<sp/>the<sp/>list<sp/>you<sp/>wish<sp/>to<sp/>total</highlight></codeline>
+<codeline lineno="315"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@result<sp/>[out]<sp/>the<sp/>number<sp/>of<sp/>nodes<sp/>in<sp/>the<sp/>list</highlight></codeline>
+<codeline lineno="316"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="317" refid="clist_8c_1a68501b7c1ec4ac1a0a67510f34691040" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1a68501b7c1ec4ac1a0a67510f34691040" kindref="member">clistTotal</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list)</highlight></codeline>
+<codeline lineno="318"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>c<sp/><sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>c++;</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(c);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="329"><highlight class="comment">/**<sp/>@brief<sp/>is<sp/>list<sp/>empty?</highlight></codeline>
+<codeline lineno="330"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="331"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@details<sp/>test<sp/>to<sp/>see<sp/>if<sp/>the<sp/>list<sp/>is<sp/>empty</highlight></codeline>
+<codeline lineno="332"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="333"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@param<sp/>[in]<sp/>list</highlight></codeline>
+<codeline lineno="334"><highlight class="comment"><sp/>*<sp/><sp/><sp/>@return<sp/>1<sp/>if<sp/>empty,<sp/>0<sp/>if<sp/>at<sp/>least<sp/>1<sp/>node</highlight></codeline>
+<codeline lineno="335"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="336" refid="clist_8c_1ad3cab96837fd66c4660c60389246993d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="clist_8c_1ad3cab96837fd66c4660c60389246993d" kindref="member">clistIsEmpty</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list)</highlight></codeline>
+<codeline lineno="337"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">(!list-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>);</highlight></codeline>
+<codeline lineno="339"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="clist.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,86 @@
+\doxysection{ragdoll.\+h}
+\hypertarget{ragdoll_8h_source}{}\label{ragdoll_8h_source}\mbox{\hyperlink{ragdoll_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifndef\ RAYLIBODERAGDOLL\_H}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ RAYLIBODERAGDOLL\_H}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <ode/ode.h>}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00032}00032\ \textcolor{comment}{//\ Rag\ doll\ structure\ -\/\ generic\ enough\ for\ neural\ network\ muscle\ control}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00033}00033\ \textcolor{comment}{//\ Uses\ motors\ on\ joints\ for\ future\ neural\ network\ control}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00034}\mbox{\hyperlink{structRagDoll}{00034}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRagDoll}{RagDoll}}\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00035}\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{00035}}\ \ \ \ \ dBodyID\ *\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Array\ of\ bodies\ (head,\ torso,\ arms,\ legs)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00036}\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{00036}}\ \ \ \ \ dGeomID\ *\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}};\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Array\ of\ geometries}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00037}\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{00037}}\ \ \ \ \ dJointID\ *\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Array\ of\ joints\ connecting\ bodies}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00038}\mbox{\hyperlink{structRagDoll_a6abc7a02734741bc55d4bafcaaf534a2}{00038}}\ \ \ \ \ dJointID\ *\mbox{\hyperlink{structRagDoll_a6abc7a02734741bc55d4bafcaaf534a2}{motors}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Array\ of\ motor\ joints\ for\ muscle\ control}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00039}\mbox{\hyperlink{structRagDoll_aade79e1e4b9a10bdb14353e5c982c392}{00039}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structRagDoll_aade79e1e4b9a10bdb14353e5c982c392}{bodyCount}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Number\ of\ bodies}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00040}\mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{00040}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{jointCount}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Number\ of\ joints}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00041}\mbox{\hyperlink{structRagDoll_a48922d5094768dcacf07717590dccd00}{00041}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structRagDoll_a48922d5094768dcacf07717590dccd00}{motorCount}};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Number\ of\ motors}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00042}\mbox{\hyperlink{ragdoll_8h_aad57e4f0d680ed2244ce2525d98fa7ee}{00042}}\ \}\ \mbox{\hyperlink{structRagDoll}{RagDoll}};}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00044}00044\ \textcolor{comment}{//\ Predefined\ rag\ doll\ body\ parts\ for\ easy\ access}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00045}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9e}{00045}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00046}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{00046}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00047}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{00047}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00048}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{00048}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00049}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{00049}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00050}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{00050}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00051}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{00051}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00052}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{00052}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00053}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{00053}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00054}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{00054}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00055}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{00055}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}},}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00056}\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54}{00056}}\ \ \ \ \ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54}{RAGDOLL\_BODY\_COUNT}}\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Total\ count}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00057}00057\ \}\ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9e}{RagdollBodyPart}};}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00060}00060\ \textcolor{comment}{//\ Forward\ declaration\ -\/\ GraphicsContext\ is\ defined\ in\ init.h}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00061}00061\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}};}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00063}00063\ \textcolor{comment}{//\ Rag\ doll\ functions\ -\/\ generic\ for\ neural\ network\ muscle\ control}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00064}00064\ \textcolor{comment}{//RagDoll*\ CreateRagdoll(dSpaceID\ space,\ dWorldID\ world,\ Vector3\ position,\ struct\ GraphicsContext*\ ctx);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00065}00065\ \mbox{\hyperlink{structRagDoll}{RagDoll}}*\ \mbox{\hyperlink{ragdoll_8h_a280e6f0bf4084257707b2e69342bfa61}{CreateRagdoll}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ Vector3\ position);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00067}00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ragdoll_8h_aabb2deb6a54bb247892b4a5fabd6449c}{UpdateRagdollMotors}}(\mbox{\hyperlink{structRagDoll}{RagDoll}}\ *ragdoll,\ \textcolor{keywordtype}{float}\ *motorForces);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00068}00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ragdoll_8h_a15a95f2545a01b96973e728cdd451bf9}{DrawRagdoll}}(\mbox{\hyperlink{structRagDoll}{RagDoll}}\ *ragdoll,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00069}00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ragdoll_8h_ab17f6d5cfecd7a8573b900f78460c816}{FreeRagdoll}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structRagDoll}{RagDoll}}\ *ragdoll);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00071}00071\ \textcolor{comment}{//\ Ragdoll\ spawn\ configuration}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00072}\mbox{\hyperlink{ragdoll_8h_a62ae838f84574f00dc0b59766651ae8d}{00072}}\ \textcolor{preprocessor}{\#define\ RAGDOLL\_SPAWN\_CENTER\_X\ 0.0f}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00073}\mbox{\hyperlink{ragdoll_8h_ad49513db09a56b09244fe175a4433ae6}{00073}}\ \textcolor{preprocessor}{\#define\ RAGDOLL\_SPAWN\_CENTER\_Z\ 0.0f}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00074}\mbox{\hyperlink{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60}{00074}}\ \textcolor{preprocessor}{\#define\ RAGDOLL\_SPAWN\_HALF\_EXTENT\ 3.0f}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00075}\mbox{\hyperlink{ragdoll_8h_ab3762f5ad156fe8e366ff6f85bca6ebc}{00075}}\ \textcolor{preprocessor}{\#define\ RAGDOLL\_SPAWN\_MIN\_Y\ 1.6f}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00076}\mbox{\hyperlink{ragdoll_8h_a2fc164e6dd8fb737a26d1ed64bce2650}{00076}}\ \textcolor{preprocessor}{\#define\ RAGDOLL\_SPAWN\_MAX\_Y\ 2.6f}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00078}00078\ \textcolor{comment}{//\ Get\ a\ random\ spawn\ position\ within\ the\ defined\ ragdoll\ spawn\ volume}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00079}00079\ Vector3\ \mbox{\hyperlink{ragdoll_8h_ae5044c65f2f6758624a2182347b6d945}{GetRagdollSpawnPosition}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8h_source_l00081}00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RAYLIBODERAGDOLL\_H}}
+
+\end{DoxyCode}

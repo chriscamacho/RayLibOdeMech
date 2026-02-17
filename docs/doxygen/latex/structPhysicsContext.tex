@@ -1,0 +1,137 @@
+\doxysection{Physics\+Context Struct Reference}
+\hypertarget{structPhysicsContext}{}\label{structPhysicsContext}\index{PhysicsContext@{PhysicsContext}}
+
+
+{\ttfamily \#include $<$raylib\+ODE.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+d\+World\+ID \mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}}
+\item 
+d\+Space\+ID \mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}}
+\item 
+d\+Joint\+Group\+ID \mbox{\hyperlink{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}{contactgroup}}
+\item 
+float \mbox{\hyperlink{structPhysicsContext_a9d9d8a36dbf5ada397c97512528ee62b}{frame\+Time}}
+\item 
+\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{obj\+List}}
+\item 
+\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{car_8c-example}{car.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, and \mbox{\hyperlink{terrain_8c-example}{terrain.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00116}{116}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{structPhysicsContext_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}\index{PhysicsContext@{PhysicsContext}!contactgroup@{contactgroup}}
+\index{contactgroup@{contactgroup}!PhysicsContext@{PhysicsContext}}
+\doxysubsubsection{\texorpdfstring{contactgroup}{contactgroup}}
+{\footnotesize\ttfamily \label{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e} 
+d\+Joint\+Group\+ID Physics\+Context\+::contactgroup}
+
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00119}{119}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{init_8c_source_l00195}{Cleanup\+Physics()}}, \mbox{\hyperlink{init_8c_source_l00158}{Init\+Physics()}}, \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00230}{step\+Physics()}}.
+
+\Hypertarget{structPhysicsContext_a9d9d8a36dbf5ada397c97512528ee62b}\index{PhysicsContext@{PhysicsContext}!frameTime@{frameTime}}
+\index{frameTime@{frameTime}!PhysicsContext@{PhysicsContext}}
+\doxysubsubsection{\texorpdfstring{frameTime}{frameTime}}
+{\footnotesize\ttfamily \label{structPhysicsContext_a9d9d8a36dbf5ada397c97512528ee62b} 
+float Physics\+Context\+::frame\+Time}
+
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00120}{120}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00230}{step\+Physics()}}.
+
+\Hypertarget{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}\index{PhysicsContext@{PhysicsContext}!objList@{objList}}
+\index{objList@{objList}!PhysicsContext@{PhysicsContext}}
+\doxysubsubsection{\texorpdfstring{objList}{objList}}
+{\footnotesize\ttfamily \label{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50} 
+\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}}\texorpdfstring{$\ast$}{*} Physics\+Context\+::obj\+List}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{car_8c-example}{car.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, and \mbox{\hyperlink{terrain_8c-example}{terrain.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00121}{121}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{init_8c_source_l00195}{Cleanup\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00272}{create\+Base\+Entity()}}, \mbox{\hyperlink{ragdoll_8c_source_l00118}{Create\+Ragdoll()}}, \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}, \mbox{\hyperlink{raylibODE_8c_source_l00906}{draw\+Bodies()}}, \mbox{\hyperlink{ragdoll_8c_source_l00483}{Free\+Ragdoll()}}, \mbox{\hyperlink{vehicle_8c_source_l00231}{Free\+Vehicle()}}, and \mbox{\hyperlink{init_8c_source_l00158}{Init\+Physics()}}.
+
+\Hypertarget{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}\index{PhysicsContext@{PhysicsContext}!space@{space}}
+\index{space@{space}!PhysicsContext@{PhysicsContext}}
+\doxysubsubsection{\texorpdfstring{space}{space}}
+{\footnotesize\ttfamily \label{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e} 
+d\+Space\+ID Physics\+Context\+::space}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, and \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00118}{118}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00316}{add\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00444}{add\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00401}{add\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00490}{add\+Dumbbell()}}, \mbox{\hyperlink{raylibODE_8c_source_l00358}{add\+Sphere()}}, \mbox{\hyperlink{init_8c_source_l00195}{Cleanup\+Physics()}}, \mbox{\hyperlink{ragdoll_8c_source_l00118}{Create\+Ragdoll()}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{create\+Sphere\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l00593}{Create\+Static\+Trimesh()}}, \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}, \mbox{\hyperlink{raylibODE_8c_source_l00671}{get\+Entity\+From\+Mouse()}}, \mbox{\hyperlink{init_8c_source_l00158}{Init\+Physics()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00230}{step\+Physics()}}.
+
+\Hypertarget{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}\index{PhysicsContext@{PhysicsContext}!statics@{statics}}
+\index{statics@{statics}!PhysicsContext@{PhysicsContext}}
+\doxysubsubsection{\texorpdfstring{statics}{statics}}
+{\footnotesize\ttfamily \label{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d} 
+\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}}\texorpdfstring{$\ast$}{*} Physics\+Context\+::statics}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, and \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00122}{122}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{init_8c_source_l00195}{Cleanup\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00593}{Create\+Static\+Trimesh()}}, \mbox{\hyperlink{raylibODE_8c_source_l00931}{draw\+Statics()}}, and \mbox{\hyperlink{init_8c_source_l00158}{Init\+Physics()}}.
+
+\Hypertarget{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}\index{PhysicsContext@{PhysicsContext}!world@{world}}
+\index{world@{world}!PhysicsContext@{PhysicsContext}}
+\doxysubsubsection{\texorpdfstring{world}{world}}
+{\footnotesize\ttfamily \label{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f} 
+d\+World\+ID Physics\+Context\+::world}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00117}{117}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{init_8c_source_l00195}{Cleanup\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00272}{create\+Base\+Entity()}}, \mbox{\hyperlink{ragdoll_8c_source_l00118}{Create\+Ragdoll()}}, \mbox{\hyperlink{raylibODE_8c_source_l00861}{create\+Rotor()}}, \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}, \mbox{\hyperlink{init_8c_source_l00158}{Init\+Physics()}}, \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00230}{step\+Physics()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{raylibODE_8h}{raylib\+ODE.\+h}}\end{DoxyCompactItemize}

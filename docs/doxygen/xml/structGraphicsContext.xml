@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structGraphicsContext" kind="struct" language="C++" prot="public">
+    <compoundname>GraphicsContext</compoundname>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" prot="public" static="no" mutable="no">
+        <type>Model</type>
+        <definition>Model GraphicsContext::box</definition>
+        <argsstring></argsstring>
+        <name>box</name>
+        <qualifiedname>GraphicsContext::box</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="98" column="11" bodyfile="raylibODE.h" bodystart="98" bodyend="-1"/>
+        <referencedby refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" compoundref="init_8c" startline="246" endline="265">CleanupGraphics</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" prot="public" static="no" mutable="no">
+        <type>Model</type>
+        <definition>Model GraphicsContext::ball</definition>
+        <argsstring></argsstring>
+        <name>ball</name>
+        <qualifiedname>GraphicsContext::ball</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="99" column="11" bodyfile="raylibODE.h" bodystart="99" bodyend="-1"/>
+        <referencedby refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" compoundref="init_8c" startline="246" endline="265">CleanupGraphics</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" prot="public" static="no" mutable="no">
+        <type>Model</type>
+        <definition>Model GraphicsContext::cylinder</definition>
+        <argsstring></argsstring>
+        <name>cylinder</name>
+        <qualifiedname>GraphicsContext::cylinder</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="100" column="11" bodyfile="raylibODE.h" bodystart="100" bodyend="-1"/>
+        <referencedby refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" compoundref="init_8c" startline="246" endline="265">CleanupGraphics</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" prot="public" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture GraphicsContext::sphereTextures[3]</definition>
+        <argsstring>[3]</argsstring>
+        <name>sphereTextures</name>
+        <qualifiedname>GraphicsContext::sphereTextures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="105" column="13" bodyfile="raylibODE.h" bodystart="105" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+        <referencedby refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" compoundref="init_8c" startline="246" endline="265">CleanupGraphics</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" compoundref="raylibODE_8c" startline="282" endline="292">createSphereGeom</referencedby>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" prot="public" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture GraphicsContext::boxTextures[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>boxTextures</name>
+        <qualifiedname>GraphicsContext::boxTextures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="106" column="13" bodyfile="raylibODE.h" bodystart="106" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
+        <referencedby refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" compoundref="init_8c" startline="246" endline="265">CleanupGraphics</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" prot="public" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture GraphicsContext::cylinderTextures[2]</definition>
+        <argsstring>[2]</argsstring>
+        <name>cylinderTextures</name>
+        <qualifiedname>GraphicsContext::cylinderTextures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="107" column="13" bodyfile="raylibODE.h" bodystart="107" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
+        <referencedby refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" compoundref="init_8c" startline="246" endline="265">CleanupGraphics</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" prot="public" static="no" mutable="no">
+        <type>Texture</type>
+        <definition>Texture GraphicsContext::groundTexture</definition>
+        <argsstring></argsstring>
+        <name>groundTexture</name>
+        <qualifiedname>GraphicsContext::groundTexture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="108" column="13" bodyfile="raylibODE.h" bodystart="108" bodyend="-1"/>
+        <referencedby refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" compoundref="init_8c" startline="246" endline="265">CleanupGraphics</referencedby>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1a67da4b710a791d954415259ae540976c" prot="public" static="no" mutable="no">
+        <type>Camera</type>
+        <definition>Camera GraphicsContext::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <qualifiedname>GraphicsContext::camera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="110" column="12" bodyfile="raylibODE.h" bodystart="110" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a9aee3b647643b29e683644a67e7e5f3c" compoundref="raylibODE_8c" startline="671" endline="704">getEntityFromMouse</referencedby>
+        <referencedby refid="exampleCamera_8c_1abf1f4204c9ad8cd8061009b9702d7a3f" compoundref="exampleCamera_8c" startline="79" endline="91">initCamera</referencedby>
+        <referencedby refid="exampleCamera_8c_1ab694a4e13506da451e4221c6bc1c48f1" compoundref="exampleCamera_8c" startline="166" endline="216">updateCamera</referencedby>
+        <referencedby refid="exampleCamera_8c_1a9ebb8457497dc7cebf88b55573010637" compoundref="exampleCamera_8c" startline="102" endline="156">updateVehicleCamera</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" prot="public" static="no" mutable="no">
+        <type>Shader</type>
+        <definition>Shader GraphicsContext::shader</definition>
+        <argsstring></argsstring>
+        <name>shader</name>
+        <qualifiedname>GraphicsContext::shader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="111" column="12" bodyfile="raylibODE.h" bodystart="111" bodyend="-1"/>
+        <referencedby refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" compoundref="init_8c" startline="246" endline="265">CleanupGraphics</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</referencedby>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+        <referencedby refid="exampleCamera_8c_1ab694a4e13506da451e4221c6bc1c48f1" compoundref="exampleCamera_8c" startline="166" endline="216">updateCamera</referencedby>
+        <referencedby refid="exampleCamera_8c_1a9ebb8457497dc7cebf88b55573010637" compoundref="exampleCamera_8c" startline="102" endline="156">updateVehicleCamera</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" prot="public" static="no" mutable="no">
+        <type><ref refid="structLight" kindref="compound">Light</ref></type>
+        <definition>Light GraphicsContext::lights[MAX_LIGHTS]</definition>
+        <argsstring>[MAX_LIGHTS]</argsstring>
+        <name>lights</name>
+        <qualifiedname>GraphicsContext::lights</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="112" column="11" bodyfile="raylibODE.h" bodystart="112" bodyend="-1"/>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GraphicsContext</label>
+        <link refid="structGraphicsContext"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>lights</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Light</label>
+        <link refid="structLight"/>
+      </node>
+    </collaborationgraph>
+    <location file="raylibODE.h" line="97" column="1" bodyfile="raylibODE.h" bodystart="97" bodyend="113"/>
+    <listofallmembers>
+      <member refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>ball</name></member>
+      <member refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>box</name></member>
+      <member refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>boxTextures</name></member>
+      <member refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>camera</name></member>
+      <member refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>cylinder</name></member>
+      <member refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>cylinderTextures</name></member>
+      <member refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>groundTexture</name></member>
+      <member refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>lights</name></member>
+      <member refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>shader</name></member>
+      <member refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>sphereTextures</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

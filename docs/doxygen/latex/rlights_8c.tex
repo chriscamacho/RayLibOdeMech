@@ -1,0 +1,53 @@
+\doxysection{rlights.\+c File Reference}
+\hypertarget{rlights_8c}{}\label{rlights_8c}\index{rlights.c@{rlights.c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}raylib.\+h"{}}\newline
+{\ttfamily \#include "{}rlights.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structLight}{Light}} \mbox{\hyperlink{rlights_8c_afc243bc3de16abf2627f9ae16dd484de}{Create\+Light}} (int type, Vector3 position, Vector3 target, Color color, Shader shader)
+\item 
+void \mbox{\hyperlink{rlights_8c_a147b7e5788024577fc8abb7df32e4c5c}{Update\+Light\+Values}} (Shader shader, \mbox{\hyperlink{structLight}{Light}} light)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{rlights_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{rlights_8c_afc243bc3de16abf2627f9ae16dd484de}\index{rlights.c@{rlights.c}!CreateLight@{CreateLight}}
+\index{CreateLight@{CreateLight}!rlights.c@{rlights.c}}
+\doxysubsubsection{\texorpdfstring{CreateLight()}{CreateLight()}}
+{\footnotesize\ttfamily \label{rlights_8c_afc243bc3de16abf2627f9ae16dd484de} 
+\mbox{\hyperlink{structLight}{Light}} Create\+Light (\begin{DoxyParamCaption}\item[{int}]{type}{, }\item[{Vector3}]{position}{, }\item[{Vector3}]{target}{, }\item[{Color}]{color}{, }\item[{Shader}]{shader}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{rlights_8c_source_l00026}{26}} of file \mbox{\hyperlink{rlights_8c_source}{rlights.\+c}}.
+
+
+
+References \mbox{\hyperlink{rlights_8h_source_l00051}{Light\+::color}}, \mbox{\hyperlink{rlights_8h_source_l00059}{Light\+::color\+Loc}}, \mbox{\hyperlink{rlights_8h_source_l00048}{Light\+::enabled}}, \mbox{\hyperlink{rlights_8h_source_l00055}{Light\+::enabled\+Loc}}, \mbox{\hyperlink{rlights_8h_source_l00039}{MAX\+\_\+\+LIGHTS}}, \mbox{\hyperlink{rlights_8h_source_l00049}{Light\+::position}}, \mbox{\hyperlink{rlights_8h_source_l00057}{Light\+::position\+Loc}}, \mbox{\hyperlink{rlights_8h_source_l00050}{Light\+::target}}, \mbox{\hyperlink{rlights_8h_source_l00058}{Light\+::target\+Loc}}, \mbox{\hyperlink{rlights_8h_source_l00047}{Light\+::type}}, \mbox{\hyperlink{rlights_8h_source_l00056}{Light\+::type\+Loc}}, and \mbox{\hyperlink{rlights_8c_source_l00055}{Update\+Light\+Values()}}.
+
+
+
+Referenced by \mbox{\hyperlink{init_8c_source_l00078}{Init\+Graphics()}}.
+
+\Hypertarget{rlights_8c_a147b7e5788024577fc8abb7df32e4c5c}\index{rlights.c@{rlights.c}!UpdateLightValues@{UpdateLightValues}}
+\index{UpdateLightValues@{UpdateLightValues}!rlights.c@{rlights.c}}
+\doxysubsubsection{\texorpdfstring{UpdateLightValues()}{UpdateLightValues()}}
+{\footnotesize\ttfamily \label{rlights_8c_a147b7e5788024577fc8abb7df32e4c5c} 
+void Update\+Light\+Values (\begin{DoxyParamCaption}\item[{Shader}]{shader}{, }\item[{\mbox{\hyperlink{structLight}{Light}}}]{light}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{rlights_8c_source_l00055}{55}} of file \mbox{\hyperlink{rlights_8c_source}{rlights.\+c}}.
+
+
+
+References \mbox{\hyperlink{rlights_8h_source_l00051}{Light\+::color}}, \mbox{\hyperlink{rlights_8h_source_l00059}{Light\+::color\+Loc}}, \mbox{\hyperlink{rlights_8h_source_l00048}{Light\+::enabled}}, \mbox{\hyperlink{rlights_8h_source_l00055}{Light\+::enabled\+Loc}}, \mbox{\hyperlink{rlights_8h_source_l00049}{Light\+::position}}, \mbox{\hyperlink{rlights_8h_source_l00057}{Light\+::position\+Loc}}, \mbox{\hyperlink{rlights_8h_source_l00050}{Light\+::target}}, \mbox{\hyperlink{rlights_8h_source_l00058}{Light\+::target\+Loc}}, \mbox{\hyperlink{rlights_8h_source_l00047}{Light\+::type}}, and \mbox{\hyperlink{rlights_8h_source_l00056}{Light\+::type\+Loc}}.
+
+
+
+Referenced by \mbox{\hyperlink{rlights_8c_source_l00026}{Create\+Light()}}.
+

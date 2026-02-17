@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structRayHit" kind="struct" language="C++" prot="public">
+    <compoundname>RayHit</compoundname>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRayHit_1a86f485fd67387a8c18d90b717d891015" prot="public" static="no" mutable="no">
+        <type>dGeomID</type>
+        <definition>dGeomID RayHit::geom</definition>
+        <argsstring></argsstring>
+        <name>geom</name>
+        <qualifiedname>RayHit::geom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="91" column="13" bodyfile="raylibODE.h" bodystart="91" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a9aee3b647643b29e683644a67e7e5f3c" compoundref="raylibODE_8c" startline="671" endline="704">getEntityFromMouse</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" prot="public" static="no" mutable="no">
+        <type>dReal</type>
+        <definition>dReal RayHit::depth</definition>
+        <argsstring></argsstring>
+        <name>depth</name>
+        <qualifiedname>RayHit::depth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="92" column="11" bodyfile="raylibODE.h" bodystart="92" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a9aee3b647643b29e683644a67e7e5f3c" compoundref="raylibODE_8c" startline="671" endline="704">getEntityFromMouse</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" prot="public" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 RayHit::pos</definition>
+        <argsstring></argsstring>
+        <name>pos</name>
+        <qualifiedname>RayHit::pos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="93" column="13" bodyfile="raylibODE.h" bodystart="93" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a9aee3b647643b29e683644a67e7e5f3c" compoundref="raylibODE_8c" startline="671" endline="704">getEntityFromMouse</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="raylibODE.h" line="90" column="1" bodyfile="raylibODE.h" bodystart="90" bodyend="94"/>
+    <listofallmembers>
+      <member refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" prot="public" virt="non-virtual"><scope>RayHit</scope><name>depth</name></member>
+      <member refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" prot="public" virt="non-virtual"><scope>RayHit</scope><name>geom</name></member>
+      <member refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" prot="public" virt="non-virtual"><scope>RayHit</scope><name>pos</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

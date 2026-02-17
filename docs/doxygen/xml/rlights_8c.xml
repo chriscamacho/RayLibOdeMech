@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="rlights_8c" kind="file" language="C++">
+    <compoundname>rlights.c</compoundname>
+    <includes local="no">stdbool.h</includes>
+    <includes local="yes">raylib.h</includes>
+    <includes refid="rlights_8h" local="yes">rlights.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>rlights.h</label>
+        <link refid="rlights_8h"/>
+      </node>
+      <node id="1">
+        <label>rlights.c</label>
+        <link refid="rlights_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>raylib.h</label>
+      </node>
+      <node id="2">
+        <label>stdbool.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="rlights_8c_1a959fef16d77f17db49364491cbd4175b" prot="public" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int lightsCount</definition>
+        <argsstring></argsstring>
+        <name>lightsCount</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="rlights.c" line="19" column="12" bodyfile="rlights.c" bodystart="19" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structLight" kindref="compound">Light</ref></type>
+        <definition>Light CreateLight</definition>
+        <argsstring>(int type, Vector3 position, Vector3 target, Color color, Shader shader)</argsstring>
+        <name>CreateLight</name>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type>Shader</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="rlights.c" line="26" column="7" bodyfile="rlights.c" bodystart="26" bodyend="51"/>
+        <references refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" compoundref="rlights_8h" startline="51">Light::color</references>
+        <references refid="structLight_1a98df12cebc437d739f22dd809b66878c" compoundref="rlights_8h" startline="59">Light::colorLoc</references>
+        <references refid="structLight_1a6dfed8051e33dde2baaef3e50d74084e" compoundref="rlights_8h" startline="48">Light::enabled</references>
+        <references refid="structLight_1af606501e4853296552b5cfb03f37fae8" compoundref="rlights_8h" startline="55">Light::enabledLoc</references>
+        <references refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" compoundref="rlights_8h" startline="39">MAX_LIGHTS</references>
+        <references refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" compoundref="rlights_8h" startline="49">Light::position</references>
+        <references refid="structLight_1a448d502e227576d9ffa8627e050065ef" compoundref="rlights_8h" startline="57">Light::positionLoc</references>
+        <references refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" compoundref="rlights_8h" startline="50">Light::target</references>
+        <references refid="structLight_1a39192f609cfe392cca178e4a7f36937b" compoundref="rlights_8h" startline="58">Light::targetLoc</references>
+        <references refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" compoundref="rlights_8h" startline="47">Light::type</references>
+        <references refid="structLight_1a69074799494a828b60170d962675fb90" compoundref="rlights_8h" startline="56">Light::typeLoc</references>
+        <references refid="rlights_8c_1a147b7e5788024577fc8abb7df32e4c5c" compoundref="rlights_8c" startline="55" endline="73">UpdateLightValues</references>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="rlights_8c_1a147b7e5788024577fc8abb7df32e4c5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UpdateLightValues</definition>
+        <argsstring>(Shader shader, Light light)</argsstring>
+        <name>UpdateLightValues</name>
+        <param>
+          <type>Shader</type>
+          <declname>shader</declname>
+        </param>
+        <param>
+          <type><ref refid="structLight" kindref="compound">Light</ref></type>
+          <declname>light</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="rlights.c" line="55" column="6" bodyfile="rlights.c" bodystart="55" bodyend="73"/>
+        <references refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" compoundref="rlights_8h" startline="51">Light::color</references>
+        <references refid="structLight_1a98df12cebc437d739f22dd809b66878c" compoundref="rlights_8h" startline="59">Light::colorLoc</references>
+        <references refid="structLight_1a6dfed8051e33dde2baaef3e50d74084e" compoundref="rlights_8h" startline="48">Light::enabled</references>
+        <references refid="structLight_1af606501e4853296552b5cfb03f37fae8" compoundref="rlights_8h" startline="55">Light::enabledLoc</references>
+        <references refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" compoundref="rlights_8h" startline="49">Light::position</references>
+        <references refid="structLight_1a448d502e227576d9ffa8627e050065ef" compoundref="rlights_8h" startline="57">Light::positionLoc</references>
+        <references refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" compoundref="rlights_8h" startline="50">Light::target</references>
+        <references refid="structLight_1a39192f609cfe392cca178e4a7f36937b" compoundref="rlights_8h" startline="58">Light::targetLoc</references>
+        <references refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" compoundref="rlights_8h" startline="47">Light::type</references>
+        <references refid="structLight_1a69074799494a828b60170d962675fb90" compoundref="rlights_8h" startline="56">Light::typeLoc</references>
+        <referencedby refid="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" compoundref="rlights_8c" startline="26" endline="51">CreateLight</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>raylib.lights<sp/>-<sp/>Some<sp/>useful<sp/>functions<sp/>to<sp/>deal<sp/>with<sp/>lights<sp/>data</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>NOTE:<sp/>This<sp/>file<sp/>was<sp/>extracted<sp/>from<sp/>rlights.h<sp/>to<sp/>follow<sp/>proper<sp/>C<sp/>conventions</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>(implementation<sp/>in<sp/>.c<sp/>file,<sp/>declarations<sp/>in<sp/>.h<sp/>file).</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>modified<sp/>by<sp/>codifies<sp/>2026<sp/>under<sp/>same<sp/>licence</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>LICENSE:<sp/>zlib/libpng</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2017-2023<sp/>Victor<sp/>Fisac<sp/>(@victorfisac)<sp/>and<sp/>Ramon<sp/>Santamaria<sp/>(@raysan5)</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;raylib.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rlights_8h" kindref="compound">rlights.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Global<sp/>Variables<sp/>Definition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>lightsCount<sp/>=<sp/>0;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Current<sp/>amount<sp/>of<sp/>created<sp/>lights</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Module<sp/>Functions<sp/>Definition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//--------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>light<sp/>and<sp/>get<sp/>shader<sp/>locations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" refkind="member"><highlight class="normal"><ref refid="structLight" kindref="compound">Light</ref><sp/><ref refid="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" kindref="member">CreateLight</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type,<sp/>Vector3<sp/>position,<sp/>Vector3<sp/>target,<sp/>Color<sp/>color,<sp/>Shader<sp/>shader)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structLight" kindref="compound">Light</ref><sp/>light<sp/>=<sp/>{<sp/>0<sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(lightsCount<sp/>&lt;<sp/><ref refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kindref="member">MAX_LIGHTS</ref>)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1a6dfed8051e33dde2baaef3e50d74084e" kindref="member">enabled</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" kindref="member">type</ref><sp/>=<sp/>type;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" kindref="member">position</ref><sp/>=<sp/>position;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" kindref="member">target</ref><sp/>=<sp/>target;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" kindref="member">color</ref><sp/>=<sp/>color;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>NOTE:<sp/>Lighting<sp/>shader<sp/>naming<sp/>must<sp/>be<sp/>the<sp/>provided<sp/>ones</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1af606501e4853296552b5cfb03f37fae8" kindref="member">enabledLoc</ref><sp/>=<sp/>GetShaderLocation(shader,<sp/>TextFormat(</highlight><highlight class="stringliteral">&quot;lights[%i].enabled&quot;</highlight><highlight class="normal">,<sp/>lightsCount));</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1a69074799494a828b60170d962675fb90" kindref="member">typeLoc</ref><sp/>=<sp/>GetShaderLocation(shader,<sp/>TextFormat(</highlight><highlight class="stringliteral">&quot;lights[%i].type&quot;</highlight><highlight class="normal">,<sp/>lightsCount));</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1a448d502e227576d9ffa8627e050065ef" kindref="member">positionLoc</ref><sp/>=<sp/>GetShaderLocation(shader,<sp/>TextFormat(</highlight><highlight class="stringliteral">&quot;lights[%i].position&quot;</highlight><highlight class="normal">,<sp/>lightsCount));</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1a39192f609cfe392cca178e4a7f36937b" kindref="member">targetLoc</ref><sp/>=<sp/>GetShaderLocation(shader,<sp/>TextFormat(</highlight><highlight class="stringliteral">&quot;lights[%i].target&quot;</highlight><highlight class="normal">,<sp/>lightsCount));</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>light.<ref refid="structLight_1a98df12cebc437d739f22dd809b66878c" kindref="member">colorLoc</ref><sp/>=<sp/>GetShaderLocation(shader,<sp/>TextFormat(</highlight><highlight class="stringliteral">&quot;lights[%i].color&quot;</highlight><highlight class="normal">,<sp/>lightsCount));</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rlights_8c_1a147b7e5788024577fc8abb7df32e4c5c" kindref="member">UpdateLightValues</ref>(shader,<sp/>light);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lightsCount++;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>light;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Send<sp/>light<sp/>properties<sp/>to<sp/>shader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NOTE:<sp/>Light<sp/>shader<sp/>locations<sp/>should<sp/>be<sp/>available</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="rlights_8c_1a147b7e5788024577fc8abb7df32e4c5c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rlights_8c_1a147b7e5788024577fc8abb7df32e4c5c" kindref="member">UpdateLightValues</ref>(Shader<sp/>shader,<sp/><ref refid="structLight" kindref="compound">Light</ref><sp/>light)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Send<sp/>to<sp/>shader<sp/>light<sp/>enabled<sp/>state<sp/>and<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>SetShaderValue(shader,<sp/>light.<ref refid="structLight_1af606501e4853296552b5cfb03f37fae8" kindref="member">enabledLoc</ref>,<sp/>&amp;light.<ref refid="structLight_1a6dfed8051e33dde2baaef3e50d74084e" kindref="member">enabled</ref>,<sp/>SHADER_UNIFORM_INT);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>SetShaderValue(shader,<sp/>light.<ref refid="structLight_1a69074799494a828b60170d962675fb90" kindref="member">typeLoc</ref>,<sp/>&amp;light.<ref refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" kindref="member">type</ref>,<sp/>SHADER_UNIFORM_INT);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Send<sp/>to<sp/>shader<sp/>light<sp/>position<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>position[3]<sp/>=<sp/>{<sp/>light.<ref refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" kindref="member">position</ref>.x,<sp/>light.<ref refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" kindref="member">position</ref>.y,<sp/>light.<ref refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" kindref="member">position</ref>.z<sp/>};</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>SetShaderValue(shader,<sp/>light.<ref refid="structLight_1a448d502e227576d9ffa8627e050065ef" kindref="member">positionLoc</ref>,<sp/>position,<sp/>SHADER_UNIFORM_VEC3);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Send<sp/>to<sp/>shader<sp/>light<sp/>target<sp/>position<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>target[3]<sp/>=<sp/>{<sp/>light.<ref refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" kindref="member">target</ref>.x,<sp/>light.<ref refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" kindref="member">target</ref>.y,<sp/>light.<ref refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" kindref="member">target</ref>.z<sp/>};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>SetShaderValue(shader,<sp/>light.<ref refid="structLight_1a39192f609cfe392cca178e4a7f36937b" kindref="member">targetLoc</ref>,<sp/>target,<sp/>SHADER_UNIFORM_VEC3);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Send<sp/>to<sp/>shader<sp/>light<sp/>color<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>color[4]<sp/>=<sp/>{<sp/>(float)light.<ref refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" kindref="member">color</ref>.r/(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)255,<sp/>(float)light.<ref refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" kindref="member">color</ref>.g/(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)255,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(float)light.<ref refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" kindref="member">color</ref>.b/(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)255,<sp/>(float)light.<ref refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" kindref="member">color</ref>.a/(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">)255<sp/>};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>SetShaderValue(shader,<sp/>light.<ref refid="structLight_1a98df12cebc437d739f22dd809b66878c" kindref="member">colorLoc</ref>,<sp/>color,<sp/>SHADER_UNIFORM_VEC4);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="rlights.c"/>
+  </compounddef>
+</doxygen>

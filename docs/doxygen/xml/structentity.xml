@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structentity" kind="struct" language="C++" prot="public">
+    <compoundname>entity</compoundname>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" prot="public" static="no" mutable="no">
+        <type>dBodyID</type>
+        <definition>dBodyID entity::body</definition>
+        <argsstring></argsstring>
+        <name>body</name>
+        <qualifiedname>entity::body</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>ODE physics body for this entity </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="47" column="9" bodyfile="raylibODE.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" compoundref="raylibODE_8c" startline="316" endline="335">addBox</referencedby>
+        <referencedby refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" compoundref="raylibODE_8c" startline="444" endline="463">addCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" compoundref="raylibODE_8c" startline="401" endline="421">addCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" compoundref="raylibODE_8c" startline="490" endline="525">addDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" compoundref="raylibODE_8c" startline="358" endline="377">addSphere</referencedby>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1acdd1e62ab4a9d0ab632e283e6ccdaf71" compoundref="raylibODE_8c" startline="861" endline="881">createRotor</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="906" endline="917">drawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1a3aa3473ec30d21671ea9ec98e3e65017" compoundref="raylibODE_8c" startline="894" endline="904">setEntityHew</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structentity_1a4ba0008223828f414cf5303ca935bcd8" prot="public" static="no" mutable="no">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t* entity::node</definition>
+        <argsstring></argsstring>
+        <name>node</name>
+        <qualifiedname>entity::node</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>all entities are in a global list, this is its list node </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="48" column="9" bodyfile="raylibODE.h" bodystart="48" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="483" endline="523">FreeRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* entity::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>entity::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>user data pointer tag on extra meta data to a geom. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="49" column="6" bodyfile="raylibODE.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>__cnode</label>
+        <link refid="struct____cnode"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>entity</label>
+        <link refid="structentity"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="raylibODE.h" line="46" column="1" bodyfile="raylibODE.h" bodystart="46" bodyend="50"/>
+    <listofallmembers>
+      <member refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" prot="public" virt="non-virtual"><scope>entity</scope><name>body</name></member>
+      <member refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" prot="public" virt="non-virtual"><scope>entity</scope><name>data</name></member>
+      <member refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" prot="public" virt="non-virtual"><scope>entity</scope><name>node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

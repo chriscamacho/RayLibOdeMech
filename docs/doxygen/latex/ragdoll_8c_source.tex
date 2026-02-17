@@ -1,0 +1,528 @@
+\doxysection{ragdoll.\+c}
+\hypertarget{ragdoll_8c_source}{}\label{ragdoll_8c_source}\mbox{\hyperlink{ragdoll_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00023}00023\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00024}00024\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00025}00025\ \textcolor{comment}{\ *\ @file\ ragdoll.c}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00026}00026\ \textcolor{comment}{\ *\ @brief\ Ragdoll\ physics\ simulation\ implementation}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00027}00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00028}00028\ \textcolor{comment}{\ *\ This\ file\ provides\ a\ complete\ ragdoll\ (humanoid)\ physics\ simulation}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00029}00029\ \textcolor{comment}{\ *\ using\ ODE's\ joint\ system.\ The\ ragdoll\ consists\ of\ multiple\ body\ parts}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00030}00030\ \textcolor{comment}{\ *\ connected\ by\ hinge\ and\ universal\ joints,\ allowing\ for\ realistic}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00031}00031\ \textcolor{comment}{\ *\ human-\/like\ movement\ and\ posing.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00032}00032\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00033}00033\ \textcolor{comment}{\ *\ @author\ Chris\ Camacho\ (codifies\ -\/\ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00034}00034\ \textcolor{comment}{\ *\ @date\ 2026}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00035}00035\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00036}00036\ \textcolor{comment}{\ *\ @section\ ragdoll\_structure\ Ragdoll\ Structure}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00037}00037\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00038}00038\ \textcolor{comment}{\ *\ Body\ parts\ (10\ total):}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00039}00039\ \textcolor{comment}{\ *\ -\/\ Head\ (sphere)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00040}00040\ \textcolor{comment}{\ *\ -\/\ Torso\ (box)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00041}00041\ \textcolor{comment}{\ *\ -\/\ Left/Right\ Upper\ Arm\ (capsule)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00042}00042\ \textcolor{comment}{\ *\ -\/\ Left/Right\ Lower\ Arm\ (capsule)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00043}00043\ \textcolor{comment}{\ *\ -\/\ Left/Right\ Upper\ Leg\ (capsule)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00044}00044\ \textcolor{comment}{\ *\ -\/\ Left/Right\ Lower\ Leg\ (capsule)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00045}00045\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00046}00046\ \textcolor{comment}{\ *\ Joints\ (9\ total):}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00047}00047\ \textcolor{comment}{\ *\ -\/\ Neck\ (hinge)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00048}00048\ \textcolor{comment}{\ *\ -\/\ Left/Right\ Shoulder\ (universal)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00049}00049\ \textcolor{comment}{\ *\ -\/\ Left/Right\ Elbow\ (hinge)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00050}00050\ \textcolor{comment}{\ *\ -\/\ Left/Right\ Hip\ (universal)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00051}00051\ \textcolor{comment}{\ *\ -\/\ Left/Right\ Knee\ (hinge)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00052}00052\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00053}00053\ \textcolor{comment}{\ *\ @section\ motor\_control\ Motor\ Control}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00054}00054\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00055}00055\ \textcolor{comment}{\ *\ The\ ragdoll\ supports\ motor\ control\ on\ all\ joints,\ making\ it}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00056}00056\ \textcolor{comment}{\ *\ suitable\ for\ neural\ network\ or\ reinforcement\ learning\ control.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00057}00057\ \textcolor{comment}{\ *\ Use\ UpdateRagdollMotors()\ to\ apply\ forces\ to\ joints.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00058}00058\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00060}00060\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raylibODE_8h}{raylibODE.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00061}00061\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ragdoll_8h}{ragdoll.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00063}00063\ \textcolor{comment}{//\ Get\ a\ spawn\ position\ within\ the\ defined\ ragdoll\ spawn\ volume}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00064}00064\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00065}00065\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00066}00066\ \textcolor{comment}{\ *\ @brief\ Get\ a\ random\ spawn\ position\ for\ ragdolls}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00067}00067\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00068}00068\ \textcolor{comment}{\ *\ Generates\ a\ random\ position\ within\ the\ configured\ spawn\ volume}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00069}00069\ \textcolor{comment}{\ *\ for\ ragdoll\ objects.\ This\ helps\ spread\ out\ multiple\ ragdolls}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00070}00070\ \textcolor{comment}{\ *\ when\ they\ are\ created.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00071}00071\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00072}00072\ \textcolor{comment}{\ *\ @return\ Random\ Vector3\ position\ within\ spawn\ bounds}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00073}00073\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00074}00074\ \textcolor{comment}{\ *\ @note\ Spawn\ bounds\ are\ defined\ by\ RAGDOLL\_SPAWN\_*\ constants}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00075}00075\ \textcolor{comment}{\ *\ @see\ RAGDOLL\_SPAWN\_CENTER\_X}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00076}00076\ \textcolor{comment}{\ *\ @see\ RAGDOLL\_SPAWN\_CENTER\_Z}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00077}00077\ \textcolor{comment}{\ *\ @see\ RAGDOLL\_SPAWN\_HALF\_EXTENT}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00078}00078\ \textcolor{comment}{\ *\ @see\ RAGDOLL\_SPAWN\_MIN\_Y}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00079}00079\ \textcolor{comment}{\ *\ @see\ RAGDOLL\_SPAWN\_MAX\_Y}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00080}00080\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00081}\mbox{\hyperlink{ragdoll_8c_ae5044c65f2f6758624a2182347b6d945}{00081}}\ Vector3\ \mbox{\hyperlink{ragdoll_8c_ae5044c65f2f6758624a2182347b6d945}{GetRagdollSpawnPosition}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00083}00083\ \ \ \ \ Vector3\ pos;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00084}00084\ \ \ \ \ pos.x\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(\mbox{\hyperlink{ragdoll_8h_a62ae838f84574f00dc0b59766651ae8d}{RAGDOLL\_SPAWN\_CENTER\_X}}\ -\/\ \mbox{\hyperlink{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60}{RAGDOLL\_SPAWN\_HALF\_EXTENT}},\ \mbox{\hyperlink{ragdoll_8h_a62ae838f84574f00dc0b59766651ae8d}{RAGDOLL\_SPAWN\_CENTER\_X}}\ +\ \mbox{\hyperlink{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60}{RAGDOLL\_SPAWN\_HALF\_EXTENT}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00085}00085\ \ \ \ \ pos.y\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(\mbox{\hyperlink{ragdoll_8h_ab3762f5ad156fe8e366ff6f85bca6ebc}{RAGDOLL\_SPAWN\_MIN\_Y}},\ \mbox{\hyperlink{ragdoll_8h_a2fc164e6dd8fb737a26d1ed64bce2650}{RAGDOLL\_SPAWN\_MAX\_Y}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00086}00086\ \ \ \ \ pos.z\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(\mbox{\hyperlink{ragdoll_8h_ad49513db09a56b09244fe175a4433ae6}{RAGDOLL\_SPAWN\_CENTER\_Z}}\ -\/\ \mbox{\hyperlink{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60}{RAGDOLL\_SPAWN\_HALF\_EXTENT}},\ \mbox{\hyperlink{ragdoll_8h_ad49513db09a56b09244fe175a4433ae6}{RAGDOLL\_SPAWN\_CENTER\_Z}}\ +\ \mbox{\hyperlink{ragdoll_8h_a5152c4c82163811cbd050b43559c8a60}{RAGDOLL\_SPAWN\_HALF\_EXTENT}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{return}\ pos;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00091}00091\ \textcolor{comment}{//\ Rag\ doll\ creation\ }}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00092}00092\ \textcolor{comment}{//\ Creates\ a\ humanoid\ rag\ doll\ with\ configurable\ joint\ motors}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00093}00093\ \textcolor{comment}{//\ actually\ way\ more\ complex\ than\ the\ vehicle\ stuff\ !}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00094}00094\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00095}00095\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00096}00096\ \textcolor{comment}{\ *\ @brief\ Create\ a\ ragdoll\ physics\ body}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00097}00097\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00098}00098\ \textcolor{comment}{\ *\ Creates\ a\ complete\ humanoid\ ragdoll\ with\ articulated\ joints.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00099}00099\ \textcolor{comment}{\ *\ The\ ragdoll\ is\ fully\ physics-\/simulated\ and\ can\ be\ used\ for}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00100}00100\ \textcolor{comment}{\ *\ character\ physics,\ death\ animations,\ or\ as\ a\ basis\ for}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00101}00101\ \textcolor{comment}{\ *\ reinforcement\ learning\ control.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00102}00102\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00103}00103\ \textcolor{comment}{\ *\ @param\ pctx\ Pointer\ to\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00104}00104\ \textcolor{comment}{\ *\ @param\ ctx\ Pointer\ to\ graphics\ context}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00105}00105\ \textcolor{comment}{\ *\ @param\ position\ Initial\ position\ for\ the\ ragdoll}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00106}00106\ \textcolor{comment}{\ *\ @return\ Pointer\ to\ newly\ created\ RagDoll\ structure}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00107}00107\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00108}00108\ \textcolor{comment}{\ *\ @note\ Bodies:\ 10\ (head,\ torso,\ 2\ upper\ arms,\ 2\ lower\ arms,\ 2\ upper\ legs,\ 2\ lower\ legs)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00109}00109\ \textcolor{comment}{\ *\ @note\ Joints:\ 9\ (neck,\ shoulders,\ elbows,\ hips,\ knees)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00110}00110\ \textcolor{comment}{\ *\ @note\ All\ bodies\ are\ registered\ with\ framework\ for\ rendering}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00111}00111\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00112}00112\ \textcolor{comment}{\ *\ @see\ RagDoll}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00113}00113\ \textcolor{comment}{\ *\ @see\ UpdateRagdollMotors}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00114}00114\ \textcolor{comment}{\ *\ @see\ DrawRagdoll}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00115}00115\ \textcolor{comment}{\ *\ @see\ FreeRagdoll}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00116}00116\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00117}00117\ \textcolor{comment}{//RagDoll*\ CreateRagdoll(dSpaceID\ space,\ dWorldID\ world,\ Vector3\ position,\ struct\ GraphicsContext*\ ctx)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00118}\mbox{\hyperlink{ragdoll_8c_a280e6f0bf4084257707b2e69342bfa61}{00118}}\ \mbox{\hyperlink{structRagDoll}{RagDoll}}*\ \mbox{\hyperlink{ragdoll_8c_a280e6f0bf4084257707b2e69342bfa61}{CreateRagdoll}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ Vector3\ position)}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00119}00119\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00120}00120\ \ \ \ \ \mbox{\hyperlink{structRagDoll}{RagDoll}}\ *ragdoll\ =\ RL\_MALLOC(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structRagDoll}{RagDoll}}));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00121}00121\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aade79e1e4b9a10bdb14353e5c982c392}{bodyCount}}\ =\ \mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54}{RAGDOLL\_BODY\_COUNT}};}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00122}00122\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{jointCount}}\ =\ 9;\ \ \textcolor{comment}{//\ neck,\ shoulders,\ elbows,\ hips,\ knees}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00123}00123\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a48922d5094768dcacf07717590dccd00}{motorCount}}\ =\ 0;\ \ \textcolor{comment}{//\ No\ motors\ initially,\ can\ be\ added\ for\ neural\ network\ control}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00125}00125\ \ \ \ \ \textcolor{comment}{//\ Allocate\ arrays\ for\ bodies,\ geoms,\ joints,\ and\ motors}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00126}00126\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}\ =\ RL\_MALLOC(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aade79e1e4b9a10bdb14353e5c982c392}{bodyCount}}\ *\ \textcolor{keyword}{sizeof}(dBodyID));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00127}00127\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}\ =\ RL\_MALLOC(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aade79e1e4b9a10bdb14353e5c982c392}{bodyCount}}\ *\ \textcolor{keyword}{sizeof}(dGeomID));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00128}00128\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}\ =\ RL\_MALLOC(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{jointCount}}\ *\ \textcolor{keyword}{sizeof}(dJointID));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00129}00129\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6abc7a02734741bc55d4bafcaaf534a2}{motors}}\ =\ RL\_MALLOC(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{jointCount}}\ *\ \textcolor{keyword}{sizeof}(dJointID));\ \ \textcolor{comment}{//\ Potential\ motors}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00131}00131\ \ \ \ \ dMass\ m;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00133}00133\ \ \ \ \ \textcolor{comment}{//\ Body\ dimensions}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ TODO\ should\ be\ header\ defines}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00135}00135\ \ \ \ \ \textcolor{keywordtype}{float}\ headRadius\ =\ 0.25f;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00136}00136\ \ \ \ \ \textcolor{keywordtype}{float}\ torsoWidth\ =\ 0.4f;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00137}00137\ \ \ \ \ \textcolor{keywordtype}{float}\ torsoHeight\ =\ 0.6f;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00138}00138\ \ \ \ \ \textcolor{keywordtype}{float}\ torsoDepth\ =\ 0.25f;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00139}00139\ \ \ \ \ \textcolor{keywordtype}{float}\ armLength\ =\ 0.35f;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00140}00140\ \ \ \ \ \textcolor{keywordtype}{float}\ armRadius\ =\ 0.1f;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00141}00141\ \ \ \ \ \textcolor{keywordtype}{float}\ legLength\ =\ 0.45f;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00142}00142\ \ \ \ \ \textcolor{keywordtype}{float}\ legRadius\ =\ 0.12f;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00144}00144\ \ \ \ \ \textcolor{comment}{//\ Ragdoll\ specific\ textures\ (consistent\ across\ all\ ragdolls)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00145}00145\ \ \ \ \ Texture*\ headTex\ =\ \&ctx-\/>\mbox{\hyperlink{structGraphicsContext_a0f22083c4b2ff44151d92d717137a8c4}{sphereTextures}}[1];\ \ \ \ \ \ \ \ \textcolor{comment}{//\ beach-\/ball.png}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00146}00146\ \ \ \ \ Texture*\ torsoTex\ =\ \&ctx-\/>\mbox{\hyperlink{structGraphicsContext_acef5b7178754c6babfd8e4745f7b3612}{boxTextures}}[0];\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ crate.png}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00147}00147\ \ \ \ \ Texture*\ limbTex\ =\ \&ctx-\/>\mbox{\hyperlink{structGraphicsContext_a5e593f3ae02930886863f6b381db3a71}{cylinderTextures}}[1];\ \ \ \ \ \textcolor{comment}{//\ cylinder2.png}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00149}00149\ \ \ \ \ \textcolor{comment}{//\ Create\ head}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00150}00150\ \ \ \ \ dMassSetSphere(\&m,\ 1,\ headRadius);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00151}00151\ \ \ \ \ dMassAdjust(\&m,\ 5.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00152}00152\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00153}00153\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00154}00154\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x,\ position.y\ +\ 1.6f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00156}00156\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}]\ =\ dCreateSphere(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ headRadius);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00157}00157\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00158}00158\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ headTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00160}00160\ \ \ \ \ \textcolor{comment}{//\ Create\ torso}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00161}00161\ \ \ \ \ dMassSetBox(\&m,\ 1,\ torsoWidth,\ torsoHeight,\ torsoDepth);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00162}00162\ \ \ \ \ dMassAdjust(\&m,\ 30.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00163}00163\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00164}00164\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00165}00165\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x,\ position.y\ +\ 0.9f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00167}00167\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}]\ =\ dCreateBox(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ torsoWidth,\ torsoHeight,\ torsoDepth);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00168}00168\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00169}00169\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ torsoTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//\ Create\ arms\ -\/\ initialize\ mass\ for\ each\ individually}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00172}00172\ \ \ \ \ \textcolor{comment}{//\ ODE\ cylinders\ are\ along\ Z-\/axis\ by\ default}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00173}00173\ \ \ \ \ \textcolor{comment}{//\ Rotate\ geoms\ 90°\ around\ Y\ to\ orient\ along\ X-\/axis}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00174}00174\ \ \ \ \ dMatrix3\ R\_arm;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00175}00175\ \ \ \ \ dRFromAxisAndAngle(R\_arm,\ 0,\ 1,\ 0,\ M\_PI\ *\ 0.5);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00177}00177\ \ \ \ \ \textcolor{comment}{//\ Left\ upper\ arm}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00178}00178\ \ \ \ \ dMassSetCylinder(\&m,\ 1,\ 3,\ armRadius,\ armLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00179}00179\ \ \ \ \ dMassAdjust(\&m,\ 3.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00180}00180\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00181}00181\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00182}00182\ \ \ \ \ \textcolor{comment}{//ragdoll-\/>geoms[RAGDOLL\_LEFT\_UPPER\_ARM]\ =\ dCreateCylinder(space,\ armRadius,\ armLength);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00183}00183\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}]\ =\ dCreateCapsule(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ armRadius,\ armLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00184}00184\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00185}00185\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00186}00186\ \ \ \ \ dGeomSetOffsetWorldRotation(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}],\ R\_arm);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00187}00187\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x\ -\/\ 0.35f,\ position.y\ +\ 1.1f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00189}00189\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ limbTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00191}00191\ \ \ \ \ \textcolor{comment}{//\ Left\ lower\ arm}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00192}00192\ \ \ \ \ dMassSetCylinder(\&m,\ 1,\ 3,\ armRadius,\ armLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00193}00193\ \ \ \ \ dMassAdjust(\&m,\ 3.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00194}00194\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00195}00195\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00196}00196\ \ \ \ \ \textcolor{comment}{//ragdoll-\/>geoms[RAGDOLL\_LEFT\_LOWER\_ARM]\ =\ dCreateCylinder(space,\ armRadius,\ armLength);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00197}00197\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}]\ =\ dCreateCapsule(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ armRadius,\ armLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00198}00198\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00199}00199\ \ \ \ \ dGeomSetOffsetWorldRotation(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}],\ R\_arm);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00200}00200\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x\ -\/\ 0.35f\ -\/\ armLength,\ position.y\ +\ 1.1f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00202}00202\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ limbTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00204}00204\ \ \ \ \ \textcolor{comment}{//\ Right\ upper\ arm}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00205}00205\ \ \ \ \ dMassSetCylinder(\&m,\ 1,\ 3,\ armRadius,\ armLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00206}00206\ \ \ \ \ dMassAdjust(\&m,\ 3.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00207}00207\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00208}00208\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00209}00209\ \ \ \ \ \textcolor{comment}{//ragdoll-\/>geoms[RAGDOLL\_RIGHT\_UPPER\_ARM]\ =\ dCreateCylinder(space,\ armRadius,\ armLength);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00210}00210\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}]\ =\ dCreateCapsule(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ armRadius,\ armLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00211}00211\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00212}00212\ \ \ \ \ dGeomSetOffsetWorldRotation(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}],\ R\_arm);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00213}00213\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x\ +\ 0.35f,\ position.y\ +\ 1.1f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00215}00215\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ limbTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00217}00217\ \ \ \ \ \textcolor{comment}{//\ Right\ lower\ arm}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00218}00218\ \ \ \ \ dMassSetCylinder(\&m,\ 1,\ 3,\ armRadius,\ armLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00219}00219\ \ \ \ \ dMassAdjust(\&m,\ 3.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00220}00220\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00221}00221\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00222}00222\ \ \ \ \ \textcolor{comment}{//ragdoll-\/>geoms[RAGDOLL\_RIGHT\_LOWER\_ARM]\ =\ dCreateCylinder(space,\ armRadius,\ armLength);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00223}00223\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}]\ =\ dCreateCapsule(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ armRadius,\ armLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00224}00224\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00225}00225\ \ \ \ \ dGeomSetOffsetWorldRotation(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}],\ R\_arm);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00226}00226\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x\ +\ 0.35f\ +\ armLength,\ position.y\ +\ 1.1f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00228}00228\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ limbTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00230}00230\ \ \ \ \ \textcolor{comment}{//\ Create\ legs\ -\/\ initialize\ mass\ for\ each\ individually}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00231}00231\ \ \ \ \ \textcolor{comment}{//\ ODE\ cylinders\ are\ along\ Z-\/axis\ by\ default}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00232}00232\ \ \ \ \ \textcolor{comment}{//\ Rotate\ geoms\ 90°\ around\ X\ to\ orient\ along\ Y-\/axis}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00233}00233\ \ \ \ \ dMatrix3\ R\_leg;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00234}00234\ \ \ \ \ dRFromAxisAndAngle(R\_leg,\ 1,\ 0,\ 0,\ M\_PI\ *\ 0.5);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00236}00236\ \ \ \ \ \textcolor{comment}{//\ Left\ upper\ leg}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00237}00237\ \ \ \ \ dMassSetCylinder(\&m,\ 1,\ 3,\ legRadius,\ legLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00238}00238\ \ \ \ \ dMassAdjust(\&m,\ 8.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00239}00239\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00240}00240\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00241}00241\ \ \ \ \ \textcolor{comment}{//ragdoll-\/>geoms[RAGDOLL\_LEFT\_UPPER\_LEG]\ =\ dCreateCylinder(space,\ legRadius,\ legLength);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00242}00242\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}]\ =\ dCreateCapsule(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ legRadius,\ legLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00243}00243\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00244}00244\ \ \ \ \ dGeomSetOffsetWorldRotation(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}],\ R\_leg);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00245}00245\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x\ -\/\ 0.15f,\ position.y\ +\ 0.45f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00247}00247\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ limbTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00249}00249\ \ \ \ \ \textcolor{comment}{//\ Left\ lower\ leg}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00250}00250\ \ \ \ \ dMassSetCylinder(\&m,\ 1,\ 3,\ legRadius,\ legLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00251}00251\ \ \ \ \ dMassAdjust(\&m,\ 8.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00252}00252\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00253}00253\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00254}00254\ \ \ \ \ \textcolor{comment}{//ragdoll-\/>geoms[RAGDOLL\_LEFT\_LOWER\_LEG]\ =\ dCreateCylinder(space,\ legRadius,\ legLength);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00255}00255\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}]\ =\ dCreateCapsule(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ legRadius,\ legLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00256}00256\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00257}00257\ \ \ \ \ dGeomSetOffsetWorldRotation(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}],\ R\_leg);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00258}00258\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x\ -\/\ 0.15f,\ position.y,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00260}00260\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ limbTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00262}00262\ \ \ \ \ \textcolor{comment}{//\ Right\ upper\ leg}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00263}00263\ \ \ \ \ dMassSetCylinder(\&m,\ 1,\ 3,\ legRadius,\ legLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00264}00264\ \ \ \ \ dMassAdjust(\&m,\ 8.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00265}00265\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00266}00266\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00267}00267\ \ \ \ \ \textcolor{comment}{//ragdoll-\/>geoms[RAGDOLL\_RIGHT\_UPPER\_LEG]\ =\ dCreateCylinder(space,\ legRadius,\ legLength);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00268}00268\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}]\ =\ dCreateCapsule(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ legRadius,\ legLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00269}00269\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00270}00270\ \ \ \ \ dGeomSetOffsetWorldRotation(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}],\ R\_leg);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00271}00271\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x\ +\ 0.15f,\ position.y\ +\ 0.45f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00273}00273\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ limbTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00275}00275\ \ \ \ \ \textcolor{comment}{//\ Right\ lower\ leg}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00276}00276\ \ \ \ \ dMassSetCylinder(\&m,\ 1,\ 3,\ legRadius,\ legLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00277}00277\ \ \ \ \ dMassAdjust(\&m,\ 8.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00278}00278\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}]\ =\ dBodyCreate(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00279}00279\ \ \ \ \ dBodySetMass(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}],\ \&m);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00280}00280\ \ \ \ \ \textcolor{comment}{//ragdoll-\/>geoms[RAGDOLL\_RIGHT\_LOWER\_LEG]\ =\ dCreateCylinder(space,\ legRadius,\ legLength);}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00281}00281\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}]\ =\ dCreateCapsule(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ legRadius,\ legLength);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00282}00282\ \ \ \ \ dGeomSetBody(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00283}00283\ \ \ \ \ dGeomSetOffsetWorldRotation(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}],\ R\_leg);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00284}00284\ \ \ \ \ dBodySetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}],}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ position.x\ +\ 0.15f,\ position.y,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00286}00286\ \ \ \ \ dGeomSetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ limbTex,\ 1.0f,\ 1.0f));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00288}00288\ \ \ \ \ \textcolor{comment}{//\ Create\ joints\ connecting\ body\ parts}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00289}00289\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00290}00290\ \ \ \ \ \textcolor{comment}{//\ Neck\ joint\ (Hinge\ between\ head\ and\ torso)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00291}00291\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[0]\ =\ dJointCreateHinge(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00292}00292\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[0],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00293}00293\ \ \ \ \ dJointSetHingeAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[0],\ position.x,\ position.y\ +\ 1.35f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00294}00294\ \ \ \ \ dJointSetHingeAxis(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[0],\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00295}00295\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[0],\ dParamLoStop,\ -\/0.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00296}00296\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[0],\ dParamHiStop,\ 0.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00298}00298\ \ \ \ \ \textcolor{comment}{//\ Left\ shoulder\ joint\ (Universal)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00299}00299\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1]\ =\ dJointCreateUniversal(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00300}00300\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00301}00301\ \ \ \ \ dJointSetUniversalAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1],\ position.x\ -\/\ 0.3f,\ position.y\ +\ 1.2f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00302}00302\ \ \ \ \ dJointSetUniversalAxis1(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1],\ 0,\ 0,\ 1);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00303}00303\ \ \ \ \ dJointSetUniversalAxis2(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1],\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00304}00304\ \ \ \ \ \textcolor{comment}{//\ Axis\ 1\ (Z):\ limit\ forward/backward\ swing}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00305}00305\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1],\ dParamLoStop,\ -\/2.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00306}00306\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1],\ dParamHiStop,\ 1.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00307}00307\ \ \ \ \ \textcolor{comment}{//\ Axis\ 2\ (X):\ limit\ side-\/to-\/side\ movement}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00308}00308\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1],\ dParamLoStop2,\ -\/1.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00309}00309\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[1],\ dParamHiStop2,\ 1.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00311}00311\ \ \ \ \ \textcolor{comment}{//\ Left\ elbow\ joint\ (Hinge)\ -\/\ only\ bends\ backward}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00312}00312\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[2]\ =\ dJointCreateHinge(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00313}00313\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[2],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68}{RAGDOLL\_LEFT\_UPPER\_ARM}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00314}00314\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ leftElbowPos\ =\ dBodyGetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6}{RAGDOLL\_LEFT\_LOWER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00315}00315\ \ \ \ \ dJointSetHingeAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[2],\ leftElbowPos[0]\ +\ armLength/2,\ leftElbowPos[1],\ leftElbowPos[2]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00316}00316\ \ \ \ \ dJointSetHingeAxis(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[2],\ 0,\ 0,\ 1);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00317}00317\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[2],\ dParamLoStop,\ 0.0f);\ \ \ \ \ \ \textcolor{comment}{//\ Can't\ bend\ forward}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00318}00318\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[2],\ dParamHiStop,\ 2.5f);\ \ \ \ \ \ \textcolor{comment}{//\ Max\ bend\ \string~143\ degrees}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00320}00320\ \ \ \ \ \textcolor{comment}{//\ Right\ shoulder\ joint\ (Universal)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00321}00321\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3]\ =\ dJointCreateUniversal(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00322}00322\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00323}00323\ \ \ \ \ dJointSetUniversalAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3],\ position.x\ +\ 0.3f,\ position.y\ +\ 1.2f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00324}00324\ \ \ \ \ dJointSetUniversalAxis1(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3],\ 0,\ 0,\ 1);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00325}00325\ \ \ \ \ dJointSetUniversalAxis2(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3],\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00326}00326\ \ \ \ \ \textcolor{comment}{//\ Axis\ 1\ (Z):\ limit\ forward/backward\ swing}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00327}00327\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3],\ dParamLoStop,\ -\/2.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00328}00328\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3],\ dParamHiStop,\ 1.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00329}00329\ \ \ \ \ \textcolor{comment}{//\ Axis\ 2\ (X):\ limit\ side-\/to-\/side\ movement}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00330}00330\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3],\ dParamLoStop2,\ -\/1.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00331}00331\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[3],\ dParamHiStop2,\ 1.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00332}00332\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00333}00333\ \ \ \ \ \textcolor{comment}{//\ Right\ elbow\ joint\ (Hinge)\ -\/\ only\ bends\ backward}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00334}00334\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[4]\ =\ dJointCreateHinge(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00335}00335\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[4],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3}{RAGDOLL\_RIGHT\_UPPER\_ARM}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00336}00336\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ rightElbowPos\ =\ dBodyGetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0}{RAGDOLL\_RIGHT\_LOWER\_ARM}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00337}00337\ \ \ \ \ dJointSetHingeAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[4],\ rightElbowPos[0]\ -\/\ armLength/2,\ rightElbowPos[1],\ rightElbowPos[2]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00338}00338\ \ \ \ \ dJointSetHingeAxis(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[4],\ 0,\ 0,\ 1);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00339}00339\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[4],\ dParamLoStop,\ 0.0f);\ \ \ \ \ \ \textcolor{comment}{//\ Can't\ bend\ forward}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00340}00340\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[4],\ dParamHiStop,\ 2.5f);\ \ \ \ \ \ \textcolor{comment}{//\ Max\ bend\ \string~143\ degrees}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00342}00342\ \ \ \ \ \textcolor{comment}{//\ Left\ hip\ joint\ (Universal)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00343}00343\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5]\ =\ dJointCreateUniversal(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00344}00344\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00345}00345\ \ \ \ \ dJointSetUniversalAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5],\ position.x\ -\/\ 0.15f,\ position.y\ +\ 0.6f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00346}00346\ \ \ \ \ dJointSetUniversalAxis1(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5],\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00347}00347\ \ \ \ \ dJointSetUniversalAxis2(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5],\ 0,\ 0,\ 1);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00348}00348\ \ \ \ \ \textcolor{comment}{//\ Axis\ 1\ (X):\ limit\ leg\ swing\ forward/back}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00349}00349\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5],\ dParamLoStop,\ -\/1.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00350}00350\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5],\ dParamHiStop,\ 2.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00351}00351\ \ \ \ \ \textcolor{comment}{//\ Axis\ 2\ (Z):\ limit\ leg\ rotation}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00352}00352\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5],\ dParamLoStop2,\ -\/1.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00353}00353\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[5],\ dParamHiStop2,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00354}00354\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00355}00355\ \ \ \ \ \textcolor{comment}{//\ Left\ knee\ joint\ (Hinge)\ -\/\ only\ bends\ backward}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00356}00356\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[6]\ =\ dJointCreateHinge(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00357}00357\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[6],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3}{RAGDOLL\_LEFT\_UPPER\_LEG}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00358}00358\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ leftKneePos\ =\ dBodyGetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e}{RAGDOLL\_LEFT\_LOWER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00359}00359\ \ \ \ \ dJointSetHingeAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[6],\ leftKneePos[0],\ leftKneePos[1]\ +\ legLength/2,\ leftKneePos[2]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00360}00360\ \ \ \ \ dJointSetHingeAxis(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[6],\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00361}00361\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[6],\ dParamLoStop,\ 0.0f);\ \ \ \ \ \ \ \textcolor{comment}{//\ Can't\ bend\ forward}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00362}00362\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[6],\ dParamHiStop,\ 2.5f);\ \ \ \ \ \ \ \textcolor{comment}{//\ Max\ bend\ \string~143\ degrees}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00363}00363\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00364}00364\ \ \ \ \ \textcolor{comment}{//\ Right\ hip\ joint\ (Universal)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00365}00365\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7]\ =\ dJointCreateUniversal(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00366}00366\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00367}00367\ \ \ \ \ dJointSetUniversalAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7],\ position.x\ +\ 0.15f,\ position.y\ +\ 0.6f,\ position.z);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00368}00368\ \ \ \ \ dJointSetUniversalAxis1(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7],\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00369}00369\ \ \ \ \ dJointSetUniversalAxis2(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7],\ 0,\ 0,\ 1);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00370}00370\ \ \ \ \ \textcolor{comment}{//\ Axis\ 1\ (X):\ limit\ leg\ swing\ forward/back}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00371}00371\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7],\ dParamLoStop,\ -\/1.5f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00372}00372\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7],\ dParamHiStop,\ 2.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00373}00373\ \ \ \ \ \textcolor{comment}{//\ Axis\ 2\ (Z):\ limit\ leg\ rotation}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00374}00374\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7],\ dParamLoStop2,\ -\/1.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00375}00375\ \ \ \ \ dJointSetUniversalParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[7],\ dParamHiStop2,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00376}00376\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00377}00377\ \ \ \ \ \textcolor{comment}{//\ Right\ knee\ joint\ (Hinge)\ -\/\ only\ bends\ backward}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00378}00378\ \ \ \ \ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[8]\ =\ dJointCreateHinge(pctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00379}00379\ \ \ \ \ dJointAttach(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[8],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34}{RAGDOLL\_RIGHT\_UPPER\_LEG}}],\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00380}00380\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ rightKneePos\ =\ dBodyGetPosition(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0}{RAGDOLL\_RIGHT\_LOWER\_LEG}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00381}00381\ \ \ \ \ dJointSetHingeAnchor(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[8],\ rightKneePos[0],\ rightKneePos[1]\ +\ legLength/2,\ rightKneePos[2]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00382}00382\ \ \ \ \ dJointSetHingeAxis(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[8],\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00383}00383\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[8],\ dParamLoStop,\ 0.0f);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Can't\ bend\ forward}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00384}00384\ \ \ \ \ dJointSetHingeParam(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[8],\ dParamHiStop,\ 2.5f);\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Max\ bend\ \string~143\ degrees}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00385}00385\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00386}00386\ \ \ \ \ \textcolor{comment}{//\ register\ the\ bodies\ with\ the\ framework\ }}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00387}00387\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<ragdoll-\/>\mbox{\hyperlink{structRagDoll_aade79e1e4b9a10bdb14353e5c982c392}{bodyCount}};\ i++)}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00388}00388\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00389}00389\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ RL\_MALLOC(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structentity}{entity}}));}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00390}00390\ \ \ \ \ \ \ \ \ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}}\ =\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[i];}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00391}00391\ \ \ \ \ \ \ \ \ dBodySetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[i],\ ent);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00392}00392\ \ \ \ \ \ \ \ \ ent-\/>\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}}\ =\ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ ent\ );}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00393}00393\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00394}00394\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00395}00395\ \ \ \ \ \textcolor{keywordflow}{return}\ ragdoll;}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00396}00396\ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00398}00398\ \textcolor{comment}{//\ Update\ rag\ doll\ motors\ }}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00399}00399\ \textcolor{comment}{//\ motorForces\ array\ should\ have\ one\ value\ per\ joint\ for\ control}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00400}00400\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00401}00401\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00402}00402\ \textcolor{comment}{\ *\ @brief\ Update\ ragdoll\ joint\ motors}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00403}00403\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00404}00404\ \textcolor{comment}{\ *\ Applies\ motor\ forces\ to\ the\ ragdoll's\ joints\ for\ control.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00405}00405\ \textcolor{comment}{\ *\ This\ is\ useful\ for\ neural\ network\ or\ reinforcement\ learning}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00406}00406\ \textcolor{comment}{\ *\ control\ of\ the\ ragdoll.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00407}00407\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00408}00408\ \textcolor{comment}{\ *\ @param\ ragdoll\ Pointer\ to\ the\ ragdoll\ structure}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00409}00409\ \textcolor{comment}{\ *\ @param\ motorForces\ Array\ of\ motor\ force\ values\ (one\ per\ joint)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00410}00410\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00411}00411\ \textcolor{comment}{\ *\ @note\ Array\ should\ have\ ragdoll-\/>jointCount\ elements\ for\ hinge\ joints}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00412}00412\ \textcolor{comment}{\ *\ @note\ For\ universal\ joints,\ uses\ ragdoll-\/>jointCount\ *\ 2\ elements}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00413}00413\ \textcolor{comment}{\ *\ @note\ Force\ of\ 0\ disables\ the\ motor\ for\ that\ joint}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00414}00414\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00415}00415\ \textcolor{comment}{\ *\ @see\ CreateRagdoll}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00416}00416\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00417}\mbox{\hyperlink{ragdoll_8c_aabb2deb6a54bb247892b4a5fabd6449c}{00417}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ragdoll_8c_aabb2deb6a54bb247892b4a5fabd6449c}{UpdateRagdollMotors}}(\mbox{\hyperlink{structRagDoll}{RagDoll}}\ *ragdoll,\ \textcolor{keywordtype}{float}\ *motorForces)}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00418}00418\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00419}00419\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ragdoll\ ||\ !motorForces)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00420}00420\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00421}00421\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{jointCount}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00422}00422\ \ \ \ \ \ \ \ \ dJointID\ joint\ =\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[i];}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00423}00423\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ jointType\ =\ dJointGetType(joint);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00424}00424\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00425}00425\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ For\ hinge\ joints,\ set\ velocity\ and\ max\ force\ for\ motor\ control}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00426}00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (jointType\ ==\ dJointTypeHinge)\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(joint,\ dParamVel,\ motorForces[i]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(joint,\ dParamFMax,\ fabsf(motorForces[i])\ >\ 0.001f\ ?\ 50.0f\ :\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00429}00429\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00430}00430\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ For\ universal\ joints,\ control\ both\ axes}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00431}00431\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (jointType\ ==\ dJointTypeUniversal)\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00432}00432\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ motorForces[i]\ controls\ axis\ 1,\ motorForces[i\ +\ jointCount]\ would\ control\ axis\ 2}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00433}00433\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetUniversalParam(joint,\ dParamVel,\ motorForces[i]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetUniversalParam(joint,\ dParamVel2,\ motorForces[i\ +\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{jointCount}}]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00435}00435\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetUniversalParam(joint,\ dParamFMax,\ fabsf(motorForces[i])\ >\ 0.001f\ ?\ 50.0f\ :\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00436}00436\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetUniversalParam(joint,\ dParamFMax2,\ fabsf(motorForces[i\ +\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{jointCount}}])\ >\ 0.001f\ ?\ 50.0f\ :\ 0.0f);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00437}00437\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00438}00438\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00439}00439\ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00440}00440\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00441}00441\ \textcolor{comment}{//\ Draw\ rag\ doll\ using\ the\ existing\ drawGeom\ system}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00442}00442\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00443}00443\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00444}00444\ \textcolor{comment}{\ *\ @brief\ Render\ a\ ragdoll\ to\ the\ screen}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00445}00445\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00446}00446\ \textcolor{comment}{\ *\ Renders\ all\ body\ parts\ of\ the\ ragdoll\ using\ the\ framework's}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00447}00447\ \textcolor{comment}{\ *\ existing\ rendering\ system.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00448}00448\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00449}00449\ \textcolor{comment}{\ *\ @param\ ragdoll\ Pointer\ to\ the\ ragdoll\ structure}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00450}00450\ \textcolor{comment}{\ *\ @param\ ctx\ Pointer\ to\ the\ graphics\ context}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00451}00451\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00452}00452\ \textcolor{comment}{\ *\ @note\ Uses\ the\ same\ drawGeom\ system\ as\ other\ physics\ bodies}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00453}00453\ \textcolor{comment}{\ *\ @see\ CreateRagdoll}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00454}00454\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00455}\mbox{\hyperlink{ragdoll_8c_a15a95f2545a01b96973e728cdd451bf9}{00455}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ragdoll_8c_a15a95f2545a01b96973e728cdd451bf9}{DrawRagdoll}}(\mbox{\hyperlink{structRagDoll}{RagDoll}}\ *ragdoll,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00456}00456\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00457}00457\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ragdoll)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00458}00458\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00459}00459\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_aade79e1e4b9a10bdb14353e5c982c392}{bodyCount}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00460}00460\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[i])\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00461}00461\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ac29c7db14d40f3946075ae2d63aab414}{drawGeom}}(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}}[i],\ ctx);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00462}00462\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00463}00463\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00464}00464\ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00465}00465\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00466}00466\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00467}00467\ \textcolor{comment}{//\ Free\ rag\ doll\ resources\ -\/\ properly\ destroys\ ODE\ objects\ before\ freeing\ wrapper\ arrays}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00468}00468\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00469}00469\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00470}00470\ \textcolor{comment}{\ *\ @brief\ Free\ a\ ragdoll\ and\ all\ its\ resources}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00471}00471\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00472}00472\ \textcolor{comment}{\ *\ Properly\ destroys\ all\ ODE\ bodies,\ geoms,\ joints,\ and\ motors}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00473}00473\ \textcolor{comment}{\ *\ associated\ with\ the\ ragdoll,\ and\ frees\ the\ wrapper\ structure.}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00474}00474\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00475}00475\ \textcolor{comment}{\ *\ @param\ ctx\ Pointer\ to\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00476}00476\ \textcolor{comment}{\ *\ @param\ ragdoll\ Pointer\ to\ the\ ragdoll\ structure\ to\ free}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00477}00477\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00478}00478\ \textcolor{comment}{\ *\ @note\ Removes\ ragdoll\ from\ framework's\ object\ list}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00479}00479\ \textcolor{comment}{\ *\ @note\ Frees\ all\ allocated\ memory\ for\ bodies,\ geoms,\ joints}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00480}00480\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00481}00481\ \textcolor{comment}{\ *\ @see\ CreateRagdoll}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00482}00482\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00483}\mbox{\hyperlink{ragdoll_8c_ab17f6d5cfecd7a8573b900f78460c816}{00483}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{ragdoll_8c_ab17f6d5cfecd7a8573b900f78460c816}{FreeRagdoll}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structRagDoll}{RagDoll}}\ *ragdoll)}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00484}00484\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00485}00485\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ragdoll)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00486}00486\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00487}00487\ \ \ \ \ \textcolor{comment}{//\ Destroy\ ODE\ joints}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00488}00488\ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}})\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00489}00489\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a16ba8728cb9c85ca6550882c8d839a15}{jointCount}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[i])\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00491}00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dJointDestroy(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}}[i]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00493}00493\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00494}00494\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00495}00495\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00496}00496\ \ \ \ \ \textcolor{comment}{//\ Destroy\ ODE\ motors}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00497}00497\ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6abc7a02734741bc55d4bafcaaf534a2}{motors}})\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00498}00498\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ ragdoll-\/>\mbox{\hyperlink{structRagDoll_a48922d5094768dcacf07717590dccd00}{motorCount}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6abc7a02734741bc55d4bafcaaf534a2}{motors}}[i])\ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00500}00500\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dJointDestroy(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6abc7a02734741bc55d4bafcaaf534a2}{motors}}[i]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00501}00501\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00502}00502\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00503}00503\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00504}00504\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00505}00505\ \ \ \ \ \textcolor{comment}{//\ Destroy\ ODE\ bodies\ and\ geoms\ (remove\ from\ framework\ tracking\ too)}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00506}00506\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<ragdoll-\/>\mbox{\hyperlink{structRagDoll_aade79e1e4b9a10bdb14353e5c982c392}{bodyCount}};\ i++)}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00507}00507\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00508}00508\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ dBodyGetData(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[i]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00509}00509\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}}[i]);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00510}00510\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clistDeleteNode}}(ctx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ \&ent-\/>\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00511}00511\ \ \ \ \ \ \ \ \ RL\_FREE(ent);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00512}00512\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00513}00513\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00514}00514\ \ \ \ \ \textcolor{comment}{//\ Free\ wrapper\ arrays}}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00515}00515\ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}})\ RL\_FREE(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6701b87f385a57ac96ab8a1574eae1c8}{bodies}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00516}00516\ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}})\ RL\_FREE(ragdoll-\/>\mbox{\hyperlink{structRagDoll_adac575b2a7d8284989639922b01e43cf}{geoms}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00517}00517\ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}})\ RL\_FREE(ragdoll-\/>\mbox{\hyperlink{structRagDoll_aa69098e87adb53384c9de0f5f833a9f1}{joints}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00518}00518\ \ \ \ \ \textcolor{keywordflow}{if}\ (ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6abc7a02734741bc55d4bafcaaf534a2}{motors}})\ RL\_FREE(ragdoll-\/>\mbox{\hyperlink{structRagDoll_a6abc7a02734741bc55d4bafcaaf534a2}{motors}});}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00519}00519\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00520}00520\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00522}00522\ \ \ \ \ RL\_FREE(ragdoll);}
+\DoxyCodeLine{\Hypertarget{ragdoll_8c_source_l00523}00523\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,94 @@
+\doxysection{collision.\+c}
+\hypertarget{collision_8c_source}{}\label{collision_8c_source}\mbox{\hyperlink{collision_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00023}00023\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00024}00024\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00025}00025\ \textcolor{comment}{\ *\ @file\ collision.c}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00026}00026\ \textcolor{comment}{\ *\ @brief\ Collision\ detection\ and\ response\ for\ the\ physics\ framework}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00027}00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00028}00028\ \textcolor{comment}{\ *\ This\ file\ handles\ all\ collision\ detection\ between\ physics\ bodies}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00029}00029\ \textcolor{comment}{\ *\ using\ ODE's\ collision\ system.\ It\ provides\ the\ nearCallback\ function}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00030}00030\ \textcolor{comment}{\ *\ that\ is\ called\ by\ ODE\ during\ collision\ detection.}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00031}00031\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00032}00032\ \textcolor{comment}{\ *\ @author\ Chris\ Camacho\ (codifies\ -\/\ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00033}00033\ \textcolor{comment}{\ *\ @date\ 2026}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00034}00034\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00035}00035\ \textcolor{comment}{\ *\ @note\ This\ module\ uses\ dSpaceCollide\ for\ broad-\/phase\ collision\ detection}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00036}00036\ \textcolor{comment}{\ *\ @note\ Maximum\ contacts\ per\ collision\ pair\ is\ limited\ to\ 8}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00037}00037\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00039}00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raylibODE_8h}{raylibODE.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00041}\mbox{\hyperlink{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}{00041}}\ \textcolor{preprocessor}{\#define\ MAX\_CONTACTS\ 8}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00043}\mbox{\hyperlink{collision_8c_ad6680ae487b581622710e22bdfdb3146}{00043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{collision_8c_ad6680ae487b581622710e22bdfdb3146}{nearCallback}}(\textcolor{keywordtype}{void}\ *data,\ dGeomID\ o1,\ dGeomID\ o2)}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00044}00044\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00045}00045\ \ \ \ \ dBodyID\ b1\ =\ dGeomGetBody(o1);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00046}00046\ \ \ \ \ dBodyID\ b2\ =\ dGeomGetBody(o2);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (b1\ \&\&\ b2\ \&\&\ dAreConnectedExcluding(b1,\ b2,\ dJointTypeContact))}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi1\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(o1);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00053}00053\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi2\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(o2);\ \ \ \ \textcolor{comment}{//\ Check\ for\ trigger\ callbacks}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00054}00054\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi1\ \&\&\ gi1-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}})\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ gi1-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}}(o1,\ o2);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Skip\ physical\ resolution}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi2\ \&\&\ gi2-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}})\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ gi2-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}}(o2,\ o1);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Skip\ physical\ resolution}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi1\ \&\&\ !gi1-\/>\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi2\ \&\&\ !gi2-\/>\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00066}00066\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00067}00067\ \ \ \ \ dContact\ contact[\mbox{\hyperlink{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}{MAX\_CONTACTS}}];\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{int}\ numc\ =\ dCollide(o1,\ o2,\ \mbox{\hyperlink{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}{MAX\_CONTACTS}},\ \&contact[0].geom,\ \textcolor{keyword}{sizeof}(dContact));}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{if}\ (numc\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*)data;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numc;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mode\ =\ dContactSlip1\ |\ dContactSlip2\ |}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dContactSoftERP\ |\ dContactSoftCFM\ |\ dContactApprox1;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mu\ =\ 1000;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip1\ =\ 0.0001;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip2\ =\ 0.0001;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.soft\_erp\ =\ 0.1;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.soft\_cfm\ =\ 0.001;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.bounce\ =\ 0.001;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.bounce\_vel\ =\ 0.001;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ dJointID\ c\ =\ dJointCreateContact(ctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ ctx-\/>\mbox{\hyperlink{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}{contactgroup}},\ \&contact[i]);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ dJointAttach(c,\ b1,\ b2);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00089}00089\ \}}
+
+\end{DoxyCode}

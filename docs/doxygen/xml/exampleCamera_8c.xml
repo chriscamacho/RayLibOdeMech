@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="exampleCamera_8c" kind="file" language="C++">
+    <compoundname>exampleCamera.c</compoundname>
+    <includes refid="vehicle_8h" local="yes">vehicle.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>clist.h</label>
+        <link refid="clist_8h"/>
+      </node>
+      <node id="3">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>rlights.h</label>
+        <link refid="rlights_8h"/>
+      </node>
+      <node id="2">
+        <label>vehicle.h</label>
+        <link refid="vehicle_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>exampleCamera.c</label>
+        <link refid="exampleCamera_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ode/ode.h</label>
+      </node>
+      <node id="4">
+        <label>raylib.h</label>
+      </node>
+      <node id="5">
+        <label>raymath.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="exampleCamera_8c_1a207a2d02b9d6e34a0a7c97429a388f05" prot="public" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float cameraYaw</definition>
+        <argsstring></argsstring>
+        <name>cameraYaw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.c" line="52" column="14" bodyfile="exampleCamera.c" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="exampleCamera_8c_1afbdbe8367f94fd8f5cfad18ea0c9cc44" prot="public" static="yes" mutable="no">
+        <type>float</type>
+        <definition>float cameraPitch</definition>
+        <argsstring></argsstring>
+        <name>cameraPitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.c" line="53" column="14" bodyfile="exampleCamera.c" bodystart="53" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="exampleCamera_8c_1a9904774abec2bae71c6d75094d47cbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float GetCameraYaw</definition>
+        <argsstring>()</argsstring>
+        <name>GetCameraYaw</name>
+        <briefdescription>
+<para>Get current camera yaw angle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Current yaw angle in radians </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.c" line="60" column="7" bodyfile="exampleCamera.c" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="exampleCamera_8c_1afbfa8af7ad686732f5ddcea617d03d1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float GetCameraPitch</definition>
+        <argsstring>()</argsstring>
+        <name>GetCameraPitch</name>
+        <briefdescription>
+<para>Get current camera pitch angle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Current pitch angle in radians </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.c" line="66" column="7" bodyfile="exampleCamera.c" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="exampleCamera_8c_1abf1f4204c9ad8cd8061009b9702d7a3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initCamera</definition>
+        <argsstring>(struct GraphicsContext *ctx)</argsstring>
+        <name>initCamera</name>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Initialize the camera. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets up the camera position and orientation for the scene. Should be called once at startup.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to graphics context containing camera</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Camera looks at origin by default </para>
+</simplesect>
+<simplesect kind="note"><para>Initializes yaw/pitch based on initial look direction </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.c" line="79" column="6" bodyfile="exampleCamera.c" bodystart="79" bodyend="91"/>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
+      </memberdef>
+      <memberdef kind="function" id="exampleCamera_8c_1a9ebb8457497dc7cebf88b55573010637" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void updateVehicleCamera</definition>
+        <argsstring>(struct GraphicsContext *ctx, vehicle *car)</argsstring>
+        <name>updateVehicleCamera</name>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structvehicle" kindref="compound">vehicle</ref> *</type>
+          <declname>car</declname>
+        </param>
+        <briefdescription>
+<para>update a camera but attach it to a vehicle </para>
+        </briefdescription>
+        <detaileddescription>
+<para>if you call this instead of the usual update camera you will be attached to a car, you won&apos;t be able to free roam, but you will be able to mouse look</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>graphics context used for the camera info </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>car</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vehicle you want to be attached to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.c" line="102" column="6" bodyfile="exampleCamera.c" bodystart="102" bodyend="156"/>
+        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+      </memberdef>
+      <memberdef kind="function" id="exampleCamera_8c_1ab694a4e13506da451e4221c6bc1c48f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void updateCamera</definition>
+        <argsstring>(struct GraphicsContext *ctx)</argsstring>
+        <name>updateCamera</name>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>update the camera </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This will also move the camera depending on the control keys WASD as expected relative to the view direction, QE move up and down the world axis and shift moves faster</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the graphics context </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.c" line="166" column="6" bodyfile="exampleCamera.c" bodystart="166" bodyend="216"/>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Camera control implementations. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This file provides camera control functions for the examples. It includes both a free-fly camera and a vehicle-following camera.</para>
+<para><simplesect kind="author"><para>Chris Camacho (codifies - <ulink url="http://bedroomcoders.co.uk/">http://bedroomcoders.co.uk/</ulink>) </para>
+</simplesect>
+<simplesect kind="date"><para>2026</para>
+</simplesect>
+</para>
+<sect1 id="exampleCamera_8c_1camera_controls">
+<title>Camera Controls</title><para>Free camera (updateCamera):<itemizedlist>
+<listitem><para>W/S: Forward/backward</para>
+</listitem><listitem><para>A/D: Strafe left/right</para>
+</listitem><listitem><para>Q/E: Down/up</para>
+</listitem><listitem><para>Mouse: Look around</para>
+</listitem><listitem><para>Shift: Speed boost</para>
+</listitem></itemizedlist>
+</para>
+<para>Vehicle camera (updateVehicleCamera):<itemizedlist>
+<listitem><para>Mouse: Look around relative to vehicle</para>
+</listitem><listitem><para>Camera follows vehicle from behind </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2026<sp/>Chris<sp/>Camacho<sp/>(codifies<sp/>-<sp/><sp/>http://bedroomcoders.co.uk/)</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="23"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>@file<sp/>exampleCamera.c</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Camera<sp/>control<sp/>implementations</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>This<sp/>file<sp/>provides<sp/>camera<sp/>control<sp/>functions<sp/>for<sp/>the<sp/>examples.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>It<sp/>includes<sp/>both<sp/>a<sp/>free-fly<sp/>camera<sp/>and<sp/>a<sp/>vehicle-following<sp/>camera.</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>@author<sp/>Chris<sp/>Camacho<sp/>(codifies<sp/>-<sp/>http://bedroomcoders.co.uk/)</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>@date<sp/>2026</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>@section<sp/>camera_controls<sp/>Camera<sp/>Controls</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>Free<sp/>camera<sp/>(updateCamera):</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>-<sp/>W/S:<sp/>Forward/backward</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>-<sp/>A/D:<sp/>Strafe<sp/>left/right</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>-<sp/>Q/E:<sp/>Down/up</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>-<sp/>Mouse:<sp/>Look<sp/>around</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*<sp/>-<sp/>Shift:<sp/>Speed<sp/>boost</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*<sp/>Vehicle<sp/>camera<sp/>(updateVehicleCamera):</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>-<sp/>Mouse:<sp/>Look<sp/>around<sp/>relative<sp/>to<sp/>vehicle</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*<sp/>-<sp/>Camera<sp/>follows<sp/>vehicle<sp/>from<sp/>behind</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>example<sp/>camera<sp/>intended<sp/>for<sp/>the<sp/>examples<sp/>only<sp/>probably<sp/>more<sp/>useful</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>to<sp/>make<sp/>something<sp/>more<sp/>specific<sp/>for<sp/>individual<sp/>projects<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="vehicle_8h" kindref="compound">vehicle.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cameraYaw;<sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cameraPitch;<sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="56"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Get<sp/>current<sp/>camera<sp/>yaw<sp/>angle</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>@return<sp/>Current<sp/>yaw<sp/>angle<sp/>in<sp/>radians</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="exampleCamera_8c_1a9904774abec2bae71c6d75094d47cbe3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8c_1a9904774abec2bae71c6d75094d47cbe3" kindref="member">GetCameraYaw</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cameraYaw;<sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="62"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Get<sp/>current<sp/>camera<sp/>pitch<sp/>angle</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>@return<sp/>Current<sp/>pitch<sp/>angle<sp/>in<sp/>radians</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="exampleCamera_8c_1afbfa8af7ad686732f5ddcea617d03d1b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8c_1afbfa8af7ad686732f5ddcea617d03d1b" kindref="member">GetCameraPitch</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>cameraPitch;<sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="68"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Initialize<sp/>the<sp/>camera</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>Sets<sp/>up<sp/>the<sp/>camera<sp/>position<sp/>and<sp/>orientation<sp/>for<sp/>the<sp/>scene.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>Should<sp/>be<sp/>called<sp/>once<sp/>at<sp/>startup.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>@param<sp/>ctx<sp/>Pointer<sp/>to<sp/>graphics<sp/>context<sp/>containing<sp/>camera</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>@note<sp/>Camera<sp/>looks<sp/>at<sp/>origin<sp/>by<sp/>default</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>@note<sp/>Initializes<sp/>yaw/pitch<sp/>based<sp/>on<sp/>initial<sp/>look<sp/>direction</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="exampleCamera_8c_1abf1f4204c9ad8cd8061009b9702d7a3f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8c_1abf1f4204c9ad8cd8061009b9702d7a3f" kindref="member">initCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Define<sp/>the<sp/>camera<sp/>to<sp/>look<sp/>into<sp/>our<sp/>3d<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>cameraTarget<sp/>=<sp/>{<sp/>4.0f,<sp/>2.0f,<sp/>1.0f<sp/>};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref><sp/>=<sp/>(Camera){(Vector3){<sp/>12.0f,<sp/>8.0f,<sp/>12.0f<sp/>},<sp/>cameraTarget,</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){<sp/>0.0f,<sp/>1.0f,<sp/>0.0f<sp/>},<sp/>45.0f,<sp/>CAMERA_PERSPECTIVE};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>initial<sp/>yaw/pitch<sp/>to<sp/>look<sp/>at<sp/>target</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>toTarget<sp/>=<sp/>Vector3Subtract(cameraTarget,<sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dist<sp/>=<sp/>Vector3Length(toTarget);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>cameraYaw<sp/>=<sp/>atan2f(toTarget.z,<sp/>toTarget.x);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>cameraPitch<sp/>=<sp/>asinf(toTarget.y<sp/>/<sp/>dist);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="93"><highlight class="comment">/**<sp/>@brief<sp/>update<sp/>a<sp/>camera<sp/>but<sp/>attach<sp/>it<sp/>to<sp/>a<sp/>vehicle</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/>*<sp/>if<sp/>you<sp/>call<sp/>this<sp/>instead<sp/>of<sp/>the<sp/>usual<sp/>update<sp/>camera</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/>*<sp/>you<sp/>will<sp/>be<sp/>attached<sp/>to<sp/>a<sp/>car,<sp/>you<sp/>won&apos;t<sp/>be<sp/>able<sp/>to<sp/></highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/>*<sp/>free<sp/>roam,<sp/>but<sp/>you<sp/>will<sp/>be<sp/>able<sp/>to<sp/>mouse<sp/>look</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/>*<sp/>@param<sp/>ctx<sp/>graphics<sp/>context<sp/>used<sp/>for<sp/>the<sp/>camera<sp/>info</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/>*<sp/>@param<sp/>car<sp/>the<sp/>vehicle<sp/>you<sp/>want<sp/>to<sp/>be<sp/>attached<sp/>to</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102" refid="exampleCamera_8c_1a9ebb8457497dc7cebf88b55573010637" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8c_1a9ebb8457497dc7cebf88b55573010637" kindref="member">updateVehicleCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Static<sp/>variables<sp/>for<sp/>vehicle<sp/>camera<sp/>state<sp/>(relative<sp/>to<sp/>car)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>relativeYaw<sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Yaw<sp/>relative<sp/>to<sp/>car&apos;s<sp/>forward</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>relativePitch<sp/>=<sp/>0.0f;<sp/><sp/></highlight><highlight class="comment">//<sp/>Pitch<sp/>relative<sp/>to<sp/>car</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Mouse<sp/>look<sp/>(relative<sp/>to<sp/>car)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>relativeYaw<sp/>+=<sp/>GetMouseDelta().x<sp/>*<sp/>0.003f;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>relativePitch<sp/>+=<sp/>GetMouseDelta().y<sp/>*<sp/>0.003f;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>relativePitch<sp/>=<sp/>Clamp(relativePitch,<sp/>-1.5f,<sp/>1.5f);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>car<sp/>position<sp/>and<sp/>rotation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>carPos<sp/>=<sp/>dBodyGetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0]);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>carRot<sp/>=<sp/>dBodyGetRotation(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0]);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Extract<sp/>car&apos;s<sp/>local<sp/>axes<sp/>from<sp/>rotation<sp/>matrix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>carForward<sp/>=<sp/>{<sp/>carRot[0],<sp/>carRot[4],<sp/>carRot[8]<sp/>};<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>X-axis<sp/>(forward)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>carRight<sp/>=<sp/>{<sp/>carRot[2],<sp/>carRot[6],<sp/>carRot[10]<sp/>};<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Z-axis<sp/>(right)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>carUp<sp/>=<sp/>{<sp/>carRot[1],<sp/>carRot[5],<sp/>carRot[9]<sp/>};<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Y-axis<sp/>(up)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>carPosition<sp/>=<sp/>{<sp/>carPos[0],<sp/>carPos[1],<sp/>carPos[2]<sp/>};</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Position<sp/>camera<sp/>at<sp/>car<sp/>position<sp/>(offset<sp/>slightly<sp/>up<sp/>and<sp/>back<sp/>for<sp/>better<sp/>view)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position<sp/>=<sp/>carPosition;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position.y<sp/>+=<sp/>4.0f;<sp/><sp/></highlight><highlight class="comment">//<sp/>Raise<sp/>camera<sp/>to<sp/>&quot;driver&apos;s<sp/>eye<sp/>level&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position<sp/>=<sp/>Vector3Add(ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position,<sp/>Vector3Scale(carForward,<sp/>-8.0f));<sp/></highlight><highlight class="comment">//<sp/>Slightly<sp/>back</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>view<sp/>direction<sp/>in<sp/>car&apos;s<sp/>local<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Start<sp/>with<sp/>car&apos;s<sp/>forward<sp/>direction,<sp/>then<sp/>apply<sp/>relative<sp/>yaw<sp/>and<sp/>pitch</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>viewDir<sp/>=<sp/>carForward;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>yaw<sp/>rotation<sp/>(around<sp/>car&apos;s<sp/>up<sp/>axis)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cosYaw<sp/>=<sp/>cosf(relativeYaw);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sinYaw<sp/>=<sp/>sinf(relativeYaw);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>viewDir<sp/>=<sp/>Vector3Add(</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3Scale(carForward,<sp/>cosYaw),</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3Scale(carRight,<sp/>sinYaw)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Apply<sp/>pitch<sp/>(tilt<sp/>up/down)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>viewDir<sp/>=<sp/>Vector3Add(</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3Scale(viewDir,<sp/>cosf(relativePitch)),</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3Scale(carUp,<sp/>sinf(relativePitch))</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Normalize<sp/>view<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>viewDir<sp/>=<sp/>Vector3Normalize(viewDir);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Set<sp/>camera<sp/>target</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.target<sp/>=<sp/>Vector3Add(ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position,<sp/>viewDir);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>light<sp/>shader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>SetShaderValue(ctx-&gt;<ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>,<sp/>ctx-&gt;<ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>.locs[SHADER_LOC_VECTOR_VIEW],<sp/>&amp;ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position.x,<sp/>SHADER_UNIFORM_VEC3);</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="158"><highlight class="comment">/**<sp/>@brief<sp/>update<sp/>the<sp/>camera</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*<sp/>This<sp/>will<sp/>also<sp/>move<sp/>the<sp/>camera<sp/>depending<sp/>on<sp/>the<sp/>control<sp/>keys</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*<sp/>WASD<sp/>as<sp/>expected<sp/>relative<sp/>to<sp/>the<sp/>view<sp/>direction,</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/>*<sp/>QE<sp/>move<sp/>up<sp/>and<sp/>down<sp/>the<sp/>world<sp/>axis<sp/>and<sp/>shift<sp/>moves<sp/>faster</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/>*<sp/>@param<sp/>ctx<sp/>pointer<sp/>to<sp/>the<sp/>graphics<sp/>context</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166" refid="exampleCamera_8c_1ab694a4e13506da451e4221c6bc1c48f1" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8c_1ab694a4e13506da451e4221c6bc1c48f1" kindref="member">updateCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal">{<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>camera<sp/>with<sp/>mouse<sp/>look<sp/>(first-person<sp/>style)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>cameraYaw<sp/>+=<sp/>GetMouseDelta().x<sp/>*<sp/>0.003f;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>cameraPitch<sp/>+=<sp/>GetMouseDelta().y<sp/>*<sp/>0.003f;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>cameraPitch<sp/>=<sp/>Clamp(cameraPitch,<sp/>-1.5f,<sp/>1.5f);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>forward,<sp/>right,<sp/>and<sp/>up<sp/>vectors<sp/>from<sp/>yaw/pitch</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>forward<sp/>=<sp/>{<sp/>cosf(cameraYaw)<sp/>*<sp/>cosf(cameraPitch),<sp/>sinf(cameraPitch),<sp/>sinf(cameraYaw)<sp/>*<sp/>cosf(cameraPitch)<sp/>};</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>up<sp/>=<sp/>{<sp/>0.0f,<sp/>1.0f,<sp/>0.0f<sp/>};</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>right<sp/>=<sp/>Vector3CrossProduct(forward,<sp/>up);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Camera<sp/>movement<sp/>speed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>moveSpeed<sp/>=<sp/>0.1f<sp/>*<sp/>GetFrameTime()<sp/>*<sp/>60.0f;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_LEFT_SHIFT)<sp/>||<sp/>IsKeyDown(KEY_RIGHT_SHIFT))<sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moveSpeed<sp/>*=<sp/>4.0;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>W/S<sp/>-<sp/>forward/backward<sp/>in<sp/>camera<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_W))<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position<sp/>=<sp/>Vector3Add(ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position,<sp/>Vector3Scale(forward,<sp/>moveSpeed));</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_S))<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position<sp/>=<sp/>Vector3Subtract(ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position,<sp/>Vector3Scale(forward,<sp/>moveSpeed));</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>A/D<sp/>-<sp/>strafe<sp/>left/right</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_D))<sp/>{</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position<sp/>=<sp/>Vector3Add(ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position,<sp/>Vector3Scale(right,<sp/>moveSpeed));</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_A))<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position<sp/>=<sp/>Vector3Subtract(ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position,<sp/>Vector3Scale(right,<sp/>moveSpeed));</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Q/E<sp/>-<sp/>up/down<sp/>(global<sp/>Y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_E))<sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position.y<sp/>+=<sp/>moveSpeed;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_Q))<sp/>{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position.y<sp/>-=<sp/>moveSpeed;</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Update<sp/>target<sp/>based<sp/>on<sp/>new<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.target<sp/>=<sp/>Vector3Add(ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position,<sp/>forward);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>update<sp/>the<sp/>light<sp/>shader<sp/>with<sp/>the<sp/>camera<sp/>view<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>SetShaderValue(ctx-&gt;<ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>,<sp/>ctx-&gt;<ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>.locs[SHADER_LOC_VECTOR_VIEW],<sp/>&amp;ctx-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position.x,<sp/>SHADER_UNIFORM_VEC3);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="exampleCamera.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structvehicle" kind="struct" language="C++" prot="public">
+    <compoundname>vehicle</compoundname>
+    <includes refid="vehicle_8h" local="no">vehicle.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" prot="public" static="no" mutable="no">
+        <type>dBodyID</type>
+        <definition>dBodyID vehicle::bodies[VEH_PART_COUNT]</definition>
+        <argsstring>[VEH_PART_COUNT]</argsstring>
+        <name>bodies</name>
+        <qualifiedname>vehicle::bodies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="10" column="13" bodyfile="vehicle.h" bodystart="10" bodyend="-1"/>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
+        <referencedby refid="vehicle_8c_1a29d7d2d85bf93cf5c13a572a55d94841" compoundref="vehicle_8c" startline="256" endline="282">unflipVehicle</referencedby>
+        <referencedby refid="exampleCamera_8c_1a9ebb8457497dc7cebf88b55573010637" compoundref="exampleCamera_8c" startline="102" endline="156">updateVehicleCamera</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structvehicle_1a058cc60e3227703b2d840ce60600a29a" prot="public" static="no" mutable="no">
+        <type>dGeomID</type>
+        <definition>dGeomID vehicle::geoms[VEH_PART_COUNT]</definition>
+        <argsstring>[VEH_PART_COUNT]</argsstring>
+        <name>geoms</name>
+        <qualifiedname>vehicle::geoms</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="11" column="13" bodyfile="vehicle.h" bodystart="11" bodyend="-1"/>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structvehicle_1a0317690c9ddade2a37344024197942e2" prot="public" static="no" mutable="no">
+        <type>dJointID</type>
+        <definition>dJointID vehicle::joints[WHEEL_COUNT]</definition>
+        <argsstring>[WHEEL_COUNT]</argsstring>
+        <name>joints</name>
+        <qualifiedname>vehicle::joints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="12" column="14" bodyfile="vehicle.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" compoundref="vehicle_8c" startline="188" endline="223">UpdateVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int vehicle::bodyCount</definition>
+        <argsstring></argsstring>
+        <name>bodyCount</name>
+        <qualifiedname>vehicle::bodyCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="13" column="9" bodyfile="vehicle.h" bodystart="13" bodyend="-1"/>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="vehicle.h" line="9" column="1" bodyfile="vehicle.h" bodystart="9" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" prot="public" virt="non-virtual"><scope>vehicle</scope><name>bodies</name></member>
+      <member refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" prot="public" virt="non-virtual"><scope>vehicle</scope><name>bodyCount</name></member>
+      <member refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" prot="public" virt="non-virtual"><scope>vehicle</scope><name>geoms</name></member>
+      <member refid="structvehicle_1a0317690c9ddade2a37344024197942e2" prot="public" virt="non-virtual"><scope>vehicle</scope><name>joints</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

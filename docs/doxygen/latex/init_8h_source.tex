@@ -1,0 +1,50 @@
+\doxysection{init.\+h}
+\hypertarget{init_8h_source}{}\label{init_8h_source}\mbox{\hyperlink{init_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00024}00024\ \textcolor{preprocessor}{\#ifndef\ INIT\_H}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00025}00025\ \textcolor{preprocessor}{\#define\ INIT\_H}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}raylib.h"{}}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <ode/ode.h>}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raylibODE_8h}{raylibODE.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rlights_8h}{rlights.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00033}00033\ \textcolor{comment}{//\ Initialize\ graphics\ resources\ and\ window}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00034}00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8h_a4ef743f6c8c693304e974dac3b901875}{InitGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title);}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00036}00036\ \textcolor{comment}{//\ Initialize\ the\ physics\ world\ and\ create\ all\ objects}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00037}00037\ \textcolor{comment}{//\ Returns\ pointer\ to\ PhysicsContext\ (caller\ responsible\ for\ passing\ to\ CleanupPhysics)}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00038}00038\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ \mbox{\hyperlink{init_8h_a1622bbe41084e4d594b33c3fa56e3ad9}{InitPhysics}}();\textcolor{comment}{//dSpaceID*\ space);//,\ GraphicsContext*\ gfxCtx);}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00040}00040\ \textcolor{comment}{//\ clean\ up\ physics}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00041}00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8h_afaa0b9510d3f6bf8a8187d25ed17c536}{CleanupPhysics}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00042}00042\ \textcolor{comment}{//\ Clean\ up\ application\ resources}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00043}00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8h_a9f01a5c8d21a89463b9e68ec349887f7}{CleanupGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00045}00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INIT\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,434 @@
+\doxysection{clist.\+c File Reference}
+\hypertarget{clist_8c}{}\label{clist_8c}\index{clist.c@{clist.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}clist.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{clist_8c_aa1b25ffe8dee701771e947e6f9cf06ed}{clist\+Create\+List}} ()
+\begin{DoxyCompactList}\small\item\em creates a list \end{DoxyCompactList}\item 
+\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clist\+Add\+Node}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list, void \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em adds a node to a list \end{DoxyCompactList}\item 
+\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{clist_8c_a97454fa26f4edb61884e4e46b04fc7e6}{clist\+Insert\+Node}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list, \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}node, void \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em inserts a node at any point in the list \end{DoxyCompactList}\item 
+\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{clist_8c_a04f42aba5efb3bf25eadc31f3c1eaa81}{clist\+Find\+Node}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list, void \texorpdfstring{$\ast$}{*}ptr)
+\begin{DoxyCompactList}\small\item\em search for a node in the list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clist\+Delete\+Node}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list, \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pnode)
+\begin{DoxyCompactList}\small\item\em delete a node \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clist_8c_aa7962ca08d379de807f9cd6179dc4823}{clist\+Delete\+Node\+From\+Data}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list, void \texorpdfstring{$\ast$}{*}ptr)
+\begin{DoxyCompactList}\small\item\em delete a node (containing a pointer) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clist_8c_a7688a8ecfc46dfc2d8734c3c8ffd2224}{clist\+Empty\+List}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em empty a list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clist_8c_a50196c474127f9c1924abae6a1b74b69}{clist\+Free\+List}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em free a list and all its resources \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clist_8c_ae9b045d3ebb0516cfaf27f605abc59e6}{clist\+Iterate\+Forward}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list, void(\texorpdfstring{$\ast$}{*}node\+Function)(\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}node))
+\begin{DoxyCompactList}\small\item\em iterate a list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clist_8c_a7c84f26dcd770e975590cd5ee144369c}{clist\+Iterate\+Backward}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list, void(\texorpdfstring{$\ast$}{*}node\+Function)(\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}node))
+\begin{DoxyCompactList}\small\item\em Iterate backwards through a list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{clist_8c_a4b391c55e96f84010610ab7a4ea1f2a2}{clist\+Sort}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list, int(\texorpdfstring{$\ast$}{*}cmp\+Function)(\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}n1, \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}n2))
+\begin{DoxyCompactList}\small\item\em sort a list \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{clist_8c_a68501b7c1ec4ac1a0a67510f34691040}{clist\+Total}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em number of items in list \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{clist_8c_ad3cab96837fd66c4660c60389246993d}{clist\+Is\+Empty}} (\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}list)
+\begin{DoxyCompactList}\small\item\em is list empty? \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{clist_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{clist_8c_a264922774fdf767e31797fe81f2231be}\index{clist.c@{clist.c}!clistAddNode@{clistAddNode}}
+\index{clistAddNode@{clistAddNode}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistAddNode()}{clistAddNode()}}
+{\footnotesize\ttfamily \label{clist_8c_a264922774fdf767e31797fe81f2231be} 
+\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*} clist\+Add\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+
+
+adds a node to a list 
+
+allocates space for a new node and places the node at the end of the list
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list to add the node to \\
+\hline
+\mbox{\texttt{in}}  & {\em data} & the data that this node points to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the newly allocated node 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, and \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00047}{47}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, and \mbox{\hyperlink{clist_8h_source_l00028}{\+\_\+\+\_\+clist\+::tail}}.
+
+
+
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00272}{create\+Base\+Entity()}}, \mbox{\hyperlink{ragdoll_8c_source_l00118}{Create\+Ragdoll()}}, \mbox{\hyperlink{raylibODE_8c_source_l00593}{Create\+Static\+Trimesh()}}, and \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}.
+
+\Hypertarget{clist_8c_aa1b25ffe8dee701771e947e6f9cf06ed}\index{clist.c@{clist.c}!clistCreateList@{clistCreateList}}
+\index{clistCreateList@{clistCreateList}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistCreateList()}{clistCreateList()}}
+{\footnotesize\ttfamily \label{clist_8c_aa1b25ffe8dee701771e947e6f9cf06ed} 
+\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*} clist\+Create\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+creates a list 
+
+Allocates space for the list structure clearing the head and tail pointer ready for use.
+
+\begin{DoxyReturn}{Returns}
+provides a pointer to the newly created list 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00018}{18}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{init_8c_source_l00158}{Init\+Physics()}}.
+
+\Hypertarget{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}\index{clist.c@{clist.c}!clistDeleteNode@{clistDeleteNode}}
+\index{clistDeleteNode@{clistDeleteNode}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistDeleteNode()}{clistDeleteNode()}}
+{\footnotesize\ttfamily \label{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738} 
+void clist\+Delete\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pnode}{}\end{DoxyParamCaption})}
+
+
+
+delete a node 
+
+this unlinks the node from the list and then frees its memory (the user is responsible for the data the nodes data pointer points to) the pointer to the node (pnode) is then NULLed to aid bug and resource checking
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list containing the node you wish to delete \\
+\hline
+\mbox{\texttt{in,out}}  & {\em pnode} & a pointer to the node pointer you want to delete, the node pointer is returned NULLed \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{car_8c-example}{car.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, and \mbox{\hyperlink{terrain_8c-example}{terrain.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00146}{146}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{clist_8h_source_l00012}{\+\_\+\+\_\+cnode\+::prev}}, and \mbox{\hyperlink{clist_8h_source_l00028}{\+\_\+\+\_\+clist\+::tail}}.
+
+
+
+Referenced by \mbox{\hyperlink{clist_8c_source_l00178}{clist\+Delete\+Node\+From\+Data()}}, \mbox{\hyperlink{clist_8c_source_l00198}{clist\+Empty\+List()}}, \mbox{\hyperlink{ragdoll_8c_source_l00483}{Free\+Ragdoll()}}, and \mbox{\hyperlink{vehicle_8c_source_l00231}{Free\+Vehicle()}}.
+
+\Hypertarget{clist_8c_aa7962ca08d379de807f9cd6179dc4823}\index{clist.c@{clist.c}!clistDeleteNodeFromData@{clistDeleteNodeFromData}}
+\index{clistDeleteNodeFromData@{clistDeleteNodeFromData}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistDeleteNodeFromData()}{clistDeleteNodeFromData()}}
+{\footnotesize\ttfamily \label{clist_8c_aa7962ca08d379de807f9cd6179dc4823} 
+void clist\+Delete\+Node\+From\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})}
+
+
+
+delete a node (containing a pointer) 
+
+this unlinks the node from the list and then frees its memory (the user is responsible for the data the nodes data pointer points to) the pointer to the node (pnode) is then NULLed to aid bug and resource checking the node is found by searching for a node with a matching data pointer
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list containing the node you wish to delete \\
+\hline
+\mbox{\texttt{in}}  & {\em ptr} & a pointer to data, for selecting the node \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00178}{178}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8c_source_l00146}{clist\+Delete\+Node()}}, and \mbox{\hyperlink{clist_8c_source_l00119}{clist\+Find\+Node()}}.
+
+\Hypertarget{clist_8c_a7688a8ecfc46dfc2d8734c3c8ffd2224}\index{clist.c@{clist.c}!clistEmptyList@{clistEmptyList}}
+\index{clistEmptyList@{clistEmptyList}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistEmptyList()}{clistEmptyList()}}
+{\footnotesize\ttfamily \label{clist_8c_a7688a8ecfc46dfc2d8734c3c8ffd2224} 
+void clist\+Empty\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{}\end{DoxyParamCaption})}
+
+
+
+empty a list 
+
+this will iterate the list freeing all the nodes in it. The list is still valid for use afterwards
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list you want emptying \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00198}{198}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8c_source_l00146}{clist\+Delete\+Node()}}, and \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}.
+
+
+
+Referenced by \mbox{\hyperlink{clist_8c_source_l00219}{clist\+Free\+List()}}.
+
+\Hypertarget{clist_8c_a04f42aba5efb3bf25eadc31f3c1eaa81}\index{clist.c@{clist.c}!clistFindNode@{clistFindNode}}
+\index{clistFindNode@{clistFindNode}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistFindNode()}{clistFindNode()}}
+{\footnotesize\ttfamily \label{clist_8c_a04f42aba5efb3bf25eadc31f3c1eaa81} 
+\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*} clist\+Find\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{ptr}{}\end{DoxyParamCaption})}
+
+
+
+search for a node in the list 
+
+brute force search for a node pointing to specific data generally you should be iterating lists and not dealing with specific nodes individually but this could come in handy
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list you want to find the node in \\
+\hline
+\mbox{\texttt{in}}  & {\em ptr} & finds the node that points to this data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+checks each node in turn looking for a node that points to ptr returns NULL if it doesn\textquotesingle{}t find a match 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00119}{119}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, and \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}.
+
+
+
+Referenced by \mbox{\hyperlink{clist_8c_source_l00178}{clist\+Delete\+Node\+From\+Data()}}.
+
+\Hypertarget{clist_8c_a50196c474127f9c1924abae6a1b74b69}\index{clist.c@{clist.c}!clistFreeList@{clistFreeList}}
+\index{clistFreeList@{clistFreeList}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistFreeList()}{clistFreeList()}}
+{\footnotesize\ttfamily \label{clist_8c_a50196c474127f9c1924abae6a1b74b69} 
+void clist\+Free\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{list}{}\end{DoxyParamCaption})}
+
+
+
+free a list and all its resources 
+
+this empties and frees all resources used by the list. Once freed it cannot be used...~\newline
+ This does not free what a node is pointing to just the nodes data structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in,out}}  & {\em list} & The address of the list pointer. It will be freed and then set to NULL to aid bug \& resource checking. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00219}{219}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8c_source_l00198}{clist\+Empty\+List()}}.
+
+
+
+Referenced by \mbox{\hyperlink{init_8c_source_l00195}{Cleanup\+Physics()}}.
+
+\Hypertarget{clist_8c_a97454fa26f4edb61884e4e46b04fc7e6}\index{clist.c@{clist.c}!clistInsertNode@{clistInsertNode}}
+\index{clistInsertNode@{clistInsertNode}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistInsertNode()}{clistInsertNode()}}
+{\footnotesize\ttfamily \label{clist_8c_a97454fa26f4edb61884e4e46b04fc7e6} 
+\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*} clist\+Insert\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{node}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+
+
+inserts a node at any point in the list 
+
+The newly created node takes the position of the inserted node, with the insert node and all subsequent nodes coming after it in the list order
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list you want to insert the node into \\
+\hline
+\mbox{\texttt{in}}  & {\em node} & the node in the list at the position you want to insert the new node at \\
+\hline
+\mbox{\texttt{in}}  & {\em data} & the data new node points to\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the newly created node is returned 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00083}{83}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, and \mbox{\hyperlink{clist_8h_source_l00012}{\+\_\+\+\_\+cnode\+::prev}}.
+
+\Hypertarget{clist_8c_ad3cab96837fd66c4660c60389246993d}\index{clist.c@{clist.c}!clistIsEmpty@{clistIsEmpty}}
+\index{clistIsEmpty@{clistIsEmpty}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistIsEmpty()}{clistIsEmpty()}}
+{\footnotesize\ttfamily \label{clist_8c_ad3cab96837fd66c4660c60389246993d} 
+int clist\+Is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{}\end{DoxyParamCaption})}
+
+
+
+is list empty? 
+
+test to see if the list is empty
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if empty, 0 if at least 1 node 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00336}{336}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}.
+
+\Hypertarget{clist_8c_a7c84f26dcd770e975590cd5ee144369c}\index{clist.c@{clist.c}!clistIterateBackward@{clistIterateBackward}}
+\index{clistIterateBackward@{clistIterateBackward}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistIterateBackward()}{clistIterateBackward()}}
+{\footnotesize\ttfamily \label{clist_8c_a7c84f26dcd770e975590cd5ee144369c} 
+void clist\+Iterate\+Backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{node\+Function~}{)(\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}node)}\end{DoxyParamCaption})}
+
+
+
+Iterate backwards through a list. 
+
+identical to clist\+Iterate\+Forwards execept in direction
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list to iterate \\
+\hline
+\mbox{\texttt{in}}  & {\em node\+Function} & the callback should return nothing and take only a node pointer as its parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00267}{267}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00012}{\+\_\+\+\_\+cnode\+::prev}}, and \mbox{\hyperlink{clist_8h_source_l00028}{\+\_\+\+\_\+clist\+::tail}}.
+
+\Hypertarget{clist_8c_ae9b045d3ebb0516cfaf27f605abc59e6}\index{clist.c@{clist.c}!clistIterateForward@{clistIterateForward}}
+\index{clistIterateForward@{clistIterateForward}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistIterateForward()}{clistIterateForward()}}
+{\footnotesize\ttfamily \label{clist_8c_ae9b045d3ebb0516cfaf27f605abc59e6} 
+void clist\+Iterate\+Forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{node\+Function~}{)(\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}node)}\end{DoxyParamCaption})}
+
+
+
+iterate a list 
+
+This moves forward through a list calling a callback function for each node in the list. If a callback is not apropriate, because for example you need to access local variables then you should iterate the list in this manner
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}\ *node=list-\/>head;}
+\DoxyCodeLine{\textcolor{keywordflow}{while}\ (node!=NULL)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ your\ code\ here}}
+\DoxyCodeLine{\ \ \ \ node=node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list to iterate \\
+\hline
+\mbox{\texttt{in}}  & {\em node\+Function} & the callback should return nothing and take only a node pointer as its parameter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00247}{247}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, and \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}.
+
+\Hypertarget{clist_8c_a4b391c55e96f84010610ab7a4ea1f2a2}\index{clist.c@{clist.c}!clistSort@{clistSort}}
+\index{clistSort@{clistSort}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistSort()}{clistSort()}}
+{\footnotesize\ttfamily \label{clist_8c_a4b391c55e96f84010610ab7a4ea1f2a2} 
+void clist\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{int(\texorpdfstring{$\ast$}{*}}]{cmp\+Function~}{)(\mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}n1, \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\+\_\+t}} \texorpdfstring{$\ast$}{*}n2)}\end{DoxyParamCaption})}
+
+
+
+sort a list 
+
+does a simple bubble sort on a list depending on node compare callback
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list to iterate \\
+\hline
+\mbox{\texttt{in}}  & {\em cmp\+Function} & the callback which should return 1 if n1 \texorpdfstring{$>$}{>} n2 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00286}{286}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, and \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}.
+
+\Hypertarget{clist_8c_a68501b7c1ec4ac1a0a67510f34691040}\index{clist.c@{clist.c}!clistTotal@{clistTotal}}
+\index{clistTotal@{clistTotal}!clist.c@{clist.c}}
+\doxysubsubsection{\texorpdfstring{clistTotal()}{clistTotal()}}
+{\footnotesize\ttfamily \label{clist_8c_a68501b7c1ec4ac1a0a67510f34691040} 
+int clist\+Total (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list}{}\end{DoxyParamCaption})}
+
+
+
+number of items in list 
+
+This iterrates the list counting all the nodes
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em list} & the list you wish to total \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{[}out\mbox{]} the number of nodes in the list 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{clist_8c_source_l00317}{317}} of file \mbox{\hyperlink{clist_8c_source}{clist.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, and \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}.
+

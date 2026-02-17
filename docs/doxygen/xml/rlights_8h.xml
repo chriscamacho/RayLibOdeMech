@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="rlights_8h" kind="file" language="C++">
+    <compoundname>rlights.h</compoundname>
+    <includedby refid="init_8h" local="yes">init.h</includedby>
+    <includedby refid="raylibODE_8h" local="yes">raylibODE.h</includedby>
+    <includedby refid="rlights_8c" local="yes">rlights.c</includedby>
+    <invincdepgraph>
+      <node id="10">
+        <label>exampleCamera.h</label>
+        <link refid="exampleCamera_8h"/>
+      </node>
+      <node id="2">
+        <label>init.h</label>
+        <link refid="init_8h"/>
+      </node>
+      <node id="3">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>rlights.h</label>
+        <link refid="rlights_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>vehicle.h</label>
+        <link refid="vehicle_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>collision.c</label>
+        <link refid="collision_8c"/>
+      </node>
+      <node id="9">
+        <label>exampleCamera.c</label>
+        <link refid="exampleCamera_8c"/>
+      </node>
+      <node id="5">
+        <label>init.c</label>
+        <link refid="init_8c"/>
+      </node>
+      <node id="6">
+        <label>ragdoll.c</label>
+        <link refid="ragdoll_8c"/>
+      </node>
+      <node id="7">
+        <label>raylibODE.c</label>
+        <link refid="raylibODE_8c"/>
+      </node>
+      <node id="12">
+        <label>rlights.c</label>
+        <link refid="rlights_8c"/>
+      </node>
+      <node id="11">
+        <label>vehicle.c</label>
+        <link refid="vehicle_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structLight" prot="public">Light</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" prot="public" static="no">
+        <name>MAX_LIGHTS</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="rlights.h" line="39" column="9" bodyfile="rlights.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" compoundref="rlights_8c" startline="26" endline="51">CreateLight</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638" prot="public" static="no" strong="no">
+        <type></type>
+        <name>LightType</name>
+        <enumvalue id="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638ab12dea138375f6dfacbd2ffbb98135a0" prot="public">
+          <name>LIGHT_DIRECTIONAL</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c" prot="public">
+          <name>LIGHT_POINT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="rlights.h" line="64" column="1" bodyfile="rlights.h" bodystart="64" bodyend="67"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="rlights_8h_1afc243bc3de16abf2627f9ae16dd484de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structLight" kindref="compound">Light</ref></type>
+        <definition>Light CreateLight</definition>
+        <argsstring>(int type, Vector3 position, Vector3 target, Color color, Shader shader)</argsstring>
+        <name>CreateLight</name>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>target</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type>Shader</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="rlights.h" line="76" column="7" bodyfile="rlights.c" bodystart="26" bodyend="51" declfile="rlights.h" declline="76" declcolumn="7"/>
+        <references refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" compoundref="rlights_8h" startline="51">Light::color</references>
+        <references refid="structLight_1a98df12cebc437d739f22dd809b66878c" compoundref="rlights_8h" startline="59">Light::colorLoc</references>
+        <references refid="structLight_1a6dfed8051e33dde2baaef3e50d74084e" compoundref="rlights_8h" startline="48">Light::enabled</references>
+        <references refid="structLight_1af606501e4853296552b5cfb03f37fae8" compoundref="rlights_8h" startline="55">Light::enabledLoc</references>
+        <references refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" compoundref="rlights_8h" startline="39">MAX_LIGHTS</references>
+        <references refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" compoundref="rlights_8h" startline="49">Light::position</references>
+        <references refid="structLight_1a448d502e227576d9ffa8627e050065ef" compoundref="rlights_8h" startline="57">Light::positionLoc</references>
+        <references refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" compoundref="rlights_8h" startline="50">Light::target</references>
+        <references refid="structLight_1a39192f609cfe392cca178e4a7f36937b" compoundref="rlights_8h" startline="58">Light::targetLoc</references>
+        <references refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" compoundref="rlights_8h" startline="47">Light::type</references>
+        <references refid="structLight_1a69074799494a828b60170d962675fb90" compoundref="rlights_8h" startline="56">Light::typeLoc</references>
+        <references refid="rlights_8c_1a147b7e5788024577fc8abb7df32e4c5c" compoundref="rlights_8c" startline="55" endline="73">UpdateLightValues</references>
+        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="rlights_8h_1a147b7e5788024577fc8abb7df32e4c5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UpdateLightValues</definition>
+        <argsstring>(Shader shader, Light light)</argsstring>
+        <name>UpdateLightValues</name>
+        <param>
+          <type>Shader</type>
+          <declname>shader</declname>
+        </param>
+        <param>
+          <type><ref refid="structLight" kindref="compound">Light</ref></type>
+          <declname>light</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="rlights.h" line="77" column="6" bodyfile="rlights.c" bodystart="55" bodyend="73" declfile="rlights.h" declline="77" declcolumn="6"/>
+        <references refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" compoundref="rlights_8h" startline="51">Light::color</references>
+        <references refid="structLight_1a98df12cebc437d739f22dd809b66878c" compoundref="rlights_8h" startline="59">Light::colorLoc</references>
+        <references refid="structLight_1a6dfed8051e33dde2baaef3e50d74084e" compoundref="rlights_8h" startline="48">Light::enabled</references>
+        <references refid="structLight_1af606501e4853296552b5cfb03f37fae8" compoundref="rlights_8h" startline="55">Light::enabledLoc</references>
+        <references refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" compoundref="rlights_8h" startline="49">Light::position</references>
+        <references refid="structLight_1a448d502e227576d9ffa8627e050065ef" compoundref="rlights_8h" startline="57">Light::positionLoc</references>
+        <references refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" compoundref="rlights_8h" startline="50">Light::target</references>
+        <references refid="structLight_1a39192f609cfe392cca178e4a7f36937b" compoundref="rlights_8h" startline="58">Light::targetLoc</references>
+        <references refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" compoundref="rlights_8h" startline="47">Light::type</references>
+        <references refid="structLight_1a69074799494a828b60170d962675fb90" compoundref="rlights_8h" startline="56">Light::typeLoc</references>
+        <referencedby refid="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" compoundref="rlights_8c" startline="26" endline="51">CreateLight</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**********************************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">*<sp/><sp/><sp/>raylib.lights<sp/>-<sp/>Some<sp/>useful<sp/>functions<sp/>to<sp/>deal<sp/>with<sp/>lights<sp/>data</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">*<sp/><sp/><sp/>CONFIGURATION:</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment">*<sp/><sp/><sp/>#define<sp/>RLIGHTS_IMPLEMENTATION</highlight></codeline>
+<codeline lineno="8"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>DEPRECATED:<sp/>Implementation<sp/>is<sp/>now<sp/>in<sp/>rlights.c</highlight></codeline>
+<codeline lineno="9"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>This<sp/>header<sp/>now<sp/>only<sp/>contains<sp/>declarations.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/>modified<sp/>codifies<sp/>(2026)<sp/>under<sp/>same<sp/>licence</highlight></codeline>
+<codeline lineno="11"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment">*<sp/><sp/><sp/>LICENSE:<sp/>zlib/libpng</highlight></codeline>
+<codeline lineno="13"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment">*<sp/><sp/><sp/>Copyright<sp/>(c)<sp/>2017-2023<sp/>Victor<sp/>Fisac<sp/>(@victorfisac)<sp/>and<sp/>Ramon<sp/>Santamaria<sp/>(@raysan5)</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/><sp/><sp/>This<sp/>software<sp/>is<sp/>provided<sp/>&quot;as-is&quot;,<sp/>without<sp/>any<sp/>express<sp/>or<sp/>implied<sp/>warranty.<sp/>In<sp/>no<sp/>event</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*<sp/><sp/><sp/>will<sp/>the<sp/>authors<sp/>be<sp/>held<sp/>liable<sp/>for<sp/>any<sp/>damages<sp/>arising<sp/>from<sp/>the<sp/>use<sp/>of<sp/>this<sp/>software.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">*<sp/><sp/><sp/>Permission<sp/>is<sp/>granted<sp/>to<sp/>anyone<sp/>to<sp/>use<sp/>this<sp/>software<sp/>for<sp/>any<sp/>purpose,<sp/>including<sp/>commercial</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">*<sp/><sp/><sp/>applications,<sp/>and<sp/>to<sp/>alter<sp/>it<sp/>and<sp/>redistribute<sp/>it<sp/>freely,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>restrictions:</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/>1.<sp/>The<sp/>origin<sp/>of<sp/>this<sp/>software<sp/>must<sp/>not<sp/>be<sp/>misrepresented;<sp/>you<sp/>must<sp/>not<sp/>claim<sp/>that<sp/>you</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/>wrote<sp/>the<sp/>original<sp/>software.<sp/>If<sp/>you<sp/>use<sp/>this<sp/>software<sp/>in<sp/>a<sp/>product,<sp/>an<sp/>acknowledgment</highlight></codeline>
+<codeline lineno="24"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/>in<sp/>the<sp/>product<sp/>documentation<sp/>would<sp/>be<sp/>appreciated<sp/>but<sp/>is<sp/>not<sp/>required.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/>2.<sp/>Altered<sp/>source<sp/>versions<sp/>must<sp/>be<sp/>plainly<sp/>marked<sp/>as<sp/>such,<sp/>and<sp/>must<sp/>not<sp/>be<sp/>misrepresented</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/>as<sp/>being<sp/>the<sp/>original<sp/>software.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">*<sp/><sp/><sp/><sp/><sp/>3.<sp/>This<sp/>notice<sp/>may<sp/>not<sp/>be<sp/>removed<sp/>or<sp/>altered<sp/>from<sp/>any<sp/>source<sp/>distribution.</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">**********************************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RLIGHTS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RLIGHTS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Defines<sp/>and<sp/>Macros</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_LIGHTS<sp/><sp/>4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Max<sp/>dynamic<sp/>lights<sp/>supported<sp/>by<sp/>shader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Types<sp/>and<sp/>Structures<sp/>Definition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Light<sp/>data</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="structLight" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47" refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" kindref="member">type</ref>;</highlight></codeline>
+<codeline lineno="48" refid="structLight_1a6dfed8051e33dde2baaef3e50d74084e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structLight_1a6dfed8051e33dde2baaef3e50d74084e" kindref="member">enabled</ref>;</highlight></codeline>
+<codeline lineno="49" refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/><ref refid="structLight_1aaf0e960606cf34ba827b5fef2c74b042" kindref="member">position</ref>;</highlight></codeline>
+<codeline lineno="50" refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/><ref refid="structLight_1ada0bd72079232cbfaba34001229e8cfa" kindref="member">target</ref>;</highlight></codeline>
+<codeline lineno="51" refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="structLight_1ad7a168d26aed1bf7cca1a8d8e6f8ada4" kindref="member">color</ref>;</highlight></codeline>
+<codeline lineno="52" refid="structLight_1af8b645352e549c52ace8731a3aca34c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structLight_1af8b645352e549c52ace8731a3aca34c4" kindref="member">attenuation</ref>;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Shader<sp/>locations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="structLight_1af606501e4853296552b5cfb03f37fae8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structLight_1af606501e4853296552b5cfb03f37fae8" kindref="member">enabledLoc</ref>;</highlight></codeline>
+<codeline lineno="56" refid="structLight_1a69074799494a828b60170d962675fb90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structLight_1a69074799494a828b60170d962675fb90" kindref="member">typeLoc</ref>;</highlight></codeline>
+<codeline lineno="57" refid="structLight_1a448d502e227576d9ffa8627e050065ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structLight_1a448d502e227576d9ffa8627e050065ef" kindref="member">positionLoc</ref>;</highlight></codeline>
+<codeline lineno="58" refid="structLight_1a39192f609cfe392cca178e4a7f36937b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structLight_1a39192f609cfe392cca178e4a7f36937b" kindref="member">targetLoc</ref>;</highlight></codeline>
+<codeline lineno="59" refid="structLight_1a98df12cebc437d739f22dd809b66878c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structLight_1a98df12cebc437d739f22dd809b66878c" kindref="member">colorLoc</ref>;</highlight></codeline>
+<codeline lineno="60" refid="structLight_1a45d4a94a276ab0870a108f4a4a460e0a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structLight_1a45d4a94a276ab0870a108f4a4a460e0a" kindref="member">attenuationLoc</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">}<sp/><ref refid="structLight" kindref="compound">Light</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Light<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="65" refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638ab12dea138375f6dfacbd2ffbb98135a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638ab12dea138375f6dfacbd2ffbb98135a0" kindref="member">LIGHT_DIRECTIONAL</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="66" refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c" kindref="member">LIGHT_POINT</ref></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}<sp/><ref refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638" kindref="member">LightType</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Prevents<sp/>name<sp/>mangling<sp/>of<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Module<sp/>Functions<sp/>Declaration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><ref refid="structLight" kindref="compound">Light</ref><sp/><ref refid="rlights_8h_1afc243bc3de16abf2627f9ae16dd484de" kindref="member">CreateLight</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type,<sp/>Vector3<sp/>position,<sp/>Vector3<sp/>target,<sp/>Color<sp/>color,<sp/>Shader<sp/>shader);<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>a<sp/>light<sp/>and<sp/>get<sp/>shader<sp/>locations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rlights_8h_1a147b7e5788024577fc8abb7df32e4c5c" kindref="member">UpdateLightValues</ref>(Shader<sp/>shader,<sp/><ref refid="structLight" kindref="compound">Light</ref><sp/>light);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Send<sp/>light<sp/>properties<sp/>to<sp/>shader</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RLIGHTS_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="rlights.h"/>
+  </compounddef>
+</doxygen>

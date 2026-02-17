@@ -1,0 +1,628 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="clist_8h" kind="file" language="C++">
+    <compoundname>clist.h</compoundname>
+    <includedby refid="clist_8c" local="yes">clist.c</includedby>
+    <includedby refid="raylibODE_8h" local="yes">raylibODE.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>clist.h</label>
+        <link refid="clist_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>exampleCamera.h</label>
+        <link refid="exampleCamera_8h"/>
+      </node>
+      <node id="6">
+        <label>init.h</label>
+        <link refid="init_8h"/>
+      </node>
+      <node id="3">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>vehicle.h</label>
+        <link refid="vehicle_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>clist.c</label>
+        <link refid="clist_8c"/>
+      </node>
+      <node id="4">
+        <label>collision.c</label>
+        <link refid="collision_8c"/>
+      </node>
+      <node id="10">
+        <label>exampleCamera.c</label>
+        <link refid="exampleCamera_8c"/>
+      </node>
+      <node id="5">
+        <label>init.c</label>
+        <link refid="init_8c"/>
+      </node>
+      <node id="7">
+        <label>ragdoll.c</label>
+        <link refid="ragdoll_8c"/>
+      </node>
+      <node id="8">
+        <label>raylibODE.c</label>
+        <link refid="raylibODE_8c"/>
+      </node>
+      <node id="12">
+        <label>vehicle.c</label>
+        <link refid="vehicle_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct____cnode" prot="public">__cnode</innerclass>
+    <innerclass refid="struct____clist" prot="public">__clist</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" prot="public" static="no">
+        <type>struct <ref refid="struct____cnode" kindref="compound">__cnode</ref></type>
+        <definition>typedef struct __cnode cnode_t</definition>
+        <argsstring></argsstring>
+        <name>cnode_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>structure representing a node in a list </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="7" column="22" bodyfile="clist.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" prot="public" static="no">
+        <type>struct <ref refid="struct____clist" kindref="compound">__clist</ref></type>
+        <definition>typedef struct __clist clist_t</definition>
+        <argsstring></argsstring>
+        <name>clist_t</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>structure representing a list of nodes (basically just a header) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="22" column="22" bodyfile="clist.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="clist_8h_1aa1b25ffe8dee701771e947e6f9cf06ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+        <definition>clist_t * clistCreateList</definition>
+        <argsstring>()</argsstring>
+        <name>clistCreateList</name>
+        <briefdescription>
+<para>creates a list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates space for the list structure clearing the head and tail pointer ready for use.</para>
+<para><simplesect kind="return"><para>provides a pointer to the newly created list </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="34" column="8" bodyfile="clist.c" bodystart="18" bodyend="33" declfile="clist.h" declline="34" declcolumn="8"/>
+        <referencedby refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" compoundref="init_8c" startline="158" endline="193">InitPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1a264922774fdf767e31797fe81f2231be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t * clistAddNode</definition>
+        <argsstring>(clist_t *list, void *data)</argsstring>
+        <name>clistAddNode</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>adds a node to a list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>allocates space for a new node and places the node at the end of the list</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list to add the node to </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data that this node points to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the newly allocated node </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="35" column="8" bodyfile="clist.c" bodystart="47" bodyend="66" declfile="clist.h" declline="35" declcolumn="8"/>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
+        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="272" endline="279">createBaseEntity</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="593" endline="618">CreateStaticTrimesh</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1a97454fa26f4edb61884e4e46b04fc7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t * clistInsertNode</definition>
+        <argsstring>(clist_t *list, cnode_t *node, void *data)</argsstring>
+        <name>clistInsertNode</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>inserts a node at any point in the list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The newly created node takes the position of the inserted node, with the insert node and all subsequent nodes coming after it in the list order</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list you want to insert the node into </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the node in the list at the position you want to insert the new node at </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data new node points to</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the newly created node is returned </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="36" column="8" bodyfile="clist.c" bodystart="83" bodyend="102" declfile="clist.h" declline="36" declcolumn="8"/>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <references refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" compoundref="clist_8h" startline="12">__cnode::prev</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1a04f42aba5efb3bf25eadc31f3c1eaa81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
+        <definition>cnode_t * clistFindNode</definition>
+        <argsstring>(clist_t *list, void *ptr)</argsstring>
+        <name>clistFindNode</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>search for a node in the list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>brute force search for a node pointing to specific data generally you should be iterating lists and not dealing with specific nodes individually but this could come in handy</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list you want to find the node in </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>finds the node that points to this data</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>checks each node in turn looking for a node that points to ptr returns NULL if it doesn&apos;t find a match </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="37" column="8" bodyfile="clist.c" bodystart="119" bodyend="131" declfile="clist.h" declline="37" declcolumn="8"/>
+        <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <referencedby refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" compoundref="clist_8c" startline="178" endline="187">clistDeleteNodeFromData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1aaa9e4f9480e8a447786cf9413f989601" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistDeleteNode</definition>
+        <argsstring>(clist_t *list, cnode_t **node)</argsstring>
+        <name>clistDeleteNode</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> **</type>
+          <declname>node</declname>
+          <defname>pnode</defname>
+        </param>
+        <briefdescription>
+<para>delete a node </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this unlinks the node from the list and then frees its memory (the user is responsible for the data the nodes data pointer points to) the pointer to the node (pnode) is then NULLed to aid bug and resource checking</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list containing the node you wish to delete </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">pnode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to the node pointer you want to delete, the node pointer is returned NULLed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="38" column="6" bodyfile="clist.c" bodystart="146" bodyend="164" declfile="clist.h" declline="38" declcolumn="6"/>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+        <references refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" compoundref="clist_8h" startline="12">__cnode::prev</references>
+        <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
+        <referencedby refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" compoundref="clist_8c" startline="178" endline="187">clistDeleteNodeFromData</referencedby>
+        <referencedby refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</referencedby>
+        <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="483" endline="523">FreeRagdoll</referencedby>
+        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1ac83038fbf67c63eef1ed8162f4899ff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistDeleteNodeFromData</definition>
+        <argsstring>(clist_t *, void *)</argsstring>
+        <name>clistDeleteNodeFromData</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>ptr</declname>
+        </param>
+        <briefdescription>
+<para>delete a node (containing a pointer) </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this unlinks the node from the list and then frees its memory (the user is responsible for the data the nodes data pointer points to) the pointer to the node (pnode) is then NULLed to aid bug and resource checking the node is found by searching for a node with a matching data pointer</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list containing the node you wish to delete </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to data, for selecting the node </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="39" column="6" bodyfile="clist.c" bodystart="178" bodyend="187" declfile="clist.h" declline="39" declcolumn="6"/>
+        <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
+        <references refid="clist_8c_1a04f42aba5efb3bf25eadc31f3c1eaa81" compoundref="clist_8c" startline="119" endline="131">clistFindNode</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1a7688a8ecfc46dfc2d8734c3c8ffd2224" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistEmptyList</definition>
+        <argsstring>(clist_t *list)</argsstring>
+        <name>clistEmptyList</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>empty a list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this will iterate the list freeing all the nodes in it. The list is still valid for use afterwards</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list you want emptying </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="40" column="6" bodyfile="clist.c" bodystart="198" bodyend="206" declfile="clist.h" declline="40" declcolumn="6"/>
+        <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <referencedby refid="clist_8c_1a50196c474127f9c1924abae6a1b74b69" compoundref="clist_8c" startline="219" endline="224">clistFreeList</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1a50196c474127f9c1924abae6a1b74b69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistFreeList</definition>
+        <argsstring>(clist_t **list)</argsstring>
+        <name>clistFreeList</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> **</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>free a list and all its resources </para>
+        </briefdescription>
+        <detaileddescription>
+<para>this empties and frees all resources used by the list. Once freed it cannot be used...<linebreak/>
+ This does not free what a node is pointing to just the nodes data structure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="inout">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The address of the list pointer. It will be freed and then set to NULL to aid bug &amp; resource checking. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="41" column="6" bodyfile="clist.c" bodystart="219" bodyend="224" declfile="clist.h" declline="41" declcolumn="6"/>
+        <references refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</references>
+        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1ad2dc31dbf76b39552a209b9e37cec624" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistIterateForward</definition>
+        <argsstring>(clist_t *list, void(nodeFunction)(cnode_t *node))</argsstring>
+        <name>clistIterateForward</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void(nodeFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *node)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="43" column="6" declfile="clist.h" declline="43" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1a9bf7deac861d0ebd6109d61b95b48336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistIterateBackward</definition>
+        <argsstring>(clist_t *list, void(nodeFunction)(cnode_t *node))</argsstring>
+        <name>clistIterateBackward</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>void(nodeFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *node)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="44" column="6" declfile="clist.h" declline="44" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1ad0de947b825baf4c6bbe4c7510022651" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clistSort</definition>
+        <argsstring>(clist_t *list, int(cmpFunction)(cnode_t *node1, cnode_t *node2))</argsstring>
+        <name>clistSort</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int(cmpFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *node1, <ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *node2)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="45" column="6" declfile="clist.h" declline="45" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1a68501b7c1ec4ac1a0a67510f34691040" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int clistTotal</definition>
+        <argsstring>(clist_t *list)</argsstring>
+        <name>clistTotal</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>number of items in list </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This iterrates the list counting all the nodes</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the list you wish to total </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>[out] the number of nodes in the list </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="46" column="5" bodyfile="clist.c" bodystart="317" bodyend="327" declfile="clist.h" declline="46" declcolumn="5"/>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+        <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
+      </memberdef>
+      <memberdef kind="function" id="clist_8h_1ad3cab96837fd66c4660c60389246993d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int clistIsEmpty</definition>
+        <argsstring>(clist_t *list)</argsstring>
+        <name>clistIsEmpty</name>
+        <param>
+          <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+<para>is list empty? </para>
+        </briefdescription>
+        <detaileddescription>
+<para>test to see if the list is empty</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">list</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>1 if empty, 0 if at least 1 node </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="clist.h" line="47" column="5" bodyfile="clist.c" bodystart="336" bodyend="339" declfile="clist.h" declline="47" declcolumn="5"/>
+        <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>__CLIST_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>__CLIST_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="4"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>structure<sp/>representing<sp/>a<sp/>node<sp/>in<sp/>a<sp/>list</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____cnode" kindref="compound">__cnode</ref><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="struct____cnode" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____cnode" kindref="compound">__cnode</ref></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/><sp/><sp/><sp/>/*@{*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____cnode" kindref="compound">__cnode</ref>*<sp/><ref refid="struct____cnode_1ab4ad4dacef59b181bf678d4f5eeda2fa" kindref="member">prev</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>pointer<sp/>to<sp/>the<sp/>previous<sp/>node<sp/>in<sp/>the<sp/>list<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____cnode" kindref="compound">__cnode</ref>*<sp/><ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>pointer<sp/>to<sp/>the<sp/>next<sp/>node<sp/>in<sp/>the<sp/>list<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>pointer<sp/>to<sp/>the<sp/>data<sp/>this<sp/>node<sp/>is<sp/>tracking<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/><sp/>/*@}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>structure<sp/>representing<sp/>a<sp/>list<sp/>of<sp/>nodes<sp/>(basically<sp/>just<sp/>a<sp/>header)</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____clist" kindref="compound">__clist</ref><sp/><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="struct____clist" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct____clist" kindref="compound">__clist</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/>/*@{*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="struct____clist_1a87719175a9395449ee1db0221b39688a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/><ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>first<sp/>node<sp/>in<sp/>the<sp/>list<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/><ref refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" kindref="member">tail</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>the<sp/>last<sp/>node<sp/>in<sp/>the<sp/>list<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/>/*@}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<ref refid="clist_8h_1aa1b25ffe8dee701771e947e6f9cf06ed" kindref="member">clistCreateList</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<ref refid="clist_8h_1a264922774fdf767e31797fe81f2231be" kindref="member">clistAddNode</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<ref refid="clist_8h_1a97454fa26f4edb61884e4e46b04fc7e6" kindref="member">clistInsertNode</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>data);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<ref refid="clist_8h_1a04f42aba5efb3bf25eadc31f3c1eaa81" kindref="member">clistFindNode</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>ptr);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1aaa9e4f9480e8a447786cf9413f989601" kindref="member">clistDeleteNode</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list,<sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>**<sp/>node);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1ac83038fbf67c63eef1ed8162f4899ff4" kindref="member">clistDeleteNodeFromData</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1a7688a8ecfc46dfc2d8734c3c8ffd2224" kindref="member">clistEmptyList</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1a50196c474127f9c1924abae6a1b74b69" kindref="member">clistFreeList</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>**<sp/>list);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="clist_8h_1ad2dc31dbf76b39552a209b9e37cec624" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1ad2dc31dbf76b39552a209b9e37cec624" kindref="member">clistIterateForward</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref><sp/>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(nodeFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node));</highlight></codeline>
+<codeline lineno="44" refid="clist_8h_1a9bf7deac861d0ebd6109d61b95b48336" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1a9bf7deac861d0ebd6109d61b95b48336" kindref="member">clistIterateBackward</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref><sp/>*<sp/>list,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(nodeFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node));</highlight></codeline>
+<codeline lineno="45" refid="clist_8h_1ad0de947b825baf4c6bbe4c7510022651" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1ad0de947b825baf4c6bbe4c7510022651" kindref="member">clistSort</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref><sp/>*<sp/>list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(cmpFunction)(<ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node1,<sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node2));</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1a68501b7c1ec4ac1a0a67510f34691040" kindref="member">clistTotal</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="clist_8h_1ad3cab96837fd66c4660c60389246993d" kindref="member">clistIsEmpty</ref>(<ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/>list);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="clist.h"/>
+  </compounddef>
+</doxygen>

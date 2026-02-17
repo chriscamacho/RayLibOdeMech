@@ -1,0 +1,589 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="ragdoll_8h" kind="file" language="C++">
+    <compoundname>ragdoll.h</compoundname>
+    <includes local="yes">raylib.h</includes>
+    <includes local="no">ode/ode.h</includes>
+    <includedby refid="ragdoll_8c" local="yes">ragdoll.c</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>ragdoll.h</label>
+        <link refid="ragdoll_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ode/ode.h</label>
+      </node>
+      <node id="2">
+        <label>raylib.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>ragdoll.h</label>
+        <link refid="ragdoll_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ragdoll.c</label>
+        <link refid="ragdoll_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structRagDoll" prot="public">RagDoll</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="ragdoll_8h_1a62ae838f84574f00dc0b59766651ae8d" prot="public" static="no">
+        <name>RAGDOLL_SPAWN_CENTER_X</name>
+        <initializer>0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="72" column="9" bodyfile="ragdoll.h" bodystart="72" bodyend="-1"/>
+        <referencedby refid="ragdoll_8c_1ae5044c65f2f6758624a2182347b6d945" compoundref="ragdoll_8c" startline="81" endline="88">GetRagdollSpawnPosition</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ragdoll_8h_1ad49513db09a56b09244fe175a4433ae6" prot="public" static="no">
+        <name>RAGDOLL_SPAWN_CENTER_Z</name>
+        <initializer>0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="73" column="9" bodyfile="ragdoll.h" bodystart="73" bodyend="-1"/>
+        <referencedby refid="ragdoll_8c_1ae5044c65f2f6758624a2182347b6d945" compoundref="ragdoll_8c" startline="81" endline="88">GetRagdollSpawnPosition</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ragdoll_8h_1a5152c4c82163811cbd050b43559c8a60" prot="public" static="no">
+        <name>RAGDOLL_SPAWN_HALF_EXTENT</name>
+        <initializer>3.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="74" column="9" bodyfile="ragdoll.h" bodystart="74" bodyend="-1"/>
+        <referencedby refid="ragdoll_8c_1ae5044c65f2f6758624a2182347b6d945" compoundref="ragdoll_8c" startline="81" endline="88">GetRagdollSpawnPosition</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ragdoll_8h_1ab3762f5ad156fe8e366ff6f85bca6ebc" prot="public" static="no">
+        <name>RAGDOLL_SPAWN_MIN_Y</name>
+        <initializer>1.6f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="75" column="9" bodyfile="ragdoll.h" bodystart="75" bodyend="-1"/>
+        <referencedby refid="ragdoll_8c_1ae5044c65f2f6758624a2182347b6d945" compoundref="ragdoll_8c" startline="81" endline="88">GetRagdollSpawnPosition</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="ragdoll_8h_1a2fc164e6dd8fb737a26d1ed64bce2650" prot="public" static="no">
+        <name>RAGDOLL_SPAWN_MAX_Y</name>
+        <initializer>2.6f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="76" column="9" bodyfile="ragdoll.h" bodystart="76" bodyend="-1"/>
+        <referencedby refid="ragdoll_8c_1ae5044c65f2f6758624a2182347b6d945" compoundref="ragdoll_8c" startline="81" endline="88">GetRagdollSpawnPosition</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>RagdollBodyPart</name>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364" prot="public">
+          <name>RAGDOLL_HEAD</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608" prot="public">
+          <name>RAGDOLL_TORSO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68" prot="public">
+          <name>RAGDOLL_LEFT_UPPER_ARM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6" prot="public">
+          <name>RAGDOLL_LEFT_LOWER_ARM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3" prot="public">
+          <name>RAGDOLL_RIGHT_UPPER_ARM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0" prot="public">
+          <name>RAGDOLL_RIGHT_LOWER_ARM</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3" prot="public">
+          <name>RAGDOLL_LEFT_UPPER_LEG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e" prot="public">
+          <name>RAGDOLL_LEFT_LOWER_LEG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34" prot="public">
+          <name>RAGDOLL_RIGHT_UPPER_LEG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0" prot="public">
+          <name>RAGDOLL_RIGHT_LOWER_LEG</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54" prot="public">
+          <name>RAGDOLL_BODY_COUNT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="45" column="1" bodyfile="ragdoll.h" bodystart="45" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="ragdoll_8h_1aad57e4f0d680ed2244ce2525d98fa7ee" prot="public" static="no">
+        <type>struct RagDoll</type>
+        <definition>typedef struct RagDoll RagDoll</definition>
+        <argsstring></argsstring>
+        <name>RagDoll</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="42" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="ragdoll_8h_1a280e6f0bf4084257707b2e69342bfa61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structRagDoll" kindref="compound">RagDoll</ref> *</type>
+        <definition>RagDoll * CreateRagdoll</definition>
+        <argsstring>(struct PhysicsContext *pctx, struct GraphicsContext *ctx, Vector3 position)</argsstring>
+        <name>CreateRagdoll</name>
+        <param>
+          <type>struct <ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>pctx</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Create a ragdoll physics body. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a complete humanoid ragdoll with articulated joints. The ragdoll is fully physics-simulated and can be used for character physics, death animations, or as a basis for reinforcement learning control.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to graphics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial position for the ragdoll </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to newly created <ref refid="structRagDoll" kindref="compound">RagDoll</ref> structure</para>
+</simplesect>
+<simplesect kind="note"><para>Bodies: 10 (head, torso, 2 upper arms, 2 lower arms, 2 upper legs, 2 lower legs) </para>
+</simplesect>
+<simplesect kind="note"><para>Joints: 9 (neck, shoulders, elbows, hips, knees) </para>
+</simplesect>
+<simplesect kind="note"><para>All bodies are registered with framework for rendering</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="structRagDoll" kindref="compound">RagDoll</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8c_1aabb2deb6a54bb247892b4a5fabd6449c" kindref="member">UpdateRagdollMotors</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8c_1a15a95f2545a01b96973e728cdd451bf9" kindref="member">DrawRagdoll</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" kindref="member">FreeRagdoll</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="65" column="9" bodyfile="ragdoll.c" bodystart="118" bodyend="396" declfile="ragdoll.h" declline="65" declcolumn="9"/>
+        <references refid="structRagDoll_1a6701b87f385a57ac96ab8a1574eae1c8" compoundref="ragdoll_8h" startline="35">RagDoll::bodies</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" compoundref="ragdoll_8h" startline="39">RagDoll::bodyCount</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
+        <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
+        <references refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" compoundref="ragdoll_8h" startline="36">RagDoll::geoms</references>
+        <references refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" compoundref="ragdoll_8h" startline="40">RagDoll::jointCount</references>
+        <references refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" compoundref="ragdoll_8h" startline="37">RagDoll::joints</references>
+        <references refid="structRagDoll_1a48922d5094768dcacf07717590dccd00" compoundref="ragdoll_8h" startline="41">RagDoll::motorCount</references>
+        <references refid="structRagDoll_1a6abc7a02734741bc55d4bafcaaf534a2" compoundref="ragdoll_8h" startline="38">RagDoll::motors</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54" compoundref="ragdoll_8h" startline="56">RAGDOLL_BODY_COUNT</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364" compoundref="ragdoll_8h" startline="46">RAGDOLL_HEAD</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6" compoundref="ragdoll_8h" startline="49">RAGDOLL_LEFT_LOWER_ARM</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e" compoundref="ragdoll_8h" startline="53">RAGDOLL_LEFT_LOWER_LEG</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68" compoundref="ragdoll_8h" startline="48">RAGDOLL_LEFT_UPPER_ARM</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3" compoundref="ragdoll_8h" startline="52">RAGDOLL_LEFT_UPPER_LEG</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0" compoundref="ragdoll_8h" startline="51">RAGDOLL_RIGHT_LOWER_ARM</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0" compoundref="ragdoll_8h" startline="55">RAGDOLL_RIGHT_LOWER_LEG</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3" compoundref="ragdoll_8h" startline="50">RAGDOLL_RIGHT_UPPER_ARM</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34" compoundref="ragdoll_8h" startline="54">RAGDOLL_RIGHT_UPPER_LEG</references>
+        <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608" compoundref="ragdoll_8h" startline="47">RAGDOLL_TORSO</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+      </memberdef>
+      <memberdef kind="function" id="ragdoll_8h_1aabb2deb6a54bb247892b4a5fabd6449c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UpdateRagdollMotors</definition>
+        <argsstring>(RagDoll *ragdoll, float *motorForces)</argsstring>
+        <name>UpdateRagdollMotors</name>
+        <param>
+          <type><ref refid="structRagDoll" kindref="compound">RagDoll</ref> *</type>
+          <declname>ragdoll</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>motorForces</declname>
+        </param>
+        <briefdescription>
+<para>Update ragdoll joint motors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies motor forces to the ragdoll&apos;s joints for control. This is useful for neural network or reinforcement learning control of the ragdoll.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ragdoll</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the ragdoll structure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>motorForces</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Array of motor force values (one per joint)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Array should have ragdoll-&gt;jointCount elements for hinge joints </para>
+</simplesect>
+<simplesect kind="note"><para>For universal joints, uses ragdoll-&gt;jointCount * 2 elements </para>
+</simplesect>
+<simplesect kind="note"><para>Force of 0 disables the motor for that joint</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" kindref="member">CreateRagdoll</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="67" column="6" bodyfile="ragdoll.c" bodystart="417" bodyend="439" declfile="ragdoll.h" declline="67" declcolumn="6"/>
+        <references refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" compoundref="ragdoll_8h" startline="40">RagDoll::jointCount</references>
+        <references refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" compoundref="ragdoll_8h" startline="37">RagDoll::joints</references>
+      </memberdef>
+      <memberdef kind="function" id="ragdoll_8h_1a15a95f2545a01b96973e728cdd451bf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void DrawRagdoll</definition>
+        <argsstring>(RagDoll *ragdoll, struct GraphicsContext *ctx)</argsstring>
+        <name>DrawRagdoll</name>
+        <param>
+          <type><ref refid="structRagDoll" kindref="compound">RagDoll</ref> *</type>
+          <declname>ragdoll</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>Render a ragdoll to the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Renders all body parts of the ragdoll using the framework&apos;s existing rendering system.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ragdoll</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the ragdoll structure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the graphics context</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Uses the same drawGeom system as other physics bodies </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" kindref="member">CreateRagdoll</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="68" column="6" bodyfile="ragdoll.c" bodystart="455" bodyend="464" declfile="ragdoll.h" declline="68" declcolumn="6"/>
+        <references refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" compoundref="ragdoll_8h" startline="39">RagDoll::bodyCount</references>
+        <references refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="763" endline="845">drawGeom</references>
+        <references refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" compoundref="ragdoll_8h" startline="36">RagDoll::geoms</references>
+      </memberdef>
+      <memberdef kind="function" id="ragdoll_8h_1ab17f6d5cfecd7a8573b900f78460c816" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FreeRagdoll</definition>
+        <argsstring>(PhysicsContext *ctx, RagDoll *ragdoll)</argsstring>
+        <name>FreeRagdoll</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structRagDoll" kindref="compound">RagDoll</ref> *</type>
+          <declname>ragdoll</declname>
+        </param>
+        <briefdescription>
+<para>Free a ragdoll and all its resources. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Properly destroys all ODE bodies, geoms, joints, and motors associated with the ragdoll, and frees the wrapper structure.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ragdoll</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the ragdoll structure to free</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Removes ragdoll from framework&apos;s object list </para>
+</simplesect>
+<simplesect kind="note"><para>Frees all allocated memory for bodies, geoms, joints</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" kindref="member">CreateRagdoll</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="69" column="6" bodyfile="ragdoll.c" bodystart="483" bodyend="523" declfile="ragdoll.h" declline="69" declcolumn="6"/>
+        <references refid="structRagDoll_1a6701b87f385a57ac96ab8a1574eae1c8" compoundref="ragdoll_8h" startline="35">RagDoll::bodies</references>
+        <references refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" compoundref="ragdoll_8h" startline="39">RagDoll::bodyCount</references>
+        <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="707" endline="720">FreeBodyAndGeoms</references>
+        <references refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" compoundref="ragdoll_8h" startline="36">RagDoll::geoms</references>
+        <references refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" compoundref="ragdoll_8h" startline="40">RagDoll::jointCount</references>
+        <references refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" compoundref="ragdoll_8h" startline="37">RagDoll::joints</references>
+        <references refid="structRagDoll_1a48922d5094768dcacf07717590dccd00" compoundref="ragdoll_8h" startline="41">RagDoll::motorCount</references>
+        <references refid="structRagDoll_1a6abc7a02734741bc55d4bafcaaf534a2" compoundref="ragdoll_8h" startline="38">RagDoll::motors</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+      </memberdef>
+      <memberdef kind="function" id="ragdoll_8h_1ae5044c65f2f6758624a2182347b6d945" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Vector3</type>
+        <definition>Vector3 GetRagdollSpawnPosition</definition>
+        <argsstring>(void)</argsstring>
+        <name>GetRagdollSpawnPosition</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Get a random spawn position for ragdolls. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Generates a random position within the configured spawn volume for ragdoll objects. This helps spread out multiple ragdolls when they are created.</para>
+<para><simplesect kind="return"><para>Random Vector3 position within spawn bounds</para>
+</simplesect>
+<simplesect kind="note"><para>Spawn bounds are defined by RAGDOLL_SPAWN_* constants </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8h_1a62ae838f84574f00dc0b59766651ae8d" kindref="member">RAGDOLL_SPAWN_CENTER_X</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8h_1ad49513db09a56b09244fe175a4433ae6" kindref="member">RAGDOLL_SPAWN_CENTER_Z</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8h_1a5152c4c82163811cbd050b43559c8a60" kindref="member">RAGDOLL_SPAWN_HALF_EXTENT</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8h_1ab3762f5ad156fe8e366ff6f85bca6ebc" kindref="member">RAGDOLL_SPAWN_MIN_Y</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="ragdoll_8h_1a2fc164e6dd8fb737a26d1ed64bce2650" kindref="member">RAGDOLL_SPAWN_MAX_Y</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="ragdoll.h" line="79" column="9" bodyfile="ragdoll.c" bodystart="81" bodyend="88" declfile="ragdoll.h" declline="79" declcolumn="9"/>
+        <references refid="ragdoll_8h_1a62ae838f84574f00dc0b59766651ae8d" compoundref="ragdoll_8h" startline="72">RAGDOLL_SPAWN_CENTER_X</references>
+        <references refid="ragdoll_8h_1ad49513db09a56b09244fe175a4433ae6" compoundref="ragdoll_8h" startline="73">RAGDOLL_SPAWN_CENTER_Z</references>
+        <references refid="ragdoll_8h_1a5152c4c82163811cbd050b43559c8a60" compoundref="ragdoll_8h" startline="74">RAGDOLL_SPAWN_HALF_EXTENT</references>
+        <references refid="ragdoll_8h_1a2fc164e6dd8fb737a26d1ed64bce2650" compoundref="ragdoll_8h" startline="76">RAGDOLL_SPAWN_MAX_Y</references>
+        <references refid="ragdoll_8h_1ab3762f5ad156fe8e366ff6f85bca6ebc" compoundref="ragdoll_8h" startline="75">RAGDOLL_SPAWN_MIN_Y</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="208" endline="211">rndf</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2026<sp/>Chris<sp/>Camacho<sp/>(codifies<sp/>-<sp/><sp/>http://bedroomcoders.co.uk/)</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RAYLIBODERAGDOLL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAYLIBODERAGDOLL_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;raylib.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ode/ode.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Rag<sp/>doll<sp/>structure<sp/>-<sp/>generic<sp/>enough<sp/>for<sp/>neural<sp/>network<sp/>muscle<sp/>control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Uses<sp/>motors<sp/>on<sp/>joints<sp/>for<sp/>future<sp/>neural<sp/>network<sp/>control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="structRagDoll" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRagDoll" kindref="compound">RagDoll</ref><sp/>{</highlight></codeline>
+<codeline lineno="35" refid="structRagDoll_1a6701b87f385a57ac96ab8a1574eae1c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>*<ref refid="structRagDoll_1a6701b87f385a57ac96ab8a1574eae1c8" kindref="member">bodies</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Array<sp/>of<sp/>bodies<sp/>(head,<sp/>torso,<sp/>arms,<sp/>legs)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>*<ref refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" kindref="member">geoms</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Array<sp/>of<sp/>geometries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>*<ref refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" kindref="member">joints</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Array<sp/>of<sp/>joints<sp/>connecting<sp/>bodies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="structRagDoll_1a6abc7a02734741bc55d4bafcaaf534a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>*<ref refid="structRagDoll_1a6abc7a02734741bc55d4bafcaaf534a2" kindref="member">motors</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Array<sp/>of<sp/>motor<sp/>joints<sp/>for<sp/>muscle<sp/>control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" kindref="member">bodyCount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>bodies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" kindref="member">jointCount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>joints</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="structRagDoll_1a48922d5094768dcacf07717590dccd00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structRagDoll_1a48922d5094768dcacf07717590dccd00" kindref="member">motorCount</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Number<sp/>of<sp/>motors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="ragdoll_8h_1aad57e4f0d680ed2244ce2525d98fa7ee" refkind="member"><highlight class="normal">}<sp/><ref refid="structRagDoll" kindref="compound">RagDoll</ref>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Predefined<sp/>rag<sp/>doll<sp/>body<sp/>parts<sp/>for<sp/>easy<sp/>access</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="46" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364" kindref="member">RAGDOLL_HEAD</ref><sp/>=<sp/>0,</highlight></codeline>
+<codeline lineno="47" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608" kindref="member">RAGDOLL_TORSO</ref>,</highlight></codeline>
+<codeline lineno="48" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68" kindref="member">RAGDOLL_LEFT_UPPER_ARM</ref>,</highlight></codeline>
+<codeline lineno="49" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6" kindref="member">RAGDOLL_LEFT_LOWER_ARM</ref>,</highlight></codeline>
+<codeline lineno="50" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3" kindref="member">RAGDOLL_RIGHT_UPPER_ARM</ref>,</highlight></codeline>
+<codeline lineno="51" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0" kindref="member">RAGDOLL_RIGHT_LOWER_ARM</ref>,</highlight></codeline>
+<codeline lineno="52" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3" kindref="member">RAGDOLL_LEFT_UPPER_LEG</ref>,</highlight></codeline>
+<codeline lineno="53" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e" kindref="member">RAGDOLL_LEFT_LOWER_LEG</ref>,</highlight></codeline>
+<codeline lineno="54" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34" kindref="member">RAGDOLL_RIGHT_UPPER_LEG</ref>,</highlight></codeline>
+<codeline lineno="55" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0" kindref="member">RAGDOLL_RIGHT_LOWER_LEG</ref>,</highlight></codeline>
+<codeline lineno="56" refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54" kindref="member">RAGDOLL_BODY_COUNT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Total<sp/>count</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}<sp/><ref refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9e" kindref="member">RagdollBodyPart</ref>;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Forward<sp/>declaration<sp/>-<sp/>GraphicsContext<sp/>is<sp/>defined<sp/>in<sp/>init.h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Rag<sp/>doll<sp/>functions<sp/>-<sp/>generic<sp/>for<sp/>neural<sp/>network<sp/>muscle<sp/>control</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment">//RagDoll*<sp/>CreateRagdoll(dSpaceID<sp/>space,<sp/>dWorldID<sp/>world,<sp/>Vector3<sp/>position,<sp/>struct<sp/>GraphicsContext*<sp/>ctx);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><ref refid="structRagDoll" kindref="compound">RagDoll</ref>*<sp/><ref refid="ragdoll_8h_1a280e6f0bf4084257707b2e69342bfa61" kindref="member">CreateRagdoll</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/>Vector3<sp/>position);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ragdoll_8h_1aabb2deb6a54bb247892b4a5fabd6449c" kindref="member">UpdateRagdollMotors</ref>(<ref refid="structRagDoll" kindref="compound">RagDoll</ref><sp/>*ragdoll,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>*motorForces);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ragdoll_8h_1a15a95f2545a01b96973e728cdd451bf9" kindref="member">DrawRagdoll</ref>(<ref refid="structRagDoll" kindref="compound">RagDoll</ref><sp/>*ragdoll,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ragdoll_8h_1ab17f6d5cfecd7a8573b900f78460c816" kindref="member">FreeRagdoll</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structRagDoll" kindref="compound">RagDoll</ref><sp/>*ragdoll);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Ragdoll<sp/>spawn<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="ragdoll_8h_1a62ae838f84574f00dc0b59766651ae8d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAGDOLL_SPAWN_CENTER_X<sp/>0.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="ragdoll_8h_1ad49513db09a56b09244fe175a4433ae6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAGDOLL_SPAWN_CENTER_Z<sp/>0.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="ragdoll_8h_1a5152c4c82163811cbd050b43559c8a60" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAGDOLL_SPAWN_HALF_EXTENT<sp/>3.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="ragdoll_8h_1ab3762f5ad156fe8e366ff6f85bca6ebc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAGDOLL_SPAWN_MIN_Y<sp/>1.6f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="ragdoll_8h_1a2fc164e6dd8fb737a26d1ed64bce2650" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RAGDOLL_SPAWN_MAX_Y<sp/>2.6f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Get<sp/>a<sp/>random<sp/>spawn<sp/>position<sp/>within<sp/>the<sp/>defined<sp/>ragdoll<sp/>spawn<sp/>volume</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">Vector3<sp/><ref refid="ragdoll_8h_1ae5044c65f2f6758624a2182347b6d945" kindref="member">GetRagdollSpawnPosition</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RAYLIBODERAGDOLL_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="ragdoll.h"/>
+  </compounddef>
+</doxygen>

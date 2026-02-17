@@ -1,0 +1,131 @@
+\doxysection{init.\+h File Reference}
+\hypertarget{init_8h}{}\label{init_8h}\index{init.h@{init.h}}
+{\ttfamily \#include "{}raylib.\+h"{}}\newline
+{\ttfamily \#include $<$ode/ode.\+h$>$}\newline
+{\ttfamily \#include "{}raylib\+ODE.\+h"{}}\newline
+{\ttfamily \#include "{}rlights.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{init_8h_a4ef743f6c8c693304e974dac3b901875}{Init\+Graphics}} (\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx, int width, int height, const char \texorpdfstring{$\ast$}{*}title)
+\begin{DoxyCompactList}\small\item\em Initialize graphics context and window. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{init_8h_a1622bbe41084e4d594b33c3fa56e3ad9}{Init\+Physics}} ()
+\begin{DoxyCompactList}\small\item\em Initialize physics world and context. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{init_8h_afaa0b9510d3f6bf8a8187d25ed17c536}{Cleanup\+Physics}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\item 
+void \mbox{\hyperlink{init_8h_a9f01a5c8d21a89463b9e68ec349887f7}{Cleanup\+Graphics}} (\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{init_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{init_8h_a9f01a5c8d21a89463b9e68ec349887f7}\index{init.h@{init.h}!CleanupGraphics@{CleanupGraphics}}
+\index{CleanupGraphics@{CleanupGraphics}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{CleanupGraphics()}{CleanupGraphics()}}
+{\footnotesize\ttfamily \label{init_8h_a9f01a5c8d21a89463b9e68ec349887f7} 
+void Cleanup\+Graphics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{init_8c_source_l00246}{246}} of file \mbox{\hyperlink{init_8c_source}{init.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00099}{Graphics\+Context\+::ball}}, \mbox{\hyperlink{raylibODE_8h_source_l00098}{Graphics\+Context\+::box}}, \mbox{\hyperlink{raylibODE_8h_source_l00106}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{Graphics\+Context\+::cylinder}}, \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8h_source_l00108}{Graphics\+Context\+::ground\+Texture}}, \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}, and \mbox{\hyperlink{raylibODE_8h_source_l00105}{Graphics\+Context\+::sphere\+Textures}}.
+
+\Hypertarget{init_8h_afaa0b9510d3f6bf8a8187d25ed17c536}\index{init.h@{init.h}!CleanupPhysics@{CleanupPhysics}}
+\index{CleanupPhysics@{CleanupPhysics}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{CleanupPhysics()}{CleanupPhysics()}}
+{\footnotesize\ttfamily \label{init_8h_afaa0b9510d3f6bf8a8187d25ed17c536} 
+void Cleanup\+Physics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{init_8c_source_l00195}{195}} of file \mbox{\hyperlink{init_8c_source}{init.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{clist_8c_source_l00219}{clist\+Free\+List()}}, \mbox{\hyperlink{raylibODE_8h_source_l00119}{Physics\+Context\+::contactgroup}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l00707}{Free\+Body\+And\+Geoms()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{raylibODE_8h_source_l00080}{geom\+Info\+::indices}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00122}{Physics\+Context\+::statics}}, \mbox{\hyperlink{raylibODE_8h_source_l00081}{geom\+Info\+::tri\+Data}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+
+\Hypertarget{init_8h_a4ef743f6c8c693304e974dac3b901875}\index{init.h@{init.h}!InitGraphics@{InitGraphics}}
+\index{InitGraphics@{InitGraphics}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{InitGraphics()}{InitGraphics()}}
+{\footnotesize\ttfamily \label{init_8h_a4ef743f6c8c693304e974dac3b901875} 
+void Init\+Graphics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{title}{}\end{DoxyParamCaption})}
+
+
+
+Initialize graphics context and window. 
+
+Sets up the Ray\+Lib window, loads all models and textures, compiles shaders, and creates lighting. This must be called before any rendering can occur.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & Pointer to \doxylink{structGraphicsContext}{Graphics\+Context} to initialize \\
+\hline
+{\em width} & Window width in pixels \\
+\hline
+{\em height} & Window height in pixels \\
+\hline
+{\em title} & Window title string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Enables VSync and 4x MSAA by default 
+
+Hides and locks cursor for FPS-\/style camera control 
+
+Loads default textures from data/ directory
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structGraphicsContext}{Graphics\+Context} 
+
+\doxylink{init_8c_a9f01a5c8d21a89463b9e68ec349887f7}{Cleanup\+Graphics} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{init_8c_source_l00078}{78}} of file \mbox{\hyperlink{init_8c_source}{init.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00099}{Graphics\+Context\+::ball}}, \mbox{\hyperlink{raylibODE_8h_source_l00098}{Graphics\+Context\+::box}}, \mbox{\hyperlink{raylibODE_8h_source_l00106}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{rlights_8c_source_l00026}{Create\+Light()}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{Graphics\+Context\+::cylinder}}, \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8h_source_l00108}{Graphics\+Context\+::ground\+Texture}}, \mbox{\hyperlink{rlights_8h_source_l00066}{LIGHT\+\_\+\+POINT}}, \mbox{\hyperlink{raylibODE_8h_source_l00112}{Graphics\+Context\+::lights}}, \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}, and \mbox{\hyperlink{raylibODE_8h_source_l00105}{Graphics\+Context\+::sphere\+Textures}}.
+
+\Hypertarget{init_8h_a1622bbe41084e4d594b33c3fa56e3ad9}\index{init.h@{init.h}!InitPhysics@{InitPhysics}}
+\index{InitPhysics@{InitPhysics}!init.h@{init.h}}
+\doxysubsubsection{\texorpdfstring{InitPhysics()}{InitPhysics()}}
+{\footnotesize\ttfamily \label{init_8h_a1622bbe41084e4d594b33c3fa56e3ad9} 
+\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*} Init\+Physics (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initialize physics world and context. 
+
+Creates and configures the ODE physics world, collision space, and contact group. Also seeds the random number generator.
+
+\begin{DoxyReturn}{Returns}
+Pointer to newly created \doxylink{structPhysicsContext}{Physics\+Context}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Checks for single-\/precision ODE build (required) 
+
+Sets gravity to -\/9.\+8 m/s\texorpdfstring{$^\wedge$}{\string^}2 (Earth gravity) 
+
+Enables auto-\/disable for resting bodies
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Exits with error message if precision mismatch detected
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\doxylink{init_8c_afaa0b9510d3f6bf8a8187d25ed17c536}{Cleanup\+Physics} 
+
+\doxylink{structPhysicsContext}{Physics\+Context} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{init_8c_source_l00158}{158}} of file \mbox{\hyperlink{init_8c_source}{init.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8c_source_l00018}{clist\+Create\+List()}}, \mbox{\hyperlink{raylibODE_8h_source_l00119}{Physics\+Context\+::contactgroup}}, \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00122}{Physics\+Context\+::statics}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+

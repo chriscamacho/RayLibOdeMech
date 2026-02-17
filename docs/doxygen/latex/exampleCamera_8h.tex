@@ -1,0 +1,137 @@
+\doxysection{example\+Camera.\+h File Reference}
+\hypertarget{exampleCamera_8h}{}\label{exampleCamera_8h}\index{exampleCamera.h@{exampleCamera.h}}
+{\ttfamily \#include "{}vehicle.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{exampleCamera_8h_abf1f4204c9ad8cd8061009b9702d7a3f}{init\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em Initialize the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exampleCamera_8h_ab694a4e13506da451e4221c6bc1c48f1}{update\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+\begin{DoxyCompactList}\small\item\em update the camera \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exampleCamera_8h_a9ebb8457497dc7cebf88b55573010637}{update\+Vehicle\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}car)
+\begin{DoxyCompactList}\small\item\em update a camera but attach it to a vehicle \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{exampleCamera_8h_a9904774abec2bae71c6d75094d47cbe3}{Get\+Camera\+Yaw}} ()
+\begin{DoxyCompactList}\small\item\em Get current camera yaw angle. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{exampleCamera_8h_afbfa8af7ad686732f5ddcea617d03d1b}{Get\+Camera\+Pitch}} ()
+\begin{DoxyCompactList}\small\item\em Get current camera pitch angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{exampleCamera_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{exampleCamera_8h_afbfa8af7ad686732f5ddcea617d03d1b}\index{exampleCamera.h@{exampleCamera.h}!GetCameraPitch@{GetCameraPitch}}
+\index{GetCameraPitch@{GetCameraPitch}!exampleCamera.h@{exampleCamera.h}}
+\doxysubsubsection{\texorpdfstring{GetCameraPitch()}{GetCameraPitch()}}
+{\footnotesize\ttfamily \label{exampleCamera_8h_afbfa8af7ad686732f5ddcea617d03d1b} 
+float Get\+Camera\+Pitch (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get current camera pitch angle. 
+
+\begin{DoxyReturn}{Returns}
+Current pitch angle in radians 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00066}{66}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+
+\Hypertarget{exampleCamera_8h_a9904774abec2bae71c6d75094d47cbe3}\index{exampleCamera.h@{exampleCamera.h}!GetCameraYaw@{GetCameraYaw}}
+\index{GetCameraYaw@{GetCameraYaw}!exampleCamera.h@{exampleCamera.h}}
+\doxysubsubsection{\texorpdfstring{GetCameraYaw()}{GetCameraYaw()}}
+{\footnotesize\ttfamily \label{exampleCamera_8h_a9904774abec2bae71c6d75094d47cbe3} 
+float Get\+Camera\+Yaw (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Get current camera yaw angle. 
+
+\begin{DoxyReturn}{Returns}
+Current yaw angle in radians 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00060}{60}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+
+\Hypertarget{exampleCamera_8h_abf1f4204c9ad8cd8061009b9702d7a3f}\index{exampleCamera.h@{exampleCamera.h}!initCamera@{initCamera}}
+\index{initCamera@{initCamera}!exampleCamera.h@{exampleCamera.h}}
+\doxysubsubsection{\texorpdfstring{initCamera()}{initCamera()}}
+{\footnotesize\ttfamily \label{exampleCamera_8h_abf1f4204c9ad8cd8061009b9702d7a3f} 
+void init\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+Initialize the camera. 
+
+Sets up the camera position and orientation for the scene. Should be called once at startup.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & Pointer to graphics context containing camera\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Camera looks at origin by default 
+
+Initializes yaw/pitch based on initial look direction 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00079}{79}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}.
+
+\Hypertarget{exampleCamera_8h_ab694a4e13506da451e4221c6bc1c48f1}\index{exampleCamera.h@{exampleCamera.h}!updateCamera@{updateCamera}}
+\index{updateCamera@{updateCamera}!exampleCamera.h@{exampleCamera.h}}
+\doxysubsubsection{\texorpdfstring{updateCamera()}{updateCamera()}}
+{\footnotesize\ttfamily \label{exampleCamera_8h_ab694a4e13506da451e4221c6bc1c48f1} 
+void update\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+
+
+
+update the camera 
+
+This will also move the camera depending on the control keys WASD as expected relative to the view direction, QE move up and down the world axis and shift moves faster
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & pointer to the graphics context \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00166}{166}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}.
+
+\Hypertarget{exampleCamera_8h_a9ebb8457497dc7cebf88b55573010637}\index{exampleCamera.h@{exampleCamera.h}!updateVehicleCamera@{updateVehicleCamera}}
+\index{updateVehicleCamera@{updateVehicleCamera}!exampleCamera.h@{exampleCamera.h}}
+\doxysubsubsection{\texorpdfstring{updateVehicleCamera()}{updateVehicleCamera()}}
+{\footnotesize\ttfamily \label{exampleCamera_8h_a9ebb8457497dc7cebf88b55573010637} 
+void update\+Vehicle\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}}]{car}{}\end{DoxyParamCaption})}
+
+
+
+update a camera but attach it to a vehicle 
+
+if you call this instead of the usual update camera you will be attached to a car, you won\textquotesingle{}t be able to free roam, but you will be able to mouse look
+
+
+\begin{DoxyParams}{Parameters}
+{\em ctx} & graphics context used for the camera info \\
+\hline
+{\em car} & the vehicle you want to be attached to \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00102}{102}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+
+
+
+References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}.
+

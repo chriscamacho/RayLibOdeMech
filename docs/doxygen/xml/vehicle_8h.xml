@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="vehicle_8h" kind="file" language="C++">
+    <compoundname>vehicle.h</compoundname>
+    <includes refid="raylibODE_8h" local="yes">raylibODE.h</includes>
+    <includedby refid="exampleCamera_8c" local="yes">exampleCamera.c</includedby>
+    <includedby refid="exampleCamera_8h" local="yes">exampleCamera.h</includedby>
+    <includedby refid="vehicle_8c" local="yes">vehicle.c</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>clist.h</label>
+        <link refid="clist_8h"/>
+      </node>
+      <node id="2">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>rlights.h</label>
+        <link refid="rlights_8h"/>
+      </node>
+      <node id="1">
+        <label>vehicle.h</label>
+        <link refid="vehicle_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>ode/ode.h</label>
+      </node>
+      <node id="3">
+        <label>raylib.h</label>
+      </node>
+      <node id="4">
+        <label>raymath.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>exampleCamera.h</label>
+        <link refid="exampleCamera_8h"/>
+      </node>
+      <node id="1">
+        <label>vehicle.h</label>
+        <link refid="vehicle_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>exampleCamera.c</label>
+        <link refid="exampleCamera_8c"/>
+      </node>
+      <node id="4">
+        <label>vehicle.c</label>
+        <link refid="vehicle_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structvehicle" prot="public">vehicle</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="vehicle_8h_1ab457cfa8f57435d5385ae9ae2babb18b" prot="public" static="no">
+        <name>VEH_PART_COUNT</name>
+        <initializer>7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="6" column="9" bodyfile="vehicle.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="vehicle_8h_1a2cc43825b9f0c5d1dfbb6dd03eeb35b6" prot="public" static="no">
+        <name>WHEEL_COUNT</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="7" column="9" bodyfile="vehicle.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="vehicle_8h_1a48a9ef4b71413cbc1d2cac1c56b541d1" prot="public" static="no">
+        <type>struct vehicle</type>
+        <definition>typedef struct vehicle vehicle</definition>
+        <argsstring></argsstring>
+        <name>vehicle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="14" column="9"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="vehicle_8h_1af0740a75defe24708df5577107ed9ba7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structvehicle" kindref="compound">vehicle</ref> *</type>
+        <definition>vehicle * CreateVehicle</definition>
+        <argsstring>(PhysicsContext *pctx, struct GraphicsContext *ctx, Vector3 pos, Vector3 carScale, float wheelRadius, float wheelWidth)</argsstring>
+        <name>CreateVehicle</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>pctx</declname>
+        </param>
+        <param>
+          <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>carScale</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>wheelRadius</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>wheelWidth</declname>
+        </param>
+        <briefdescription>
+<para>Create a physics-based vehicle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a complete vehicle simulation with chassis, wheels, and suspension. The vehicle uses Hinge2 joints for realistic wheel suspension and steering mechanics.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to graphics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial position of the vehicle </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>carScale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Dimensions of the chassis (x=length, y=height, z=width) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wheelRadius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radius of the wheels </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>wheelWidth</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Width of the wheels </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Pointer to newly created vehicle structure</para>
+</simplesect>
+<simplesect kind="note"><para>Front wheels are driving wheels </para>
+</simplesect>
+<simplesect kind="note"><para>Front wheels also provide steering </para>
+</simplesect>
+<simplesect kind="note"><para>Anti-sway mass lowers center of gravity to prevent tipping</para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" kindref="member">UpdateVehicle</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" kindref="member">FreeVehicle</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="16" column="9" bodyfile="vehicle.c" bodystart="56" bodyend="173" declfile="vehicle.h" declline="16" declcolumn="9"/>
+        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
+        <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="630" endline="641">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
+        <references refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" compoundref="vehicle_8h" startline="11">vehicle::geoms</references>
+        <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="vehicle_8h" startline="12">vehicle::joints</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+      </memberdef>
+      <memberdef kind="function" id="vehicle_8h_1a9c16065d67848dde985d9a21631eb01c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UpdateVehicle</definition>
+        <argsstring>(vehicle *car, float accel, float steer)</argsstring>
+        <name>UpdateVehicle</name>
+        <param>
+          <type><ref refid="structvehicle" kindref="compound">vehicle</ref> *</type>
+          <declname>car</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>accel</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>steer</declname>
+        </param>
+        <briefdescription>
+<para>Update vehicle control inputs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Applies acceleration and steering to the vehicle. This should be called every frame with current control inputs.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>car</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the vehicle structure </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>accel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Acceleration input (-1.0 to 1.0, negative for reverse) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>steer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Steering input (-1.0 to 1.0, negative for left)</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>Set accel to 0 for coasting (wheels spin free) </para>
+</simplesect>
+<simplesect kind="note"><para>Front wheels provide steering and all-wheel drive </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="17" column="6" bodyfile="vehicle.c" bodystart="188" bodyend="223" declfile="vehicle.h" declline="17" declcolumn="6"/>
+        <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="vehicle_8h" startline="12">vehicle::joints</references>
+      </memberdef>
+      <memberdef kind="function" id="vehicle_8h_1ab0b188b6b47157b4f3c4aae241a933c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void FreeVehicle</definition>
+        <argsstring>(PhysicsContext *pctx, vehicle *car)</argsstring>
+        <name>FreeVehicle</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>pctx</declname>
+        </param>
+        <param>
+          <type><ref refid="structvehicle" kindref="compound">vehicle</ref> *</type>
+          <declname>car</declname>
+        </param>
+        <briefdescription>
+<para>this releases all resources in use by a vehicle struct </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>car</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vehicle to free </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="18" column="6" bodyfile="vehicle.c" bodystart="231" bodyend="247" declfile="vehicle.h" declline="18" declcolumn="6"/>
+        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
+        <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
+        <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="707" endline="720">FreeBodyAndGeoms</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+      </memberdef>
+      <memberdef kind="function" id="vehicle_8h_1a29d7d2d85bf93cf5c13a572a55d94841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void unflipVehicle</definition>
+        <argsstring>(vehicle *car)</argsstring>
+        <name>unflipVehicle</name>
+        <param>
+          <type><ref refid="structvehicle" kindref="compound">vehicle</ref> *</type>
+          <declname>car</declname>
+        </param>
+        <briefdescription>
+<para>flips an upside down vehicle </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>car</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vehicle to flip</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>this is a quick hack, it violently pops the vehicle back upright - there are better ways of doing this! </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="vehicle.h" line="19" column="6" bodyfile="vehicle.c" bodystart="256" bodyend="282" declfile="vehicle.h" declline="19" declcolumn="6"/>
+        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>VEHICLE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VEHICLE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="raylibODE_8h" kindref="compound">raylibODE.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="vehicle_8h_1ab457cfa8f57435d5385ae9ae2babb18b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VEH_PART_COUNT<sp/>7<sp/></highlight><highlight class="comment">//<sp/>Chassis<sp/>+<sp/>4<sp/>wheels<sp/>+<sp/>front<sp/>marker<sp/>sway</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="vehicle_8h_1a2cc43825b9f0c5d1dfbb6dd03eeb35b6" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WHEEL_COUNT<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="structvehicle" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structvehicle" kindref="compound">vehicle</ref><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/><ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[<ref refid="vehicle_8h_1ab457cfa8f57435d5385ae9ae2babb18b" kindref="member">VEH_PART_COUNT</ref>];</highlight></codeline>
+<codeline lineno="11" refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/><ref refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" kindref="member">geoms</ref>[<ref refid="vehicle_8h_1ab457cfa8f57435d5385ae9ae2babb18b" kindref="member">VEH_PART_COUNT</ref>];</highlight></codeline>
+<codeline lineno="12" refid="structvehicle_1a0317690c9ddade2a37344024197942e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/><ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[<ref refid="vehicle_8h_1a2cc43825b9f0c5d1dfbb6dd03eeb35b6" kindref="member">WHEEL_COUNT</ref>];</highlight></codeline>
+<codeline lineno="13" refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" kindref="member">bodyCount</ref>;</highlight></codeline>
+<codeline lineno="14" refid="vehicle_8h_1a48a9ef4b71413cbc1d2cac1c56b541d1" refkind="member"><highlight class="normal">}<sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/><ref refid="vehicle_8h_1af0740a75defe24708df5577107ed9ba7" kindref="member">CreateVehicle</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>carScale,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>wheelRadius,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>wheelWidth);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8h_1a9c16065d67848dde985d9a21631eb01c" kindref="member">UpdateVehicle</ref>(<ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>accel,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>steer);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8h_1ab0b188b6b47157b4f3c4aae241a933c8" kindref="member">FreeVehicle</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx,<sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8h_1a29d7d2d85bf93cf5c13a572a55d94841" kindref="member">unflipVehicle</ref><sp/>(<ref refid="structvehicle" kindref="compound">vehicle</ref><sp/>*car);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="vehicle.h"/>
+  </compounddef>
+</doxygen>
