@@ -31,6 +31,9 @@
 #include <ode/ode.h>
 #include "clist.h"
 
+#define WORLD_GROUP		0x0001
+#define PISTON_GROUP	0x0002
+
 // Object counts
 #define NUM_OBJ 300
 
@@ -119,6 +122,13 @@ typedef struct PhysicsContext {
 	clist_t* statics; // list of static ode geoms
 } PhysicsContext;
 
+typedef struct MultiPiston {
+    entity** sections;
+    dJointID* joints;
+    int count;
+    Vector3 direction;
+} MultiPiston;
+
 entity* CreateBaseEntity(PhysicsContext* ctx);
 
 // Helper to allocate geomInfo with collision flag, optional texture, and UV scale
@@ -171,10 +181,19 @@ int StepPhysics(PhysicsContext* physCtx);
 void FreeEntity(PhysicsContext* physCtx, entity* ent);
 
 void SetPistonLimits(dJointID joint, float min, float max);
-dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB);
+dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB, float strength);
 
 void RayToOdeMat(Matrix* mat, dReal* R);
 void OdeToRayMat(const dReal* R, Matrix* matrix);
+
+MultiPiston* CreateMultiPiston(PhysicsContext* physCtx, GraphicsContext* graphics, 
+                               Vector3 pos, Vector3 direction, int count, 
+                               float sectionLen, float baseWidth, float strength);
+void SetMultiPistonVelocity(MultiPiston* mp, float velocity);         
+
+void SetBodyOrientation(dBodyID body, Vector3 direction);
+
+dJointID PinEntityToWorld(PhysicsContext* physCtx, entity* ent);                      
 
 #endif // RAYLIBODE_H
 

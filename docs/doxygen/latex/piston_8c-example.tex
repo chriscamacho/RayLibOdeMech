@@ -55,60 +55,81 @@ A simple piston, press O and P to move the pistons, the main body of the piston 
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8e5b28e0781017c62176133087f3590c}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\});}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ box1\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,(Vector3)\{4,1,1\},\ (Vector3)\{0,.6,0\},\ (Vector3)\{0,0,0\},\ 2);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ box2\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,(Vector3)\{4,.9,.9\},\ (Vector3)\{.1,.6,0\},\ (Vector3)\{0,0,0\},\ 2);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ box3\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,(Vector3)\{4,.8,.8\},\ (Vector3)\{.2,.6,0\},\ (Vector3)\{0,0,0\},\ 2);}
 \DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ manually\ create\ a\ 3\ section\ piston}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ TLDR\ skip\ down\ to\ the\ multi\ piston\ creation\ !}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ box1\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,(Vector3)\{4,1,1\},\ (Vector3)\{0,1.6,0\},\ (Vector3)\{0,0,0\},\ 2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ box2\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,(Vector3)\{4,.9,.9\},\ (Vector3)\{.1,1.7,.2\},\ (Vector3)\{0,0,0\},\ 2);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ box3\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,(Vector3)\{4,.8,.8\},\ (Vector3)\{.2,1.8,.4\},\ (Vector3)\{0,0,0\},\ 2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ the\ direction\ each\ box\ is\ offset\ -\/\ the\ axis\ of\ the\ piston}}
+\DoxyCodeLine{\ \ \ \ Vector3\ dir\ =\ (Vector3)\{.1,.1,.2\};}
+\DoxyCodeLine{\ \ \ \ dir\ =\ Vector3Normalize(dir);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(box1-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ dir);\ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(box2-\/>body,\ dir);\ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(box3-\/>body,\ dir);\ }
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ anchor\ box1\ to\ the\ world}}
-\DoxyCodeLine{\ \ \ \ dJointID\ pin1\ =\ dJointCreateFixed\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
-\DoxyCodeLine{\ \ \ \ dJointAttach(pin1,\ box1-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
-\DoxyCodeLine{\ \ \ \ dJointSetFixed\ (pin1);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a57b8ac137f7e79fc8deb53b7ba410166}{PinEntityToWorld}}(physCtx,\ box1);}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ dJointID\ piston1\ =\ \mbox{\hyperlink{raylibODE_8c_aec8e521a9dfcf354ba2ae793ac6be324}{CreatePiston}}(physCtx,\ box1,\ box2);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(piston1,\ 0,\ 3.9);}
+\DoxyCodeLine{\ \ \ \ dJointID\ piston1\ =\ \mbox{\hyperlink{raylibODE_8c_aa35dd966752d4afeffcb8f39e474594c}{CreatePiston}}(physCtx,\ box1,\ box2,1000);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(piston1,\ 0,\ 3.7);}
+\DoxyCodeLine{\ \ \ \ dJointID\ piston2\ =\ \mbox{\hyperlink{raylibODE_8c_aa35dd966752d4afeffcb8f39e474594c}{CreatePiston}}(physCtx,\ box2,\ box3,1000);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(piston2,\ 0,\ 3.7);}
 \DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ dJointID\ piston2\ =\ \mbox{\hyperlink{raylibODE_8c_aec8e521a9dfcf354ba2ae793ac6be324}{CreatePiston}}(physCtx,\ box2,\ box3);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(piston2,\ 0,\ 3.9);}
 \DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ because\ box\ 1,2\ and\ 3\ intersect\ we\ must\ filter\ out\ their\ collision}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ because\ box\ 1,2\ and\ 3\ intersect\ we\ must\ filter\ out\ their\ collisions}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ normally\ with\ joints\ the\ two\ attached\ bodies\ don't\ collide,\ however}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ this\ doesn't\ help\ with\ box\ 1\ vs\ box\ 3\ for\ example}}
-\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \#define\ WORLD\ \ \ \ \ \ \ \ \ 0x0001}}
-\DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \#define\ PISTON\_GROUP\ \ 0x0002}}
-\DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ dGeomID\ g1\ =\ dBodyGetFirstGeom(box1-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
 \DoxyCodeLine{\ \ \ \ dGeomID\ g2\ =\ dBodyGetFirstGeom(box2-\/>body);}
 \DoxyCodeLine{\ \ \ \ dGeomID\ g3\ =\ dBodyGetFirstGeom(box3-\/>body);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(g1,\ PISTON\_GROUP);}
-\DoxyCodeLine{\ \ \ \ dGeomSetCollideBits(g1,\ WORLD);}
+\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(g1,\ \mbox{\hyperlink{raylibODE_8h_ad7a3394d1169a116327a236fc91cad61}{PISTON\_GROUP}});}
+\DoxyCodeLine{\ \ \ \ dGeomSetCollideBits(g1,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(g2,\ PISTON\_GROUP);}
-\DoxyCodeLine{\ \ \ \ dGeomSetCollideBits(g2,\ WORLD);}
+\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(g2,\ \mbox{\hyperlink{raylibODE_8h_ad7a3394d1169a116327a236fc91cad61}{PISTON\_GROUP}});}
+\DoxyCodeLine{\ \ \ \ dGeomSetCollideBits(g2,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(g3,\ PISTON\_GROUP);}
-\DoxyCodeLine{\ \ \ \ dGeomSetCollideBits(g3,\ WORLD);\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(g3,\ \mbox{\hyperlink{raylibODE_8h_ad7a3394d1169a116327a236fc91cad61}{PISTON\_GROUP}});}
+\DoxyCodeLine{\ \ \ \ dGeomSetCollideBits(g3,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ create\ a\ multi\ piston\ and\ pin\ it\ to\ the\ world}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp\ =\ \mbox{\hyperlink{raylibODE_8c_a8d2339918b2d47fcaea5c861ccfbc3d8}{CreateMultiPiston}}(physCtx,\ graphics,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Vector3)\{4,1.4,0\},\ \ \textcolor{comment}{//\ position}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Vector3)\{.5,.5,0\},\ \ \textcolor{comment}{//\ direction\ (or\ axis)\ of\ the\ piston}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 6,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ sections}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ distance\ each\ section\ travels}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ base\ width}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stength}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a57b8ac137f7e79fc8deb53b7ba410166}{PinEntityToWorld}}(physCtx,\ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[0]);}
+\DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())}
 \DoxyCodeLine{\ \ \ \ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ dJointSetSliderParam(piston1,\ dParamVel,\ 0.0);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ dJointSetSliderParam(piston2,\ dParamVel,\ 0.0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(mp,\ 0);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ pSpeed\ =\ 1;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_LEFT\_ALT))\ pSpeed\ =\ 32;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_LEFT\_ALT))\ pSpeed\ =\ 4;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_I))\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dJointSetSliderParam(piston1,\ dParamVel,\ -\/pSpeed);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dJointSetSliderParam(piston2,\ dParamVel,\ -\/pSpeed);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(box2-\/>body);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(mp,\ -\/pSpeed/16.0);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_O))\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dJointSetSliderParam(piston1,\ dParamVel,\ pSpeed);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dJointSetSliderParam(piston2,\ dParamVel,\ pSpeed);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(box2-\/>body);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(mp,\ pSpeed/16.0);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ }

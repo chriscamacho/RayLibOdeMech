@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RayLibOdeMech: RayHit Struct Reference</title>
+<title>RayLibOdeMech: MultiPiston Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -63,7 +63,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('structRayHit.html','',''); });
+$(function(){initNavTree('structMultiPiston.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,7 +89,7 @@ $(function(){initNavTree('structRayHit.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RayHit Struct Reference</div></div>
+  <div class="headertitle"><div class="title">MultiPiston Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -97,65 +97,86 @@ $(function(){initNavTree('structRayHit.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a86f485fd67387a8c18d90b717d891015" id="r_a86f485fd67387a8c18d90b717d891015"><td class="memItemLeft" align="right" valign="top">dGeomID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86f485fd67387a8c18d90b717d891015">geom</a></td></tr>
-<tr class="memitem:adbc494bc1bad81d80a620b42d71f29b4" id="r_adbc494bc1bad81d80a620b42d71f29b4"><td class="memItemLeft" align="right" valign="top">dReal&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbc494bc1bad81d80a620b42d71f29b4">depth</a></td></tr>
-<tr class="memitem:adcef8883ac52e6d421436e08b1b6201e" id="r_adcef8883ac52e6d421436e08b1b6201e"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcef8883ac52e6d421436e08b1b6201e">pos</a></td></tr>
+<tr class="memitem:ab70dd6653285ac49e434852b22a70148" id="r_ab70dd6653285ac49e434852b22a70148"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab70dd6653285ac49e434852b22a70148">sections</a></td></tr>
+<tr class="memitem:a96e58d4cda391573b7ac1f4d9b469a56" id="r_a96e58d4cda391573b7ac1f4d9b469a56"><td class="memItemLeft" align="right" valign="top">dJointID *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96e58d4cda391573b7ac1f4d9b469a56">joints</a></td></tr>
+<tr class="memitem:a96962d42f96ba90adb333956b1c3ddd4" id="r_a96962d42f96ba90adb333956b1c3ddd4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96962d42f96ba90adb333956b1c3ddd4">count</a></td></tr>
+<tr class="memitem:ad3e235df247bc80c0c47bc0b45a195ce" id="r_ad3e235df247bc80c0c47bc0b45a195ce"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3e235df247bc80c0c47bc0b45a195ce">direction</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00090">90</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<div class="textblock"><dl class="section examples"><dt>Examples</dt><dd><a class="el" href="piston_8c-example.html#_a24">piston.c</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00125">125</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
-<a id="adbc494bc1bad81d80a620b42d71f29b4" name="adbc494bc1bad81d80a620b42d71f29b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbc494bc1bad81d80a620b42d71f29b4">&#9670;&#160;</a></span>depth</h2>
+<a id="a96962d42f96ba90adb333956b1c3ddd4" name="a96962d42f96ba90adb333956b1c3ddd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96962d42f96ba90adb333956b1c3ddd4">&#9670;&#160;</a></span>count</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">dReal RayHit::depth</td>
+          <td class="memname">int MultiPiston::count</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00092">92</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00128">128</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00683">PickEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l01067">CreateMultiPiston()</a>, and <a class="el" href="raylibODE_8c_source.html#l01115">SetMultiPistonVelocity()</a>.</p>
 
 </div>
 </div>
-<a id="a86f485fd67387a8c18d90b717d891015" name="a86f485fd67387a8c18d90b717d891015"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86f485fd67387a8c18d90b717d891015">&#9670;&#160;</a></span>geom</h2>
+<a id="ad3e235df247bc80c0c47bc0b45a195ce" name="ad3e235df247bc80c0c47bc0b45a195ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3e235df247bc80c0c47bc0b45a195ce">&#9670;&#160;</a></span>direction</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">dGeomID RayHit::geom</td>
+          <td class="memname">Vector3 MultiPiston::direction</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00091">91</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00683">PickEntity()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00129">129</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
 </div>
 </div>
-<a id="adcef8883ac52e6d421436e08b1b6201e" name="adcef8883ac52e6d421436e08b1b6201e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcef8883ac52e6d421436e08b1b6201e">&#9670;&#160;</a></span>pos</h2>
+<a id="a96e58d4cda391573b7ac1f4d9b469a56" name="a96e58d4cda391573b7ac1f4d9b469a56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96e58d4cda391573b7ac1f4d9b469a56">&#9670;&#160;</a></span>joints</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Vector3 RayHit::pos</td>
+          <td class="memname">dJointID* MultiPiston::joints</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00093">93</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00127">127</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00683">PickEntity()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l01067">CreateMultiPiston()</a>, and <a class="el" href="raylibODE_8c_source.html#l01115">SetMultiPistonVelocity()</a>.</p>
+
+</div>
+</div>
+<a id="ab70dd6653285ac49e434852b22a70148" name="ab70dd6653285ac49e434852b22a70148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab70dd6653285ac49e434852b22a70148">&#9670;&#160;</a></span>sections</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentity.html">entity</a>** MultiPiston::sections</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="piston_8c-example.html#a26">piston.c</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00126">126</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l01067">CreateMultiPiston()</a>, and <a class="el" href="raylibODE_8c_source.html#l01115">SetMultiPistonVelocity()</a>.</p>
 
 </div>
 </div>
@@ -175,7 +196,7 @@ Data Fields</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="structRayHit.html">RayHit</a></li>
+    <li class="navelem"><a href="structMultiPiston.html">MultiPiston</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

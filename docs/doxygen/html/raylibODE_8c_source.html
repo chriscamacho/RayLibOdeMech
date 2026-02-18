@@ -834,399 +834,580 @@ $(function(){initNavTree('raylibODE_8c_source.html','',''); });
 <div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>    <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>}</div>
 </div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span> </div>
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span><span class="comment">// given a body it will remove it and its geoms from ODE&#39;s world</span></div>
-<div class="foldopen" id="foldopen00719" data-start="{" data-end="}">
-<div class="line"><a id="l00719" name="l00719"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">  719</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a>(dBodyID bdy)</div>
-<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>{</div>
-<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>    dGeomID geom = dBodyGetFirstGeom(bdy);</div>
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>    <span class="keywordflow">while</span>(geom) {</div>
-<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span>        dGeomID next = dBodyGetNextGeom(geom); <span class="comment">// get next now as about to destroy...</span></div>
-<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>        <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(geom);</div>
-<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>        <span class="keywordflow">if</span> (gi) free(gi);</div>
-<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span>        dGeomSetBody(geom, 0);</div>
-<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span>        dGeomDestroy(geom);</div>
-<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>        geom = next;</div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>    }</div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span> </div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>    dBodyDestroy(bdy);</div>
-<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>}</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span><span class="comment"></span> </div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span><span class="comment">/** @brief given a body it will remove it and its geoms from ODE&#39;s world</span></div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span><span class="comment"> * @note this is intended to be an internal function that might have use externally</span></div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span><span class="comment"> * you would normally use FreeEntity</span></div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span><span class="comment"> * As well as freeing all associated metadata it will also remove the body and</span></div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span><span class="comment"> * its geoms from the physics world</span></div>
+<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span><span class="comment"> * @param bdy the dBodyID you want to free the attached meta data for</span></div>
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span> </div>
+<div class="foldopen" id="foldopen00730" data-start="{" data-end="}">
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">  730</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a>(dBodyID bdy)</div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span>{</div>
+<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>    dGeomID geom = dBodyGetFirstGeom(bdy);</div>
+<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>    <span class="keywordflow">while</span>(geom) {</div>
+<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>        dGeomID next = dBodyGetNextGeom(geom); <span class="comment">// get next now as about to destroy...</span></div>
+<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>        <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(geom);</div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        <span class="keywordflow">if</span> (gi) free(gi);</div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>        dGeomSetBody(geom, 0);</div>
+<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>        dGeomDestroy(geom);</div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>        geom = next;</div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>    }</div>
+<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span> </div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>    dBodyDestroy(bdy);</div>
+<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>}</div>
 </div>
-<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span> </div>
-<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span><span class="comment">// position rotation scale all done with the models transform...</span></div>
-<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span><span class="comment">// TODO check there isn&#39;t a new raylib function that does this now _pro _ex or similar!</span></div>
-<div class="foldopen" id="foldopen00736" data-start="{" data-end="}">
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">  736</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(Model model, Color tint)</div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>{</div>
-<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span> </div>
-<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; model.meshCount; i++)</div>
-<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>    {</div>
-<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>        Color color = model.materials[model.meshMaterial[i]].maps[MATERIAL_MAP_DIFFUSE].color;</div>
-<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span> </div>
-<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>        Color colorTint = WHITE;</div>
-<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>        colorTint.r = (<span class="keywordtype">unsigned</span> char)((((<span class="keywordtype">float</span>)color.r/255.0)*((<span class="keywordtype">float</span>)tint.r/255.0))*255.0f);</div>
-<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>        colorTint.g = (<span class="keywordtype">unsigned</span> char)((((<span class="keywordtype">float</span>)color.g/255.0)*((<span class="keywordtype">float</span>)tint.g/255.0))*255.0f);</div>
-<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>        colorTint.b = (<span class="keywordtype">unsigned</span> char)((((<span class="keywordtype">float</span>)color.b/255.0)*((<span class="keywordtype">float</span>)tint.b/255.0))*255.0f);</div>
-<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>        colorTint.a = (<span class="keywordtype">unsigned</span> char)((((<span class="keywordtype">float</span>)color.a/255.0)*((<span class="keywordtype">float</span>)tint.a/255.0))*255.0f);</div>
-<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span> </div>
-<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>        model.materials[model.meshMaterial[i]].maps[MATERIAL_MAP_DIFFUSE].color = colorTint;</div>
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>        DrawMesh(model.meshes[i], model.materials[model.meshMaterial[i]], model.transform);</div>
-<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>        model.materials[model.meshMaterial[i]].maps[MATERIAL_MAP_DIFFUSE].color = color;</div>
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>    }</div>
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>}</div>
+<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span> </div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span><span class="comment">// position rotation scale all done with the models transform...</span></div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span><span class="comment">// TODO check there isn&#39;t a new raylib function that does this now _pro _ex or similar!</span></div>
+<div class="foldopen" id="foldopen00747" data-start="{" data-end="}">
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">  747</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(Model model, Color tint)</div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>{</div>
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span> </div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; model.meshCount; i++)</div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>    {</div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>        Color color = model.materials[model.meshMaterial[i]].maps[MATERIAL_MAP_DIFFUSE].color;</div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span> </div>
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>        Color colorTint = WHITE;</div>
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>        colorTint.r = (<span class="keywordtype">unsigned</span> char)((((<span class="keywordtype">float</span>)color.r/255.0)*((<span class="keywordtype">float</span>)tint.r/255.0))*255.0f);</div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>        colorTint.g = (<span class="keywordtype">unsigned</span> char)((((<span class="keywordtype">float</span>)color.g/255.0)*((<span class="keywordtype">float</span>)tint.g/255.0))*255.0f);</div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>        colorTint.b = (<span class="keywordtype">unsigned</span> char)((((<span class="keywordtype">float</span>)color.b/255.0)*((<span class="keywordtype">float</span>)tint.b/255.0))*255.0f);</div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>        colorTint.a = (<span class="keywordtype">unsigned</span> char)((((<span class="keywordtype">float</span>)color.a/255.0)*((<span class="keywordtype">float</span>)tint.a/255.0))*255.0f);</div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span> </div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>        model.materials[model.meshMaterial[i]].maps[MATERIAL_MAP_DIFFUSE].color = colorTint;</div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>        DrawMesh(model.meshes[i], model.materials[model.meshMaterial[i]], model.transform);</div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>        model.materials[model.meshMaterial[i]].maps[MATERIAL_MAP_DIFFUSE].color = color;</div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>    }</div>
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>}</div>
 </div>
-<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span> </div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span> </div>
-<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span><span class="comment">// these two just convert to column major and minor</span></div>
-<div class="foldopen" id="foldopen00757" data-start="{" data-end="}">
-<div class="line"><a id="l00757" name="l00757"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a261ecb0743898782ddf0e56b07f32f2b">  757</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a261ecb0743898782ddf0e56b07f32f2b">RayToOdeMat</a>(Matrix* m, dReal* R) {</div>
-<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>    R[ 0] = m-&gt;m0;   R[ 1] = m-&gt;m4;   R[ 2] = m-&gt;m8;    R[ 3] = 0;</div>
-<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>    R[ 4] = m-&gt;m1;   R[ 5] = m-&gt;m5;   R[ 6] = m-&gt;m9;    R[ 7] = 0;</div>
-<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>    R[ 8] = m-&gt;m2;   R[ 9] = m-&gt;m6;   R[10] = m-&gt;m10;   R[11] = 0;</div>
-<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>    R[12] = 0;       R[13] = 0;       R[14] = 0;        R[15] = 1;</div>
-<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>}</div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span> </div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span> </div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span><span class="comment">// these two just convert to column major and minor</span><span class="comment"></span></div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span><span class="comment">/** @brief set an ODE matrix to the same as a Raylib Matrix</span></div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span><span class="comment"> * @param m a pointer to the Raylib matrix</span></div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span><span class="comment"> * @param R a pointer to an ODE matrix</span></div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00773" data-start="{" data-end="}">
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a261ecb0743898782ddf0e56b07f32f2b">  773</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a261ecb0743898782ddf0e56b07f32f2b">RayToOdeMat</a>(Matrix* m, dReal* R) {</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>    R[ 0] = m-&gt;m0;   R[ 1] = m-&gt;m4;   R[ 2] = m-&gt;m8;    R[ 3] = 0;</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>    R[ 4] = m-&gt;m1;   R[ 5] = m-&gt;m5;   R[ 6] = m-&gt;m9;    R[ 7] = 0;</div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>    R[ 8] = m-&gt;m2;   R[ 9] = m-&gt;m6;   R[10] = m-&gt;m10;   R[11] = 0;</div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>    R[12] = 0;       R[13] = 0;       R[14] = 0;        R[15] = 1;</div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>}</div>
 </div>
-<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span> </div>
-<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span><span class="comment">// sets a raylib matrix from an ODE rotation matrix</span></div>
-<div class="foldopen" id="foldopen00765" data-start="{" data-end="}">
-<div class="line"><a id="l00765" name="l00765"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">  765</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a>(<span class="keyword">const</span> dReal* R, Matrix* m)</div>
-<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>{</div>
-<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>    m-&gt;m0 = R[0];  m-&gt;m1 = R[4];  m-&gt;m2 = R[8];      m-&gt;m3 = 0;</div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>    m-&gt;m4 = R[1];  m-&gt;m5 = R[5];  m-&gt;m6 = R[9];      m-&gt;m7 = 0;</div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>    m-&gt;m8 = R[2];  m-&gt;m9 = R[6];  m-&gt;m10 = R[10];    m-&gt;m11 = 0;</div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>    m-&gt;m12 = 0;    m-&gt;m13 = 0;    m-&gt;m14 = 0;        m-&gt;m15 = 1;</div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>}</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span><span class="comment"></span> </div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span><span class="comment">/** @brief sets a raylib matrix from an ODE rotation matrix</span></div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span><span class="comment"> * @param R a pointer to the ODE matrix</span></div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span><span class="comment"> * @param m a pointer to a Raylib Matrix</span></div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00785" data-start="{" data-end="}">
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">  785</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a>(<span class="keyword">const</span> dReal* R, Matrix* m)</div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>{</div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>    m-&gt;m0 = R[0];  m-&gt;m1 = R[4];  m-&gt;m2 = R[8];      m-&gt;m3 = 0;</div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span>    m-&gt;m4 = R[1];  m-&gt;m5 = R[5];  m-&gt;m6 = R[9];      m-&gt;m7 = 0;</div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>    m-&gt;m8 = R[2];  m-&gt;m9 = R[6];  m-&gt;m10 = R[10];    m-&gt;m11 = 0;</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>    m-&gt;m12 = 0;    m-&gt;m13 = 0;    m-&gt;m14 = 0;        m-&gt;m15 = 1;</div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>}</div>
 </div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span> </div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span><span class="comment">// called by draw all geoms</span></div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span> </div>
-<div class="foldopen" id="foldopen00775" data-start="{" data-end="}">
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">  775</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a>(dGeomID geom, <span class="keyword">struct</span> <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* ctx)</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>{</div>
-<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>    <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = (<a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>*)dGeomGetData(geom);</div>
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>    <span class="keywordflow">if</span> (!gi) <span class="keywordflow">return</span>; <span class="comment">// Silently bail if no metadata</span></div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span> </div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>    <span class="comment">// If it&#39;s a trigger, don&#39;t render anything</span></div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>    <span class="keywordflow">if</span> (gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a520884eb761f24547c835107a37d024c">triggerOnCollide</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span> </div>
-<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>    <span class="comment">// if its texture has been nulled its an invisible</span></div>
-<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>    <span class="keywordflow">if</span> (!gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span> </div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>    <span class="keyword">const</span> dReal* pos = dGeomGetPosition(geom);</div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>    <span class="keyword">const</span> dReal* rot = dGeomGetRotation(geom);</div>
-<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span>    <span class="keywordtype">int</span> <span class="keyword">class </span>= dGeomGetClass(geom);</div>
-<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span> </div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>    Matrix matRot;</div>
-<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>    <a class="code hl_function" href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a>(rot, &amp;matRot);</div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>    Matrix matTran = MatrixTranslate(pos[0], pos[1], pos[2]);</div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>    Matrix matWorld = MatrixMultiply(matRot, matTran);</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span> </div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span><span class="comment">// called by draw all geoms</span></div>
 <div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span> </div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>    Color c = gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a>;</div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span> </div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>    <span class="comment">// Handle Texture/Shader setup once per geom</span></div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>    <span class="keywordflow">if</span> (gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>) {</div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>        <span class="comment">// TODO cache shader location</span></div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>        <span class="keywordtype">int</span> uvLoc = GetShaderLocation(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a2fa19905aad6c696c90a4ba1286c2b70">shader</a>, <span class="stringliteral">&quot;texCoordScale&quot;</span>);</div>
-<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>        Vector2 uvScale = { gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#ab566e6f3debd1b3092ec83aa09e961b9">uvScaleU</a>, gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a0670722f17ac3020238ee399bd93f32e">uvScaleV</a> };</div>
-<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>        SetShaderValue(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a2fa19905aad6c696c90a4ba1286c2b70">shader</a>, uvLoc, &amp;uvScale.x, SHADER_UNIFORM_VEC2);</div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span> </div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>        <span class="comment">// assign the texture to whichever models might be used</span></div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>        <span class="keywordflow">if</span> (<span class="keyword">class</span> == dBoxClass) ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a5ff7c73c82a7595e803b07c953ec0693">box</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
-<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dSphereClass) ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
-<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dCylinderClass) ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
-<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dCapsuleClass) {</div>
-<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
-<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
-<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>        }</div>
-<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span>    }</div>
-<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span> </div>
-<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>    <span class="keywordflow">if</span> (gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">visual</a>.meshCount) {</div>
-<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>        gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">visual</a>.transform = matWorld;</div>
-<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>        <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">visual</a>, c);</div>
-<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span> </div>
-<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>        <span class="keywordflow">if</span> (<span class="keyword">class</span> == dBoxClass) {</div>
-<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>            dVector3 size;</div>
-<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>            dGeomBoxGetLengths(geom, size);</div>
-<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a5ff7c73c82a7595e803b07c953ec0693">box</a>.transform = MatrixMultiply(MatrixScale(size[0], size[1], size[2]), matWorld);</div>
-<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a5ff7c73c82a7595e803b07c953ec0693">box</a>, c);</div>
-<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>        }</div>
-<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dSphereClass) {</div>
-<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>            <span class="keywordtype">float</span> r = dGeomSphereGetRadius(geom);</div>
-<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.transform = MatrixMultiply(MatrixScale(r*2, r*2, r*2), matWorld);</div>
-<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>, c);</div>
-<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>        }</div>
-<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dCylinderClass) {</div>
-<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>            dReal l, r;</div>
-<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span>            dGeomCylinderGetParams(geom, &amp;r, &amp;l);</div>
-<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>.transform = MatrixMultiply(MatrixScale(r*2, r*2, l), matWorld);</div>
-<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>, c);</div>
-<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span>        }</div>
-<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dCapsuleClass) {</div>
-<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span>            dReal l, r;</div>
-<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span>            dGeomCapsuleGetParams(geom, &amp;r, &amp;l);</div>
-<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span>            <span class="keywordtype">float</span> d = r * 2;</div>
-<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span> </div>
-<div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span>            <span class="comment">// Cylinder</span></div>
-<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>.transform = MatrixMultiply(MatrixScale(d, d, l), matWorld);</div>
-<div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>, c);</div>
-<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span> </div>
-<div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span>            <span class="comment">// Cap 1 (Local Z+)</span></div>
-<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span>            Matrix matCap1 = MatrixMultiply(MatrixTranslate(0, 0, l/2), matWorld);</div>
-<div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.transform = MatrixMultiply(MatrixScale(d, d, d), matCap1);</div>
+<div class="foldopen" id="foldopen00795" data-start="{" data-end="}">
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">  795</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a>(dGeomID geom, <span class="keyword">struct</span> <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* ctx)</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>{</div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>    <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = (<a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>*)dGeomGetData(geom);</div>
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>    <span class="keywordflow">if</span> (!gi) <span class="keywordflow">return</span>; <span class="comment">// Silently bail if no metadata</span></div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span> </div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>    <span class="comment">// If it&#39;s a trigger, don&#39;t render anything</span></div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>    <span class="keywordflow">if</span> (gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a520884eb761f24547c835107a37d024c">triggerOnCollide</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span> </div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>    <span class="comment">// if its texture has been nulled its an invisible</span></div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>    <span class="keywordflow">if</span> (!gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span> </div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>    <span class="keyword">const</span> dReal* pos = dGeomGetPosition(geom);</div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>    <span class="keyword">const</span> dReal* rot = dGeomGetRotation(geom);</div>
+<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>    <span class="keywordtype">int</span> <span class="keyword">class </span>= dGeomGetClass(geom);</div>
+<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span> </div>
+<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>    Matrix matRot;</div>
+<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>    <a class="code hl_function" href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a>(rot, &amp;matRot);</div>
+<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span>    Matrix matTran = MatrixTranslate(pos[0], pos[1], pos[2]);</div>
+<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span>    Matrix matWorld = MatrixMultiply(matRot, matTran);</div>
+<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span> </div>
+<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>    Color c = gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a>;</div>
+<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span> </div>
+<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>    <span class="comment">// Handle Texture/Shader setup once per geom</span></div>
+<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span>    <span class="keywordflow">if</span> (gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>) {</div>
+<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>        <span class="comment">// TODO cache shader location</span></div>
+<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>        <span class="keywordtype">int</span> uvLoc = GetShaderLocation(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a2fa19905aad6c696c90a4ba1286c2b70">shader</a>, <span class="stringliteral">&quot;texCoordScale&quot;</span>);</div>
+<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>        Vector2 uvScale = { gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#ab566e6f3debd1b3092ec83aa09e961b9">uvScaleU</a>, gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a0670722f17ac3020238ee399bd93f32e">uvScaleV</a> };</div>
+<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>        SetShaderValue(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a2fa19905aad6c696c90a4ba1286c2b70">shader</a>, uvLoc, &amp;uvScale.x, SHADER_UNIFORM_VEC2);</div>
+<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span> </div>
+<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>        <span class="comment">// assign the texture to whichever models might be used</span></div>
+<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>        <span class="keywordflow">if</span> (<span class="keyword">class</span> == dBoxClass) ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a5ff7c73c82a7595e803b07c953ec0693">box</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
+<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dSphereClass) ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
+<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dCylinderClass) ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
+<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dCapsuleClass) {</div>
+<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
+<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a>;</div>
+<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>        }</div>
+<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span>    }</div>
+<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span> </div>
+<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>    <span class="keywordflow">if</span> (gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">visual</a>.meshCount) {</div>
+<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span>        gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">visual</a>.transform = matWorld;</div>
+<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span>        <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">visual</a>, c);</div>
+<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span> </div>
+<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span>        <span class="keywordflow">if</span> (<span class="keyword">class</span> == dBoxClass) {</div>
+<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span>            dVector3 size;</div>
+<div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span>            dGeomBoxGetLengths(geom, size);</div>
+<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a5ff7c73c82a7595e803b07c953ec0693">box</a>.transform = MatrixMultiply(MatrixScale(size[0], size[1], size[2]), matWorld);</div>
+<div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a5ff7c73c82a7595e803b07c953ec0693">box</a>, c);</div>
+<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span>        }</div>
+<div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dSphereClass) {</div>
+<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span>            <span class="keywordtype">float</span> r = dGeomSphereGetRadius(geom);</div>
+<div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.transform = MatrixMultiply(MatrixScale(r*2, r*2, r*2), matWorld);</div>
 <div class="line"><a id="l00848" name="l00848"></a><span class="lineno">  848</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>, c);</div>
-<div class="line"><a id="l00849" name="l00849"></a><span class="lineno">  849</span> </div>
-<div class="line"><a id="l00850" name="l00850"></a><span class="lineno">  850</span>            <span class="comment">// Cap 2 (Local Z-)</span></div>
-<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span>            Matrix matCap2 = MatrixMultiply(MatrixTranslate(0, 0, -l/2), matWorld);</div>
-<div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.transform = MatrixMultiply(MatrixScale(d, d, d), matCap2);</div>
-<div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>, c);</div>
-<div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span>        }</div>
-<div class="line"><a id="l00855" name="l00855"></a><span class="lineno">  855</span> </div>
-<div class="line"><a id="l00856" name="l00856"></a><span class="lineno">  856</span>    }</div>
-<div class="line"><a id="l00857" name="l00857"></a><span class="lineno">  857</span>}</div>
+<div class="line"><a id="l00849" name="l00849"></a><span class="lineno">  849</span>        }</div>
+<div class="line"><a id="l00850" name="l00850"></a><span class="lineno">  850</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dCylinderClass) {</div>
+<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span>            dReal l, r;</div>
+<div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span>            dGeomCylinderGetParams(geom, &amp;r, &amp;l);</div>
+<div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>.transform = MatrixMultiply(MatrixScale(r*2, r*2, l), matWorld);</div>
+<div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>, c);</div>
+<div class="line"><a id="l00855" name="l00855"></a><span class="lineno">  855</span>        }</div>
+<div class="line"><a id="l00856" name="l00856"></a><span class="lineno">  856</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">class</span> == dCapsuleClass) {</div>
+<div class="line"><a id="l00857" name="l00857"></a><span class="lineno">  857</span>            dReal l, r;</div>
+<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span>            dGeomCapsuleGetParams(geom, &amp;r, &amp;l);</div>
+<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span>            <span class="keywordtype">float</span> d = r * 2;</div>
+<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span> </div>
+<div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span>            <span class="comment">// Cylinder</span></div>
+<div class="line"><a id="l00862" name="l00862"></a><span class="lineno">  862</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>.transform = MatrixMultiply(MatrixScale(d, d, l), matWorld);</div>
+<div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">cylinder</a>, c);</div>
+<div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span> </div>
+<div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span>            <span class="comment">// Cap 1 (Local Z+)</span></div>
+<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>            Matrix matCap1 = MatrixMultiply(MatrixTranslate(0, 0, l/2), matWorld);</div>
+<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.transform = MatrixMultiply(MatrixScale(d, d, d), matCap1);</div>
+<div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>, c);</div>
+<div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span> </div>
+<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span>            <span class="comment">// Cap 2 (Local Z-)</span></div>
+<div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span>            Matrix matCap2 = MatrixMultiply(MatrixTranslate(0, 0, -l/2), matWorld);</div>
+<div class="line"><a id="l00872" name="l00872"></a><span class="lineno">  872</span>            ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>.transform = MatrixMultiply(MatrixScale(d, d, d), matCap2);</div>
+<div class="line"><a id="l00873" name="l00873"></a><span class="lineno">  873</span>            <a class="code hl_function" href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a>(ctx-&gt;<a class="code hl_variable" href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">ball</a>, c);</div>
+<div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span>        }</div>
+<div class="line"><a id="l00875" name="l00875"></a><span class="lineno">  875</span> </div>
+<div class="line"><a id="l00876" name="l00876"></a><span class="lineno">  876</span>    }</div>
+<div class="line"><a id="l00877" name="l00877"></a><span class="lineno">  877</span>}</div>
 </div>
-<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span> </div>
-<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span><span class="comment"></span> </div>
-<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span><span class="comment">/** @brief crates a rotor joint</span></div>
-<div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span><span class="comment"> * the joint is created with the anchor at the from enties location</span></div>
-<div class="line"><a id="l00862" name="l00862"></a><span class="lineno">  862</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span><span class="comment"> * @param physCtx physics context holds all the physics globals</span></div>
-<div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span><span class="comment"> * @param from the anchor entity for the joint</span></div>
-<div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span><span class="comment"> * @param to if this is null the joint attaches to the world and is static</span></div>
-<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span><span class="comment"> * @param axis this determines the direction of rotation for the rotor</span></div>
-<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span><span class="comment"> * you can think of it as the direction of the axle</span></div>
-<div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span><span class="comment"> * @note joints will get tidied up during world destruction, do destroy them</span></div>
-<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span><span class="comment"> * if you no longer require them, in the arm example a joint is created and</span></div>
-<div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span><span class="comment"> * destroyed every time an object is caught and released</span></div>
-<div class="line"><a id="l00872" name="l00872"></a><span class="lineno">  872</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00873" data-start="{" data-end="}">
-<div class="line"><a id="l00873" name="l00873"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">  873</a></span>dJointID <a class="code hl_function" href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a>(<a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, <a class="code hl_struct" href="structentity.html">entity</a>* from, <a class="code hl_struct" href="structentity.html">entity</a>* to, Vector3 axis)</div>
-<div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span>{</div>
-<div class="line"><a id="l00875" name="l00875"></a><span class="lineno">  875</span>    <span class="comment">// Use a Hinge to rotate around (no stops)</span></div>
-<div class="line"><a id="l00876" name="l00876"></a><span class="lineno">  876</span>    dJointID rotor = dJointCreateHinge(physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">world</a>, 0);</div>
-<div class="line"><a id="l00877" name="l00877"></a><span class="lineno">  877</span>    <span class="keywordflow">if</span> (!to) {</div>
-<div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span>        dJointAttach(rotor, from-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, 0);</div>
-<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span>        dJointAttach(rotor, from-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, to-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
-<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span>    }</div>
-<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span> </div>
-<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>    <span class="keyword">const</span> dReal* pos = dBodyGetPosition(from-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
-<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span> </div>
-<div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span> </div>
-<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span>    dJointSetHingeAnchor(rotor, pos[0], pos[1], pos[2]); <span class="comment">// world coordinates</span></div>
-<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>    dJointSetHingeAxis(rotor, axis.x, axis.y, axis.z);</div>
-<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span> </div>
-<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>    dJointSetHingeParam(rotor, dParamVel, 0.0);</div>
-<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>    dJointSetHingeParam(rotor, dParamFMax, 100000.0); <span class="comment">// POOOWWWWEEERRRR!</span></div>
-<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span> </div>
-<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span>    <span class="keywordflow">return</span> rotor;</div>
-<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>}</div>
-</div>
-<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span> </div>
-<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span><span class="comment"></span> </div>
-<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span><span class="comment"> * @brief changes the hew (tint) of all entities geoms</span></div>
-<div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span><span class="comment"> * go through each geom attached to the entities body and change</span></div>
-<div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span><span class="comment"> * their hew or tint</span></div>
-<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span><span class="comment"> * @param ent pointer to the entity</span></div>
-<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span><span class="comment"> * @param c new colour to use</span></div>
-<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span><span class="comment"> */</span></div>
-<div class="foldopen" id="foldopen00906" data-start="{" data-end="}">
-<div class="line"><a id="l00906" name="l00906"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">  906</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a>(<a class="code hl_struct" href="structentity.html">entity</a>* ent, Color c)</div>
-<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>{</div>
-<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span>    dGeomID geom = dBodyGetFirstGeom(ent-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
-<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>    <span class="keywordflow">while</span>(geom) {</div>
-<div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>        dGeomID next = dBodyGetNextGeom(geom);</div>
+<div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span> </div>
+<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span><span class="comment"></span> </div>
+<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span><span class="comment">/** @brief crates a rotor joint</span></div>
+<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span><span class="comment"> * the joint is created with the anchor at the from enties location</span></div>
+<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span><span class="comment"> * @param physCtx physics context holds all the physics globals</span></div>
+<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span><span class="comment"> * @param from the anchor entity for the joint</span></div>
+<div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span><span class="comment"> * @param to if this is null the joint attaches to the world and is static</span></div>
+<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span><span class="comment"> * @param axis this determines the direction of rotation for the rotor</span></div>
+<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span><span class="comment"> * you can think of it as the direction of the axle</span></div>
+<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span><span class="comment"> * @note joints will get tidied up during world destruction, do destroy them</span></div>
+<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span><span class="comment"> * if you no longer require them, in the arm example a joint is created and</span></div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span><span class="comment"> * destroyed every time an object is caught and released</span></div>
+<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00893" data-start="{" data-end="}">
+<div class="line"><a id="l00893" name="l00893"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">  893</a></span>dJointID <a class="code hl_function" href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a>(<a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, <a class="code hl_struct" href="structentity.html">entity</a>* from, <a class="code hl_struct" href="structentity.html">entity</a>* to, Vector3 axis)</div>
+<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span>{</div>
+<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span>    <span class="comment">// Use a Hinge to rotate around (no stops)</span></div>
+<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>    dJointID rotor = dJointCreateHinge(physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">world</a>, 0);</div>
+<div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span>    <span class="keywordflow">if</span> (!to) {</div>
+<div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span>        dJointAttach(rotor, from-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, 0);</div>
+<div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span>        dJointAttach(rotor, from-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, to-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
+<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span>    }</div>
+<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span> </div>
+<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span>    <span class="keyword">const</span> dReal* pos = dBodyGetPosition(from-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
+<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span> </div>
+<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span> </div>
+<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span>    dJointSetHingeAnchor(rotor, pos[0], pos[1], pos[2]); <span class="comment">// world coordinates</span></div>
+<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>    dJointSetHingeAxis(rotor, axis.x, axis.y, axis.z);</div>
+<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span> </div>
+<div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>    dJointSetHingeParam(rotor, dParamVel, 0.0);</div>
+<div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>    dJointSetHingeParam(rotor, dParamFMax, 100000.0); <span class="comment">// POOOWWWWEEERRRR!</span></div>
 <div class="line"><a id="l00911" name="l00911"></a><span class="lineno">  911</span> </div>
-<div class="line"><a id="l00912" name="l00912"></a><span class="lineno">  912</span>        <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(geom);</div>
-<div class="line"><a id="l00913" name="l00913"></a><span class="lineno">  913</span>        gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a> = c;</div>
-<div class="line"><a id="l00914" name="l00914"></a><span class="lineno">  914</span>        geom = next;</div>
-<div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span>    }</div>
-<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span>}</div>
+<div class="line"><a id="l00912" name="l00912"></a><span class="lineno">  912</span>    <span class="keywordflow">return</span> rotor;</div>
+<div class="line"><a id="l00913" name="l00913"></a><span class="lineno">  913</span>}</div>
 </div>
-<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span> </div>
-<div class="foldopen" id="foldopen00918" data-start="{" data-end="}">
-<div class="line"><a id="l00918" name="l00918"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">  918</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* ctx, <a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* pctx)</div>
-<div class="line"><a id="l00919" name="l00919"></a><span class="lineno">  919</span>{</div>
-<div class="line"><a id="l00920" name="l00920"></a><span class="lineno">  920</span>    <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = pctx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>-&gt;<a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
-<div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span> </div>
-<div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span>    <span class="keywordflow">while</span> (node != NULL) {</div>
-<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>        <a class="code hl_struct" href="structentity.html">entity</a>* e = (<a class="code hl_struct" href="structentity.html">entity</a>*)node-&gt;<a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
-<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span>        dBodyID bdy = e-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>;</div>
-<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span>        <a class="code hl_function" href="raylibODE_8c.html#a01fc58efa7854e13c41c4b40bc5c8b62">DrawBodyGeoms</a>(bdy, ctx);</div>
-<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span> </div>
-<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span>        node = node-&gt;<a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>;</div>
-<div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span>    }</div>
-<div class="line"><a id="l00929" name="l00929"></a><span class="lineno">  929</span>}</div>
+<div class="line"><a id="l00914" name="l00914"></a><span class="lineno">  914</span> </div>
+<div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span><span class="comment"></span> </div>
+<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span><span class="comment"> * @brief changes the hew (tint) of all entities geoms</span></div>
+<div class="line"><a id="l00918" name="l00918"></a><span class="lineno">  918</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00919" name="l00919"></a><span class="lineno">  919</span><span class="comment"> * go through each geom attached to the entities body and change</span></div>
+<div class="line"><a id="l00920" name="l00920"></a><span class="lineno">  920</span><span class="comment"> * their hew or tint</span></div>
+<div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span><span class="comment"> * @param ent pointer to the entity</span></div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span><span class="comment"> * @param c new colour to use</span></div>
+<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00926" data-start="{" data-end="}">
+<div class="line"><a id="l00926" name="l00926"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">  926</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a>(<a class="code hl_struct" href="structentity.html">entity</a>* ent, Color c)</div>
+<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span>{</div>
+<div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span>    dGeomID geom = dBodyGetFirstGeom(ent-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
+<div class="line"><a id="l00929" name="l00929"></a><span class="lineno">  929</span>    <span class="keywordflow">while</span>(geom) {</div>
+<div class="line"><a id="l00930" name="l00930"></a><span class="lineno">  930</span>        dGeomID next = dBodyGetNextGeom(geom);</div>
+<div class="line"><a id="l00931" name="l00931"></a><span class="lineno">  931</span> </div>
+<div class="line"><a id="l00932" name="l00932"></a><span class="lineno">  932</span>        <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(geom);</div>
+<div class="line"><a id="l00933" name="l00933"></a><span class="lineno">  933</span>        gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a> = c;</div>
+<div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span>        geom = next;</div>
+<div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span>    }</div>
+<div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span>}</div>
 </div>
-<div class="line"><a id="l00930" name="l00930"></a><span class="lineno">  930</span> </div>
-<div class="foldopen" id="foldopen00931" data-start="{" data-end="}">
-<div class="line"><a id="l00931" name="l00931"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a01fc58efa7854e13c41c4b40bc5c8b62">  931</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a01fc58efa7854e13c41c4b40bc5c8b62">DrawBodyGeoms</a>(dBodyID bdy, <span class="keyword">struct</span> <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* ctx)</div>
-<div class="line"><a id="l00932" name="l00932"></a><span class="lineno">  932</span>{</div>
-<div class="line"><a id="l00933" name="l00933"></a><span class="lineno">  933</span>    dGeomID geom = dBodyGetFirstGeom(bdy);</div>
-<div class="line"><a id="l00934" name="l00934"></a><span class="lineno">  934</span>    <span class="keywordflow">while</span>(geom) {</div>
-<div class="line"><a id="l00935" name="l00935"></a><span class="lineno">  935</span>        dGeomID next = dBodyGetNextGeom(geom);</div>
-<div class="line"><a id="l00936" name="l00936"></a><span class="lineno">  936</span> </div>
-<div class="line"><a id="l00937" name="l00937"></a><span class="lineno">  937</span>        <a class="code hl_function" href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a>(geom, ctx);</div>
-<div class="line"><a id="l00938" name="l00938"></a><span class="lineno">  938</span>        geom = next;</div>
-<div class="line"><a id="l00939" name="l00939"></a><span class="lineno">  939</span>    }</div>
-<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span> </div>
-<div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span>}</div>
-</div>
-<div class="line"><a id="l00942" name="l00942"></a><span class="lineno">  942</span> </div>
-<div class="foldopen" id="foldopen00943" data-start="{" data-end="}">
-<div class="line"><a id="l00943" name="l00943"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">  943</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* ctx, <a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* pctx)</div>
-<div class="line"><a id="l00944" name="l00944"></a><span class="lineno">  944</span>{</div>
-<div class="line"><a id="l00945" name="l00945"></a><span class="lineno">  945</span>    <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = pctx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">statics</a>-&gt;<a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
+<div class="line"><a id="l00937" name="l00937"></a><span class="lineno">  937</span> </div>
+<div class="foldopen" id="foldopen00938" data-start="{" data-end="}">
+<div class="line"><a id="l00938" name="l00938"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">  938</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* ctx, <a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* pctx)</div>
+<div class="line"><a id="l00939" name="l00939"></a><span class="lineno">  939</span>{</div>
+<div class="line"><a id="l00940" name="l00940"></a><span class="lineno">  940</span>    <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = pctx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>-&gt;<a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
+<div class="line"><a id="l00941" name="l00941"></a><span class="lineno">  941</span> </div>
+<div class="line"><a id="l00942" name="l00942"></a><span class="lineno">  942</span>    <span class="keywordflow">while</span> (node != NULL) {</div>
+<div class="line"><a id="l00943" name="l00943"></a><span class="lineno">  943</span>        <a class="code hl_struct" href="structentity.html">entity</a>* e = (<a class="code hl_struct" href="structentity.html">entity</a>*)node-&gt;<a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
+<div class="line"><a id="l00944" name="l00944"></a><span class="lineno">  944</span>        dBodyID bdy = e-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>;</div>
+<div class="line"><a id="l00945" name="l00945"></a><span class="lineno">  945</span>        <a class="code hl_function" href="raylibODE_8c.html#a01fc58efa7854e13c41c4b40bc5c8b62">DrawBodyGeoms</a>(bdy, ctx);</div>
 <div class="line"><a id="l00946" name="l00946"></a><span class="lineno">  946</span> </div>
-<div class="line"><a id="l00947" name="l00947"></a><span class="lineno">  947</span>    <span class="keywordflow">while</span> (node != NULL) {</div>
-<div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span>        dGeomID geom = node-&gt;<a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
-<div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span>        <a class="code hl_function" href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a>(geom, ctx);</div>
-<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span>        node = node-&gt;<a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>;</div>
-<div class="line"><a id="l00951" name="l00951"></a><span class="lineno">  951</span>    }</div>
-<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span>}</div>
+<div class="line"><a id="l00947" name="l00947"></a><span class="lineno">  947</span>        node = node-&gt;<a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>;</div>
+<div class="line"><a id="l00948" name="l00948"></a><span class="lineno">  948</span>    }</div>
+<div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span>}</div>
 </div>
-<div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span><span class="comment"></span> </div>
-<div class="line"><a id="l00954" name="l00954"></a><span class="lineno">  954</span><span class="comment">/** @brief frees an entity</span></div>
-<div class="line"><a id="l00955" name="l00955"></a><span class="lineno">  955</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span><span class="comment"> * this is essentially destroying the entity it is no longer part of the world</span></div>
-<div class="line"><a id="l00957" name="l00957"></a><span class="lineno">  957</span><span class="comment"> * @note if iterrating through the global entity list while calling this,</span></div>
-<div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span><span class="comment"> * ensure you have stored the next node in the chain, for use at the end of the</span></div>
-<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span><span class="comment"> * while loop as obviously node-&gt;next won&#39;t work</span></div>
-<div class="line"><a id="l00960" name="l00960"></a><span class="lineno">  960</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00961" name="l00961"></a><span class="lineno">  961</span><span class="comment"> * @param physCtx physics context</span></div>
-<div class="line"><a id="l00962" name="l00962"></a><span class="lineno">  962</span><span class="comment"> * @param ent the entity to destroy</span></div>
-<div class="line"><a id="l00963" name="l00963"></a><span class="lineno">  963</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00964" name="l00964"></a><span class="lineno">  964</span> </div>
-<div class="foldopen" id="foldopen00965" data-start="{" data-end="}">
-<div class="line"><a id="l00965" name="l00965"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">  965</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(<a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, <a class="code hl_struct" href="structentity.html">entity</a>* ent)</div>
-<div class="line"><a id="l00966" name="l00966"></a><span class="lineno">  966</span>{</div>
-<div class="line"><a id="l00967" name="l00967"></a><span class="lineno">  967</span>    <a class="code hl_function" href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a>(ent-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
-<div class="line"><a id="l00968" name="l00968"></a><span class="lineno">  968</span>    <a class="code hl_function" href="clist_8c.html#a15dab01e10aa1d60e2d66c5cbfa3a738">clistDeleteNode</a>(physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>, &amp;ent-&gt;<a class="code hl_variable" href="structentity.html#a4ba0008223828f414cf5303ca935bcd8">node</a>);</div>
-<div class="line"><a id="l00969" name="l00969"></a><span class="lineno">  969</span>    free(ent);</div>
-<div class="line"><a id="l00970" name="l00970"></a><span class="lineno">  970</span>}</div>
+<div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span> </div>
+<div class="foldopen" id="foldopen00951" data-start="{" data-end="}">
+<div class="line"><a id="l00951" name="l00951"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a01fc58efa7854e13c41c4b40bc5c8b62">  951</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a01fc58efa7854e13c41c4b40bc5c8b62">DrawBodyGeoms</a>(dBodyID bdy, <span class="keyword">struct</span> <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* ctx)</div>
+<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span>{</div>
+<div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span>    dGeomID geom = dBodyGetFirstGeom(bdy);</div>
+<div class="line"><a id="l00954" name="l00954"></a><span class="lineno">  954</span>    <span class="keywordflow">while</span>(geom) {</div>
+<div class="line"><a id="l00955" name="l00955"></a><span class="lineno">  955</span>        dGeomID next = dBodyGetNextGeom(geom);</div>
+<div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span> </div>
+<div class="line"><a id="l00957" name="l00957"></a><span class="lineno">  957</span>        <a class="code hl_function" href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a>(geom, ctx);</div>
+<div class="line"><a id="l00958" name="l00958"></a><span class="lineno">  958</span>        geom = next;</div>
+<div class="line"><a id="l00959" name="l00959"></a><span class="lineno">  959</span>    }</div>
+<div class="line"><a id="l00960" name="l00960"></a><span class="lineno">  960</span> </div>
+<div class="line"><a id="l00961" name="l00961"></a><span class="lineno">  961</span>}</div>
 </div>
-<div class="line"><a id="l00971" name="l00971"></a><span class="lineno">  971</span> </div>
-<div class="foldopen" id="foldopen00972" data-start="{" data-end="}">
-<div class="line"><a id="l00972" name="l00972"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aec8e521a9dfcf354ba2ae793ac6be324">  972</a></span>dJointID <a class="code hl_function" href="raylibODE_8c.html#aec8e521a9dfcf354ba2ae793ac6be324">CreatePiston</a>(<a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, <a class="code hl_struct" href="structentity.html">entity</a>* entA, <a class="code hl_struct" href="structentity.html">entity</a>* entB)</div>
-<div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span>{</div>
-<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span>    dJointID joint = dJointCreateSlider(physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">world</a>, 0);</div>
-<div class="line"><a id="l00975" name="l00975"></a><span class="lineno">  975</span> </div>
-<div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span>    dBodyID bodyA = entA-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>;</div>
-<div class="line"><a id="l00977" name="l00977"></a><span class="lineno">  977</span>    dBodyID bodyB = (entB != NULL) ? entB-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a> : 0; <span class="comment">// 0 = world</span></div>
-<div class="line"><a id="l00978" name="l00978"></a><span class="lineno">  978</span>    dJointAttach(joint, bodyA, bodyB);</div>
-<div class="line"><a id="l00979" name="l00979"></a><span class="lineno">  979</span> </div>
-<div class="line"><a id="l00980" name="l00980"></a><span class="lineno">  980</span>    dReal axis[3];</div>
-<div class="line"><a id="l00981" name="l00981"></a><span class="lineno">  981</span>    <span class="keyword">const</span> dReal* posA = dBodyGetPosition(bodyA);</div>
-<div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span> </div>
-<div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span>    <span class="keywordflow">if</span> (entB != NULL) {</div>
-<div class="line"><a id="l00984" name="l00984"></a><span class="lineno">  984</span>        <span class="keyword">const</span> dReal* posB = dBodyGetPosition(bodyB);</div>
-<div class="line"><a id="l00985" name="l00985"></a><span class="lineno">  985</span>        axis[0] = posA[0] - posB[0];</div>
-<div class="line"><a id="l00986" name="l00986"></a><span class="lineno">  986</span>        axis[1] = posA[1] - posB[1];</div>
-<div class="line"><a id="l00987" name="l00987"></a><span class="lineno">  987</span>        axis[2] = posA[2] - posB[2];</div>
-<div class="line"><a id="l00988" name="l00988"></a><span class="lineno">  988</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00989" name="l00989"></a><span class="lineno">  989</span>        <span class="comment">// Default to &quot;Up&quot; or a specific direction if B is world</span></div>
-<div class="line"><a id="l00990" name="l00990"></a><span class="lineno">  990</span>        axis[0] = 0; axis[1] = 1; axis[2] = 0;</div>
-<div class="line"><a id="l00991" name="l00991"></a><span class="lineno">  991</span>    }</div>
-<div class="line"><a id="l00992" name="l00992"></a><span class="lineno">  992</span> </div>
-<div class="line"><a id="l00993" name="l00993"></a><span class="lineno">  993</span>    <span class="comment">// Normalize and set the axis</span></div>
-<div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span>    dReal length = sqrt(axis[0]*axis[0] + axis[1]*axis[1] + axis[2]*axis[2]);</div>
-<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span>    <span class="keywordflow">if</span> (length &gt; 0) {</div>
-<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span>        dJointSetSliderAxis(joint, axis[0]/length, axis[1]/length, axis[2]/length);</div>
-<div class="line"><a id="l00997" name="l00997"></a><span class="lineno">  997</span>    }</div>
-<div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span> </div>
-<div class="line"><a id="l00999" name="l00999"></a><span class="lineno">  999</span>    dJointSetSliderParam(joint, dParamVel, 0.0);</div>
-<div class="line"><a id="l01000" name="l01000"></a><span class="lineno"> 1000</span>    dJointSetSliderParam(joint, dParamFMax, 1000.0);</div>
-<div class="line"><a id="l01001" name="l01001"></a><span class="lineno"> 1001</span> </div>
-<div class="line"><a id="l01002" name="l01002"></a><span class="lineno"> 1002</span>    <span class="keywordflow">return</span> joint;</div>
-<div class="line"><a id="l01003" name="l01003"></a><span class="lineno"> 1003</span>}</div>
+<div class="line"><a id="l00962" name="l00962"></a><span class="lineno">  962</span><span class="comment"></span> </div>
+<div class="line"><a id="l00963" name="l00963"></a><span class="lineno">  963</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00964" name="l00964"></a><span class="lineno">  964</span><span class="comment"> * @brief draws the static geometries</span></div>
+<div class="line"><a id="l00965" name="l00965"></a><span class="lineno">  965</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00966" name="l00966"></a><span class="lineno">  966</span><span class="comment"> * As static geometries have no bodies they are handled a little different</span></div>
+<div class="line"><a id="l00967" name="l00967"></a><span class="lineno">  967</span><span class="comment"> * this will draw all the dGeomID&#39;s that are registed on the physics context</span></div>
+<div class="line"><a id="l00968" name="l00968"></a><span class="lineno">  968</span><span class="comment"> * static lists</span></div>
+<div class="line"><a id="l00969" name="l00969"></a><span class="lineno">  969</span><span class="comment"> * @note all geoms on the statics list must have attached geomInfo</span></div>
+<div class="line"><a id="l00970" name="l00970"></a><span class="lineno">  970</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00971" name="l00971"></a><span class="lineno">  971</span><span class="comment"> * @param ctx the graphics context</span></div>
+<div class="line"><a id="l00972" name="l00972"></a><span class="lineno">  972</span><span class="comment"> * @param pctx the physics context</span></div>
+<div class="line"><a id="l00973" name="l00973"></a><span class="lineno">  973</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00974" name="l00974"></a><span class="lineno">  974</span> </div>
+<div class="foldopen" id="foldopen00975" data-start="{" data-end="}">
+<div class="line"><a id="l00975" name="l00975"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">  975</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* ctx, <a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* pctx)</div>
+<div class="line"><a id="l00976" name="l00976"></a><span class="lineno">  976</span>{</div>
+<div class="line"><a id="l00977" name="l00977"></a><span class="lineno">  977</span>    <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = pctx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">statics</a>-&gt;<a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
+<div class="line"><a id="l00978" name="l00978"></a><span class="lineno">  978</span> </div>
+<div class="line"><a id="l00979" name="l00979"></a><span class="lineno">  979</span>    <span class="keywordflow">while</span> (node != NULL) {</div>
+<div class="line"><a id="l00980" name="l00980"></a><span class="lineno">  980</span>        dGeomID geom = node-&gt;<a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
+<div class="line"><a id="l00981" name="l00981"></a><span class="lineno">  981</span>        <a class="code hl_function" href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a>(geom, ctx);</div>
+<div class="line"><a id="l00982" name="l00982"></a><span class="lineno">  982</span>        node = node-&gt;<a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>;</div>
+<div class="line"><a id="l00983" name="l00983"></a><span class="lineno">  983</span>    }</div>
+<div class="line"><a id="l00984" name="l00984"></a><span class="lineno">  984</span>}</div>
 </div>
-<div class="line"><a id="l01004" name="l01004"></a><span class="lineno"> 1004</span> </div>
-<div class="foldopen" id="foldopen01005" data-start="{" data-end="}">
-<div class="line"><a id="l01005" name="l01005"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43"> 1005</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a>(dJointID joint, <span class="keywordtype">float</span> min, <span class="keywordtype">float</span> max)</div>
-<div class="line"><a id="l01006" name="l01006"></a><span class="lineno"> 1006</span>{</div>
-<div class="line"><a id="l01007" name="l01007"></a><span class="lineno"> 1007</span>    dJointSetSliderParam(joint, dParamLoStop, min);</div>
-<div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span>    dJointSetSliderParam(joint, dParamHiStop, max);</div>
-<div class="line"><a id="l01009" name="l01009"></a><span class="lineno"> 1009</span> </div>
-<div class="line"><a id="l01010" name="l01010"></a><span class="lineno"> 1010</span>    <span class="comment">// make the stop slightly &quot;soft&quot; to prevent jitter</span></div>
-<div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span>    dJointSetSliderParam(joint, dParamStopCFM, 0.0001f);</div>
-<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span>    dJointSetSliderParam(joint, dParamStopERP, 0.2);</div>
-<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span>}</div>
+<div class="line"><a id="l00985" name="l00985"></a><span class="lineno">  985</span><span class="comment"></span> </div>
+<div class="line"><a id="l00986" name="l00986"></a><span class="lineno">  986</span><span class="comment">/** @brief frees an entity</span></div>
+<div class="line"><a id="l00987" name="l00987"></a><span class="lineno">  987</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00988" name="l00988"></a><span class="lineno">  988</span><span class="comment"> * this is essentially destroying the entity it is no longer part of the world</span></div>
+<div class="line"><a id="l00989" name="l00989"></a><span class="lineno">  989</span><span class="comment"> * @note if iterrating through the global entity list while calling this,</span></div>
+<div class="line"><a id="l00990" name="l00990"></a><span class="lineno">  990</span><span class="comment"> * ensure you have stored the next node in the chain, for use at the end of the</span></div>
+<div class="line"><a id="l00991" name="l00991"></a><span class="lineno">  991</span><span class="comment"> * while loop as obviously node-&gt;next won&#39;t work</span></div>
+<div class="line"><a id="l00992" name="l00992"></a><span class="lineno">  992</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00993" name="l00993"></a><span class="lineno">  993</span><span class="comment"> * @param physCtx physics context</span></div>
+<div class="line"><a id="l00994" name="l00994"></a><span class="lineno">  994</span><span class="comment"> * @param ent the entity to destroy</span></div>
+<div class="line"><a id="l00995" name="l00995"></a><span class="lineno">  995</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00996" name="l00996"></a><span class="lineno">  996</span> </div>
+<div class="foldopen" id="foldopen00997" data-start="{" data-end="}">
+<div class="line"><a id="l00997" name="l00997"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">  997</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(<a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, <a class="code hl_struct" href="structentity.html">entity</a>* ent)</div>
+<div class="line"><a id="l00998" name="l00998"></a><span class="lineno">  998</span>{</div>
+<div class="line"><a id="l00999" name="l00999"></a><span class="lineno">  999</span>    <a class="code hl_function" href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a>(ent-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
+<div class="line"><a id="l01000" name="l01000"></a><span class="lineno"> 1000</span>    <a class="code hl_function" href="clist_8c.html#a15dab01e10aa1d60e2d66c5cbfa3a738">clistDeleteNode</a>(physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>, &amp;ent-&gt;<a class="code hl_variable" href="structentity.html#a4ba0008223828f414cf5303ca935bcd8">node</a>);</div>
+<div class="line"><a id="l01001" name="l01001"></a><span class="lineno"> 1001</span>    free(ent);</div>
+<div class="line"><a id="l01002" name="l01002"></a><span class="lineno"> 1002</span>}</div>
+</div>
+<div class="line"><a id="l01003" name="l01003"></a><span class="lineno"> 1003</span><span class="comment"></span> </div>
+<div class="line"><a id="l01004" name="l01004"></a><span class="lineno"> 1004</span><span class="comment">/** @brief creates a piston using two entities as its base on extending sections</span></div>
+<div class="line"><a id="l01005" name="l01005"></a><span class="lineno"> 1005</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01006" name="l01006"></a><span class="lineno"> 1006</span><span class="comment"> * both entities should be positioned and oriented before calling this, they MUST NOT</span></div>
+<div class="line"><a id="l01007" name="l01007"></a><span class="lineno"> 1007</span><span class="comment"> * be in exactly the same position, as the vector between them is used as the axis for</span></div>
+<div class="line"><a id="l01008" name="l01008"></a><span class="lineno"> 1008</span><span class="comment"> * the piston</span></div>
+<div class="line"><a id="l01009" name="l01009"></a><span class="lineno"> 1009</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01010" name="l01010"></a><span class="lineno"> 1010</span><span class="comment"> * @param physCtx the physics context</span></div>
+<div class="line"><a id="l01011" name="l01011"></a><span class="lineno"> 1011</span><span class="comment"> * @param entA the base entity</span></div>
+<div class="line"><a id="l01012" name="l01012"></a><span class="lineno"> 1012</span><span class="comment"> * @param entB the extending entity</span></div>
+<div class="line"><a id="l01013" name="l01013"></a><span class="lineno"> 1013</span><span class="comment"> * @param strength the maximum force the piston can use</span></div>
+<div class="line"><a id="l01014" name="l01014"></a><span class="lineno"> 1014</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01015" name="l01015"></a><span class="lineno"> 1015</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen01016" data-start="{" data-end="}">
+<div class="line"><a id="l01016" name="l01016"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c"> 1016</a></span>dJointID <a class="code hl_function" href="raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c">CreatePiston</a>(<a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, <a class="code hl_struct" href="structentity.html">entity</a>* entA, <a class="code hl_struct" href="structentity.html">entity</a>* entB, <span class="keywordtype">float</span> strength)</div>
+<div class="line"><a id="l01017" name="l01017"></a><span class="lineno"> 1017</span>{</div>
+<div class="line"><a id="l01018" name="l01018"></a><span class="lineno"> 1018</span>    dJointID joint = dJointCreateSlider(physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">world</a>, 0);</div>
+<div class="line"><a id="l01019" name="l01019"></a><span class="lineno"> 1019</span> </div>
+<div class="line"><a id="l01020" name="l01020"></a><span class="lineno"> 1020</span>    dBodyID bodyA = entA-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>;</div>
+<div class="line"><a id="l01021" name="l01021"></a><span class="lineno"> 1021</span>    dBodyID bodyB = (entB != NULL) ? entB-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a> : 0; <span class="comment">// 0 = world</span></div>
+<div class="line"><a id="l01022" name="l01022"></a><span class="lineno"> 1022</span>    dJointAttach(joint, bodyA, bodyB);</div>
+<div class="line"><a id="l01023" name="l01023"></a><span class="lineno"> 1023</span> </div>
+<div class="line"><a id="l01024" name="l01024"></a><span class="lineno"> 1024</span>    dReal axis[3];</div>
+<div class="line"><a id="l01025" name="l01025"></a><span class="lineno"> 1025</span>    <span class="keyword">const</span> dReal* posA = dBodyGetPosition(bodyA);</div>
+<div class="line"><a id="l01026" name="l01026"></a><span class="lineno"> 1026</span> </div>
+<div class="line"><a id="l01027" name="l01027"></a><span class="lineno"> 1027</span>    <span class="keywordflow">if</span> (entB != NULL) {</div>
+<div class="line"><a id="l01028" name="l01028"></a><span class="lineno"> 1028</span>        <span class="keyword">const</span> dReal* posB = dBodyGetPosition(bodyB);</div>
+<div class="line"><a id="l01029" name="l01029"></a><span class="lineno"> 1029</span>        axis[0] = posA[0] - posB[0];</div>
+<div class="line"><a id="l01030" name="l01030"></a><span class="lineno"> 1030</span>        axis[1] = posA[1] - posB[1];</div>
+<div class="line"><a id="l01031" name="l01031"></a><span class="lineno"> 1031</span>        axis[2] = posA[2] - posB[2];</div>
+<div class="line"><a id="l01032" name="l01032"></a><span class="lineno"> 1032</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l01033" name="l01033"></a><span class="lineno"> 1033</span>        <span class="comment">// Default to &quot;Up&quot; or a specific direction if B is world</span></div>
+<div class="line"><a id="l01034" name="l01034"></a><span class="lineno"> 1034</span>        axis[0] = 0; axis[1] = 1; axis[2] = 0;</div>
+<div class="line"><a id="l01035" name="l01035"></a><span class="lineno"> 1035</span>    }</div>
+<div class="line"><a id="l01036" name="l01036"></a><span class="lineno"> 1036</span> </div>
+<div class="line"><a id="l01037" name="l01037"></a><span class="lineno"> 1037</span>    <span class="comment">// Normalize and set the axis</span></div>
+<div class="line"><a id="l01038" name="l01038"></a><span class="lineno"> 1038</span>    dReal length = sqrt(axis[0]*axis[0] + axis[1]*axis[1] + axis[2]*axis[2]);</div>
+<div class="line"><a id="l01039" name="l01039"></a><span class="lineno"> 1039</span>    <span class="keywordflow">if</span> (length &gt; 0) {</div>
+<div class="line"><a id="l01040" name="l01040"></a><span class="lineno"> 1040</span>        dJointSetSliderAxis(joint, axis[0]/length, axis[1]/length, axis[2]/length);</div>
+<div class="line"><a id="l01041" name="l01041"></a><span class="lineno"> 1041</span>    }</div>
+<div class="line"><a id="l01042" name="l01042"></a><span class="lineno"> 1042</span> </div>
+<div class="line"><a id="l01043" name="l01043"></a><span class="lineno"> 1043</span>    dJointSetSliderParam(joint, dParamVel, 0.0);</div>
+<div class="line"><a id="l01044" name="l01044"></a><span class="lineno"> 1044</span>    dJointSetSliderParam(joint, dParamFMax, strength);</div>
+<div class="line"><a id="l01045" name="l01045"></a><span class="lineno"> 1045</span>    </div>
+<div class="line"><a id="l01046" name="l01046"></a><span class="lineno"> 1046</span> </div>
+<div class="line"><a id="l01047" name="l01047"></a><span class="lineno"> 1047</span> </div>
+<div class="line"><a id="l01048" name="l01048"></a><span class="lineno"> 1048</span>    <span class="keywordflow">return</span> joint;</div>
+<div class="line"><a id="l01049" name="l01049"></a><span class="lineno"> 1049</span>}</div>
+</div>
+<div class="line"><a id="l01050" name="l01050"></a><span class="lineno"> 1050</span><span class="comment"></span> </div>
+<div class="line"><a id="l01051" name="l01051"></a><span class="lineno"> 1051</span><span class="comment">/**</span></div>
+<div class="line"><a id="l01052" name="l01052"></a><span class="lineno"> 1052</span><span class="comment"> * @brief sets the limits of travel for a piston</span></div>
+<div class="line"><a id="l01053" name="l01053"></a><span class="lineno"> 1053</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01054" name="l01054"></a><span class="lineno"> 1054</span><span class="comment"> * min must be smaller than max values can be negative</span></div>
+<div class="line"><a id="l01055" name="l01055"></a><span class="lineno"> 1055</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01056" name="l01056"></a><span class="lineno"> 1056</span><span class="comment"> * @param joint the ODE joint id of the joint you want to change</span></div>
+<div class="line"><a id="l01057" name="l01057"></a><span class="lineno"> 1057</span><span class="comment"> * @param min the low end stop point</span></div>
+<div class="line"><a id="l01058" name="l01058"></a><span class="lineno"> 1058</span><span class="comment"> * @param max the high end stop point</span></div>
+<div class="line"><a id="l01059" name="l01059"></a><span class="lineno"> 1059</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01060" name="l01060"></a><span class="lineno"> 1060</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen01061" data-start="{" data-end="}">
+<div class="line"><a id="l01061" name="l01061"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43"> 1061</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a>(dJointID joint, <span class="keywordtype">float</span> min, <span class="keywordtype">float</span> max)</div>
+<div class="line"><a id="l01062" name="l01062"></a><span class="lineno"> 1062</span>{</div>
+<div class="line"><a id="l01063" name="l01063"></a><span class="lineno"> 1063</span>    dJointSetSliderParam(joint, dParamLoStop, min);</div>
+<div class="line"><a id="l01064" name="l01064"></a><span class="lineno"> 1064</span>    dJointSetSliderParam(joint, dParamHiStop, max);</div>
+<div class="line"><a id="l01065" name="l01065"></a><span class="lineno"> 1065</span>}</div>
+</div>
+<div class="line"><a id="l01066" name="l01066"></a><span class="lineno"> 1066</span> </div>
+<div class="foldopen" id="foldopen01067" data-start="{" data-end="}">
+<div class="line"><a id="l01067" name="l01067"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a8d2339918b2d47fcaea5c861ccfbc3d8"> 1067</a></span><a class="code hl_struct" href="structMultiPiston.html">MultiPiston</a>* <a class="code hl_function" href="raylibODE_8c.html#a8d2339918b2d47fcaea5c861ccfbc3d8">CreateMultiPiston</a>(<a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, <a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* graphics, </div>
+<div class="line"><a id="l01068" name="l01068"></a><span class="lineno"> 1068</span>                               Vector3 pos, Vector3 direction, <span class="keywordtype">int</span> count, </div>
+<div class="line"><a id="l01069" name="l01069"></a><span class="lineno"> 1069</span>                               <span class="keywordtype">float</span> sectionLen, <span class="keywordtype">float</span> baseWidth, <span class="keywordtype">float</span> strength) </div>
+<div class="line"><a id="l01070" name="l01070"></a><span class="lineno"> 1070</span>{</div>
+<div class="line"><a id="l01071" name="l01071"></a><span class="lineno"> 1071</span>    <a class="code hl_struct" href="structMultiPiston.html">MultiPiston</a>* mp = malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structMultiPiston.html">MultiPiston</a>));</div>
+<div class="line"><a id="l01072" name="l01072"></a><span class="lineno"> 1072</span>    mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#a96962d42f96ba90adb333956b1c3ddd4">count</a> = count;</div>
+<div class="line"><a id="l01073" name="l01073"></a><span class="lineno"> 1073</span>    mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">sections</a> = malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structentity.html">entity</a>*) * count);</div>
+<div class="line"><a id="l01074" name="l01074"></a><span class="lineno"> 1074</span>    mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#a96e58d4cda391573b7ac1f4d9b469a56">joints</a> = malloc(<span class="keyword">sizeof</span>(dJointID) * (count - 1));</div>
+<div class="line"><a id="l01075" name="l01075"></a><span class="lineno"> 1075</span> </div>
+<div class="line"><a id="l01076" name="l01076"></a><span class="lineno"> 1076</span>    Vector3 dir = Vector3Normalize(direction);</div>
+<div class="line"><a id="l01077" name="l01077"></a><span class="lineno"> 1077</span> </div>
+<div class="line"><a id="l01078" name="l01078"></a><span class="lineno"> 1078</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; count; i++) {</div>
+<div class="line"><a id="l01079" name="l01079"></a><span class="lineno"> 1079</span>        <span class="keywordtype">float</span> scale = 1.0f - (i * 0.1f);</div>
+<div class="line"><a id="l01080" name="l01080"></a><span class="lineno"> 1080</span>        Vector3 size = { sectionLen, baseWidth * scale, baseWidth * scale };</div>
+<div class="line"><a id="l01081" name="l01081"></a><span class="lineno"> 1081</span>        </div>
+<div class="line"><a id="l01082" name="l01082"></a><span class="lineno"> 1082</span>        <span class="comment">// stagger each section 0.1 units along the direction vector</span></div>
+<div class="line"><a id="l01083" name="l01083"></a><span class="lineno"> 1083</span>        Vector3 sPos = {</div>
+<div class="line"><a id="l01084" name="l01084"></a><span class="lineno"> 1084</span>            pos.x + (dir.x * i * 0.1f),</div>
+<div class="line"><a id="l01085" name="l01085"></a><span class="lineno"> 1085</span>            pos.y + (dir.y * i * 0.1f),</div>
+<div class="line"><a id="l01086" name="l01086"></a><span class="lineno"> 1086</span>            pos.z + (dir.z * i * 0.1f)</div>
+<div class="line"><a id="l01087" name="l01087"></a><span class="lineno"> 1087</span>        };</div>
+<div class="line"><a id="l01088" name="l01088"></a><span class="lineno"> 1088</span> </div>
+<div class="line"><a id="l01089" name="l01089"></a><span class="lineno"> 1089</span>        mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">sections</a>[i] = <a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics, size, sPos, (Vector3){0,0,0}, 4);</div>
+<div class="line"><a id="l01090" name="l01090"></a><span class="lineno"> 1090</span>        </div>
+<div class="line"><a id="l01091" name="l01091"></a><span class="lineno"> 1091</span>        <span class="comment">// Orient the box to face the direction of travel</span></div>
+<div class="line"><a id="l01092" name="l01092"></a><span class="lineno"> 1092</span>        <a class="code hl_function" href="raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f">SetBodyOrientation</a>(mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">sections</a>[i]-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, dir);</div>
+<div class="line"><a id="l01093" name="l01093"></a><span class="lineno"> 1093</span> </div>
+<div class="line"><a id="l01094" name="l01094"></a><span class="lineno"> 1094</span>        dGeomID g = dBodyGetFirstGeom(mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">sections</a>[i]-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
+<div class="line"><a id="l01095" name="l01095"></a><span class="lineno"> 1095</span>        dGeomSetCategoryBits(g, <a class="code hl_define" href="raylibODE_8h.html#ad7a3394d1169a116327a236fc91cad61">PISTON_GROUP</a>);</div>
+<div class="line"><a id="l01096" name="l01096"></a><span class="lineno"> 1096</span>        dGeomSetCollideBits(g, <a class="code hl_define" href="raylibODE_8h.html#a7641bec378d3900deed756ce9ce5369f">WORLD_GROUP</a>);</div>
+<div class="line"><a id="l01097" name="l01097"></a><span class="lineno"> 1097</span> </div>
+<div class="line"><a id="l01098" name="l01098"></a><span class="lineno"> 1098</span>        <span class="keywordflow">if</span> (i &gt; 0) {</div>
+<div class="line"><a id="l01099" name="l01099"></a><span class="lineno"> 1099</span>            mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#a96e58d4cda391573b7ac1f4d9b469a56">joints</a>[i-1] = <a class="code hl_function" href="raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c">CreatePiston</a>(physCtx, mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">sections</a>[i-1], mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">sections</a>[i], strength);</div>
+<div class="line"><a id="l01100" name="l01100"></a><span class="lineno"> 1100</span>            <a class="code hl_function" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a>(mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#a96e58d4cda391573b7ac1f4d9b469a56">joints</a>[i-1], 0, sectionLen - 0.3f);</div>
+<div class="line"><a id="l01101" name="l01101"></a><span class="lineno"> 1101</span>        }</div>
+<div class="line"><a id="l01102" name="l01102"></a><span class="lineno"> 1102</span>    }</div>
+<div class="line"><a id="l01103" name="l01103"></a><span class="lineno"> 1103</span>    <span class="keywordflow">return</span> mp;</div>
+<div class="line"><a id="l01104" name="l01104"></a><span class="lineno"> 1104</span>}</div>
+</div>
+<div class="line"><a id="l01105" name="l01105"></a><span class="lineno"> 1105</span><span class="comment"></span> </div>
+<div class="line"><a id="l01106" name="l01106"></a><span class="lineno"> 1106</span><span class="comment">/** @brief set a MultiPiston&#39;s velocity</span></div>
+<div class="line"><a id="l01107" name="l01107"></a><span class="lineno"> 1107</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01108" name="l01108"></a><span class="lineno"> 1108</span><span class="comment"> * While setting all the join velocities in the piston it also</span></div>
+<div class="line"><a id="l01109" name="l01109"></a><span class="lineno"> 1109</span><span class="comment"> * ensures all the bodies are active</span></div>
+<div class="line"><a id="l01110" name="l01110"></a><span class="lineno"> 1110</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01111" name="l01111"></a><span class="lineno"> 1111</span><span class="comment"> * @param mp the multipiston you want to change the speed of</span></div>
+<div class="line"><a id="l01112" name="l01112"></a><span class="lineno"> 1112</span><span class="comment"> * @param velocity the speed you want the piston set to</span></div>
+<div class="line"><a id="l01113" name="l01113"></a><span class="lineno"> 1113</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01114" name="l01114"></a><span class="lineno"> 1114</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen01115" data-start="{" data-end="}">
+<div class="line"><a id="l01115" name="l01115"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a"> 1115</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a">SetMultiPistonVelocity</a>(<a class="code hl_struct" href="structMultiPiston.html">MultiPiston</a>* mp, <span class="keywordtype">float</span> velocity) {</div>
+<div class="line"><a id="l01116" name="l01116"></a><span class="lineno"> 1116</span>    <span class="keywordflow">if</span> (!mp) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l01117" name="l01117"></a><span class="lineno"> 1117</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#a96962d42f96ba90adb333956b1c3ddd4">count</a> - 1; i++) {</div>
+<div class="line"><a id="l01118" name="l01118"></a><span class="lineno"> 1118</span>        dJointSetSliderParam(mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#a96e58d4cda391573b7ac1f4d9b469a56">joints</a>[i], dParamVel, velocity);</div>
+<div class="line"><a id="l01119" name="l01119"></a><span class="lineno"> 1119</span>        dBodyEnable(mp-&gt;<a class="code hl_variable" href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">sections</a>[i+1]-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
+<div class="line"><a id="l01120" name="l01120"></a><span class="lineno"> 1120</span>    }</div>
+<div class="line"><a id="l01121" name="l01121"></a><span class="lineno"> 1121</span>}</div>
+</div>
+<div class="line"><a id="l01122" name="l01122"></a><span class="lineno"> 1122</span><span class="comment"></span> </div>
+<div class="line"><a id="l01123" name="l01123"></a><span class="lineno"> 1123</span><span class="comment">/**</span></div>
+<div class="line"><a id="l01124" name="l01124"></a><span class="lineno"> 1124</span><span class="comment"> * @brief sets to bodies orientation to align with a vector</span></div>
+<div class="line"><a id="l01125" name="l01125"></a><span class="lineno"> 1125</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01126" name="l01126"></a><span class="lineno"> 1126</span><span class="comment"> * @param body the ODE body id you want to orient</span></div>
+<div class="line"><a id="l01127" name="l01127"></a><span class="lineno"> 1127</span><span class="comment"> * @param direction the vector you want the body oriented along</span></div>
+<div class="line"><a id="l01128" name="l01128"></a><span class="lineno"> 1128</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01129" name="l01129"></a><span class="lineno"> 1129</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen01130" data-start="{" data-end="}">
+<div class="line"><a id="l01130" name="l01130"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f"> 1130</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f">SetBodyOrientation</a>(dBodyID body, Vector3 direction) {</div>
+<div class="line"><a id="l01131" name="l01131"></a><span class="lineno"> 1131</span>    Vector3 source = {1, 0, 0}; <span class="comment">// The default &quot;length&quot; axis of your box</span></div>
+<div class="line"><a id="l01132" name="l01132"></a><span class="lineno"> 1132</span>    direction = Vector3Normalize(direction);</div>
+<div class="line"><a id="l01133" name="l01133"></a><span class="lineno"> 1133</span> </div>
+<div class="line"><a id="l01134" name="l01134"></a><span class="lineno"> 1134</span>    <span class="comment">// Find the rotation axis (perpendicular to both vectors)</span></div>
+<div class="line"><a id="l01135" name="l01135"></a><span class="lineno"> 1135</span>    Vector3 rotAxis = Vector3CrossProduct(source, direction);</div>
+<div class="line"><a id="l01136" name="l01136"></a><span class="lineno"> 1136</span>    <span class="keywordtype">float</span> cosTheta = Vector3DotProduct(source, direction);</div>
+<div class="line"><a id="l01137" name="l01137"></a><span class="lineno"> 1137</span>    </div>
+<div class="line"><a id="l01138" name="l01138"></a><span class="lineno"> 1138</span>    <span class="comment">// Calculate the angle in radians</span></div>
+<div class="line"><a id="l01139" name="l01139"></a><span class="lineno"> 1139</span>    <span class="keywordtype">float</span> angle = acosf(fminf(1.0f, fmaxf(-1.0f, cosTheta)));</div>
+<div class="line"><a id="l01140" name="l01140"></a><span class="lineno"> 1140</span> </div>
+<div class="line"><a id="l01141" name="l01141"></a><span class="lineno"> 1141</span>    <span class="comment">// Handle the &quot;Parallel&quot; case (if target is -source, cross product is zero)</span></div>
+<div class="line"><a id="l01142" name="l01142"></a><span class="lineno"> 1142</span>    <span class="keywordflow">if</span> (Vector3Length(rotAxis) &lt; 0.001f) {</div>
+<div class="line"><a id="l01143" name="l01143"></a><span class="lineno"> 1143</span>        <span class="keywordflow">if</span> (cosTheta &lt; 0) {</div>
+<div class="line"><a id="l01144" name="l01144"></a><span class="lineno"> 1144</span>            <span class="comment">// Target is exactly opposite, rotate 180 degrees around Any perpendicular axis</span></div>
+<div class="line"><a id="l01145" name="l01145"></a><span class="lineno"> 1145</span>            rotAxis = (Vector3){0, 1, 0};</div>
+<div class="line"><a id="l01146" name="l01146"></a><span class="lineno"> 1146</span>            angle = PI;</div>
+<div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l01148" name="l01148"></a><span class="lineno"> 1148</span>            <span class="comment">// Target is same as source, no rotation needed</span></div>
+<div class="line"><a id="l01149" name="l01149"></a><span class="lineno"> 1149</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span>        }</div>
+<div class="line"><a id="l01151" name="l01151"></a><span class="lineno"> 1151</span>    }</div>
+<div class="line"><a id="l01152" name="l01152"></a><span class="lineno"> 1152</span> </div>
+<div class="line"><a id="l01153" name="l01153"></a><span class="lineno"> 1153</span>    dQuaternion q;</div>
+<div class="line"><a id="l01154" name="l01154"></a><span class="lineno"> 1154</span>    dQFromAxisAndAngle(q, rotAxis.x, rotAxis.y, rotAxis.z, angle);</div>
+<div class="line"><a id="l01155" name="l01155"></a><span class="lineno"> 1155</span>    </div>
+<div class="line"><a id="l01156" name="l01156"></a><span class="lineno"> 1156</span>    dBodySetQuaternion(body, q);</div>
+<div class="line"><a id="l01157" name="l01157"></a><span class="lineno"> 1157</span>}<span class="comment"></span></div>
+</div>
+<div class="line"><a id="l01158" name="l01158"></a><span class="lineno"> 1158</span><span class="comment">/**</span></div>
+<div class="line"><a id="l01159" name="l01159"></a><span class="lineno"> 1159</span><span class="comment"> * @brief pins an entity to the world</span></div>
+<div class="line"><a id="l01160" name="l01160"></a><span class="lineno"> 1160</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01161" name="l01161"></a><span class="lineno"> 1161</span><span class="comment"> * This joint will attempt to keep the position and orientation of</span></div>
+<div class="line"><a id="l01162" name="l01162"></a><span class="lineno"> 1162</span><span class="comment"> * the body static, position and rotate the body as needed before</span></div>
+<div class="line"><a id="l01163" name="l01163"></a><span class="lineno"> 1163</span><span class="comment"> * calling this</span></div>
+<div class="line"><a id="l01164" name="l01164"></a><span class="lineno"> 1164</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01165" name="l01165"></a><span class="lineno"> 1165</span><span class="comment"> * @param physCtx   physics context</span></div>
+<div class="line"><a id="l01166" name="l01166"></a><span class="lineno"> 1166</span><span class="comment"> * @param ent   The entity to pin to the world</span></div>
+<div class="line"><a id="l01167" name="l01167"></a><span class="lineno"> 1167</span><span class="comment"> * </span></div>
+<div class="line"><a id="l01168" name="l01168"></a><span class="lineno"> 1168</span><span class="comment"> * @returns the joint id of the constraint </span></div>
+<div class="line"><a id="l01169" name="l01169"></a><span class="lineno"> 1169</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen01170" data-start="{" data-end="}">
+<div class="line"><a id="l01170" name="l01170"></a><span class="lineno"><a class="line" href="raylibODE_8c.html#a57b8ac137f7e79fc8deb53b7ba410166"> 1170</a></span>dJointID <a class="code hl_function" href="raylibODE_8c.html#a57b8ac137f7e79fc8deb53b7ba410166">PinEntityToWorld</a>(<a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, <a class="code hl_struct" href="structentity.html">entity</a>* ent)</div>
+<div class="line"><a id="l01171" name="l01171"></a><span class="lineno"> 1171</span>{</div>
+<div class="line"><a id="l01172" name="l01172"></a><span class="lineno"> 1172</span>    dJointID pin = dJointCreateFixed (physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">world</a>, 0);</div>
+<div class="line"><a id="l01173" name="l01173"></a><span class="lineno"> 1173</span>    dJointAttach(pin, ent-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, 0);</div>
+<div class="line"><a id="l01174" name="l01174"></a><span class="lineno"> 1174</span>    dJointSetFixed(pin);</div>
+<div class="line"><a id="l01175" name="l01175"></a><span class="lineno"> 1175</span>    <span class="keywordflow">return</span> pin;</div>
+<div class="line"><a id="l01176" name="l01176"></a><span class="lineno"> 1176</span>}</div>
 </div>
 <div class="ttc" id="aclist_8c_html_a15dab01e10aa1d60e2d66c5cbfa3a738"><div class="ttname"><a href="clist_8c.html#a15dab01e10aa1d60e2d66c5cbfa3a738">clistDeleteNode</a></div><div class="ttdeci">void clistDeleteNode(clist_t *list, cnode_t **pnode)</div><div class="ttdoc">delete a node</div><div class="ttdef"><b>Definition</b> <a href="clist_8c_source.html#l00146">clist.c:146</a></div></div>
 <div class="ttc" id="aclist_8c_html_a264922774fdf767e31797fe81f2231be"><div class="ttname"><a href="clist_8c.html#a264922774fdf767e31797fe81f2231be">clistAddNode</a></div><div class="ttdeci">cnode_t * clistAddNode(clist_t *list, void *data)</div><div class="ttdoc">adds a node to a list</div><div class="ttdef"><b>Definition</b> <a href="clist_8c_source.html#l00047">clist.c:47</a></div></div>
 <div class="ttc" id="aclist_8h_html_a9957c4c04b6e17b9b8fa99e68b94aa9a"><div class="ttname"><a href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a></div><div class="ttdeci">struct __cnode cnode_t</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00007">clist.h:7</a></div></div>
 <div class="ttc" id="acollision_8c_html_ad6680ae487b581622710e22bdfdb3146"><div class="ttname"><a href="collision_8c.html#ad6680ae487b581622710e22bdfdb3146">nearCallback</a></div><div class="ttdeci">void nearCallback(void *data, dGeomID o1, dGeomID o2)</div><div class="ttdef"><b>Definition</b> <a href="collision_8c_source.html#l00043">collision.c:43</a></div></div>
 <div class="ttc" id="acollision_8h_html"><div class="ttname"><a href="collision_8h.html">collision.h</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a01fc58efa7854e13c41c4b40bc5c8b62"><div class="ttname"><a href="raylibODE_8c.html#a01fc58efa7854e13c41c4b40bc5c8b62">DrawBodyGeoms</a></div><div class="ttdeci">void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="#l00931">raylibODE.c:931</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a01fc58efa7854e13c41c4b40bc5c8b62"><div class="ttname"><a href="raylibODE_8c.html#a01fc58efa7854e13c41c4b40bc5c8b62">DrawBodyGeoms</a></div><div class="ttdeci">void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="#l00951">raylibODE.c:951</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a0201472030d3c51d3b13c7f807b59b01"><div class="ttname"><a href="raylibODE_8c.html#a0201472030d3c51d3b13c7f807b59b01">CreateSphereGeom</a></div><div class="ttdeci">dGeomID CreateSphereGeom(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, Vector3 pos)</div><div class="ttdef"><b>Definition</b> <a href="#l00292">raylibODE.c:292</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a04c854eee30cf8430f2d978c4259459b"><div class="ttname"><a href="raylibODE_8c.html#a04c854eee30cf8430f2d978c4259459b">CreateDumbbell</a></div><div class="ttdeci">entity * CreateDumbbell(PhysicsContext *ctx, GraphicsContext *gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a dumbbell-shaped composite physics body.</div><div class="ttdef"><b>Definition</b> <a href="#l00502">raylibODE.c:502</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="#l00943">raylibODE.c:943</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a227dded5dce29a7e3b71e9589e2b4c22"><div class="ttname"><a href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a></div><div class="ttdeci">void SetEntityHew(entity *ent, Color c)</div><div class="ttdoc">changes the hew (tint) of all entities geoms</div><div class="ttdef"><b>Definition</b> <a href="#l00906">raylibODE.c:906</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a261ecb0743898782ddf0e56b07f32f2b"><div class="ttname"><a href="raylibODE_8c.html#a261ecb0743898782ddf0e56b07f32f2b">RayToOdeMat</a></div><div class="ttdeci">void RayToOdeMat(Matrix *m, dReal *R)</div><div class="ttdef"><b>Definition</b> <a href="#l00757">raylibODE.c:757</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a3356bed479958d5442229a132467c7f0"><div class="ttname"><a href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a></div><div class="ttdeci">void DrawModelTinted(Model model, Color tint)</div><div class="ttdef"><b>Definition</b> <a href="#l00736">raylibODE.c:736</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">draws the static geometries</div><div class="ttdef"><b>Definition</b> <a href="#l00975">raylibODE.c:975</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a227dded5dce29a7e3b71e9589e2b4c22"><div class="ttname"><a href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a></div><div class="ttdeci">void SetEntityHew(entity *ent, Color c)</div><div class="ttdoc">changes the hew (tint) of all entities geoms</div><div class="ttdef"><b>Definition</b> <a href="#l00926">raylibODE.c:926</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a261ecb0743898782ddf0e56b07f32f2b"><div class="ttname"><a href="raylibODE_8c.html#a261ecb0743898782ddf0e56b07f32f2b">RayToOdeMat</a></div><div class="ttdeci">void RayToOdeMat(Matrix *m, dReal *R)</div><div class="ttdoc">set an ODE matrix to the same as a Raylib Matrix</div><div class="ttdef"><b>Definition</b> <a href="#l00773">raylibODE.c:773</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a3356bed479958d5442229a132467c7f0"><div class="ttname"><a href="raylibODE_8c.html#a3356bed479958d5442229a132467c7f0">DrawModelTinted</a></div><div class="ttdeci">void DrawModelTinted(Model model, Color tint)</div><div class="ttdef"><b>Definition</b> <a href="#l00747">raylibODE.c:747</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a4a4933f37c736fd2d311be9eaf9b7fa8"><div class="ttname"><a href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a></div><div class="ttdeci">float rndf(float min, float max)</div><div class="ttdoc">Generate a random float in the specified range.</div><div class="ttdef"><b>Definition</b> <a href="#l00218">raylibODE.c:218</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a5a3f56ed394d3d2c1400e25d83fc05af"><div class="ttname"><a href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a></div><div class="ttdeci">void DrawGeom(dGeomID geom, struct GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="#l00775">raylibODE.c:775</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a57b8ac137f7e79fc8deb53b7ba410166"><div class="ttname"><a href="raylibODE_8c.html#a57b8ac137f7e79fc8deb53b7ba410166">PinEntityToWorld</a></div><div class="ttdeci">dJointID PinEntityToWorld(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">pins an entity to the world</div><div class="ttdef"><b>Definition</b> <a href="#l01170">raylibODE.c:1170</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a5a3f56ed394d3d2c1400e25d83fc05af"><div class="ttname"><a href="raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a></div><div class="ttdeci">void DrawGeom(dGeomID geom, struct GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="#l00795">raylibODE.c:795</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a6038bcb143e6ca12696aa65bf164f488"><div class="ttname"><a href="raylibODE_8c.html#a6038bcb143e6ca12696aa65bf164f488">PickEntity</a></div><div class="ttdeci">entity * PickEntity(PhysicsContext *physCtx, GraphicsContext *gfxCtx, Vector3 *hitPoint)</div><div class="ttdoc">this will return the first entity that the camera is directly pointed at while useful in the examples...</div><div class="ttdef"><b>Definition</b> <a href="#l00683">raylibODE.c:683</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a6985c096003040ae46ed46b117f01d69"><div class="ttname"><a href="raylibODE_8c.html#a6985c096003040ae46ed46b117f01d69">CreateCylinder</a></div><div class="ttdeci">entity * CreateCylinder(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a cylinder-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="#l00413">raylibODE.c:413</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a70760bcdbb95dca2cd9cbb1a640485d2"><div class="ttname"><a href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a></div><div class="ttdeci">dJointID CreateRotor(PhysicsContext *physCtx, entity *from, entity *to, Vector3 axis)</div><div class="ttdoc">crates a rotor joint the joint is created with the anchor at the from enties location</div><div class="ttdef"><b>Definition</b> <a href="#l00873">raylibODE.c:873</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a70760bcdbb95dca2cd9cbb1a640485d2"><div class="ttname"><a href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a></div><div class="ttdeci">dJointID CreateRotor(PhysicsContext *physCtx, entity *from, entity *to, Vector3 axis)</div><div class="ttdoc">crates a rotor joint the joint is created with the anchor at the from enties location</div><div class="ttdef"><b>Definition</b> <a href="#l00893">raylibODE.c:893</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a79db70091e3c86494f485979529984c8"><div class="ttname"><a href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a></div><div class="ttdeci">geomInfo * CreateGeomInfo(bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</div><div class="ttdoc">Helper to allocate geomInfo with collision flag, optional texture, and UV scale this is useful when g...</div><div class="ttdef"><b>Definition</b> <a href="#l00642">raylibODE.c:642</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a878892d1015e3c9349f667325d129d43"><div class="ttname"><a href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a></div><div class="ttdeci">void SetPistonLimits(dJointID joint, float min, float max)</div><div class="ttdef"><b>Definition</b> <a href="#l01005">raylibODE.c:1005</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a801a17c097329ca4d55d35f1c5ae7b5a"><div class="ttname"><a href="raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a">SetMultiPistonVelocity</a></div><div class="ttdeci">void SetMultiPistonVelocity(MultiPiston *mp, float velocity)</div><div class="ttdoc">set a MultiPiston&#39;s velocity</div><div class="ttdef"><b>Definition</b> <a href="#l01115">raylibODE.c:1115</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a878892d1015e3c9349f667325d129d43"><div class="ttname"><a href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a></div><div class="ttdeci">void SetPistonLimits(dJointID joint, float min, float max)</div><div class="ttdoc">sets the limits of travel for a piston</div><div class="ttdef"><b>Definition</b> <a href="#l01061">raylibODE.c:1061</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a8d2339918b2d47fcaea5c861ccfbc3d8"><div class="ttname"><a href="raylibODE_8c.html#a8d2339918b2d47fcaea5c861ccfbc3d8">CreateMultiPiston</a></div><div class="ttdeci">MultiPiston * CreateMultiPiston(PhysicsContext *physCtx, GraphicsContext *graphics, Vector3 pos, Vector3 direction, int count, float sectionLen, float baseWidth, float strength)</div><div class="ttdef"><b>Definition</b> <a href="#l01067">raylibODE.c:1067</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a8e5b28e0781017c62176133087f3590c"><div class="ttname"><a href="raylibODE_8c.html#a8e5b28e0781017c62176133087f3590c">CreateRandomEntity</a></div><div class="ttdeci">entity * CreateRandomEntity(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 pos)</div><div class="ttdoc">Add a random physics object at the specified position.</div><div class="ttdef"><b>Definition</b> <a href="#l00555">raylibODE.c:555</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a8f1b86adbb51b8bd80405329b31c87d1"><div class="ttname"><a href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a></div><div class="ttdeci">void FreeBodyAndGeoms(dBodyID bdy)</div><div class="ttdef"><b>Definition</b> <a href="#l00719">raylibODE.c:719</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a8f1b86adbb51b8bd80405329b31c87d1"><div class="ttname"><a href="raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a></div><div class="ttdeci">void FreeBodyAndGeoms(dBodyID bdy)</div><div class="ttdoc">given a body it will remove it and its geoms from ODE&#39;s world</div><div class="ttdef"><b>Definition</b> <a href="#l00730">raylibODE.c:730</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a9a4fddcfd406e6bfb1987111e4ad64f1"><div class="ttname"><a href="raylibODE_8c.html#a9a4fddcfd406e6bfb1987111e4ad64f1">CreateBaseEntity</a></div><div class="ttdeci">entity * CreateBaseEntity(PhysicsContext *ctx)</div><div class="ttdoc">Create a base entity with physics body.</div><div class="ttdef"><b>Definition</b> <a href="#l00282">raylibODE.c:282</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="#l00918">raylibODE.c:918</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="#l00965">raylibODE.c:965</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="#l00938">raylibODE.c:938</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa35dd966752d4afeffcb8f39e474594c"><div class="ttname"><a href="raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c">CreatePiston</a></div><div class="ttdeci">dJointID CreatePiston(PhysicsContext *physCtx, entity *entA, entity *entB, float strength)</div><div class="ttdoc">creates a piston using two entities as its base on extending sections</div><div class="ttdef"><b>Definition</b> <a href="#l01016">raylibODE.c:1016</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="#l00997">raylibODE.c:997</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ad03521efcc05b3315d24f47d0eed52a6"><div class="ttname"><a href="raylibODE_8c.html#ad03521efcc05b3315d24f47d0eed52a6">CreateSphere</a></div><div class="ttdeci">entity * CreateSphere(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a sphere-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="#l00369">raylibODE.c:369</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ad087bfe56f8c97e250f6dd5054fdf76e"><div class="ttname"><a href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a></div><div class="ttdeci">int StepPhysics(PhysicsContext *physCtx)</div><div class="ttdoc">Step the physics simulation forward.</div><div class="ttdef"><b>Definition</b> <a href="#l00240">raylibODE.c:240</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ad4efdb006e87d1e0709eb9a32edb2f2d"><div class="ttname"><a href="raylibODE_8c.html#ad4efdb006e87d1e0709eb9a32edb2f2d">physSlice</a></div><div class="ttdeci">const float physSlice</div><div class="ttdoc">Physics simulation time slice.</div><div class="ttdef"><b>Definition</b> <a href="#l00207">raylibODE.c:207</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_adec02d5fa7b8838d8f98956b68e2246c"><div class="ttname"><a href="raylibODE_8c.html#adec02d5fa7b8838d8f98956b68e2246c">CreateCapsule</a></div><div class="ttdeci">entity * CreateCapsule(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a capsule-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="#l00456">raylibODE.c:456</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ae436b97d6296f4b3c35e493dde37cee3"><div class="ttname"><a href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a></div><div class="ttdeci">entity * CreateBox(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a box-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="#l00326">raylibODE.c:326</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ae8b06665a78b486c57e6795da4b3e265"><div class="ttname"><a href="raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265">CreateStaticTrimesh</a></div><div class="ttdeci">cnode_t * CreateStaticTrimesh(PhysicsContext *physCtx, GraphicsContext *gfxCtx, Model model, Texture *tex, float uvScale)</div><div class="ttdoc">Create a static trimesh collision geometry from a model.</div><div class="ttdef"><b>Definition</b> <a href="#l00605">raylibODE.c:605</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aeaef389f404abef038f38518fc1a0421"><div class="ttname"><a href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a></div><div class="ttdeci">void OdeToRayMat(const dReal *R, Matrix *m)</div><div class="ttdef"><b>Definition</b> <a href="#l00765">raylibODE.c:765</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aec8e521a9dfcf354ba2ae793ac6be324"><div class="ttname"><a href="raylibODE_8c.html#aec8e521a9dfcf354ba2ae793ac6be324">CreatePiston</a></div><div class="ttdeci">dJointID CreatePiston(PhysicsContext *physCtx, entity *entA, entity *entB)</div><div class="ttdef"><b>Definition</b> <a href="#l00972">raylibODE.c:972</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aea5e471f2ffcadf7bcce5b25993d1d0f"><div class="ttname"><a href="raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f">SetBodyOrientation</a></div><div class="ttdeci">void SetBodyOrientation(dBodyID body, Vector3 direction)</div><div class="ttdoc">sets to bodies orientation to align with a vector</div><div class="ttdef"><b>Definition</b> <a href="#l01130">raylibODE.c:1130</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aeaef389f404abef038f38518fc1a0421"><div class="ttname"><a href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a></div><div class="ttdeci">void OdeToRayMat(const dReal *R, Matrix *m)</div><div class="ttdoc">sets a raylib matrix from an ODE rotation matrix</div><div class="ttdef"><b>Definition</b> <a href="#l00785">raylibODE.c:785</a></div></div>
 <div class="ttc" id="araylibODE_8h_html"><div class="ttname"><a href="raylibODE_8h.html">raylibODE.h</a></div></div>
-<div class="ttc" id="araylibODE_8h_html_afeff8fa28bbbf9c2ddbc85a38993d92e"><div class="ttname"><a href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a></div><div class="ttdeci">#define maxPsteps</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00041">raylibODE.h:41</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html"><div class="ttname"><a href="structGraphicsContext.html">GraphicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00094">raylibODE.h:94</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_a06643972947afcd3a8cef634cce65ed8"><div class="ttname"><a href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">GraphicsContext::cylinder</a></div><div class="ttdeci">Model cylinder</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00097">raylibODE.h:97</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_a0f22083c4b2ff44151d92d717137a8c4"><div class="ttname"><a href="structGraphicsContext.html#a0f22083c4b2ff44151d92d717137a8c4">GraphicsContext::sphereTextures</a></div><div class="ttdeci">Texture sphereTextures[3]</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00102">raylibODE.h:102</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_a2fa19905aad6c696c90a4ba1286c2b70"><div class="ttname"><a href="structGraphicsContext.html#a2fa19905aad6c696c90a4ba1286c2b70">GraphicsContext::shader</a></div><div class="ttdeci">Shader shader</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00108">raylibODE.h:108</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_a5e593f3ae02930886863f6b381db3a71"><div class="ttname"><a href="structGraphicsContext.html#a5e593f3ae02930886863f6b381db3a71">GraphicsContext::cylinderTextures</a></div><div class="ttdeci">Texture cylinderTextures[2]</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00104">raylibODE.h:104</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_a5ff7c73c82a7595e803b07c953ec0693"><div class="ttname"><a href="structGraphicsContext.html#a5ff7c73c82a7595e803b07c953ec0693">GraphicsContext::box</a></div><div class="ttdeci">Model box</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00095">raylibODE.h:95</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_a67da4b710a791d954415259ae540976c"><div class="ttname"><a href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">GraphicsContext::camera</a></div><div class="ttdeci">Camera camera</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00107">raylibODE.h:107</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_acef5b7178754c6babfd8e4745f7b3612"><div class="ttname"><a href="structGraphicsContext.html#acef5b7178754c6babfd8e4745f7b3612">GraphicsContext::boxTextures</a></div><div class="ttdeci">Texture boxTextures[2]</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00103">raylibODE.h:103</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_af8476f2872146a217a97ad92cbf0a4a0"><div class="ttname"><a href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">GraphicsContext::ball</a></div><div class="ttdeci">Model ball</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00096">raylibODE.h:96</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html"><div class="ttname"><a href="structPhysicsContext.html">PhysicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00113">raylibODE.h:113</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_a2812915a2d632b88d05433459a1f0b7e"><div class="ttname"><a href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">PhysicsContext::space</a></div><div class="ttdeci">dSpaceID space</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00115">raylibODE.h:115</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_a7127872c521cd13698a53ceba9113a0e"><div class="ttname"><a href="structPhysicsContext.html#a7127872c521cd13698a53ceba9113a0e">PhysicsContext::contactgroup</a></div><div class="ttdeci">dJointGroupID contactgroup</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00116">raylibODE.h:116</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_a9b8d81159eec734cb1b95c95203b7f50"><div class="ttname"><a href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">PhysicsContext::objList</a></div><div class="ttdeci">clist_t * objList</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00118">raylibODE.h:118</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_a9d9d8a36dbf5ada397c97512528ee62b"><div class="ttname"><a href="structPhysicsContext.html#a9d9d8a36dbf5ada397c97512528ee62b">PhysicsContext::frameTime</a></div><div class="ttdeci">float frameTime</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00117">raylibODE.h:117</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_aa88cec7da4225aa5c1f2bbdabe55b35d"><div class="ttname"><a href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">PhysicsContext::statics</a></div><div class="ttdeci">clist_t * statics</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00119">raylibODE.h:119</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_ae036c70d830c45f16ea1fbeafd94680f"><div class="ttname"><a href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">PhysicsContext::world</a></div><div class="ttdeci">dWorldID world</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00114">raylibODE.h:114</a></div></div>
-<div class="ttc" id="astructRayHit_html"><div class="ttname"><a href="structRayHit.html">RayHit</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00087">raylibODE.h:87</a></div></div>
-<div class="ttc" id="astructRayHit_html_a86f485fd67387a8c18d90b717d891015"><div class="ttname"><a href="structRayHit.html#a86f485fd67387a8c18d90b717d891015">RayHit::geom</a></div><div class="ttdeci">dGeomID geom</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00088">raylibODE.h:88</a></div></div>
-<div class="ttc" id="astructRayHit_html_adbc494bc1bad81d80a620b42d71f29b4"><div class="ttname"><a href="structRayHit.html#adbc494bc1bad81d80a620b42d71f29b4">RayHit::depth</a></div><div class="ttdeci">dReal depth</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00089">raylibODE.h:89</a></div></div>
-<div class="ttc" id="astructRayHit_html_adcef8883ac52e6d421436e08b1b6201e"><div class="ttname"><a href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">RayHit::pos</a></div><div class="ttdeci">Vector3 pos</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00090">raylibODE.h:90</a></div></div>
+<div class="ttc" id="araylibODE_8h_html_a7641bec378d3900deed756ce9ce5369f"><div class="ttname"><a href="raylibODE_8h.html#a7641bec378d3900deed756ce9ce5369f">WORLD_GROUP</a></div><div class="ttdeci">#define WORLD_GROUP</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00034">raylibODE.h:34</a></div></div>
+<div class="ttc" id="araylibODE_8h_html_ad7a3394d1169a116327a236fc91cad61"><div class="ttname"><a href="raylibODE_8h.html#ad7a3394d1169a116327a236fc91cad61">PISTON_GROUP</a></div><div class="ttdeci">#define PISTON_GROUP</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00035">raylibODE.h:35</a></div></div>
+<div class="ttc" id="araylibODE_8h_html_afeff8fa28bbbf9c2ddbc85a38993d92e"><div class="ttname"><a href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a></div><div class="ttdeci">#define maxPsteps</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00044">raylibODE.h:44</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html"><div class="ttname"><a href="structGraphicsContext.html">GraphicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00097">raylibODE.h:97</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_a06643972947afcd3a8cef634cce65ed8"><div class="ttname"><a href="structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8">GraphicsContext::cylinder</a></div><div class="ttdeci">Model cylinder</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00100">raylibODE.h:100</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_a0f22083c4b2ff44151d92d717137a8c4"><div class="ttname"><a href="structGraphicsContext.html#a0f22083c4b2ff44151d92d717137a8c4">GraphicsContext::sphereTextures</a></div><div class="ttdeci">Texture sphereTextures[3]</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00105">raylibODE.h:105</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_a2fa19905aad6c696c90a4ba1286c2b70"><div class="ttname"><a href="structGraphicsContext.html#a2fa19905aad6c696c90a4ba1286c2b70">GraphicsContext::shader</a></div><div class="ttdeci">Shader shader</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00111">raylibODE.h:111</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_a5e593f3ae02930886863f6b381db3a71"><div class="ttname"><a href="structGraphicsContext.html#a5e593f3ae02930886863f6b381db3a71">GraphicsContext::cylinderTextures</a></div><div class="ttdeci">Texture cylinderTextures[2]</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00107">raylibODE.h:107</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_a5ff7c73c82a7595e803b07c953ec0693"><div class="ttname"><a href="structGraphicsContext.html#a5ff7c73c82a7595e803b07c953ec0693">GraphicsContext::box</a></div><div class="ttdeci">Model box</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00098">raylibODE.h:98</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_a67da4b710a791d954415259ae540976c"><div class="ttname"><a href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">GraphicsContext::camera</a></div><div class="ttdeci">Camera camera</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00110">raylibODE.h:110</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_acef5b7178754c6babfd8e4745f7b3612"><div class="ttname"><a href="structGraphicsContext.html#acef5b7178754c6babfd8e4745f7b3612">GraphicsContext::boxTextures</a></div><div class="ttdeci">Texture boxTextures[2]</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00106">raylibODE.h:106</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_af8476f2872146a217a97ad92cbf0a4a0"><div class="ttname"><a href="structGraphicsContext.html#af8476f2872146a217a97ad92cbf0a4a0">GraphicsContext::ball</a></div><div class="ttdeci">Model ball</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00099">raylibODE.h:99</a></div></div>
+<div class="ttc" id="astructMultiPiston_html"><div class="ttname"><a href="structMultiPiston.html">MultiPiston</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00125">raylibODE.h:125</a></div></div>
+<div class="ttc" id="astructMultiPiston_html_a96962d42f96ba90adb333956b1c3ddd4"><div class="ttname"><a href="structMultiPiston.html#a96962d42f96ba90adb333956b1c3ddd4">MultiPiston::count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00128">raylibODE.h:128</a></div></div>
+<div class="ttc" id="astructMultiPiston_html_a96e58d4cda391573b7ac1f4d9b469a56"><div class="ttname"><a href="structMultiPiston.html#a96e58d4cda391573b7ac1f4d9b469a56">MultiPiston::joints</a></div><div class="ttdeci">dJointID * joints</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00127">raylibODE.h:127</a></div></div>
+<div class="ttc" id="astructMultiPiston_html_ab70dd6653285ac49e434852b22a70148"><div class="ttname"><a href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">MultiPiston::sections</a></div><div class="ttdeci">entity ** sections</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00126">raylibODE.h:126</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html"><div class="ttname"><a href="structPhysicsContext.html">PhysicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00116">raylibODE.h:116</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_a2812915a2d632b88d05433459a1f0b7e"><div class="ttname"><a href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">PhysicsContext::space</a></div><div class="ttdeci">dSpaceID space</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00118">raylibODE.h:118</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_a7127872c521cd13698a53ceba9113a0e"><div class="ttname"><a href="structPhysicsContext.html#a7127872c521cd13698a53ceba9113a0e">PhysicsContext::contactgroup</a></div><div class="ttdeci">dJointGroupID contactgroup</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00119">raylibODE.h:119</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_a9b8d81159eec734cb1b95c95203b7f50"><div class="ttname"><a href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">PhysicsContext::objList</a></div><div class="ttdeci">clist_t * objList</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00121">raylibODE.h:121</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_a9d9d8a36dbf5ada397c97512528ee62b"><div class="ttname"><a href="structPhysicsContext.html#a9d9d8a36dbf5ada397c97512528ee62b">PhysicsContext::frameTime</a></div><div class="ttdeci">float frameTime</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00120">raylibODE.h:120</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_aa88cec7da4225aa5c1f2bbdabe55b35d"><div class="ttname"><a href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">PhysicsContext::statics</a></div><div class="ttdeci">clist_t * statics</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00122">raylibODE.h:122</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_ae036c70d830c45f16ea1fbeafd94680f"><div class="ttname"><a href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">PhysicsContext::world</a></div><div class="ttdeci">dWorldID world</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00117">raylibODE.h:117</a></div></div>
+<div class="ttc" id="astructRayHit_html"><div class="ttname"><a href="structRayHit.html">RayHit</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00090">raylibODE.h:90</a></div></div>
+<div class="ttc" id="astructRayHit_html_a86f485fd67387a8c18d90b717d891015"><div class="ttname"><a href="structRayHit.html#a86f485fd67387a8c18d90b717d891015">RayHit::geom</a></div><div class="ttdeci">dGeomID geom</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00091">raylibODE.h:91</a></div></div>
+<div class="ttc" id="astructRayHit_html_adbc494bc1bad81d80a620b42d71f29b4"><div class="ttname"><a href="structRayHit.html#adbc494bc1bad81d80a620b42d71f29b4">RayHit::depth</a></div><div class="ttdeci">dReal depth</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00092">raylibODE.h:92</a></div></div>
+<div class="ttc" id="astructRayHit_html_adcef8883ac52e6d421436e08b1b6201e"><div class="ttname"><a href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">RayHit::pos</a></div><div class="ttdeci">Vector3 pos</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00093">raylibODE.h:93</a></div></div>
 <div class="ttc" id="astruct____clist_html_a87719175a9395449ee1db0221b39688a"><div class="ttname"><a href="struct____clist.html#a87719175a9395449ee1db0221b39688a">__clist::head</a></div><div class="ttdeci">cnode_t * head</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00027">clist.h:27</a></div></div>
 <div class="ttc" id="astruct____cnode_html_aabe3d86831d46a328c4a8764acf66ac4"><div class="ttname"><a href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">__cnode::next</a></div><div class="ttdeci">struct __cnode * next</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00013">clist.h:13</a></div></div>
 <div class="ttc" id="astruct____cnode_html_ae59520f57274323a159b336ee81f565b"><div class="ttname"><a href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">__cnode::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00014">clist.h:14</a></div></div>
-<div class="ttc" id="astructentity_html"><div class="ttname"><a href="structentity.html">entity</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00043">raylibODE.h:43</a></div></div>
-<div class="ttc" id="astructentity_html_a4ba0008223828f414cf5303ca935bcd8"><div class="ttname"><a href="structentity.html#a4ba0008223828f414cf5303ca935bcd8">entity::node</a></div><div class="ttdeci">cnode_t * node</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00045">raylibODE.h:45</a></div></div>
-<div class="ttc" id="astructentity_html_ada0e6866acb68b3f1e2bff5d70b2b760"><div class="ttname"><a href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">entity::body</a></div><div class="ttdeci">dBodyID body</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00044">raylibODE.h:44</a></div></div>
-<div class="ttc" id="astructgeomInfo_html"><div class="ttname"><a href="structgeomInfo.html">geomInfo</a></div><div class="ttdoc">Stores geometry metadata for collision, texturing, and trimesh data.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00067">raylibODE.h:67</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_a0670722f17ac3020238ee399bd93f32e"><div class="ttname"><a href="structgeomInfo.html#a0670722f17ac3020238ee399bd93f32e">geomInfo::uvScaleV</a></div><div class="ttdeci">float uvScaleV</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00071">raylibODE.h:71</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_a0cdf37aab555ef5003f8d3be2b553fa8"><div class="ttname"><a href="structgeomInfo.html#a0cdf37aab555ef5003f8d3be2b553fa8">geomInfo::triData</a></div><div class="ttdeci">dTriMeshDataID triData</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00078">raylibODE.h:78</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_a520884eb761f24547c835107a37d024c"><div class="ttname"><a href="structgeomInfo.html#a520884eb761f24547c835107a37d024c">geomInfo::triggerOnCollide</a></div><div class="ttdeci">TriggerCallback triggerOnCollide</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00081">raylibODE.h:81</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_a97039a3fbf7a1f1c905762a6f4adb0c3"><div class="ttname"><a href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">geomInfo::hew</a></div><div class="ttdeci">Color hew</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00073">raylibODE.h:73</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_aa45560155b17f9ab8b46896d89b60b14"><div class="ttname"><a href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">geomInfo::texture</a></div><div class="ttdeci">Texture * texture</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00069">raylibODE.h:69</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_aac9cece1fdb9d0079901008842994523"><div class="ttname"><a href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">geomInfo::visual</a></div><div class="ttdeci">Model visual</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00072">raylibODE.h:72</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_ab566e6f3debd1b3092ec83aa09e961b9"><div class="ttname"><a href="structgeomInfo.html#ab566e6f3debd1b3092ec83aa09e961b9">geomInfo::uvScaleU</a></div><div class="ttdeci">float uvScaleU</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00070">raylibODE.h:70</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_abb6babda7d8a31c2ea76ed4654d9b55e"><div class="ttname"><a href="structgeomInfo.html#abb6babda7d8a31c2ea76ed4654d9b55e">geomInfo::indices</a></div><div class="ttdeci">int * indices</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00077">raylibODE.h:77</a></div></div>
-<div class="ttc" id="astructgeomInfo_html_ad2ac5594ef66f909538bc4af4252d387"><div class="ttname"><a href="structgeomInfo.html#ad2ac5594ef66f909538bc4af4252d387">geomInfo::collidable</a></div><div class="ttdeci">bool collidable</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00068">raylibODE.h:68</a></div></div>
+<div class="ttc" id="astructentity_html"><div class="ttname"><a href="structentity.html">entity</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00046">raylibODE.h:46</a></div></div>
+<div class="ttc" id="astructentity_html_a4ba0008223828f414cf5303ca935bcd8"><div class="ttname"><a href="structentity.html#a4ba0008223828f414cf5303ca935bcd8">entity::node</a></div><div class="ttdeci">cnode_t * node</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00048">raylibODE.h:48</a></div></div>
+<div class="ttc" id="astructentity_html_ada0e6866acb68b3f1e2bff5d70b2b760"><div class="ttname"><a href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">entity::body</a></div><div class="ttdeci">dBodyID body</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00047">raylibODE.h:47</a></div></div>
+<div class="ttc" id="astructgeomInfo_html"><div class="ttname"><a href="structgeomInfo.html">geomInfo</a></div><div class="ttdoc">Stores geometry metadata for collision, texturing, and trimesh data.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00070">raylibODE.h:70</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_a0670722f17ac3020238ee399bd93f32e"><div class="ttname"><a href="structgeomInfo.html#a0670722f17ac3020238ee399bd93f32e">geomInfo::uvScaleV</a></div><div class="ttdeci">float uvScaleV</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00074">raylibODE.h:74</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_a0cdf37aab555ef5003f8d3be2b553fa8"><div class="ttname"><a href="structgeomInfo.html#a0cdf37aab555ef5003f8d3be2b553fa8">geomInfo::triData</a></div><div class="ttdeci">dTriMeshDataID triData</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00081">raylibODE.h:81</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_a520884eb761f24547c835107a37d024c"><div class="ttname"><a href="structgeomInfo.html#a520884eb761f24547c835107a37d024c">geomInfo::triggerOnCollide</a></div><div class="ttdeci">TriggerCallback triggerOnCollide</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00084">raylibODE.h:84</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_a97039a3fbf7a1f1c905762a6f4adb0c3"><div class="ttname"><a href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">geomInfo::hew</a></div><div class="ttdeci">Color hew</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00076">raylibODE.h:76</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_aa45560155b17f9ab8b46896d89b60b14"><div class="ttname"><a href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">geomInfo::texture</a></div><div class="ttdeci">Texture * texture</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00072">raylibODE.h:72</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_aac9cece1fdb9d0079901008842994523"><div class="ttname"><a href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">geomInfo::visual</a></div><div class="ttdeci">Model visual</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00075">raylibODE.h:75</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_ab566e6f3debd1b3092ec83aa09e961b9"><div class="ttname"><a href="structgeomInfo.html#ab566e6f3debd1b3092ec83aa09e961b9">geomInfo::uvScaleU</a></div><div class="ttdeci">float uvScaleU</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00073">raylibODE.h:73</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_abb6babda7d8a31c2ea76ed4654d9b55e"><div class="ttname"><a href="structgeomInfo.html#abb6babda7d8a31c2ea76ed4654d9b55e">geomInfo::indices</a></div><div class="ttdeci">int * indices</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00080">raylibODE.h:80</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_ad2ac5594ef66f909538bc4af4252d387"><div class="ttname"><a href="structgeomInfo.html#ad2ac5594ef66f909538bc4af4252d387">geomInfo::collidable</a></div><div class="ttdeci">bool collidable</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00071">raylibODE.h:71</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

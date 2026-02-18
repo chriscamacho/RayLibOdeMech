@@ -111,7 +111,32 @@
     <innerclass refid="structRayHit" prot="public">RayHit</innerclass>
     <innerclass refid="structGraphicsContext" prot="public">GraphicsContext</innerclass>
     <innerclass refid="structPhysicsContext" prot="public">PhysicsContext</innerclass>
+    <innerclass refid="structMultiPiston" prot="public">MultiPiston</innerclass>
     <sectiondef kind="define">
+      <memberdef kind="define" id="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" prot="public" static="no">
+        <name>WORLD_GROUP</name>
+        <initializer>0x0001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="34" column="9" bodyfile="raylibODE.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
+      </memberdef>
+      <memberdef kind="define" id="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" prot="public" static="no">
+        <name>PISTON_GROUP</name>
+        <initializer>0x0002</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="35" column="9" bodyfile="raylibODE.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
+      </memberdef>
       <memberdef kind="define" id="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" prot="public" static="no">
         <name>NUM_OBJ</name>
         <initializer>300</initializer>
@@ -121,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="35" column="9" bodyfile="raylibODE.h" bodystart="35" bodyend="-1"/>
+        <location file="raylibODE.h" line="38" column="9" bodyfile="raylibODE.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" prot="public" static="no">
         <name>PLANE_SIZE</name>
@@ -132,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="38" column="9" bodyfile="raylibODE.h" bodystart="38" bodyend="-1"/>
+        <location file="raylibODE.h" line="41" column="9" bodyfile="raylibODE.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" prot="public" static="no">
         <name>PLANE_THICKNESS</name>
@@ -143,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="39" column="9" bodyfile="raylibODE.h" bodystart="39" bodyend="-1"/>
+        <location file="raylibODE.h" line="42" column="9" bodyfile="raylibODE.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" prot="public" static="no">
         <name>maxPsteps</name>
@@ -154,7 +179,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="41" column="9" bodyfile="raylibODE.h" bodystart="41" bodyend="-1"/>
+        <location file="raylibODE.h" line="44" column="9" bodyfile="raylibODE.h" bodystart="44" bodyend="-1"/>
         <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="240" endline="263">StepPhysics</referencedby>
       </memberdef>
     </sectiondef>
@@ -170,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="47" column="8"/>
+        <location file="raylibODE.h" line="50" column="8"/>
       </memberdef>
       <memberdef kind="typedef" id="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" prot="public" static="no">
         <type>void(*</type>
@@ -211,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="60" column="9" bodyfile="raylibODE.h" bodystart="60" bodyend="-1"/>
+        <location file="raylibODE.h" line="63" column="9" bodyfile="raylibODE.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" prot="public" static="no">
         <type>struct geomInfo</type>
@@ -229,7 +254,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="83" column="10"/>
+        <location file="raylibODE.h" line="86" column="10"/>
       </memberdef>
       <memberdef kind="typedef" id="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" prot="public" static="no">
         <type>struct RayHit</type>
@@ -242,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="91" column="8"/>
+        <location file="raylibODE.h" line="94" column="8"/>
       </memberdef>
       <memberdef kind="typedef" id="raylibODE_8h_1a92862474db45e097a7381460ac67f859" prot="public" static="no">
         <type>struct GraphicsContext</type>
@@ -255,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="110" column="17"/>
+        <location file="raylibODE.h" line="113" column="17"/>
       </memberdef>
       <memberdef kind="typedef" id="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" prot="public" static="no">
         <type>struct PhysicsContext</type>
@@ -268,7 +293,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="120" column="16"/>
+        <location file="raylibODE.h" line="123" column="16"/>
+      </memberdef>
+      <memberdef kind="typedef" id="raylibODE_8h_1a2570bb818f3867a7373604ee19b4f8b4" prot="public" static="no">
+        <type>struct MultiPiston</type>
+        <definition>typedef struct MultiPiston MultiPiston</definition>
+        <argsstring></argsstring>
+        <name>MultiPiston</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="130" column="13"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -303,12 +341,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="122" column="8" bodyfile="raylibODE.c" bodystart="282" bodyend="289" declfile="raylibODE.h" declline="122" declcolumn="8"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
+        <location file="raylibODE.h" line="132" column="8" bodyfile="raylibODE.c" bodystart="282" bodyend="289" declfile="raylibODE.h" declline="132" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="45">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
         <referencedby refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="326" endline="346">CreateBox</referencedby>
         <referencedby refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="456" endline="475">CreateCapsule</referencedby>
         <referencedby refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="413" endline="433">CreateCylinder</referencedby>
@@ -377,12 +415,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="125" column="10" bodyfile="raylibODE.c" bodystart="642" bodyend="653" declfile="raylibODE.h" declline="125" declcolumn="10"/>
-        <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="68">geomInfo::collidable</references>
-        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="73">geomInfo::hew</references>
-        <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="69">geomInfo::texture</references>
-        <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="70">geomInfo::uvScaleU</references>
-        <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="71">geomInfo::uvScaleV</references>
+        <location file="raylibODE.h" line="135" column="10" bodyfile="raylibODE.c" bodystart="642" bodyend="653" declfile="raylibODE.h" declline="135" declcolumn="10"/>
+        <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="71">geomInfo::collidable</references>
+        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
+        <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="72">geomInfo::texture</references>
+        <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="73">geomInfo::uvScaleU</references>
+        <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="74">geomInfo::uvScaleV</references>
         <referencedby refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="326" endline="346">CreateBox</referencedby>
         <referencedby refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="456" endline="475">CreateCapsule</referencedby>
         <referencedby refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="413" endline="433">CreateCylinder</referencedby>
@@ -420,11 +458,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="128" column="9" bodyfile="raylibODE.c" bodystart="292" bodyend="302" declfile="raylibODE.h" declline="128" declcolumn="9"/>
+        <location file="raylibODE.h" line="138" column="9" bodyfile="raylibODE.c" bodystart="292" bodyend="302" declfile="raylibODE.h" declline="138" declcolumn="9"/>
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="218" endline="221">rndf</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
-        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="102">GraphicsContext::sphereTextures</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ae8b06665a78b486c57e6795da4b3e265" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
@@ -513,15 +551,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="131" column="9" bodyfile="raylibODE.c" bodystart="605" bodyend="630" declfile="raylibODE.h" declline="131" declcolumn="9"/>
+        <location file="raylibODE.h" line="141" column="9" bodyfile="raylibODE.c" bodystart="605" bodyend="630" declfile="raylibODE.h" declline="141" declcolumn="9"/>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
-        <references refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" compoundref="raylibODE_8h" startline="77">geomInfo::indices</references>
-        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="108">GraphicsContext::shader</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
-        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="119">PhysicsContext::statics</references>
-        <references refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" compoundref="raylibODE_8h" startline="78">geomInfo::triData</references>
-        <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="72">geomInfo::visual</references>
+        <references refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" compoundref="raylibODE_8h" startline="80">geomInfo::indices</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="122">PhysicsContext::statics</references>
+        <references refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" compoundref="raylibODE_8h" startline="81">geomInfo::triData</references>
+        <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="75">geomInfo::visual</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ae436b97d6296f4b3c35e493dde37cee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
@@ -620,13 +658,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="134" column="8" bodyfile="raylibODE.c" bodystart="326" bodyend="346" declfile="raylibODE.h" declline="134" declcolumn="8"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
-        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="103">GraphicsContext::boxTextures</references>
+        <location file="raylibODE.h" line="144" column="8" bodyfile="raylibODE.c" bodystart="326" bodyend="346" declfile="raylibODE.h" declline="144" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
         <references refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="282" endline="289">CreateBaseEntity</references>
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="218" endline="221">rndf</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
         <referencedby refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" compoundref="raylibODE_8c" startline="555" endline="581">CreateRandomEntity</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ad03521efcc05b3315d24f47d0eed52a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -724,13 +763,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="135" column="8" bodyfile="raylibODE.c" bodystart="369" bodyend="389" declfile="raylibODE.h" declline="135" declcolumn="8"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
+        <location file="raylibODE.h" line="145" column="8" bodyfile="raylibODE.c" bodystart="369" bodyend="389" declfile="raylibODE.h" declline="145" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="282" endline="289">CreateBaseEntity</references>
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="218" endline="221">rndf</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
-        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="102">GraphicsContext::sphereTextures</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
         <referencedby refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" compoundref="raylibODE_8c" startline="555" endline="581">CreateRandomEntity</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a6985c096003040ae46ed46b117f01d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -840,13 +879,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="136" column="8" bodyfile="raylibODE.c" bodystart="413" bodyend="433" declfile="raylibODE.h" declline="136" declcolumn="8"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
+        <location file="raylibODE.h" line="146" column="8" bodyfile="raylibODE.c" bodystart="413" bodyend="433" declfile="raylibODE.h" declline="146" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="282" endline="289">CreateBaseEntity</references>
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="104">GraphicsContext::cylinderTextures</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="218" endline="221">rndf</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
         <referencedby refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" compoundref="raylibODE_8c" startline="555" endline="581">CreateRandomEntity</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1adec02d5fa7b8838d8f98956b68e2246c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -954,13 +993,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="137" column="8" bodyfile="raylibODE.c" bodystart="456" bodyend="475" declfile="raylibODE.h" declline="137" declcolumn="8"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
+        <location file="raylibODE.h" line="147" column="8" bodyfile="raylibODE.c" bodystart="456" bodyend="475" declfile="raylibODE.h" declline="147" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="282" endline="289">CreateBaseEntity</references>
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="104">GraphicsContext::cylinderTextures</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="218" endline="221">rndf</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
         <referencedby refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" compoundref="raylibODE_8c" startline="555" endline="581">CreateRandomEntity</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a04c854eee30cf8430f2d978c4259459b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -1082,13 +1121,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="138" column="8" bodyfile="raylibODE.c" bodystart="502" bodyend="537" declfile="raylibODE.h" declline="138" declcolumn="8"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
+        <location file="raylibODE.h" line="148" column="8" bodyfile="raylibODE.c" bodystart="502" bodyend="537" declfile="raylibODE.h" declline="148" declcolumn="8"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="282" endline="289">CreateBaseEntity</references>
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="104">GraphicsContext::cylinderTextures</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="218" endline="221">rndf</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
         <referencedby refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" compoundref="raylibODE_8c" startline="555" endline="581">CreateRandomEntity</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a8e5b28e0781017c62176133087f3590c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -1150,7 +1189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="141" column="8" bodyfile="raylibODE.c" bodystart="555" bodyend="581" declfile="raylibODE.h" declline="141" declcolumn="8"/>
+        <location file="raylibODE.h" line="151" column="8" bodyfile="raylibODE.c" bodystart="555" bodyend="581" declfile="raylibODE.h" declline="151" declcolumn="8"/>
         <references refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="326" endline="346">CreateBox</references>
         <references refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="456" endline="475">CreateCapsule</references>
         <references refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="413" endline="433">CreateCylinder</references>
@@ -1210,12 +1249,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="144" column="8" bodyfile="raylibODE.c" bodystart="683" bodyend="716" declfile="raylibODE.h" declline="144" declcolumn="8"/>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="107">GraphicsContext::camera</references>
-        <references refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" compoundref="raylibODE_8h" startline="89">RayHit::depth</references>
-        <references refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" compoundref="raylibODE_8h" startline="88">RayHit::geom</references>
-        <references refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" compoundref="raylibODE_8h" startline="90">RayHit::pos</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <location file="raylibODE.h" line="154" column="8" bodyfile="raylibODE.c" bodystart="683" bodyend="716" declfile="raylibODE.h" declline="154" declcolumn="8"/>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
+        <references refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" compoundref="raylibODE_8h" startline="92">RayHit::depth</references>
+        <references refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" compoundref="raylibODE_8h" startline="91">RayHit::geom</references>
+        <references refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" compoundref="raylibODE_8h" startline="93">RayHit::pos</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a227dded5dce29a7e3b71e9589e2b4c22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1256,9 +1295,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="146" column="6" bodyfile="raylibODE.c" bodystart="906" bodyend="916" declfile="raylibODE.h" declline="146" declcolumn="6"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
-        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="73">geomInfo::hew</references>
+        <location file="raylibODE.h" line="156" column="6" bodyfile="raylibODE.c" bodystart="926" bodyend="936" declfile="raylibODE.h" declline="156" declcolumn="6"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a70760bcdbb95dca2cd9cbb1a640485d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>dJointID</type>
@@ -1324,9 +1363,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="148" column="10" bodyfile="raylibODE.c" bodystart="873" bodyend="893" declfile="raylibODE.h" declline="148" declcolumn="10"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
+        <location file="raylibODE.h" line="158" column="10" bodyfile="raylibODE.c" bodystart="893" bodyend="913" declfile="raylibODE.h" declline="158" declcolumn="10"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a8f1b86adbb51b8bd80405329b31c87d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1338,13 +1377,27 @@
           <declname>bdy</declname>
         </param>
         <briefdescription>
+<para>given a body it will remove it and its geoms from ODE&apos;s world </para>
         </briefdescription>
         <detaileddescription>
+<para><simplesect kind="note"><para>this is intended to be an internal function that might have use externally you would normally use FreeEntity</para>
+</simplesect>
+As well as freeing all associated metadata it will also remove the body and its geoms from the physics world</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bdy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the dBodyID you want to free the attached meta data for </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="151" column="6" bodyfile="raylibODE.c" bodystart="719" bodyend="732" declfile="raylibODE.h" declline="151" declcolumn="6"/>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="965" endline="970">FreeEntity</referencedby>
+        <location file="raylibODE.h" line="161" column="6" bodyfile="raylibODE.c" bodystart="730" bodyend="743" declfile="raylibODE.h" declline="161" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="997" endline="1002">FreeEntity</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
@@ -1368,22 +1421,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="154" column="6" bodyfile="raylibODE.c" bodystart="775" bodyend="857" declfile="raylibODE.h" declline="154" declcolumn="6"/>
-        <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="96">GraphicsContext::ball</references>
-        <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="95">GraphicsContext::box</references>
-        <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="97">GraphicsContext::cylinder</references>
-        <references refid="raylibODE_8c_1a3356bed479958d5442229a132467c7f0" compoundref="raylibODE_8c" startline="736" endline="753">DrawModelTinted</references>
-        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="73">geomInfo::hew</references>
-        <references refid="raylibODE_8c_1aeaef389f404abef038f38518fc1a0421" compoundref="raylibODE_8c" startline="765" endline="771">OdeToRayMat</references>
-        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="108">GraphicsContext::shader</references>
-        <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="69">geomInfo::texture</references>
-        <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="81">geomInfo::triggerOnCollide</references>
-        <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="70">geomInfo::uvScaleU</references>
-        <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="71">geomInfo::uvScaleV</references>
-        <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="72">geomInfo::visual</references>
-        <referencedby refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" compoundref="raylibODE_8c" startline="931" endline="941">DrawBodyGeoms</referencedby>
+        <location file="raylibODE.h" line="164" column="6" bodyfile="raylibODE.c" bodystart="795" bodyend="877" declfile="raylibODE.h" declline="164" declcolumn="6"/>
+        <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="99">GraphicsContext::ball</references>
+        <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="98">GraphicsContext::box</references>
+        <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="100">GraphicsContext::cylinder</references>
+        <references refid="raylibODE_8c_1a3356bed479958d5442229a132467c7f0" compoundref="raylibODE_8c" startline="747" endline="764">DrawModelTinted</references>
+        <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="76">geomInfo::hew</references>
+        <references refid="raylibODE_8c_1aeaef389f404abef038f38518fc1a0421" compoundref="raylibODE_8c" startline="785" endline="791">OdeToRayMat</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+        <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="72">geomInfo::texture</references>
+        <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="84">geomInfo::triggerOnCollide</references>
+        <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="73">geomInfo::uvScaleU</references>
+        <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="74">geomInfo::uvScaleV</references>
+        <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="75">geomInfo::visual</references>
+        <referencedby refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" compoundref="raylibODE_8c" startline="951" endline="961">DrawBodyGeoms</referencedby>
         <referencedby refid="ragdoll_8c_1a15a95f2545a01b96973e728cdd451bf9" compoundref="ragdoll_8c" startline="454" endline="463">DrawRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="943" endline="952">DrawStatics</referencedby>
+        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="975" endline="984">DrawStatics</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1aa01114b518b93c528e9e85382ce46b4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1404,13 +1457,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="157" column="6" bodyfile="raylibODE.c" bodystart="918" bodyend="929" declfile="raylibODE.h" declline="157" declcolumn="6"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
+        <location file="raylibODE.h" line="167" column="6" bodyfile="raylibODE.c" bodystart="938" bodyend="949" declfile="raylibODE.h" declline="167" declcolumn="6"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" compoundref="raylibODE_8c" startline="931" endline="941">DrawBodyGeoms</references>
+        <references refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" compoundref="raylibODE_8c" startline="951" endline="961">DrawBodyGeoms</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a01fc58efa7854e13c41c4b40bc5c8b62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1431,9 +1484,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="160" column="6" bodyfile="raylibODE.c" bodystart="931" bodyend="941" declfile="raylibODE.h" declline="160" declcolumn="6"/>
-        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="775" endline="857">DrawGeom</references>
-        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="918" endline="929">DrawBodies</referencedby>
+        <location file="raylibODE.h" line="170" column="6" bodyfile="raylibODE.c" bodystart="951" bodyend="961" declfile="raylibODE.h" declline="170" declcolumn="6"/>
+        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="795" endline="877">DrawGeom</references>
+        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="938" endline="949">DrawBodies</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a1232d8000138fdc6d2f9741548a263aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1449,17 +1502,38 @@
           <declname>pctx</declname>
         </param>
         <briefdescription>
+<para>draws the static geometries </para>
         </briefdescription>
         <detaileddescription>
+<para>As static geometries have no bodies they are handled a little different this will draw all the dGeomID&apos;s that are registed on the physics context static lists <simplesect kind="note"><para>all geoms on the statics list must have attached <ref refid="structgeomInfo" kindref="compound">geomInfo</ref></para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the graphics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the physics context </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="163" column="6" bodyfile="raylibODE.c" bodystart="943" bodyend="952" declfile="raylibODE.h" declline="163" declcolumn="6"/>
+        <location file="raylibODE.h" line="173" column="6" bodyfile="raylibODE.c" bodystart="975" bodyend="984" declfile="raylibODE.h" declline="173" declcolumn="6"/>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="775" endline="857">DrawGeom</references>
+        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="795" endline="877">DrawGeom</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
-        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="119">PhysicsContext::statics</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="122">PhysicsContext::statics</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -1503,7 +1577,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="166" column="7" bodyfile="raylibODE.c" bodystart="218" bodyend="221" declfile="raylibODE.h" declline="166" declcolumn="7"/>
+        <location file="raylibODE.h" line="176" column="7" bodyfile="raylibODE.c" bodystart="218" bodyend="221" declfile="raylibODE.h" declline="176" declcolumn="7"/>
         <referencedby refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="326" endline="346">CreateBox</referencedby>
         <referencedby refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="456" endline="475">CreateCapsule</referencedby>
         <referencedby refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="413" endline="433">CreateCylinder</referencedby>
@@ -1550,14 +1624,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="169" column="5" bodyfile="raylibODE.c" bodystart="240" bodyend="263" declfile="raylibODE.h" declline="169" declcolumn="5"/>
-        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="116">PhysicsContext::contactgroup</references>
-        <references refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" compoundref="raylibODE_8h" startline="117">PhysicsContext::frameTime</references>
-        <references refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" compoundref="raylibODE_8h" startline="41">maxPsteps</references>
+        <location file="raylibODE.h" line="179" column="5" bodyfile="raylibODE.c" bodystart="240" bodyend="263" declfile="raylibODE.h" declline="179" declcolumn="5"/>
+        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="119">PhysicsContext::contactgroup</references>
+        <references refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" compoundref="raylibODE_8h" startline="120">PhysicsContext::frameTime</references>
+        <references refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" compoundref="raylibODE_8h" startline="44">maxPsteps</references>
         <references refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="89">nearCallback</references>
         <references refid="raylibODE_8c_1ad4efdb006e87d1e0709eb9a32edb2f2d" compoundref="raylibODE_8c" startline="207">physSlice</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1599,12 +1673,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="171" column="6" bodyfile="raylibODE.c" bodystart="965" bodyend="970" declfile="raylibODE.h" declline="171" declcolumn="6"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
+        <location file="raylibODE.h" line="181" column="6" bodyfile="raylibODE.c" bodystart="997" bodyend="1002" declfile="raylibODE.h" declline="181" declcolumn="6"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="719" endline="732">FreeBodyAndGeoms</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="45">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="730" endline="743">FreeBodyAndGeoms</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a878892d1015e3c9349f667325d129d43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1624,17 +1698,46 @@
           <declname>max</declname>
         </param>
         <briefdescription>
+<para>sets the limits of travel for a piston </para>
         </briefdescription>
         <detaileddescription>
+<para>min must be smaller than max values can be negative</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>joint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ODE joint id of the joint you want to change </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>min</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the low end stop point </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>max</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the high end stop point </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="173" column="6" bodyfile="raylibODE.c" bodystart="1005" bodyend="1013" declfile="raylibODE.h" declline="173" declcolumn="6"/>
+        <location file="raylibODE.h" line="183" column="6" bodyfile="raylibODE.c" bodystart="1061" bodyend="1065" declfile="raylibODE.h" declline="183" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
       </memberdef>
-      <memberdef kind="function" id="raylibODE_8h_1aec8e521a9dfcf354ba2ae793ac6be324" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="raylibODE_8h_1aa35dd966752d4afeffcb8f39e474594c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>dJointID</type>
         <definition>dJointID CreatePiston</definition>
-        <argsstring>(PhysicsContext *physCtx, entity *entA, entity *entB)</argsstring>
+        <argsstring>(PhysicsContext *physCtx, entity *entA, entity *entB, float strength)</argsstring>
         <name>CreatePiston</name>
         <param>
           <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
@@ -1648,15 +1751,56 @@
           <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
           <declname>entB</declname>
         </param>
+        <param>
+          <type>float</type>
+          <declname>strength</declname>
+        </param>
         <briefdescription>
+<para>creates a piston using two entities as its base on extending sections </para>
         </briefdescription>
         <detaileddescription>
+<para>both entities should be positioned and oriented before calling this, they MUST NOT be in exactly the same position, as the vector between them is used as the axis for the piston</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>physCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entA</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the base entity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>entB</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the extending entity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>strength</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximum force the piston can use </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="174" column="10" bodyfile="raylibODE.c" bodystart="972" bodyend="1003" declfile="raylibODE.h" declline="174" declcolumn="10"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
+        <location file="raylibODE.h" line="184" column="10" bodyfile="raylibODE.c" bodystart="1016" bodyend="1049" declfile="raylibODE.h" declline="184" declcolumn="10"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ac18f122edccf31f40c3ce18ea1be58cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1666,18 +1810,38 @@
         <param>
           <type>Matrix *</type>
           <declname>mat</declname>
+          <defname>m</defname>
         </param>
         <param>
           <type>dReal *</type>
           <declname>R</declname>
         </param>
         <briefdescription>
+<para>set an ODE matrix to the same as a Raylib Matrix </para>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to the Raylib matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>R</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to an ODE matrix </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="176" column="6" bodyfile="raylibODE.c" bodystart="757" bodyend="762" declfile="raylibODE.h" declline="176" declcolumn="6"/>
+        <location file="raylibODE.h" line="186" column="6" bodyfile="raylibODE.c" bodystart="773" bodyend="778" declfile="raylibODE.h" declline="186" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ae64d38b48236f4a10077e64b19b953b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1691,6 +1855,72 @@
         <param>
           <type>Matrix *</type>
           <declname>matrix</declname>
+          <defname>m</defname>
+        </param>
+        <briefdescription>
+<para>sets a raylib matrix from an ODE rotation matrix </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>R</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to the ODE matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a pointer to a Raylib Matrix </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="187" column="6" bodyfile="raylibODE.c" bodystart="785" bodyend="791" declfile="raylibODE.h" declline="187" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="795" endline="877">DrawGeom</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a8d2339918b2d47fcaea5c861ccfbc3d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref> *</type>
+        <definition>MultiPiston * CreateMultiPiston</definition>
+        <argsstring>(PhysicsContext *physCtx, GraphicsContext *graphics, Vector3 pos, Vector3 direction, int count, float sectionLen, float baseWidth, float strength)</argsstring>
+        <name>CreateMultiPiston</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>physCtx</declname>
+        </param>
+        <param>
+          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+          <declname>graphics</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>direction</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>sectionLen</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>baseWidth</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>strength</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -1698,8 +1928,148 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="177" column="6" bodyfile="raylibODE.c" bodystart="765" bodyend="771" declfile="raylibODE.h" declline="177" declcolumn="6"/>
-        <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="775" endline="857">DrawGeom</referencedby>
+        <location file="raylibODE.h" line="189" column="13" bodyfile="raylibODE.c" bodystart="1067" bodyend="1104" declfile="raylibODE.h" declline="189" declcolumn="13"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" compoundref="raylibODE_8h" startline="128">MultiPiston::count</references>
+        <references refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="326" endline="346">CreateBox</references>
+        <references refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1016" endline="1049">CreatePiston</references>
+        <references refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" compoundref="raylibODE_8h" startline="127">MultiPiston::joints</references>
+        <references refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" compoundref="raylibODE_8h" startline="35">PISTON_GROUP</references>
+        <references refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" compoundref="raylibODE_8h" startline="126">MultiPiston::sections</references>
+        <references refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" compoundref="raylibODE_8c" startline="1130" endline="1157">SetBodyOrientation</references>
+        <references refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" compoundref="raylibODE_8c" startline="1061" endline="1065">SetPistonLimits</references>
+        <references refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" compoundref="raylibODE_8h" startline="34">WORLD_GROUP</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a801a17c097329ca4d55d35f1c5ae7b5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetMultiPistonVelocity</definition>
+        <argsstring>(MultiPiston *mp, float velocity)</argsstring>
+        <name>SetMultiPistonVelocity</name>
+        <param>
+          <type><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref> *</type>
+          <declname>mp</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+<para>set a <ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>&apos;s velocity </para>
+        </briefdescription>
+        <detaileddescription>
+<para>While setting all the join velocities in the piston it also ensures all the bodies are active</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the multipiston you want to change the speed of </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>velocity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the speed you want the piston set to </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="192" column="6" bodyfile="raylibODE.c" bodystart="1115" bodyend="1121" declfile="raylibODE.h" declline="192" declcolumn="6"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" compoundref="raylibODE_8h" startline="128">MultiPiston::count</references>
+        <references refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" compoundref="raylibODE_8h" startline="127">MultiPiston::joints</references>
+        <references refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" compoundref="raylibODE_8h" startline="126">MultiPiston::sections</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1aea5e471f2ffcadf7bcce5b25993d1d0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetBodyOrientation</definition>
+        <argsstring>(dBodyID body, Vector3 direction)</argsstring>
+        <name>SetBodyOrientation</name>
+        <param>
+          <type>dBodyID</type>
+          <declname>body</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>sets to bodies orientation to align with a vector </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>body</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the ODE body id you want to orient </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the vector you want the body oriented along </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="194" column="6" bodyfile="raylibODE.c" bodystart="1130" bodyend="1157" declfile="raylibODE.h" declline="194" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8h_1a57b8ac137f7e79fc8deb53b7ba410166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>dJointID</type>
+        <definition>dJointID PinEntityToWorld</definition>
+        <argsstring>(PhysicsContext *physCtx, entity *ent)</argsstring>
+        <name>PinEntityToWorld</name>
+        <param>
+          <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
+          <declname>physCtx</declname>
+        </param>
+        <param>
+          <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+          <declname>ent</declname>
+        </param>
+        <briefdescription>
+<para>pins an entity to the world </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This joint will attempt to keep the position and orientation of the body static, position and rotate the body as needed before calling this</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>physCtx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>physics context </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity to pin to the world</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the joint id of the constraint </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="196" column="10" bodyfile="raylibODE.c" bodystart="1170" bodyend="1176" declfile="raylibODE.h" declline="196" declcolumn="10"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -1740,154 +2110,173 @@
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ode/ode.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="clist_8h" kindref="compound">clist.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Object<sp/>counts</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OBJ<sp/>300</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>WORLD_GROUP<sp/><sp/><sp/><sp/><sp/>0x0001</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PISTON_GROUP<sp/><sp/><sp/><sp/>0x0002</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Plane<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38" refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PLANE_SIZE<sp/>20.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PLANE_THICKNESS<sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41" refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>maxPsteps<sp/>6</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="43" refid="structentity" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref><sp/>{</highlight></codeline>
-<codeline lineno="44" refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/><ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>;</highlight><highlight class="comment">/**&lt;<sp/>ODE<sp/>physics<sp/>body<sp/>for<sp/>this<sp/>entity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/><ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>all<sp/>entities<sp/>are<sp/>in<sp/>a<sp/>global<sp/>list,<sp/>this<sp/>is<sp/>its<sp/>list<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="46" refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" kindref="member">data</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>user<sp/>data<sp/>pointer<sp/>tag<sp/>on<sp/>extra<sp/>meta<sp/>data<sp/>to<sp/>a<sp/>geom.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="raylibODE_8h_1a6ba18cca02784a1046f755105545d6cb" refkind="member"><highlight class="normal">}<sp/><ref refid="structentity" kindref="compound">entity</ref>;</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="49"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="50"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>pointer<sp/>type<sp/>for<sp/>physics<sp/>trigger<sp/>events</highlight></codeline>
-<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>*<sp/>This<sp/>callback<sp/>is<sp/>triggered<sp/>when<sp/>a<sp/>geometry<sp/>designated<sp/>as<sp/>a<sp/>&quot;ghost&quot;<sp/>or<sp/>sensor<sp/></highlight></codeline>
-<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>overlaps<sp/>with<sp/>another<sp/>geometry.<sp/>When<sp/>this<sp/>callback<sp/>is<sp/>set<sp/>in<sp/>geomInfo,<sp/></highlight></codeline>
-<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>the<sp/>physics<sp/>engine<sp/>will<sp/>skip<sp/>standard<sp/>contact<sp/>resolution,<sp/>allowing<sp/></highlight></codeline>
-<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>objects<sp/>to<sp/>pass<sp/>through<sp/>while<sp/>still<sp/>notifying<sp/>game<sp/>logic.</highlight></codeline>
-<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>*<sp/>@param<sp/>trigger<sp/><sp/>The<sp/>dGeomID<sp/>of<sp/>the<sp/>geometry<sp/>that<sp/>has<sp/>the<sp/>callback<sp/>assigned.</highlight></codeline>
-<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>@param<sp/>intruder<sp/>The<sp/>dGeomID<sp/>of<sp/>the<sp/>geometry<sp/>that<sp/>entered<sp/>or<sp/>is<sp/>inside<sp/>the<sp/>trigger.</highlight></codeline>
-<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>*<sp/>@note<sp/>If<sp/>attached<sp/>to<sp/>a<sp/>dBodyID,<sp/>the<sp/>trigger<sp/>will<sp/>follow<sp/>the<sp/>body&apos;s<sp/>transform.</highlight></codeline>
-<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>@see<sp/>geomInfo</highlight></codeline>
-<codeline lineno="59"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60" refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kindref="member">TriggerCallback</ref>)(dGeomID<sp/>trigger,<sp/>dGeomID<sp/>intruder);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="62"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Stores<sp/>geometry<sp/>metadata<sp/>for<sp/>collision,<sp/>texturing,<sp/>and<sp/>trimesh<sp/>data.</highlight></codeline>
-<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>*<sp/>This<sp/>structure<sp/>encapsulates<sp/>everything<sp/>needed<sp/>to<sp/>render<sp/>and<sp/>handle<sp/>physics<sp/></highlight></codeline>
-<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>for<sp/>a<sp/>specific<sp/>piece<sp/>of<sp/>geometry,<sp/>including<sp/>UV<sp/>scaling<sp/>and<sp/>raw<sp/>mesh<sp/>indices.</highlight></codeline>
-<codeline lineno="66"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="67" refid="structgeomInfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structgeomInfo" kindref="compound">geomInfo</ref><sp/>{</highlight></codeline>
-<codeline lineno="68" refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" kindref="member">collidable</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Toggle<sp/>for<sp/>physics<sp/>engine<sp/>interaction.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69" refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture*<sp/><ref refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" kindref="member">texture</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>associated<sp/>diffuse/albedo<sp/>map.<sp/>set<sp/>to<sp/>null<sp/>for<sp/>invisible<sp/>geom*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70" refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" kindref="member">uvScaleU</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Horizontal<sp/>texture<sp/>tiling<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71" refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" kindref="member">uvScaleV</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Vertical<sp/>texture<sp/>tiling<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72" refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" kindref="member">visual</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Model<sp/>override<sp/>used<sp/>for<sp/>custom<sp/>static<sp/>trimeshes.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73" refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" kindref="member">hew</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>white<sp/>for<sp/>normal,<sp/>used<sp/>to<sp/>tint<sp/>a<sp/>geom<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/>/**<sp/>@name<sp/>Trimesh<sp/>Encapsulation</highlight></codeline>
-<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Members<sp/>used<sp/>specifically<sp/>for<sp/>raw<sp/>triangle<sp/>mesh<sp/>data.</highlight></codeline>
-<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@{<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="77" refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" kindref="member">indices</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>array<sp/>of<sp/>vertex<sp/>indices.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78" refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dTriMeshDataID<sp/><ref refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" kindref="member">triData</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>ODE/Physics-specific<sp/>trimesh<sp/>data<sp/>identifier.<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/>/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight></codeline>
-<codeline lineno="81" refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kindref="member">TriggerCallback</ref><sp/><ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>;<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>If<sp/>this<sp/>is<sp/>non-NULL,<sp/>the<sp/>geom<sp/>acts<sp/>as<sp/>a<sp/>ghost/trigger<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="82" refid="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" kindref="member">data</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>user<sp/>data<sp/>pointer<sp/>tag<sp/>on<sp/>extra<sp/>meta<sp/>data<sp/>to<sp/>a<sp/>geom.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="83" refid="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" refkind="member"><highlight class="normal">}<sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>;</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Struct<sp/>to<sp/>track<sp/>the<sp/>results<sp/>of<sp/>our<sp/>raycast</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87" refid="structRayHit" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRayHit" kindref="compound">RayHit</ref><sp/>{</highlight></codeline>
-<codeline lineno="88" refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/><ref refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" kindref="member">geom</ref>;</highlight></codeline>
-<codeline lineno="89" refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/><ref refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" kindref="member">depth</ref>;<sp/></highlight><highlight class="comment">//<sp/>Distance<sp/>from<sp/>ray<sp/>origin</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90" refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/><ref refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" kindref="member">pos</ref>;<sp/></highlight><highlight class="comment">//<sp/>Hit<sp/>position<sp/>in<sp/>world<sp/>space</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91" refid="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" refkind="member"><highlight class="normal">}<sp/><ref refid="structRayHit" kindref="compound">RayHit</ref>;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Graphics<sp/>context<sp/>-<sp/>holds<sp/>all<sp/>rendering<sp/>resources</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="94" refid="structGraphicsContext" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref><sp/>{</highlight></codeline>
-<codeline lineno="95" refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" kindref="member">box</ref>;</highlight></codeline>
-<codeline lineno="96" refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" kindref="member">ball</ref>;</highlight></codeline>
-<codeline lineno="97" refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" kindref="member">cylinder</ref>;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>capsules<sp/>really<sp/>need<sp/>their<sp/>own<sp/>textures<sp/>not<sp/>cylinder<sp/>texutres</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Texture<sp/>arrays<sp/>for<sp/>different<sp/>geometry<sp/>types</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102" refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" kindref="member">sphereTextures</ref>[3];<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ball.png,<sp/>beach-ball.png,<sp/>earth.png</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="103" refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" kindref="member">boxTextures</ref>[2];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>crate.png,<sp/>grid.png</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="104" refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" kindref="member">cylinderTextures</ref>[2];<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>drum.png,<sp/>cylinder2.png</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105" refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>grass.png</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="107" refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Camera<sp/><ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>;</highlight></codeline>
-<codeline lineno="108" refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Shader<sp/><ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>;</highlight></codeline>
-<codeline lineno="109" refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structLight" kindref="compound">Light</ref><sp/><ref refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" kindref="member">lights</ref>[<ref refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kindref="member">MAX_LIGHTS</ref>];</highlight></codeline>
-<codeline lineno="110" refid="raylibODE_8h_1a92862474db45e097a7381460ac67f859" refkind="member"><highlight class="normal">}<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>;</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Physics<sp/>context<sp/>-<sp/>holds<sp/>all<sp/>physics<sp/>state</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="113" refid="structPhysicsContext" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref><sp/>{</highlight></codeline>
-<codeline lineno="114" refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dWorldID<sp/><ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>;</highlight></codeline>
-<codeline lineno="115" refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dSpaceID<sp/><ref refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" kindref="member">space</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="116" refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointGroupID<sp/><ref refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" kindref="member">contactgroup</ref>;</highlight></codeline>
-<codeline lineno="117" refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" kindref="member">frameTime</ref>;<sp/></highlight><highlight class="comment">//<sp/>cumlative<sp/>frame<sp/>time</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="118" refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/><ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>;</highlight></codeline>
-<codeline lineno="119" refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/><ref refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kindref="member">statics</ref>;<sp/></highlight><highlight class="comment">//<sp/>list<sp/>of<sp/>static<sp/>ode<sp/>geoms</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="120" refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" refkind="member"><highlight class="normal">}<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>;</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a9a4fddcfd406e6bfb1987111e4ad64f1" kindref="member">CreateBaseEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Helper<sp/>to<sp/>allocate<sp/>geomInfo<sp/>with<sp/>collision<sp/>flag,<sp/>optional<sp/>texture,<sp/>and<sp/>UV<sp/>scale</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/><ref refid="raylibODE_8h_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>collidable,<sp/>Texture*<sp/>texture,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScaleU,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScaleV);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>geom<sp/>only<sp/>but<sp/>with<sp/>geomInfo<sp/>attched</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal">dGeomID<sp/><ref refid="raylibODE_8h_1a0201472030d3c51d3b13c7f807b59b01" kindref="member">CreateSphereGeom</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/>Vector3<sp/>pos);</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//<sp/>helper<sp/>to<sp/>create<sp/>a<sp/>static<sp/>collision<sp/>geom<sp/>from<sp/>a<sp/>model</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/><ref refid="raylibODE_8h_1ae8b06665a78b486c57e6795da4b3e265" kindref="member">CreateStaticTrimesh</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Model<sp/>model,<sp/>Texture*<sp/>tex,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScale);</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/>add<sp/>a<sp/>physics<sp/>visual<sp/>to<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3<sp/>size,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1ad03521efcc05b3315d24f47d0eed52a6" kindref="member">CreateSphere</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);<sp/></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a6985c096003040ae46ed46b117f01d69" kindref="member">CreateCylinder</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>length,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1adec02d5fa7b8838d8f98956b68e2246c" kindref="member">CreateCapsule</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>length,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a04c854eee30cf8430f2d978c4259459b" kindref="member">CreateDumbbell</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>shaftRad,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>shaftLen,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>endRad,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Object<sp/>counts</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NUM_OBJ<sp/>300</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Plane<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PLANE_SIZE<sp/>20.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>PLANE_THICKNESS<sp/>1.0f</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>maxPsteps<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46" refid="structentity" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref><sp/>{</highlight></codeline>
+<codeline lineno="47" refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/><ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>;</highlight><highlight class="comment">/**&lt;<sp/>ODE<sp/>physics<sp/>body<sp/>for<sp/>this<sp/>entity<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/><ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>all<sp/>entities<sp/>are<sp/>in<sp/>a<sp/>global<sp/>list,<sp/>this<sp/>is<sp/>its<sp/>list<sp/>node<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" kindref="member">data</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>user<sp/>data<sp/>pointer<sp/>tag<sp/>on<sp/>extra<sp/>meta<sp/>data<sp/>to<sp/>a<sp/>geom.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="raylibODE_8h_1a6ba18cca02784a1046f755105545d6cb" refkind="member"><highlight class="normal">}<sp/><ref refid="structentity" kindref="compound">entity</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Function<sp/>pointer<sp/>type<sp/>for<sp/>physics<sp/>trigger<sp/>events</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>*<sp/>This<sp/>callback<sp/>is<sp/>triggered<sp/>when<sp/>a<sp/>geometry<sp/>designated<sp/>as<sp/>a<sp/>&quot;ghost&quot;<sp/>or<sp/>sensor<sp/></highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/>*<sp/>overlaps<sp/>with<sp/>another<sp/>geometry.<sp/>When<sp/>this<sp/>callback<sp/>is<sp/>set<sp/>in<sp/>geomInfo,<sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/>*<sp/>the<sp/>physics<sp/>engine<sp/>will<sp/>skip<sp/>standard<sp/>contact<sp/>resolution,<sp/>allowing<sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/>*<sp/>objects<sp/>to<sp/>pass<sp/>through<sp/>while<sp/>still<sp/>notifying<sp/>game<sp/>logic.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/>*<sp/>*<sp/>@param<sp/>trigger<sp/><sp/>The<sp/>dGeomID<sp/>of<sp/>the<sp/>geometry<sp/>that<sp/>has<sp/>the<sp/>callback<sp/>assigned.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>@param<sp/>intruder<sp/>The<sp/>dGeomID<sp/>of<sp/>the<sp/>geometry<sp/>that<sp/>entered<sp/>or<sp/>is<sp/>inside<sp/>the<sp/>trigger.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>*<sp/>@note<sp/>If<sp/>attached<sp/>to<sp/>a<sp/>dBodyID,<sp/>the<sp/>trigger<sp/>will<sp/>follow<sp/>the<sp/>body&apos;s<sp/>transform.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>@see<sp/>geomInfo</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>void<sp/>(*<ref refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kindref="member">TriggerCallback</ref>)(dGeomID<sp/>trigger,<sp/>dGeomID<sp/>intruder);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Stores<sp/>geometry<sp/>metadata<sp/>for<sp/>collision,<sp/>texturing,<sp/>and<sp/>trimesh<sp/>data.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>*<sp/>This<sp/>structure<sp/>encapsulates<sp/>everything<sp/>needed<sp/>to<sp/>render<sp/>and<sp/>handle<sp/>physics<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>for<sp/>a<sp/>specific<sp/>piece<sp/>of<sp/>geometry,<sp/>including<sp/>UV<sp/>scaling<sp/>and<sp/>raw<sp/>mesh<sp/>indices.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="structgeomInfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structgeomInfo" kindref="compound">geomInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="71" refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" kindref="member">collidable</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Toggle<sp/>for<sp/>physics<sp/>engine<sp/>interaction.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture*<sp/><ref refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" kindref="member">texture</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>associated<sp/>diffuse/albedo<sp/>map.<sp/>set<sp/>to<sp/>null<sp/>for<sp/>invisible<sp/>geom*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" kindref="member">uvScaleU</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Horizontal<sp/>texture<sp/>tiling<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" kindref="member">uvScaleV</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Vertical<sp/>texture<sp/>tiling<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" kindref="member">visual</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Model<sp/>override<sp/>used<sp/>for<sp/>custom<sp/>static<sp/>trimeshes.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" kindref="member">hew</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>white<sp/>for<sp/>normal,<sp/>used<sp/>to<sp/>tint<sp/>a<sp/>geom<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/>/**<sp/>@name<sp/>Trimesh<sp/>Encapsulation</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Members<sp/>used<sp/>specifically<sp/>for<sp/>raw<sp/>triangle<sp/>mesh<sp/>data.</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@{<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">*<sp/><ref refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" kindref="member">indices</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Pointer<sp/>to<sp/>the<sp/>array<sp/>of<sp/>vertex<sp/>indices.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dTriMeshDataID<sp/><ref refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" kindref="member">triData</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>ODE/Physics-specific<sp/>trimesh<sp/>data<sp/>identifier.<sp/>*/</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/>/**<sp/>@}<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kindref="member">TriggerCallback</ref><sp/><ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>;<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>If<sp/>this<sp/>is<sp/>non-NULL,<sp/>the<sp/>geom<sp/>acts<sp/>as<sp/>a<sp/>ghost/trigger<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/><ref refid="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" kindref="member">data</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>user<sp/>data<sp/>pointer<sp/>tag<sp/>on<sp/>extra<sp/>meta<sp/>data<sp/>to<sp/>a<sp/>geom.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" refkind="member"><highlight class="normal">}<sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Struct<sp/>to<sp/>track<sp/>the<sp/>results<sp/>of<sp/>our<sp/>raycast</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="structRayHit" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structRayHit" kindref="compound">RayHit</ref><sp/>{</highlight></codeline>
+<codeline lineno="91" refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/><ref refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" kindref="member">geom</ref>;</highlight></codeline>
+<codeline lineno="92" refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/><ref refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" kindref="member">depth</ref>;<sp/></highlight><highlight class="comment">//<sp/>Distance<sp/>from<sp/>ray<sp/>origin</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/><ref refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" kindref="member">pos</ref>;<sp/></highlight><highlight class="comment">//<sp/>Hit<sp/>position<sp/>in<sp/>world<sp/>space</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94" refid="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" refkind="member"><highlight class="normal">}<sp/><ref refid="structRayHit" kindref="compound">RayHit</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Graphics<sp/>context<sp/>-<sp/>holds<sp/>all<sp/>rendering<sp/>resources</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="structGraphicsContext" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref><sp/>{</highlight></codeline>
+<codeline lineno="98" refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" kindref="member">box</ref>;</highlight></codeline>
+<codeline lineno="99" refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" kindref="member">ball</ref>;</highlight></codeline>
+<codeline lineno="100" refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/><ref refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" kindref="member">cylinder</ref>;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>capsules<sp/>really<sp/>need<sp/>their<sp/>own<sp/>textures<sp/>not<sp/>cylinder<sp/>texutres</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Texture<sp/>arrays<sp/>for<sp/>different<sp/>geometry<sp/>types</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" kindref="member">sphereTextures</ref>[3];<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ball.png,<sp/>beach-ball.png,<sp/>earth.png</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" kindref="member">boxTextures</ref>[2];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>crate.png,<sp/>grid.png</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" kindref="member">cylinderTextures</ref>[2];<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>drum.png,<sp/>cylinder2.png</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108" refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Texture<sp/><ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>grass.png</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="110" refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Camera<sp/><ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>;</highlight></codeline>
+<codeline lineno="111" refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Shader<sp/><ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>;</highlight></codeline>
+<codeline lineno="112" refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structLight" kindref="compound">Light</ref><sp/><ref refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" kindref="member">lights</ref>[<ref refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kindref="member">MAX_LIGHTS</ref>];</highlight></codeline>
+<codeline lineno="113" refid="raylibODE_8h_1a92862474db45e097a7381460ac67f859" refkind="member"><highlight class="normal">}<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Physics<sp/>context<sp/>-<sp/>holds<sp/>all<sp/>physics<sp/>state</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="structPhysicsContext" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref><sp/>{</highlight></codeline>
+<codeline lineno="117" refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dWorldID<sp/><ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>;</highlight></codeline>
+<codeline lineno="118" refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dSpaceID<sp/><ref refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" kindref="member">space</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="119" refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointGroupID<sp/><ref refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" kindref="member">contactgroup</ref>;</highlight></codeline>
+<codeline lineno="120" refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" kindref="member">frameTime</ref>;<sp/></highlight><highlight class="comment">//<sp/>cumlative<sp/>frame<sp/>time</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/><ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>;</highlight></codeline>
+<codeline lineno="122" refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref>*<sp/><ref refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kindref="member">statics</ref>;<sp/></highlight><highlight class="comment">//<sp/>list<sp/>of<sp/>static<sp/>ode<sp/>geoms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" refkind="member"><highlight class="normal">}<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="structMultiPiston" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref><sp/>{</highlight></codeline>
+<codeline lineno="126" refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>**<sp/><ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>;</highlight></codeline>
+<codeline lineno="127" refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID*<sp/><ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>;</highlight></codeline>
+<codeline lineno="128" refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" kindref="member">count</ref>;</highlight></codeline>
+<codeline lineno="129" refid="structMultiPiston_1ad3e235df247bc80c0c47bc0b45a195ce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/><ref refid="structMultiPiston_1ad3e235df247bc80c0c47bc0b45a195ce" kindref="member">direction</ref>;</highlight></codeline>
+<codeline lineno="130" refid="raylibODE_8h_1a2570bb818f3867a7373604ee19b4f8b4" refkind="member"><highlight class="normal">}<sp/><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a9a4fddcfd406e6bfb1987111e4ad64f1" kindref="member">CreateBaseEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Helper<sp/>to<sp/>allocate<sp/>geomInfo<sp/>with<sp/>collision<sp/>flag,<sp/>optional<sp/>texture,<sp/>and<sp/>UV<sp/>scale</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/><ref refid="raylibODE_8h_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>collidable,<sp/>Texture*<sp/>texture,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScaleU,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScaleV);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>geom<sp/>only<sp/>but<sp/>with<sp/>geomInfo<sp/>attched</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">dGeomID<sp/><ref refid="raylibODE_8h_1a0201472030d3c51d3b13c7f807b59b01" kindref="member">CreateSphereGeom</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/>Vector3<sp/>pos);</highlight></codeline>
 <codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/>add<sp/>a<sp/>random<sp/>simple<sp/>physics<sp/>object<sp/>to<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a8e5b28e0781017c62176133087f3590c" kindref="member">CreateRandomEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3<sp/>pos);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/>helper<sp/>to<sp/>create<sp/>a<sp/>static<sp/>collision<sp/>geom<sp/>from<sp/>a<sp/>model</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/><ref refid="raylibODE_8h_1ae8b06665a78b486c57e6795da4b3e265" kindref="member">CreateStaticTrimesh</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Model<sp/>model,<sp/>Texture*<sp/>tex,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>uvScale);</highlight></codeline>
 <codeline lineno="142"><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>a<sp/>reference<sp/>to<sp/>an<sp/>entity<sp/>the<sp/>mouse<sp/>is<sp/>pointing<sp/>to...</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a6038bcb143e6ca12696aa65bf164f488" kindref="member">PickEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3*<sp/>hitPoint);</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a227dded5dce29a7e3b71e9589e2b4c22" kindref="member">SetEntityHew</ref>(<ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent,<sp/>Color<sp/>c);</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8h_1a70760bcdbb95dca2cd9cbb1a640485d2" kindref="member">CreateRotor</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>from,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>to,<sp/>Vector3<sp/>axis);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/>add<sp/>a<sp/>physics<sp/>visual<sp/>to<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3<sp/>size,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1ad03521efcc05b3315d24f47d0eed52a6" kindref="member">CreateSphere</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);<sp/></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a6985c096003040ae46ed46b117f01d69" kindref="member">CreateCylinder</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>length,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1adec02d5fa7b8838d8f98956b68e2246c" kindref="member">CreateCapsule</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>radius,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>length,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a04c854eee30cf8430f2d978c4259459b" kindref="member">CreateDumbbell</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>shaftRad,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>shaftLen,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>endRad,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>rot,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>mass);</highlight></codeline>
 <codeline lineno="149"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//<sp/>free<sp/>a<sp/>body,<sp/>freeing<sp/>its<sp/>geoms<sp/>first</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a8f1b86adbb51b8bd80405329b31c87d1" kindref="member">FreeBodyAndGeoms</ref>(dBodyID<sp/>bdy);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//<sp/>add<sp/>a<sp/>random<sp/>simple<sp/>physics<sp/>object<sp/>to<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a8e5b28e0781017c62176133087f3590c" kindref="member">CreateRandomEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3<sp/>pos);</highlight></codeline>
 <codeline lineno="152"><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>drawAllSpaceGeoms(dSpaceID<sp/>space,<sp/>struct<sp/>GraphicsContext*<sp/>ctx);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a5a3f56ed394d3d2c1400e25d83fc05af" kindref="member">DrawGeom</ref>(dGeomID<sp/>geom,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//<sp/>return<sp/>a<sp/>reference<sp/>to<sp/>an<sp/>entity<sp/>the<sp/>mouse<sp/>is<sp/>pointing<sp/>to...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><ref refid="structentity" kindref="compound">entity</ref>*<sp/><ref refid="raylibODE_8h_1a6038bcb143e6ca12696aa65bf164f488" kindref="member">PickEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>gfxCtx,<sp/>Vector3*<sp/>hitPoint);</highlight></codeline>
 <codeline lineno="155"><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>all<sp/>the<sp/>bodies<sp/>in<sp/>the<sp/>object<sp/>list</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1aa01114b518b93c528e9e85382ce46b4b" kindref="member">DrawBodies</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx);</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>geoms<sp/>attached<sp/>to<sp/>a<sp/>body</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a01fc58efa7854e13c41c4b40bc5c8b62" kindref="member">DrawBodyGeoms</ref>(dBodyID<sp/>bdy,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>static<sp/>geoms</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a1232d8000138fdc6d2f9741548a263aa" kindref="member">DrawStatics</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx);</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Random<sp/>float<sp/>in<sp/>range<sp/>[min,<sp/>max]</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"></highlight></codeline>
-<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment">//<sp/>step<sp/>the<sp/>physics<sp/>world<sp/>enough<sp/>times<sp/>to<sp/>keep<sp/>up<sp/>with<sp/>realtime</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="169"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1ad087bfe56f8c97e250f6dd5054fdf76e" kindref="member">StepPhysics</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx);</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"></highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" kindref="member">FreeEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent);</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"></highlight></codeline>
-<codeline lineno="173"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(dJointID<sp/>joint,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
-<codeline lineno="174"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8h_1aec8e521a9dfcf354ba2ae793ac6be324" kindref="member">CreatePiston</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>entA,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>entB);</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight></codeline>
-<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1ac18f122edccf31f40c3ce18ea1be58cd" kindref="member">RayToOdeMat</ref>(Matrix*<sp/>mat,<sp/>dReal*<sp/>R);</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1ae64d38b48236f4a10077e64b19b953b3" kindref="member">OdeToRayMat</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>R,<sp/>Matrix*<sp/>matrix);</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"></highlight></codeline>
-<codeline lineno="179"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RAYLIBODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a227dded5dce29a7e3b71e9589e2b4c22" kindref="member">SetEntityHew</ref>(<ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent,<sp/>Color<sp/>c);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8h_1a70760bcdbb95dca2cd9cbb1a640485d2" kindref="member">CreateRotor</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>from,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>to,<sp/>Vector3<sp/>axis);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//<sp/>free<sp/>a<sp/>body,<sp/>freeing<sp/>its<sp/>geoms<sp/>first</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a8f1b86adbb51b8bd80405329b31c87d1" kindref="member">FreeBodyAndGeoms</ref>(dBodyID<sp/>bdy);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>drawAllSpaceGeoms(dSpaceID<sp/>space,<sp/>struct<sp/>GraphicsContext*<sp/>ctx);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a5a3f56ed394d3d2c1400e25d83fc05af" kindref="member">DrawGeom</ref>(dGeomID<sp/>geom,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>all<sp/>the<sp/>bodies<sp/>in<sp/>the<sp/>object<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1aa01114b518b93c528e9e85382ce46b4b" kindref="member">DrawBodies</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>geoms<sp/>attached<sp/>to<sp/>a<sp/>body</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a01fc58efa7854e13c41c4b40bc5c8b62" kindref="member">DrawBodyGeoms</ref>(dBodyID<sp/>bdy,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight><highlight class="comment">//<sp/>draw<sp/>static<sp/>geoms</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a1232d8000138fdc6d2f9741548a263aa" kindref="member">DrawStatics</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Random<sp/>float<sp/>in<sp/>range<sp/>[min,<sp/>max]</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment">//<sp/>step<sp/>the<sp/>physics<sp/>world<sp/>enough<sp/>times<sp/>to<sp/>keep<sp/>up<sp/>with<sp/>realtime</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1ad087bfe56f8c97e250f6dd5054fdf76e" kindref="member">StepPhysics</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx);</highlight></codeline>
 <codeline lineno="180"><highlight class="normal"></highlight></codeline>
-<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" kindref="member">FreeEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(dJointID<sp/>joint,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8h_1aa35dd966752d4afeffcb8f39e474594c" kindref="member">CreatePiston</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>entA,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>entB,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>strength);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1ac18f122edccf31f40c3ce18ea1be58cd" kindref="member">RayToOdeMat</ref>(Matrix*<sp/>mat,<sp/>dReal*<sp/>R);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1ae64d38b48236f4a10077e64b19b953b3" kindref="member">OdeToRayMat</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>R,<sp/>Matrix*<sp/>matrix);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/><ref refid="raylibODE_8h_1a8d2339918b2d47fcaea5c861ccfbc3d8" kindref="member">CreateMultiPiston</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics,<sp/></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>direction,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count,<sp/></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sectionLen,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>baseWidth,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>strength);</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1a801a17c097329ca4d55d35f1c5ae7b5a" kindref="member">SetMultiPistonVelocity</ref>(<ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/>mp,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>velocity);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8h_1aea5e471f2ffcadf7bcce5b25993d1d0f" kindref="member">SetBodyOrientation</ref>(dBodyID<sp/>body,<sp/>Vector3<sp/>direction);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8h_1a57b8ac137f7e79fc8deb53b7ba410166" kindref="member">PinEntityToWorld</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>RAYLIBODE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="raylibODE.h"/>
   </compounddef>

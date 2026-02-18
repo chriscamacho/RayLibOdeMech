@@ -6,6 +6,7 @@ var annotated_dup =
     [ "geomInfo", "structgeomInfo.html", "structgeomInfo" ],
     [ "GraphicsContext", "structGraphicsContext.html", "structGraphicsContext" ],
     [ "Light", "structLight.html", "structLight" ],
+    [ "MultiPiston", "structMultiPiston.html", "structMultiPiston" ],
     [ "PhysicsContext", "structPhysicsContext.html", "structPhysicsContext" ],
     [ "RagDoll", "structRagDoll.html", "structRagDoll" ],
     [ "RayHit", "structRayHit.html", "structRayHit" ],

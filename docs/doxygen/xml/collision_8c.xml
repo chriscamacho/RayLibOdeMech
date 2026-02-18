@@ -81,11 +81,11 @@
         <inbodydescription>
         </inbodydescription>
         <location file="collision.c" line="43" column="6" bodyfile="collision.c" bodystart="43" bodyend="89"/>
-        <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="68">geomInfo::collidable</references>
-        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="116">PhysicsContext::contactgroup</references>
+        <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="71">geomInfo::collidable</references>
+        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="119">PhysicsContext::contactgroup</references>
         <references refid="collision_8c_1a84bfa512ba2269b77a80f391fbdde0a3" compoundref="collision_8c" startline="41">MAX_CONTACTS</references>
-        <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="81">geomInfo::triggerOnCollide</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
+        <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="84">geomInfo::triggerOnCollide</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
         <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="240" endline="263">StepPhysics</referencedby>
       </memberdef>
     </sectiondef>

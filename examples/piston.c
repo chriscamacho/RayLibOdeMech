@@ -49,60 +49,81 @@ int main(void)
 		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
 	}
 
-	entity* box1 = CreateBox(physCtx, graphics,(Vector3){4,1,1}, (Vector3){0,.6,0}, (Vector3){0,0,0}, 2);
-	entity* box2 = CreateBox(physCtx, graphics,(Vector3){4,.9,.9}, (Vector3){.1,.6,0}, (Vector3){0,0,0}, 2);
-	entity* box3 = CreateBox(physCtx, graphics,(Vector3){4,.8,.8}, (Vector3){.2,.6,0}, (Vector3){0,0,0}, 2);
 
+	// manually create a 3 section piston
+	// TLDR skip down to the multi piston creation !
+	entity* box1 = CreateBox(physCtx, graphics,(Vector3){4,1,1}, (Vector3){0,1.6,0}, (Vector3){0,0,0}, 2);
+	entity* box2 = CreateBox(physCtx, graphics,(Vector3){4,.9,.9}, (Vector3){.1,1.7,.2}, (Vector3){0,0,0}, 2);
+	entity* box3 = CreateBox(physCtx, graphics,(Vector3){4,.8,.8}, (Vector3){.2,1.8,.4}, (Vector3){0,0,0}, 2);
+
+	// the direction each box is offset - the axis of the piston
+	Vector3 dir = (Vector3){.1,.1,.2};
+	dir = Vector3Normalize(dir);
+	
+	SetBodyOrientation(box1->body, dir); 
+	SetBodyOrientation(box2->body, dir); 
+	SetBodyOrientation(box3->body, dir); 
 	// anchor box1 to the world
-    dJointID pin1 = dJointCreateFixed (physCtx->world, 0);
-    dJointAttach(pin1, box1->body, 0);
-    dJointSetFixed (pin1);
+    PinEntityToWorld(physCtx, box1);
 
 
-    dJointID piston1 = CreatePiston(physCtx, box1, box2);
-    SetPistonLimits(piston1, 0, 3.9);
+    dJointID piston1 = CreatePiston(physCtx, box1, box2,1000);
+    SetPistonLimits(piston1, 0, 3.7);
+    dJointID piston2 = CreatePiston(physCtx, box2, box3,1000);
+    SetPistonLimits(piston2, 0, 3.7);
     
-    dJointID piston2 = CreatePiston(physCtx, box2, box3);
-    SetPistonLimits(piston2, 0, 3.9);
     
-    
-    // because box 1,2 and 3 intersect we must filter out their collision
+    // because box 1,2 and 3 intersect we must filter out their collisions
     // normally with joints the two attached bodies don't collide, however
     // this doesn't help with box 1 vs box 3 for example
-	#define WORLD         0x0001
-    #define PISTON_GROUP  0x0002
-    
     dGeomID g1 = dBodyGetFirstGeom(box1->body);
     dGeomID g2 = dBodyGetFirstGeom(box2->body);
     dGeomID g3 = dBodyGetFirstGeom(box3->body);
 
 	dGeomSetCategoryBits(g1, PISTON_GROUP);
-	dGeomSetCollideBits(g1, WORLD);
+	dGeomSetCollideBits(g1, WORLD_GROUP);
 
 	dGeomSetCategoryBits(g2, PISTON_GROUP);
-	dGeomSetCollideBits(g2, WORLD);
+	dGeomSetCollideBits(g2, WORLD_GROUP);
 
 	dGeomSetCategoryBits(g3, PISTON_GROUP);
-	dGeomSetCollideBits(g3, WORLD);    
+	dGeomSetCollideBits(g3, WORLD_GROUP);    
+	
+
+    
+    // create a multi piston and pin it to the world
+    MultiPiston* mp = CreateMultiPiston(physCtx, graphics, 
+                               (Vector3){4,1.4,0}, 	// position
+                               (Vector3){.5,.5,0}, 	// direction (or axis) of the piston
+                               6, 					// number of sections
+                               0.5, 				// distance each section travels
+                               2, 					// base width
+                               1000);				// stength
+
+    PinEntityToWorld(physCtx, mp->sections[0]);
+    
     
     
     while (!WindowShouldClose())
     {
         dJointSetSliderParam(piston1, dParamVel, 0.0);
         dJointSetSliderParam(piston2, dParamVel, 0.0);
+        SetMultiPistonVelocity(mp, 0);
         
         float pSpeed = 1;
-        if (IsKeyDown(KEY_LEFT_ALT)) pSpeed = 32;
+        if (IsKeyDown(KEY_LEFT_ALT)) pSpeed = 4;
         
         if (IsKeyDown(KEY_I)) {
             dJointSetSliderParam(piston1, dParamVel, -pSpeed);
             dJointSetSliderParam(piston2, dParamVel, -pSpeed);
             dBodyEnable(box2->body);
+			SetMultiPistonVelocity(mp, -pSpeed/16.0);
         }
         if (IsKeyDown(KEY_O)) {
             dJointSetSliderParam(piston1, dParamVel, pSpeed);
             dJointSetSliderParam(piston2, dParamVel, pSpeed);
             dBodyEnable(box2->body);
+			SetMultiPistonVelocity(mp, pSpeed/16.0);
         }
         
         bool spcdn = IsKeyDown(KEY_SPACE); 

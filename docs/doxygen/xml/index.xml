@@ -52,6 +52,12 @@
     <member refid="structLight_1a98df12cebc437d739f22dd809b66878c" kind="variable"><name>colorLoc</name></member>
     <member refid="structLight_1a45d4a94a276ab0870a108f4a4a460e0a" kind="variable"><name>attenuationLoc</name></member>
   </compound>
+  <compound refid="structMultiPiston" kind="struct"><name>MultiPiston</name>
+    <member refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kind="variable"><name>sections</name></member>
+    <member refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kind="variable"><name>joints</name></member>
+    <member refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" kind="variable"><name>count</name></member>
+    <member refid="structMultiPiston_1ad3e235df247bc80c0c47bc0b45a195ce" kind="variable"><name>direction</name></member>
+  </compound>
   <compound refid="structPhysicsContext" kind="struct"><name>PhysicsContext</name>
     <member refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kind="variable"><name>world</name></member>
     <member refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" kind="variable"><name>space</name></member>
@@ -139,6 +145,8 @@
     <member refid="ragdoll_8h_1ae5044c65f2f6758624a2182347b6d945" kind="function"><name>GetRagdollSpawnPosition</name></member>
   </compound>
   <compound refid="raylibODE_8h" kind="file"><name>raylibODE.h</name>
+    <member refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" kind="define"><name>WORLD_GROUP</name></member>
+    <member refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" kind="define"><name>PISTON_GROUP</name></member>
     <member refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" kind="define"><name>NUM_OBJ</name></member>
     <member refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kind="define"><name>PLANE_SIZE</name></member>
     <member refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kind="define"><name>PLANE_THICKNESS</name></member>
@@ -149,6 +157,7 @@
     <member refid="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" kind="typedef"><name>RayHit</name></member>
     <member refid="raylibODE_8h_1a92862474db45e097a7381460ac67f859" kind="typedef"><name>GraphicsContext</name></member>
     <member refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" kind="typedef"><name>PhysicsContext</name></member>
+    <member refid="raylibODE_8h_1a2570bb818f3867a7373604ee19b4f8b4" kind="typedef"><name>MultiPiston</name></member>
     <member refid="raylibODE_8h_1a9a4fddcfd406e6bfb1987111e4ad64f1" kind="function"><name>CreateBaseEntity</name></member>
     <member refid="raylibODE_8h_1a79db70091e3c86494f485979529984c8" kind="function"><name>CreateGeomInfo</name></member>
     <member refid="raylibODE_8h_1a0201472030d3c51d3b13c7f807b59b01" kind="function"><name>CreateSphereGeom</name></member>
@@ -171,9 +180,13 @@
     <member refid="raylibODE_8h_1ad087bfe56f8c97e250f6dd5054fdf76e" kind="function"><name>StepPhysics</name></member>
     <member refid="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
     <member refid="raylibODE_8h_1a878892d1015e3c9349f667325d129d43" kind="function"><name>SetPistonLimits</name></member>
-    <member refid="raylibODE_8h_1aec8e521a9dfcf354ba2ae793ac6be324" kind="function"><name>CreatePiston</name></member>
+    <member refid="raylibODE_8h_1aa35dd966752d4afeffcb8f39e474594c" kind="function"><name>CreatePiston</name></member>
     <member refid="raylibODE_8h_1ac18f122edccf31f40c3ce18ea1be58cd" kind="function"><name>RayToOdeMat</name></member>
     <member refid="raylibODE_8h_1ae64d38b48236f4a10077e64b19b953b3" kind="function"><name>OdeToRayMat</name></member>
+    <member refid="raylibODE_8h_1a8d2339918b2d47fcaea5c861ccfbc3d8" kind="function"><name>CreateMultiPiston</name></member>
+    <member refid="raylibODE_8h_1a801a17c097329ca4d55d35f1c5ae7b5a" kind="function"><name>SetMultiPistonVelocity</name></member>
+    <member refid="raylibODE_8h_1aea5e471f2ffcadf7bcce5b25993d1d0f" kind="function"><name>SetBodyOrientation</name></member>
+    <member refid="raylibODE_8h_1a57b8ac137f7e79fc8deb53b7ba410166" kind="function"><name>PinEntityToWorld</name></member>
   </compound>
   <compound refid="rlights_8h" kind="file"><name>rlights.h</name>
     <member refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kind="define"><name>MAX_LIGHTS</name></member>
@@ -260,8 +273,12 @@
     <member refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" kind="function"><name>DrawBodyGeoms</name></member>
     <member refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kind="function"><name>DrawStatics</name></member>
     <member refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
-    <member refid="raylibODE_8c_1aec8e521a9dfcf354ba2ae793ac6be324" kind="function"><name>CreatePiston</name></member>
+    <member refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kind="function"><name>CreatePiston</name></member>
     <member refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kind="function"><name>SetPistonLimits</name></member>
+    <member refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" kind="function"><name>CreateMultiPiston</name></member>
+    <member refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" kind="function"><name>SetMultiPistonVelocity</name></member>
+    <member refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kind="function"><name>SetBodyOrientation</name></member>
+    <member refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" kind="function"><name>PinEntityToWorld</name></member>
   </compound>
   <compound refid="rlights_8c" kind="file"><name>rlights.c</name>
     <member refid="rlights_8c_1a959fef16d77f17db49364491cbd4175b" kind="variable"><name>lightsCount</name></member>

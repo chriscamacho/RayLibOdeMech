@@ -715,7 +715,18 @@ entity* PickEntity(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hi
     return NULL;
 }
 
-// given a body it will remove it and its geoms from ODE's world
+/** @brief given a body it will remove it and its geoms from ODE's world
+ * 
+ * @note this is intended to be an internal function that might have use externally
+ * you would normally use FreeEntity
+ * 
+ * As well as freeing all associated metadata it will also remove the body and
+ * its geoms from the physics world
+ * 
+ * @param bdy the dBodyID you want to free the attached meta data for
+ * 
+ */
+
 void FreeBodyAndGeoms(dBodyID bdy)
 {
 	dGeomID geom = dBodyGetFirstGeom(bdy);
@@ -754,6 +765,11 @@ void DrawModelTinted(Model model, Color tint)
 
 
 // these two just convert to column major and minor
+/** @brief set an ODE matrix to the same as a Raylib Matrix
+ * 
+ * @param m a pointer to the Raylib matrix
+ * @param R a pointer to an ODE matrix
+ */
 void RayToOdeMat(Matrix* m, dReal* R) {
     R[ 0] = m->m0;   R[ 1] = m->m4;   R[ 2] = m->m8;    R[ 3] = 0;
     R[ 4] = m->m1;   R[ 5] = m->m5;   R[ 6] = m->m9;    R[ 7] = 0;
@@ -761,7 +777,11 @@ void RayToOdeMat(Matrix* m, dReal* R) {
     R[12] = 0;       R[13] = 0;       R[14] = 0;        R[15] = 1;
 }
 
-// sets a raylib matrix from an ODE rotation matrix
+/** @brief sets a raylib matrix from an ODE rotation matrix
+ * 
+ * @param R a pointer to the ODE matrix
+ * @param m a pointer to a Raylib Matrix
+ */
 void OdeToRayMat(const dReal* R, Matrix* m)
 {
     m->m0 = R[0];  m->m1 = R[4];  m->m2 = R[8];      m->m3 = 0;
@@ -940,6 +960,18 @@ void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx)
 
 }
 
+/**
+ * @brief draws the static geometries
+ * 
+ * As static geometries have no bodies they are handled a little different
+ * this will draw all the dGeomID's that are registed on the physics context
+ * static lists
+ * @note all geoms on the statics list must have attached geomInfo
+ * 
+ * @param ctx the graphics context
+ * @param pctx the physics context
+ */
+ 
 void DrawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx)
 {
 	cnode_t* node = pctx->statics->head;
@@ -969,7 +1001,19 @@ void FreeEntity(PhysicsContext* physCtx, entity* ent)
 	free(ent);
 }
 
-dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB)
+/** @brief creates a piston using two entities as its base on extending sections
+ * 
+ * both entities should be positioned and oriented before calling this, they MUST NOT
+ * be in exactly the same position, as the vector between them is used as the axis for
+ * the piston
+ * 
+ * @param physCtx the physics context
+ * @param entA the base entity
+ * @param entB the extending entity
+ * @param strength the maximum force the piston can use
+ * 
+ */
+dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB, float strength)
 {
     dJointID joint = dJointCreateSlider(physCtx->world, 0);
 
@@ -997,17 +1041,136 @@ dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB)
     }
 
     dJointSetSliderParam(joint, dParamVel, 0.0);
-	dJointSetSliderParam(joint, dParamFMax, 1000.0);
+	dJointSetSliderParam(joint, dParamFMax, strength);
+	
+
 
     return joint;
 }
 
+/**
+ * @brief sets the limits of travel for a piston
+ * 
+ * min must be smaller than max values can be negative
+ * 
+ * @param joint the ODE joint id of the joint you want to change
+ * @param min the low end stop point
+ * @param max the high end stop point
+ * 
+ */
 void SetPistonLimits(dJointID joint, float min, float max)
 {
     dJointSetSliderParam(joint, dParamLoStop, min);
     dJointSetSliderParam(joint, dParamHiStop, max);
+}
 
-    // make the stop slightly "soft" to prevent jitter
-    dJointSetSliderParam(joint, dParamStopCFM, 0.0001f);
-    dJointSetSliderParam(joint, dParamStopERP, 0.2);
+MultiPiston* CreateMultiPiston(PhysicsContext* physCtx, GraphicsContext* graphics, 
+                               Vector3 pos, Vector3 direction, int count, 
+                               float sectionLen, float baseWidth, float strength) 
+{
+    MultiPiston* mp = malloc(sizeof(MultiPiston));
+    mp->count = count;
+    mp->sections = malloc(sizeof(entity*) * count);
+    mp->joints = malloc(sizeof(dJointID) * (count - 1));
+
+    Vector3 dir = Vector3Normalize(direction);
+
+    for (int i = 0; i < count; i++) {
+        float scale = 1.0f - (i * 0.1f);
+        Vector3 size = { sectionLen, baseWidth * scale, baseWidth * scale };
+        
+        // stagger each section 0.1 units along the direction vector
+        Vector3 sPos = {
+            pos.x + (dir.x * i * 0.1f),
+            pos.y + (dir.y * i * 0.1f),
+            pos.z + (dir.z * i * 0.1f)
+        };
+
+        mp->sections[i] = CreateBox(physCtx, graphics, size, sPos, (Vector3){0,0,0}, 4);
+        
+        // Orient the box to face the direction of travel
+        SetBodyOrientation(mp->sections[i]->body, dir);
+
+        dGeomID g = dBodyGetFirstGeom(mp->sections[i]->body);
+        dGeomSetCategoryBits(g, PISTON_GROUP);
+        dGeomSetCollideBits(g, WORLD_GROUP);
+
+        if (i > 0) {
+            mp->joints[i-1] = CreatePiston(physCtx, mp->sections[i-1], mp->sections[i], strength);
+            SetPistonLimits(mp->joints[i-1], 0, sectionLen - 0.3f);
+        }
+    }
+    return mp;
+}
+
+/** @brief set a MultiPiston's velocity
+ * 
+ * While setting all the join velocities in the piston it also
+ * ensures all the bodies are active
+ * 
+ * @param mp the multipiston you want to change the speed of
+ * @param velocity the speed you want the piston set to
+ * 
+ */
+void SetMultiPistonVelocity(MultiPiston* mp, float velocity) {
+    if (!mp) return;
+    for (int i = 0; i < mp->count - 1; i++) {
+        dJointSetSliderParam(mp->joints[i], dParamVel, velocity);
+        dBodyEnable(mp->sections[i+1]->body);
+    }
+}
+
+/**
+ * @brief sets to bodies orientation to align with a vector
+ * 
+ * @param body the ODE body id you want to orient
+ * @param direction the vector you want the body oriented along
+ * 
+ */
+void SetBodyOrientation(dBodyID body, Vector3 direction) {
+	Vector3 source = {1, 0, 0}; // The default "length" axis of your box
+    direction = Vector3Normalize(direction);
+
+    // Find the rotation axis (perpendicular to both vectors)
+    Vector3 rotAxis = Vector3CrossProduct(source, direction);
+    float cosTheta = Vector3DotProduct(source, direction);
+    
+    // Calculate the angle in radians
+    float angle = acosf(fminf(1.0f, fmaxf(-1.0f, cosTheta)));
+
+    // Handle the "Parallel" case (if target is -source, cross product is zero)
+    if (Vector3Length(rotAxis) < 0.001f) {
+        if (cosTheta < 0) {
+            // Target is exactly opposite, rotate 180 degrees around Any perpendicular axis
+            rotAxis = (Vector3){0, 1, 0};
+            angle = PI;
+        } else {
+            // Target is same as source, no rotation needed
+            return;
+        }
+    }
+
+    dQuaternion q;
+    dQFromAxisAndAngle(q, rotAxis.x, rotAxis.y, rotAxis.z, angle);
+    
+    dBodySetQuaternion(body, q);
+}
+/**
+ * @brief pins an entity to the world
+ * 
+ * This joint will attempt to keep the position and orientation of
+ * the body static, position and rotate the body as needed before
+ * calling this
+ * 
+ * @param physCtx	physics context
+ * @param ent	The entity to pin to the world
+ * 
+ * @returns the joint id of the constraint 
+ */
+dJointID PinEntityToWorld(PhysicsContext* physCtx, entity* ent)
+{
+	dJointID pin = dJointCreateFixed (physCtx->world, 0);
+    dJointAttach(pin, ent->body, 0);
+    dJointSetFixed(pin);
+    return pin;
 }

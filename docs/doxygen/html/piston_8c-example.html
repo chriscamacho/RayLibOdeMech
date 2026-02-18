@@ -144,68 +144,89 @@ $(function(){initNavTree('piston_8c-example.html','',''); });
 <div class="line">        <a id="a13" name="a13"></a><a class="code hl_function" href="raylibODE_8c.html#a8e5b28e0781017c62176133087f3590c">CreateRandomEntity</a>(physCtx, graphics, (Vector3){<a id="a14" name="a14"></a><a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(6, 12), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3)});</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a15" name="_a15"></a><a class="code hl_struct" href="structentity.html">entity</a>* box1 = <a id="a16" name="a16"></a><a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics,(Vector3){4,1,1}, (Vector3){0,.6,0}, (Vector3){0,0,0}, 2);</div>
-<div class="line">    <a class="code hl_struct" href="structentity.html">entity</a>* box2 = <a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics,(Vector3){4,.9,.9}, (Vector3){.1,.6,0}, (Vector3){0,0,0}, 2);</div>
-<div class="line">    <a class="code hl_struct" href="structentity.html">entity</a>* box3 = <a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics,(Vector3){4,.8,.8}, (Vector3){.2,.6,0}, (Vector3){0,0,0}, 2);</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// manually create a 3 section piston</span></div>
+<div class="line">    <span class="comment">// TLDR skip down to the multi piston creation !</span></div>
+<div class="line">    <a id="_a15" name="_a15"></a><a class="code hl_struct" href="structentity.html">entity</a>* box1 = <a id="a16" name="a16"></a><a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics,(Vector3){4,1,1}, (Vector3){0,1.6,0}, (Vector3){0,0,0}, 2);</div>
+<div class="line">    <a class="code hl_struct" href="structentity.html">entity</a>* box2 = <a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics,(Vector3){4,.9,.9}, (Vector3){.1,1.7,.2}, (Vector3){0,0,0}, 2);</div>
+<div class="line">    <a class="code hl_struct" href="structentity.html">entity</a>* box3 = <a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics,(Vector3){4,.8,.8}, (Vector3){.2,1.8,.4}, (Vector3){0,0,0}, 2);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// the direction each box is offset - the axis of the piston</span></div>
+<div class="line">    Vector3 dir = (Vector3){.1,.1,.2};</div>
+<div class="line">    dir = Vector3Normalize(dir);</div>
+<div class="line">    </div>
+<div class="line">    <a id="a17" name="a17"></a><a class="code hl_function" href="raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f">SetBodyOrientation</a>(box1-&gt;<a id="a18" name="a18"></a><a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, dir); </div>
+<div class="line">    <a class="code hl_function" href="raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f">SetBodyOrientation</a>(box2-&gt;body, dir); </div>
+<div class="line">    <a class="code hl_function" href="raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f">SetBodyOrientation</a>(box3-&gt;body, dir); </div>
 <div class="line">    <span class="comment">// anchor box1 to the world</span></div>
-<div class="line">    dJointID pin1 = dJointCreateFixed (physCtx-&gt;<a id="a17" name="a17"></a><a class="code hl_variable" href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">world</a>, 0);</div>
-<div class="line">    dJointAttach(pin1, box1-&gt;<a id="a18" name="a18"></a><a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, 0);</div>
-<div class="line">    dJointSetFixed (pin1);</div>
+<div class="line">    <a id="a19" name="a19"></a><a class="code hl_function" href="raylibODE_8c.html#a57b8ac137f7e79fc8deb53b7ba410166">PinEntityToWorld</a>(physCtx, box1);</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">    dJointID piston1 = <a id="a19" name="a19"></a><a class="code hl_function" href="raylibODE_8c.html#aec8e521a9dfcf354ba2ae793ac6be324">CreatePiston</a>(physCtx, box1, box2);</div>
-<div class="line">    <a id="a20" name="a20"></a><a class="code hl_function" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a>(piston1, 0, 3.9);</div>
+<div class="line">    dJointID piston1 = <a id="a20" name="a20"></a><a class="code hl_function" href="raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c">CreatePiston</a>(physCtx, box1, box2,1000);</div>
+<div class="line">    <a id="a21" name="a21"></a><a class="code hl_function" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a>(piston1, 0, 3.7);</div>
+<div class="line">    dJointID piston2 = <a class="code hl_function" href="raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c">CreatePiston</a>(physCtx, box2, box3,1000);</div>
+<div class="line">    <a class="code hl_function" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a>(piston2, 0, 3.7);</div>
 <div class="line">    </div>
-<div class="line">    dJointID piston2 = <a class="code hl_function" href="raylibODE_8c.html#aec8e521a9dfcf354ba2ae793ac6be324">CreatePiston</a>(physCtx, box2, box3);</div>
-<div class="line">    <a class="code hl_function" href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a>(piston2, 0, 3.9);</div>
 <div class="line">    </div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">// because box 1,2 and 3 intersect we must filter out their collision</span></div>
+<div class="line">    <span class="comment">// because box 1,2 and 3 intersect we must filter out their collisions</span></div>
 <div class="line">    <span class="comment">// normally with joints the two attached bodies don&#39;t collide, however</span></div>
 <div class="line">    <span class="comment">// this doesn&#39;t help with box 1 vs box 3 for example</span></div>
-<div class="line"><span class="preprocessor">    #define WORLD         0x0001</span></div>
-<div class="line"><span class="preprocessor">    #define PISTON_GROUP  0x0002</span></div>
-<div class="line">    </div>
 <div class="line">    dGeomID g1 = dBodyGetFirstGeom(box1-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
 <div class="line">    dGeomID g2 = dBodyGetFirstGeom(box2-&gt;body);</div>
 <div class="line">    dGeomID g3 = dBodyGetFirstGeom(box3-&gt;body);</div>
 <div class="line"> </div>
-<div class="line">    dGeomSetCategoryBits(g1, PISTON_GROUP);</div>
-<div class="line">    dGeomSetCollideBits(g1, WORLD);</div>
+<div class="line">    dGeomSetCategoryBits(g1, <a id="_a22" name="_a22"></a><a class="code hl_define" href="raylibODE_8h.html#ad7a3394d1169a116327a236fc91cad61">PISTON_GROUP</a>);</div>
+<div class="line">    dGeomSetCollideBits(g1, <a id="_a23" name="_a23"></a><a class="code hl_define" href="raylibODE_8h.html#a7641bec378d3900deed756ce9ce5369f">WORLD_GROUP</a>);</div>
 <div class="line"> </div>
-<div class="line">    dGeomSetCategoryBits(g2, PISTON_GROUP);</div>
-<div class="line">    dGeomSetCollideBits(g2, WORLD);</div>
+<div class="line">    dGeomSetCategoryBits(g2, <a class="code hl_define" href="raylibODE_8h.html#ad7a3394d1169a116327a236fc91cad61">PISTON_GROUP</a>);</div>
+<div class="line">    dGeomSetCollideBits(g2, <a class="code hl_define" href="raylibODE_8h.html#a7641bec378d3900deed756ce9ce5369f">WORLD_GROUP</a>);</div>
 <div class="line"> </div>
-<div class="line">    dGeomSetCategoryBits(g3, PISTON_GROUP);</div>
-<div class="line">    dGeomSetCollideBits(g3, WORLD);    </div>
+<div class="line">    dGeomSetCategoryBits(g3, <a class="code hl_define" href="raylibODE_8h.html#ad7a3394d1169a116327a236fc91cad61">PISTON_GROUP</a>);</div>
+<div class="line">    dGeomSetCollideBits(g3, <a class="code hl_define" href="raylibODE_8h.html#a7641bec378d3900deed756ce9ce5369f">WORLD_GROUP</a>);    </div>
+<div class="line">    </div>
+<div class="line"> </div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// create a multi piston and pin it to the world</span></div>
+<div class="line">    <a id="_a24" name="_a24"></a><a class="code hl_struct" href="structMultiPiston.html">MultiPiston</a>* mp = <a id="a25" name="a25"></a><a class="code hl_function" href="raylibODE_8c.html#a8d2339918b2d47fcaea5c861ccfbc3d8">CreateMultiPiston</a>(physCtx, graphics, </div>
+<div class="line">                               (Vector3){4,1.4,0},  <span class="comment">// position</span></div>
+<div class="line">                               (Vector3){.5,.5,0},  <span class="comment">// direction (or axis) of the piston</span></div>
+<div class="line">                               6,                   <span class="comment">// number of sections</span></div>
+<div class="line">                               0.5,                 <span class="comment">// distance each section travels</span></div>
+<div class="line">                               2,                   <span class="comment">// base width</span></div>
+<div class="line">                               1000);               <span class="comment">// stength</span></div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="raylibODE_8c.html#a57b8ac137f7e79fc8deb53b7ba410166">PinEntityToWorld</a>(physCtx, mp-&gt;<a id="a26" name="a26"></a><a class="code hl_variable" href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">sections</a>[0]);</div>
+<div class="line">    </div>
 <div class="line">    </div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">while</span> (!WindowShouldClose())</div>
 <div class="line">    {</div>
 <div class="line">        dJointSetSliderParam(piston1, dParamVel, 0.0);</div>
 <div class="line">        dJointSetSliderParam(piston2, dParamVel, 0.0);</div>
+<div class="line">        <a id="a27" name="a27"></a><a class="code hl_function" href="raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a">SetMultiPistonVelocity</a>(mp, 0);</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordtype">float</span> pSpeed = 1;</div>
-<div class="line">        <span class="keywordflow">if</span> (IsKeyDown(KEY_LEFT_ALT)) pSpeed = 32;</div>
+<div class="line">        <span class="keywordflow">if</span> (IsKeyDown(KEY_LEFT_ALT)) pSpeed = 4;</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (IsKeyDown(KEY_I)) {</div>
 <div class="line">            dJointSetSliderParam(piston1, dParamVel, -pSpeed);</div>
 <div class="line">            dJointSetSliderParam(piston2, dParamVel, -pSpeed);</div>
 <div class="line">            dBodyEnable(box2-&gt;body);</div>
+<div class="line">            <a class="code hl_function" href="raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a">SetMultiPistonVelocity</a>(mp, -pSpeed/16.0);</div>
 <div class="line">        }</div>
 <div class="line">        <span class="keywordflow">if</span> (IsKeyDown(KEY_O)) {</div>
 <div class="line">            dJointSetSliderParam(piston1, dParamVel, pSpeed);</div>
 <div class="line">            dJointSetSliderParam(piston2, dParamVel, pSpeed);</div>
 <div class="line">            dBodyEnable(box2-&gt;body);</div>
+<div class="line">            <a class="code hl_function" href="raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a">SetMultiPistonVelocity</a>(mp, pSpeed/16.0);</div>
 <div class="line">        }</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordtype">bool</span> spcdn = IsKeyDown(KEY_SPACE); </div>
-<div class="line">        <a id="_a21" name="_a21"></a><a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = physCtx-&gt;<a id="a22" name="a22"></a><a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>-&gt;<a id="a23" name="a23"></a><a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
+<div class="line">        <a id="_a28" name="_a28"></a><a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = physCtx-&gt;<a id="a29" name="a29"></a><a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>-&gt;<a id="a30" name="a30"></a><a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
 <div class="line">        <span class="keywordflow">while</span> (node != NULL) {</div>
-<div class="line">            <a class="code hl_struct" href="structentity.html">entity</a>* ent = node-&gt;<a id="a24" name="a24"></a><a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
+<div class="line">            <a class="code hl_struct" href="structentity.html">entity</a>* ent = node-&gt;<a id="a31" name="a31"></a><a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
 <div class="line">            dBodyID bdy = ent-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>;</div>
-<div class="line">            <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* next = node-&gt;<a id="a25" name="a25"></a><a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>; <span class="comment">// get the next node now in case we delete this one</span></div>
+<div class="line">            <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* next = node-&gt;<a id="a32" name="a32"></a><a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>; <span class="comment">// get the next node now in case we delete this one</span></div>
 <div class="line">            <span class="keyword">const</span> dReal* pos = dBodyGetPosition(bdy);</div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">if</span> (spcdn) {</div>
@@ -222,22 +243,22 @@ $(function(){initNavTree('piston_8c-example.html','',''); });
 <div class="line">            }</div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">if</span>(pos[1]&lt;-10) {</div>
-<div class="line">                <a id="a26" name="a26"></a><a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(physCtx, ent); <span class="comment">// warning deletes global entity list entry, get your next node before doing this!</span></div>
+<div class="line">                <a id="a33" name="a33"></a><a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(physCtx, ent); <span class="comment">// warning deletes global entity list entry, get your next node before doing this!</span></div>
 <div class="line">                <a class="code hl_function" href="raylibODE_8c.html#a8e5b28e0781017c62176133087f3590c">CreateRandomEntity</a>(physCtx, graphics, (Vector3){<a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(6, 12), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3)});</div>
 <div class="line">            }</div>
 <div class="line">            </div>
 <div class="line">            node = next;</div>
 <div class="line">        }</div>
 <div class="line"> </div>
-<div class="line">        <a id="a27" name="a27"></a><a class="code hl_function" href="exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a>(graphics);</div>
-<div class="line">        <a id="a28" name="a28"></a><a class="code hl_function" href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a>(physCtx);</div>
+<div class="line">        <a id="a34" name="a34"></a><a class="code hl_function" href="exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a>(graphics);</div>
+<div class="line">        <a id="a35" name="a35"></a><a class="code hl_function" href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a>(physCtx);</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// drawing</span></div>
 <div class="line">        BeginDrawing();</div>
 <div class="line">            ClearBackground(BLACK);</div>
-<div class="line">            BeginMode3D(graphics-&gt;<a id="a29" name="a29"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>);</div>
-<div class="line">                <a id="a30" name="a30"></a><a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(graphics, physCtx);</div>
-<div class="line">                <a id="a31" name="a31"></a><a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(graphics, physCtx);</div>
+<div class="line">            BeginMode3D(graphics-&gt;<a id="a36" name="a36"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>);</div>
+<div class="line">                <a id="a37" name="a37"></a><a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(graphics, physCtx);</div>
+<div class="line">                <a id="a38" name="a38"></a><a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(graphics, physCtx);</div>
 <div class="line">            EndMode3D();</div>
 <div class="line"> </div>
 <div class="line">            DrawText(<span class="stringliteral">&quot;Press O and P to move the piston&quot;</span>, 10, 40, 20, RAYWHITE);</div>
@@ -245,8 +266,8 @@ $(function(){initNavTree('piston_8c-example.html','',''); });
 <div class="line">        EndDrawing();</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a id="a32" name="a32"></a><a class="code hl_function" href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a>(physCtx);</div>
-<div class="line">    <a id="a33" name="a33"></a><a class="code hl_function" href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a>(graphics);</div>
+<div class="line">    <a id="a39" name="a39"></a><a class="code hl_function" href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a>(physCtx);</div>
+<div class="line">    <a id="a40" name="a40"></a><a class="code hl_function" href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a>(graphics);</div>
 <div class="line">    CloseWindow();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
@@ -260,32 +281,39 @@ $(function(){initNavTree('piston_8c-example.html','',''); });
 <div class="ttc" id="ainit_8c_html_a6569bf61ca03001b6fabedc21aff855a"><div class="ttname"><a href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a></div><div class="ttdeci">void FreeGraphics(GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00246">init.c:246</a></div></div>
 <div class="ttc" id="ainit_8c_html_aadcc246e22ab4be2dd926a25c5bc9bad"><div class="ttname"><a href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a></div><div class="ttdeci">void FreePhysics(PhysicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00195">init.c:195</a></div></div>
 <div class="ttc" id="ainit_8h_html"><div class="ttname"><a href="init_8h.html">init.h</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00943">raylibODE.c:943</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">draws the static geometries</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00975">raylibODE.c:975</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a4a4933f37c736fd2d311be9eaf9b7fa8"><div class="ttname"><a href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a></div><div class="ttdeci">float rndf(float min, float max)</div><div class="ttdoc">Generate a random float in the specified range.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00218">raylibODE.c:218</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a57b8ac137f7e79fc8deb53b7ba410166"><div class="ttname"><a href="raylibODE_8c.html#a57b8ac137f7e79fc8deb53b7ba410166">PinEntityToWorld</a></div><div class="ttdeci">dJointID PinEntityToWorld(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">pins an entity to the world</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01170">raylibODE.c:1170</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a79db70091e3c86494f485979529984c8"><div class="ttname"><a href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a></div><div class="ttdeci">geomInfo * CreateGeomInfo(bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</div><div class="ttdoc">Helper to allocate geomInfo with collision flag, optional texture, and UV scale this is useful when g...</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00642">raylibODE.c:642</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a878892d1015e3c9349f667325d129d43"><div class="ttname"><a href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a></div><div class="ttdeci">void SetPistonLimits(dJointID joint, float min, float max)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01005">raylibODE.c:1005</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a801a17c097329ca4d55d35f1c5ae7b5a"><div class="ttname"><a href="raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a">SetMultiPistonVelocity</a></div><div class="ttdeci">void SetMultiPistonVelocity(MultiPiston *mp, float velocity)</div><div class="ttdoc">set a MultiPiston&#39;s velocity</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01115">raylibODE.c:1115</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a878892d1015e3c9349f667325d129d43"><div class="ttname"><a href="raylibODE_8c.html#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a></div><div class="ttdeci">void SetPistonLimits(dJointID joint, float min, float max)</div><div class="ttdoc">sets the limits of travel for a piston</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01061">raylibODE.c:1061</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a8d2339918b2d47fcaea5c861ccfbc3d8"><div class="ttname"><a href="raylibODE_8c.html#a8d2339918b2d47fcaea5c861ccfbc3d8">CreateMultiPiston</a></div><div class="ttdeci">MultiPiston * CreateMultiPiston(PhysicsContext *physCtx, GraphicsContext *graphics, Vector3 pos, Vector3 direction, int count, float sectionLen, float baseWidth, float strength)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01067">raylibODE.c:1067</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a8e5b28e0781017c62176133087f3590c"><div class="ttname"><a href="raylibODE_8c.html#a8e5b28e0781017c62176133087f3590c">CreateRandomEntity</a></div><div class="ttdeci">entity * CreateRandomEntity(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 pos)</div><div class="ttdoc">Add a random physics object at the specified position.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00555">raylibODE.c:555</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00918">raylibODE.c:918</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00965">raylibODE.c:965</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00938">raylibODE.c:938</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa35dd966752d4afeffcb8f39e474594c"><div class="ttname"><a href="raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c">CreatePiston</a></div><div class="ttdeci">dJointID CreatePiston(PhysicsContext *physCtx, entity *entA, entity *entB, float strength)</div><div class="ttdoc">creates a piston using two entities as its base on extending sections</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01016">raylibODE.c:1016</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00997">raylibODE.c:997</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ad087bfe56f8c97e250f6dd5054fdf76e"><div class="ttname"><a href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a></div><div class="ttdeci">int StepPhysics(PhysicsContext *physCtx)</div><div class="ttdoc">Step the physics simulation forward.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00240">raylibODE.c:240</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ae436b97d6296f4b3c35e493dde37cee3"><div class="ttname"><a href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a></div><div class="ttdeci">entity * CreateBox(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a box-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00326">raylibODE.c:326</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aec8e521a9dfcf354ba2ae793ac6be324"><div class="ttname"><a href="raylibODE_8c.html#aec8e521a9dfcf354ba2ae793ac6be324">CreatePiston</a></div><div class="ttdeci">dJointID CreatePiston(PhysicsContext *physCtx, entity *entA, entity *entB)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00972">raylibODE.c:972</a></div></div>
-<div class="ttc" id="araylibODE_8h_html_a0c734b6e492fcd4bfaeeb1e858978a40"><div class="ttname"><a href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a></div><div class="ttdeci">#define PLANE_SIZE</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00038">raylibODE.h:38</a></div></div>
-<div class="ttc" id="araylibODE_8h_html_a5c3a0114b1e58dd42011cae154c7827e"><div class="ttname"><a href="raylibODE_8h.html#a5c3a0114b1e58dd42011cae154c7827e">NUM_OBJ</a></div><div class="ttdeci">#define NUM_OBJ</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00035">raylibODE.h:35</a></div></div>
-<div class="ttc" id="araylibODE_8h_html_aeca363633c4fad02497dc3ebd42fa298"><div class="ttname"><a href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a></div><div class="ttdeci">#define PLANE_THICKNESS</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00039">raylibODE.h:39</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html"><div class="ttname"><a href="structGraphicsContext.html">GraphicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00094">raylibODE.h:94</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_a67da4b710a791d954415259ae540976c"><div class="ttname"><a href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">GraphicsContext::camera</a></div><div class="ttdeci">Camera camera</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00107">raylibODE.h:107</a></div></div>
-<div class="ttc" id="astructGraphicsContext_html_ad3030611b0418e63e186207a3ce3b9b6"><div class="ttname"><a href="structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6">GraphicsContext::groundTexture</a></div><div class="ttdeci">Texture groundTexture</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00105">raylibODE.h:105</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html"><div class="ttname"><a href="structPhysicsContext.html">PhysicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00113">raylibODE.h:113</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_a2812915a2d632b88d05433459a1f0b7e"><div class="ttname"><a href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">PhysicsContext::space</a></div><div class="ttdeci">dSpaceID space</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00115">raylibODE.h:115</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_a9b8d81159eec734cb1b95c95203b7f50"><div class="ttname"><a href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">PhysicsContext::objList</a></div><div class="ttdeci">clist_t * objList</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00118">raylibODE.h:118</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_aa88cec7da4225aa5c1f2bbdabe55b35d"><div class="ttname"><a href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">PhysicsContext::statics</a></div><div class="ttdeci">clist_t * statics</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00119">raylibODE.h:119</a></div></div>
-<div class="ttc" id="astructPhysicsContext_html_ae036c70d830c45f16ea1fbeafd94680f"><div class="ttname"><a href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">PhysicsContext::world</a></div><div class="ttdeci">dWorldID world</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00114">raylibODE.h:114</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aea5e471f2ffcadf7bcce5b25993d1d0f"><div class="ttname"><a href="raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f">SetBodyOrientation</a></div><div class="ttdeci">void SetBodyOrientation(dBodyID body, Vector3 direction)</div><div class="ttdoc">sets to bodies orientation to align with a vector</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01130">raylibODE.c:1130</a></div></div>
+<div class="ttc" id="araylibODE_8h_html_a0c734b6e492fcd4bfaeeb1e858978a40"><div class="ttname"><a href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a></div><div class="ttdeci">#define PLANE_SIZE</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00041">raylibODE.h:41</a></div></div>
+<div class="ttc" id="araylibODE_8h_html_a5c3a0114b1e58dd42011cae154c7827e"><div class="ttname"><a href="raylibODE_8h.html#a5c3a0114b1e58dd42011cae154c7827e">NUM_OBJ</a></div><div class="ttdeci">#define NUM_OBJ</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00038">raylibODE.h:38</a></div></div>
+<div class="ttc" id="araylibODE_8h_html_a7641bec378d3900deed756ce9ce5369f"><div class="ttname"><a href="raylibODE_8h.html#a7641bec378d3900deed756ce9ce5369f">WORLD_GROUP</a></div><div class="ttdeci">#define WORLD_GROUP</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00034">raylibODE.h:34</a></div></div>
+<div class="ttc" id="araylibODE_8h_html_ad7a3394d1169a116327a236fc91cad61"><div class="ttname"><a href="raylibODE_8h.html#ad7a3394d1169a116327a236fc91cad61">PISTON_GROUP</a></div><div class="ttdeci">#define PISTON_GROUP</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00035">raylibODE.h:35</a></div></div>
+<div class="ttc" id="araylibODE_8h_html_aeca363633c4fad02497dc3ebd42fa298"><div class="ttname"><a href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a></div><div class="ttdeci">#define PLANE_THICKNESS</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00042">raylibODE.h:42</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html"><div class="ttname"><a href="structGraphicsContext.html">GraphicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00097">raylibODE.h:97</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_a67da4b710a791d954415259ae540976c"><div class="ttname"><a href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">GraphicsContext::camera</a></div><div class="ttdeci">Camera camera</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00110">raylibODE.h:110</a></div></div>
+<div class="ttc" id="astructGraphicsContext_html_ad3030611b0418e63e186207a3ce3b9b6"><div class="ttname"><a href="structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6">GraphicsContext::groundTexture</a></div><div class="ttdeci">Texture groundTexture</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00108">raylibODE.h:108</a></div></div>
+<div class="ttc" id="astructMultiPiston_html"><div class="ttname"><a href="structMultiPiston.html">MultiPiston</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00125">raylibODE.h:125</a></div></div>
+<div class="ttc" id="astructMultiPiston_html_ab70dd6653285ac49e434852b22a70148"><div class="ttname"><a href="structMultiPiston.html#ab70dd6653285ac49e434852b22a70148">MultiPiston::sections</a></div><div class="ttdeci">entity ** sections</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00126">raylibODE.h:126</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html"><div class="ttname"><a href="structPhysicsContext.html">PhysicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00116">raylibODE.h:116</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_a2812915a2d632b88d05433459a1f0b7e"><div class="ttname"><a href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">PhysicsContext::space</a></div><div class="ttdeci">dSpaceID space</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00118">raylibODE.h:118</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_a9b8d81159eec734cb1b95c95203b7f50"><div class="ttname"><a href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">PhysicsContext::objList</a></div><div class="ttdeci">clist_t * objList</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00121">raylibODE.h:121</a></div></div>
+<div class="ttc" id="astructPhysicsContext_html_aa88cec7da4225aa5c1f2bbdabe55b35d"><div class="ttname"><a href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">PhysicsContext::statics</a></div><div class="ttdeci">clist_t * statics</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00122">raylibODE.h:122</a></div></div>
 <div class="ttc" id="astruct____clist_html_a87719175a9395449ee1db0221b39688a"><div class="ttname"><a href="struct____clist.html#a87719175a9395449ee1db0221b39688a">__clist::head</a></div><div class="ttdeci">cnode_t * head</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00027">clist.h:27</a></div></div>
 <div class="ttc" id="astruct____cnode_html_aabe3d86831d46a328c4a8764acf66ac4"><div class="ttname"><a href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">__cnode::next</a></div><div class="ttdeci">struct __cnode * next</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00013">clist.h:13</a></div></div>
 <div class="ttc" id="astruct____cnode_html_ae59520f57274323a159b336ee81f565b"><div class="ttname"><a href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">__cnode::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00014">clist.h:14</a></div></div>
-<div class="ttc" id="astructentity_html"><div class="ttname"><a href="structentity.html">entity</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00043">raylibODE.h:43</a></div></div>
-<div class="ttc" id="astructentity_html_ada0e6866acb68b3f1e2bff5d70b2b760"><div class="ttname"><a href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">entity::body</a></div><div class="ttdeci">dBodyID body</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00044">raylibODE.h:44</a></div></div>
+<div class="ttc" id="astructentity_html"><div class="ttname"><a href="structentity.html">entity</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00046">raylibODE.h:46</a></div></div>
+<div class="ttc" id="astructentity_html_ada0e6866acb68b3f1e2bff5d70b2b760"><div class="ttname"><a href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">entity::body</a></div><div class="ttdeci">dBodyID body</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00047">raylibODE.h:47</a></div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

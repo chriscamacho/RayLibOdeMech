@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structMultiPiston" kind="struct" language="C++" prot="public">
+    <compoundname>MultiPiston</compoundname>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" prot="public" static="no" mutable="no">
+        <type><ref refid="structentity" kindref="compound">entity</ref> **</type>
+        <definition>entity** MultiPiston::sections</definition>
+        <argsstring></argsstring>
+        <name>sections</name>
+        <qualifiedname>MultiPiston::sections</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="126" column="12" bodyfile="raylibODE.h" bodystart="126" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1115" endline="1121">SetMultiPistonVelocity</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" prot="public" static="no" mutable="no">
+        <type>dJointID *</type>
+        <definition>dJointID* MultiPiston::joints</definition>
+        <argsstring></argsstring>
+        <name>joints</name>
+        <qualifiedname>MultiPiston::joints</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="127" column="14" bodyfile="raylibODE.h" bodystart="127" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1115" endline="1121">SetMultiPistonVelocity</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MultiPiston::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>MultiPiston::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="128" column="9" bodyfile="raylibODE.h" bodystart="128" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1067" endline="1104">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1115" endline="1121">SetMultiPistonVelocity</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structMultiPiston_1ad3e235df247bc80c0c47bc0b45a195ce" prot="public" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 MultiPiston::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>MultiPiston::direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="129" column="13" bodyfile="raylibODE.h" bodystart="129" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>MultiPiston</label>
+        <link refid="structMultiPiston"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>sections</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>__cnode</label>
+        <link refid="struct____cnode"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entity</label>
+        <link refid="structentity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="raylibODE.h" line="125" column="1" bodyfile="raylibODE.h" bodystart="125" bodyend="130"/>
+    <listofallmembers>
+      <member refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" prot="public" virt="non-virtual"><scope>MultiPiston</scope><name>count</name></member>
+      <member refid="structMultiPiston_1ad3e235df247bc80c0c47bc0b45a195ce" prot="public" virt="non-virtual"><scope>MultiPiston</scope><name>direction</name></member>
+      <member refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" prot="public" virt="non-virtual"><scope>MultiPiston</scope><name>joints</name></member>
+      <member refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" prot="public" virt="non-virtual"><scope>MultiPiston</scope><name>sections</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

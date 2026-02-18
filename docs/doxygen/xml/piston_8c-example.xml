@@ -56,60 +56,81 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" kindref="member">CreateRandomEntity</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>box1<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,(Vector3){4,1,1},<sp/>(Vector3){0,.6,0},<sp/>(Vector3){0,0,0},<sp/>2);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>box2<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,(Vector3){4,.9,.9},<sp/>(Vector3){.1,.6,0},<sp/>(Vector3){0,0,0},<sp/>2);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>box3<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,(Vector3){4,.8,.8},<sp/>(Vector3){.2,.6,0},<sp/>(Vector3){0,0,0},<sp/>2);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>manually<sp/>create<sp/>a<sp/>3<sp/>section<sp/>piston</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TLDR<sp/>skip<sp/>down<sp/>to<sp/>the<sp/>multi<sp/>piston<sp/>creation<sp/>!</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>box1<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,(Vector3){4,1,1},<sp/>(Vector3){0,1.6,0},<sp/>(Vector3){0,0,0},<sp/>2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>box2<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,(Vector3){4,.9,.9},<sp/>(Vector3){.1,1.7,.2},<sp/>(Vector3){0,0,0},<sp/>2);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>box3<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,(Vector3){4,.8,.8},<sp/>(Vector3){.2,1.8,.4},<sp/>(Vector3){0,0,0},<sp/>2);</highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>direction<sp/>each<sp/>box<sp/>is<sp/>offset<sp/>-<sp/>the<sp/>axis<sp/>of<sp/>the<sp/>piston</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>dir<sp/>=<sp/>(Vector3){.1,.1,.2};</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dir<sp/>=<sp/>Vector3Normalize(dir);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kindref="member">SetBodyOrientation</ref>(box1-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>,<sp/>dir);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kindref="member">SetBodyOrientation</ref>(box2-&gt;body,<sp/>dir);<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kindref="member">SetBodyOrientation</ref>(box3-&gt;body,<sp/>dir);<sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>anchor<sp/>box1<sp/>to<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>pin1<sp/>=<sp/>dJointCreateFixed<sp/>(physCtx-&gt;<ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>,<sp/>0);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointAttach(pin1,<sp/>box1-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>,<sp/>0);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetFixed<sp/>(pin1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" kindref="member">PinEntityToWorld</ref>(physCtx,<sp/>box1);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>piston1<sp/>=<sp/><ref refid="raylibODE_8c_1aec8e521a9dfcf354ba2ae793ac6be324" kindref="member">CreatePiston</ref>(physCtx,<sp/>box1,<sp/>box2);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(piston1,<sp/>0,<sp/>3.9);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>piston1<sp/>=<sp/><ref refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kindref="member">CreatePiston</ref>(physCtx,<sp/>box1,<sp/>box2,1000);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(piston1,<sp/>0,<sp/>3.7);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>piston2<sp/>=<sp/><ref refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kindref="member">CreatePiston</ref>(physCtx,<sp/>box2,<sp/>box3,1000);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(piston2,<sp/>0,<sp/>3.7);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>piston2<sp/>=<sp/><ref refid="raylibODE_8c_1aec8e521a9dfcf354ba2ae793ac6be324" kindref="member">CreatePiston</ref>(physCtx,<sp/>box2,<sp/>box3);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(piston2,<sp/>0,<sp/>3.9);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>because<sp/>box<sp/>1,2<sp/>and<sp/>3<sp/>intersect<sp/>we<sp/>must<sp/>filter<sp/>out<sp/>their<sp/>collision</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>because<sp/>box<sp/>1,2<sp/>and<sp/>3<sp/>intersect<sp/>we<sp/>must<sp/>filter<sp/>out<sp/>their<sp/>collisions</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>normally<sp/>with<sp/>joints<sp/>the<sp/>two<sp/>attached<sp/>bodies<sp/>don&apos;t<sp/>collide,<sp/>however</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>this<sp/>doesn&apos;t<sp/>help<sp/>with<sp/>box<sp/>1<sp/>vs<sp/>box<sp/>3<sp/>for<sp/>example</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>WORLD<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x0001</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#define<sp/>PISTON_GROUP<sp/><sp/>0x0002</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>g1<sp/>=<sp/>dBodyGetFirstGeom(box1-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>g2<sp/>=<sp/>dBodyGetFirstGeom(box2-&gt;body);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>g3<sp/>=<sp/>dBodyGetFirstGeom(box3-&gt;body);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCategoryBits(g1,<sp/>PISTON_GROUP);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCollideBits(g1,<sp/>WORLD);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCategoryBits(g1,<sp/><ref refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" kindref="member">PISTON_GROUP</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCollideBits(g1,<sp/><ref refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" kindref="member">WORLD_GROUP</ref>);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCategoryBits(g2,<sp/>PISTON_GROUP);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCollideBits(g2,<sp/>WORLD);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCategoryBits(g2,<sp/><ref refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" kindref="member">PISTON_GROUP</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCollideBits(g2,<sp/><ref refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" kindref="member">WORLD_GROUP</ref>);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCategoryBits(g3,<sp/>PISTON_GROUP);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCollideBits(g3,<sp/>WORLD);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCategoryBits(g3,<sp/><ref refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" kindref="member">PISTON_GROUP</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetCollideBits(g3,<sp/><ref refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" kindref="member">WORLD_GROUP</ref>);<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>a<sp/>multi<sp/>piston<sp/>and<sp/>pin<sp/>it<sp/>to<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/>mp<sp/>=<sp/><ref refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" kindref="member">CreateMultiPiston</ref>(physCtx,<sp/>graphics,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){4,1.4,0},<sp/><sp/></highlight><highlight class="comment">//<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){.5,.5,0},<sp/><sp/></highlight><highlight class="comment">//<sp/>direction<sp/>(or<sp/>axis)<sp/>of<sp/>the<sp/>piston</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>6,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>number<sp/>of<sp/>sections</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.5,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>distance<sp/>each<sp/>section<sp/>travels</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>2,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>base<sp/>width</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1000);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>stength</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" kindref="member">PinEntityToWorld</ref>(physCtx,<sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[0]);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!WindowShouldClose())</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderParam(piston1,<sp/>dParamVel,<sp/>0.0);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderParam(piston2,<sp/>dParamVel,<sp/>0.0);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" kindref="member">SetMultiPistonVelocity</ref>(mp,<sp/>0);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>pSpeed<sp/>=<sp/>1;</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_LEFT_ALT))<sp/>pSpeed<sp/>=<sp/>32;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_LEFT_ALT))<sp/>pSpeed<sp/>=<sp/>4;</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_I))<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderParam(piston1,<sp/>dParamVel,<sp/>-pSpeed);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderParam(piston2,<sp/>dParamVel,<sp/>-pSpeed);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodyEnable(box2-&gt;body);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" kindref="member">SetMultiPistonVelocity</ref>(mp,<sp/>-pSpeed/16.0);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_O))<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderParam(piston1,<sp/>dParamVel,<sp/>pSpeed);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderParam(piston2,<sp/>dParamVel,<sp/>pSpeed);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodyEnable(box2-&gt;body);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" kindref="member">SetMultiPistonVelocity</ref>(mp,<sp/>pSpeed/16.0);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>spcdn<sp/>=<sp/>IsKeyDown(KEY_SPACE);<sp/></highlight></codeline>
