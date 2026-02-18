@@ -20,8 +20,7 @@
  * SOFTWARE.
  *
  */
-
-
+ 
 #include "init.h"
 #include "exampleCamera.h"
 #include "ragdoll.h"

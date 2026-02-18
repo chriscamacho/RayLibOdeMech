@@ -20,7 +20,7 @@
  * SOFTWARE.
  *
  */
-
+ 
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -41,7 +41,7 @@ PhysicsContext* physCtx = NULL;
 
 // TODO look at having user data passed to triggerCallback somehow to avoid globals...
 
-// this will end up joining to the last collided in a frame (could be any!)
+// this will end up joining to the first collided in a frame (could be any!)
 void triggerCallback(dGeomID trigger, dGeomID intruder) {
 	(void)trigger;
 	if (intruder == planeGeom) return;

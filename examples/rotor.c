@@ -20,7 +20,7 @@
  * SOFTWARE.
  *
  */
-
+ 
 #include <stdlib.h>
 
 #include "init.h"
@@ -28,8 +28,6 @@
 
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
-
-// TODO add constrain helpers to raylibODE ....!
 
 
 int main(void)

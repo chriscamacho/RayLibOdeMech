@@ -40,32 +40,32 @@
  * rendering with ODE (Open Dynamics Engine) for physics simulation. It
  * provides an easy-to-use API for creating 3D physics simulations with
  * various primitive shapes and complex composite objects.
- * 
+ *
  * The main functionality is documented here @ref raylibODE.c
- * 
+ *
  * @section preperation Compiling ODE for the framework
- * 
+ *
  * ODE is linked in statically for convienience.
- * 
+ *
  * get ODE from https://bitbucket.org/odedevs/ode/downloads/
- * 
+ *
  * extract ode 0.16.6 into a directory at the same level as this project (see below)
- * 
+ *
  * ln -s ode-0.16.6 ode<br>
  * cd ode
- * 
+ *
  * I'd suggest building it with this configuration<br>
  * ./configure --enable-ou --enable-libccd --with-box-cylinder=libccd --with-drawstuff=none --disable-demos --with-libccd=internal
- * 
+ *
  * and run make, you should then be set to compile this project
- * 
+ *
  * Your file structure should look like this
- * 
+ *
  * ode<br>
  * raylib<br>
  * RayLibOdeMech
  *
- *  
+ *
  * @section features Features
  *
  * - Physics body creation (boxes, spheres, cylinders, capsules)
@@ -75,7 +75,7 @@
  * - Automatic collision detection and response
  * - Integrated rendering with custom shaders
  *
- * 
+ *
  * @section usage Basic Usage
  *
  * @subsection initialization Initialization
@@ -96,7 +96,7 @@
  * Vector3 pos = {0.0f, 5.0f, 0.0f};
  * Vector3 rot = {0.0f, 0.0f, 0.0f};
  * entity* box = addBox(physCtx, &gfxCtx, size, pos, rot, 10.0f);
- * 
+ *
  * // Create a static ground box
  * dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
  * dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
@@ -112,7 +112,7 @@
  *     // Step physics
  *     stepPhysics(physCtx);
  *     updateCamera(&graphics);
- * 
+ *
  *     // Render
  *     BeginDrawing();
  *         ClearBackground(RAYWHITE);
@@ -144,44 +144,53 @@
  */
  
  /**
- * @example placer.c
- * @par 
- * place new shapes in the world, and push them about <br>
- * show how to do ray cast detection
- * 
- * @example terrain.c
- * @par 
- * shows shapes colliding and coming to rest on a static trimesh
- * 
- * @example ragdolls.c
- * @par 
- * press space to move them around (random upwards and sideways 
- * force applied to head)
- * 
- * @example rotor.c
- * @par 
- * shows the rotor convenience function
- * 
+ * @example arm.c
+ * @par
+ * control a robot arm with IO, KL, ,. keys and G to release grabber
+ *  
  * @example car.c
- * @par 
+ * @par
  * use the cursor keys to control a simple vehicle over a trimesh
- * 
- * @example fountain.c
- * @par 
- * many shapes being created and destroyed, show using a sphere
- * as a trigger area
- * 
+ *  
  * @example derby.c
- * @par 
+ * @par
  * a whole bunch of cars, following a figure of 8 path and making
  * no attempt to avoid collisions !
+ *  
+ * @example fountain.c
+ * @par
+ * many shapes being created and destroyed, show using a sphere
+ * as a trigger area
+ *  
+ * @example piston.c
+ * @par
+ * A simple piston, press O and P to move the pistons, the main body
+ * of the piston is achored to the world so it doesn't move
  * 
- * @example arm.c
- * @par 
- * control a robot arm with IO, KL, ,. keys and G to release grabber
+ * @example placer.c
+ * @par
+ * place new shapes in the world, and push them about <br>
+ * shows how to do ray cast detection
+ *  
+ * @example ragdolls.c
+ * @par
+ * press space to move them around (random upwards and sideways
+ * force applied to head)
+ *  
+ * @example rotor.c
+ * @par
+ * shows the rotor convenience function
+ *  
+ * @example template.c
+ * @par
+ * This example does nothing! it has a static ground box and camera
+ * it is intended to be copied and used for your own experiments
+ * 
+ * @example terrain.c
+ * @par
+ * shows shapes colliding and coming to rest on a static trimesh
  */
- 
-#include <stdlib.h> 
+#include <stdlib.h>
 #include <string.h>  // memset
 #include "raylibODE.h"
 #include "collision.h"
@@ -192,7 +201,7 @@
  *
  * The fixed time step used for physics simulation.
  * ODE recommends using fixed time steps for consistent results.
- * 1/240 = ~240 Hz update rate.  
+ * 1/240 = ~240 Hz update rate.
  * the framework will step as many times as it needs to to
  * keep up with realtime in this sized steps
  */
@@ -231,24 +240,24 @@ float rndf(float min, float max)
  */
 int stepPhysics(PhysicsContext* physCtx)
 {
-	int pSteps = 0;  
-	physCtx->frameTime += GetFrameTime();      
+	int pSteps = 0;
+	physCtx->frameTime += GetFrameTime();
 	while (physCtx->frameTime > physSlice) {
 		// check for collisions
 		dSpaceCollide(physCtx->space, physCtx, &nearCallback);
-		
+
 		// step the world
 		// although this does steps itself, doing it multiple times
 		// allows for smoother physics and gives us a way to sync
 		// physics time to everything else.
 		dWorldQuickStep(physCtx->world, physSlice);  // NB fixed time step is important
 		dJointGroupEmpty(physCtx->contactgroup);
-		
+
 		physCtx->frameTime -= physSlice;
 		pSteps++;
 		if (pSteps > maxPsteps) {
 			physCtx->frameTime = 0;
-			break;      
+			break;
 		}
 	}
 	return pSteps;
@@ -281,15 +290,15 @@ entity* createBaseEntity(PhysicsContext* ctx) {
 }
 
 // just an isolated geom, most useful to add to existing bodies
-dGeomID createSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos) 
+dGeomID createSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos)
 {
     dGeomID geom = dCreateSphere(ctx->space, radius);
     dGeomSetPosition(geom, pos.x, pos.y, pos.z);
-    
+
     Texture* tex = &gfxCtx->sphereTextures[(int)rndf(0, 3)];
     geomInfo* gi = CreateGeomInfo(true, tex, 1.0f, 1.0f);
     dGeomSetData(geom, gi);
-    
+
     return geom;
 }
 
@@ -315,24 +324,25 @@ dGeomID createSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float rad
  * @see PhysicsContext
  * @see GraphicsContext
  */
-entity* addBox(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass) {
+entity* addBox(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)
+{
     entity* ent = createBaseEntity(ctx);
     dMatrix3 R;
     dMass m;
 
     dGeomID geom = dCreateBox(ctx->space, size.x, size.y, size.z);
     dMassSetBox(&m, mass, size.x, size.y, size.z);
-    
+
     dBodySetPosition(ent->body, pos.x, pos.y, pos.z);
     dRFromEulerAngles(R, rot.x, rot.y, rot.z);
     dBodySetRotation(ent->body, R);
-    
+
     dGeomSetBody(geom, ent->body);
     dBodySetMass(ent->body, &m);
-    
+
     Texture* tex = &gfxCtx->boxTextures[(int)rndf(0, 2)];
     dGeomSetData(geom, CreateGeomInfo(true, tex, 1.0f, 1.0f));
-    
+
     return ent;
 }
 
@@ -357,24 +367,25 @@ entity* addBox(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vecto
  * @see entity
  * @see PhysicsContext
  */
-entity* addSphere(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass) {
+entity* addSphere(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)
+{
     entity* ent = createBaseEntity(ctx);
     dMatrix3 R;
     dMass m;
 
     dGeomID geom = dCreateSphere(ctx->space, radius);
     dMassSetSphere(&m, mass, radius);
-    
+
     dBodySetPosition(ent->body, pos.x, pos.y, pos.z);
     dRFromEulerAngles(R, rot.x, rot.y, rot.z);
     dBodySetRotation(ent->body, R);
-    
+
     dGeomSetBody(geom, ent->body);
     dBodySetMass(ent->body, &m);
-    
+
     Texture* tex = &gfxCtx->sphereTextures[(int)rndf(0, 3)];
     dGeomSetData(geom, CreateGeomInfo(true, tex, 1.0f, 1.0f));
-    
+
     return ent;
 }
 
@@ -408,17 +419,17 @@ entity* addCylinder(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, 
     // ODE Cylinders are aligned along the Z-axis by default
     dGeomID geom = dCreateCylinder(ctx->space, radius, length);
     dMassSetCylinder(&m, mass, 3, radius, length); // 3 = Z-axis orientation
-    
+
     dBodySetPosition(ent->body, pos.x, pos.y, pos.z);
     dRFromEulerAngles(R, rot.x, rot.y, rot.z);
     dBodySetRotation(ent->body, R);
-    
+
     dGeomSetBody(geom, ent->body);
     dBodySetMass(ent->body, &m);
-    
+
     Texture* tex = &gfxCtx->cylinderTextures[(int)rndf(0, 2)];
     dGeomSetData(geom, CreateGeomInfo(true, tex, 1.0f, 1.0f));
-    
+
     return ent;
 }
 
@@ -450,17 +461,17 @@ entity* addCapsule(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, f
 
     dGeomID geom = dCreateCapsule(ctx->space, radius, length);
     dMassSetCapsule(&m, mass, 3, radius, length);
-    
+
     dBodySetPosition(ent->body, pos.x, pos.y, pos.z);
     dRFromEulerAngles(R, rot.x, rot.y, rot.z);
     dBodySetRotation(ent->body, R);
-    
+
     dGeomSetBody(geom, ent->body);
     dBodySetMass(ent->body, &m);
-    
+
     Texture* tex = &gfxCtx->cylinderTextures[(int)rndf(0, 2)];
     dGeomSetData(geom, CreateGeomInfo(true, tex, 1.0f, 1.0f));
-    
+
     return ent;
 }
 
@@ -493,12 +504,12 @@ entity* addDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad
     entity* ent = createBaseEntity(ctx);
     dMatrix3 R;
     dMass m, mTotal, mSphere;
-    
+
     // 1. Shaft (Cylinder)
     dGeomID gShaft = dCreateCylinder(ctx->space, shaftRad, shaftLen);
     dMassSetCylinder(&mTotal, mass * 0.5f, 3, shaftRad, shaftLen);
     dGeomSetBody(gShaft, ent->body);
-    
+
     // 2. Ends (Spheres)
     float offset = shaftLen / 2.0f;
     dGeomID gEnd1 = dCreateSphere(ctx->space, endRad);
@@ -507,22 +518,22 @@ entity* addDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad
     dGeomSetBody(gEnd2, ent->body);
     dGeomSetOffsetPosition(gEnd1, 0, 0, offset);
     dGeomSetOffsetPosition(gEnd2, 0, 0, -offset);
-    
+
     // Combine Masses
     dMassSetSphere(&mSphere, mass * 0.25f, endRad);
     m = mSphere; dMassTranslate(&m, 0, 0, offset); dMassAdd(&mTotal, &m);
     m = mSphere; dMassTranslate(&m, 0, 0, -offset); dMassAdd(&mTotal, &m);
-    
+
     dBodySetMass(ent->body, &mTotal);
     dBodySetPosition(ent->body, pos.x, pos.y, pos.z);
     dRFromEulerAngles(R, rot.x, rot.y, rot.z);
     dBodySetRotation(ent->body, R);
-    
+
     Texture* tex = &gfxCtx->cylinderTextures[(int)rndf(0, 2)];
     dGeomSetData(gShaft, CreateGeomInfo(true, tex, 1.0f, 1.0f));
     dGeomSetData(gEnd1, CreateGeomInfo(true, tex, 1.0f, 1.0f));
     dGeomSetData(gEnd2, CreateGeomInfo(true, tex, 1.0f, 1.0f));
-    
+
     return ent;
 }
 
@@ -545,7 +556,7 @@ entity* addDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad
 entity* addRandomPhys(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos)
 {
     float typ = rndf(0, 1);
-    
+
     Vector3 rot = (Vector3){rndf(0, 6.28), rndf(0, 6.28), rndf(0, 6.28)};
     float mass = 10.0f;
 
@@ -595,7 +606,7 @@ entity* addRandomPhys(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos)
 cnode_t* CreateStaticTrimesh(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Model model, Texture* tex, float uvScale)
 {
     int nV = model.meshes[0].vertexCount;
-    
+
     // Setup ODE Data
     int* indices = RL_MALLOC(nV * sizeof(int));
     for (int i = 0; i < nV; i++) indices[i] = i;
@@ -603,19 +614,19 @@ cnode_t* CreateStaticTrimesh(PhysicsContext* physCtx, GraphicsContext* gfxCtx, M
     dTriMeshDataID triData = dGeomTriMeshDataCreate();
     dGeomTriMeshDataBuildSingle(triData, model.meshes[0].vertices, 3 * sizeof(float), nV,
                                 indices, nV, 3 * sizeof(int));
-    
+
     dGeomID geom = dCreateTriMesh(physCtx->space, triData, NULL, NULL, NULL);
-    
+
     if (tex) model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *tex;
-    model.materials[0].shader = gfxCtx->shader; 
-    
+    model.materials[0].shader = gfxCtx->shader;
+
     // Setup Metadata
     geomInfo* gi = CreateGeomInfo(true, tex, uvScale, uvScale);
     gi->visual = model; // Stores the textured/shader-ready model
     gi->indices = indices;
     gi->triData = triData;
     dGeomSetData(geom, gi);
-    
+
     return clistAddNode(physCtx->statics, geom);
 }
 
@@ -623,7 +634,7 @@ cnode_t* CreateStaticTrimesh(PhysicsContext* physCtx, GraphicsContext* gfxCtx, M
  this is useful when greating your own custom bodies for special purposes
  If this is attached to a geom on a body that is in the global entity list then this
  allocation will be automagically cleaned up.
- 
+
  @param collidable should this geom cause collisions
  @param texture which texture to use for the geom
  @param uvScaleU texture scaling
@@ -633,7 +644,7 @@ geomInfo* CreateGeomInfo(bool collidable, Texture* texture, float uvScaleU, floa
 {
     geomInfo* gi = RL_MALLOC(sizeof(geomInfo));
     memset(gi, 0, sizeof(geomInfo)); // ensure visual for example is clear
-    
+
     gi->collidable = collidable;
     gi->texture = texture;
     gi->uvScaleU = uvScaleU;
@@ -662,23 +673,23 @@ static void rayCallback(void* data, dGeomID o1, dGeomID o2) {
 /** @brief this will return the first entity that the camera is directly pointed at
  * while useful in the examples and likely for other things, it also serves as an example
  * of how you can do this yourself for other things
- * 
+ *
  * @param physCtx the physics context (global physics info)
  * @param gfxCtx the graphics context (global info usful for graphics)
  * @param hitPoint pass a pointer to a Vector3 this will be set with the location of the intersecton
- * 
+ *
  * @returns a pointer to the entity that was found.
- 
+
  */
 entity* getEntityFromMouse(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hitPoint) {
 
     Vector2 screenCenter = { GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f };
     Ray ray = GetMouseRay(screenCenter, gfxCtx->camera);
-    
+
     // Create a temporary ODE ray
     float rayLength = 1000.0f;
     dGeomID odeRay = dCreateRay(physCtx->space, rayLength);
-    dGeomRaySet(odeRay, ray.position.x, ray.position.y, ray.position.z, 
+    dGeomRaySet(odeRay, ray.position.x, ray.position.y, ray.position.z,
                         ray.direction.x, ray.direction.y, ray.direction.z);
 
     // Setup hit tracking
@@ -693,7 +704,7 @@ entity* getEntityFromMouse(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vec
 
     if (hit.geom != NULL) {
         if (hitPoint) *hitPoint = hit.pos;
-        
+
         // Get the body attached to the geom
         dBodyID bdy = dGeomGetBody(hit.geom);
         if (bdy) {
@@ -717,7 +728,7 @@ void FreeBodyAndGeoms(dBodyID bdy)
 		dGeomDestroy(geom);
 		geom = next;
 	}
-	
+
 	dBodyDestroy(bdy);
 }
 
@@ -725,7 +736,7 @@ void FreeBodyAndGeoms(dBodyID bdy)
 // TODO check there isn't a new raylib function that does this now _pro _ex or similar!
 void MyDrawModel(Model model, Color tint)
 {
-    
+
     for (int i = 0; i < model.meshCount; i++)
     {
         Color color = model.materials[model.meshMaterial[i]].maps[MATERIAL_MAP_DIFFUSE].color;
@@ -748,7 +759,7 @@ void rayToOdeMat(Matrix* m, dReal* R) {
     R[ 0] = m->m0;   R[ 1] = m->m4;   R[ 2] = m->m8;    R[ 3] = 0;
     R[ 4] = m->m1;   R[ 5] = m->m5;   R[ 6] = m->m9;    R[ 7] = 0;
     R[ 8] = m->m2;   R[ 9] = m->m6;   R[10] = m->m10;   R[11] = 0;
-    R[12] = 0;       R[13] = 0;       R[14] = 0;        R[15] = 1;   
+    R[12] = 0;       R[13] = 0;       R[14] = 0;        R[15] = 1;
 }
 
 // sets a raylib matrix from an ODE rotation matrix
@@ -762,11 +773,11 @@ void odeToRayMat(const dReal* R, Matrix* m)
 
 // called by draw all geoms
 
-void drawGeom(dGeomID geom, struct GraphicsContext* ctx) 
+void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
 {
     geomInfo* gi = (geomInfo*)dGeomGetData(geom);
     if (!gi) return; // Silently bail if no metadata
-    
+
     // If it's a trigger, don't render anything
     if (gi->triggerOnCollide) return;
 
@@ -776,7 +787,7 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
     const dReal* pos = dGeomGetPosition(geom);
     const dReal* rot = dGeomGetRotation(geom);
     int class = dGeomGetClass(geom);
-    
+
     Matrix matRot;
     odeToRayMat(rot, &matRot);
     Matrix matTran = MatrixTranslate(pos[0], pos[1], pos[2]);
@@ -790,7 +801,7 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
         int uvLoc = GetShaderLocation(ctx->shader, "texCoordScale");
         Vector2 uvScale = { gi->uvScaleU, gi->uvScaleV };
         SetShaderValue(ctx->shader, uvLoc, &uvScale.x, SHADER_UNIFORM_VEC2);
-        
+
         // assign the texture to whichever models might be used
         if (class == dBoxClass) ctx->box.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi->texture;
         else if (class == dSphereClass) ctx->ball.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi->texture;
@@ -800,7 +811,7 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
             ctx->ball.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *gi->texture;
         }
     }
-    
+
     if (gi->visual.meshCount) {
 		gi->visual.transform = matWorld;
 		MyDrawModel(gi->visual, c);
@@ -811,18 +822,18 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
 			dGeomBoxGetLengths(geom, size);
 			ctx->box.transform = MatrixMultiply(MatrixScale(size[0], size[1], size[2]), matWorld);
 			MyDrawModel(ctx->box, c);
-		} 
+		}
 		else if (class == dSphereClass) {
 			float r = dGeomSphereGetRadius(geom);
 			ctx->ball.transform = MatrixMultiply(MatrixScale(r*2, r*2, r*2), matWorld);
 			MyDrawModel(ctx->ball, c);
-		} 
+		}
 		else if (class == dCylinderClass) {
 			dReal l, r;
 			dGeomCylinderGetParams(geom, &r, &l);
 			ctx->cylinder.transform = MatrixMultiply(MatrixScale(r*2, r*2, l), matWorld);
 			MyDrawModel(ctx->cylinder, c);
-		} 
+		}
 		else if (class == dCapsuleClass) {
 			dReal l, r;
 			dGeomCapsuleGetParams(geom, &r, &l);
@@ -842,25 +853,25 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
 			ctx->ball.transform = MatrixMultiply(MatrixScale(d, d, d), matCap2);
 			MyDrawModel(ctx->ball, c);
 		}
-    
+
 	}
 }
 
 
 /** @brief crates a rotor joint
  * the joint is created with the anchor at the from enties location
- * 
+ *
  * @param physCtx physics context holds all the physics globals
  * @param from the anchor entity for the joint
  * @param to if this is null the joint attaches to the world and is static
  * @param axis this determines the direction of rotation for the rotor
  * you can think of it as the direction of the axle
- * 
+ *
  * @note joints will get tidied up during world destruction, do destroy them
  * if you no longer require them, in the arm example a joint is created and
  * destroyed every time an object is caught and released
  */
-dJointID createRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 axis) 
+dJointID createRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 axis)
 {
 	// Use a Hinge to rotate around (no stops)
 	dJointID rotor = dJointCreateHinge(physCtx->world, 0);
@@ -869,16 +880,16 @@ dJointID createRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 
 	} else {
 		dJointAttach(rotor, from->body, to->body);
 	}
-	
-	const dReal* pos = dBodyGetPosition(from->body);	
-	
+
+	const dReal* pos = dBodyGetPosition(from->body);
+
 
 	dJointSetHingeAnchor(rotor, pos[0], pos[1], pos[2]); // world coordinates
 	dJointSetHingeAxis(rotor, axis.x, axis.y, axis.z);
 
 	dJointSetHingeParam(rotor, dParamVel, 0.0);
 	dJointSetHingeParam(rotor, dParamFMax, 100000.0); // POOOWWWWEEERRRR!
-	
+
 	return rotor;
 }
 
@@ -913,12 +924,12 @@ void drawBodies(struct GraphicsContext* ctx, PhysicsContext* pctx)
 		entity* e = (entity*)node->data;
 		dBodyID bdy = e->body;
 		drawBodyGeoms(bdy, ctx);
-		
+
 		node = node->next;
 	}
 }
 
-void drawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx) 
+void drawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx)
 {
 	dGeomID geom = dBodyGetFirstGeom(bdy);
 	while(geom) {
@@ -927,7 +938,7 @@ void drawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx)
 		drawGeom(geom, ctx);
 		geom = next;
 	}
-	
+
 }
 
 void drawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx)
@@ -941,13 +952,13 @@ void drawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx)
 	}
 }
 
-/** @brief frees an entity 
- * 
+/** @brief frees an entity
+ *
  * this is essentially destroying the entity it is no longer part of the world
- * @note if iterrating through the global entity list while calling this, 
+ * @note if iterrating through the global entity list while calling this,
  * ensure you have stored the next node in the chain, for use at the end of the
  * while loop as obviously node->next won't work
- * 
+ *
  * @param physCtx physics context
  * @param ent the entity to destroy
  */
@@ -957,4 +968,47 @@ void FreeEntity(PhysicsContext* physCtx, entity* ent)
 	FreeBodyAndGeoms(ent->body);
 	clistDeleteNode(physCtx->objList, &ent->node);
 	free(ent);
+}
+
+dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB)
+{
+    dJointID joint = dJointCreateSlider(physCtx->world, 0);
+
+    dBodyID bodyA = entA->body;
+    dBodyID bodyB = (entB != NULL) ? entB->body : 0; // 0 = world
+    dJointAttach(joint, bodyA, bodyB);
+
+    dReal axis[3];
+    const dReal* posA = dBodyGetPosition(bodyA);
+
+    if (entB != NULL) {
+        const dReal* posB = dBodyGetPosition(bodyB);
+        axis[0] = posA[0] - posB[0];
+        axis[1] = posA[1] - posB[1];
+        axis[2] = posA[2] - posB[2];
+    } else {
+        // Default to "Up" or a specific direction if B is world
+        axis[0] = 0; axis[1] = 1; axis[2] = 0;
+    }
+
+    // Normalize and set the axis
+    dReal length = sqrt(axis[0]*axis[0] + axis[1]*axis[1] + axis[2]*axis[2]);
+    if (length > 0) {
+        dJointSetSliderAxis(joint, axis[0]/length, axis[1]/length, axis[2]/length);
+    }
+
+    dJointSetSliderParam(joint, dParamVel, 0.0);
+	dJointSetSliderParam(joint, dParamFMax, 1000.0);
+
+    return joint;
+}
+
+void SetPistonLimits(dJointID joint, float min, float max)
+{
+    dJointSetSliderParam(joint, dParamLoStop, min);
+    dJointSetSliderParam(joint, dParamHiStop, max);
+
+    // make the stop slightly "soft" to prevent jitter
+    dJointSetSliderParam(joint, dParamStopCFM, 0.0001f);
+    dJointSetSliderParam(joint, dParamStopERP, 0.2);
 }

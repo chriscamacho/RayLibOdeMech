@@ -26,7 +26,7 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{\textcolor{comment}{\ *\ SOFTWARE.}}
 \DoxyCodeLine{\textcolor{comment}{\ *}}
 \DoxyCodeLine{\textcolor{comment}{\ */}}
-\DoxyCodeLine{}
+\DoxyCodeLine{\ }
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdlib.h>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdbool.h>}}
 \DoxyCodeLine{}
@@ -47,7 +47,7 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ TODO\ look\ at\ having\ user\ data\ passed\ to\ triggerCallback\ somehow\ to\ avoid\ globals...}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ this\ will\ end\ up\ joining\ to\ the\ last\ collided\ in\ a\ frame\ (could\ be\ any!)}}
+\DoxyCodeLine{\textcolor{comment}{//\ this\ will\ end\ up\ joining\ to\ the\ first\ collided\ in\ a\ frame\ (could\ be\ any!)}}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ triggerCallback(dGeomID\ trigger,\ dGeomID\ intruder)\ \{}
 \DoxyCodeLine{\ \ \ \ (void)trigger;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (intruder\ ==\ planeGeom)\ \textcolor{keywordflow}{return};}

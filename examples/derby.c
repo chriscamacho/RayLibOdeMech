@@ -21,10 +21,6 @@
  *
  */
 
-
-//  NB these cars deliberately have no avoidance steering force (think boids)
-// and will only head towards their target - bring on the mayhem!
-
 #include <stdlib.h>
 #include <math.h>
 

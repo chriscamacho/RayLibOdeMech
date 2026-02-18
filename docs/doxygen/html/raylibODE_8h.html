@@ -167,6 +167,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a218eeb72f46ea3ed00c9010d7002a305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step the physics simulation forward.  <br /></td></tr>
 <tr class="memitem:aa86cbb92909da330ef988d813fb7baed" id="r_aa86cbb92909da330ef988d813fb7baed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structentity.html">entity</a> *ent)</td></tr>
 <tr class="memdesc:aa86cbb92909da330ef988d813fb7baed"><td class="mdescLeft">&#160;</td><td class="mdescRight">frees an entity  <br /></td></tr>
+<tr class="memitem:a878892d1015e3c9349f667325d129d43" id="r_a878892d1015e3c9349f667325d129d43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a> (dJointID joint, float min, float max)</td></tr>
+<tr class="memitem:aec8e521a9dfcf354ba2ae793ac6be324" id="r_aec8e521a9dfcf354ba2ae793ac6be324"><td class="memItemLeft" align="right" valign="top">dJointID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec8e521a9dfcf354ba2ae793ac6be324">CreatePiston</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structentity.html">entity</a> *entA, <a class="el" href="structentity.html">entity</a> *entB)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="afeff8fa28bbbf9c2ddbc85a38993d92e" name="afeff8fa28bbbf9c2ddbc85a38993d92e"></a>
@@ -185,7 +187,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00041">41</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00232">stepPhysics()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00241">stepPhysics()</a>.</p>
 
 </div>
 </div>
@@ -218,7 +220,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#_a11">arm.c</a>, <a class="el" href="fountain_8c-example.html#_a8">fountain.c</a>, <a class="el" href="placer_8c-example.html#_a6">placer.c</a>, <a class="el" href="ragdolls_8c-example.html#_a6">ragdolls.c</a>, and <a class="el" href="rotor_8c-example.html#_a6">rotor.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#_a11">arm.c</a>, <a class="el" href="fountain_8c-example.html#_a8">fountain.c</a>, <a class="el" href="piston_8c-example.html#_a6">piston.c</a>, <a class="el" href="placer_8c-example.html#_a6">placer.c</a>, <a class="el" href="ragdolls_8c-example.html#_a6">ragdolls.c</a>, <a class="el" href="rotor_8c-example.html#_a6">rotor.c</a>, and <a class="el" href="template_8c-example.html#_a6">template.c</a>.</dd>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00038">38</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
@@ -236,7 +238,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#_a12">arm.c</a>, <a class="el" href="derby_8c-example.html#_a9">derby.c</a>, <a class="el" href="fountain_8c-example.html#_a9">fountain.c</a>, <a class="el" href="placer_8c-example.html#_a7">placer.c</a>, <a class="el" href="ragdolls_8c-example.html#_a7">ragdolls.c</a>, and <a class="el" href="rotor_8c-example.html#_a7">rotor.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#_a12">arm.c</a>, <a class="el" href="derby_8c-example.html#_a9">derby.c</a>, <a class="el" href="fountain_8c-example.html#_a9">fountain.c</a>, <a class="el" href="piston_8c-example.html#_a7">piston.c</a>, <a class="el" href="placer_8c-example.html#_a7">placer.c</a>, <a class="el" href="ragdolls_8c-example.html#_a7">ragdolls.c</a>, <a class="el" href="rotor_8c-example.html#_a7">rotor.c</a>, and <a class="el" href="template_8c-example.html#_a7">template.c</a>.</dd>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00039">39</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
@@ -412,11 +414,11 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="structGraphicsContext.html">GraphicsContext</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00318">318</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00327">327</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00106">GraphicsContext::boxTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00274">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00632">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00210">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00106">GraphicsContext::boxTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00545">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
 
 </div>
 </div>
@@ -482,11 +484,11 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Capsule combines a cylinder with two hemispherical ends </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structentity.html">entity</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00446">446</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00457">457</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00274">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00632">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00210">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00545">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
 
 </div>
 </div>
@@ -554,11 +556,11 @@ Functions</h2></td></tr>
 Cylinder is assigned a random texture from the available cylinder textures </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structentity.html">entity</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00403">403</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00414">414</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00274">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00632">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00210">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00545">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
 
 </div>
 </div>
@@ -632,11 +634,11 @@ Cylinder is assigned a random texture from the available cylinder textures </dd>
 Mass is distributed: 50% shaft, 25% each end </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structentity.html">entity</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00492">492</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00503">503</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00274">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00632">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00210">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00545">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
 
 </div>
 </div>
@@ -681,9 +683,9 @@ Mass is fixed at 10.0f for all random objects </dd>
 <dd>
 Each type has randomized dimensions within reasonable ranges </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00545">545</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00556">556</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00318">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00446">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00403">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00492">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00360">addSphere()</a>, and <a class="el" href="raylibODE_8c_source.html#l00210">rndf()</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00327">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00457">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00414">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00503">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00370">addSphere()</a>, and <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>.</p>
 
 </div>
 </div>
@@ -745,11 +747,11 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
 <dd>
 <a class="el" href="structPhysicsContext.html">PhysicsContext</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00360">360</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00370">370</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00274">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00632">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00210">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00105">GraphicsContext::sphereTextures</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00105">GraphicsContext::sphereTextures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00545">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
 
 </div>
 </div>
@@ -779,11 +781,11 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to newly created entity</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Internal function - but might be useful for manual creation </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00274">274</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00283">283</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 <p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8h_source.html#l00048">entity::node</a>, <a class="el" href="raylibODE_8h_source.html#l00121">PhysicsContext::objList</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00318">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00446">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00403">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00492">addDumbbell()</a>, and <a class="el" href="raylibODE_8c_source.html#l00360">addSphere()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00327">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00457">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00414">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00503">addDumbbell()</a>, and <a class="el" href="raylibODE_8c_source.html#l00370">addSphere()</a>.</p>
 
 </div>
 </div>
@@ -827,11 +829,41 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00632">632</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00643">643</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 <p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00071">geomInfo::collidable</a>, <a class="el" href="raylibODE_8h_source.html#l00076">geomInfo::hew</a>, <a class="el" href="raylibODE_8h_source.html#l00072">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00073">geomInfo::uvScaleU</a>, and <a class="el" href="raylibODE_8h_source.html#l00074">geomInfo::uvScaleV</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00318">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00446">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00403">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00492">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00360">addSphere()</a>, <a class="el" href="ragdoll_8c_source.html#l00118">CreateRagdoll()</a>, <a class="el" href="raylibODE_8c_source.html#l00284">createSphereGeom()</a>, <a class="el" href="raylibODE_8c_source.html#l00595">CreateStaticTrimesh()</a>, and <a class="el" href="vehicle_8c_source.html#l00056">CreateVehicle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00327">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00457">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00414">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00503">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00370">addSphere()</a>, <a class="el" href="ragdoll_8c_source.html#l00118">CreateRagdoll()</a>, <a class="el" href="raylibODE_8c_source.html#l00293">createSphereGeom()</a>, <a class="el" href="raylibODE_8c_source.html#l00606">CreateStaticTrimesh()</a>, and <a class="el" href="vehicle_8c_source.html#l00056">CreateVehicle()</a>.</p>
+
+</div>
+</div>
+<a id="aec8e521a9dfcf354ba2ae793ac6be324" name="aec8e521a9dfcf354ba2ae793ac6be324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec8e521a9dfcf354ba2ae793ac6be324">&#9670;&#160;</a></span>CreatePiston()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dJointID CreatePiston </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>physCtx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>entA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>entB</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00973">973</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
 
 </div>
 </div>
@@ -876,7 +908,7 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>joints will get tidied up during world destruction, do destroy them if you no longer require them, in the arm example a joint is created and destroyed every time an object is caught and released </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00863">863</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00874">874</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 <p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
 
@@ -911,9 +943,9 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00284">284</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00293">293</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00632">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00210">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00105">GraphicsContext::sphereTextures</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00105">GraphicsContext::sphereTextures</a>.</p>
 
 </div>
 </div>
@@ -973,9 +1005,9 @@ Stores model data for rendering with custom shaders</dd></dl>
 <dd>
 Model </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00595">595</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00606">606</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00632">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00080">geomInfo::indices</a>, <a class="el" href="raylibODE_8h_source.html#l00111">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, <a class="el" href="raylibODE_8h_source.html#l00122">PhysicsContext::statics</a>, <a class="el" href="raylibODE_8h_source.html#l00081">geomInfo::triData</a>, and <a class="el" href="raylibODE_8h_source.html#l00075">geomInfo::visual</a>.</p>
+<p class="reference">References <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00080">geomInfo::indices</a>, <a class="el" href="raylibODE_8h_source.html#l00111">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, <a class="el" href="raylibODE_8h_source.html#l00122">PhysicsContext::statics</a>, <a class="el" href="raylibODE_8h_source.html#l00081">geomInfo::triData</a>, and <a class="el" href="raylibODE_8h_source.html#l00075">geomInfo::visual</a>.</p>
 
 </div>
 </div>
@@ -998,9 +1030,9 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00908">908</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00919">919</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="clist_8h_source.html#l00014">__cnode::data</a>, <a class="el" href="raylibODE_8c_source.html#l00921">drawBodyGeoms()</a>, <a class="el" href="clist_8h_source.html#l00027">__clist::head</a>, <a class="el" href="clist_8h_source.html#l00013">__cnode::next</a>, and <a class="el" href="raylibODE_8h_source.html#l00121">PhysicsContext::objList</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="clist_8h_source.html#l00014">__cnode::data</a>, <a class="el" href="raylibODE_8c_source.html#l00932">drawBodyGeoms()</a>, <a class="el" href="clist_8h_source.html#l00027">__clist::head</a>, <a class="el" href="clist_8h_source.html#l00013">__cnode::next</a>, and <a class="el" href="raylibODE_8h_source.html#l00121">PhysicsContext::objList</a>.</p>
 
 </div>
 </div>
@@ -1023,11 +1055,11 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00921">921</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00932">932</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00765">drawGeom()</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00776">drawGeom()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00908">drawBodies()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00919">drawBodies()</a>.</p>
 
 </div>
 </div>
@@ -1050,11 +1082,11 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00765">765</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00776">776</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00099">GraphicsContext::ball</a>, <a class="el" href="raylibODE_8h_source.html#l00098">GraphicsContext::box</a>, <a class="el" href="raylibODE_8h_source.html#l00100">GraphicsContext::cylinder</a>, <a class="el" href="raylibODE_8h_source.html#l00076">geomInfo::hew</a>, <a class="el" href="raylibODE_8c_source.html#l00726">MyDrawModel()</a>, <a class="el" href="raylibODE_8c_source.html#l00755">odeToRayMat()</a>, <a class="el" href="raylibODE_8h_source.html#l00111">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00072">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00084">geomInfo::triggerOnCollide</a>, <a class="el" href="raylibODE_8h_source.html#l00073">geomInfo::uvScaleU</a>, <a class="el" href="raylibODE_8h_source.html#l00074">geomInfo::uvScaleV</a>, and <a class="el" href="raylibODE_8h_source.html#l00075">geomInfo::visual</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00099">GraphicsContext::ball</a>, <a class="el" href="raylibODE_8h_source.html#l00098">GraphicsContext::box</a>, <a class="el" href="raylibODE_8h_source.html#l00100">GraphicsContext::cylinder</a>, <a class="el" href="raylibODE_8h_source.html#l00076">geomInfo::hew</a>, <a class="el" href="raylibODE_8c_source.html#l00737">MyDrawModel()</a>, <a class="el" href="raylibODE_8c_source.html#l00766">odeToRayMat()</a>, <a class="el" href="raylibODE_8h_source.html#l00111">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00072">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00084">geomInfo::triggerOnCollide</a>, <a class="el" href="raylibODE_8h_source.html#l00073">geomInfo::uvScaleU</a>, <a class="el" href="raylibODE_8h_source.html#l00074">geomInfo::uvScaleV</a>, and <a class="el" href="raylibODE_8h_source.html#l00075">geomInfo::visual</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00921">drawBodyGeoms()</a>, <a class="el" href="ragdoll_8c_source.html#l00455">DrawRagdoll()</a>, and <a class="el" href="raylibODE_8c_source.html#l00933">drawStatics()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00932">drawBodyGeoms()</a>, <a class="el" href="ragdoll_8c_source.html#l00455">DrawRagdoll()</a>, and <a class="el" href="raylibODE_8c_source.html#l00944">drawStatics()</a>.</p>
 
 </div>
 </div>
@@ -1077,9 +1109,9 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00933">933</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00944">944</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="clist_8h_source.html#l00014">__cnode::data</a>, <a class="el" href="raylibODE_8c_source.html#l00765">drawGeom()</a>, <a class="el" href="clist_8h_source.html#l00027">__clist::head</a>, <a class="el" href="clist_8h_source.html#l00013">__cnode::next</a>, and <a class="el" href="raylibODE_8h_source.html#l00122">PhysicsContext::statics</a>.</p>
+<p class="reference">References <a class="el" href="clist_8h_source.html#l00014">__cnode::data</a>, <a class="el" href="raylibODE_8c_source.html#l00776">drawGeom()</a>, <a class="el" href="clist_8h_source.html#l00027">__clist::head</a>, <a class="el" href="clist_8h_source.html#l00013">__cnode::next</a>, and <a class="el" href="raylibODE_8h_source.html#l00122">PhysicsContext::statics</a>.</p>
 
 </div>
 </div>
@@ -1098,9 +1130,9 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00709">709</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00720">720</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00195">CleanupPhysics()</a>, <a class="el" href="raylibODE_8c_source.html#l00955">FreeEntity()</a>, <a class="el" href="ragdoll_8c_source.html#l00483">FreeRagdoll()</a>, and <a class="el" href="vehicle_8c_source.html#l00231">FreeVehicle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00195">CleanupPhysics()</a>, <a class="el" href="raylibODE_8c_source.html#l00966">FreeEntity()</a>, <a class="el" href="ragdoll_8c_source.html#l00483">FreeRagdoll()</a>, and <a class="el" href="vehicle_8c_source.html#l00231">FreeVehicle()</a>.</p>
 
 </div>
 </div>
@@ -1133,9 +1165,9 @@ Model </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00955">955</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00966">966</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="clist_8c_source.html#l00146">clistDeleteNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00709">FreeBodyAndGeoms()</a>, <a class="el" href="raylibODE_8h_source.html#l00048">entity::node</a>, and <a class="el" href="raylibODE_8h_source.html#l00121">PhysicsContext::objList</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="clist_8c_source.html#l00146">clistDeleteNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00720">FreeBodyAndGeoms()</a>, <a class="el" href="raylibODE_8h_source.html#l00048">entity::node</a>, and <a class="el" href="raylibODE_8h_source.html#l00121">PhysicsContext::objList</a>.</p>
 
 </div>
 </div>
@@ -1174,7 +1206,7 @@ Model </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to the entity that was found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00673">673</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00684">684</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 <p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00110">GraphicsContext::camera</a>, <a class="el" href="raylibODE_8h_source.html#l00092">RayHit::depth</a>, <a class="el" href="raylibODE_8h_source.html#l00091">RayHit::geom</a>, <a class="el" href="raylibODE_8h_source.html#l00093">RayHit::pos</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
 
@@ -1199,9 +1231,9 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00755">755</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00766">766</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00765">drawGeom()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00776">drawGeom()</a>.</p>
 
 </div>
 </div>
@@ -1224,7 +1256,7 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00747">747</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00758">758</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 </div>
 </div>
@@ -1258,9 +1290,9 @@ Model </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Random float between min and max</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Uses rand() from stdlib - consider seeding with srand() for better randomness </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00210">210</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00219">219</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00318">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00446">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00403">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00492">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00545">addRandomPhys()</a>, <a class="el" href="raylibODE_8c_source.html#l00360">addSphere()</a>, <a class="el" href="raylibODE_8c_source.html#l00284">createSphereGeom()</a>, and <a class="el" href="ragdoll_8c_source.html#l00081">GetRagdollSpawnPosition()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00327">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00457">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00414">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00503">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>, <a class="el" href="raylibODE_8c_source.html#l00370">addSphere()</a>, <a class="el" href="raylibODE_8c_source.html#l00293">createSphereGeom()</a>, and <a class="el" href="ragdoll_8c_source.html#l00081">GetRagdollSpawnPosition()</a>.</p>
 
 </div>
 </div>
@@ -1293,9 +1325,37 @@ Model </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00896">896</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00907">907</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 <p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00076">geomInfo::hew</a>.</p>
+
+</div>
+</div>
+<a id="a878892d1015e3c9349f667325d129d43" name="a878892d1015e3c9349f667325d129d43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a878892d1015e3c9349f667325d129d43">&#9670;&#160;</a></span>SetPistonLimits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetPistonLimits </td>
+          <td>(</td>
+          <td class="paramtype">dJointID</td>          <td class="paramname"><span class="paramname"><em>joint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>max</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01006">1006</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 </div>
 </div>
@@ -1330,9 +1390,9 @@ Maximum number of steps is limited by maxPsteps to prevent spiral of death</dd><
 <dd>
 dWorldQuickStep </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00232">232</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00241">241</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00119">PhysicsContext::contactgroup</a>, <a class="el" href="raylibODE_8h_source.html#l00120">PhysicsContext::frameTime</a>, <a class="el" href="raylibODE_8h_source.html#l00041">maxPsteps</a>, <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>, <a class="el" href="raylibODE_8c_source.html#l00199">physSlice</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00119">PhysicsContext::contactgroup</a>, <a class="el" href="raylibODE_8h_source.html#l00120">PhysicsContext::frameTime</a>, <a class="el" href="raylibODE_8h_source.html#l00041">maxPsteps</a>, <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>, <a class="el" href="raylibODE_8c_source.html#l00208">physSlice</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
 
 </div>
 </div>

@@ -172,6 +172,8 @@
     <member refid="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" kind="function"><name>rndf</name></member>
     <member refid="raylibODE_8h_1a218eeb72f46ea3ed00c9010d7002a305" kind="function"><name>stepPhysics</name></member>
     <member refid="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
+    <member refid="raylibODE_8h_1a878892d1015e3c9349f667325d129d43" kind="function"><name>SetPistonLimits</name></member>
+    <member refid="raylibODE_8h_1aec8e521a9dfcf354ba2ae793ac6be324" kind="function"><name>CreatePiston</name></member>
   </compound>
   <compound refid="rlights_8h" kind="file"><name>rlights.h</name>
     <member refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kind="define"><name>MAX_LIGHTS</name></member>
@@ -258,6 +260,8 @@
     <member refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" kind="function"><name>drawBodyGeoms</name></member>
     <member refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" kind="function"><name>drawStatics</name></member>
     <member refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
+    <member refid="raylibODE_8c_1aec8e521a9dfcf354ba2ae793ac6be324" kind="function"><name>CreatePiston</name></member>
+    <member refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kind="function"><name>SetPistonLimits</name></member>
   </compound>
   <compound refid="rlights_8c" kind="file"><name>rlights.c</name>
     <member refid="rlights_8c_1a959fef16d77f17db49364491cbd4175b" kind="variable"><name>lightsCount</name></member>
@@ -270,21 +274,25 @@
     <member refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" kind="function"><name>FreeVehicle</name></member>
     <member refid="vehicle_8c_1a29d7d2d85bf93cf5c13a572a55d94841" kind="function"><name>unflipVehicle</name></member>
   </compound>
-  <compound refid="placer_8c-example" kind="example"><name>placer.c</name>
+  <compound refid="arm_8c-example" kind="example"><name>arm.c</name>
   </compound>
-  <compound refid="terrain_8c-example" kind="example"><name>terrain.c</name>
+  <compound refid="car_8c-example" kind="example"><name>car.c</name>
+  </compound>
+  <compound refid="derby_8c-example" kind="example"><name>derby.c</name>
+  </compound>
+  <compound refid="fountain_8c-example" kind="example"><name>fountain.c</name>
+  </compound>
+  <compound refid="piston_8c-example" kind="example"><name>piston.c</name>
+  </compound>
+  <compound refid="placer_8c-example" kind="example"><name>placer.c</name>
   </compound>
   <compound refid="ragdolls_8c-example" kind="example"><name>ragdolls.c</name>
   </compound>
   <compound refid="rotor_8c-example" kind="example"><name>rotor.c</name>
   </compound>
-  <compound refid="car_8c-example" kind="example"><name>car.c</name>
+  <compound refid="template_8c-example" kind="example"><name>template.c</name>
   </compound>
-  <compound refid="fountain_8c-example" kind="example"><name>fountain.c</name>
-  </compound>
-  <compound refid="derby_8c-example" kind="example"><name>derby.c</name>
-  </compound>
-  <compound refid="arm_8c-example" kind="example"><name>arm.c</name>
+  <compound refid="terrain_8c-example" kind="example"><name>terrain.c</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

@@ -173,6 +173,9 @@ int stepPhysics(PhysicsContext* physCtx);
 
 void FreeEntity(PhysicsContext* physCtx, entity* ent);
 
+void SetPistonLimits(dJointID joint, float min, float max);
+dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB);
+
 #endif // RAYLIBODE_H
 
 

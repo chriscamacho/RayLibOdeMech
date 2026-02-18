@@ -1,5 +1,10 @@
 var NAVTREEINDEX1 =
 {
+"structRayHit.html#adbc494bc1bad81d80a620b42d71f29b4":[1,0,8,0],
+"structRayHit.html#adcef8883ac52e6d421436e08b1b6201e":[1,0,8,2],
+"struct____clist.html":[1,0,0],
+"struct____clist.html#a1a628ee10b4e61019e547e2d0f2cb887":[1,0,0,1],
+"struct____clist.html#a87719175a9395449ee1db0221b39688a":[1,0,0,0],
 "struct____cnode.html":[1,0,1],
 "struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4":[1,0,1,1],
 "struct____cnode.html#ab4ad4dacef59b181bf678d4f5eeda2fa":[1,0,1,2],
@@ -24,7 +29,8 @@ var NAVTREEINDEX1 =
 "structvehicle.html#a058cc60e3227703b2d840ce60600a29a":[1,0,9,2],
 "structvehicle.html#a26952b98198ea34cf69e135ff78a3ba6":[1,0,9,0],
 "structvehicle.html#a734bcc32ada0399492de70cbb42e5c90":[1,0,9,1],
-"terrain_8c-example.html":[3,1],
+"template_8c-example.html":[3,8],
+"terrain_8c-example.html":[3,9],
 "vehicle_8c.html":[2,0,15],
 "vehicle_8c.html#a29d7d2d85bf93cf5c13a572a55d94841":[2,0,15,2],
 "vehicle_8c.html#a9c16065d67848dde985d9a21631eb01c":[2,0,15,3],

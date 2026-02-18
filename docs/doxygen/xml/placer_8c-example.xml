@@ -6,7 +6,7 @@
     </briefdescription>
     <detaileddescription>
 <para><simplesect kind="par"><title></title><para>place new shapes in the world, and push them about <linebreak/>
- show how to do ray cast detection <programlisting filename="placer.c"><codeline><highlight class="comment">/*</highlight></codeline>
+ shows how to do ray cast detection <programlisting filename="placer.c"><codeline><highlight class="comment">/*</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2021-2026<sp/>Chris<sp/>Camacho<sp/>(codifies<sp/>-<sp/><sp/>http://bedroomcoders.co.uk/)</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
@@ -28,7 +28,7 @@
 <codeline><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="init_8h" kindref="compound">init.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>

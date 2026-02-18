@@ -27,7 +27,7 @@
 <codeline><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
@@ -48,7 +48,7 @@
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO<sp/>look<sp/>at<sp/>having<sp/>user<sp/>data<sp/>passed<sp/>to<sp/>triggerCallback<sp/>somehow<sp/>to<sp/>avoid<sp/>globals...</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>will<sp/>end<sp/>up<sp/>joining<sp/>to<sp/>the<sp/>last<sp/>collided<sp/>in<sp/>a<sp/>frame<sp/>(could<sp/>be<sp/>any!)</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>this<sp/>will<sp/>end<sp/>up<sp/>joining<sp/>to<sp/>the<sp/>first<sp/>collided<sp/>in<sp/>a<sp/>frame<sp/>(could<sp/>be<sp/>any!)</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>triggerCallback(dGeomID<sp/>trigger,<sp/>dGeomID<sp/>intruder)<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>(void)trigger;</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(intruder<sp/>==<sp/>planeGeom)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>

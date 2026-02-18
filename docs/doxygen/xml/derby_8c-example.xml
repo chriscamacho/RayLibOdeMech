@@ -28,10 +28,6 @@
 <codeline><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>NB<sp/>these<sp/>cars<sp/>deliberately<sp/>have<sp/>no<sp/>avoidance<sp/>steering<sp/>force<sp/>(think<sp/>boids)</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="comment">//<sp/>and<sp/>will<sp/>only<sp/>head<sp/>towards<sp/>their<sp/>target<sp/>-<sp/>bring<sp/>on<sp/>the<sp/>mayhem!</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>

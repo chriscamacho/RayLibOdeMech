@@ -23,6 +23,7 @@ var raylibODE_8h =
     [ "addSphere", "raylibODE_8h.html#ad709ccf4980935cd9c633f0c270b4a00", null ],
     [ "createBaseEntity", "raylibODE_8h.html#af0307cfb8f3c5c1b8dc01681865f0062", null ],
     [ "CreateGeomInfo", "raylibODE_8h.html#a79db70091e3c86494f485979529984c8", null ],
+    [ "CreatePiston", "raylibODE_8h.html#aec8e521a9dfcf354ba2ae793ac6be324", null ],
     [ "createRotor", "raylibODE_8h.html#acdd1e62ab4a9d0ab632e283e6ccdaf71", null ],
     [ "createSphereGeom", "raylibODE_8h.html#a2a368e091ab99ed0668855778e02ef70", null ],
     [ "CreateStaticTrimesh", "raylibODE_8h.html#ae8b06665a78b486c57e6795da4b3e265", null ],
@@ -37,5 +38,6 @@ var raylibODE_8h =
     [ "rayToOdeMat", "raylibODE_8h.html#a90e81478715d0f9b144a709347d089a0", null ],
     [ "rndf", "raylibODE_8h.html#a4a4933f37c736fd2d311be9eaf9b7fa8", null ],
     [ "setEntityHew", "raylibODE_8h.html#a3aa3473ec30d21671ea9ec98e3e65017", null ],
+    [ "SetPistonLimits", "raylibODE_8h.html#a878892d1015e3c9349f667325d129d43", null ],
     [ "stepPhysics", "raylibODE_8h.html#a218eeb72f46ea3ed00c9010d7002a305", null ]
 ];
