@@ -46,9 +46,14 @@ int main(void)
     dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
     clistAddNode(physCtx->statics, planeGeom);
 
+	// Create random simple objects with random textures
+	for (int i = 0; i < NUM_OBJ; i++) {
+		addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+	}
 
 	entity* box1 = addBox(physCtx, &graphics,(Vector3){4,1,1}, (Vector3){0,2,0}, (Vector3){0,0,0}, 2);
 	entity* box2 = addBox(physCtx, &graphics,(Vector3){4,.9,.9}, (Vector3){.1,2,0}, (Vector3){0,0,0}, 2);
+	entity* box3 = addBox(physCtx, &graphics,(Vector3){4,.8,.8}, (Vector3){.2,2,0}, (Vector3){0,0,0}, 2);
 
 	// anchor box1 to the world
     dJointID pin1 = dJointCreateFixed (physCtx->world, 0);
@@ -58,17 +63,77 @@ int main(void)
 
     dJointID piston1 = CreatePiston(physCtx, box1, box2);
     SetPistonLimits(piston1, 0, 3.9);
+    
+    dJointID piston2 = CreatePiston(physCtx, box2, box3);
+    SetPistonLimits(piston2, 0, 3.9);
+    
+    
+    // because box 1,2 and 3 intersect we must filter out their collision
+    // normally with joints the two attached bodies don't collide, however
+    // this doesn't help with box 1 vs box 2 for example
+	#define WORLD         0x0001
+    #define PISTON_GROUP  0x0002
+    
+    dGeomID g1 = dBodyGetFirstGeom(box1->body);
+    dGeomID g2 = dBodyGetFirstGeom(box2->body);
+    dGeomID g3 = dBodyGetFirstGeom(box3->body);
 
+	dGeomSetCategoryBits(g1, PISTON_GROUP);
+	dGeomSetCollideBits(g1, WORLD);
+
+	dGeomSetCategoryBits(g2, PISTON_GROUP);
+	dGeomSetCollideBits(g2, WORLD);
+
+	dGeomSetCategoryBits(g3, PISTON_GROUP);
+	dGeomSetCollideBits(g3, WORLD);    
+    
+    
     while (!WindowShouldClose())
     {
         dJointSetSliderParam(piston1, dParamVel, 0.0);
+        dJointSetSliderParam(piston2, dParamVel, 0.0);
+        
+        float pSpeed = 1;
+        if (IsKeyDown(KEY_LEFT_ALT)) pSpeed = 32;
+        
         if (IsKeyDown(KEY_I)) {
-            dJointSetSliderParam(piston1, dParamVel, -1);
+            dJointSetSliderParam(piston1, dParamVel, -pSpeed);
+            dJointSetSliderParam(piston2, dParamVel, -pSpeed);
             dBodyEnable(box1->body);
         }
         if (IsKeyDown(KEY_O)) {
-            dJointSetSliderParam(piston1, dParamVel, 1);
+            dJointSetSliderParam(piston1, dParamVel, pSpeed);
+            dJointSetSliderParam(piston2, dParamVel, pSpeed);
             dBodyEnable(box1->body);
+        }
+        
+        bool spcdn = IsKeyDown(KEY_SPACE); 
+		cnode_t* node = physCtx->objList->head;
+        while (node != NULL) {
+			entity* ent = node->data;
+            dBodyID bdy = ent->body;
+            cnode_t* next = node->next; // get the next node now in case we delete this one
+            const dReal* pos = dBodyGetPosition(bdy);
+			
+			if (spcdn) {
+                // apply force if the space key is held
+                const dReal* v = dBodyGetLinearVel(bdy);
+                if (v[1] < 10 && pos[1]<10) { // cap upwards velocity and don't let it get too high
+                    dBodyEnable (bdy); // case its gone to sleep
+                    dMass mass;
+                    dBodyGetMass (bdy, &mass);
+                    // give some object more force than others
+                    float f = rndf(8,20) * mass.mass;
+                    dBodyAddForce(bdy, rndf(-f,f), f*10, rndf(-f,f));
+                }
+            }
+            
+            if(pos[1]<-10) {
+                FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
+                addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+            }
+            
+            node = next;
         }
 
         updateCamera(&graphics);
