@@ -70,7 +70,7 @@ int main(void)
     
     // because box 1,2 and 3 intersect we must filter out their collision
     // normally with joints the two attached bodies don't collide, however
-    // this doesn't help with box 1 vs box 2 for example
+    // this doesn't help with box 1 vs box 3 for example
 	#define WORLD         0x0001
     #define PISTON_GROUP  0x0002
     
