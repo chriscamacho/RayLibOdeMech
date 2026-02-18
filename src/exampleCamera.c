@@ -76,7 +76,7 @@ float GetCameraPitch() { return cameraPitch; }
  * @note Camera looks at origin by default
  * @note Initializes yaw/pitch based on initial look direction
  */
-void initCamera(struct GraphicsContext* ctx)
+void SetupCamera(struct GraphicsContext* ctx)
 {
 	// Define the camera to look into our 3d world
 	Vector3 cameraTarget = { 4.0f, 2.0f, 1.0f };
@@ -99,7 +99,7 @@ void initCamera(struct GraphicsContext* ctx)
  * @param ctx graphics context used for the camera info
  * @param car the vehicle you want to be attached to
  */
-void updateVehicleCamera(struct GraphicsContext* ctx, vehicle* car)
+void UpdateVehicleCamera(struct GraphicsContext* ctx, vehicle* car)
 {
     // Static variables for vehicle camera state (relative to car)
     static float relativeYaw = 0.0f;    // Yaw relative to car's forward
@@ -163,7 +163,7 @@ void updateVehicleCamera(struct GraphicsContext* ctx, vehicle* car)
  * 
  * @param ctx pointer to the graphics context
  */
-void updateCamera(struct GraphicsContext* ctx)
+void UpdateExampleCamera(struct GraphicsContext* ctx)
 {    
 
 	// Update camera with mouse look (first-person style)

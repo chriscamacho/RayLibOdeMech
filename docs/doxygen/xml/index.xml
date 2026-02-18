@@ -101,17 +101,17 @@
     <member refid="collision_8h_1ad6680ae487b581622710e22bdfdb3146" kind="function"><name>nearCallback</name></member>
   </compound>
   <compound refid="exampleCamera_8h" kind="file"><name>exampleCamera.h</name>
-    <member refid="exampleCamera_8h_1abf1f4204c9ad8cd8061009b9702d7a3f" kind="function"><name>initCamera</name></member>
-    <member refid="exampleCamera_8h_1ab694a4e13506da451e4221c6bc1c48f1" kind="function"><name>updateCamera</name></member>
-    <member refid="exampleCamera_8h_1a9ebb8457497dc7cebf88b55573010637" kind="function"><name>updateVehicleCamera</name></member>
+    <member refid="exampleCamera_8h_1af155bf31f5a69e64716e1eb1a010f647" kind="function"><name>SetupCamera</name></member>
+    <member refid="exampleCamera_8h_1ad0a902b3760c7a5f8725bdb73ddc174b" kind="function"><name>UpdateExampleCamera</name></member>
+    <member refid="exampleCamera_8h_1afa1b8031e4fc015dfe8093339c904e50" kind="function"><name>UpdateVehicleCamera</name></member>
     <member refid="exampleCamera_8h_1a9904774abec2bae71c6d75094d47cbe3" kind="function"><name>GetCameraYaw</name></member>
     <member refid="exampleCamera_8h_1afbfa8af7ad686732f5ddcea617d03d1b" kind="function"><name>GetCameraPitch</name></member>
   </compound>
   <compound refid="init_8h" kind="file"><name>init.h</name>
-    <member refid="init_8h_1a4ef743f6c8c693304e974dac3b901875" kind="function"><name>InitGraphics</name></member>
-    <member refid="init_8h_1a1622bbe41084e4d594b33c3fa56e3ad9" kind="function"><name>InitPhysics</name></member>
-    <member refid="init_8h_1afaa0b9510d3f6bf8a8187d25ed17c536" kind="function"><name>CleanupPhysics</name></member>
-    <member refid="init_8h_1a9f01a5c8d21a89463b9e68ec349887f7" kind="function"><name>CleanupGraphics</name></member>
+    <member refid="init_8h_1a0c011796e9f74e7eb4b5bb26305193f9" kind="function"><name>CreateGraphics</name></member>
+    <member refid="init_8h_1a57d526245eb2f059fac1e6bb3f64ae42" kind="function"><name>CreatePhysics</name></member>
+    <member refid="init_8h_1aadcc246e22ab4be2dd926a25c5bc9bad" kind="function"><name>FreePhysics</name></member>
+    <member refid="init_8h_1a6569bf61ca03001b6fabedc21aff855a" kind="function"><name>FreeGraphics</name></member>
   </compound>
   <compound refid="ragdoll_8h" kind="file"><name>ragdoll.h</name>
     <member refid="ragdoll_8h_1a62ae838f84574f00dc0b59766651ae8d" kind="define"><name>RAGDOLL_SPAWN_CENTER_X</name></member>
@@ -149,31 +149,31 @@
     <member refid="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" kind="typedef"><name>RayHit</name></member>
     <member refid="raylibODE_8h_1a92862474db45e097a7381460ac67f859" kind="typedef"><name>GraphicsContext</name></member>
     <member refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" kind="typedef"><name>PhysicsContext</name></member>
-    <member refid="raylibODE_8h_1a90e81478715d0f9b144a709347d089a0" kind="function"><name>rayToOdeMat</name></member>
-    <member refid="raylibODE_8h_1a5b0792a09d707c97fea36d1e35ab364d" kind="function"><name>odeToRayMat</name></member>
-    <member refid="raylibODE_8h_1af0307cfb8f3c5c1b8dc01681865f0062" kind="function"><name>createBaseEntity</name></member>
+    <member refid="raylibODE_8h_1a9a4fddcfd406e6bfb1987111e4ad64f1" kind="function"><name>CreateBaseEntity</name></member>
     <member refid="raylibODE_8h_1a79db70091e3c86494f485979529984c8" kind="function"><name>CreateGeomInfo</name></member>
-    <member refid="raylibODE_8h_1a2a368e091ab99ed0668855778e02ef70" kind="function"><name>createSphereGeom</name></member>
+    <member refid="raylibODE_8h_1a0201472030d3c51d3b13c7f807b59b01" kind="function"><name>CreateSphereGeom</name></member>
     <member refid="raylibODE_8h_1ae8b06665a78b486c57e6795da4b3e265" kind="function"><name>CreateStaticTrimesh</name></member>
-    <member refid="raylibODE_8h_1a22ae6631054292250c7ed2e6f232d694" kind="function"><name>addBox</name></member>
-    <member refid="raylibODE_8h_1ad709ccf4980935cd9c633f0c270b4a00" kind="function"><name>addSphere</name></member>
-    <member refid="raylibODE_8h_1ad0d5151f2ffc020ea6ad6c604d976670" kind="function"><name>addCylinder</name></member>
-    <member refid="raylibODE_8h_1aea6c527a568187e7377bb733e3693e34" kind="function"><name>addCapsule</name></member>
-    <member refid="raylibODE_8h_1a2e7774a715304a8f791a09e863240603" kind="function"><name>addDumbbell</name></member>
-    <member refid="raylibODE_8h_1a5a6ec4456256b6b4394e5d32b326fae8" kind="function"><name>addRandomPhys</name></member>
-    <member refid="raylibODE_8h_1a9aee3b647643b29e683644a67e7e5f3c" kind="function"><name>getEntityFromMouse</name></member>
-    <member refid="raylibODE_8h_1a3aa3473ec30d21671ea9ec98e3e65017" kind="function"><name>setEntityHew</name></member>
-    <member refid="raylibODE_8h_1acdd1e62ab4a9d0ab632e283e6ccdaf71" kind="function"><name>createRotor</name></member>
+    <member refid="raylibODE_8h_1ae436b97d6296f4b3c35e493dde37cee3" kind="function"><name>CreateBox</name></member>
+    <member refid="raylibODE_8h_1ad03521efcc05b3315d24f47d0eed52a6" kind="function"><name>CreateSphere</name></member>
+    <member refid="raylibODE_8h_1a6985c096003040ae46ed46b117f01d69" kind="function"><name>CreateCylinder</name></member>
+    <member refid="raylibODE_8h_1adec02d5fa7b8838d8f98956b68e2246c" kind="function"><name>CreateCapsule</name></member>
+    <member refid="raylibODE_8h_1a04c854eee30cf8430f2d978c4259459b" kind="function"><name>CreateDumbbell</name></member>
+    <member refid="raylibODE_8h_1a8e5b28e0781017c62176133087f3590c" kind="function"><name>CreateRandomEntity</name></member>
+    <member refid="raylibODE_8h_1a6038bcb143e6ca12696aa65bf164f488" kind="function"><name>PickEntity</name></member>
+    <member refid="raylibODE_8h_1a227dded5dce29a7e3b71e9589e2b4c22" kind="function"><name>SetEntityHew</name></member>
+    <member refid="raylibODE_8h_1a70760bcdbb95dca2cd9cbb1a640485d2" kind="function"><name>CreateRotor</name></member>
     <member refid="raylibODE_8h_1a8f1b86adbb51b8bd80405329b31c87d1" kind="function"><name>FreeBodyAndGeoms</name></member>
-    <member refid="raylibODE_8h_1ac29c7db14d40f3946075ae2d63aab414" kind="function"><name>drawGeom</name></member>
-    <member refid="raylibODE_8h_1adac1e8c721f82c1684b919e4cbe8a883" kind="function"><name>drawBodies</name></member>
-    <member refid="raylibODE_8h_1ace378b6574208ed393d32694b18f44f5" kind="function"><name>drawBodyGeoms</name></member>
-    <member refid="raylibODE_8h_1a05b90ca080d0521b6155c1462bfeab90" kind="function"><name>drawStatics</name></member>
+    <member refid="raylibODE_8h_1a5a3f56ed394d3d2c1400e25d83fc05af" kind="function"><name>DrawGeom</name></member>
+    <member refid="raylibODE_8h_1aa01114b518b93c528e9e85382ce46b4b" kind="function"><name>DrawBodies</name></member>
+    <member refid="raylibODE_8h_1a01fc58efa7854e13c41c4b40bc5c8b62" kind="function"><name>DrawBodyGeoms</name></member>
+    <member refid="raylibODE_8h_1a1232d8000138fdc6d2f9741548a263aa" kind="function"><name>DrawStatics</name></member>
     <member refid="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" kind="function"><name>rndf</name></member>
-    <member refid="raylibODE_8h_1a218eeb72f46ea3ed00c9010d7002a305" kind="function"><name>stepPhysics</name></member>
+    <member refid="raylibODE_8h_1ad087bfe56f8c97e250f6dd5054fdf76e" kind="function"><name>StepPhysics</name></member>
     <member refid="raylibODE_8h_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
     <member refid="raylibODE_8h_1a878892d1015e3c9349f667325d129d43" kind="function"><name>SetPistonLimits</name></member>
     <member refid="raylibODE_8h_1aec8e521a9dfcf354ba2ae793ac6be324" kind="function"><name>CreatePiston</name></member>
+    <member refid="raylibODE_8h_1ac18f122edccf31f40c3ce18ea1be58cd" kind="function"><name>RayToOdeMat</name></member>
+    <member refid="raylibODE_8h_1ae64d38b48236f4a10077e64b19b953b3" kind="function"><name>OdeToRayMat</name></member>
   </compound>
   <compound refid="rlights_8h" kind="file"><name>rlights.h</name>
     <member refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kind="define"><name>MAX_LIGHTS</name></member>
@@ -190,7 +190,7 @@
     <member refid="vehicle_8h_1af0740a75defe24708df5577107ed9ba7" kind="function"><name>CreateVehicle</name></member>
     <member refid="vehicle_8h_1a9c16065d67848dde985d9a21631eb01c" kind="function"><name>UpdateVehicle</name></member>
     <member refid="vehicle_8h_1ab0b188b6b47157b4f3c4aae241a933c8" kind="function"><name>FreeVehicle</name></member>
-    <member refid="vehicle_8h_1a29d7d2d85bf93cf5c13a572a55d94841" kind="function"><name>unflipVehicle</name></member>
+    <member refid="vehicle_8h_1a0419ed48c974e9d5efab4263b4cee46f" kind="function"><name>UnflipVehicle</name></member>
   </compound>
   <compound refid="clist_8c" kind="file"><name>clist.c</name>
     <member refid="clist_8c_1aa1b25ffe8dee701771e947e6f9cf06ed" kind="function"><name>clistCreateList</name></member>
@@ -216,15 +216,15 @@
     <member refid="exampleCamera_8c_1afbdbe8367f94fd8f5cfad18ea0c9cc44" kind="variable"><name>cameraPitch</name></member>
     <member refid="exampleCamera_8c_1a9904774abec2bae71c6d75094d47cbe3" kind="function"><name>GetCameraYaw</name></member>
     <member refid="exampleCamera_8c_1afbfa8af7ad686732f5ddcea617d03d1b" kind="function"><name>GetCameraPitch</name></member>
-    <member refid="exampleCamera_8c_1abf1f4204c9ad8cd8061009b9702d7a3f" kind="function"><name>initCamera</name></member>
-    <member refid="exampleCamera_8c_1a9ebb8457497dc7cebf88b55573010637" kind="function"><name>updateVehicleCamera</name></member>
-    <member refid="exampleCamera_8c_1ab694a4e13506da451e4221c6bc1c48f1" kind="function"><name>updateCamera</name></member>
+    <member refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" kind="function"><name>SetupCamera</name></member>
+    <member refid="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" kind="function"><name>UpdateVehicleCamera</name></member>
+    <member refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kind="function"><name>UpdateExampleCamera</name></member>
   </compound>
   <compound refid="init_8c" kind="file"><name>init.c</name>
-    <member refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" kind="function"><name>InitGraphics</name></member>
-    <member refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" kind="function"><name>InitPhysics</name></member>
-    <member refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" kind="function"><name>CleanupPhysics</name></member>
-    <member refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" kind="function"><name>CleanupGraphics</name></member>
+    <member refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kind="function"><name>CreateGraphics</name></member>
+    <member refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kind="function"><name>CreatePhysics</name></member>
+    <member refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" kind="function"><name>FreePhysics</name></member>
+    <member refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" kind="function"><name>FreeGraphics</name></member>
   </compound>
   <compound refid="ragdoll_8c" kind="file"><name>ragdoll.c</name>
     <member refid="ragdoll_8c_1ae5044c65f2f6758624a2182347b6d945" kind="function"><name>GetRagdollSpawnPosition</name></member>
@@ -236,29 +236,29 @@
   <compound refid="raylibODE_8c" kind="file"><name>raylibODE.c</name>
     <member refid="raylibODE_8c_1ad4efdb006e87d1e0709eb9a32edb2f2d" kind="variable"><name>physSlice</name></member>
     <member refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kind="function"><name>rndf</name></member>
-    <member refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" kind="function"><name>stepPhysics</name></member>
-    <member refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" kind="function"><name>createBaseEntity</name></member>
-    <member refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" kind="function"><name>createSphereGeom</name></member>
-    <member refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" kind="function"><name>addBox</name></member>
-    <member refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" kind="function"><name>addSphere</name></member>
-    <member refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" kind="function"><name>addCylinder</name></member>
-    <member refid="raylibODE_8c_1aea6c527a568187e7377bb733e3693e34" kind="function"><name>addCapsule</name></member>
-    <member refid="raylibODE_8c_1a2e7774a715304a8f791a09e863240603" kind="function"><name>addDumbbell</name></member>
-    <member refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" kind="function"><name>addRandomPhys</name></member>
+    <member refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" kind="function"><name>StepPhysics</name></member>
+    <member refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" kind="function"><name>CreateBaseEntity</name></member>
+    <member refid="raylibODE_8c_1a0201472030d3c51d3b13c7f807b59b01" kind="function"><name>CreateSphereGeom</name></member>
+    <member refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kind="function"><name>CreateBox</name></member>
+    <member refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" kind="function"><name>CreateSphere</name></member>
+    <member refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" kind="function"><name>CreateCylinder</name></member>
+    <member refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" kind="function"><name>CreateCapsule</name></member>
+    <member refid="raylibODE_8c_1a04c854eee30cf8430f2d978c4259459b" kind="function"><name>CreateDumbbell</name></member>
+    <member refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" kind="function"><name>CreateRandomEntity</name></member>
     <member refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" kind="function"><name>CreateStaticTrimesh</name></member>
     <member refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kind="function"><name>CreateGeomInfo</name></member>
     <member refid="raylibODE_8c_1a3c34ddfaf3a71bac062e99f033d28030" kind="function"><name>rayCallback</name></member>
-    <member refid="raylibODE_8c_1a9aee3b647643b29e683644a67e7e5f3c" kind="function"><name>getEntityFromMouse</name></member>
+    <member refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" kind="function"><name>PickEntity</name></member>
     <member refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" kind="function"><name>FreeBodyAndGeoms</name></member>
-    <member refid="raylibODE_8c_1a4e5c05f3e98813de44bb372e30156724" kind="function"><name>MyDrawModel</name></member>
-    <member refid="raylibODE_8c_1a21ca1b0ed6eb58d2d7243cec4041ca87" kind="function"><name>rayToOdeMat</name></member>
-    <member refid="raylibODE_8c_1ab1c13f5bdcde03502b5028bf6c15ef71" kind="function"><name>odeToRayMat</name></member>
-    <member refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" kind="function"><name>drawGeom</name></member>
-    <member refid="raylibODE_8c_1acdd1e62ab4a9d0ab632e283e6ccdaf71" kind="function"><name>createRotor</name></member>
-    <member refid="raylibODE_8c_1a3aa3473ec30d21671ea9ec98e3e65017" kind="function"><name>setEntityHew</name></member>
-    <member refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" kind="function"><name>drawBodies</name></member>
-    <member refid="raylibODE_8c_1ace378b6574208ed393d32694b18f44f5" kind="function"><name>drawBodyGeoms</name></member>
-    <member refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" kind="function"><name>drawStatics</name></member>
+    <member refid="raylibODE_8c_1a3356bed479958d5442229a132467c7f0" kind="function"><name>DrawModelTinted</name></member>
+    <member refid="raylibODE_8c_1a261ecb0743898782ddf0e56b07f32f2b" kind="function"><name>RayToOdeMat</name></member>
+    <member refid="raylibODE_8c_1aeaef389f404abef038f38518fc1a0421" kind="function"><name>OdeToRayMat</name></member>
+    <member refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" kind="function"><name>DrawGeom</name></member>
+    <member refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" kind="function"><name>CreateRotor</name></member>
+    <member refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" kind="function"><name>SetEntityHew</name></member>
+    <member refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kind="function"><name>DrawBodies</name></member>
+    <member refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" kind="function"><name>DrawBodyGeoms</name></member>
+    <member refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kind="function"><name>DrawStatics</name></member>
     <member refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
     <member refid="raylibODE_8c_1aec8e521a9dfcf354ba2ae793ac6be324" kind="function"><name>CreatePiston</name></member>
     <member refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kind="function"><name>SetPistonLimits</name></member>
@@ -272,7 +272,7 @@
     <member refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" kind="function"><name>CreateVehicle</name></member>
     <member refid="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" kind="function"><name>UpdateVehicle</name></member>
     <member refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" kind="function"><name>FreeVehicle</name></member>
-    <member refid="vehicle_8c_1a29d7d2d85bf93cf5c13a572a55d94841" kind="function"><name>unflipVehicle</name></member>
+    <member refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" kind="function"><name>UnflipVehicle</name></member>
   </compound>
   <compound refid="arm_8c-example" kind="example"><name>arm.c</name>
   </compound>

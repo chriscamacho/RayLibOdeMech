@@ -61,15 +61,11 @@
       </node>
     </incdepgraph>
     <sectiondef kind="func">
-      <memberdef kind="function" id="init_8c_1a4ef743f6c8c693304e974dac3b901875" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void InitGraphics</definition>
-        <argsstring>(GraphicsContext *ctx, int width, int height, const char *title)</argsstring>
-        <name>InitGraphics</name>
-        <param>
-          <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
-          <declname>ctx</declname>
-        </param>
+      <memberdef kind="function" id="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
+        <definition>GraphicsContext * CreateGraphics</definition>
+        <argsstring>(int width, int height, const char *title)</argsstring>
+        <name>CreateGraphics</name>
         <param>
           <type>int</type>
           <declname>width</declname>
@@ -88,14 +84,6 @@
         <detaileddescription>
 <para>Sets up the RayLib window, loads all models and textures, compiles shaders, and creates lighting. This must be called before any rendering can occur.</para>
 <para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>ctx</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>Pointer to <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> to initialize </para>
-</parameterdescription>
-</parameteritem>
-<parameteritem>
 <parameternamelist>
 <parametername>width</parametername>
 </parameternamelist>
@@ -128,30 +116,30 @@
 </simplesect>
 <simplesect kind="see"><para><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> </para>
 </simplesect>
-<simplesect kind="see"><para><ref refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" kindref="member">CleanupGraphics</ref> </para>
+<simplesect kind="see"><para><ref refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" kindref="member">FreeGraphics</ref> </para>
 </simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="init.c" line="78" column="6" bodyfile="init.c" bodystart="78" bodyend="137"/>
-        <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="99">GraphicsContext::ball</references>
-        <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="98">GraphicsContext::box</references>
-        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
+        <location file="init.c" line="77" column="17" bodyfile="init.c" bodystart="77" bodyend="137"/>
+        <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="96">GraphicsContext::ball</references>
+        <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="95">GraphicsContext::box</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="103">GraphicsContext::boxTextures</references>
         <references refid="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" compoundref="rlights_8c" startline="26" endline="51">CreateLight</references>
-        <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="100">GraphicsContext::cylinder</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
-        <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="108">GraphicsContext::groundTexture</references>
+        <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="97">GraphicsContext::cylinder</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="104">GraphicsContext::cylinderTextures</references>
+        <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="105">GraphicsContext::groundTexture</references>
         <references refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c" compoundref="rlights_8h" startline="66">LIGHT_POINT</references>
-        <references refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" compoundref="raylibODE_8h" startline="112">GraphicsContext::lights</references>
-        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
-        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
+        <references refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" compoundref="raylibODE_8h" startline="109">GraphicsContext::lights</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="108">GraphicsContext::shader</references>
+        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="102">GraphicsContext::sphereTextures</references>
       </memberdef>
-      <memberdef kind="function" id="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
-        <definition>PhysicsContext * InitPhysics</definition>
+        <definition>PhysicsContext * CreatePhysics</definition>
         <argsstring>()</argsstring>
-        <name>InitPhysics</name>
+        <name>CreatePhysics</name>
         <briefdescription>
 <para>Initialize physics world and context. </para>
         </briefdescription>
@@ -167,7 +155,7 @@
 </simplesect>
 <simplesect kind="warning"><para>Exits with error message if precision mismatch detected</para>
 </simplesect>
-<simplesect kind="see"><para><ref refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" kindref="member">CleanupPhysics</ref> </para>
+<simplesect kind="see"><para>CleanupPhysics </para>
 </simplesect>
 <simplesect kind="see"><para><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> </para>
 </simplesect>
@@ -177,17 +165,17 @@
         </inbodydescription>
         <location file="init.c" line="158" column="16" bodyfile="init.c" bodystart="158" bodyend="193"/>
         <references refid="clist_8c_1aa1b25ffe8dee701771e947e6f9cf06ed" compoundref="clist_8c" startline="18" endline="33">clistCreateList</references>
-        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="119">PhysicsContext::contactgroup</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
-        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="122">PhysicsContext::statics</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="116">PhysicsContext::contactgroup</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="119">PhysicsContext::statics</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
       </memberdef>
-      <memberdef kind="function" id="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void CleanupPhysics</definition>
+        <definition>void FreePhysics</definition>
         <argsstring>(PhysicsContext *ctx)</argsstring>
-        <name>CleanupPhysics</name>
+        <name>FreePhysics</name>
         <param>
           <type><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref> *</type>
           <declname>ctx</declname>
@@ -199,25 +187,25 @@
         <inbodydescription>
         </inbodydescription>
         <location file="init.c" line="195" column="6" bodyfile="init.c" bodystart="195" bodyend="244"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
         <references refid="clist_8c_1a50196c474127f9c1924abae6a1b74b69" compoundref="clist_8c" startline="219" endline="224">clistFreeList</references>
-        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="119">PhysicsContext::contactgroup</references>
+        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="116">PhysicsContext::contactgroup</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="720" endline="733">FreeBodyAndGeoms</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="719" endline="732">FreeBodyAndGeoms</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
-        <references refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" compoundref="raylibODE_8h" startline="80">geomInfo::indices</references>
+        <references refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" compoundref="raylibODE_8h" startline="77">geomInfo::indices</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
-        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="122">PhysicsContext::statics</references>
-        <references refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" compoundref="raylibODE_8h" startline="81">geomInfo::triData</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="119">PhysicsContext::statics</references>
+        <references refid="structgeomInfo_1a0cdf37aab555ef5003f8d3be2b553fa8" compoundref="raylibODE_8h" startline="78">geomInfo::triData</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
       </memberdef>
-      <memberdef kind="function" id="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="init_8c_1a6569bf61ca03001b6fabedc21aff855a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void CleanupGraphics</definition>
+        <definition>void FreeGraphics</definition>
         <argsstring>(GraphicsContext *ctx)</argsstring>
-        <name>CleanupGraphics</name>
+        <name>FreeGraphics</name>
         <param>
           <type><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
           <declname>ctx</declname>
@@ -228,15 +216,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="init.c" line="246" column="6" bodyfile="init.c" bodystart="246" bodyend="265"/>
-        <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="99">GraphicsContext::ball</references>
-        <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="98">GraphicsContext::box</references>
-        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
-        <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="100">GraphicsContext::cylinder</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
-        <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="108">GraphicsContext::groundTexture</references>
-        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
-        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
+        <location file="init.c" line="246" column="6" bodyfile="init.c" bodystart="246" bodyend="267"/>
+        <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="96">GraphicsContext::ball</references>
+        <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="95">GraphicsContext::box</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="103">GraphicsContext::boxTextures</references>
+        <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="97">GraphicsContext::cylinder</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="104">GraphicsContext::cylinderTextures</references>
+        <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="105">GraphicsContext::groundTexture</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="108">GraphicsContext::shader</references>
+        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="102">GraphicsContext::sphereTextures</references>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -251,15 +239,15 @@
 </para>
 <sect1 id="init_8c_1initialization_order">
 <title>Initialization Order</title><para>Typical initialization sequence:<orderedlist>
-<listitem><para><ref refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" kindref="member">InitGraphics()</ref> - Set up window, models, textures, shaders</para>
-</listitem><listitem><para><ref refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" kindref="member">InitPhysics()</ref> - Create ODE world, space, contact groups</para>
+<listitem><para>InitGraphics() - Set up window, models, textures, shaders</para>
+</listitem><listitem><para>InitPhysics() - Create ODE world, space, contact groups</para>
 </listitem></orderedlist>
 </para>
 </sect1>
 <sect1 id="init_8c_1cleanup_order">
 <title>Cleanup Order</title><para>Typical cleanup sequence:<orderedlist>
-<listitem><para><ref refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" kindref="member">CleanupPhysics()</ref> - Destroy ODE world, free bodies</para>
-</listitem><listitem><para><ref refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" kindref="member">CleanupGraphics()</ref> - Unload textures, shaders, close window </para>
+<listitem><para>CleanupPhysics() - Destroy ODE world, free bodies</para>
+</listitem><listitem><para>CleanupGraphics() - Unload textures, shaders, close window </para>
 </listitem></orderedlist>
 </para>
 </sect1>
@@ -330,30 +318,30 @@
 <codeline lineno="63"><highlight class="comment"><sp/>*<sp/>shaders,<sp/>and<sp/>creates<sp/>lighting.<sp/>This<sp/>must<sp/>be<sp/>called<sp/>before<sp/>any</highlight></codeline>
 <codeline lineno="64"><highlight class="comment"><sp/>*<sp/>rendering<sp/>can<sp/>occur.</highlight></codeline>
 <codeline lineno="65"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@param<sp/>ctx<sp/>Pointer<sp/>to<sp/>GraphicsContext<sp/>to<sp/>initialize</highlight></codeline>
-<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>@param<sp/>width<sp/>Window<sp/>width<sp/>in<sp/>pixels</highlight></codeline>
-<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>@param<sp/>height<sp/>Window<sp/>height<sp/>in<sp/>pixels</highlight></codeline>
-<codeline lineno="69"><highlight class="comment"><sp/>*<sp/>@param<sp/>title<sp/>Window<sp/>title<sp/>string</highlight></codeline>
-<codeline lineno="70"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>@note<sp/>Enables<sp/>VSync<sp/>and<sp/>4x<sp/>MSAA<sp/>by<sp/>default</highlight></codeline>
-<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>@note<sp/>Hides<sp/>and<sp/>locks<sp/>cursor<sp/>for<sp/>FPS-style<sp/>camera<sp/>control</highlight></codeline>
-<codeline lineno="73"><highlight class="comment"><sp/>*<sp/>@note<sp/>Loads<sp/>default<sp/>textures<sp/>from<sp/>data/<sp/>directory</highlight></codeline>
-<codeline lineno="74"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>@see<sp/>GraphicsContext</highlight></codeline>
-<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>@see<sp/>CleanupGraphics</highlight></codeline>
-<codeline lineno="77"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="78" refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" kindref="member">InitGraphics</ref>(<ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>title)</highlight></codeline>
-<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>InitWindow(width,<sp/>height,<sp/>title);</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>SetWindowState(FLAG_VSYNC_HINT<sp/>|<sp/>FLAG_MSAA_4X_HINT);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>work<sp/>around<sp/>for<sp/>mouse<sp/>delta<sp/>and<sp/>initial<sp/>camera<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>SetMousePosition(width/2,<sp/>height/2);<sp/></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>BeginDrawing();</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>EndDrawing();</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableCursor();<sp/><sp/></highlight><highlight class="comment">//<sp/>Hide<sp/>and<sp/>lock<sp/>cursor</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@param<sp/>width<sp/>Window<sp/>width<sp/>in<sp/>pixels</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>@param<sp/>height<sp/>Window<sp/>height<sp/>in<sp/>pixels</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/>*<sp/>@param<sp/>title<sp/>Window<sp/>title<sp/>string</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/>*<sp/>@note<sp/>Enables<sp/>VSync<sp/>and<sp/>4x<sp/>MSAA<sp/>by<sp/>default</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/>*<sp/>@note<sp/>Hides<sp/>and<sp/>locks<sp/>cursor<sp/>for<sp/>FPS-style<sp/>camera<sp/>control</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/>*<sp/>@note<sp/>Loads<sp/>default<sp/>textures<sp/>from<sp/>data/<sp/>directory</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/>*<sp/>@see<sp/>GraphicsContext</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>@see<sp/>FreeGraphics</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" refkind="member"><highlight class="normal"><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/><ref refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kindref="member">CreateGraphics</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>title)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>InitWindow(width,<sp/>height,<sp/>title);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>SetWindowState(FLAG_VSYNC_HINT<sp/>|<sp/>FLAG_MSAA_4X_HINT);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>work<sp/>around<sp/>for<sp/>mouse<sp/>delta<sp/>and<sp/>initial<sp/>camera<sp/>direction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>SetMousePosition(width/2,<sp/>height/2);<sp/></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>BeginDrawing();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>EndDrawing();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>DisableCursor();<sp/><sp/></highlight><highlight class="comment">//<sp/>Hide<sp/>and<sp/>lock<sp/>cursor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx<sp/>=<sp/>MemAlloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>));</highlight></codeline>
 <codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Load<sp/>models</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" kindref="member">box</ref><sp/>=<sp/>LoadModelFromMesh(GenMeshCube(1,<sp/>1,<sp/>1));</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" kindref="member">ball</ref><sp/>=<sp/>LoadModelFromMesh(GenMeshSphere(.5,<sp/>32,<sp/>32));</highlight></codeline>
@@ -400,7 +388,7 @@
 <codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>ctx-&gt;<ref refid="structGraphicsContext_1a61bca66f0addd3b1ebf71f1369b55e00" kindref="member">lights</ref>[1]<sp/>=<sp/><ref refid="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" kindref="member">CreateLight</ref>(<ref refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c" kindref="member">LIGHT_POINT</ref>,<sp/>(Vector3){-25,<sp/>25,<sp/>-25},<sp/>Vector3Zero(),</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Color){64,<sp/>64,<sp/>64,<sp/>255},<sp/>ctx-&gt;<ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>);</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ctx;</highlight></codeline>
 <codeline lineno="137"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"></highlight></codeline>
 <codeline lineno="139"><highlight class="normal"></highlight></codeline>
@@ -422,7 +410,7 @@
 <codeline lineno="155"><highlight class="comment"><sp/>*<sp/>@see<sp/>CleanupPhysics</highlight></codeline>
 <codeline lineno="156"><highlight class="comment"><sp/>*<sp/>@see<sp/>PhysicsContext</highlight></codeline>
 <codeline lineno="157"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158" refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" refkind="member"><highlight class="normal"><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/><ref refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" kindref="member">InitPhysics</ref>()</highlight><highlight class="comment">//dSpaceID*<sp/>space)//,<sp/>GraphicsContext*<sp/>gfxCtx)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158" refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" refkind="member"><highlight class="normal"><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/><ref refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kindref="member">CreatePhysics</ref>()</highlight><highlight class="comment">//dSpaceID*<sp/>space)//,<sp/>GraphicsContext*<sp/>gfxCtx)</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="159"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dReal)<sp/>!=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">))<sp/>{</highlight></codeline>
 <codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fprintf(stderr,<sp/></highlight><highlight class="stringliteral">&quot;\n[SIM<sp/>ERROR]<sp/>Precision<sp/>Mismatch<sp/>Detected!\n&quot;</highlight><highlight class="normal">);</highlight></codeline>
@@ -459,7 +447,7 @@
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ctx;</highlight></codeline>
 <codeline lineno="193"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="194"><highlight class="normal"></highlight></codeline>
-<codeline lineno="195" refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" kindref="member">CleanupPhysics</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx)</highlight></codeline>
+<codeline lineno="195" refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" kindref="member">FreePhysics</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx)</highlight></codeline>
 <codeline lineno="196"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!ctx)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
 <codeline lineno="198"><highlight class="normal"></highlight></codeline>
@@ -510,7 +498,7 @@
 <codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/>RL_FREE(ctx);</highlight></codeline>
 <codeline lineno="244"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="245"><highlight class="normal"></highlight></codeline>
-<codeline lineno="246" refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" kindref="member">CleanupGraphics</ref>(<ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx)</highlight></codeline>
+<codeline lineno="246" refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" kindref="member">FreeGraphics</ref>(<ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx)</highlight></codeline>
 <codeline lineno="247"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="248"><highlight class="normal"></highlight></codeline>
 <codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Clean<sp/>up<sp/>graphics<sp/>resources</highlight><highlight class="normal"></highlight></codeline>
@@ -529,7 +517,9 @@
 <codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>UnloadTexture(ctx-&gt;<ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>);</highlight></codeline>
 <codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>UnloadShader(ctx-&gt;<ref refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" kindref="member">shader</ref>);</highlight></codeline>
-<codeline lineno="265"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>RL_FREE(ctx);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="init.c"/>
   </compounddef>

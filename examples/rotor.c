@@ -35,15 +35,9 @@ int main(void)
     // Initialization
     //--------------------------------------------------------------------------------------
 
-    // Physics context, holds all physics state
-    PhysicsContext* physCtx = NULL;
-    
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE");
-    
-	initCamera(&graphics);
-
-    physCtx = InitPhysics();
+    PhysicsContext* physCtx = CreatePhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
+    SetupCamera(graphics);
 
 	// set up for the items in the world
     //--------------------------------------------------------------------------------------
@@ -51,19 +45,19 @@ int main(void)
     // Create ground "plane"
     dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
+    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
 
 	clistAddNode(physCtx->statics, planeGeom);
 	
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ; i++) {
-		addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
 	}
 	
 	
-	entity* rotor = addBox(physCtx, &graphics, 
+	entity* rotor = CreateBox(physCtx, graphics, 
 		(Vector3){7, 1.75,.5}, // size
-		(Vector3){0,1.5,0}, // pos
+		(Vector3){0,.88,0}, // pos
 		(Vector3){0,0,0}, // rot
 		 4); // mass
 
@@ -71,7 +65,7 @@ int main(void)
 	dGeomID rgeom = dBodyGetFirstGeom(rotor->body);
 	dGeomSetOffsetPosition(rgeom, 3.5, 0, 0);
 	
-	dJointID joint_hinge = createRotor(physCtx, rotor, 0, (Vector3){0,1,0});
+	dJointID joint_hinge = CreateRotor(physCtx, rotor, 0, (Vector3){0,1,0});
 
     float physTime = 0;
 
@@ -87,7 +81,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 		
 		// baked in controls (example only camera!)
-		updateCamera(&graphics);
+		UpdateExampleCamera(graphics);
         
         if (IsKeyDown(KEY_P)) {
 			// will get slowed if pushing too much...
@@ -120,7 +114,7 @@ int main(void)
             
             if(pos[1]<-10) {
                 FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+                CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
 
             }
             
@@ -131,7 +125,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 
         physTime = GetTime(); 
-        int pSteps = stepPhysics(physCtx);
+        int pSteps = StepPhysics(physCtx);
         physTime = GetTime() - physTime;    
 
 
@@ -142,9 +136,9 @@ int main(void)
 
         ClearBackground(BLACK);
 
-        BeginMode3D(graphics.camera);
-			drawBodies(&graphics, physCtx);
-			drawStatics(&graphics, physCtx);
+        BeginMode3D(graphics->camera);
+			DrawBodies(graphics, physCtx);
+			DrawStatics(graphics, physCtx);
         EndMode3D();
 
 
@@ -163,8 +157,8 @@ int main(void)
     
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    CleanupPhysics(physCtx);
-    CleanupGraphics(&graphics);
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
 
     CloseWindow();              // Close window and OpenGL context
     

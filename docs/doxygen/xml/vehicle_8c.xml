@@ -162,18 +162,18 @@
         </inbodydescription>
         <location file="vehicle.c" line="56" column="9" bodyfile="vehicle.c" bodystart="56" bodyend="173"/>
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
         <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
-        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="103">GraphicsContext::boxTextures</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="643" endline="654">CreateGeomInfo</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="104">GraphicsContext::cylinderTextures</references>
         <references refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" compoundref="vehicle_8h" startline="11">vehicle::geoms</references>
         <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="vehicle_8h" startline="12">vehicle::joints</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="45">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
       </memberdef>
       <memberdef kind="function" id="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -275,15 +275,15 @@
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
         <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="720" endline="733">FreeBodyAndGeoms</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="719" endline="732">FreeBodyAndGeoms</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="45">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
       </memberdef>
-      <memberdef kind="function" id="vehicle_8c_1a29d7d2d85bf93cf5c13a572a55d94841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void unflipVehicle</definition>
+        <definition>void UnflipVehicle</definition>
         <argsstring>(vehicle *car)</argsstring>
-        <name>unflipVehicle</name>
+        <name>UnflipVehicle</name>
         <param>
           <type><ref refid="structvehicle" kindref="compound">vehicle</ref> *</type>
           <declname>car</declname>
@@ -595,7 +595,7 @@
 <codeline lineno="253"><highlight class="comment"><sp/>*<sp/>@note<sp/>this<sp/>is<sp/>a<sp/>quick<sp/>hack,<sp/>it<sp/>violently<sp/>pops<sp/>the<sp/>vehicle<sp/>back</highlight></codeline>
 <codeline lineno="254"><highlight class="comment"><sp/>*<sp/>upright<sp/>-<sp/>there<sp/>are<sp/>better<sp/>ways<sp/>of<sp/>doing<sp/>this!</highlight></codeline>
 <codeline lineno="255"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="256" refid="vehicle_8c_1a29d7d2d85bf93cf5c13a572a55d94841" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8c_1a29d7d2d85bf93cf5c13a572a55d94841" kindref="member">unflipVehicle</ref><sp/>(<ref refid="structvehicle" kindref="compound">vehicle</ref><sp/>*car)</highlight></codeline>
+<codeline lineno="256" refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" kindref="member">UnflipVehicle</ref><sp/>(<ref refid="structvehicle" kindref="compound">vehicle</ref><sp/>*car)</highlight></codeline>
 <codeline lineno="257"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>cp<sp/>=<sp/>dBodyGetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0]);</highlight></codeline>
 <codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>cp[0],<sp/>cp[1]+2,<sp/>cp[2]);</highlight></codeline>

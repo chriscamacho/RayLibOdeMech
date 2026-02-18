@@ -34,31 +34,29 @@
 int main(void)
 {
 	// init
-    PhysicsContext* physCtx = NULL;
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
-    initCamera(&graphics);
-    physCtx = InitPhysics();
+    PhysicsContext* physCtx = CreatePhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
+    SetupCamera(graphics);
 
     // Create ground plane
     dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
+    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
     clistAddNode(physCtx->statics, planeGeom);
 
 
 
     while (!WindowShouldClose())
     {
-        updateCamera(&graphics);
-        stepPhysics(physCtx);
+        UpdateExampleCamera(graphics);
+        StepPhysics(physCtx);
 
         // drawing
         BeginDrawing();
             ClearBackground(BLACK);
-            BeginMode3D(graphics.camera);
-                drawBodies(&graphics, physCtx);
-                drawStatics(&graphics, physCtx);
+            BeginMode3D(graphics->camera);
+                DrawBodies(graphics, physCtx);
+                DrawStatics(graphics, physCtx);
             EndMode3D();
 
             DrawText("This does nothing use it for your own experiments!", 10, 40, 20, RAYWHITE);
@@ -66,8 +64,8 @@ int main(void)
         EndDrawing();
     }
 
-    CleanupPhysics(physCtx);
-    CleanupGraphics(&graphics);
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
     CloseWindow();
     return 0;
 }

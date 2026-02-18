@@ -30,16 +30,15 @@ ode~\newline
 \item Static trimesh support for arbitrary geometry
 \item Ray picking for mouse interaction
 \item Automatic collision detection and response
-\item Integrated rendering with custom shaders
+\item rotor and piston joint examples
 \end{DoxyItemize}\hypertarget{index_usage}{}\doxysection{\texorpdfstring{Basic Usage}{Basic Usage}}\label{index_usage}
 \hypertarget{index_initialization}{}\doxysubsection{\texorpdfstring{Initialization}{Initialization}}\label{index_initialization}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{comment}{//\ Initialize\ graphics\ and\ physics}}
-\DoxyCodeLine{\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}\ gfxCtx;}
-\DoxyCodeLine{\mbox{\hyperlink{init_8c_a4ef743f6c8c693304e974dac3b901875}{InitGraphics}}(\&gfxCtx,\ 1280,\ 720,\ \textcolor{stringliteral}{"{}My\ Physics\ Sim"{}});}
-\DoxyCodeLine{\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a1622bbe41084e4d594b33c3fa56e3ad9}{InitPhysics}}();}
-\DoxyCodeLine{\mbox{\hyperlink{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f}{initCamera}}(\&graphics);}
+\DoxyCodeLine{\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(screenWidth,\ screenHeight,\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
+\DoxyCodeLine{\ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
 
 \end{DoxyCode}
 \hypertarget{index_creating_objects}{}\doxysubsection{\texorpdfstring{Creating Objects}{Creating Objects}}\label{index_creating_objects}
@@ -49,12 +48,12 @@ ode~\newline
 \DoxyCodeLine{Vector3\ size\ =\ \{1.0f,\ 1.0f,\ 1.0f\};}
 \DoxyCodeLine{Vector3\ pos\ =\ \{0.0f,\ 5.0f,\ 0.0f\};}
 \DoxyCodeLine{Vector3\ rot\ =\ \{0.0f,\ 0.0f,\ 0.0f\};}
-\DoxyCodeLine{\mbox{\hyperlink{structentity}{entity}}*\ box\ =\ \mbox{\hyperlink{raylibODE_8c_a22ae6631054292250c7ed2e6f232d694}{addBox}}(physCtx,\ \&gfxCtx,\ size,\ pos,\ rot,\ 10.0f);}
+\DoxyCodeLine{\mbox{\hyperlink{structentity}{entity}}*\ box\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ \&gfxCtx,\ size,\ pos,\ rot,\ 10.0f);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ Create\ a\ static\ ground\ box}}
 \DoxyCodeLine{dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
 \DoxyCodeLine{dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
-\DoxyCodeLine{dGeomSetData(planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics.groundTexture,\ 25.0f,\ 25.0f));}
+\DoxyCodeLine{dGeomSetData(planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f));}
 \DoxyCodeLine{\mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
 
 \end{DoxyCode}
@@ -64,15 +63,15 @@ ode~\newline
 \DoxyCodeLine{\textcolor{comment}{//\ In\ your\ main\ loop}}
 \DoxyCodeLine{\textcolor{keywordflow}{while}\ (!WindowShouldClose())\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Step\ physics}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a218eeb72f46ea3ed00c9010d7002a305}{stepPhysics}}(physCtx);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ab694a4e13506da451e4221c6bc1c48f1}{updateCamera}}(\&graphics);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Render}}
 \DoxyCodeLine{\ \ \ \ BeginDrawing();}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ ClearBackground(RAYWHITE);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ BeginMode3D(gfxCtx.\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_adac1e8c721f82c1684b919e4cbe8a883}{drawBodies}}(\&gfxCtx,\ physCtx);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a05b90ca080d0521b6155c1462bfeab90}{drawStatics}}(\&graphics,\ physCtx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ drawBodies(graphics,\ physCtx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ drawStatics(graphics,\ physCtx);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ EndMode3D();}
 \DoxyCodeLine{\ \ \ \ EndDrawing();}
 \DoxyCodeLine{\}}
@@ -82,8 +81,8 @@ ode~\newline
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{comment}{//\ Clean\ up\ resources}}
-\DoxyCodeLine{\mbox{\hyperlink{init_8c_afaa0b9510d3f6bf8a8187d25ed17c536}{CleanupPhysics}}(physCtx);}
-\DoxyCodeLine{\mbox{\hyperlink{init_8c_a9f01a5c8d21a89463b9e68ec349887f7}{CleanupGraphics}}(\&gfxCtx);}
+\DoxyCodeLine{\mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
 \DoxyCodeLine{CloseWindow();}
 
 \end{DoxyCode}

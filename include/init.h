@@ -31,15 +31,15 @@
 
 
 // Initialize graphics resources and window
-void InitGraphics(GraphicsContext* ctx, int width, int height, const char* title);
+GraphicsContext* CreateGraphics(int width, int height, const char* title);
 
 // Initialize the physics world and create all objects
-// Returns pointer to PhysicsContext (caller responsible for passing to CleanupPhysics)
-PhysicsContext* InitPhysics();//dSpaceID* space);//, GraphicsContext* gfxCtx);
+// Returns pointer to PhysicsContext
+PhysicsContext* CreatePhysics();
 
 // clean up physics
-void CleanupPhysics(PhysicsContext* ctx);
+void FreePhysics(PhysicsContext* ctx);
 // Clean up application resources
-void CleanupGraphics(GraphicsContext* ctx);
+void FreeGraphics(GraphicsContext* ctx);
 
 #endif // INIT_H

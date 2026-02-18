@@ -61,17 +61,12 @@ int main(void)
     //--------------------------------------------------------------------------------------
 
     // Physics context, holds all physics state
-    PhysicsContext* physCtx = NULL;
+    PhysicsContext* physCtx = CreatePhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE");
     
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE");
-    
-	initCamera(&graphics);
-	graphics.camera.position = (Vector3){80,40,0};
+	SetupCamera(graphics);
+	graphics->camera.position = (Vector3){80,40,0};
 	
-
-    physCtx = InitPhysics();
-
 	// set up for the items in the world
     //--------------------------------------------------------------------------------------
 
@@ -80,12 +75,12 @@ int main(void)
 	
 
 	// framework looks after the physics stuff and rendering
-	CreateStaticTrimesh(physCtx, &graphics, ground, &graphics.groundTexture, 2.5f);
+	CreateStaticTrimesh(physCtx, graphics, ground, &graphics->groundTexture, 2.5f);
 
     // Create ground plane
     dGeomID planeGeom = dCreateBox(physCtx->space, 1000, PLANE_THICKNESS, 1000);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 50.0f, 50.0f));
+    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 50.0f, 50.0f));
     clistAddNode(physCtx->statics, planeGeom);
 
 	Model carBody = LoadModel("data/car-body.obj");
@@ -120,7 +115,7 @@ int main(void)
 		int nextIdx = (i + 1) % MAXPATH;
 		carTarget[j] = nextIdx;
 		
-		cars[j] = CreateVehicle(physCtx, &graphics, (Vector3){pos[0],pos[1]+1,pos[2]},// pos, 
+		cars[j] = CreateVehicle(physCtx, graphics, (Vector3){pos[0],pos[1]+1,pos[2]},// pos, 
 			(Vector3){6, 1.2, 3},// car body size
 			.85, .6); // wheel radius/width
 
@@ -149,7 +144,7 @@ int main(void)
 		dBodySetQuaternion(cars[j]->bodies[0], odeQ);
 		// end of TODO
 
-		unflipVehicle(cars[j]); // hack to get everything else in the car to align!
+		UnflipVehicle(cars[j]); // hack to get everything else in the car to align!
 
 		geomInfo* gi = dGeomGetData(cars[j]->geoms[0]);
 		gi->visual = carBody;
@@ -178,7 +173,7 @@ int main(void)
 		
 		// baked in controls (example only camera!)
 		//updateVehicleCamera(&graphics, car);
-		updateCamera(&graphics);
+		UpdateExampleCamera(graphics);
         
 
 		for (int i=0; i<MAXCAR; i++) {
@@ -189,7 +184,7 @@ int main(void)
 
 
 			Matrix rR;
-			odeToRayMat(R, &rR);
+			OdeToRayMat(R, &rR);
 			Vector3 f3 = (Vector3){1,0,0};
 			f3 = Vector3Transform(f3,rR);
 			Vector2 forward = (Vector2){f3.x,f3.z};
@@ -209,7 +204,7 @@ int main(void)
 				f3 = (Vector3){0,1,0};
 				f3 = Vector3Transform(f3,rR);
 				if (f3.y<0) {
-					unflipVehicle (cars[i]);
+					UnflipVehicle (cars[i]);
 				}
 			}
 		}
@@ -218,7 +213,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 
         physTime = GetTime(); 
-        int pSteps = stepPhysics(physCtx);
+        int pSteps = StepPhysics(physCtx);
         physTime = GetTime() - physTime;    
 
 
@@ -229,10 +224,10 @@ int main(void)
 
         ClearBackground(BLACK);
 
-        BeginMode3D(graphics.camera);
+        BeginMode3D(graphics->camera);
 
-			drawBodies(&graphics, physCtx);
-			drawStatics(&graphics, physCtx);
+			DrawBodies(graphics, physCtx);
+			DrawStatics(graphics, physCtx);
 			
 			for (int i=0; i<MAXPATH; i++) {
 				DrawCylinder(path[i], .2,.2,8,1,YELLOW);
@@ -263,19 +258,15 @@ int main(void)
     
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    
-    
-    // TODO release cars
-    
+       
     for (int i=0; i<MAXCAR; i++) {
 		FreeVehicle(physCtx, cars[i]);
 	}
     UnloadModel(ground);
     UnloadModel(carBody);
 
-    CleanupPhysics(physCtx);
-    
-    CleanupGraphics(&graphics);
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
 
     CloseWindow();              // Close window and OpenGL context
     

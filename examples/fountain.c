@@ -48,14 +48,10 @@ int main(void)
     //--------------------------------------------------------------------------------------
 
     // Physics context, holds all physics state
-    PhysicsContext* physCtx = NULL;
+    PhysicsContext* physCtx = CreatePhysics();    
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE");
     
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE");
-    
-	initCamera(&graphics);
-
-    physCtx = InitPhysics();
+	SetupCamera(graphics);
 
 	// set up for the items in the world
     //--------------------------------------------------------------------------------------
@@ -66,13 +62,13 @@ int main(void)
     dMatrix3 R_plane;
     dRFromAxisAndAngle(R_plane, 1, 0, -1, M_PI * 0.125);
     dGeomSetRotation(planeGeom, R_plane);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
+    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
 
 	clistAddNode(physCtx->statics, planeGeom);
 	
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ; i++) {
-		addRandomPhys(physCtx, &graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)});
+		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)});
 	}
 
 	// creation of a trigger area
@@ -110,7 +106,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 		
 		// baked in controls (example only camera!)
-		updateCamera(&graphics);
+		UpdateExampleCamera(graphics);
         
         bool spcdn = IsKeyDown(KEY_SPACE);  // cache space key status (don't look up for each object iterration    
         cnode_t* node = physCtx->objList->head;
@@ -119,7 +115,7 @@ int main(void)
 			entity* ent = node->data;
             dBodyID bdy = ent->body;
             
-			setEntityHew(ent, WHITE);
+			SetEntityHew(ent, WHITE);
             
             cnode_t* next = node->next; // get the next node now in case we delete this one
             const dReal* pos = dBodyGetPosition(bdy);
@@ -142,7 +138,7 @@ int main(void)
                 // reposition it with zeroed velocities
                 // but this is used to aid testing
 				FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                addRandomPhys(physCtx, &graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)});
+                CreateRandomEntity(physCtx, graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)});
             }
             
             node = next;
@@ -152,7 +148,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 
         physTime = GetTime(); 
-        int pSteps = stepPhysics(physCtx);
+        int pSteps = StepPhysics(physCtx);
         physTime = GetTime() - physTime;    
 
 
@@ -163,9 +159,9 @@ int main(void)
 
         ClearBackground(BLACK);
 
-        BeginMode3D(graphics.camera);
-			drawBodies(&graphics, physCtx);
-			drawStatics(&graphics, physCtx);
+        BeginMode3D(graphics->camera);
+			DrawBodies(graphics, physCtx);
+			DrawStatics(graphics, physCtx);
 			DrawSphereWires(TrigPos, TrigSize, 8, 8, RED); 
         EndMode3D();
 
@@ -185,8 +181,8 @@ int main(void)
     
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    CleanupPhysics(physCtx);
-    CleanupGraphics(&graphics);
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
 
     CloseWindow();              // Close window and OpenGL context
     

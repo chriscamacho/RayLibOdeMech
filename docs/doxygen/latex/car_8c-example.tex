@@ -45,14 +45,9 @@ use the cursor keys to control a simple vehicle over a trimesh
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Physics\ context,\ holds\ all\ physics\ state}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ NULL;}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}\ graphics\ =\ \{\ 0\ \};}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{init_8c_a4ef743f6c8c693304e974dac3b901875}{InitGraphics}}(\&graphics,\ screenWidth,\ screenHeight,\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f}{initCamera}}(\&graphics);}
-\DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ physCtx\ =\ \mbox{\hyperlink{init_8c_a1622bbe41084e4d594b33c3fa56e3ad9}{InitPhysics}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(screenWidth,\ screenHeight,\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
@@ -61,16 +56,16 @@ use the cursor keys to control a simple vehicle over a trimesh
 \DoxyCodeLine{\ \ \ \ Model\ ground\ =\ LoadModel(\textcolor{stringliteral}{"{}data/ground2.obj"{}});}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ framework\ looks\ after\ the\ physics\ stuff\ and\ rendering}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae8b06665a78b486c57e6795da4b3e265}{CreateStaticTrimesh}}(physCtx,\ \&graphics,\ ground,\ \&graphics.\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 2.5f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae8b06665a78b486c57e6795da4b3e265}{CreateStaticTrimesh}}(physCtx,\ graphics,\ ground,\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 2.5f);}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ vehicle*\ CreateVehicle(PhysicsContext*\ pctx,\ struct\ GraphicsContext*\ ctx,\ Vector3\ pos,\ Vector3\ carScale,\ float\ wheelRadius,\ float\ wheelWidth);}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car\ =\ \mbox{\hyperlink{vehicle_8c_af0740a75defe24708df5577107ed9ba7}{CreateVehicle}}(physCtx,\ \&graphics,\ (Vector3)\{15,\ 6,\ 15\},(Vector3)\{3.5,\ 0.5,\ 2.4\},\ .8,\ .6);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car\ =\ \mbox{\hyperlink{vehicle_8c_af0740a75defe24708df5577107ed9ba7}{CreateVehicle}}(physCtx,\ graphics,\ (Vector3)\{15,\ 6,\ 15\},(Vector3)\{3.5,\ 0.5,\ 2.4\},\ .8,\ .6);}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ random\ simple\ objects\ with\ random\ textures}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{raylibODE_8h_a5c3a0114b1e58dd42011cae154c7827e}{NUM\_OBJ}};\ i++)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5a6ec4456256b6b4394e5d32b326fae8}{addRandomPhys}}(physCtx,\ \&graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8e5b28e0781017c62176133087f3590c}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\});}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
@@ -88,7 +83,7 @@ use the cursor keys to control a simple vehicle over a trimesh
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_a9ebb8457497dc7cebf88b55573010637}{updateVehicleCamera}}(\&graphics,\ car);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}{UpdateVehicleCamera}}(graphics,\ car);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ \ \textcolor{comment}{//\ cache\ space\ key\ status\ (don't\ look\ up\ for\ each\ object\ iterration\ \ \ \ }}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
@@ -117,7 +112,7 @@ use the cursor keys to control a simple vehicle over a trimesh
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reposition\ it\ with\ zeroed\ velocities}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ this\ is\ used\ to\ aid\ testing}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5a6ec4456256b6b4394e5d32b326fae8}{addRandomPhys}}(physCtx,\ \&graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8e5b28e0781017c62176133087f3590c}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\});}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
@@ -136,7 +131,7 @@ use the cursor keys to control a simple vehicle over a trimesh
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_a218eeb72f46ea3ed00c9010d7002a305}{stepPhysics}}(physCtx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ \ \ \ }
 \DoxyCodeLine{}
 \DoxyCodeLine{}
@@ -147,10 +142,9 @@ use the cursor keys to control a simple vehicle over a trimesh
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ ClearBackground(BLACK);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ BeginMode3D(graphics.\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//DrawModel(ground,(Vector3)\{0,0,0\},1,WHITE);}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_adac1e8c721f82c1684b919e4cbe8a883}{drawBodies}}(\&graphics,\ physCtx);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a05b90ca080d0521b6155c1462bfeab90}{drawStatics}}(\&graphics,\ physCtx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ EndMode3D();}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
@@ -173,9 +167,8 @@ use the cursor keys to control a simple vehicle over a trimesh
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(physCtx,\ car);}
 \DoxyCodeLine{\ \ \ \ UnloadModel(ground);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{init_8c_afaa0b9510d3f6bf8a8187d25ed17c536}{CleanupPhysics}}(physCtx);}
-\DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{init_8c_a9f01a5c8d21a89463b9e68ec349887f7}{CleanupGraphics}}(\&graphics);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ CloseWindow();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Close\ window\ and\ OpenGL\ context}}
 \DoxyCodeLine{\ \ \ \ }

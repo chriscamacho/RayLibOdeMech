@@ -114,7 +114,6 @@ Vector3 GetRagdollSpawnPosition(void)
  * @see DrawRagdoll
  * @see FreeRagdoll
  */
-//RagDoll* CreateRagdoll(dSpaceID space, dWorldID world, Vector3 position, struct GraphicsContext* ctx)
 RagDoll* CreateRagdoll(struct PhysicsContext* pctx, struct GraphicsContext* ctx, Vector3 position)
 {
     RagDoll *ragdoll = RL_MALLOC(sizeof(RagDoll));
@@ -458,7 +457,7 @@ void DrawRagdoll(RagDoll *ragdoll, struct GraphicsContext* ctx)
 
     for (int i = 0; i < ragdoll->bodyCount; i++) {
         if (ragdoll->geoms[i]) {
-            drawGeom(ragdoll->geoms[i], ctx);
+            DrawGeom(ragdoll->geoms[i], ctx);
         }
     }
 }

@@ -75,12 +75,9 @@
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref><sp/>graphics<sp/>=<sp/>{<sp/>0<sp/>};</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" kindref="member">InitGraphics</ref>(&amp;graphics,<sp/>screenWidth,<sp/>screenHeight,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1abf1f4204c9ad8cd8061009b9702d7a3f" kindref="member">initCamera</ref>(&amp;graphics);</highlight></codeline>
-<codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" kindref="member">InitPhysics</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics<sp/>=<sp/><ref refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kindref="member">CreateGraphics</ref>(screenWidth,<sp/>screenHeight,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" kindref="member">SetupCamera</ref>(graphics);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kindref="member">CreatePhysics</ref>();</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>up<sp/>for<sp/>the<sp/>items<sp/>in<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//--------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
@@ -88,19 +85,19 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>ground<sp/>&quot;plane&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>planeGeom<sp/>=<sp/>dCreateBox(physCtx-&gt;<ref refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" kindref="member">space</ref>,<sp/><ref refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kindref="member">PLANE_SIZE</ref>,<sp/><ref refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kindref="member">PLANE_THICKNESS</ref>,<sp/><ref refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kindref="member">PLANE_SIZE</ref>);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetPosition(planeGeom,<sp/>0,<sp/>-<ref refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kindref="member">PLANE_THICKNESS</ref><sp/>/<sp/>2.0,<sp/>0);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetData(planeGeom,<sp/><ref refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>&amp;graphics.<ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>,<sp/>25.0f,<sp/>25.0f));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetData(planeGeom,<sp/><ref refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>&amp;graphics-&gt;<ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>,<sp/>25.0f,<sp/>25.0f));</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a264922774fdf767e31797fe81f2231be" kindref="member">clistAddNode</ref>(physCtx-&gt;<ref refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kindref="member">statics</ref>,<sp/>planeGeom);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>random<sp/>simple<sp/>objects<sp/>with<sp/>random<sp/>textures</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" kindref="member">NUM_OBJ</ref>/4;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" kindref="member">addRandomPhys</ref>(physCtx,<sp/>&amp;graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(5,<sp/>11),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" kindref="member">CreateRandomEntity</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(5,<sp/>11),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>creation<sp/>of<sp/>the<sp/>arm</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>platform<sp/>=<sp/><ref refid="raylibODE_8c_1ad0d5151f2ffc020ea6ad6c604d976670" kindref="member">addCylinder</ref>(physCtx,<sp/>&amp;graphics,<sp/>1,</highlight><highlight class="comment">//radius</highlight><highlight class="normal"></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>platform<sp/>=<sp/><ref refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" kindref="member">CreateCylinder</ref>(physCtx,<sp/>graphics,<sp/>1,</highlight><highlight class="comment">//radius</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>.5,</highlight><highlight class="comment">//length</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){0,1.5,0},<sp/></highlight><highlight class="comment">//<sp/>pos</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){0,0,0},<sp/></highlight><highlight class="comment">//<sp/>rot</highlight><highlight class="normal"></highlight></codeline>
@@ -112,10 +109,10 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dRFromAxisAndAngle(Rr,<sp/>1,<sp/>0,<sp/>0,<sp/>M_PI/2.0);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetRotation<sp/>(platform-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>,<sp/>Rr);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>platform_joint<sp/>=<sp/><ref refid="raylibODE_8c_1acdd1e62ab4a9d0ab632e283e6ccdaf71" kindref="member">createRotor</ref>(physCtx,<sp/>platform,0,<sp/>(Vector3){0,1,0});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>platform_joint<sp/>=<sp/><ref refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" kindref="member">CreateRotor</ref>(physCtx,<sp/>platform,0,<sp/>(Vector3){0,1,0});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>platform<sp/>boot<sp/>is<sp/>just<sp/>cosmetic<sp/>to<sp/>hide<sp/>the<sp/>joint</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>plat_boot<sp/>=<sp/><ref refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" kindref="member">createSphereGeom</ref>(physCtx,<sp/>&amp;graphics,<sp/>.6,<sp/>(Vector3){0,0,0});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>plat_boot<sp/>=<sp/><ref refid="raylibODE_8c_1a0201472030d3c51d3b13c7f807b59b01" kindref="member">CreateSphereGeom</ref>(physCtx,<sp/>graphics,<sp/>.6,<sp/>(Vector3){0,0,0});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetBody(plat_boot,<sp/>platform-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetOffsetPosition(plat_boot,<sp/>0,<sp/>0,<sp/>-0.5);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>pbgi<sp/>=<sp/>dGeomGetData(plat_boot);</highlight></codeline>
@@ -123,7 +120,7 @@
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>rotor2<sp/>=<sp/><ref refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" kindref="member">addBox</ref>(physCtx,<sp/>&amp;graphics,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>rotor2<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,<sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){.5,<sp/>4,.5},<sp/></highlight><highlight class="comment">//<sp/>size</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){0,2,0},<sp/></highlight><highlight class="comment">//<sp/>pos</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){0,0,0},<sp/></highlight><highlight class="comment">//<sp/>rot</highlight><highlight class="normal"></highlight></codeline>
@@ -132,10 +129,10 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>rgeom2<sp/>=<sp/>dBodyGetFirstGeom(rotor2-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetOffsetPosition(rgeom2,<sp/>0,<sp/>2,<sp/>0);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>rotor_joint2<sp/>=<sp/><ref refid="raylibODE_8c_1acdd1e62ab4a9d0ab632e283e6ccdaf71" kindref="member">createRotor</ref>(physCtx,<sp/>rotor2,<sp/>platform,(Vector3){1,0,0});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>rotor_joint2<sp/>=<sp/><ref refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" kindref="member">CreateRotor</ref>(physCtx,<sp/>rotor2,<sp/>platform,(Vector3){1,0,0});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>rotor3<sp/>=<sp/><ref refid="raylibODE_8c_1a22ae6631054292250c7ed2e6f232d694" kindref="member">addBox</ref>(physCtx,<sp/>&amp;graphics,<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>rotor3<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,<sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){.5,<sp/>4,.5},<sp/></highlight><highlight class="comment">//<sp/>size</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){0,6,0},<sp/></highlight><highlight class="comment">//<sp/>pos</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(Vector3){0,0,0},<sp/></highlight><highlight class="comment">//<sp/>rot</highlight><highlight class="normal"></highlight></codeline>
@@ -144,11 +141,11 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>rgeom3<sp/>=<sp/>dBodyGetFirstGeom(rotor3-&gt;body);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetOffsetPosition(rgeom3,<sp/>0,<sp/>2,<sp/>0);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>rotor_joint3<sp/>=<sp/><ref refid="raylibODE_8c_1acdd1e62ab4a9d0ab632e283e6ccdaf71" kindref="member">createRotor</ref>(physCtx,<sp/>rotor3,<sp/>rotor2,(Vector3){1,0,0});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>rotor_joint3<sp/>=<sp/><ref refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" kindref="member">CreateRotor</ref>(physCtx,<sp/>rotor3,<sp/>rotor2,(Vector3){1,0,0});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>ball<sp/>for<sp/>a<sp/>grabber<sp/>includes<sp/>a<sp/>sensor<sp/>to<sp/>grab<sp/>stuff<sp/>automatically</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>grabber<sp/>=<sp/><ref refid="raylibODE_8c_1ad709ccf4980935cd9c633f0c270b4a00" kindref="member">addSphere</ref>(physCtx,<sp/>&amp;graphics,<sp/>.5,<sp/>(Vector3){0,10.5,0},<sp/>(Vector3){0,0,0},<sp/>1);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>grabber<sp/>=<sp/><ref refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" kindref="member">CreateSphere</ref>(physCtx,<sp/>graphics,<sp/>.5,<sp/>(Vector3){0,10.5,0},<sp/>(Vector3){0,0,0},<sp/>1);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetAngularDamping(grabber-&gt;body,<sp/>0.5f);<sp/></highlight><highlight class="comment">//<sp/>make<sp/>it<sp/>stiffer</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>grabber_joint<sp/>=<sp/>dJointCreateBall<sp/>(physCtx-&gt;<ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>,<sp/>0);</highlight></codeline>
@@ -157,7 +154,7 @@
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>create<sp/>just<sp/>a<sp/>geom</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>grab_sensor<sp/>=<sp/><ref refid="raylibODE_8c_1a2a368e091ab99ed0668855778e02ef70" kindref="member">createSphereGeom</ref>(physCtx,<sp/>&amp;graphics,<sp/>.6,<sp/>(Vector3){0,0,0});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>grab_sensor<sp/>=<sp/><ref refid="raylibODE_8c_1a0201472030d3c51d3b13c7f807b59b01" kindref="member">CreateSphereGeom</ref>(physCtx,<sp/>graphics,<sp/>.6,<sp/>(Vector3){0,0,0});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>the<sp/>trigger<sp/>callback<sp/>for<sp/>the<sp/>geom<sp/>its<sp/>now<sp/>invisible<sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>other<sp/>things<sp/>don&apos;t<sp/>collide<sp/>with<sp/>it<sp/>-<sp/>but<sp/>it<sp/>will<sp/>register<sp/>&quot;collisions&quot;</highlight><highlight class="normal"></highlight></codeline>
@@ -179,7 +176,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>baked<sp/>in<sp/>controls<sp/>(example<sp/>only<sp/>camera!)</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1ab694a4e13506da451e4221c6bc1c48f1" kindref="member">updateCamera</ref>(&amp;graphics);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kindref="member">UpdateExampleCamera</ref>(graphics);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_G))<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(attachment)<sp/>{</highlight></codeline>
@@ -231,7 +228,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>next<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;<sp/></highlight><highlight class="comment">//<sp/>get<sp/>the<sp/>next<sp/>node<sp/>now<sp/>in<sp/>case<sp/>we<sp/>delete<sp/>this<sp/>one</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reset<sp/>entities<sp/>for<sp/>setting<sp/>by<sp/>collision</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a3aa3473ec30d21671ea9ec98e3e65017" kindref="member">setEntityHew</ref>(ent,<sp/>WHITE);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" kindref="member">SetEntityHew</ref>(ent,<sp/>WHITE);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>pos<sp/>=<sp/>dBodyGetPosition(bdy);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(spcdn)<sp/>{</highlight></codeline>
@@ -250,7 +247,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(pos[1]&lt;-10)<sp/>{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kindref="member">FreeEntity</ref>(physCtx,<sp/>ent);<sp/></highlight><highlight class="comment">//<sp/>warning<sp/>deletes<sp/>global<sp/>entity<sp/>list<sp/>entry,<sp/>get<sp/>your<sp/>next<sp/>node<sp/>before<sp/>doing<sp/>this!</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" kindref="member">addRandomPhys</ref>(physCtx,<sp/>&amp;graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" kindref="member">CreateRandomEntity</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>next;</highlight></codeline>
@@ -260,7 +257,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>physTime<sp/>=<sp/>GetTime();<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pSteps<sp/>=<sp/><ref refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" kindref="member">stepPhysics</ref>(physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pSteps<sp/>=<sp/><ref refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" kindref="member">StepPhysics</ref>(physCtx);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>physTime<sp/>=<sp/>GetTime()<sp/>-<sp/>physTime;<sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
@@ -271,9 +268,9 @@
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClearBackground(BLACK);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginMode3D(graphics.<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" kindref="member">drawBodies</ref>(&amp;graphics,<sp/>physCtx);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" kindref="member">drawStatics</ref>(&amp;graphics,<sp/>physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginMode3D(graphics-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kindref="member">DrawBodies</ref>(graphics,<sp/>physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kindref="member">DrawStatics</ref>(graphics,<sp/>physCtx);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EndMode3D();</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
@@ -292,8 +289,8 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>De-Initialization</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//--------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" kindref="member">CleanupPhysics</ref>(physCtx);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" kindref="member">CleanupGraphics</ref>(&amp;graphics);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" kindref="member">FreePhysics</ref>(physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" kindref="member">FreeGraphics</ref>(graphics);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CloseWindow();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Close<sp/>window<sp/>and<sp/>OpenGL<sp/>context</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>

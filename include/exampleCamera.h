@@ -28,9 +28,9 @@
 
 #include "vehicle.h"
 
-void initCamera(struct GraphicsContext* ctx);
-void updateCamera(struct GraphicsContext* ctx);
-void updateVehicleCamera(struct GraphicsContext* ctx, vehicle* car);
+void SetupCamera(struct GraphicsContext* ctx);
+void UpdateExampleCamera(struct GraphicsContext* ctx);
+void UpdateVehicleCamera(struct GraphicsContext* ctx, vehicle* car);
 float GetCameraYaw();
 float GetCameraPitch();
 

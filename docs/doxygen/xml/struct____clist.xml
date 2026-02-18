@@ -18,7 +18,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="clist.h" line="27" column="13" bodyfile="clist.h" bodystart="27" bodyend="-1"/>
-        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
         <referencedby refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</referencedby>
         <referencedby refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</referencedby>
         <referencedby refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</referencedby>
@@ -28,8 +27,9 @@
         <referencedby refid="clist_8c_1ae9b045d3ebb0516cfaf27f605abc59e6" compoundref="clist_8c" startline="247" endline="255">clistIterateForward</referencedby>
         <referencedby refid="clist_8c_1a4b391c55e96f84010610ab7a4ea1f2a2" compoundref="clist_8c" startline="286" endline="308">clistSort</referencedby>
         <referencedby refid="clist_8c_1a68501b7c1ec4ac1a0a67510f34691040" compoundref="clist_8c" startline="317" endline="327">clistTotal</referencedby>
-        <referencedby refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" compoundref="raylibODE_8c" startline="919" endline="930">drawBodies</referencedby>
-        <referencedby refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" compoundref="raylibODE_8c" startline="944" endline="953">drawStatics</referencedby>
+        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="918" endline="929">DrawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="943" endline="952">DrawStatics</referencedby>
+        <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
       </memberdef>
       <memberdef kind="variable" id="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" prot="public" static="no" mutable="no">
         <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>

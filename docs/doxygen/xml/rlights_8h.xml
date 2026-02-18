@@ -167,7 +167,7 @@
         <references refid="structLight_1ad5c0b51a5d09ab56d1119706b58a6941" compoundref="rlights_8h" startline="47">Light::type</references>
         <references refid="structLight_1a69074799494a828b60170d962675fb90" compoundref="rlights_8h" startline="56">Light::typeLoc</references>
         <references refid="rlights_8c_1a147b7e5788024577fc8abb7df32e4c5c" compoundref="rlights_8c" startline="55" endline="73">UpdateLightValues</references>
-        <referencedby refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" compoundref="init_8c" startline="78" endline="137">InitGraphics</referencedby>
+        <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
       </memberdef>
       <memberdef kind="function" id="rlights_8h_1a147b7e5788024577fc8abb7df32e4c5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

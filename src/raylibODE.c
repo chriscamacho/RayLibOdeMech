@@ -73,7 +73,7 @@
  * - Static trimesh support for arbitrary geometry
  * - Ray picking for mouse interaction
  * - Automatic collision detection and response
- * - Integrated rendering with custom shaders
+ * - rotor and piston joint examples
  *
  *
  * @section usage Basic Usage
@@ -82,10 +82,9 @@
  *
  * @code
  * // Initialize graphics and physics
- * GraphicsContext gfxCtx;
- * InitGraphics(&gfxCtx, 1280, 720, "My Physics Sim");
- * PhysicsContext* physCtx = InitPhysics();
- * initCamera(&graphics);
+ *  PhysicsContext* physCtx = CreatePhysics();
+ *  GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
+ *  SetupCamera(graphics);
  * @endcode
  *
  * @subsection creating_objects Creating Objects
@@ -95,12 +94,12 @@
  * Vector3 size = {1.0f, 1.0f, 1.0f};
  * Vector3 pos = {0.0f, 5.0f, 0.0f};
  * Vector3 rot = {0.0f, 0.0f, 0.0f};
- * entity* box = addBox(physCtx, &gfxCtx, size, pos, rot, 10.0f);
+ * entity* box = CreateBox(physCtx, &gfxCtx, size, pos, rot, 10.0f);
  *
  * // Create a static ground box
  * dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
  * dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
- * dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
+ * dGeomSetData(planeGeom, CreateGeomInfo(true, graphics->groundTexture, 25.0f, 25.0f));
  * clistAddNode(physCtx->statics, planeGeom);
  * @endcode
  *
@@ -110,15 +109,15 @@
  * // In your main loop
  * while (!WindowShouldClose()) {
  *     // Step physics
- *     stepPhysics(physCtx);
- *     updateCamera(&graphics);
+ *     StepPhysics(physCtx);
+ *     UpdateExampleCamera(graphics);
  *
  *     // Render
  *     BeginDrawing();
  *         ClearBackground(RAYWHITE);
- *         BeginMode3D(gfxCtx.camera);
- *             drawBodies(&gfxCtx, physCtx);
- *             drawStatics(&graphics, physCtx);
+ *         BeginMode3D(graphics->camera);
+ *             drawBodies(graphics, physCtx);
+ *             drawStatics(graphics, physCtx);
  *         EndMode3D();
  *     EndDrawing();
  * }
@@ -128,8 +127,8 @@
  *
  * @code
  * // Clean up resources
- * CleanupPhysics(physCtx);
- * CleanupGraphics(&gfxCtx);
+ * FreePhysics(physCtx);
+ * FreeGraphics(graphics);
  * CloseWindow();
  * @endcode
  *
@@ -238,7 +237,7 @@ float rndf(float min, float max)
  * @see PhysicsContext
  * @see dWorldQuickStep
  */
-int stepPhysics(PhysicsContext* physCtx)
+int StepPhysics(PhysicsContext* physCtx)
 {
 	int pSteps = 0;
 	physCtx->frameTime += GetFrameTime();
@@ -280,7 +279,7 @@ int stepPhysics(PhysicsContext* physCtx)
  *
  * @note Internal function - but might be useful for manual creation
  */
-entity* createBaseEntity(PhysicsContext* ctx) {
+entity* CreateBaseEntity(PhysicsContext* ctx) {
     dBodyID bdy = dBodyCreate(ctx->world);
     entity* ent = RL_MALLOC(sizeof(entity));
     ent->body = bdy;
@@ -290,7 +289,7 @@ entity* createBaseEntity(PhysicsContext* ctx) {
 }
 
 // just an isolated geom, most useful to add to existing bodies
-dGeomID createSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos)
+dGeomID CreateSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos)
 {
     dGeomID geom = dCreateSphere(ctx->space, radius);
     dGeomSetPosition(geom, pos.x, pos.y, pos.z);
@@ -324,9 +323,9 @@ dGeomID createSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float rad
  * @see PhysicsContext
  * @see GraphicsContext
  */
-entity* addBox(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)
+entity* CreateBox(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)
 {
-    entity* ent = createBaseEntity(ctx);
+    entity* ent = CreateBaseEntity(ctx);
     dMatrix3 R;
     dMass m;
 
@@ -367,9 +366,9 @@ entity* addBox(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vecto
  * @see entity
  * @see PhysicsContext
  */
-entity* addSphere(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)
+entity* CreateSphere(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)
 {
-    entity* ent = createBaseEntity(ctx);
+    entity* ent = CreateBaseEntity(ctx);
     dMatrix3 R;
     dMass m;
 
@@ -411,8 +410,8 @@ entity* addSphere(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Ve
  * @note Cylinder is assigned a random texture from the available cylinder textures
  * @see entity
  */
-entity* addCylinder(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass) {
-    entity* ent = createBaseEntity(ctx);
+entity* CreateCylinder(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass) {
+    entity* ent = CreateBaseEntity(ctx);
     dMatrix3 R;
     dMass m;
 
@@ -454,8 +453,8 @@ entity* addCylinder(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, 
  * @note Capsule combines a cylinder with two hemispherical ends
  * @see entity
  */
-entity* addCapsule(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass) {
-    entity* ent = createBaseEntity(ctx);
+entity* CreateCapsule(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass) {
+    entity* ent = CreateBaseEntity(ctx);
     dMatrix3 R;
     dMass m;
 
@@ -500,8 +499,8 @@ entity* addCapsule(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, f
  * @note Mass is distributed: 50% shaft, 25% each end
  * @see entity
  */
-entity* addDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass) {
-    entity* ent = createBaseEntity(ctx);
+entity* CreateDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass) {
+    entity* ent = CreateBaseEntity(ctx);
     dMatrix3 R;
     dMass m, mTotal, mSphere;
 
@@ -553,7 +552,7 @@ entity* addDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad
  * @note Mass is fixed at 10.0f for all random objects
  * @note Each type has randomized dimensions within reasonable ranges
  */
-entity* addRandomPhys(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos)
+entity* CreateRandomEntity(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos)
 {
     float typ = rndf(0, 1);
 
@@ -562,22 +561,22 @@ entity* addRandomPhys(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos)
 
     if (typ < 0.20) {  // Box
         Vector3 s = (Vector3){rndf(0.25, .5), rndf(0.25, .5), rndf(0.25, .5)};
-        return addBox(ctx, gfxCtx, s, pos, rot, mass);
+        return CreateBox(ctx, gfxCtx, s, pos, rot, mass);
 
     } else if (typ < 0.40) {  // Sphere
-        return addSphere(ctx, gfxCtx, rndf(0.25, .4), pos, rot, mass);
+        return CreateSphere(ctx, gfxCtx, rndf(0.25, .4), pos, rot, mass);
 
     } else if (typ < 0.60) {  // Cylinder
-        return addCylinder(ctx, gfxCtx, rndf(0.125, .5), rndf(0.4, 1), pos, rot, mass);
+        return CreateCylinder(ctx, gfxCtx, rndf(0.125, .5), rndf(0.4, 1), pos, rot, mass);
 
     } else if (typ < 0.80) {  // Capsule
-        return addCapsule(ctx, gfxCtx, rndf(0.125, .3), rndf(0.4, 1), pos, rot, mass);
+        return CreateCapsule(ctx, gfxCtx, rndf(0.125, .3), rndf(0.4, 1), pos, rot, mass);
 
     } else {  // Dumbbell
         float sRad = 0.1f;
         float sLen = rndf(.8, 1.2);
         float eRad = rndf(0.1, 0.2) + sRad;
-        return addDumbbell(ctx, gfxCtx, sRad, sLen, eRad, pos, rot, mass);
+        return CreateDumbbell(ctx, gfxCtx, sRad, sLen, eRad, pos, rot, mass);
     }
 }
 
@@ -617,7 +616,7 @@ cnode_t* CreateStaticTrimesh(PhysicsContext* physCtx, GraphicsContext* gfxCtx, M
 
     dGeomID geom = dCreateTriMesh(physCtx->space, triData, NULL, NULL, NULL);
 
-    if (tex) model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *tex;
+    model.materials[0].maps[MATERIAL_MAP_DIFFUSE].texture = *tex;
     model.materials[0].shader = gfxCtx->shader;
 
     // Setup Metadata
@@ -681,7 +680,7 @@ static void rayCallback(void* data, dGeomID o1, dGeomID o2) {
  * @returns a pointer to the entity that was found.
 
  */
-entity* getEntityFromMouse(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hitPoint) {
+entity* PickEntity(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hitPoint) {
 
     Vector2 screenCenter = { GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f };
     Ray ray = GetMouseRay(screenCenter, gfxCtx->camera);
@@ -734,7 +733,7 @@ void FreeBodyAndGeoms(dBodyID bdy)
 
 // position rotation scale all done with the models transform...
 // TODO check there isn't a new raylib function that does this now _pro _ex or similar!
-void MyDrawModel(Model model, Color tint)
+void DrawModelTinted(Model model, Color tint)
 {
 
     for (int i = 0; i < model.meshCount; i++)
@@ -755,7 +754,7 @@ void MyDrawModel(Model model, Color tint)
 
 
 // these two just convert to column major and minor
-void rayToOdeMat(Matrix* m, dReal* R) {
+void RayToOdeMat(Matrix* m, dReal* R) {
     R[ 0] = m->m0;   R[ 1] = m->m4;   R[ 2] = m->m8;    R[ 3] = 0;
     R[ 4] = m->m1;   R[ 5] = m->m5;   R[ 6] = m->m9;    R[ 7] = 0;
     R[ 8] = m->m2;   R[ 9] = m->m6;   R[10] = m->m10;   R[11] = 0;
@@ -763,7 +762,7 @@ void rayToOdeMat(Matrix* m, dReal* R) {
 }
 
 // sets a raylib matrix from an ODE rotation matrix
-void odeToRayMat(const dReal* R, Matrix* m)
+void OdeToRayMat(const dReal* R, Matrix* m)
 {
     m->m0 = R[0];  m->m1 = R[4];  m->m2 = R[8];      m->m3 = 0;
     m->m4 = R[1];  m->m5 = R[5];  m->m6 = R[9];      m->m7 = 0;
@@ -773,7 +772,7 @@ void odeToRayMat(const dReal* R, Matrix* m)
 
 // called by draw all geoms
 
-void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
+void DrawGeom(dGeomID geom, struct GraphicsContext* ctx)
 {
     geomInfo* gi = (geomInfo*)dGeomGetData(geom);
     if (!gi) return; // Silently bail if no metadata
@@ -789,7 +788,7 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
     int class = dGeomGetClass(geom);
 
     Matrix matRot;
-    odeToRayMat(rot, &matRot);
+    OdeToRayMat(rot, &matRot);
     Matrix matTran = MatrixTranslate(pos[0], pos[1], pos[2]);
     Matrix matWorld = MatrixMultiply(matRot, matTran);
 
@@ -814,25 +813,25 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
 
     if (gi->visual.meshCount) {
 		gi->visual.transform = matWorld;
-		MyDrawModel(gi->visual, c);
+		DrawModelTinted(gi->visual, c);
 	} else {
 
 		if (class == dBoxClass) {
 			dVector3 size;
 			dGeomBoxGetLengths(geom, size);
 			ctx->box.transform = MatrixMultiply(MatrixScale(size[0], size[1], size[2]), matWorld);
-			MyDrawModel(ctx->box, c);
+			DrawModelTinted(ctx->box, c);
 		}
 		else if (class == dSphereClass) {
 			float r = dGeomSphereGetRadius(geom);
 			ctx->ball.transform = MatrixMultiply(MatrixScale(r*2, r*2, r*2), matWorld);
-			MyDrawModel(ctx->ball, c);
+			DrawModelTinted(ctx->ball, c);
 		}
 		else if (class == dCylinderClass) {
 			dReal l, r;
 			dGeomCylinderGetParams(geom, &r, &l);
 			ctx->cylinder.transform = MatrixMultiply(MatrixScale(r*2, r*2, l), matWorld);
-			MyDrawModel(ctx->cylinder, c);
+			DrawModelTinted(ctx->cylinder, c);
 		}
 		else if (class == dCapsuleClass) {
 			dReal l, r;
@@ -841,17 +840,17 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
 
 			// Cylinder
 			ctx->cylinder.transform = MatrixMultiply(MatrixScale(d, d, l), matWorld);
-			MyDrawModel(ctx->cylinder, c);
+			DrawModelTinted(ctx->cylinder, c);
 
 			// Cap 1 (Local Z+)
 			Matrix matCap1 = MatrixMultiply(MatrixTranslate(0, 0, l/2), matWorld);
 			ctx->ball.transform = MatrixMultiply(MatrixScale(d, d, d), matCap1);
-			MyDrawModel(ctx->ball, c);
+			DrawModelTinted(ctx->ball, c);
 
 			// Cap 2 (Local Z-)
 			Matrix matCap2 = MatrixMultiply(MatrixTranslate(0, 0, -l/2), matWorld);
 			ctx->ball.transform = MatrixMultiply(MatrixScale(d, d, d), matCap2);
-			MyDrawModel(ctx->ball, c);
+			DrawModelTinted(ctx->ball, c);
 		}
 
 	}
@@ -871,7 +870,7 @@ void drawGeom(dGeomID geom, struct GraphicsContext* ctx)
  * if you no longer require them, in the arm example a joint is created and
  * destroyed every time an object is caught and released
  */
-dJointID createRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 axis)
+dJointID CreateRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 axis)
 {
 	// Use a Hinge to rotate around (no stops)
 	dJointID rotor = dJointCreateHinge(physCtx->world, 0);
@@ -904,7 +903,7 @@ dJointID createRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 
  * @param c new colour to use
  *
  */
-void setEntityHew(entity* ent, Color c)
+void SetEntityHew(entity* ent, Color c)
 {
 	dGeomID geom = dBodyGetFirstGeom(ent->body);
 	while(geom) {
@@ -916,38 +915,38 @@ void setEntityHew(entity* ent, Color c)
 	}
 }
 
-void drawBodies(struct GraphicsContext* ctx, PhysicsContext* pctx)
+void DrawBodies(struct GraphicsContext* ctx, PhysicsContext* pctx)
 {
 	cnode_t* node = pctx->objList->head;
 
     while (node != NULL) {
 		entity* e = (entity*)node->data;
 		dBodyID bdy = e->body;
-		drawBodyGeoms(bdy, ctx);
+		DrawBodyGeoms(bdy, ctx);
 
 		node = node->next;
 	}
 }
 
-void drawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx)
+void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx)
 {
 	dGeomID geom = dBodyGetFirstGeom(bdy);
 	while(geom) {
 		dGeomID next = dBodyGetNextGeom(geom);
 
-		drawGeom(geom, ctx);
+		DrawGeom(geom, ctx);
 		geom = next;
 	}
 
 }
 
-void drawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx)
+void DrawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx)
 {
 	cnode_t* node = pctx->statics->head;
 
     while (node != NULL) {
 		dGeomID geom = node->data;
-		drawGeom(geom, ctx);
+		DrawGeom(geom, ctx);
 		node = node->next;
 	}
 }

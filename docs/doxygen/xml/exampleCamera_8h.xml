@@ -49,11 +49,11 @@
       </node>
     </incdepgraph>
     <sectiondef kind="func">
-      <memberdef kind="function" id="exampleCamera_8h_1abf1f4204c9ad8cd8061009b9702d7a3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="exampleCamera_8h_1af155bf31f5a69e64716e1eb1a010f647" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void initCamera</definition>
+        <definition>void SetupCamera</definition>
         <argsstring>(struct GraphicsContext *ctx)</argsstring>
-        <name>initCamera</name>
+        <name>SetupCamera</name>
         <param>
           <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
           <declname>ctx</declname>
@@ -81,13 +81,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="exampleCamera.h" line="31" column="6" bodyfile="exampleCamera.c" bodystart="79" bodyend="91" declfile="exampleCamera.h" declline="31" declcolumn="6"/>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="107">GraphicsContext::camera</references>
       </memberdef>
-      <memberdef kind="function" id="exampleCamera_8h_1ab694a4e13506da451e4221c6bc1c48f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="exampleCamera_8h_1ad0a902b3760c7a5f8725bdb73ddc174b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void updateCamera</definition>
+        <definition>void UpdateExampleCamera</definition>
         <argsstring>(struct GraphicsContext *ctx)</argsstring>
-        <name>updateCamera</name>
+        <name>UpdateExampleCamera</name>
         <param>
           <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
           <declname>ctx</declname>
@@ -111,14 +111,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="exampleCamera.h" line="32" column="6" bodyfile="exampleCamera.c" bodystart="166" bodyend="216" declfile="exampleCamera.h" declline="32" declcolumn="6"/>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
-        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="107">GraphicsContext::camera</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="108">GraphicsContext::shader</references>
       </memberdef>
-      <memberdef kind="function" id="exampleCamera_8h_1a9ebb8457497dc7cebf88b55573010637" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="exampleCamera_8h_1afa1b8031e4fc015dfe8093339c904e50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>void updateVehicleCamera</definition>
+        <definition>void UpdateVehicleCamera</definition>
         <argsstring>(struct GraphicsContext *ctx, vehicle *car)</argsstring>
-        <name>updateVehicleCamera</name>
+        <name>UpdateVehicleCamera</name>
         <param>
           <type>struct <ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref> *</type>
           <declname>ctx</declname>
@@ -155,8 +155,8 @@
         </inbodydescription>
         <location file="exampleCamera.h" line="33" column="6" bodyfile="exampleCamera.c" bodystart="102" bodyend="156" declfile="exampleCamera.h" declline="33" declcolumn="6"/>
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
-        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="107">GraphicsContext::camera</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="108">GraphicsContext::shader</references>
       </memberdef>
       <memberdef kind="function" id="exampleCamera_8h_1a9904774abec2bae71c6d75094d47cbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -228,9 +228,9 @@
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="vehicle_8h" kindref="compound">vehicle.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1abf1f4204c9ad8cd8061009b9702d7a3f" kindref="member">initCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1ab694a4e13506da451e4221c6bc1c48f1" kindref="member">updateCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1a9ebb8457497dc7cebf88b55573010637" kindref="member">updateVehicleCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1af155bf31f5a69e64716e1eb1a010f647" kindref="member">SetupCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1ad0a902b3760c7a5f8725bdb73ddc174b" kindref="member">UpdateExampleCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1afa1b8031e4fc015dfe8093339c904e50" kindref="member">UpdateVehicleCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car);</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1a9904774abec2bae71c6d75094d47cbe3" kindref="member">GetCameraYaw</ref>();</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1afbfa8af7ad686732f5ddcea617d03d1b" kindref="member">GetCameraPitch</ref>();</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>

@@ -41,31 +41,29 @@
 <codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>main(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
 <codeline><highlight class="normal">{</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>init</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref><sp/>graphics<sp/>=<sp/>{<sp/>0<sp/>};</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" kindref="member">InitGraphics</ref>(&amp;graphics,<sp/>screenWidth,<sp/>screenHeight,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE<sp/>Sandbox&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1abf1f4204c9ad8cd8061009b9702d7a3f" kindref="member">initCamera</ref>(&amp;graphics);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" kindref="member">InitPhysics</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kindref="member">CreatePhysics</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics<sp/>=<sp/><ref refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kindref="member">CreateGraphics</ref>(screenWidth,<sp/>screenHeight,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE<sp/>Sandbox&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" kindref="member">SetupCamera</ref>(graphics);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>ground<sp/>plane</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>planeGeom<sp/>=<sp/>dCreateBox(physCtx-&gt;<ref refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" kindref="member">space</ref>,<sp/><ref refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kindref="member">PLANE_SIZE</ref>,<sp/><ref refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kindref="member">PLANE_THICKNESS</ref>,<sp/><ref refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kindref="member">PLANE_SIZE</ref>);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetPosition(planeGeom,<sp/>0,<sp/>-<ref refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kindref="member">PLANE_THICKNESS</ref><sp/>/<sp/>2.0,<sp/>0);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetData(planeGeom,<sp/><ref refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>&amp;graphics.<ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>,<sp/>25.0f,<sp/>25.0f));</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetData(planeGeom,<sp/><ref refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>&amp;graphics-&gt;<ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>,<sp/>25.0f,<sp/>25.0f));</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a264922774fdf767e31797fe81f2231be" kindref="member">clistAddNode</ref>(physCtx-&gt;<ref refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kindref="member">statics</ref>,<sp/>planeGeom);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!WindowShouldClose())</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1ab694a4e13506da451e4221c6bc1c48f1" kindref="member">updateCamera</ref>(&amp;graphics);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" kindref="member">stepPhysics</ref>(physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kindref="member">UpdateExampleCamera</ref>(graphics);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" kindref="member">StepPhysics</ref>(physCtx);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>drawing</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginDrawing();</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClearBackground(BLACK);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginMode3D(graphics.<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" kindref="member">drawBodies</ref>(&amp;graphics,<sp/>physCtx);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" kindref="member">drawStatics</ref>(&amp;graphics,<sp/>physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginMode3D(graphics-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kindref="member">DrawBodies</ref>(graphics,<sp/>physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kindref="member">DrawStatics</ref>(graphics,<sp/>physCtx);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EndMode3D();</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DrawText(</highlight><highlight class="stringliteral">&quot;This<sp/>does<sp/>nothing<sp/>use<sp/>it<sp/>for<sp/>your<sp/>own<sp/>experiments!&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>40,<sp/>20,<sp/>RAYWHITE);</highlight></codeline>
@@ -73,8 +71,8 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EndDrawing();</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" kindref="member">CleanupPhysics</ref>(physCtx);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" kindref="member">CleanupGraphics</ref>(&amp;graphics);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" kindref="member">FreePhysics</ref>(physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" kindref="member">FreeGraphics</ref>(graphics);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CloseWindow();</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
 <codeline><highlight class="normal">}</highlight></codeline>

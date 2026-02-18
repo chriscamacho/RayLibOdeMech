@@ -66,30 +66,30 @@
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00063}00063\ \textcolor{comment}{\ *\ shaders,\ and\ creates\ lighting.\ This\ must\ be\ called\ before\ any}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00064}00064\ \textcolor{comment}{\ *\ rendering\ can\ occur.}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00065}00065\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00066}00066\ \textcolor{comment}{\ *\ @param\ ctx\ Pointer\ to\ GraphicsContext\ to\ initialize}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00067}00067\ \textcolor{comment}{\ *\ @param\ width\ Window\ width\ in\ pixels}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00068}00068\ \textcolor{comment}{\ *\ @param\ height\ Window\ height\ in\ pixels}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00069}00069\ \textcolor{comment}{\ *\ @param\ title\ Window\ title\ string}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00070}00070\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00071}00071\ \textcolor{comment}{\ *\ @note\ Enables\ VSync\ and\ 4x\ MSAA\ by\ default}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00072}00072\ \textcolor{comment}{\ *\ @note\ Hides\ and\ locks\ cursor\ for\ FPS-\/style\ camera\ control}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00073}00073\ \textcolor{comment}{\ *\ @note\ Loads\ default\ textures\ from\ data/\ directory}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00074}00074\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00075}00075\ \textcolor{comment}{\ *\ @see\ GraphicsContext}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00076}00076\ \textcolor{comment}{\ *\ @see\ CleanupGraphics}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00077}00077\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00078}\mbox{\hyperlink{init_8c_a4ef743f6c8c693304e974dac3b901875}{00078}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8c_a4ef743f6c8c693304e974dac3b901875}{InitGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title)}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00079}00079\ \{}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00080}00080\ \ \ \ \ InitWindow(width,\ height,\ title);}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00081}00081\ \ \ \ \ SetWindowState(FLAG\_VSYNC\_HINT\ |\ FLAG\_MSAA\_4X\_HINT);}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00082}00082\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ work\ around\ for\ mouse\ delta\ and\ initial\ camera\ direction}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00084}00084\ \ \ \ \ SetMousePosition(width/2,\ height/2);\ }
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00085}00085\ \ \ \ \ BeginDrawing();}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00086}00086\ \ \ \ \ EndDrawing();}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00087}00087\ }
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00088}00088\ \ \ \ \ DisableCursor();\ \ \textcolor{comment}{//\ Hide\ and\ lock\ cursor}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00066}00066\ \textcolor{comment}{\ *\ @param\ width\ Window\ width\ in\ pixels}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00067}00067\ \textcolor{comment}{\ *\ @param\ height\ Window\ height\ in\ pixels}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00068}00068\ \textcolor{comment}{\ *\ @param\ title\ Window\ title\ string}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00069}00069\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00070}00070\ \textcolor{comment}{\ *\ @note\ Enables\ VSync\ and\ 4x\ MSAA\ by\ default}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00071}00071\ \textcolor{comment}{\ *\ @note\ Hides\ and\ locks\ cursor\ for\ FPS-\/style\ camera\ control}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00072}00072\ \textcolor{comment}{\ *\ @note\ Loads\ default\ textures\ from\ data/\ directory}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00073}00073\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00074}00074\ \textcolor{comment}{\ *\ @see\ GraphicsContext}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00075}00075\ \textcolor{comment}{\ *\ @see\ FreeGraphics}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00076}00076\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00077}\mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{00077}}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title)}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00078}00078\ \{}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00079}00079\ \ \ \ \ InitWindow(width,\ height,\ title);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00080}00080\ \ \ \ \ SetWindowState(FLAG\_VSYNC\_HINT\ |\ FLAG\_MSAA\_4X\_HINT);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00081}00081\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ work\ around\ for\ mouse\ delta\ and\ initial\ camera\ direction}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00083}00083\ \ \ \ \ SetMousePosition(width/2,\ height/2);\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00084}00084\ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00085}00085\ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00087}00087\ \ \ \ \ DisableCursor();\ \ \textcolor{comment}{//\ Hide\ and\ lock\ cursor}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00088}00088\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx\ =\ MemAlloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}));}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ Load\ models}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00091}00091\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}}\ =\ LoadModelFromMesh(GenMeshCube(1,\ 1,\ 1));}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00092}00092\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}\ =\ LoadModelFromMesh(GenMeshSphere(.5,\ 32,\ 32));}
@@ -136,7 +136,7 @@
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00133}00133\ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a61bca66f0addd3b1ebf71f1369b55e00}{lights}}[1]\ =\ \mbox{\hyperlink{rlights_8c_afc243bc3de16abf2627f9ae16dd484de}{CreateLight}}(\mbox{\hyperlink{rlights_8h_adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c}{LIGHT\_POINT}},\ (Vector3)\{-\/25,\ 25,\ -\/25\},\ Vector3Zero(),}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Color)\{64,\ 64,\ 64,\ 255\},\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}});}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{return}\ ctx;}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00137}00137\ \}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00138}00138\ }
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00139}00139\ }
@@ -158,7 +158,7 @@
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00155}00155\ \textcolor{comment}{\ *\ @see\ CleanupPhysics}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00156}00156\ \textcolor{comment}{\ *\ @see\ PhysicsContext}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00157}00157\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00158}\mbox{\hyperlink{init_8c_a1622bbe41084e4d594b33c3fa56e3ad9}{00158}}\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ \mbox{\hyperlink{init_8c_a1622bbe41084e4d594b33c3fa56e3ad9}{InitPhysics}}()\textcolor{comment}{//dSpaceID*\ space)//,\ GraphicsContext*\ gfxCtx)}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00158}\mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{00158}}\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}()\textcolor{comment}{//dSpaceID*\ space)//,\ GraphicsContext*\ gfxCtx)}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00159}00159\ \{}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{sizeof}(dReal)\ !=\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float}))\ \{}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}\(\backslash\)n[SIM\ ERROR]\ Precision\ Mismatch\ Detected!\(\backslash\)n"{}});}
@@ -195,7 +195,7 @@
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00192}00192\ \ \ \ \ \textcolor{keywordflow}{return}\ ctx;}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00193}00193\ \}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00194}00194\ }
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00195}\mbox{\hyperlink{init_8c_afaa0b9510d3f6bf8a8187d25ed17c536}{00195}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8c_afaa0b9510d3f6bf8a8187d25ed17c536}{CleanupPhysics}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00195}\mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{00195}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx)}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00196}00196\ \{}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{if}\ (!ctx)\ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00198}00198\ }
@@ -246,7 +246,7 @@
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00243}00243\ \ \ \ \ RL\_FREE(ctx);}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00244}00244\ \}}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00245}00245\ }
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00246}\mbox{\hyperlink{init_8c_a9f01a5c8d21a89463b9e68ec349887f7}{00246}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8c_a9f01a5c8d21a89463b9e68ec349887f7}{CleanupGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00246}\mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{00246}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00247}00247\ \{}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00248}00248\ }
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00249}00249\ \ \ \ \ \textcolor{comment}{//\ Clean\ up\ graphics\ resources}}
@@ -265,6 +265,8 @@
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00262}00262\ \ \ \ \ UnloadTexture(ctx-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}});}
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00263}00263\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{init_8c_source_l00264}00264\ \ \ \ \ UnloadShader(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}});}
-\DoxyCodeLine{\Hypertarget{init_8c_source_l00265}00265\ \}}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00265}00265\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00266}00266\ \ \ \ \ RL\_FREE(ctx);}
+\DoxyCodeLine{\Hypertarget{init_8c_source_l00267}00267\ \}}
 
 \end{DoxyCode}

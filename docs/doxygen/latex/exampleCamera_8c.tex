@@ -13,11 +13,11 @@ float \mbox{\hyperlink{exampleCamera_8c_a9904774abec2bae71c6d75094d47cbe3}{Get\+
 \begin{DoxyCompactList}\small\item\em Get current camera yaw angle. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{exampleCamera_8c_afbfa8af7ad686732f5ddcea617d03d1b}{Get\+Camera\+Pitch}} ()
 \begin{DoxyCompactList}\small\item\em Get current camera pitch angle. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f}{init\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+void \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{Setup\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
 \begin{DoxyCompactList}\small\item\em Initialize the camera. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{exampleCamera_8c_a9ebb8457497dc7cebf88b55573010637}{update\+Vehicle\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}car)
+void \mbox{\hyperlink{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}{Update\+Vehicle\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}car)
 \begin{DoxyCompactList}\small\item\em update a camera but attach it to a vehicle \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{exampleCamera_8c_ab694a4e13506da451e4221c6bc1c48f1}{update\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
+void \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{Update\+Example\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
 \begin{DoxyCompactList}\small\item\em update the camera \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -92,11 +92,11 @@ Current yaw angle in radians
 
 Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00060}{60}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
 
-\Hypertarget{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f}\index{exampleCamera.c@{exampleCamera.c}!initCamera@{initCamera}}
-\index{initCamera@{initCamera}!exampleCamera.c@{exampleCamera.c}}
-\doxysubsubsection{\texorpdfstring{initCamera()}{initCamera()}}
-{\footnotesize\ttfamily \label{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f} 
-void init\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+\Hypertarget{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}\index{exampleCamera.c@{exampleCamera.c}!SetupCamera@{SetupCamera}}
+\index{SetupCamera@{SetupCamera}!exampleCamera.c@{exampleCamera.c}}
+\doxysubsubsection{\texorpdfstring{SetupCamera()}{SetupCamera()}}
+{\footnotesize\ttfamily \label{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647} 
+void Setup\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
 
 
 
@@ -123,13 +123,13 @@ Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00079}{79}} of file
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::camera}}.
 
-\Hypertarget{exampleCamera_8c_ab694a4e13506da451e4221c6bc1c48f1}\index{exampleCamera.c@{exampleCamera.c}!updateCamera@{updateCamera}}
-\index{updateCamera@{updateCamera}!exampleCamera.c@{exampleCamera.c}}
-\doxysubsubsection{\texorpdfstring{updateCamera()}{updateCamera()}}
-{\footnotesize\ttfamily \label{exampleCamera_8c_ab694a4e13506da451e4221c6bc1c48f1} 
-void update\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
+\Hypertarget{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}\index{exampleCamera.c@{exampleCamera.c}!UpdateExampleCamera@{UpdateExampleCamera}}
+\index{UpdateExampleCamera@{UpdateExampleCamera}!exampleCamera.c@{exampleCamera.c}}
+\doxysubsubsection{\texorpdfstring{UpdateExampleCamera()}{UpdateExampleCamera()}}
+{\footnotesize\ttfamily \label{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b} 
+void Update\+Example\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{}\end{DoxyParamCaption})}
 
 
 
@@ -151,13 +151,13 @@ Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00166}{166}} of fil
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00108}{Graphics\+Context\+::shader}}.
 
-\Hypertarget{exampleCamera_8c_a9ebb8457497dc7cebf88b55573010637}\index{exampleCamera.c@{exampleCamera.c}!updateVehicleCamera@{updateVehicleCamera}}
-\index{updateVehicleCamera@{updateVehicleCamera}!exampleCamera.c@{exampleCamera.c}}
-\doxysubsubsection{\texorpdfstring{updateVehicleCamera()}{updateVehicleCamera()}}
-{\footnotesize\ttfamily \label{exampleCamera_8c_a9ebb8457497dc7cebf88b55573010637} 
-void update\+Vehicle\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}}]{car}{}\end{DoxyParamCaption})}
+\Hypertarget{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}\index{exampleCamera.c@{exampleCamera.c}!UpdateVehicleCamera@{UpdateVehicleCamera}}
+\index{UpdateVehicleCamera@{UpdateVehicleCamera}!exampleCamera.c@{exampleCamera.c}}
+\doxysubsubsection{\texorpdfstring{UpdateVehicleCamera()}{UpdateVehicleCamera()}}
+{\footnotesize\ttfamily \label{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50} 
+void Update\+Vehicle\+Camera (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}}]{car}{}\end{DoxyParamCaption})}
 
 
 
@@ -181,5 +181,5 @@ Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00102}{102}} of fil
 
 
 
-References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}.
+References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00108}{Graphics\+Context\+::shader}}.
 

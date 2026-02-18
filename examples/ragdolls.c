@@ -36,14 +36,10 @@ int main(void)
     // Initialization
     //--------------------------------------------------------------------------------------
 
-    // Physics context, holds all physics state
-    PhysicsContext* physCtx = NULL;
+    PhysicsContext* physCtx = CreatePhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
+    SetupCamera(graphics);
     
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE");
-    
-	initCamera(&graphics);
-    physCtx = InitPhysics();
 
 
 	// set up for the items in the world
@@ -56,13 +52,13 @@ int main(void)
     //dRFromAxisAndAngle(R_plane, 1, 0, -1, M_PI * 0.125);
     dRFromAxisAndAngle(R_plane, 0, 0, 1, 0);
     dGeomSetRotation(planeGeom, R_plane);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
+    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
 
 	clistAddNode(physCtx->statics, planeGeom);
 
 	RagDoll* rd[NRAGDOLLS];
 	for (int i=0; i<NRAGDOLLS; i++) {
-		rd[i] = CreateRagdoll(physCtx, &graphics, GetRagdollSpawnPosition());
+		rd[i] = CreateRagdoll(physCtx, graphics, GetRagdollSpawnPosition());
 	}
 	
     float physTime = 0;
@@ -79,7 +75,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 		
 		// baked in controls (example only camera!)
-		updateCamera(&graphics);
+		UpdateExampleCamera(graphics);
         
         
         bool spcdn = IsKeyDown(KEY_SPACE);  // cache space key status (don't look up for each object iterration    
@@ -113,7 +109,7 @@ int main(void)
                 if (pos[1] < -10) {
                     // Re-create rag doll at a new random spawn position
                     FreeRagdoll(physCtx, rd[i]); // remove framework resources
-                    rd[i] = CreateRagdoll(physCtx, &graphics, GetRagdollSpawnPosition());
+                    rd[i] = CreateRagdoll(physCtx, graphics, GetRagdollSpawnPosition());
                 }
             }
         }
@@ -124,7 +120,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 
         physTime = GetTime(); 
-        int pSteps = stepPhysics(physCtx);
+        int pSteps = StepPhysics(physCtx);
         physTime = GetTime() - physTime;    
 
 
@@ -135,9 +131,9 @@ int main(void)
 
         ClearBackground(BLACK);
 
-        BeginMode3D(graphics.camera);
-			drawBodies(&graphics, physCtx);
-			drawStatics(&graphics, physCtx);
+        BeginMode3D(graphics->camera);
+			DrawBodies(graphics, physCtx);
+			DrawStatics(graphics, physCtx);
         EndMode3D();
 
 
@@ -158,8 +154,8 @@ int main(void)
     for (int i=0; i<NRAGDOLLS; i++) {
 		FreeRagdoll(physCtx,rd[i]);
 	}
-    CleanupPhysics(physCtx);
-    CleanupGraphics(&graphics);
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
 
     CloseWindow();              // Close window and OpenGL context
     

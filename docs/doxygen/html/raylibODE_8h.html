@@ -129,46 +129,46 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a90e81478715d0f9b144a709347d089a0" id="r_a90e81478715d0f9b144a709347d089a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90e81478715d0f9b144a709347d089a0">rayToOdeMat</a> (Matrix *mat, dReal *R)</td></tr>
-<tr class="memitem:a5b0792a09d707c97fea36d1e35ab364d" id="r_a5b0792a09d707c97fea36d1e35ab364d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b0792a09d707c97fea36d1e35ab364d">odeToRayMat</a> (const dReal *R, Matrix *matrix)</td></tr>
-<tr class="memitem:af0307cfb8f3c5c1b8dc01681865f0062" id="r_af0307cfb8f3c5c1b8dc01681865f0062"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0307cfb8f3c5c1b8dc01681865f0062">createBaseEntity</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx)</td></tr>
-<tr class="memdesc:af0307cfb8f3c5c1b8dc01681865f0062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a base entity with physics body.  <br /></td></tr>
+<tr class="memitem:a9a4fddcfd406e6bfb1987111e4ad64f1" id="r_a9a4fddcfd406e6bfb1987111e4ad64f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a4fddcfd406e6bfb1987111e4ad64f1">CreateBaseEntity</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx)</td></tr>
+<tr class="memdesc:a9a4fddcfd406e6bfb1987111e4ad64f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a base entity with physics body.  <br /></td></tr>
 <tr class="memitem:a79db70091e3c86494f485979529984c8" id="r_a79db70091e3c86494f485979529984c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgeomInfo.html">geomInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a> (bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</td></tr>
 <tr class="memdesc:a79db70091e3c86494f485979529984c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper to allocate <a class="el" href="structgeomInfo.html" title="Stores geometry metadata for collision, texturing, and trimesh data.">geomInfo</a> with collision flag, optional texture, and UV scale this is useful when greating your own custom bodies for special purposes If this is attached to a geom on a body that is in the global entity list then this allocation will be automagically cleaned up.  <br /></td></tr>
-<tr class="memitem:a2a368e091ab99ed0668855778e02ef70" id="r_a2a368e091ab99ed0668855778e02ef70"><td class="memItemLeft" align="right" valign="top">dGeomID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a368e091ab99ed0668855778e02ef70">createSphereGeom</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, Vector3 pos)</td></tr>
+<tr class="memitem:a0201472030d3c51d3b13c7f807b59b01" id="r_a0201472030d3c51d3b13c7f807b59b01"><td class="memItemLeft" align="right" valign="top">dGeomID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0201472030d3c51d3b13c7f807b59b01">CreateSphereGeom</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, Vector3 pos)</td></tr>
 <tr class="memitem:ae8b06665a78b486c57e6795da4b3e265" id="r_ae8b06665a78b486c57e6795da4b3e265"><td class="memItemLeft" align="right" valign="top"><a class="el" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8b06665a78b486c57e6795da4b3e265">CreateStaticTrimesh</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, Model model, Texture *tex, float uvScale)</td></tr>
 <tr class="memdesc:ae8b06665a78b486c57e6795da4b3e265"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a static trimesh collision geometry from a model.  <br /></td></tr>
-<tr class="memitem:a22ae6631054292250c7ed2e6f232d694" id="r_a22ae6631054292250c7ed2e6f232d694"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22ae6631054292250c7ed2e6f232d694">addBox</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</td></tr>
-<tr class="memdesc:a22ae6631054292250c7ed2e6f232d694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a box-shaped physics body to the world.  <br /></td></tr>
-<tr class="memitem:ad709ccf4980935cd9c633f0c270b4a00" id="r_ad709ccf4980935cd9c633f0c270b4a00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad709ccf4980935cd9c633f0c270b4a00">addSphere</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)</td></tr>
-<tr class="memdesc:ad709ccf4980935cd9c633f0c270b4a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a sphere-shaped physics body to the world.  <br /></td></tr>
-<tr class="memitem:ad0d5151f2ffc020ea6ad6c604d976670" id="r_ad0d5151f2ffc020ea6ad6c604d976670"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0d5151f2ffc020ea6ad6c604d976670">addCylinder</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</td></tr>
-<tr class="memdesc:ad0d5151f2ffc020ea6ad6c604d976670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a cylinder-shaped physics body to the world.  <br /></td></tr>
-<tr class="memitem:aea6c527a568187e7377bb733e3693e34" id="r_aea6c527a568187e7377bb733e3693e34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea6c527a568187e7377bb733e3693e34">addCapsule</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</td></tr>
-<tr class="memdesc:aea6c527a568187e7377bb733e3693e34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a capsule-shaped physics body to the world.  <br /></td></tr>
-<tr class="memitem:a2e7774a715304a8f791a09e863240603" id="r_a2e7774a715304a8f791a09e863240603"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e7774a715304a8f791a09e863240603">addDumbbell</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass)</td></tr>
-<tr class="memdesc:a2e7774a715304a8f791a09e863240603"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a dumbbell-shaped composite physics body.  <br /></td></tr>
-<tr class="memitem:a5a6ec4456256b6b4394e5d32b326fae8" id="r_a5a6ec4456256b6b4394e5d32b326fae8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a6ec4456256b6b4394e5d32b326fae8">addRandomPhys</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, Vector3 pos)</td></tr>
-<tr class="memdesc:a5a6ec4456256b6b4394e5d32b326fae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a random physics object at the specified position.  <br /></td></tr>
-<tr class="memitem:a9aee3b647643b29e683644a67e7e5f3c" id="r_a9aee3b647643b29e683644a67e7e5f3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9aee3b647643b29e683644a67e7e5f3c">getEntityFromMouse</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, Vector3 *hitPoint)</td></tr>
-<tr class="memdesc:a9aee3b647643b29e683644a67e7e5f3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will return the first entity that the camera is directly pointed at while useful in the examples and likely for other things, it also serves as an example of how you can do this yourself for other things  <br /></td></tr>
-<tr class="memitem:a3aa3473ec30d21671ea9ec98e3e65017" id="r_a3aa3473ec30d21671ea9ec98e3e65017"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3aa3473ec30d21671ea9ec98e3e65017">setEntityHew</a> (<a class="el" href="structentity.html">entity</a> *ent, Color c)</td></tr>
-<tr class="memdesc:a3aa3473ec30d21671ea9ec98e3e65017"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes the hew (tint) of all entities geoms  <br /></td></tr>
-<tr class="memitem:acdd1e62ab4a9d0ab632e283e6ccdaf71" id="r_acdd1e62ab4a9d0ab632e283e6ccdaf71"><td class="memItemLeft" align="right" valign="top">dJointID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdd1e62ab4a9d0ab632e283e6ccdaf71">createRotor</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structentity.html">entity</a> *from, <a class="el" href="structentity.html">entity</a> *to, Vector3 axis)</td></tr>
-<tr class="memdesc:acdd1e62ab4a9d0ab632e283e6ccdaf71"><td class="mdescLeft">&#160;</td><td class="mdescRight">crates a rotor joint the joint is created with the anchor at the from enties location  <br /></td></tr>
+<tr class="memitem:ae436b97d6296f4b3c35e493dde37cee3" id="r_ae436b97d6296f4b3c35e493dde37cee3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</td></tr>
+<tr class="memdesc:ae436b97d6296f4b3c35e493dde37cee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a box-shaped physics body to the world.  <br /></td></tr>
+<tr class="memitem:ad03521efcc05b3315d24f47d0eed52a6" id="r_ad03521efcc05b3315d24f47d0eed52a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad03521efcc05b3315d24f47d0eed52a6">CreateSphere</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)</td></tr>
+<tr class="memdesc:ad03521efcc05b3315d24f47d0eed52a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a sphere-shaped physics body to the world.  <br /></td></tr>
+<tr class="memitem:a6985c096003040ae46ed46b117f01d69" id="r_a6985c096003040ae46ed46b117f01d69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6985c096003040ae46ed46b117f01d69">CreateCylinder</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</td></tr>
+<tr class="memdesc:a6985c096003040ae46ed46b117f01d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a cylinder-shaped physics body to the world.  <br /></td></tr>
+<tr class="memitem:adec02d5fa7b8838d8f98956b68e2246c" id="r_adec02d5fa7b8838d8f98956b68e2246c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adec02d5fa7b8838d8f98956b68e2246c">CreateCapsule</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</td></tr>
+<tr class="memdesc:adec02d5fa7b8838d8f98956b68e2246c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a capsule-shaped physics body to the world.  <br /></td></tr>
+<tr class="memitem:a04c854eee30cf8430f2d978c4259459b" id="r_a04c854eee30cf8430f2d978c4259459b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04c854eee30cf8430f2d978c4259459b">CreateDumbbell</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass)</td></tr>
+<tr class="memdesc:a04c854eee30cf8430f2d978c4259459b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a dumbbell-shaped composite physics body.  <br /></td></tr>
+<tr class="memitem:a8e5b28e0781017c62176133087f3590c" id="r_a8e5b28e0781017c62176133087f3590c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e5b28e0781017c62176133087f3590c">CreateRandomEntity</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, Vector3 pos)</td></tr>
+<tr class="memdesc:a8e5b28e0781017c62176133087f3590c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a random physics object at the specified position.  <br /></td></tr>
+<tr class="memitem:a6038bcb143e6ca12696aa65bf164f488" id="r_a6038bcb143e6ca12696aa65bf164f488"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structentity.html">entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6038bcb143e6ca12696aa65bf164f488">PickEntity</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, Vector3 *hitPoint)</td></tr>
+<tr class="memdesc:a6038bcb143e6ca12696aa65bf164f488"><td class="mdescLeft">&#160;</td><td class="mdescRight">this will return the first entity that the camera is directly pointed at while useful in the examples and likely for other things, it also serves as an example of how you can do this yourself for other things  <br /></td></tr>
+<tr class="memitem:a227dded5dce29a7e3b71e9589e2b4c22" id="r_a227dded5dce29a7e3b71e9589e2b4c22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a> (<a class="el" href="structentity.html">entity</a> *ent, Color c)</td></tr>
+<tr class="memdesc:a227dded5dce29a7e3b71e9589e2b4c22"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes the hew (tint) of all entities geoms  <br /></td></tr>
+<tr class="memitem:a70760bcdbb95dca2cd9cbb1a640485d2" id="r_a70760bcdbb95dca2cd9cbb1a640485d2"><td class="memItemLeft" align="right" valign="top">dJointID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structentity.html">entity</a> *from, <a class="el" href="structentity.html">entity</a> *to, Vector3 axis)</td></tr>
+<tr class="memdesc:a70760bcdbb95dca2cd9cbb1a640485d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">crates a rotor joint the joint is created with the anchor at the from enties location  <br /></td></tr>
 <tr class="memitem:a8f1b86adbb51b8bd80405329b31c87d1" id="r_a8f1b86adbb51b8bd80405329b31c87d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f1b86adbb51b8bd80405329b31c87d1">FreeBodyAndGeoms</a> (dBodyID bdy)</td></tr>
-<tr class="memitem:ac29c7db14d40f3946075ae2d63aab414" id="r_ac29c7db14d40f3946075ae2d63aab414"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac29c7db14d40f3946075ae2d63aab414">drawGeom</a> (dGeomID geom, struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx)</td></tr>
-<tr class="memitem:adac1e8c721f82c1684b919e4cbe8a883" id="r_adac1e8c721f82c1684b919e4cbe8a883"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adac1e8c721f82c1684b919e4cbe8a883">drawBodies</a> (struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx, <a class="el" href="structPhysicsContext.html">PhysicsContext</a> *pctx)</td></tr>
-<tr class="memitem:ace378b6574208ed393d32694b18f44f5" id="r_ace378b6574208ed393d32694b18f44f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace378b6574208ed393d32694b18f44f5">drawBodyGeoms</a> (dBodyID bdy, struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx)</td></tr>
-<tr class="memitem:a05b90ca080d0521b6155c1462bfeab90" id="r_a05b90ca080d0521b6155c1462bfeab90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05b90ca080d0521b6155c1462bfeab90">drawStatics</a> (struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx, <a class="el" href="structPhysicsContext.html">PhysicsContext</a> *pctx)</td></tr>
+<tr class="memitem:a5a3f56ed394d3d2c1400e25d83fc05af" id="r_a5a3f56ed394d3d2c1400e25d83fc05af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a3f56ed394d3d2c1400e25d83fc05af">DrawGeom</a> (dGeomID geom, struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx)</td></tr>
+<tr class="memitem:aa01114b518b93c528e9e85382ce46b4b" id="r_aa01114b518b93c528e9e85382ce46b4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a> (struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx, <a class="el" href="structPhysicsContext.html">PhysicsContext</a> *pctx)</td></tr>
+<tr class="memitem:a01fc58efa7854e13c41c4b40bc5c8b62" id="r_a01fc58efa7854e13c41c4b40bc5c8b62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01fc58efa7854e13c41c4b40bc5c8b62">DrawBodyGeoms</a> (dBodyID bdy, struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx)</td></tr>
+<tr class="memitem:a1232d8000138fdc6d2f9741548a263aa" id="r_a1232d8000138fdc6d2f9741548a263aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a> (struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx, <a class="el" href="structPhysicsContext.html">PhysicsContext</a> *pctx)</td></tr>
 <tr class="memitem:a4a4933f37c736fd2d311be9eaf9b7fa8" id="r_a4a4933f37c736fd2d311be9eaf9b7fa8"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a> (float min, float max)</td></tr>
 <tr class="memdesc:a4a4933f37c736fd2d311be9eaf9b7fa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a random float in the specified range.  <br /></td></tr>
-<tr class="memitem:a218eeb72f46ea3ed00c9010d7002a305" id="r_a218eeb72f46ea3ed00c9010d7002a305"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a218eeb72f46ea3ed00c9010d7002a305">stepPhysics</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx)</td></tr>
-<tr class="memdesc:a218eeb72f46ea3ed00c9010d7002a305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step the physics simulation forward.  <br /></td></tr>
+<tr class="memitem:ad087bfe56f8c97e250f6dd5054fdf76e" id="r_ad087bfe56f8c97e250f6dd5054fdf76e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx)</td></tr>
+<tr class="memdesc:ad087bfe56f8c97e250f6dd5054fdf76e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Step the physics simulation forward.  <br /></td></tr>
 <tr class="memitem:aa86cbb92909da330ef988d813fb7baed" id="r_aa86cbb92909da330ef988d813fb7baed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structentity.html">entity</a> *ent)</td></tr>
 <tr class="memdesc:aa86cbb92909da330ef988d813fb7baed"><td class="mdescLeft">&#160;</td><td class="mdescRight">frees an entity  <br /></td></tr>
 <tr class="memitem:a878892d1015e3c9349f667325d129d43" id="r_a878892d1015e3c9349f667325d129d43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a878892d1015e3c9349f667325d129d43">SetPistonLimits</a> (dJointID joint, float min, float max)</td></tr>
 <tr class="memitem:aec8e521a9dfcf354ba2ae793ac6be324" id="r_aec8e521a9dfcf354ba2ae793ac6be324"><td class="memItemLeft" align="right" valign="top">dJointID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec8e521a9dfcf354ba2ae793ac6be324">CreatePiston</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structentity.html">entity</a> *entA, <a class="el" href="structentity.html">entity</a> *entB)</td></tr>
+<tr class="memitem:ac18f122edccf31f40c3ce18ea1be58cd" id="r_ac18f122edccf31f40c3ce18ea1be58cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac18f122edccf31f40c3ce18ea1be58cd">RayToOdeMat</a> (Matrix *mat, dReal *R)</td></tr>
+<tr class="memitem:ae64d38b48236f4a10077e64b19b953b3" id="r_ae64d38b48236f4a10077e64b19b953b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae64d38b48236f4a10077e64b19b953b3">OdeToRayMat</a> (const dReal *R, Matrix *matrix)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="afeff8fa28bbbf9c2ddbc85a38993d92e" name="afeff8fa28bbbf9c2ddbc85a38993d92e"></a>
@@ -187,7 +187,7 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00041">41</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00241">stepPhysics()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00240">StepPhysics()</a>.</p>
 
 </div>
 </div>
@@ -202,7 +202,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#_a17">arm.c</a>, <a class="el" href="car_8c-example.html#_a9">car.c</a>, <a class="el" href="fountain_8c-example.html#_a14">fountain.c</a>, <a class="el" href="placer_8c-example.html#_a12">placer.c</a>, <a class="el" href="rotor_8c-example.html#_a12">rotor.c</a>, and <a class="el" href="terrain_8c-example.html#_a7">terrain.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#_a17">arm.c</a>, <a class="el" href="car_8c-example.html#_a9">car.c</a>, <a class="el" href="fountain_8c-example.html#_a14">fountain.c</a>, <a class="el" href="piston_8c-example.html#_a12">piston.c</a>, <a class="el" href="placer_8c-example.html#_a12">placer.c</a>, <a class="el" href="rotor_8c-example.html#_a12">rotor.c</a>, and <a class="el" href="terrain_8c-example.html#_a7">terrain.c</a>.</dd>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00035">35</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
@@ -349,19 +349,53 @@ Functions</h2></td></tr>
 </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00063">63</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00060">60</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a22ae6631054292250c7ed2e6f232d694" name="a22ae6631054292250c7ed2e6f232d694"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22ae6631054292250c7ed2e6f232d694">&#9670;&#160;</a></span>addBox()</h2>
+<a id="a9a4fddcfd406e6bfb1987111e4ad64f1" name="a9a4fddcfd406e6bfb1987111e4ad64f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a4fddcfd406e6bfb1987111e4ad64f1">&#9670;&#160;</a></span>CreateBaseEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structentity.html">entity</a> * addBox </td>
+          <td class="memname"><a class="el" href="structentity.html">entity</a> * CreateBaseEntity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a base entity with physics body. </p>
+<p>Internal helper function that creates a new entity with an ODE body and adds it to the physics world's object list. This reduces code duplication across all shape creation functions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ctx</td><td>Pointer to the physics context </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to newly created entity</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Internal function - but might be useful for manual creation </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00282">282</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8h_source.html#l00045">entity::node</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::objList</a>, and <a class="el" href="raylibODE_8h_source.html#l00114">PhysicsContext::world</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00326">CreateBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00456">CreateCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00413">CreateCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00502">CreateDumbbell()</a>, and <a class="el" href="raylibODE_8c_source.html#l00369">CreateSphere()</a>.</p>
+
+</div>
+</div>
+<a id="ae436b97d6296f4b3c35e493dde37cee3" name="ae436b97d6296f4b3c35e493dde37cee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae436b97d6296f4b3c35e493dde37cee3">&#9670;&#160;</a></span>CreateBox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentity.html">entity</a> * CreateBox </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -414,22 +448,22 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="structGraphicsContext.html">GraphicsContext</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00327">327</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00326">326</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00106">GraphicsContext::boxTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00103">GraphicsContext::boxTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00282">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00642">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00218">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00555">CreateRandomEntity()</a>.</p>
 
 </div>
 </div>
-<a id="aea6c527a568187e7377bb733e3693e34" name="aea6c527a568187e7377bb733e3693e34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea6c527a568187e7377bb733e3693e34">&#9670;&#160;</a></span>addCapsule()</h2>
+<a id="adec02d5fa7b8838d8f98956b68e2246c" name="adec02d5fa7b8838d8f98956b68e2246c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adec02d5fa7b8838d8f98956b68e2246c">&#9670;&#160;</a></span>CreateCapsule()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structentity.html">entity</a> * addCapsule </td>
+          <td class="memname"><a class="el" href="structentity.html">entity</a> * CreateCapsule </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -484,22 +518,22 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>Capsule combines a cylinder with two hemispherical ends </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structentity.html">entity</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00457">457</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00456">456</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00282">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00642">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00104">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00218">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00555">CreateRandomEntity()</a>.</p>
 
 </div>
 </div>
-<a id="ad0d5151f2ffc020ea6ad6c604d976670" name="ad0d5151f2ffc020ea6ad6c604d976670"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0d5151f2ffc020ea6ad6c604d976670">&#9670;&#160;</a></span>addCylinder()</h2>
+<a id="a6985c096003040ae46ed46b117f01d69" name="a6985c096003040ae46ed46b117f01d69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6985c096003040ae46ed46b117f01d69">&#9670;&#160;</a></span>CreateCylinder()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structentity.html">entity</a> * addCylinder </td>
+          <td class="memname"><a class="el" href="structentity.html">entity</a> * CreateCylinder </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -556,22 +590,22 @@ Functions</h2></td></tr>
 Cylinder is assigned a random texture from the available cylinder textures </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structentity.html">entity</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00414">414</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00413">413</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00282">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00642">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00104">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00218">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00555">CreateRandomEntity()</a>.</p>
 
 </div>
 </div>
-<a id="a2e7774a715304a8f791a09e863240603" name="a2e7774a715304a8f791a09e863240603"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e7774a715304a8f791a09e863240603">&#9670;&#160;</a></span>addDumbbell()</h2>
+<a id="a04c854eee30cf8430f2d978c4259459b" name="a04c854eee30cf8430f2d978c4259459b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c854eee30cf8430f2d978c4259459b">&#9670;&#160;</a></span>CreateDumbbell()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structentity.html">entity</a> * addDumbbell </td>
+          <td class="memname"><a class="el" href="structentity.html">entity</a> * CreateDumbbell </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -634,22 +668,100 @@ Cylinder is assigned a random texture from the available cylinder textures </dd>
 Mass is distributed: 50% shaft, 25% each end </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structentity.html">entity</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00503">503</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00502">502</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00282">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00642">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00104">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00218">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00555">CreateRandomEntity()</a>.</p>
 
 </div>
 </div>
-<a id="a5a6ec4456256b6b4394e5d32b326fae8" name="a5a6ec4456256b6b4394e5d32b326fae8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a6ec4456256b6b4394e5d32b326fae8">&#9670;&#160;</a></span>addRandomPhys()</h2>
+<a id="a79db70091e3c86494f485979529984c8" name="a79db70091e3c86494f485979529984c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79db70091e3c86494f485979529984c8">&#9670;&#160;</a></span>CreateGeomInfo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structentity.html">entity</a> * addRandomPhys </td>
+          <td class="memname"><a class="el" href="structgeomInfo.html">geomInfo</a> * CreateGeomInfo </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>collidable</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Texture *</td>          <td class="paramname"><span class="paramname"><em>texture</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>uvScaleU</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>uvScaleV</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper to allocate <a class="el" href="structgeomInfo.html" title="Stores geometry metadata for collision, texturing, and trimesh data.">geomInfo</a> with collision flag, optional texture, and UV scale this is useful when greating your own custom bodies for special purposes If this is attached to a geom on a body that is in the global entity list then this allocation will be automagically cleaned up. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">collidable</td><td>should this geom cause collisions </td></tr>
+    <tr><td class="paramname">texture</td><td>which texture to use for the geom </td></tr>
+    <tr><td class="paramname">uvScaleU</td><td>texture scaling </td></tr>
+    <tr><td class="paramname">uvScaleV</td><td>texture scaling </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00642">642</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00068">geomInfo::collidable</a>, <a class="el" href="raylibODE_8h_source.html#l00073">geomInfo::hew</a>, <a class="el" href="raylibODE_8h_source.html#l00069">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00070">geomInfo::uvScaleU</a>, and <a class="el" href="raylibODE_8h_source.html#l00071">geomInfo::uvScaleV</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00326">CreateBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00456">CreateCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00413">CreateCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00502">CreateDumbbell()</a>, <a class="el" href="ragdoll_8c_source.html#l00117">CreateRagdoll()</a>, <a class="el" href="raylibODE_8c_source.html#l00369">CreateSphere()</a>, <a class="el" href="raylibODE_8c_source.html#l00292">CreateSphereGeom()</a>, <a class="el" href="raylibODE_8c_source.html#l00605">CreateStaticTrimesh()</a>, and <a class="el" href="vehicle_8c_source.html#l00056">CreateVehicle()</a>.</p>
+
+</div>
+</div>
+<a id="aec8e521a9dfcf354ba2ae793ac6be324" name="aec8e521a9dfcf354ba2ae793ac6be324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec8e521a9dfcf354ba2ae793ac6be324">&#9670;&#160;</a></span>CreatePiston()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dJointID CreatePiston </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>physCtx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>entA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>entB</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00972">972</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00114">PhysicsContext::world</a>.</p>
+
+</div>
+</div>
+<a id="a8e5b28e0781017c62176133087f3590c" name="a8e5b28e0781017c62176133087f3590c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e5b28e0781017c62176133087f3590c">&#9670;&#160;</a></span>CreateRandomEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentity.html">entity</a> * CreateRandomEntity </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -683,20 +795,67 @@ Mass is fixed at 10.0f for all random objects </dd>
 <dd>
 Each type has randomized dimensions within reasonable ranges </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00556">556</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00555">555</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00327">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00457">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00414">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00503">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00370">addSphere()</a>, and <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00326">CreateBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00456">CreateCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00413">CreateCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00502">CreateDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00369">CreateSphere()</a>, and <a class="el" href="raylibODE_8c_source.html#l00218">rndf()</a>.</p>
 
 </div>
 </div>
-<a id="ad709ccf4980935cd9c633f0c270b4a00" name="ad709ccf4980935cd9c633f0c270b4a00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad709ccf4980935cd9c633f0c270b4a00">&#9670;&#160;</a></span>addSphere()</h2>
+<a id="a70760bcdbb95dca2cd9cbb1a640485d2" name="a70760bcdbb95dca2cd9cbb1a640485d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70760bcdbb95dca2cd9cbb1a640485d2">&#9670;&#160;</a></span>CreateRotor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structentity.html">entity</a> * addSphere </td>
+          <td class="memname">dJointID CreateRotor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>physCtx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>to</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vector3</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>crates a rotor joint the joint is created with the anchor at the from enties location </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">physCtx</td><td>physics context holds all the physics globals </td></tr>
+    <tr><td class="paramname">from</td><td>the anchor entity for the joint </td></tr>
+    <tr><td class="paramname">to</td><td>if this is null the joint attaches to the world and is static </td></tr>
+    <tr><td class="paramname">axis</td><td>this determines the direction of rotation for the rotor you can think of it as the direction of the axle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>joints will get tidied up during world destruction, do destroy them if you no longer require them, in the arm example a joint is created and destroyed every time an object is caught and released </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00873">873</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00114">PhysicsContext::world</a>.</p>
+
+</div>
+</div>
+<a id="ad03521efcc05b3315d24f47d0eed52a6" name="ad03521efcc05b3315d24f47d0eed52a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad03521efcc05b3315d24f47d0eed52a6">&#9670;&#160;</a></span>CreateSphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentity.html">entity</a> * CreateSphere </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -747,181 +906,22 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
 <dd>
 <a class="el" href="structPhysicsContext.html">PhysicsContext</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00370">370</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00369">369</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">createBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00105">GraphicsContext::sphereTextures</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00282">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00642">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00218">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00102">GraphicsContext::sphereTextures</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00555">CreateRandomEntity()</a>.</p>
 
 </div>
 </div>
-<a id="af0307cfb8f3c5c1b8dc01681865f0062" name="af0307cfb8f3c5c1b8dc01681865f0062"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0307cfb8f3c5c1b8dc01681865f0062">&#9670;&#160;</a></span>createBaseEntity()</h2>
+<a id="a0201472030d3c51d3b13c7f807b59b01" name="a0201472030d3c51d3b13c7f807b59b01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0201472030d3c51d3b13c7f807b59b01">&#9670;&#160;</a></span>CreateSphereGeom()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structentity.html">entity</a> * createBaseEntity </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a base entity with physics body. </p>
-<p>Internal helper function that creates a new entity with an ODE body and adds it to the physics world's object list. This reduces code duplication across all shape creation functions.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ctx</td><td>Pointer to the physics context </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to newly created entity</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Internal function - but might be useful for manual creation </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00283">283</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
-
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8h_source.html#l00048">entity::node</a>, <a class="el" href="raylibODE_8h_source.html#l00121">PhysicsContext::objList</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00327">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00457">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00414">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00503">addDumbbell()</a>, and <a class="el" href="raylibODE_8c_source.html#l00370">addSphere()</a>.</p>
-
-</div>
-</div>
-<a id="a79db70091e3c86494f485979529984c8" name="a79db70091e3c86494f485979529984c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79db70091e3c86494f485979529984c8">&#9670;&#160;</a></span>CreateGeomInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structgeomInfo.html">geomInfo</a> * CreateGeomInfo </td>
-          <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>collidable</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Texture *</td>          <td class="paramname"><span class="paramname"><em>texture</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>uvScaleU</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>uvScaleV</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Helper to allocate <a class="el" href="structgeomInfo.html" title="Stores geometry metadata for collision, texturing, and trimesh data.">geomInfo</a> with collision flag, optional texture, and UV scale this is useful when greating your own custom bodies for special purposes If this is attached to a geom on a body that is in the global entity list then this allocation will be automagically cleaned up. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">collidable</td><td>should this geom cause collisions </td></tr>
-    <tr><td class="paramname">texture</td><td>which texture to use for the geom </td></tr>
-    <tr><td class="paramname">uvScaleU</td><td>texture scaling </td></tr>
-    <tr><td class="paramname">uvScaleV</td><td>texture scaling </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00643">643</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
-
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00071">geomInfo::collidable</a>, <a class="el" href="raylibODE_8h_source.html#l00076">geomInfo::hew</a>, <a class="el" href="raylibODE_8h_source.html#l00072">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00073">geomInfo::uvScaleU</a>, and <a class="el" href="raylibODE_8h_source.html#l00074">geomInfo::uvScaleV</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00327">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00457">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00414">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00503">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00370">addSphere()</a>, <a class="el" href="ragdoll_8c_source.html#l00118">CreateRagdoll()</a>, <a class="el" href="raylibODE_8c_source.html#l00293">createSphereGeom()</a>, <a class="el" href="raylibODE_8c_source.html#l00606">CreateStaticTrimesh()</a>, and <a class="el" href="vehicle_8c_source.html#l00056">CreateVehicle()</a>.</p>
-
-</div>
-</div>
-<a id="aec8e521a9dfcf354ba2ae793ac6be324" name="aec8e521a9dfcf354ba2ae793ac6be324"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec8e521a9dfcf354ba2ae793ac6be324">&#9670;&#160;</a></span>CreatePiston()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">dJointID CreatePiston </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>physCtx</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>entA</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>entB</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00973">973</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
-
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
-
-</div>
-</div>
-<a id="acdd1e62ab4a9d0ab632e283e6ccdaf71" name="acdd1e62ab4a9d0ab632e283e6ccdaf71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdd1e62ab4a9d0ab632e283e6ccdaf71">&#9670;&#160;</a></span>createRotor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">dJointID createRotor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>physCtx</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>to</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Vector3</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>crates a rotor joint the joint is created with the anchor at the from enties location </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">physCtx</td><td>physics context holds all the physics globals </td></tr>
-    <tr><td class="paramname">from</td><td>the anchor entity for the joint </td></tr>
-    <tr><td class="paramname">to</td><td>if this is null the joint attaches to the world and is static </td></tr>
-    <tr><td class="paramname">axis</td><td>this determines the direction of rotation for the rotor you can think of it as the direction of the axle</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>joints will get tidied up during world destruction, do destroy them if you no longer require them, in the arm example a joint is created and destroyed every time an object is caught and released </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00874">874</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
-
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
-
-</div>
-</div>
-<a id="a2a368e091ab99ed0668855778e02ef70" name="a2a368e091ab99ed0668855778e02ef70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a368e091ab99ed0668855778e02ef70">&#9670;&#160;</a></span>createSphereGeom()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">dGeomID createSphereGeom </td>
+          <td class="memname">dGeomID CreateSphereGeom </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -943,9 +943,9 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00293">293</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00292">292</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00105">GraphicsContext::sphereTextures</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00642">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00218">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00102">GraphicsContext::sphereTextures</a>.</p>
 
 </div>
 </div>
@@ -1005,20 +1005,20 @@ Stores model data for rendering with custom shaders</dd></dl>
 <dd>
 Model </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00606">606</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00605">605</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00643">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00080">geomInfo::indices</a>, <a class="el" href="raylibODE_8h_source.html#l00111">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, <a class="el" href="raylibODE_8h_source.html#l00122">PhysicsContext::statics</a>, <a class="el" href="raylibODE_8h_source.html#l00081">geomInfo::triData</a>, and <a class="el" href="raylibODE_8h_source.html#l00075">geomInfo::visual</a>.</p>
+<p class="reference">References <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00642">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00077">geomInfo::indices</a>, <a class="el" href="raylibODE_8h_source.html#l00108">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>, <a class="el" href="raylibODE_8h_source.html#l00119">PhysicsContext::statics</a>, <a class="el" href="raylibODE_8h_source.html#l00078">geomInfo::triData</a>, and <a class="el" href="raylibODE_8h_source.html#l00072">geomInfo::visual</a>.</p>
 
 </div>
 </div>
-<a id="adac1e8c721f82c1684b919e4cbe8a883" name="adac1e8c721f82c1684b919e4cbe8a883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adac1e8c721f82c1684b919e4cbe8a883">&#9670;&#160;</a></span>drawBodies()</h2>
+<a id="aa01114b518b93c528e9e85382ce46b4b" name="aa01114b518b93c528e9e85382ce46b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa01114b518b93c528e9e85382ce46b4b">&#9670;&#160;</a></span>DrawBodies()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void drawBodies </td>
+          <td class="memname">void DrawBodies </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -1030,20 +1030,20 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00919">919</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00918">918</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="clist_8h_source.html#l00014">__cnode::data</a>, <a class="el" href="raylibODE_8c_source.html#l00932">drawBodyGeoms()</a>, <a class="el" href="clist_8h_source.html#l00027">__clist::head</a>, <a class="el" href="clist_8h_source.html#l00013">__cnode::next</a>, and <a class="el" href="raylibODE_8h_source.html#l00121">PhysicsContext::objList</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, <a class="el" href="clist_8h_source.html#l00014">__cnode::data</a>, <a class="el" href="raylibODE_8c_source.html#l00931">DrawBodyGeoms()</a>, <a class="el" href="clist_8h_source.html#l00027">__clist::head</a>, <a class="el" href="clist_8h_source.html#l00013">__cnode::next</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::objList</a>.</p>
 
 </div>
 </div>
-<a id="ace378b6574208ed393d32694b18f44f5" name="ace378b6574208ed393d32694b18f44f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace378b6574208ed393d32694b18f44f5">&#9670;&#160;</a></span>drawBodyGeoms()</h2>
+<a id="a01fc58efa7854e13c41c4b40bc5c8b62" name="a01fc58efa7854e13c41c4b40bc5c8b62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01fc58efa7854e13c41c4b40bc5c8b62">&#9670;&#160;</a></span>DrawBodyGeoms()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void drawBodyGeoms </td>
+          <td class="memname">void DrawBodyGeoms </td>
           <td>(</td>
           <td class="paramtype">dBodyID</td>          <td class="paramname"><span class="paramname"><em>bdy</em></span>, </td>
         </tr>
@@ -1055,22 +1055,22 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00932">932</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00931">931</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00776">drawGeom()</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00775">DrawGeom()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00919">drawBodies()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00918">DrawBodies()</a>.</p>
 
 </div>
 </div>
-<a id="ac29c7db14d40f3946075ae2d63aab414" name="ac29c7db14d40f3946075ae2d63aab414"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac29c7db14d40f3946075ae2d63aab414">&#9670;&#160;</a></span>drawGeom()</h2>
+<a id="a5a3f56ed394d3d2c1400e25d83fc05af" name="a5a3f56ed394d3d2c1400e25d83fc05af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a3f56ed394d3d2c1400e25d83fc05af">&#9670;&#160;</a></span>DrawGeom()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void drawGeom </td>
+          <td class="memname">void DrawGeom </td>
           <td>(</td>
           <td class="paramtype">dGeomID</td>          <td class="paramname"><span class="paramname"><em>geom</em></span>, </td>
         </tr>
@@ -1082,22 +1082,22 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00776">776</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00775">775</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00099">GraphicsContext::ball</a>, <a class="el" href="raylibODE_8h_source.html#l00098">GraphicsContext::box</a>, <a class="el" href="raylibODE_8h_source.html#l00100">GraphicsContext::cylinder</a>, <a class="el" href="raylibODE_8h_source.html#l00076">geomInfo::hew</a>, <a class="el" href="raylibODE_8c_source.html#l00737">MyDrawModel()</a>, <a class="el" href="raylibODE_8c_source.html#l00766">odeToRayMat()</a>, <a class="el" href="raylibODE_8h_source.html#l00111">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00072">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00084">geomInfo::triggerOnCollide</a>, <a class="el" href="raylibODE_8h_source.html#l00073">geomInfo::uvScaleU</a>, <a class="el" href="raylibODE_8h_source.html#l00074">geomInfo::uvScaleV</a>, and <a class="el" href="raylibODE_8h_source.html#l00075">geomInfo::visual</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00096">GraphicsContext::ball</a>, <a class="el" href="raylibODE_8h_source.html#l00095">GraphicsContext::box</a>, <a class="el" href="raylibODE_8h_source.html#l00097">GraphicsContext::cylinder</a>, <a class="el" href="raylibODE_8c_source.html#l00736">DrawModelTinted()</a>, <a class="el" href="raylibODE_8h_source.html#l00073">geomInfo::hew</a>, <a class="el" href="raylibODE_8c_source.html#l00765">OdeToRayMat()</a>, <a class="el" href="raylibODE_8h_source.html#l00108">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00069">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00081">geomInfo::triggerOnCollide</a>, <a class="el" href="raylibODE_8h_source.html#l00070">geomInfo::uvScaleU</a>, <a class="el" href="raylibODE_8h_source.html#l00071">geomInfo::uvScaleV</a>, and <a class="el" href="raylibODE_8h_source.html#l00072">geomInfo::visual</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00932">drawBodyGeoms()</a>, <a class="el" href="ragdoll_8c_source.html#l00455">DrawRagdoll()</a>, and <a class="el" href="raylibODE_8c_source.html#l00944">drawStatics()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00931">DrawBodyGeoms()</a>, <a class="el" href="ragdoll_8c_source.html#l00454">DrawRagdoll()</a>, and <a class="el" href="raylibODE_8c_source.html#l00943">DrawStatics()</a>.</p>
 
 </div>
 </div>
-<a id="a05b90ca080d0521b6155c1462bfeab90" name="a05b90ca080d0521b6155c1462bfeab90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05b90ca080d0521b6155c1462bfeab90">&#9670;&#160;</a></span>drawStatics()</h2>
+<a id="a1232d8000138fdc6d2f9741548a263aa" name="a1232d8000138fdc6d2f9741548a263aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1232d8000138fdc6d2f9741548a263aa">&#9670;&#160;</a></span>DrawStatics()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void drawStatics </td>
+          <td class="memname">void DrawStatics </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span>, </td>
         </tr>
@@ -1109,9 +1109,9 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00944">944</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00943">943</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="clist_8h_source.html#l00014">__cnode::data</a>, <a class="el" href="raylibODE_8c_source.html#l00776">drawGeom()</a>, <a class="el" href="clist_8h_source.html#l00027">__clist::head</a>, <a class="el" href="clist_8h_source.html#l00013">__cnode::next</a>, and <a class="el" href="raylibODE_8h_source.html#l00122">PhysicsContext::statics</a>.</p>
+<p class="reference">References <a class="el" href="clist_8h_source.html#l00014">__cnode::data</a>, <a class="el" href="raylibODE_8c_source.html#l00775">DrawGeom()</a>, <a class="el" href="clist_8h_source.html#l00027">__clist::head</a>, <a class="el" href="clist_8h_source.html#l00013">__cnode::next</a>, and <a class="el" href="raylibODE_8h_source.html#l00119">PhysicsContext::statics</a>.</p>
 
 </div>
 </div>
@@ -1130,9 +1130,9 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00720">720</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00719">719</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="init_8c_source.html#l00195">CleanupPhysics()</a>, <a class="el" href="raylibODE_8c_source.html#l00966">FreeEntity()</a>, <a class="el" href="ragdoll_8c_source.html#l00483">FreeRagdoll()</a>, and <a class="el" href="vehicle_8c_source.html#l00231">FreeVehicle()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00965">FreeEntity()</a>, <a class="el" href="init_8c_source.html#l00195">FreePhysics()</a>, <a class="el" href="ragdoll_8c_source.html#l00482">FreeRagdoll()</a>, and <a class="el" href="vehicle_8c_source.html#l00231">FreeVehicle()</a>.</p>
 
 </div>
 </div>
@@ -1165,20 +1165,45 @@ Model </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00966">966</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00965">965</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, <a class="el" href="clist_8c_source.html#l00146">clistDeleteNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00720">FreeBodyAndGeoms()</a>, <a class="el" href="raylibODE_8h_source.html#l00048">entity::node</a>, and <a class="el" href="raylibODE_8h_source.html#l00121">PhysicsContext::objList</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, <a class="el" href="clist_8c_source.html#l00146">clistDeleteNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00719">FreeBodyAndGeoms()</a>, <a class="el" href="raylibODE_8h_source.html#l00045">entity::node</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::objList</a>.</p>
 
 </div>
 </div>
-<a id="a9aee3b647643b29e683644a67e7e5f3c" name="a9aee3b647643b29e683644a67e7e5f3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aee3b647643b29e683644a67e7e5f3c">&#9670;&#160;</a></span>getEntityFromMouse()</h2>
+<a id="ae64d38b48236f4a10077e64b19b953b3" name="ae64d38b48236f4a10077e64b19b953b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64d38b48236f4a10077e64b19b953b3">&#9670;&#160;</a></span>OdeToRayMat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structentity.html">entity</a> * getEntityFromMouse </td>
+          <td class="memname">void OdeToRayMat </td>
+          <td>(</td>
+          <td class="paramtype">const dReal *</td>          <td class="paramname"><span class="paramname"><em>R</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Matrix *</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00765">765</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00775">DrawGeom()</a>.</p>
+
+</div>
+</div>
+<a id="a6038bcb143e6ca12696aa65bf164f488" name="a6038bcb143e6ca12696aa65bf164f488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6038bcb143e6ca12696aa65bf164f488">&#9670;&#160;</a></span>PickEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structentity.html">entity</a> * PickEntity </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>physCtx</em></span>, </td>
         </tr>
@@ -1206,45 +1231,20 @@ Model </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a pointer to the entity that was found. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00684">684</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00683">683</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00110">GraphicsContext::camera</a>, <a class="el" href="raylibODE_8h_source.html#l00092">RayHit::depth</a>, <a class="el" href="raylibODE_8h_source.html#l00091">RayHit::geom</a>, <a class="el" href="raylibODE_8h_source.html#l00093">RayHit::pos</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00107">GraphicsContext::camera</a>, <a class="el" href="raylibODE_8h_source.html#l00089">RayHit::depth</a>, <a class="el" href="raylibODE_8h_source.html#l00088">RayHit::geom</a>, <a class="el" href="raylibODE_8h_source.html#l00090">RayHit::pos</a>, and <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>.</p>
 
 </div>
 </div>
-<a id="a5b0792a09d707c97fea36d1e35ab364d" name="a5b0792a09d707c97fea36d1e35ab364d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b0792a09d707c97fea36d1e35ab364d">&#9670;&#160;</a></span>odeToRayMat()</h2>
+<a id="ac18f122edccf31f40c3ce18ea1be58cd" name="ac18f122edccf31f40c3ce18ea1be58cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac18f122edccf31f40c3ce18ea1be58cd">&#9670;&#160;</a></span>RayToOdeMat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void odeToRayMat </td>
-          <td>(</td>
-          <td class="paramtype">const dReal *</td>          <td class="paramname"><span class="paramname"><em>R</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Matrix *</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00766">766</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00776">drawGeom()</a>.</p>
-
-</div>
-</div>
-<a id="a90e81478715d0f9b144a709347d089a0" name="a90e81478715d0f9b144a709347d089a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90e81478715d0f9b144a709347d089a0">&#9670;&#160;</a></span>rayToOdeMat()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void rayToOdeMat </td>
+          <td class="memname">void RayToOdeMat </td>
           <td>(</td>
           <td class="paramtype">Matrix *</td>          <td class="paramname"><span class="paramname"><em>mat</em></span>, </td>
         </tr>
@@ -1256,7 +1256,7 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00758">758</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00757">757</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 </div>
 </div>
@@ -1290,20 +1290,20 @@ Model </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Random float between min and max</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Uses rand() from stdlib - consider seeding with srand() for better randomness </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00219">219</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00218">218</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00327">addBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00457">addCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00414">addCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00503">addDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00556">addRandomPhys()</a>, <a class="el" href="raylibODE_8c_source.html#l00370">addSphere()</a>, <a class="el" href="raylibODE_8c_source.html#l00293">createSphereGeom()</a>, and <a class="el" href="ragdoll_8c_source.html#l00081">GetRagdollSpawnPosition()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00326">CreateBox()</a>, <a class="el" href="raylibODE_8c_source.html#l00456">CreateCapsule()</a>, <a class="el" href="raylibODE_8c_source.html#l00413">CreateCylinder()</a>, <a class="el" href="raylibODE_8c_source.html#l00502">CreateDumbbell()</a>, <a class="el" href="raylibODE_8c_source.html#l00555">CreateRandomEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00369">CreateSphere()</a>, <a class="el" href="raylibODE_8c_source.html#l00292">CreateSphereGeom()</a>, and <a class="el" href="ragdoll_8c_source.html#l00081">GetRagdollSpawnPosition()</a>.</p>
 
 </div>
 </div>
-<a id="a3aa3473ec30d21671ea9ec98e3e65017" name="a3aa3473ec30d21671ea9ec98e3e65017"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aa3473ec30d21671ea9ec98e3e65017">&#9670;&#160;</a></span>setEntityHew()</h2>
+<a id="a227dded5dce29a7e3b71e9589e2b4c22" name="a227dded5dce29a7e3b71e9589e2b4c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a227dded5dce29a7e3b71e9589e2b4c22">&#9670;&#160;</a></span>SetEntityHew()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void setEntityHew </td>
+          <td class="memname">void SetEntityHew </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>ent</em></span>, </td>
         </tr>
@@ -1325,9 +1325,9 @@ Model </dd></dl>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00907">907</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00906">906</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00047">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00076">geomInfo::hew</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00044">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00073">geomInfo::hew</a>.</p>
 
 </div>
 </div>
@@ -1355,18 +1355,18 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01006">1006</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01005">1005</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 </div>
 </div>
-<a id="a218eeb72f46ea3ed00c9010d7002a305" name="a218eeb72f46ea3ed00c9010d7002a305"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a218eeb72f46ea3ed00c9010d7002a305">&#9670;&#160;</a></span>stepPhysics()</h2>
+<a id="ad087bfe56f8c97e250f6dd5054fdf76e" name="ad087bfe56f8c97e250f6dd5054fdf76e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad087bfe56f8c97e250f6dd5054fdf76e">&#9670;&#160;</a></span>StepPhysics()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int stepPhysics </td>
+          <td class="memname">int StepPhysics </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>physCtx</em></span></td><td>)</td>
           <td></td>
@@ -1390,9 +1390,9 @@ Maximum number of steps is limited by maxPsteps to prevent spiral of death</dd><
 <dd>
 dWorldQuickStep </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00241">241</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00240">240</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00119">PhysicsContext::contactgroup</a>, <a class="el" href="raylibODE_8h_source.html#l00120">PhysicsContext::frameTime</a>, <a class="el" href="raylibODE_8h_source.html#l00041">maxPsteps</a>, <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>, <a class="el" href="raylibODE_8c_source.html#l00208">physSlice</a>, <a class="el" href="raylibODE_8h_source.html#l00118">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::world</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00116">PhysicsContext::contactgroup</a>, <a class="el" href="raylibODE_8h_source.html#l00117">PhysicsContext::frameTime</a>, <a class="el" href="raylibODE_8h_source.html#l00041">maxPsteps</a>, <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>, <a class="el" href="raylibODE_8c_source.html#l00207">physSlice</a>, <a class="el" href="raylibODE_8h_source.html#l00115">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00114">PhysicsContext::world</a>.</p>
 
 </div>
 </div>

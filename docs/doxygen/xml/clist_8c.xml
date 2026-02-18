@@ -51,7 +51,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="clist.c" line="18" column="8" bodyfile="clist.c" bodystart="18" bodyend="33"/>
-        <referencedby refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" compoundref="init_8c" startline="158" endline="193">InitPhysics</referencedby>
+        <referencedby refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</referencedby>
       </memberdef>
       <memberdef kind="function" id="clist_8c_1a264922774fdf767e31797fe81f2231be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
@@ -99,9 +99,9 @@
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
         <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
-        <referencedby refid="raylibODE_8c_1af0307cfb8f3c5c1b8dc01681865f0062" compoundref="raylibODE_8c" startline="283" endline="290">createBaseEntity</referencedby>
-        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="118" endline="396">CreateRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="606" endline="631">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="282" endline="289">CreateBaseEntity</referencedby>
+        <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="605" endline="630">CreateStaticTrimesh</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
       </memberdef>
       <memberdef kind="function" id="clist_8c_1a97454fa26f4edb61884e4e46b04fc7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -256,8 +256,8 @@
         <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
         <referencedby refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" compoundref="clist_8c" startline="178" endline="187">clistDeleteNodeFromData</referencedby>
         <referencedby refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</referencedby>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="966" endline="971">FreeEntity</referencedby>
-        <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="483" endline="523">FreeRagdoll</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="965" endline="970">FreeEntity</referencedby>
+        <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
       </memberdef>
       <memberdef kind="function" id="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -365,7 +365,7 @@
         </inbodydescription>
         <location file="clist.c" line="219" column="6" bodyfile="clist.c" bodystart="219" bodyend="224"/>
         <references refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</references>
-        <referencedby refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" compoundref="init_8c" startline="195" endline="244">CleanupPhysics</referencedby>
+        <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
       </memberdef>
       <memberdef kind="function" id="clist_8c_1ae9b045d3ebb0516cfaf27f605abc59e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

@@ -270,21 +270,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ragdoll.h" line="65" column="9" bodyfile="ragdoll.c" bodystart="118" bodyend="396" declfile="ragdoll.h" declline="65" declcolumn="9"/>
+        <location file="ragdoll.h" line="65" column="9" bodyfile="ragdoll.c" bodystart="117" bodyend="395" declfile="ragdoll.h" declline="65" declcolumn="9"/>
         <references refid="structRagDoll_1a6701b87f385a57ac96ab8a1574eae1c8" compoundref="ragdoll_8h" startline="35">RagDoll::bodies</references>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="44">entity::body</references>
         <references refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" compoundref="ragdoll_8h" startline="39">RagDoll::bodyCount</references>
-        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="106">GraphicsContext::boxTextures</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="103">GraphicsContext::boxTextures</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="643" endline="654">CreateGeomInfo</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="107">GraphicsContext::cylinderTextures</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="642" endline="653">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="104">GraphicsContext::cylinderTextures</references>
         <references refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" compoundref="ragdoll_8h" startline="36">RagDoll::geoms</references>
         <references refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" compoundref="ragdoll_8h" startline="40">RagDoll::jointCount</references>
         <references refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" compoundref="ragdoll_8h" startline="37">RagDoll::joints</references>
         <references refid="structRagDoll_1a48922d5094768dcacf07717590dccd00" compoundref="ragdoll_8h" startline="41">RagDoll::motorCount</references>
         <references refid="structRagDoll_1a6abc7a02734741bc55d4bafcaaf534a2" compoundref="ragdoll_8h" startline="38">RagDoll::motors</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="45">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
         <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54" compoundref="ragdoll_8h" startline="56">RAGDOLL_BODY_COUNT</references>
         <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364" compoundref="ragdoll_8h" startline="46">RAGDOLL_HEAD</references>
         <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6" compoundref="ragdoll_8h" startline="49">RAGDOLL_LEFT_LOWER_ARM</references>
@@ -296,9 +296,9 @@
         <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3" compoundref="ragdoll_8h" startline="50">RAGDOLL_RIGHT_UPPER_ARM</references>
         <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34" compoundref="ragdoll_8h" startline="54">RAGDOLL_RIGHT_UPPER_LEG</references>
         <references refid="ragdoll_8h_1a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608" compoundref="ragdoll_8h" startline="47">RAGDOLL_TORSO</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="118">PhysicsContext::space</references>
-        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="105">GraphicsContext::sphereTextures</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="117">PhysicsContext::world</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="115">PhysicsContext::space</references>
+        <references refid="structGraphicsContext_1a0f22083c4b2ff44151d92d717137a8c4" compoundref="raylibODE_8h" startline="102">GraphicsContext::sphereTextures</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="114">PhysicsContext::world</references>
       </memberdef>
       <memberdef kind="function" id="ragdoll_8h_1aabb2deb6a54bb247892b4a5fabd6449c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -347,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ragdoll.h" line="67" column="6" bodyfile="ragdoll.c" bodystart="417" bodyend="439" declfile="ragdoll.h" declline="67" declcolumn="6"/>
+        <location file="ragdoll.h" line="67" column="6" bodyfile="ragdoll.c" bodystart="416" bodyend="438" declfile="ragdoll.h" declline="67" declcolumn="6"/>
         <references refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" compoundref="ragdoll_8h" startline="40">RagDoll::jointCount</references>
         <references refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" compoundref="ragdoll_8h" startline="37">RagDoll::joints</references>
       </memberdef>
@@ -394,9 +394,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ragdoll.h" line="68" column="6" bodyfile="ragdoll.c" bodystart="455" bodyend="464" declfile="ragdoll.h" declline="68" declcolumn="6"/>
+        <location file="ragdoll.h" line="68" column="6" bodyfile="ragdoll.c" bodystart="454" bodyend="463" declfile="ragdoll.h" declline="68" declcolumn="6"/>
         <references refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" compoundref="ragdoll_8h" startline="39">RagDoll::bodyCount</references>
-        <references refid="raylibODE_8c_1ac29c7db14d40f3946075ae2d63aab414" compoundref="raylibODE_8c" startline="776" endline="858">drawGeom</references>
+        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="775" endline="857">DrawGeom</references>
         <references refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" compoundref="ragdoll_8h" startline="36">RagDoll::geoms</references>
       </memberdef>
       <memberdef kind="function" id="ragdoll_8h_1ab17f6d5cfecd7a8573b900f78460c816" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -444,18 +444,18 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="ragdoll.h" line="69" column="6" bodyfile="ragdoll.c" bodystart="483" bodyend="523" declfile="ragdoll.h" declline="69" declcolumn="6"/>
+        <location file="ragdoll.h" line="69" column="6" bodyfile="ragdoll.c" bodystart="482" bodyend="522" declfile="ragdoll.h" declline="69" declcolumn="6"/>
         <references refid="structRagDoll_1a6701b87f385a57ac96ab8a1574eae1c8" compoundref="ragdoll_8h" startline="35">RagDoll::bodies</references>
         <references refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" compoundref="ragdoll_8h" startline="39">RagDoll::bodyCount</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="720" endline="733">FreeBodyAndGeoms</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="719" endline="732">FreeBodyAndGeoms</references>
         <references refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" compoundref="ragdoll_8h" startline="36">RagDoll::geoms</references>
         <references refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" compoundref="ragdoll_8h" startline="40">RagDoll::jointCount</references>
         <references refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" compoundref="ragdoll_8h" startline="37">RagDoll::joints</references>
         <references refid="structRagDoll_1a48922d5094768dcacf07717590dccd00" compoundref="ragdoll_8h" startline="41">RagDoll::motorCount</references>
         <references refid="structRagDoll_1a6abc7a02734741bc55d4bafcaaf534a2" compoundref="ragdoll_8h" startline="38">RagDoll::motors</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="121">PhysicsContext::objList</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="45">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="118">PhysicsContext::objList</references>
       </memberdef>
       <memberdef kind="function" id="ragdoll_8h_1ae5044c65f2f6758624a2182347b6d945" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>Vector3</type>
@@ -494,7 +494,7 @@
         <references refid="ragdoll_8h_1a5152c4c82163811cbd050b43559c8a60" compoundref="ragdoll_8h" startline="74">RAGDOLL_SPAWN_HALF_EXTENT</references>
         <references refid="ragdoll_8h_1a2fc164e6dd8fb737a26d1ed64bce2650" compoundref="ragdoll_8h" startline="76">RAGDOLL_SPAWN_MAX_Y</references>
         <references refid="ragdoll_8h_1ab3762f5ad156fe8e366ff6f85bca6ebc" compoundref="ragdoll_8h" startline="75">RAGDOLL_SPAWN_MIN_Y</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="219" endline="222">rndf</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="218" endline="221">rndf</references>
       </memberdef>
     </sectiondef>
     <briefdescription>

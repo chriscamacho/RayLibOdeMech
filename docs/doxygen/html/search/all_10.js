@@ -25,7 +25,7 @@ var searchData=
   ['raylibode_2ec_22',['raylibODE.c',['../raylibODE_8c.html',1,'']]],
   ['raylibode_2eh_23',['raylibODE.h',['../raylibODE_8h.html',1,'']]],
   ['raylibodemech_20framework_24',['RayLibOdeMech Framework',['../index.html',1,'']]],
-  ['raytoodemat_25',['rayToOdeMat',['../raylibODE_8c.html#a21ca1b0ed6eb58d2d7243cec4041ca87',1,'rayToOdeMat(Matrix *m, dReal *R):&#160;raylibODE.c'],['../raylibODE_8h.html#a90e81478715d0f9b144a709347d089a0',1,'rayToOdeMat(Matrix *mat, dReal *R):&#160;raylibODE.c']]],
+  ['raytoodemat_25',['RayToOdeMat',['../raylibODE_8c.html#a261ecb0743898782ddf0e56b07f32f2b',1,'RayToOdeMat(Matrix *m, dReal *R):&#160;raylibODE.c'],['../raylibODE_8h.html#ac18f122edccf31f40c3ce18ea1be58cd',1,'RayToOdeMat(Matrix *mat, dReal *R):&#160;raylibODE.c']]],
   ['rlights_2ec_26',['rlights.c',['../rlights_8c.html',1,'']]],
   ['rlights_2eh_27',['rlights.h',['../rlights_8h.html',1,'']]],
   ['rndf_28',['rndf',['../raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8',1,'rndf(float min, float max):&#160;raylibODE.c'],['../raylibODE_8h.html#a4a4933f37c736fd2d311be9eaf9b7fa8',1,'rndf(float min, float max):&#160;raylibODE.c']]]

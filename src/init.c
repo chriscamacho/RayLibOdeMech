@@ -63,7 +63,6 @@
  * shaders, and creates lighting. This must be called before any
  * rendering can occur.
  *
- * @param ctx Pointer to GraphicsContext to initialize
  * @param width Window width in pixels
  * @param height Window height in pixels
  * @param title Window title string
@@ -73,9 +72,9 @@
  * @note Loads default textures from data/ directory
  *
  * @see GraphicsContext
- * @see CleanupGraphics
+ * @see FreeGraphics
  */
-void InitGraphics(GraphicsContext* ctx, int width, int height, const char* title)
+GraphicsContext* CreateGraphics(int width, int height, const char* title)
 {
     InitWindow(width, height, title);
     SetWindowState(FLAG_VSYNC_HINT | FLAG_MSAA_4X_HINT);
@@ -87,6 +86,7 @@ void InitGraphics(GraphicsContext* ctx, int width, int height, const char* title
 
     DisableCursor();  // Hide and lock cursor
     
+    GraphicsContext* ctx = MemAlloc(sizeof(GraphicsContext));
     // Load models
     ctx->box = LoadModelFromMesh(GenMeshCube(1, 1, 1));
     ctx->ball = LoadModelFromMesh(GenMeshSphere(.5, 32, 32));
@@ -133,7 +133,7 @@ void InitGraphics(GraphicsContext* ctx, int width, int height, const char* title
     ctx->lights[1] = CreateLight(LIGHT_POINT, (Vector3){-25, 25, -25}, Vector3Zero(),
                                 (Color){64, 64, 64, 255}, ctx->shader);
                                 
-
+	return ctx;
 }
 
 
@@ -155,7 +155,7 @@ void InitGraphics(GraphicsContext* ctx, int width, int height, const char* title
  * @see CleanupPhysics
  * @see PhysicsContext
  */
-PhysicsContext* InitPhysics()//dSpaceID* space)//, GraphicsContext* gfxCtx)
+PhysicsContext* CreatePhysics()//dSpaceID* space)//, GraphicsContext* gfxCtx)
 {
 	if (sizeof(dReal) != sizeof(float)) {
         fprintf(stderr, "\n[SIM ERROR] Precision Mismatch Detected!\n");
@@ -192,7 +192,7 @@ PhysicsContext* InitPhysics()//dSpaceID* space)//, GraphicsContext* gfxCtx)
     return ctx;
 }
 
-void CleanupPhysics(PhysicsContext* ctx)
+void FreePhysics(PhysicsContext* ctx)
 {
     if (!ctx) return;
 
@@ -243,7 +243,7 @@ void CleanupPhysics(PhysicsContext* ctx)
     RL_FREE(ctx);
 }
 
-void CleanupGraphics(GraphicsContext* ctx)
+void FreeGraphics(GraphicsContext* ctx)
 {
 
     // Clean up graphics resources
@@ -262,4 +262,6 @@ void CleanupGraphics(GraphicsContext* ctx)
     UnloadTexture(ctx->groundTexture);
     
     UnloadShader(ctx->shader);
+    
+    RL_FREE(ctx);
 }

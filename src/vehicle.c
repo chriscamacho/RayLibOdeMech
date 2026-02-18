@@ -253,7 +253,7 @@ void FreeVehicle(PhysicsContext* pctx, vehicle* car)
  * @note this is a quick hack, it violently pops the vehicle back
  * upright - there are better ways of doing this!
  */
-void unflipVehicle (vehicle *car)
+void UnflipVehicle (vehicle *car)
 {
     const dReal* cp = dBodyGetPosition(car->bodies[0]);
     dBodySetPosition(car->bodies[0], cp[0], cp[1]+2, cp[2]);

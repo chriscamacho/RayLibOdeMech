@@ -33,46 +33,45 @@
 
 int main(void)
 {
-    PhysicsContext* physCtx = NULL;
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
-    initCamera(&graphics);
-    physCtx = InitPhysics();
+    PhysicsContext* physCtx = CreatePhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
+    SetupCamera(graphics);
+    
 
     // Create ground plane
     dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
+    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
     clistAddNode(physCtx->statics, planeGeom);
 
     // Initial random objects
     for (int i = 0; i < NUM_OBJ; i++) {
-        addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+        CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
     }
 
     while (!WindowShouldClose())
     {
-        updateCamera(&graphics);
+        UpdateExampleCamera(graphics);
 
         // placing new objects
-        Vector3 forward = Vector3Normalize(Vector3Subtract(graphics.camera.target, graphics.camera.position));
-        Vector3 spawnPos = Vector3Add(graphics.camera.position, Vector3Scale(forward, 3.0f));
+        Vector3 forward = Vector3Normalize(Vector3Subtract(graphics->camera.target, graphics->camera.position));
+        Vector3 spawnPos = Vector3Add(graphics->camera.position, Vector3Scale(forward, 3.0f));
         Vector3 defaultRot = { 0, GetCameraYaw(), 0 };
 
-        if (IsKeyPressed(KEY_ONE))   addBox(physCtx, &graphics, (Vector3){0.5, 0.5, 0.5}, spawnPos, defaultRot, 10.0f);
-        if (IsKeyPressed(KEY_TWO))   addSphere(physCtx, &graphics, 0.4f, spawnPos, defaultRot, 10.0f);
-        if (IsKeyPressed(KEY_THREE)) addCylinder(physCtx, &graphics, 0.3f, 1.0f, spawnPos, defaultRot, 10.0f);
-        if (IsKeyPressed(KEY_FOUR))  addCapsule(physCtx, &graphics, 0.3f, 1.0f, spawnPos, defaultRot, 10.0f);
-        if (IsKeyPressed(KEY_FIVE))  addDumbbell(physCtx, &graphics, 0.1f, 1.0f, 0.3f, spawnPos, defaultRot, 10.0f);
+        if (IsKeyPressed(KEY_ONE))   CreateBox(physCtx, graphics, (Vector3){0.5, 0.5, 0.5}, spawnPos, defaultRot, 10.0f);
+        if (IsKeyPressed(KEY_TWO))   CreateSphere(physCtx, graphics, 0.4f, spawnPos, defaultRot, 10.0f);
+        if (IsKeyPressed(KEY_THREE)) CreateCylinder(physCtx, graphics, 0.3f, 1.0f, spawnPos, defaultRot, 10.0f);
+        if (IsKeyPressed(KEY_FOUR))  CreateCapsule(physCtx, graphics, 0.3f, 1.0f, spawnPos, defaultRot, 10.0f);
+        if (IsKeyPressed(KEY_FIVE))  CreateDumbbell(physCtx, graphics, 0.1f, 1.0f, 0.3f, spawnPos, defaultRot, 10.0f);
 
         // picking / pushing
         Vector3 hitPoint = { 0 };
-        entity* picked = getEntityFromMouse(physCtx, &graphics, &hitPoint);
+        entity* picked = PickEntity(physCtx, graphics, &hitPoint);
         bool hasHit = (picked != NULL);
 
         if (IsMouseButtonDown(MOUSE_LEFT_BUTTON) && hasHit && picked->body != NULL) {
             dBodyEnable(picked->body);
-            Vector3 dir = Vector3Normalize(Vector3Subtract(hitPoint, graphics.camera.position));
+            Vector3 dir = Vector3Normalize(Vector3Subtract(hitPoint, graphics->camera.position));
             Vector3 force = Vector3Scale(dir, 500.0f); 
             dBodyAddForceAtPos(picked->body, force.x, force.y, force.z, hitPoint.x, hitPoint.y, hitPoint.z);
         }
@@ -106,14 +105,14 @@ int main(void)
             node = next;
         }
 
-        stepPhysics(physCtx);
+        StepPhysics(physCtx);
 
         // drawing
         BeginDrawing();
             ClearBackground(BLACK);
-            BeginMode3D(graphics.camera);
-                drawBodies(&graphics, physCtx);
-                drawStatics(&graphics, physCtx);
+            BeginMode3D(graphics->camera);
+                DrawBodies(graphics, physCtx);
+                DrawStatics(graphics, physCtx);
 
                 // Target indicator (Red dot)
                 if (hasHit) { 
@@ -129,8 +128,8 @@ int main(void)
         EndDrawing();
     }
 
-    CleanupPhysics(physCtx);
-    CleanupGraphics(&graphics);
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
     CloseWindow();
     return 0;
 }

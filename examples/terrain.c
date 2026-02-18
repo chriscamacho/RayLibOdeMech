@@ -37,15 +37,9 @@ int main(void)
     // Initialization
     //--------------------------------------------------------------------------------------
 
-    // Physics context, holds all physics state
-    PhysicsContext* physCtx = NULL;
-    
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE");
-    
-	initCamera(&graphics);
-
-    physCtx = InitPhysics();
+    PhysicsContext* physCtx = CreatePhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
+    SetupCamera(graphics);
 
 	// set up for the items in the world
     //--------------------------------------------------------------------------------------
@@ -54,12 +48,12 @@ int main(void)
 	Model ground = LoadModel("data/ground2.obj");
 	
 	// framework looks after the physics stuff and rendering
-	CreateStaticTrimesh(physCtx, &graphics, ground, &graphics.groundTexture, 2.5f);
+	CreateStaticTrimesh(physCtx, graphics, ground, &graphics->groundTexture, 2.5f);
 
 
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ; i++) {
-		addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
 	}
 
 
@@ -77,7 +71,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 		
 		// baked in controls (example only camera!)
-		updateCamera(&graphics);
+		UpdateExampleCamera(graphics);
         
         bool spcdn = IsKeyDown(KEY_SPACE);  // cache space key status (don't look up for each object iterration    
         cnode_t* node = physCtx->objList->head;
@@ -106,7 +100,7 @@ int main(void)
                 // reposition it with zeroed velocities
                 // but this is used to aid testing
                 FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+                CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
             }
             
             node = next;
@@ -116,7 +110,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 
         physTime = GetTime(); 
-        int pSteps = stepPhysics(physCtx);
+        int pSteps = StepPhysics(physCtx);
         physTime = GetTime() - physTime;    
 
 
@@ -127,9 +121,9 @@ int main(void)
 
         ClearBackground(BLACK);
 
-        BeginMode3D(graphics.camera);
-			drawBodies(&graphics, physCtx);
-			drawStatics(&graphics, physCtx);
+        BeginMode3D(graphics->camera);
+			DrawBodies(graphics, physCtx);
+			DrawStatics(graphics, physCtx);
         EndMode3D();
 
 
@@ -148,12 +142,12 @@ int main(void)
     // De-Initialization
     //--------------------------------------------------------------------------------------
     
-    CleanupPhysics(physCtx);
+    FreePhysics(physCtx);
     
     // only bit of static trimesh that needs manual cleanup
     UnloadModel(ground);
     
-    CleanupGraphics(&graphics);
+    FreeGraphics(graphics);
 
     CloseWindow();              // Close window and OpenGL context
     

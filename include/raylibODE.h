@@ -40,9 +40,6 @@
 
 #define maxPsteps 6
     
-void rayToOdeMat(Matrix* mat, dReal* R);
-void odeToRayMat(const dReal* R, Matrix* matrix);
-
 typedef struct entity {
 	dBodyID body;/**< ODE physics body for this entity */
 	cnode_t* node; /**< all entities are in a global list, this is its list node */
@@ -122,59 +119,62 @@ typedef struct PhysicsContext {
 	clist_t* statics; // list of static ode geoms
 } PhysicsContext;
 
-entity* createBaseEntity(PhysicsContext* ctx);
+entity* CreateBaseEntity(PhysicsContext* ctx);
 
 // Helper to allocate geomInfo with collision flag, optional texture, and UV scale
 geomInfo* CreateGeomInfo(bool collidable, Texture* texture, float uvScaleU, float uvScaleV);
 
 // create a geom only but with geomInfo attched
-dGeomID createSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos);
+dGeomID CreateSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos);
 
 // helper to create a static collision geom from a model
 cnode_t* CreateStaticTrimesh(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Model model, Texture* tex, float uvScale);
 
 // add a physics visual to the world
-entity* addBox(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass);
-entity* addSphere(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass); 
-entity* addCylinder(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass);
-entity* addCapsule(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass);
-entity* addDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass);
+entity* CreateBox(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass);
+entity* CreateSphere(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass); 
+entity* CreateCylinder(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass);
+entity* CreateCapsule(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass);
+entity* CreateDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass);
 
 // add a random simple physics object to the world
-entity* addRandomPhys(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos);
+entity* CreateRandomEntity(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos);
 
 // return a reference to an entity the mouse is pointing to...
-entity* getEntityFromMouse(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hitPoint);
+entity* PickEntity(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hitPoint);
 
-void setEntityHew(entity* ent, Color c);
+void SetEntityHew(entity* ent, Color c);
 
-dJointID createRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 axis);
+dJointID CreateRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 axis);
 
 // free a body, freeing its geoms first
 void FreeBodyAndGeoms(dBodyID bdy);
 
 //void drawAllSpaceGeoms(dSpaceID space, struct GraphicsContext* ctx);
-void drawGeom(dGeomID geom, struct GraphicsContext* ctx);
+void DrawGeom(dGeomID geom, struct GraphicsContext* ctx);
 
 // draw all the bodies in the object list
-void drawBodies(struct GraphicsContext* ctx, PhysicsContext* pctx);
+void DrawBodies(struct GraphicsContext* ctx, PhysicsContext* pctx);
 
 // draw geoms attached to a body
-void drawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx);
+void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx);
 
 // draw static geoms
-void drawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx);
+void DrawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx);
 
 // Random float in range [min, max]
 float rndf(float min, float max);
 
 // step the physics world enough times to keep up with realtime
-int stepPhysics(PhysicsContext* physCtx);
+int StepPhysics(PhysicsContext* physCtx);
 
 void FreeEntity(PhysicsContext* physCtx, entity* ent);
 
 void SetPistonLimits(dJointID joint, float min, float max);
 dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB);
+
+void RayToOdeMat(Matrix* mat, dReal* R);
+void OdeToRayMat(const dReal* R, Matrix* matrix);
 
 #endif // RAYLIBODE_H
 

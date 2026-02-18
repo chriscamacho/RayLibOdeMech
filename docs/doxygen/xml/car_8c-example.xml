@@ -46,14 +46,9 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//--------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Physics<sp/>context,<sp/>holds<sp/>all<sp/>physics<sp/>state</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx<sp/>=<sp/>NULL;</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref><sp/>graphics<sp/>=<sp/>{<sp/>0<sp/>};</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a4ef743f6c8c693304e974dac3b901875" kindref="member">InitGraphics</ref>(&amp;graphics,<sp/>screenWidth,<sp/>screenHeight,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1abf1f4204c9ad8cd8061009b9702d7a3f" kindref="member">initCamera</ref>(&amp;graphics);</highlight></codeline>
-<codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a1622bbe41084e4d594b33c3fa56e3ad9" kindref="member">InitPhysics</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kindref="member">CreatePhysics</ref>();</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics<sp/>=<sp/><ref refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kindref="member">CreateGraphics</ref>(screenWidth,<sp/>screenHeight,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" kindref="member">SetupCamera</ref>(graphics);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>up<sp/>for<sp/>the<sp/>items<sp/>in<sp/>the<sp/>world</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//--------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
@@ -62,16 +57,16 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>Model<sp/>ground<sp/>=<sp/>LoadModel(</highlight><highlight class="stringliteral">&quot;data/ground2.obj&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>framework<sp/>looks<sp/>after<sp/>the<sp/>physics<sp/>stuff<sp/>and<sp/>rendering</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" kindref="member">CreateStaticTrimesh</ref>(physCtx,<sp/>&amp;graphics,<sp/>ground,<sp/>&amp;graphics.<ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>,<sp/>2.5f);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" kindref="member">CreateStaticTrimesh</ref>(physCtx,<sp/>graphics,<sp/>ground,<sp/>&amp;graphics-&gt;<ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>,<sp/>2.5f);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>vehicle*<sp/>CreateVehicle(PhysicsContext*<sp/>pctx,<sp/>struct<sp/>GraphicsContext*<sp/>ctx,<sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>carScale,<sp/>float<sp/>wheelRadius,<sp/>float<sp/>wheelWidth);</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car<sp/>=<sp/><ref refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" kindref="member">CreateVehicle</ref>(physCtx,<sp/>&amp;graphics,<sp/>(Vector3){15,<sp/>6,<sp/>15},(Vector3){3.5,<sp/>0.5,<sp/>2.4},<sp/>.8,<sp/>.6);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car<sp/>=<sp/><ref refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" kindref="member">CreateVehicle</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){15,<sp/>6,<sp/>15},(Vector3){3.5,<sp/>0.5,<sp/>2.4},<sp/>.8,<sp/>.6);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>random<sp/>simple<sp/>objects<sp/>with<sp/>random<sp/>textures</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" kindref="member">NUM_OBJ</ref>;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" kindref="member">addRandomPhys</ref>(physCtx,<sp/>&amp;graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" kindref="member">CreateRandomEntity</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
@@ -89,7 +84,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>baked<sp/>in<sp/>controls<sp/>(example<sp/>only<sp/>camera!)</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1a9ebb8457497dc7cebf88b55573010637" kindref="member">updateVehicleCamera</ref>(&amp;graphics,<sp/>car);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" kindref="member">UpdateVehicleCamera</ref>(graphics,<sp/>car);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>spcdn<sp/>=<sp/>IsKeyDown(KEY_SPACE);<sp/><sp/></highlight><highlight class="comment">//<sp/>cache<sp/>space<sp/>key<sp/>status<sp/>(don&apos;t<sp/>look<sp/>up<sp/>for<sp/>each<sp/>object<sp/>iterration<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>physCtx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
@@ -118,7 +113,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reposition<sp/>it<sp/>with<sp/>zeroed<sp/>velocities</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>but<sp/>this<sp/>is<sp/>used<sp/>to<sp/>aid<sp/>testing</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kindref="member">FreeEntity</ref>(physCtx,<sp/>ent);<sp/></highlight><highlight class="comment">//<sp/>warning<sp/>deletes<sp/>global<sp/>entity<sp/>list<sp/>entry,<sp/>get<sp/>your<sp/>next<sp/>node<sp/>before<sp/>doing<sp/>this!</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a5a6ec4456256b6b4394e5d32b326fae8" kindref="member">addRandomPhys</ref>(physCtx,<sp/>&amp;graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" kindref="member">CreateRandomEntity</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>next;</highlight></codeline>
@@ -137,7 +132,7 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//----------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>physTime<sp/>=<sp/>GetTime();<sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pSteps<sp/>=<sp/><ref refid="raylibODE_8c_1a218eeb72f46ea3ed00c9010d7002a305" kindref="member">stepPhysics</ref>(physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pSteps<sp/>=<sp/><ref refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" kindref="member">StepPhysics</ref>(physCtx);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>physTime<sp/>=<sp/>GetTime()<sp/>-<sp/>physTime;<sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
@@ -148,10 +143,9 @@
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClearBackground(BLACK);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginMode3D(graphics.<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//DrawModel(ground,(Vector3){0,0,0},1,WHITE);</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1adac1e8c721f82c1684b919e4cbe8a883" kindref="member">drawBodies</ref>(&amp;graphics,<sp/>physCtx);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a05b90ca080d0521b6155c1462bfeab90" kindref="member">drawStatics</ref>(&amp;graphics,<sp/>physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginMode3D(graphics-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kindref="member">DrawBodies</ref>(graphics,<sp/>physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kindref="member">DrawStatics</ref>(graphics,<sp/>physCtx);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EndMode3D();</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
@@ -174,9 +168,8 @@
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" kindref="member">FreeVehicle</ref>(physCtx,<sp/>car);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>UnloadModel(ground);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1afaa0b9510d3f6bf8a8187d25ed17c536" kindref="member">CleanupPhysics</ref>(physCtx);</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a9f01a5c8d21a89463b9e68ec349887f7" kindref="member">CleanupGraphics</ref>(&amp;graphics);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" kindref="member">FreePhysics</ref>(physCtx);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" kindref="member">FreeGraphics</ref>(graphics);</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CloseWindow();<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Close<sp/>window<sp/>and<sp/>OpenGL<sp/>context</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>

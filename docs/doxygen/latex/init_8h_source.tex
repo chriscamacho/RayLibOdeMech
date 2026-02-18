@@ -34,16 +34,16 @@
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00031}00031\ }
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00032}00032\ }
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00033}00033\ \textcolor{comment}{//\ Initialize\ graphics\ resources\ and\ window}}
-\DoxyCodeLine{\Hypertarget{init_8h_source_l00034}00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8h_a4ef743f6c8c693304e974dac3b901875}{InitGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title);}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00034}00034\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ \mbox{\hyperlink{init_8h_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title);}
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00035}00035\ }
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00036}00036\ \textcolor{comment}{//\ Initialize\ the\ physics\ world\ and\ create\ all\ objects}}
-\DoxyCodeLine{\Hypertarget{init_8h_source_l00037}00037\ \textcolor{comment}{//\ Returns\ pointer\ to\ PhysicsContext\ (caller\ responsible\ for\ passing\ to\ CleanupPhysics)}}
-\DoxyCodeLine{\Hypertarget{init_8h_source_l00038}00038\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ \mbox{\hyperlink{init_8h_a1622bbe41084e4d594b33c3fa56e3ad9}{InitPhysics}}();\textcolor{comment}{//dSpaceID*\ space);//,\ GraphicsContext*\ gfxCtx);}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00037}00037\ \textcolor{comment}{//\ Returns\ pointer\ to\ PhysicsContext}}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00038}00038\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ \mbox{\hyperlink{init_8h_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00039}00039\ }
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00040}00040\ \textcolor{comment}{//\ clean\ up\ physics}}
-\DoxyCodeLine{\Hypertarget{init_8h_source_l00041}00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8h_afaa0b9510d3f6bf8a8187d25ed17c536}{CleanupPhysics}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00041}00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8h_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx);}
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00042}00042\ \textcolor{comment}{//\ Clean\ up\ application\ resources}}
-\DoxyCodeLine{\Hypertarget{init_8h_source_l00043}00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8h_a9f01a5c8d21a89463b9e68ec349887f7}{CleanupGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{init_8h_source_l00043}00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{init_8h_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx);}
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00044}00044\ }
 \DoxyCodeLine{\Hypertarget{init_8h_source_l00045}00045\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ INIT\_H}}
 

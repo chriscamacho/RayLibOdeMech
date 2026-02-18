@@ -79,7 +79,7 @@
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00076}00076\ \textcolor{comment}{\ *\ @note\ Camera\ looks\ at\ origin\ by\ default}}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00077}00077\ \textcolor{comment}{\ *\ @note\ Initializes\ yaw/pitch\ based\ on\ initial\ look\ direction}}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00078}00078\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00079}\mbox{\hyperlink{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_abf1f4204c9ad8cd8061009b9702d7a3f}{initCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00079}\mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{00079}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00080}00080\ \{}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//\ Define\ the\ camera\ to\ look\ into\ our\ 3d\ world}}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00082}00082\ \ \ \ \ Vector3\ cameraTarget\ =\ \{\ 4.0f,\ 2.0f,\ 1.0f\ \};}
@@ -102,7 +102,7 @@
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00099}00099\ \textcolor{comment}{\ *\ @param\ ctx\ graphics\ context\ used\ for\ the\ camera\ info}}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00100}00100\ \textcolor{comment}{\ *\ @param\ car\ the\ vehicle\ you\ want\ to\ be\ attached\ to}}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00101}00101\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00102}\mbox{\hyperlink{exampleCamera_8c_a9ebb8457497dc7cebf88b55573010637}{00102}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_a9ebb8457497dc7cebf88b55573010637}{updateVehicleCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car)}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00102}\mbox{\hyperlink{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}{00102}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}{UpdateVehicleCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car)}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00103}00103\ \{}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00104}00104\ \ \ \ \ \textcolor{comment}{//\ Static\ variables\ for\ vehicle\ camera\ state\ (relative\ to\ car)}}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00105}00105\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ relativeYaw\ =\ 0.0f;\ \ \ \ \textcolor{comment}{//\ Yaw\ relative\ to\ car's\ forward}}
@@ -166,7 +166,7 @@
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00163}00163\ \textcolor{comment}{\ *\ }}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00164}00164\ \textcolor{comment}{\ *\ @param\ ctx\ pointer\ to\ the\ graphics\ context}}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00165}00165\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00166}\mbox{\hyperlink{exampleCamera_8c_ab694a4e13506da451e4221c6bc1c48f1}{00166}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_ab694a4e13506da451e4221c6bc1c48f1}{updateCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00166}\mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{00166}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00167}00167\ \{\ \ \ \ }
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00168}00168\ }
 \DoxyCodeLine{\Hypertarget{exampleCamera_8c_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//\ Update\ camera\ with\ mouse\ look\ (first-\/person\ style)}}

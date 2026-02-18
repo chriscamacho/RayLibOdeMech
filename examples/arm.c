@@ -68,12 +68,9 @@ int main(void)
 
 
     
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE");
-    
-	initCamera(&graphics);
-
-    physCtx = InitPhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE");
+    SetupCamera(graphics);
+    physCtx = CreatePhysics();
 
 	// set up for the items in the world
     //--------------------------------------------------------------------------------------
@@ -81,19 +78,19 @@ int main(void)
     // Create ground "plane"
     planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
+    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
 
 	clistAddNode(physCtx->statics, planeGeom);
 	
 	
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ/4; i++) {
-		addRandomPhys(physCtx, &graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)});
+		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)});
 	}
 
 	// creation of the arm
 
-	entity* platform = addCylinder(physCtx, &graphics, 1,//radius
+	entity* platform = CreateCylinder(physCtx, graphics, 1,//radius
 		.5,//length
 		(Vector3){0,1.5,0}, // pos
 		(Vector3){0,0,0}, // rot
@@ -105,10 +102,10 @@ int main(void)
 	dRFromAxisAndAngle(Rr, 1, 0, 0, M_PI/2.0);
 	dBodySetRotation (platform->body, Rr);
 
-	dJointID platform_joint = createRotor(physCtx, platform,0, (Vector3){0,1,0});
+	dJointID platform_joint = CreateRotor(physCtx, platform,0, (Vector3){0,1,0});
 	
 	// platform boot is just cosmetic to hide the joint
-	dGeomID plat_boot = createSphereGeom(physCtx, &graphics, .6, (Vector3){0,0,0});
+	dGeomID plat_boot = CreateSphereGeom(physCtx, graphics, .6, (Vector3){0,0,0});
 	dGeomSetBody(plat_boot, platform->body);
 	dGeomSetOffsetPosition(plat_boot, 0, 0, -0.5);
 	geomInfo* pbgi = dGeomGetData(plat_boot);
@@ -116,7 +113,7 @@ int main(void)
 
 
 	
-	entity* rotor2 = addBox(physCtx, &graphics, 
+	entity* rotor2 = CreateBox(physCtx, graphics, 
 		(Vector3){.5, 4,.5}, // size
 		(Vector3){0,2,0}, // pos
 		(Vector3){0,0,0}, // rot
@@ -125,10 +122,10 @@ int main(void)
 	dGeomID rgeom2 = dBodyGetFirstGeom(rotor2->body);
 	dGeomSetOffsetPosition(rgeom2, 0, 2, 0);
 
-	dJointID rotor_joint2 = createRotor(physCtx, rotor2, platform,(Vector3){1,0,0});
+	dJointID rotor_joint2 = CreateRotor(physCtx, rotor2, platform,(Vector3){1,0,0});
 	
 	
-	entity* rotor3 = addBox(physCtx, &graphics, 
+	entity* rotor3 = CreateBox(physCtx, graphics, 
 		(Vector3){.5, 4,.5}, // size
 		(Vector3){0,6,0}, // pos
 		(Vector3){0,0,0}, // rot
@@ -137,11 +134,11 @@ int main(void)
 	dGeomID rgeom3 = dBodyGetFirstGeom(rotor3->body);
 	dGeomSetOffsetPosition(rgeom3, 0, 2, 0);
 
-	dJointID rotor_joint3 = createRotor(physCtx, rotor3, rotor2,(Vector3){1,0,0});
+	dJointID rotor_joint3 = CreateRotor(physCtx, rotor3, rotor2,(Vector3){1,0,0});
 	
 	
 	// a ball for a grabber includes a sensor to grab stuff automatically
-	grabber = addSphere(physCtx, &graphics, .5, (Vector3){0,10.5,0}, (Vector3){0,0,0}, 1);
+	grabber = CreateSphere(physCtx, graphics, .5, (Vector3){0,10.5,0}, (Vector3){0,0,0}, 1);
 	dBodySetAngularDamping(grabber->body, 0.5f); // make it stiffer
 	
 	dJointID grabber_joint = dJointCreateBall (physCtx->world, 0);
@@ -150,7 +147,7 @@ int main(void)
 
 	
 	// create just a geom
-	dGeomID grab_sensor = createSphereGeom(physCtx, &graphics, .6, (Vector3){0,0,0});
+	dGeomID grab_sensor = CreateSphereGeom(physCtx, graphics, .6, (Vector3){0,0,0});
 	
 	// set the trigger callback for the geom its now invisible 
 	// and other things don't collide with it - but it will register "collisions"
@@ -172,7 +169,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 		
 		// baked in controls (example only camera!)
-		updateCamera(&graphics);
+		UpdateExampleCamera(graphics);
 		
 		if (IsKeyDown(KEY_G)) {
 			if (attachment) {
@@ -224,7 +221,7 @@ int main(void)
             cnode_t* next = node->next; // get the next node now in case we delete this one
             
             // reset entities for setting by collision
-            setEntityHew(ent, WHITE);
+            SetEntityHew(ent, WHITE);
             
             const dReal* pos = dBodyGetPosition(bdy);
             if (spcdn) {
@@ -243,7 +240,7 @@ int main(void)
             
             if(pos[1]<-10) {
                 FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+                CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
             }
             
             node = next;
@@ -253,7 +250,7 @@ int main(void)
         //----------------------------------------------------------------------------------
 
         physTime = GetTime(); 
-        int pSteps = stepPhysics(physCtx);
+        int pSteps = StepPhysics(physCtx);
         physTime = GetTime() - physTime;    
 
 
@@ -264,9 +261,9 @@ int main(void)
 
         ClearBackground(BLACK);
 
-        BeginMode3D(graphics.camera);
-			drawBodies(&graphics, physCtx);
-			drawStatics(&graphics, physCtx);
+        BeginMode3D(graphics->camera);
+			DrawBodies(graphics, physCtx);
+			DrawStatics(graphics, physCtx);
         EndMode3D();
 
 
@@ -285,8 +282,8 @@ int main(void)
     
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    CleanupPhysics(physCtx);
-    CleanupGraphics(&graphics);
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
 
     CloseWindow();              // Close window and OpenGL context
     

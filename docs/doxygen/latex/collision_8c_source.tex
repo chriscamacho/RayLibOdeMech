@@ -76,9 +76,9 @@
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numc;\ i++)\ \{}
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mode\ =\ dContactSlip1\ |\ dContactSlip2\ |}
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dContactSoftERP\ |\ dContactSoftCFM\ |\ dContactApprox1;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mu\ =\ 1000;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip1\ =\ 0.0001;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip2\ =\ 0.0001;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mu\ =\ dInfinity;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip1\ =\ 0.005;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip2\ =\ 0.005;}
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.soft\_erp\ =\ 0.1;}
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.soft\_cfm\ =\ 0.001;}
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ }

@@ -5,6 +5,5 @@ var searchData=
   ['maxpsteps_2',['maxPsteps',['../raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e',1,'raylibODE.h']]],
   ['motor_20control_3',['Motor Control',['../ragdoll_8c.html#motor_control',1,'']]],
   ['motorcount_4',['motorCount',['../structRagDoll.html#a48922d5094768dcacf07717590dccd00',1,'RagDoll']]],
-  ['motors_5',['motors',['../structRagDoll.html#a6abc7a02734741bc55d4bafcaaf534a2',1,'RagDoll']]],
-  ['mydrawmodel_6',['MyDrawModel',['../raylibODE_8c.html#a4e5c05f3e98813de44bb372e30156724',1,'raylibODE.c']]]
+  ['motors_5',['motors',['../structRagDoll.html#a6abc7a02734741bc55d4bafcaaf534a2',1,'RagDoll']]]
 ];

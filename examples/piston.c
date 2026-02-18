@@ -34,26 +34,24 @@
 int main(void)
 {
 	// init
-    PhysicsContext* physCtx = NULL;
-    GraphicsContext graphics = { 0 };
-    InitGraphics(&graphics, screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
-    initCamera(&graphics);
-    physCtx = InitPhysics();
+    PhysicsContext* physCtx = CreatePhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
+    SetupCamera(graphics);
 
     // Create ground plane
     dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics.groundTexture, 25.0f, 25.0f));
+    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
     clistAddNode(physCtx->statics, planeGeom);
 
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ; i++) {
-		addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
 	}
 
-	entity* box1 = addBox(physCtx, &graphics,(Vector3){4,1,1}, (Vector3){0,.6,0}, (Vector3){0,0,0}, 2);
-	entity* box2 = addBox(physCtx, &graphics,(Vector3){4,.9,.9}, (Vector3){.1,.6,0}, (Vector3){0,0,0}, 2);
-	entity* box3 = addBox(physCtx, &graphics,(Vector3){4,.8,.8}, (Vector3){.2,.6,0}, (Vector3){0,0,0}, 2);
+	entity* box1 = CreateBox(physCtx, graphics,(Vector3){4,1,1}, (Vector3){0,.6,0}, (Vector3){0,0,0}, 2);
+	entity* box2 = CreateBox(physCtx, graphics,(Vector3){4,.9,.9}, (Vector3){.1,.6,0}, (Vector3){0,0,0}, 2);
+	entity* box3 = CreateBox(physCtx, graphics,(Vector3){4,.8,.8}, (Vector3){.2,.6,0}, (Vector3){0,0,0}, 2);
 
 	// anchor box1 to the world
     dJointID pin1 = dJointCreateFixed (physCtx->world, 0);
@@ -99,12 +97,12 @@ int main(void)
         if (IsKeyDown(KEY_I)) {
             dJointSetSliderParam(piston1, dParamVel, -pSpeed);
             dJointSetSliderParam(piston2, dParamVel, -pSpeed);
-            dBodyEnable(box1->body);
+            dBodyEnable(box2->body);
         }
         if (IsKeyDown(KEY_O)) {
             dJointSetSliderParam(piston1, dParamVel, pSpeed);
             dJointSetSliderParam(piston2, dParamVel, pSpeed);
-            dBodyEnable(box1->body);
+            dBodyEnable(box2->body);
         }
         
         bool spcdn = IsKeyDown(KEY_SPACE); 
@@ -130,21 +128,21 @@ int main(void)
             
             if(pos[1]<-10) {
                 FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+                CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
             }
             
             node = next;
         }
 
-        updateCamera(&graphics);
-        stepPhysics(physCtx);
+        UpdateExampleCamera(graphics);
+        StepPhysics(physCtx);
 
         // drawing
         BeginDrawing();
             ClearBackground(BLACK);
-            BeginMode3D(graphics.camera);
-                drawBodies(&graphics, physCtx);
-                drawStatics(&graphics, physCtx);
+            BeginMode3D(graphics->camera);
+                DrawBodies(graphics, physCtx);
+                DrawStatics(graphics, physCtx);
             EndMode3D();
 
             DrawText("Press O and P to move the piston", 10, 40, 20, RAYWHITE);
@@ -152,8 +150,8 @@ int main(void)
         EndDrawing();
     }
 
-    CleanupPhysics(physCtx);
-    CleanupGraphics(&graphics);
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
     CloseWindow();
     return 0;
 }
