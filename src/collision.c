@@ -73,9 +73,9 @@ void nearCallback(void *data, dGeomID o1, dGeomID o2)
         for (int i = 0; i < numc; i++) {
 			contact[i].surface.mode = dContactSlip1 | dContactSlip2 |
 										dContactSoftERP | dContactSoftCFM | dContactApprox1;
-			contact[i].surface.mu = 1000;
-			contact[i].surface.slip1 = 0.0001;
-			contact[i].surface.slip2 = 0.0001;
+			contact[i].surface.mu = dInfinity;
+			contact[i].surface.slip1 = 0.005;
+			contact[i].surface.slip2 = 0.005;
 			contact[i].surface.soft_erp = 0.1;
 			contact[i].surface.soft_cfm = 0.001;
 		  

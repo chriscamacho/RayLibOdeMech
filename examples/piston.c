@@ -51,9 +51,9 @@ int main(void)
 		addRandomPhys(physCtx, &graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
 	}
 
-	entity* box1 = addBox(physCtx, &graphics,(Vector3){4,1,1}, (Vector3){0,2,0}, (Vector3){0,0,0}, 2);
-	entity* box2 = addBox(physCtx, &graphics,(Vector3){4,.9,.9}, (Vector3){.1,2,0}, (Vector3){0,0,0}, 2);
-	entity* box3 = addBox(physCtx, &graphics,(Vector3){4,.8,.8}, (Vector3){.2,2,0}, (Vector3){0,0,0}, 2);
+	entity* box1 = addBox(physCtx, &graphics,(Vector3){4,1,1}, (Vector3){0,.6,0}, (Vector3){0,0,0}, 2);
+	entity* box2 = addBox(physCtx, &graphics,(Vector3){4,.9,.9}, (Vector3){.1,.6,0}, (Vector3){0,0,0}, 2);
+	entity* box3 = addBox(physCtx, &graphics,(Vector3){4,.8,.8}, (Vector3){.2,.6,0}, (Vector3){0,0,0}, 2);
 
 	// anchor box1 to the world
     dJointID pin1 = dJointCreateFixed (physCtx->world, 0);
