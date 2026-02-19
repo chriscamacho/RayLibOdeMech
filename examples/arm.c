@@ -30,32 +30,35 @@
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
 
-// the floor
-dGeomID planeGeom = 0;
 
-dJointID attachment = 0;
-entity* grabber = 0;
 
-// Physics context, holds all physics state
-PhysicsContext* physCtx = NULL;
+// custom struct to save with physics context for use in trigger callback
+typedef struct grabberData {
+	dGeomID planeGeom;
+	dJointID attachment;
+	entity* grabber;
+} grabberData;
 
-// TODO look at having user data passed to triggerCallback somehow to avoid globals...
+
 
 // this will end up joining to the first collided in a frame (could be any!)
-void triggerCallback(dGeomID trigger, dGeomID intruder) {
+void triggerCallback(PhysicsContext* physCtx, dGeomID trigger, dGeomID intruder) 
+{
 	(void)trigger;
-	if (intruder == planeGeom) return;
+	grabberData* gdata = (grabberData*)physCtx->data;
+	
+	if (intruder == gdata->planeGeom) return;
 	geomInfo* gi = dGeomGetData(intruder);
 	if (gi) {
 		gi->hew = RED;
-		if (!attachment && !IsKeyDown(KEY_G)) {
+		if (!gdata->attachment && !IsKeyDown(KEY_G)) {
 			dBodyID bdy = dGeomGetBody(intruder);
-			attachment = dJointCreateBall (physCtx->world, 0);
+			gdata->attachment = dJointCreateBall (physCtx->world, 0);
 			
 			const dReal* pos = dBodyGetPosition(bdy);
 			
-			dJointSetBallAnchor (attachment, pos[1], pos[2], pos[3]);
-			dJointAttach(attachment, bdy, grabber->body);
+			dJointSetBallAnchor (gdata->attachment, pos[1], pos[2], pos[3]);
+			dJointAttach(gdata->attachment, bdy, gdata->grabber->body);
 		}
 	}
 }
@@ -70,17 +73,20 @@ int main(void)
     
     GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE");
     SetupCamera(graphics);
-    physCtx = CreatePhysics();
+    PhysicsContext* physCtx = CreatePhysics();
+    
+    grabberData gData;
+    physCtx->data = &gData;
 
 	// set up for the items in the world
     //--------------------------------------------------------------------------------------
 
     // Create ground "plane"
-    planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
-    dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
+    gData.planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
+    dGeomSetPosition(gData.planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
+    dGeomSetData(gData.planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
 
-	clistAddNode(physCtx->statics, planeGeom);
+	clistAddNode(physCtx->statics, gData.planeGeom);
 	
 	
 	// Create random simple objects with random textures
@@ -138,12 +144,12 @@ int main(void)
 	
 	
 	// a ball for a grabber includes a sensor to grab stuff automatically
-	grabber = CreateSphere(physCtx, graphics, .5, (Vector3){0,10.5,0}, (Vector3){0,0,0}, 1);
-	dBodySetAngularDamping(grabber->body, 0.5f); // make it stiffer
+	gData.grabber = CreateSphere(physCtx, graphics, .5, (Vector3){0,10.5,0}, (Vector3){0,0,0}, 1);
+	dBodySetAngularDamping(gData.grabber->body, 0.5f); // make it stiffer
 	
 	dJointID grabber_joint = dJointCreateBall (physCtx->world, 0);
 	dJointSetBallAnchor (grabber_joint, 0, 10.5, 0);
-	dJointAttach(grabber_joint, grabber->body, rotor3->body);
+	dJointAttach(grabber_joint, gData.grabber->body, rotor3->body);
 
 	
 	// create just a geom
@@ -153,7 +159,7 @@ int main(void)
 	// and other things don't collide with it - but it will register "collisions"
     geomInfo* triggergi = dGeomGetData(grab_sensor);
     triggergi->triggerOnCollide = triggerCallback;
-   	dGeomSetBody(grab_sensor, grabber->body); // attach the sensor to the grabber
+   	dGeomSetBody(grab_sensor, gData.grabber->body); // attach the sensor to the grabber
 	
     float physTime = 0;
 
@@ -172,9 +178,9 @@ int main(void)
 		UpdateExampleCamera(graphics);
 		
 		if (IsKeyDown(KEY_G)) {
-			if (attachment) {
-				dJointDestroy(attachment);
-				attachment = 0;
+			if (gData.attachment) {
+				dJointDestroy(gData.attachment);
+				gData.attachment = 0;
 			}
 		}
         

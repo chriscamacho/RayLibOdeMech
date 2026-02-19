@@ -29,13 +29,15 @@
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
 
-dGeomID planeGeom;
+
 
 // geoms inside a trigger geom will be tinted red
 
-void triggerCallback(dGeomID trigger, dGeomID intruder) {
+void triggerCallback(PhysicsContext* pctx, dGeomID trigger, dGeomID intruder) {
 	(void)trigger;
-	if (intruder == planeGeom) return;
+	// rule out any collisions with the ground which we store
+	// in the physics context data pointer
+	if (intruder == *(dGeomID*)pctx->data) return;
 	geomInfo* gi = dGeomGetData(intruder);
 	if (gi) {
 		gi->hew = RED;
@@ -57,7 +59,7 @@ int main(void)
     //--------------------------------------------------------------------------------------
 
     // Create ground "plane"
-    planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
+    dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
     dMatrix3 R_plane;
     dRFromAxisAndAngle(R_plane, 1, 0, -1, M_PI * 0.125);
@@ -65,6 +67,11 @@ int main(void)
     dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
 
 	clistAddNode(physCtx->statics, planeGeom);
+	
+	// we're using the physics context's user data pointer to store
+	// a pointer to the ground plane, usually and more usefully
+	// you would store a pointer to a custom struct.
+	physCtx->data = &planeGeom;
 	
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ; i++) {

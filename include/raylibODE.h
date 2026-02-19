@@ -49,18 +49,31 @@ typedef struct entity {
 	void* data; /**< user data pointer tag on extra meta data to a geom. */
 } entity;
 
+// Physics context - holds all physics state
+typedef struct PhysicsContext {
+    dWorldID world;
+    dSpaceID space;             
+    dJointGroupID contactgroup;
+    float frameTime; // cumlative frame time
+	clist_t* objList;
+	clist_t* statics; // list of static ode geoms
+	void* data; // user data pointer
+} PhysicsContext;
+
 /**
  * @brief Function pointer type for physics trigger events
  * * This callback is triggered when a geometry designated as a "ghost" or sensor 
  * overlaps with another geometry. When this callback is set in geomInfo, 
  * the physics engine will skip standard contact resolution, allowing 
  * objects to pass through while still notifying game logic.
- * * @param trigger  The dGeomID of the geometry that has the callback assigned.
+ * @param trigger  The dGeomID of the geometry that has the callback assigned.
  * @param intruder The dGeomID of the geometry that entered or is inside the trigger.
- * * @note If attached to a dBodyID, the trigger will follow the body's transform.
+ * @note If the triggering geom is attached to a body, the trigger will follow the body's transform.
+ * @note The physics context is passed with the callback, which has a user data pointer
+ * this can be used to avoid having to use global variables in the callback
  * @see geomInfo
  */
-typedef void (*TriggerCallback)(dGeomID trigger, dGeomID intruder);
+typedef void (*TriggerCallback)(PhysicsContext* pctx, dGeomID trigger, dGeomID intruder);
 
 /**
  * @brief Stores geometry metadata for collision, texturing, and trimesh data.
@@ -112,15 +125,7 @@ typedef struct GraphicsContext {
     Light lights[MAX_LIGHTS];
 } GraphicsContext;
 
-// Physics context - holds all physics state
-typedef struct PhysicsContext {
-    dWorldID world;
-    dSpaceID space;             
-    dJointGroupID contactgroup;
-    float frameTime; // cumlative frame time
-	clist_t* objList;
-	clist_t* statics; // list of static ode geoms
-} PhysicsContext;
+
 
 typedef struct MultiPiston {
     entity** sections;

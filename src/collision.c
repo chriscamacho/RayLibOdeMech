@@ -52,12 +52,14 @@ void nearCallback(void *data, dGeomID o1, dGeomID o2)
     geomInfo* gi1 = (geomInfo*)dGeomGetData(o1);
     geomInfo* gi2 = (geomInfo*)dGeomGetData(o2);	// Check for trigger callbacks
     
+    PhysicsContext* ctx = (PhysicsContext*)data;
+    
     if (gi1 && gi1->triggerOnCollide) {
-        gi1->triggerOnCollide(o1, o2);
+        gi1->triggerOnCollide(ctx, o1, o2);
         return; // Skip physical resolution
     }
     if (gi2 && gi2->triggerOnCollide) {
-        gi2->triggerOnCollide(o2, o1);
+        gi2->triggerOnCollide(ctx, o2, o1);
         return; // Skip physical resolution
     }
 
@@ -68,7 +70,7 @@ void nearCallback(void *data, dGeomID o1, dGeomID o2)
     int numc = dCollide(o1, o2, MAX_CONTACTS, &contact[0].geom, sizeof(dContact));
 
     if (numc > 0) {
-        struct PhysicsContext* ctx = (struct PhysicsContext*)data;
+        
 
         for (int i = 0; i < numc; i++) {
 			contact[i].surface.mode = dContactSlip1 | dContactSlip2 |
