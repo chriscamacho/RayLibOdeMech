@@ -21,8 +21,6 @@
  *
  */
 
-#include <stdlib.h>
-
 #include "init.h"
 #include "exampleCamera.h"
 

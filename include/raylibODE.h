@@ -200,6 +200,16 @@ void SetBodyOrientation(dBodyID body, Vector3 direction);
 
 dJointID PinEntityToWorld(PhysicsContext* physCtx, entity* ent);                      
 
+dGeomID CreateCylinderGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos);
+
+void SetBodyOrientationEuler(dBodyID bdy, float p, float y, float r);
+
+dGeomID CreateBoxGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos);
+
+void SetGeomOrientationEuler(dGeomID g, float p, float y, float r);
+
+void FreeMultiPiston(MultiPiston* mp);
+
 #endif // RAYLIBODE_H
 
 

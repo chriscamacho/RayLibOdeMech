@@ -11,8 +11,12 @@ Camera control implementations.
 \item 
 float \mbox{\hyperlink{exampleCamera_8c_a9904774abec2bae71c6d75094d47cbe3}{Get\+Camera\+Yaw}} ()
 \begin{DoxyCompactList}\small\item\em Get current camera yaw angle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exampleCamera_8c_aaadc2473185a23c67ec11371dd33d09e}{Set\+Camera\+Yaw}} (float y)
+\item 
 float \mbox{\hyperlink{exampleCamera_8c_afbfa8af7ad686732f5ddcea617d03d1b}{Get\+Camera\+Pitch}} ()
 \begin{DoxyCompactList}\small\item\em Get current camera pitch angle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{exampleCamera_8c_a7caa09910fec92084c165ade48d9c375}{Set\+Camera\+Pitch}} (float p)
+\item 
 void \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{Setup\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx)
 \begin{DoxyCompactList}\small\item\em Initialize the camera. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}{Update\+Vehicle\+Camera}} (struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}car)
@@ -70,7 +74,7 @@ Current pitch angle in radians
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00066}{66}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00067}{67}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
 
 \Hypertarget{exampleCamera_8c_a9904774abec2bae71c6d75094d47cbe3}\index{exampleCamera.c@{exampleCamera.c}!GetCameraYaw@{GetCameraYaw}}
 \index{GetCameraYaw@{GetCameraYaw}!exampleCamera.c@{exampleCamera.c}}
@@ -91,6 +95,26 @@ Current yaw angle in radians
 
 
 Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00060}{60}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+
+\Hypertarget{exampleCamera_8c_a7caa09910fec92084c165ade48d9c375}\index{exampleCamera.c@{exampleCamera.c}!SetCameraPitch@{SetCameraPitch}}
+\index{SetCameraPitch@{SetCameraPitch}!exampleCamera.c@{exampleCamera.c}}
+\doxysubsubsection{\texorpdfstring{SetCameraPitch()}{SetCameraPitch()}}
+{\footnotesize\ttfamily \label{exampleCamera_8c_a7caa09910fec92084c165ade48d9c375} 
+void Set\+Camera\+Pitch (\begin{DoxyParamCaption}\item[{float}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00068}{68}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+
+\Hypertarget{exampleCamera_8c_aaadc2473185a23c67ec11371dd33d09e}\index{exampleCamera.c@{exampleCamera.c}!SetCameraYaw@{SetCameraYaw}}
+\index{SetCameraYaw@{SetCameraYaw}!exampleCamera.c@{exampleCamera.c}}
+\doxysubsubsection{\texorpdfstring{SetCameraYaw()}{SetCameraYaw()}}
+{\footnotesize\ttfamily \label{exampleCamera_8c_aaadc2473185a23c67ec11371dd33d09e} 
+void Set\+Camera\+Yaw (\begin{DoxyParamCaption}\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00061}{61}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
 
 \Hypertarget{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}\index{exampleCamera.c@{exampleCamera.c}!SetupCamera@{SetupCamera}}
 \index{SetupCamera@{SetupCamera}!exampleCamera.c@{exampleCamera.c}}
@@ -119,11 +143,11 @@ Initializes yaw/pitch based on initial look direction
 \mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{car_8c-example}{car.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{piston_8c-example}{piston.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, \mbox{\hyperlink{template_8c-example}{template.\+c}}, and \mbox{\hyperlink{terrain_8c-example}{terrain.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00079}{79}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00081}{81}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00123}{Graphics\+Context\+::camera}}.
 
 \Hypertarget{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}\index{exampleCamera.c@{exampleCamera.c}!UpdateExampleCamera@{UpdateExampleCamera}}
 \index{UpdateExampleCamera@{UpdateExampleCamera}!exampleCamera.c@{exampleCamera.c}}
@@ -147,11 +171,11 @@ This will also move the camera depending on the control keys WASD as expected re
 \mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{piston_8c-example}{piston.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, \mbox{\hyperlink{template_8c-example}{template.\+c}}, and \mbox{\hyperlink{terrain_8c-example}{terrain.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00166}{166}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00168}{168}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00123}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00124}{Graphics\+Context\+::shader}}.
 
 \Hypertarget{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}\index{exampleCamera.c@{exampleCamera.c}!UpdateVehicleCamera@{UpdateVehicleCamera}}
 \index{UpdateVehicleCamera@{UpdateVehicleCamera}!exampleCamera.c@{exampleCamera.c}}
@@ -177,9 +201,9 @@ if you call this instead of the usual update camera you will be attached to a ca
 \mbox{\hyperlink{car_8c-example}{car.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00102}{102}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
+Definition at line \mbox{\hyperlink{exampleCamera_8c_source_l00104}{104}} of file \mbox{\hyperlink{exampleCamera_8c_source}{example\+Camera.\+c}}.
 
 
 
-References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}.
+References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00123}{Graphics\+Context\+::camera}}, and \mbox{\hyperlink{raylibODE_8h_source_l00124}{Graphics\+Context\+::shader}}.
 

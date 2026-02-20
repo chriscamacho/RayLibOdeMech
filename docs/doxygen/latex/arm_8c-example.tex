@@ -36,32 +36,35 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ the\ floor}}
-\DoxyCodeLine{dGeomID\ planeGeom\ =\ 0;}
 \DoxyCodeLine{}
-\DoxyCodeLine{dJointID\ attachment\ =\ 0;}
-\DoxyCodeLine{\mbox{\hyperlink{structentity}{entity}}*\ grabber\ =\ 0;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ Physics\ context,\ holds\ all\ physics\ state}}
-\DoxyCodeLine{\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ NULL;}
+\DoxyCodeLine{\textcolor{comment}{//\ custom\ struct\ to\ save\ with\ physics\ context\ for\ use\ in\ trigger\ callback}}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }grabberData\ \{}
+\DoxyCodeLine{\ \ \ \ dGeomID\ planeGeom;}
+\DoxyCodeLine{\ \ \ \ dJointID\ attachment;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8h_a6ba18cca02784a1046f755105545d6cb}{entity}}*\ grabber;}
+\DoxyCodeLine{\}\ grabberData;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ TODO\ look\ at\ having\ user\ data\ passed\ to\ triggerCallback\ somehow\ to\ avoid\ globals...}}
+\DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ this\ will\ end\ up\ joining\ to\ the\ first\ collided\ in\ a\ frame\ (could\ be\ any!)}}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ triggerCallback(dGeomID\ trigger,\ dGeomID\ intruder)\ \{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ triggerCallback(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ dGeomID\ trigger,\ dGeomID\ intruder)\ }
+\DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ (void)trigger;}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (intruder\ ==\ planeGeom)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \ \ grabberData*\ gdata\ =\ (grabberData*)physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a700dab42e1cd527f86163f6359cac5c6}{data}};}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (intruder\ ==\ gdata-\/>planeGeom)\ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(intruder);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (gi)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{hew}}\ =\ RED;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!attachment\ \&\&\ !IsKeyDown(KEY\_G))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!gdata-\/>attachment\ \&\&\ !IsKeyDown(KEY\_G))\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ dGeomGetBody(intruder);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ attachment\ =\ dJointCreateBall\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ gdata-\/>attachment\ =\ dJointCreateBall\ (physCtx-\/>world,\ 0);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dJointSetBallAnchor\ (attachment,\ pos[1],\ pos[2],\ pos[3]);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dJointAttach(attachment,\ bdy,\ grabber-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dJointSetBallAnchor\ (gdata-\/>attachment,\ pos[1],\ pos[2],\ pos[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dJointAttach(gdata-\/>attachment,\ bdy,\ gdata-\/>grabber-\/>body);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\}}
@@ -76,17 +79,20 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(screenWidth,\ screenHeight,\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
-\DoxyCodeLine{\ \ \ \ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ grabberData\ gData;}
+\DoxyCodeLine{\ \ \ \ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a700dab42e1cd527f86163f6359cac5c6}{data}}\ =\ \&gData;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ ground\ "{}plane"{}}}
-\DoxyCodeLine{\ \ \ \ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
-\DoxyCodeLine{\ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
-\DoxyCodeLine{\ \ \ \ dGeomSetData(planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f));}
+\DoxyCodeLine{\ \ \ \ gData.planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
+\DoxyCodeLine{\ \ \ \ dGeomSetPosition(gData.planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
+\DoxyCodeLine{\ \ \ \ dGeomSetData(gData.planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f));}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ gData.planeGeom);}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ random\ simple\ objects\ with\ random\ textures}}
@@ -144,12 +150,12 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ a\ ball\ for\ a\ grabber\ includes\ a\ sensor\ to\ grab\ stuff\ automatically}}
-\DoxyCodeLine{\ \ \ \ grabber\ =\ \mbox{\hyperlink{raylibODE_8c_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(physCtx,\ graphics,\ .5,\ (Vector3)\{0,10.5,0\},\ (Vector3)\{0,0,0\},\ 1);}
-\DoxyCodeLine{\ \ \ \ dBodySetAngularDamping(grabber-\/>body,\ 0.5f);\ \textcolor{comment}{//\ make\ it\ stiffer}}
+\DoxyCodeLine{\ \ \ \ gData.grabber\ =\ \mbox{\hyperlink{raylibODE_8c_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(physCtx,\ graphics,\ .5,\ (Vector3)\{0,10.5,0\},\ (Vector3)\{0,0,0\},\ 1);}
+\DoxyCodeLine{\ \ \ \ dBodySetAngularDamping(gData.grabber-\/>body,\ 0.5f);\ \textcolor{comment}{//\ make\ it\ stiffer}}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ dJointID\ grabber\_joint\ =\ dJointCreateBall\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
 \DoxyCodeLine{\ \ \ \ dJointSetBallAnchor\ (grabber\_joint,\ 0,\ 10.5,\ 0);}
-\DoxyCodeLine{\ \ \ \ dJointAttach(grabber\_joint,\ grabber-\/>body,\ rotor3-\/>body);}
+\DoxyCodeLine{\ \ \ \ dJointAttach(grabber\_joint,\ gData.grabber-\/>body,\ rotor3-\/>body);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ create\ just\ a\ geom}}
@@ -159,7 +165,7 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ and\ other\ things\ don't\ collide\ with\ it\ -\/\ but\ it\ will\ register\ "{}collisions"{}}}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ triggergi\ =\ dGeomGetData(grab\_sensor);}
 \DoxyCodeLine{\ \ \ \ triggergi-\/>triggerOnCollide\ =\ triggerCallback;}
-\DoxyCodeLine{\ \ \ \ dGeomSetBody(grab\_sensor,\ grabber-\/>body);\ \textcolor{comment}{//\ attach\ the\ sensor\ to\ the\ grabber}}
+\DoxyCodeLine{\ \ \ \ dGeomSetBody(grab\_sensor,\ gData.grabber-\/>body);\ \textcolor{comment}{//\ attach\ the\ sensor\ to\ the\ grabber}}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
 \DoxyCodeLine{}
@@ -178,9 +184,9 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_G))\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (attachment)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dJointDestroy(attachment);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attachment\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gData.attachment)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dJointDestroy(gData.attachment);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gData.attachment\ =\ 0;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }

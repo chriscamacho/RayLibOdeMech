@@ -33,5 +33,7 @@ void UpdateExampleCamera(struct GraphicsContext* ctx);
 void UpdateVehicleCamera(struct GraphicsContext* ctx, vehicle* car);
 float GetCameraYaw();
 float GetCameraPitch();
+void SetCameraYaw(float y);
+void SetCameraPitch(float p);
 
 #endif // EXAMPLECAMERA_H

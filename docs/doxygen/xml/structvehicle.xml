@@ -20,7 +20,7 @@
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
         <referencedby refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" compoundref="vehicle_8c" startline="256" endline="282">UnflipVehicle</referencedby>
-        <referencedby refid="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" compoundref="exampleCamera_8c" startline="102" endline="156">UpdateVehicleCamera</referencedby>
+        <referencedby refid="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" compoundref="exampleCamera_8c" startline="104" endline="158">UpdateVehicleCamera</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structvehicle_1a058cc60e3227703b2d840ce60600a29a" prot="public" static="no" mutable="no">
         <type>dGeomID</type>

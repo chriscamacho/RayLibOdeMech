@@ -10,13 +10,13 @@
 \item 
 struct \mbox{\hyperlink{structentity}{entity}}
 \item 
+struct \mbox{\hyperlink{structPhysicsContext}{Physics\+Context}}
+\item 
 struct \mbox{\hyperlink{structgeomInfo}{geom\+Info}}
 \begin{DoxyCompactList}\small\item\em Stores geometry metadata for collision, texturing, and trimesh data. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structRayHit}{Ray\+Hit}}
 \item 
 struct \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}}
-\item 
-struct \mbox{\hyperlink{structPhysicsContext}{Physics\+Context}}
 \item 
 struct \mbox{\hyperlink{structMultiPiston}{Multi\+Piston}}
 \end{DoxyCompactItemize}
@@ -40,15 +40,15 @@ struct \mbox{\hyperlink{structMultiPiston}{Multi\+Piston}}
 \item 
 typedef struct entity \mbox{\hyperlink{raylibODE_8h_a6ba18cca02784a1046f755105545d6cb}{entity}}
 \item 
-typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{raylibODE_8h_a9ad367f389ceb1eca76eba366ad3564f}{Trigger\+Callback}}) (d\+Geom\+ID trigger, d\+Geom\+ID intruder)
+typedef struct Physics\+Context \mbox{\hyperlink{raylibODE_8h_aef1bb5a28545a6ce8ceea26ca98c70b0}{Physics\+Context}}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490}{Trigger\+Callback}}) (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}pctx, d\+Geom\+ID trigger, d\+Geom\+ID intruder)
 \begin{DoxyCompactList}\small\item\em Function pointer type for physics trigger events. \end{DoxyCompactList}\item 
 typedef struct geom\+Info \mbox{\hyperlink{raylibODE_8h_a7db85dfed979eba9e4954e9af045e215}{geom\+Info}}
 \begin{DoxyCompactList}\small\item\em Stores geometry metadata for collision, texturing, and trimesh data. \end{DoxyCompactList}\item 
 typedef struct Ray\+Hit \mbox{\hyperlink{raylibODE_8h_a4697631c336e0354cd1eb1bc2743d5ba}{Ray\+Hit}}
 \item 
 typedef struct Graphics\+Context \mbox{\hyperlink{raylibODE_8h_a92862474db45e097a7381460ac67f859}{Graphics\+Context}}
-\item 
-typedef struct Physics\+Context \mbox{\hyperlink{raylibODE_8h_aef1bb5a28545a6ce8ceea26ca98c70b0}{Physics\+Context}}
 \item 
 typedef struct Multi\+Piston \mbox{\hyperlink{raylibODE_8h_a2570bb818f3867a7373604ee19b4f8b4}{Multi\+Piston}}
 \end{DoxyCompactItemize}
@@ -112,7 +112,17 @@ void \mbox{\hyperlink{raylibODE_8h_a801a17c097329ca4d55d35f1c5ae7b5a}{Set\+Multi
 void \mbox{\hyperlink{raylibODE_8h_aea5e471f2ffcadf7bcce5b25993d1d0f}{Set\+Body\+Orientation}} (d\+Body\+ID body, Vector3 direction)
 \begin{DoxyCompactList}\small\item\em sets to bodies orientation to align with a vector \end{DoxyCompactList}\item 
 d\+Joint\+ID \mbox{\hyperlink{raylibODE_8h_a57b8ac137f7e79fc8deb53b7ba410166}{Pin\+Entity\+To\+World}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}phys\+Ctx, \mbox{\hyperlink{structentity}{entity}} \texorpdfstring{$\ast$}{*}ent)
-\begin{DoxyCompactList}\small\item\em pins an entity to the world \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em pins an entity to the world \end{DoxyCompactList}\item 
+d\+Geom\+ID \mbox{\hyperlink{raylibODE_8h_a8928fb910d045f15136fd02999b7ffa6}{Create\+Cylinder\+Geom}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}gfx\+Ctx, float radius, float length, Vector3 pos)
+\item 
+void \mbox{\hyperlink{raylibODE_8h_a3ae92d4efc27587000b0f3ca889d19e7}{Set\+Body\+Orientation\+Euler}} (d\+Body\+ID bdy, float p, float y, float r)
+\item 
+d\+Geom\+ID \mbox{\hyperlink{raylibODE_8h_a37e31d3074a98d5f5a40096dc9b342f7}{Create\+Box\+Geom}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}ctx, \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}gfx\+Ctx, Vector3 size, Vector3 pos)
+\item 
+void \mbox{\hyperlink{raylibODE_8h_a5b5b0b12adc7119a13eaacef8d097499}{Set\+Geom\+Orientation\+Euler}} (d\+Geom\+ID g, float p, float y, float r)
+\item 
+void \mbox{\hyperlink{raylibODE_8h_a710981c5db9781e25b27318e8d56dfbb}{Free\+Multi\+Piston}} (\mbox{\hyperlink{structMultiPiston}{Multi\+Piston}} \texorpdfstring{$\ast$}{*}mp)
+\end{DoxyCompactItemize}
 
 
 \label{doc-define-members}
@@ -163,7 +173,7 @@ Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00035}{35}} of file \mb
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01067}{Create\+Multi\+Piston()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01104}{Create\+Multi\+Piston()}}.
 
 \Hypertarget{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}\index{raylibODE.h@{raylibODE.h}!PLANE\_SIZE@{PLANE\_SIZE}}
 \index{PLANE\_SIZE@{PLANE\_SIZE}!raylibODE.h@{raylibODE.h}}
@@ -206,7 +216,7 @@ Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00034}{34}} of file \mb
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01067}{Create\+Multi\+Piston()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01104}{Create\+Multi\+Piston()}}.
 
 
 
@@ -219,6 +229,9 @@ Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01067}{Create\+Multi\+Piston
 {\footnotesize\ttfamily \label{raylibODE_8h_a6ba18cca02784a1046f755105545d6cb} 
 typedef struct entity entity}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}.\end{Desc}
 \Hypertarget{raylibODE_8h_a7db85dfed979eba9e4954e9af045e215}\index{raylibODE.h@{raylibODE.h}!geomInfo@{geomInfo}}
 \index{geomInfo@{geomInfo}!raylibODE.h@{raylibODE.h}}
 \doxysubsubsection{\texorpdfstring{geomInfo}{geomInfo}}
@@ -256,11 +269,11 @@ typedef struct Physics\+Context Physics\+Context}
 {\footnotesize\ttfamily \label{raylibODE_8h_a4697631c336e0354cd1eb1bc2743d5ba} 
 typedef struct Ray\+Hit Ray\+Hit}
 
-\Hypertarget{raylibODE_8h_a9ad367f389ceb1eca76eba366ad3564f}\index{raylibODE.h@{raylibODE.h}!TriggerCallback@{TriggerCallback}}
+\Hypertarget{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490}\index{raylibODE.h@{raylibODE.h}!TriggerCallback@{TriggerCallback}}
 \index{TriggerCallback@{TriggerCallback}!raylibODE.h@{raylibODE.h}}
 \doxysubsubsection{\texorpdfstring{TriggerCallback}{TriggerCallback}}
-{\footnotesize\ttfamily \label{raylibODE_8h_a9ad367f389ceb1eca76eba366ad3564f} 
-typedef void(\texorpdfstring{$\ast$}{*} Trigger\+Callback) (d\+Geom\+ID trigger, d\+Geom\+ID intruder)}
+{\footnotesize\ttfamily \label{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490} 
+typedef void(\texorpdfstring{$\ast$}{*} Trigger\+Callback) (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}pctx, d\+Geom\+ID trigger, d\+Geom\+ID intruder)}
 
 
 
@@ -268,17 +281,17 @@ Function pointer type for physics trigger events.
 
 
 \begin{DoxyItemize}
-\item This callback is triggered when a geometry designated as a "{}ghost"{} or sensor overlaps with another geometry. When this callback is set in \doxylink{structgeomInfo}{geom\+Info}, the physics engine will skip standard contact resolution, allowing objects to pass through while still notifying game logic.
-\item 
+\item This callback is triggered when a geometry designated as a "{}ghost"{} or sensor overlaps with another geometry. When this callback is set in \doxylink{structgeomInfo}{geom\+Info}, the physics engine will skip standard contact resolution, allowing objects to pass through while still notifying game logic. 
 \begin{DoxyParams}{Parameters}
 {\em trigger} & The d\+Geom\+ID of the geometry that has the callback assigned. \\
 \hline
-{\em intruder} & The d\+Geom\+ID of the geometry that entered or is inside the trigger.\\
+{\em intruder} & The d\+Geom\+ID of the geometry that entered or is inside the trigger. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyNote}{Note}
+If the triggering geom is attached to a body, the trigger will follow the body\textquotesingle{}s transform. 
 
-\item \begin{DoxyNote}{Note}
-If attached to a d\+Body\+ID, the trigger will follow the body\textquotesingle{}s transform. 
+The physics context is passed with the callback, which has a user data pointer this can be used to avoid having to use global variables in the callback 
 \end{DoxyNote}
 \begin{DoxySeeAlso}{See also}
 \doxylink{structgeomInfo}{geom\+Info} 
@@ -286,7 +299,7 @@ If attached to a d\+Body\+ID, the trigger will follow the body\textquotesingle{}
 
 \end{DoxyItemize}
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00063}{63}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00076}{76}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
@@ -322,11 +335,11 @@ Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00282}{282}} of file \m
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8h_source_l00048}{entity\+::node}}, \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8h_source_l00048}{entity\+::node}}, \mbox{\hyperlink{raylibODE_8h_source_l00058}{Physics\+Context\+::obj\+List}}, and \mbox{\hyperlink{raylibODE_8h_source_l00054}{Physics\+Context\+::world}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00326}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00456}{Create\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00413}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00502}{Create\+Dumbbell()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00369}{Create\+Sphere()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00355}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00486}{Create\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00442}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00532}{Create\+Dumbbell()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00398}{Create\+Sphere()}}.
 
 \Hypertarget{raylibODE_8h_ae436b97d6296f4b3c35e493dde37cee3}\index{raylibODE.h@{raylibODE.h}!CreateBox@{CreateBox}}
 \index{CreateBox@{CreateBox}!raylibODE.h@{raylibODE.h}}
@@ -370,15 +383,29 @@ Box is assigned a random texture from the available box textures
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00326}{326}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00355}{355}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00106}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00642}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00119}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01067}{Create\+Multi\+Piston()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00555}{Create\+Random\+Entity()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01104}{Create\+Multi\+Piston()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00585}{Create\+Random\+Entity()}}.
+
+\Hypertarget{raylibODE_8h_a37e31d3074a98d5f5a40096dc9b342f7}\index{raylibODE.h@{raylibODE.h}!CreateBoxGeom@{CreateBoxGeom}}
+\index{CreateBoxGeom@{CreateBoxGeom}!raylibODE.h@{raylibODE.h}}
+\doxysubsubsection{\texorpdfstring{CreateBoxGeom()}{CreateBoxGeom()}}
+{\footnotesize\ttfamily \label{raylibODE_8h_a37e31d3074a98d5f5a40096dc9b342f7} 
+d\+Geom\+ID Create\+Box\+Geom (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{gfx\+Ctx}{, }\item[{Vector3}]{size}{, }\item[{Vector3}]{pos}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00321}{321}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00119}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}.
 
 \Hypertarget{raylibODE_8h_adec02d5fa7b8838d8f98956b68e2246c}\index{raylibODE.h@{raylibODE.h}!CreateCapsule@{CreateCapsule}}
 \index{CreateCapsule@{CreateCapsule}!raylibODE.h@{raylibODE.h}}
@@ -420,15 +447,15 @@ Capsule combines a cylinder with two hemispherical ends
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00456}{456}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00486}{486}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00642}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00120}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00555}{Create\+Random\+Entity()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00585}{Create\+Random\+Entity()}}.
 
 \Hypertarget{raylibODE_8h_a6985c096003040ae46ed46b117f01d69}\index{raylibODE.h@{raylibODE.h}!CreateCylinder@{CreateCylinder}}
 \index{CreateCylinder@{CreateCylinder}!raylibODE.h@{raylibODE.h}}
@@ -472,15 +499,29 @@ Cylinder is assigned a random texture from the available cylinder textures
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00413}{413}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00442}{442}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00642}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00120}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00555}{Create\+Random\+Entity()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00585}{Create\+Random\+Entity()}}.
+
+\Hypertarget{raylibODE_8h_a8928fb910d045f15136fd02999b7ffa6}\index{raylibODE.h@{raylibODE.h}!CreateCylinderGeom@{CreateCylinderGeom}}
+\index{CreateCylinderGeom@{CreateCylinderGeom}!raylibODE.h@{raylibODE.h}}
+\doxysubsubsection{\texorpdfstring{CreateCylinderGeom()}{CreateCylinderGeom()}}
+{\footnotesize\ttfamily \label{raylibODE_8h_a8928fb910d045f15136fd02999b7ffa6} 
+d\+Geom\+ID Create\+Cylinder\+Geom (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{ctx}{, }\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{gfx\+Ctx}{, }\item[{float}]{radius}{, }\item[{float}]{length}{, }\item[{Vector3}]{pos}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00308}{308}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00120}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}.
 
 \Hypertarget{raylibODE_8h_a04c854eee30cf8430f2d978c4259459b}\index{raylibODE.h@{raylibODE.h}!CreateDumbbell@{CreateDumbbell}}
 \index{CreateDumbbell@{CreateDumbbell}!raylibODE.h@{raylibODE.h}}
@@ -526,15 +567,15 @@ Mass is distributed\+: 50\% shaft, 25\% each end
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00502}{502}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00532}{532}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00642}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00107}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00120}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00555}{Create\+Random\+Entity()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00585}{Create\+Random\+Entity()}}.
 
 \Hypertarget{raylibODE_8h_a79db70091e3c86494f485979529984c8}\index{raylibODE.h@{raylibODE.h}!CreateGeomInfo@{CreateGeomInfo}}
 \index{CreateGeomInfo@{CreateGeomInfo}!raylibODE.h@{raylibODE.h}}
@@ -559,15 +600,15 @@ Helper to allocate \doxylink{structgeomInfo}{geom\+Info} with collision flag, op
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00642}{642}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00672}{672}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00071}{geom\+Info\+::collidable}}, \mbox{\hyperlink{raylibODE_8h_source_l00076}{geom\+Info\+::hew}}, \mbox{\hyperlink{raylibODE_8h_source_l00072}{geom\+Info\+::texture}}, \mbox{\hyperlink{raylibODE_8h_source_l00073}{geom\+Info\+::uv\+ScaleU}}, and \mbox{\hyperlink{raylibODE_8h_source_l00074}{geom\+Info\+::uv\+ScaleV}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00084}{geom\+Info\+::collidable}}, \mbox{\hyperlink{raylibODE_8h_source_l00089}{geom\+Info\+::hew}}, \mbox{\hyperlink{raylibODE_8h_source_l00085}{geom\+Info\+::texture}}, \mbox{\hyperlink{raylibODE_8h_source_l00086}{geom\+Info\+::uv\+ScaleU}}, and \mbox{\hyperlink{raylibODE_8h_source_l00087}{geom\+Info\+::uv\+ScaleV}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00326}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00456}{Create\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00413}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00502}{Create\+Dumbbell()}}, \mbox{\hyperlink{ragdoll_8c_source_l00117}{Create\+Ragdoll()}}, \mbox{\hyperlink{raylibODE_8c_source_l00369}{Create\+Sphere()}}, \mbox{\hyperlink{raylibODE_8c_source_l00292}{Create\+Sphere\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l00605}{Create\+Static\+Trimesh()}}, and \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00355}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00321}{Create\+Box\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l00486}{Create\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00442}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00308}{Create\+Cylinder\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l00532}{Create\+Dumbbell()}}, \mbox{\hyperlink{ragdoll_8c_source_l00117}{Create\+Ragdoll()}}, \mbox{\hyperlink{raylibODE_8c_source_l00398}{Create\+Sphere()}}, \mbox{\hyperlink{raylibODE_8c_source_l00295}{Create\+Sphere\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l00635}{Create\+Static\+Trimesh()}}, and \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}.
 
 \Hypertarget{raylibODE_8h_a8d2339918b2d47fcaea5c861ccfbc3d8}\index{raylibODE.h@{raylibODE.h}!CreateMultiPiston@{CreateMultiPiston}}
 \index{CreateMultiPiston@{CreateMultiPiston}!raylibODE.h@{raylibODE.h}}
@@ -577,11 +618,11 @@ Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00326}{Create\+Box()}}, \mbo
 
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01067}{1067}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01104}{1104}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00128}{Multi\+Piston\+::count}}, \mbox{\hyperlink{raylibODE_8c_source_l00326}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l01016}{Create\+Piston()}}, \mbox{\hyperlink{raylibODE_8h_source_l00127}{Multi\+Piston\+::joints}}, \mbox{\hyperlink{raylibODE_8h_source_l00035}{PISTON\+\_\+\+GROUP}}, \mbox{\hyperlink{raylibODE_8h_source_l00126}{Multi\+Piston\+::sections}}, \mbox{\hyperlink{raylibODE_8c_source_l01130}{Set\+Body\+Orientation()}}, \mbox{\hyperlink{raylibODE_8c_source_l01061}{Set\+Piston\+Limits()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00034}{WORLD\+\_\+\+GROUP}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00133}{Multi\+Piston\+::count}}, \mbox{\hyperlink{raylibODE_8c_source_l00355}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l01046}{Create\+Piston()}}, \mbox{\hyperlink{raylibODE_8h_source_l00132}{Multi\+Piston\+::joints}}, \mbox{\hyperlink{raylibODE_8h_source_l00035}{PISTON\+\_\+\+GROUP}}, \mbox{\hyperlink{raylibODE_8h_source_l00131}{Multi\+Piston\+::sections}}, \mbox{\hyperlink{raylibODE_8c_source_l01167}{Set\+Body\+Orientation()}}, \mbox{\hyperlink{raylibODE_8c_source_l01091}{Set\+Piston\+Limits()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00034}{WORLD\+\_\+\+GROUP}}.
 
 \Hypertarget{raylibODE_8h_aa35dd966752d4afeffcb8f39e474594c}\index{raylibODE.h@{raylibODE.h}!CreatePiston@{CreatePiston}}
 \index{CreatePiston@{CreatePiston}!raylibODE.h@{raylibODE.h}}
@@ -608,15 +649,15 @@ both entities should be positioned and oriented before calling this, they MUST N
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01016}{1016}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01046}{1046}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, and \mbox{\hyperlink{raylibODE_8h_source_l00054}{Physics\+Context\+::world}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01067}{Create\+Multi\+Piston()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01104}{Create\+Multi\+Piston()}}.
 
 \Hypertarget{raylibODE_8h_a8e5b28e0781017c62176133087f3590c}\index{raylibODE.h@{raylibODE.h}!CreateRandomEntity@{CreateRandomEntity}}
 \index{CreateRandomEntity@{CreateRandomEntity}!raylibODE.h@{raylibODE.h}}
@@ -651,11 +692,11 @@ Each type has randomized dimensions within reasonable ranges
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00555}{555}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00585}{585}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8c_source_l00326}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00456}{Create\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00413}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00502}{Create\+Dumbbell()}}, \mbox{\hyperlink{raylibODE_8c_source_l00369}{Create\+Sphere()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}.
+References \mbox{\hyperlink{raylibODE_8c_source_l00355}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00486}{Create\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00442}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00532}{Create\+Dumbbell()}}, \mbox{\hyperlink{raylibODE_8c_source_l00398}{Create\+Sphere()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}.
 
 \Hypertarget{raylibODE_8h_a70760bcdbb95dca2cd9cbb1a640485d2}\index{raylibODE.h@{raylibODE.h}!CreateRotor@{CreateRotor}}
 \index{CreateRotor@{CreateRotor}!raylibODE.h@{raylibODE.h}}
@@ -683,11 +724,11 @@ joints will get tidied up during world destruction, do destroy them if you no lo
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00893}{893}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00923}{923}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, and \mbox{\hyperlink{raylibODE_8h_source_l00054}{Physics\+Context\+::world}}.
 
 \Hypertarget{raylibODE_8h_ad03521efcc05b3315d24f47d0eed52a6}\index{raylibODE.h@{raylibODE.h}!CreateSphere@{CreateSphere}}
 \index{CreateSphere@{CreateSphere}!raylibODE.h@{raylibODE.h}}
@@ -729,15 +770,15 @@ Sphere is assigned a random texture from the available sphere textures
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00369}{369}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00398}{398}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00642}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}, and \mbox{\hyperlink{raylibODE_8h_source_l00105}{Graphics\+Context\+::sphere\+Textures}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00282}{Create\+Base\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}, and \mbox{\hyperlink{raylibODE_8h_source_l00118}{Graphics\+Context\+::sphere\+Textures}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00555}{Create\+Random\+Entity()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00585}{Create\+Random\+Entity()}}.
 
 \Hypertarget{raylibODE_8h_a0201472030d3c51d3b13c7f807b59b01}\index{raylibODE.h@{raylibODE.h}!CreateSphereGeom@{CreateSphereGeom}}
 \index{CreateSphereGeom@{CreateSphereGeom}!raylibODE.h@{raylibODE.h}}
@@ -747,11 +788,11 @@ d\+Geom\+ID Create\+Sphere\+Geom (\begin{DoxyParamCaption}\item[{\mbox{\hyperlin
 
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00292}{292}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00295}{295}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8c_source_l00642}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}, and \mbox{\hyperlink{raylibODE_8h_source_l00105}{Graphics\+Context\+::sphere\+Textures}}.
+References \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00218}{rndf()}}, \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}, and \mbox{\hyperlink{raylibODE_8h_source_l00118}{Graphics\+Context\+::sphere\+Textures}}.
 
 \Hypertarget{raylibODE_8h_ae8b06665a78b486c57e6795da4b3e265}\index{raylibODE.h@{raylibODE.h}!CreateStaticTrimesh@{CreateStaticTrimesh}}
 \index{CreateStaticTrimesh@{CreateStaticTrimesh}!raylibODE.h@{raylibODE.h}}
@@ -795,11 +836,11 @@ Model
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00605}{605}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00635}{635}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00642}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00080}{geom\+Info\+::indices}}, \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}, \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00122}{Physics\+Context\+::statics}}, \mbox{\hyperlink{raylibODE_8h_source_l00081}{geom\+Info\+::tri\+Data}}, and \mbox{\hyperlink{raylibODE_8h_source_l00075}{geom\+Info\+::visual}}.
+References \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00672}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00093}{geom\+Info\+::indices}}, \mbox{\hyperlink{raylibODE_8h_source_l00124}{Graphics\+Context\+::shader}}, \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00059}{Physics\+Context\+::statics}}, \mbox{\hyperlink{raylibODE_8h_source_l00094}{geom\+Info\+::tri\+Data}}, and \mbox{\hyperlink{raylibODE_8h_source_l00088}{geom\+Info\+::visual}}.
 
 \Hypertarget{raylibODE_8h_aa01114b518b93c528e9e85382ce46b4b}\index{raylibODE.h@{raylibODE.h}!DrawBodies@{DrawBodies}}
 \index{DrawBodies@{DrawBodies}!raylibODE.h@{raylibODE.h}}
@@ -809,11 +850,11 @@ void Draw\+Bodies (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct
 
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00938}{938}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00968}{968}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l00951}{Draw\+Body\+Geoms()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, and \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l00981}{Draw\+Body\+Geoms()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, and \mbox{\hyperlink{raylibODE_8h_source_l00058}{Physics\+Context\+::obj\+List}}.
 
 \Hypertarget{raylibODE_8h_a01fc58efa7854e13c41c4b40bc5c8b62}\index{raylibODE.h@{raylibODE.h}!DrawBodyGeoms@{DrawBodyGeoms}}
 \index{DrawBodyGeoms@{DrawBodyGeoms}!raylibODE.h@{raylibODE.h}}
@@ -823,15 +864,15 @@ void Draw\+Body\+Geoms (\begin{DoxyParamCaption}\item[{d\+Body\+ID}]{bdy}{, }\it
 
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00951}{951}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00981}{981}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8c_source_l00795}{Draw\+Geom()}}.
+References \mbox{\hyperlink{raylibODE_8c_source_l00825}{Draw\+Geom()}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00938}{Draw\+Bodies()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00968}{Draw\+Bodies()}}.
 
 \Hypertarget{raylibODE_8h_a5a3f56ed394d3d2c1400e25d83fc05af}\index{raylibODE.h@{raylibODE.h}!DrawGeom@{DrawGeom}}
 \index{DrawGeom@{DrawGeom}!raylibODE.h@{raylibODE.h}}
@@ -841,15 +882,15 @@ void Draw\+Geom (\begin{DoxyParamCaption}\item[{d\+Geom\+ID}]{geom}{, }\item[{st
 
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00795}{795}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00825}{825}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00099}{Graphics\+Context\+::ball}}, \mbox{\hyperlink{raylibODE_8h_source_l00098}{Graphics\+Context\+::box}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{Graphics\+Context\+::cylinder}}, \mbox{\hyperlink{raylibODE_8c_source_l00747}{Draw\+Model\+Tinted()}}, \mbox{\hyperlink{raylibODE_8h_source_l00076}{geom\+Info\+::hew}}, \mbox{\hyperlink{raylibODE_8c_source_l00785}{Ode\+To\+Ray\+Mat()}}, \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::shader}}, \mbox{\hyperlink{raylibODE_8h_source_l00072}{geom\+Info\+::texture}}, \mbox{\hyperlink{raylibODE_8h_source_l00084}{geom\+Info\+::trigger\+On\+Collide}}, \mbox{\hyperlink{raylibODE_8h_source_l00073}{geom\+Info\+::uv\+ScaleU}}, \mbox{\hyperlink{raylibODE_8h_source_l00074}{geom\+Info\+::uv\+ScaleV}}, and \mbox{\hyperlink{raylibODE_8h_source_l00075}{geom\+Info\+::visual}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00112}{Graphics\+Context\+::ball}}, \mbox{\hyperlink{raylibODE_8h_source_l00111}{Graphics\+Context\+::box}}, \mbox{\hyperlink{raylibODE_8h_source_l00113}{Graphics\+Context\+::cylinder}}, \mbox{\hyperlink{raylibODE_8c_source_l00777}{Draw\+Model\+Tinted()}}, \mbox{\hyperlink{raylibODE_8h_source_l00089}{geom\+Info\+::hew}}, \mbox{\hyperlink{raylibODE_8c_source_l00815}{Ode\+To\+Ray\+Mat()}}, \mbox{\hyperlink{raylibODE_8h_source_l00124}{Graphics\+Context\+::shader}}, \mbox{\hyperlink{raylibODE_8h_source_l00085}{geom\+Info\+::texture}}, \mbox{\hyperlink{raylibODE_8h_source_l00097}{geom\+Info\+::trigger\+On\+Collide}}, \mbox{\hyperlink{raylibODE_8h_source_l00086}{geom\+Info\+::uv\+ScaleU}}, \mbox{\hyperlink{raylibODE_8h_source_l00087}{geom\+Info\+::uv\+ScaleV}}, and \mbox{\hyperlink{raylibODE_8h_source_l00088}{geom\+Info\+::visual}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00951}{Draw\+Body\+Geoms()}}, \mbox{\hyperlink{ragdoll_8c_source_l00454}{Draw\+Ragdoll()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00975}{Draw\+Statics()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00981}{Draw\+Body\+Geoms()}}, \mbox{\hyperlink{ragdoll_8c_source_l00454}{Draw\+Ragdoll()}}, and \mbox{\hyperlink{raylibODE_8c_source_l01005}{Draw\+Statics()}}.
 
 \Hypertarget{raylibODE_8h_a1232d8000138fdc6d2f9741548a263aa}\index{raylibODE.h@{raylibODE.h}!DrawStatics@{DrawStatics}}
 \index{DrawStatics@{DrawStatics}!raylibODE.h@{raylibODE.h}}
@@ -873,11 +914,11 @@ all geoms on the statics list must have attached \doxylink{structgeomInfo}{geom\
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00975}{975}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01005}{1005}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l00795}{Draw\+Geom()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, and \mbox{\hyperlink{raylibODE_8h_source_l00122}{Physics\+Context\+::statics}}.
+References \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l00825}{Draw\+Geom()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, and \mbox{\hyperlink{raylibODE_8h_source_l00059}{Physics\+Context\+::statics}}.
 
 \Hypertarget{raylibODE_8h_a8f1b86adbb51b8bd80405329b31c87d1}\index{raylibODE.h@{raylibODE.h}!FreeBodyAndGeoms@{FreeBodyAndGeoms}}
 \index{FreeBodyAndGeoms@{FreeBodyAndGeoms}!raylibODE.h@{raylibODE.h}}
@@ -901,11 +942,11 @@ As well as freeing all associated metadata it will also remove the body and its 
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00730}{730}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00760}{760}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00997}{Free\+Entity()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{ragdoll_8c_source_l00482}{Free\+Ragdoll()}}, and \mbox{\hyperlink{vehicle_8c_source_l00231}{Free\+Vehicle()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01027}{Free\+Entity()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{ragdoll_8c_source_l00482}{Free\+Ragdoll()}}, and \mbox{\hyperlink{vehicle_8c_source_l00231}{Free\+Vehicle()}}.
 
 \Hypertarget{raylibODE_8h_aa86cbb92909da330ef988d813fb7baed}\index{raylibODE.h@{raylibODE.h}!FreeEntity@{FreeEntity}}
 \index{FreeEntity@{FreeEntity}!raylibODE.h@{raylibODE.h}}
@@ -929,11 +970,25 @@ if iterrating through the global entity list while calling this, ensure you have
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00997}{997}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01027}{1027}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{clist_8c_source_l00146}{clist\+Delete\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00730}{Free\+Body\+And\+Geoms()}}, \mbox{\hyperlink{raylibODE_8h_source_l00048}{entity\+::node}}, and \mbox{\hyperlink{raylibODE_8h_source_l00121}{Physics\+Context\+::obj\+List}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{clist_8c_source_l00146}{clist\+Delete\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00760}{Free\+Body\+And\+Geoms()}}, \mbox{\hyperlink{raylibODE_8h_source_l00048}{entity\+::node}}, and \mbox{\hyperlink{raylibODE_8h_source_l00058}{Physics\+Context\+::obj\+List}}.
+
+\Hypertarget{raylibODE_8h_a710981c5db9781e25b27318e8d56dfbb}\index{raylibODE.h@{raylibODE.h}!FreeMultiPiston@{FreeMultiPiston}}
+\index{FreeMultiPiston@{FreeMultiPiston}!raylibODE.h@{raylibODE.h}}
+\doxysubsubsection{\texorpdfstring{FreeMultiPiston()}{FreeMultiPiston()}}
+{\footnotesize\ttfamily \label{raylibODE_8h_a710981c5db9781e25b27318e8d56dfbb} 
+void Free\+Multi\+Piston (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structMultiPiston}{Multi\+Piston}} \texorpdfstring{$\ast$}{*}}]{mp}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01097}{1097}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00132}{Multi\+Piston\+::joints}}, and \mbox{\hyperlink{raylibODE_8h_source_l00131}{Multi\+Piston\+::sections}}.
 
 \Hypertarget{raylibODE_8h_ae64d38b48236f4a10077e64b19b953b3}\index{raylibODE.h@{raylibODE.h}!OdeToRayMat@{OdeToRayMat}}
 \index{OdeToRayMat@{OdeToRayMat}!raylibODE.h@{raylibODE.h}}
@@ -954,11 +1009,11 @@ sets a raylib matrix from an ODE rotation matrix
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00785}{785}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00815}{815}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00795}{Draw\+Geom()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00825}{Draw\+Geom()}}.
 
 \Hypertarget{raylibODE_8h_a6038bcb143e6ca12696aa65bf164f488}\index{raylibODE.h@{raylibODE.h}!PickEntity@{PickEntity}}
 \index{PickEntity@{PickEntity}!raylibODE.h@{raylibODE.h}}
@@ -984,11 +1039,11 @@ a pointer to the entity that was found.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00683}{683}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00713}{713}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00110}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{raylibODE_8h_source_l00092}{Ray\+Hit\+::depth}}, \mbox{\hyperlink{raylibODE_8h_source_l00091}{Ray\+Hit\+::geom}}, \mbox{\hyperlink{raylibODE_8h_source_l00093}{Ray\+Hit\+::pos}}, and \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00123}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{raylibODE_8h_source_l00105}{Ray\+Hit\+::depth}}, \mbox{\hyperlink{raylibODE_8h_source_l00104}{Ray\+Hit\+::geom}}, \mbox{\hyperlink{raylibODE_8h_source_l00106}{Ray\+Hit\+::pos}}, and \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}.
 
 \Hypertarget{raylibODE_8h_a57b8ac137f7e79fc8deb53b7ba410166}\index{raylibODE.h@{raylibODE.h}!PinEntityToWorld@{PinEntityToWorld}}
 \index{PinEntityToWorld@{PinEntityToWorld}!raylibODE.h@{raylibODE.h}}
@@ -1014,11 +1069,11 @@ the joint id of the constraint
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01170}{1170}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01207}{1207}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, and \mbox{\hyperlink{raylibODE_8h_source_l00054}{Physics\+Context\+::world}}.
 
 \Hypertarget{raylibODE_8h_ac18f122edccf31f40c3ce18ea1be58cd}\index{raylibODE.h@{raylibODE.h}!RayToOdeMat@{RayToOdeMat}}
 \index{RayToOdeMat@{RayToOdeMat}!raylibODE.h@{raylibODE.h}}
@@ -1039,7 +1094,7 @@ set an ODE matrix to the same as a Raylib Matrix
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00773}{773}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00803}{803}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 \Hypertarget{raylibODE_8h_a4a4933f37c736fd2d311be9eaf9b7fa8}\index{raylibODE.h@{raylibODE.h}!rndf@{rndf}}
 \index{rndf@{rndf}!raylibODE.h@{raylibODE.h}}
@@ -1070,7 +1125,7 @@ Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00218}{218}} of file \m
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00326}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00456}{Create\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00413}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00502}{Create\+Dumbbell()}}, \mbox{\hyperlink{raylibODE_8c_source_l00555}{Create\+Random\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00369}{Create\+Sphere()}}, \mbox{\hyperlink{raylibODE_8c_source_l00292}{Create\+Sphere\+Geom()}}, and \mbox{\hyperlink{ragdoll_8c_source_l00081}{Get\+Ragdoll\+Spawn\+Position()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00355}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00321}{Create\+Box\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l00486}{Create\+Capsule()}}, \mbox{\hyperlink{raylibODE_8c_source_l00442}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00308}{Create\+Cylinder\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l00532}{Create\+Dumbbell()}}, \mbox{\hyperlink{raylibODE_8c_source_l00585}{Create\+Random\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00398}{Create\+Sphere()}}, \mbox{\hyperlink{raylibODE_8c_source_l00295}{Create\+Sphere\+Geom()}}, and \mbox{\hyperlink{ragdoll_8c_source_l00081}{Get\+Ragdoll\+Spawn\+Position()}}.
 
 \Hypertarget{raylibODE_8h_aea5e471f2ffcadf7bcce5b25993d1d0f}\index{raylibODE.h@{raylibODE.h}!SetBodyOrientation@{SetBodyOrientation}}
 \index{SetBodyOrientation@{SetBodyOrientation}!raylibODE.h@{raylibODE.h}}
@@ -1091,11 +1146,21 @@ sets to bodies orientation to align with a vector
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01130}{1130}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01167}{1167}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01067}{Create\+Multi\+Piston()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01104}{Create\+Multi\+Piston()}}.
+
+\Hypertarget{raylibODE_8h_a3ae92d4efc27587000b0f3ca889d19e7}\index{raylibODE.h@{raylibODE.h}!SetBodyOrientationEuler@{SetBodyOrientationEuler}}
+\index{SetBodyOrientationEuler@{SetBodyOrientationEuler}!raylibODE.h@{raylibODE.h}}
+\doxysubsubsection{\texorpdfstring{SetBodyOrientationEuler()}{SetBodyOrientationEuler()}}
+{\footnotesize\ttfamily \label{raylibODE_8h_a3ae92d4efc27587000b0f3ca889d19e7} 
+void Set\+Body\+Orientation\+Euler (\begin{DoxyParamCaption}\item[{d\+Body\+ID}]{bdy}{, }\item[{float}]{p}{, }\item[{float}]{y}{, }\item[{float}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01215}{1215}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 \Hypertarget{raylibODE_8h_a227dded5dce29a7e3b71e9589e2b4c22}\index{raylibODE.h@{raylibODE.h}!SetEntityHew@{SetEntityHew}}
 \index{SetEntityHew@{SetEntityHew}!raylibODE.h@{raylibODE.h}}
@@ -1118,11 +1183,21 @@ go through each geom attached to the entities body and change their hew or tint
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00926}{926}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00956}{956}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, and \mbox{\hyperlink{raylibODE_8h_source_l00076}{geom\+Info\+::hew}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, and \mbox{\hyperlink{raylibODE_8h_source_l00089}{geom\+Info\+::hew}}.
+
+\Hypertarget{raylibODE_8h_a5b5b0b12adc7119a13eaacef8d097499}\index{raylibODE.h@{raylibODE.h}!SetGeomOrientationEuler@{SetGeomOrientationEuler}}
+\index{SetGeomOrientationEuler@{SetGeomOrientationEuler}!raylibODE.h@{raylibODE.h}}
+\doxysubsubsection{\texorpdfstring{SetGeomOrientationEuler()}{SetGeomOrientationEuler()}}
+{\footnotesize\ttfamily \label{raylibODE_8h_a5b5b0b12adc7119a13eaacef8d097499} 
+void Set\+Geom\+Orientation\+Euler (\begin{DoxyParamCaption}\item[{d\+Geom\+ID}]{g}{, }\item[{float}]{p}{, }\item[{float}]{y}{, }\item[{float}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01222}{1222}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 \Hypertarget{raylibODE_8h_a801a17c097329ca4d55d35f1c5ae7b5a}\index{raylibODE.h@{raylibODE.h}!SetMultiPistonVelocity@{SetMultiPistonVelocity}}
 \index{SetMultiPistonVelocity@{SetMultiPistonVelocity}!raylibODE.h@{raylibODE.h}}
@@ -1145,11 +1220,11 @@ While setting all the join velocities in the piston it also ensures all the bodi
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01115}{1115}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01152}{1152}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00128}{Multi\+Piston\+::count}}, \mbox{\hyperlink{raylibODE_8h_source_l00127}{Multi\+Piston\+::joints}}, and \mbox{\hyperlink{raylibODE_8h_source_l00126}{Multi\+Piston\+::sections}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00047}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00133}{Multi\+Piston\+::count}}, \mbox{\hyperlink{raylibODE_8h_source_l00132}{Multi\+Piston\+::joints}}, and \mbox{\hyperlink{raylibODE_8h_source_l00131}{Multi\+Piston\+::sections}}.
 
 \Hypertarget{raylibODE_8h_a878892d1015e3c9349f667325d129d43}\index{raylibODE.h@{raylibODE.h}!SetPistonLimits@{SetPistonLimits}}
 \index{SetPistonLimits@{SetPistonLimits}!raylibODE.h@{raylibODE.h}}
@@ -1174,11 +1249,11 @@ min must be smaller than max values can be negative
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01061}{1061}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
+Definition at line \mbox{\hyperlink{raylibODE_8c_source_l01091}{1091}} of file \mbox{\hyperlink{raylibODE_8c_source}{raylib\+ODE.\+c}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01067}{Create\+Multi\+Piston()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l01104}{Create\+Multi\+Piston()}}.
 
 \Hypertarget{raylibODE_8h_ad087bfe56f8c97e250f6dd5054fdf76e}\index{raylibODE.h@{raylibODE.h}!StepPhysics@{StepPhysics}}
 \index{StepPhysics@{StepPhysics}!raylibODE.h@{raylibODE.h}}
@@ -1216,5 +1291,5 @@ Definition at line \mbox{\hyperlink{raylibODE_8c_source_l00240}{240}} of file \m
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00119}{Physics\+Context\+::contactgroup}}, \mbox{\hyperlink{raylibODE_8h_source_l00120}{Physics\+Context\+::frame\+Time}}, \mbox{\hyperlink{raylibODE_8h_source_l00044}{max\+Psteps}}, \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}, \mbox{\hyperlink{raylibODE_8c_source_l00207}{phys\+Slice}}, \mbox{\hyperlink{raylibODE_8h_source_l00118}{Physics\+Context\+::space}}, and \mbox{\hyperlink{raylibODE_8h_source_l00117}{Physics\+Context\+::world}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00056}{Physics\+Context\+::contactgroup}}, \mbox{\hyperlink{raylibODE_8h_source_l00057}{Physics\+Context\+::frame\+Time}}, \mbox{\hyperlink{raylibODE_8h_source_l00044}{max\+Psteps}}, \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}, \mbox{\hyperlink{raylibODE_8c_source_l00207}{phys\+Slice}}, \mbox{\hyperlink{raylibODE_8h_source_l00055}{Physics\+Context\+::space}}, and \mbox{\hyperlink{raylibODE_8h_source_l00054}{Physics\+Context\+::world}}.
 

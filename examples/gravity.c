@@ -21,7 +21,7 @@
  *
  */
  
-#include <stdlib.h>
+#include <math.h>
 
 #include "init.h"
 #include "exampleCamera.h"
@@ -90,8 +90,6 @@ int main(void)
 	dVector3 g;
 	dWorldGetGravity(physCtx->world, g);
 	
-	printf("g= %f,%f,%f\n", g[0], g[1], g[2]);
-
     while (!WindowShouldClose())
     {
         UpdateExampleCamera(graphics);
@@ -133,12 +131,18 @@ int main(void)
 				dMass M;
 				dBodyGetMass(bdy, &M);
 				f = Vector3Scale(f, M.mass);
-				if (d<2.0) {
+				if (d<2) {
 					// this is just to make it more interesting so they
 					// don't all clump in the centre it also helps
 					// to regenrate the object orbit by adding more energy
 					f = Vector3Negate(f); // push away if too close
 					f = Vector3Scale(f, 8.0f);
+					
+					// as an alternatice you can use this with a smaller radius
+					//FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
+					//CreateOrbiter(physCtx, graphics);
+					//node = next;
+					//continue;
 				}
 				dBodyAddForce(bdy, f.x, f.y, f.z);
 			} else {

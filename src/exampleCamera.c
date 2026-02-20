@@ -58,12 +58,14 @@ static float cameraPitch;
  * @return Current yaw angle in radians
  */
 float GetCameraYaw() { return cameraYaw; }
+void SetCameraYaw(float y) { cameraYaw = y; }
 
 /**
  * @brief Get current camera pitch angle
  * @return Current pitch angle in radians
  */
 float GetCameraPitch() { return cameraPitch; }
+void SetCameraPitch(float p) { cameraPitch = p; }
 
 /**
  * @brief Initialize the camera

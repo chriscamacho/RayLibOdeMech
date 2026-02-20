@@ -80,8 +80,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="exampleCamera.h" line="31" column="6" bodyfile="exampleCamera.c" bodystart="79" bodyend="91" declfile="exampleCamera.h" declline="31" declcolumn="6"/>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
+        <location file="exampleCamera.h" line="31" column="6" bodyfile="exampleCamera.c" bodystart="81" bodyend="93" declfile="exampleCamera.h" declline="31" declcolumn="6"/>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="123">GraphicsContext::camera</references>
       </memberdef>
       <memberdef kind="function" id="exampleCamera_8h_1ad0a902b3760c7a5f8725bdb73ddc174b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -110,9 +110,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="exampleCamera.h" line="32" column="6" bodyfile="exampleCamera.c" bodystart="166" bodyend="216" declfile="exampleCamera.h" declline="32" declcolumn="6"/>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
-        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+        <location file="exampleCamera.h" line="32" column="6" bodyfile="exampleCamera.c" bodystart="168" bodyend="218" declfile="exampleCamera.h" declline="32" declcolumn="6"/>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="123">GraphicsContext::camera</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="124">GraphicsContext::shader</references>
       </memberdef>
       <memberdef kind="function" id="exampleCamera_8h_1afa1b8031e4fc015dfe8093339c904e50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -153,10 +153,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="exampleCamera.h" line="33" column="6" bodyfile="exampleCamera.c" bodystart="102" bodyend="156" declfile="exampleCamera.h" declline="33" declcolumn="6"/>
+        <location file="exampleCamera.h" line="33" column="6" bodyfile="exampleCamera.c" bodystart="104" bodyend="158" declfile="exampleCamera.h" declline="33" declcolumn="6"/>
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="110">GraphicsContext::camera</references>
-        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="111">GraphicsContext::shader</references>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="123">GraphicsContext::camera</references>
+        <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="124">GraphicsContext::shader</references>
       </memberdef>
       <memberdef kind="function" id="exampleCamera_8h_1a9904774abec2bae71c6d75094d47cbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -190,7 +190,41 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="exampleCamera.h" line="35" column="7" bodyfile="exampleCamera.c" bodystart="66" bodyend="66" declfile="exampleCamera.h" declline="35" declcolumn="7"/>
+        <location file="exampleCamera.h" line="35" column="7" bodyfile="exampleCamera.c" bodystart="67" bodyend="67" declfile="exampleCamera.h" declline="35" declcolumn="7"/>
+      </memberdef>
+      <memberdef kind="function" id="exampleCamera_8h_1aaadc2473185a23c67ec11371dd33d09e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetCameraYaw</definition>
+        <argsstring>(float y)</argsstring>
+        <name>SetCameraYaw</name>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.h" line="36" column="6" bodyfile="exampleCamera.c" bodystart="61" bodyend="61" declfile="exampleCamera.h" declline="36" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="exampleCamera_8h_1a7caa09910fec92084c165ade48d9c375" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetCameraPitch</definition>
+        <argsstring>(float p)</argsstring>
+        <name>SetCameraPitch</name>
+        <param>
+          <type>float</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="exampleCamera.h" line="37" column="6" bodyfile="exampleCamera.c" bodystart="68" bodyend="68" declfile="exampleCamera.h" declline="37" declcolumn="6"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -233,8 +267,10 @@
 <codeline lineno="33"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1afa1b8031e4fc015dfe8093339c904e50" kindref="member">UpdateVehicleCamera</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car);</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1a9904774abec2bae71c6d75094d47cbe3" kindref="member">GetCameraYaw</ref>();</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1afbfa8af7ad686732f5ddcea617d03d1b" kindref="member">GetCameraPitch</ref>();</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>EXAMPLECAMERA_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1aaadc2473185a23c67ec11371dd33d09e" kindref="member">SetCameraYaw</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="exampleCamera_8h_1a7caa09910fec92084c165ade48d9c375" kindref="member">SetCameraPitch</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>p);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>EXAMPLECAMERA_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="exampleCamera.h"/>
   </compounddef>

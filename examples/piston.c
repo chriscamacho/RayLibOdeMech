@@ -20,8 +20,6 @@
  * SOFTWARE.
  *
  */
- 
-#include <stdlib.h>
 
 #include "init.h"
 #include "exampleCamera.h"
@@ -171,6 +169,8 @@ int main(void)
         EndDrawing();
     }
 
+
+	FreeMultiPiston(mp);
     FreePhysics(physCtx);
     FreeGraphics(graphics);
     CloseWindow();

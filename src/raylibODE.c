@@ -190,6 +190,7 @@
  * shows shapes colliding and coming to rest on a static trimesh
  */
 #include <stdlib.h>
+#include <math.h>
 #include <string.h>  // memset
 #include "raylibODE.h"
 #include "collision.h"
@@ -288,6 +289,9 @@ entity* CreateBaseEntity(PhysicsContext* ctx) {
     return ent;
 }
 
+// TODO the geom only creation functions should be used by the
+// create entity function CreateBall CreateBox etc
+
 // just an isolated geom, most useful to add to existing bodies
 dGeomID CreateSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos)
 {
@@ -295,6 +299,32 @@ dGeomID CreateSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float rad
     dGeomSetPosition(geom, pos.x, pos.y, pos.z);
 
     Texture* tex = &gfxCtx->sphereTextures[(int)rndf(0, 3)];
+    geomInfo* gi = CreateGeomInfo(true, tex, 1.0f, 1.0f);
+    dGeomSetData(geom, gi);
+
+    return geom;
+}
+
+// isolated cylinder geom
+dGeomID CreateCylinderGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos)
+{
+    // ODE Cylinders are aligned along the Z-axis by default
+    dGeomID geom = dCreateCylinder(ctx->space, radius, length);
+    dGeomSetPosition(geom, pos.x, pos.y, pos.z);
+
+    Texture* tex = &gfxCtx->cylinderTextures[(int)rndf(0, 2)];
+    geomInfo* gi = CreateGeomInfo(true, tex, 1.0f, 1.0f);
+    dGeomSetData(geom, gi);
+
+    return geom;
+}
+
+dGeomID CreateBoxGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos)
+{
+	dGeomID geom = dCreateBox(ctx->space, size.x, size.y, size.z);
+	dGeomSetPosition(geom, pos.x, pos.y, pos.z);
+	
+	Texture* tex = &gfxCtx->boxTextures[(int)rndf(0, 2)];
     geomInfo* gi = CreateGeomInfo(true, tex, 1.0f, 1.0f);
     dGeomSetData(geom, gi);
 
@@ -410,7 +440,8 @@ entity* CreateSphere(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius,
  * @note Cylinder is assigned a random texture from the available cylinder textures
  * @see entity
  */
-entity* CreateCylinder(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass) {
+entity* CreateCylinder(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass) 
+{
     entity* ent = CreateBaseEntity(ctx);
     dMatrix3 R;
     dMass m;
@@ -1064,6 +1095,13 @@ void SetPistonLimits(dJointID joint, float min, float max)
     dJointSetSliderParam(joint, dParamHiStop, max);
 }
 
+void FreeMultiPiston(MultiPiston* mp)
+{
+	free(mp->joints);
+	free(mp->sections);
+	free(mp);
+}
+
 MultiPiston* CreateMultiPiston(PhysicsContext* physCtx, GraphicsContext* graphics, 
                                Vector3 pos, Vector3 direction, int count, 
                                float sectionLen, float baseWidth, float strength) 
@@ -1173,4 +1211,18 @@ dJointID PinEntityToWorld(PhysicsContext* physCtx, entity* ent)
     dJointAttach(pin, ent->body, 0);
     dJointSetFixed(pin);
     return pin;
+}
+
+void SetBodyOrientationEuler(dBodyID bdy, float p, float y, float r)
+{
+	dMatrix3 R;
+	dRFromEulerAngles(R, p, y, r);
+	dBodySetRotation(bdy, R);
+}
+
+void SetGeomOrientationEuler(dGeomID g, float p, float y, float r)
+{
+	dMatrix3 R;
+	dRFromEulerAngles(R, p, y, r);
+	dGeomSetRotation(g, R);
 }

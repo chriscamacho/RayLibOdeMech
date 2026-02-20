@@ -65,6 +65,7 @@
     <member refid="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" kind="variable"><name>frameTime</name></member>
     <member refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kind="variable"><name>objList</name></member>
     <member refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kind="variable"><name>statics</name></member>
+    <member refid="structPhysicsContext_1a700dab42e1cd527f86163f6359cac5c6" kind="variable"><name>data</name></member>
   </compound>
   <compound refid="structRagDoll" kind="struct"><name>RagDoll</name>
     <member refid="structRagDoll_1a6701b87f385a57ac96ab8a1574eae1c8" kind="variable"><name>bodies</name></member>
@@ -112,6 +113,8 @@
     <member refid="exampleCamera_8h_1afa1b8031e4fc015dfe8093339c904e50" kind="function"><name>UpdateVehicleCamera</name></member>
     <member refid="exampleCamera_8h_1a9904774abec2bae71c6d75094d47cbe3" kind="function"><name>GetCameraYaw</name></member>
     <member refid="exampleCamera_8h_1afbfa8af7ad686732f5ddcea617d03d1b" kind="function"><name>GetCameraPitch</name></member>
+    <member refid="exampleCamera_8h_1aaadc2473185a23c67ec11371dd33d09e" kind="function"><name>SetCameraYaw</name></member>
+    <member refid="exampleCamera_8h_1a7caa09910fec92084c165ade48d9c375" kind="function"><name>SetCameraPitch</name></member>
   </compound>
   <compound refid="init_8h" kind="file"><name>init.h</name>
     <member refid="init_8h_1a0c011796e9f74e7eb4b5bb26305193f9" kind="function"><name>CreateGraphics</name></member>
@@ -152,11 +155,11 @@
     <member refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kind="define"><name>PLANE_THICKNESS</name></member>
     <member refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" kind="define"><name>maxPsteps</name></member>
     <member refid="raylibODE_8h_1a6ba18cca02784a1046f755105545d6cb" kind="typedef"><name>entity</name></member>
-    <member refid="raylibODE_8h_1a9ad367f389ceb1eca76eba366ad3564f" kind="typedef"><name>TriggerCallback</name></member>
+    <member refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" kind="typedef"><name>PhysicsContext</name></member>
+    <member refid="raylibODE_8h_1aa5c459ebe4c67891450ca45a48d09490" kind="typedef"><name>TriggerCallback</name></member>
     <member refid="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" kind="typedef"><name>geomInfo</name></member>
     <member refid="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" kind="typedef"><name>RayHit</name></member>
     <member refid="raylibODE_8h_1a92862474db45e097a7381460ac67f859" kind="typedef"><name>GraphicsContext</name></member>
-    <member refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" kind="typedef"><name>PhysicsContext</name></member>
     <member refid="raylibODE_8h_1a2570bb818f3867a7373604ee19b4f8b4" kind="typedef"><name>MultiPiston</name></member>
     <member refid="raylibODE_8h_1a9a4fddcfd406e6bfb1987111e4ad64f1" kind="function"><name>CreateBaseEntity</name></member>
     <member refid="raylibODE_8h_1a79db70091e3c86494f485979529984c8" kind="function"><name>CreateGeomInfo</name></member>
@@ -187,6 +190,11 @@
     <member refid="raylibODE_8h_1a801a17c097329ca4d55d35f1c5ae7b5a" kind="function"><name>SetMultiPistonVelocity</name></member>
     <member refid="raylibODE_8h_1aea5e471f2ffcadf7bcce5b25993d1d0f" kind="function"><name>SetBodyOrientation</name></member>
     <member refid="raylibODE_8h_1a57b8ac137f7e79fc8deb53b7ba410166" kind="function"><name>PinEntityToWorld</name></member>
+    <member refid="raylibODE_8h_1a8928fb910d045f15136fd02999b7ffa6" kind="function"><name>CreateCylinderGeom</name></member>
+    <member refid="raylibODE_8h_1a3ae92d4efc27587000b0f3ca889d19e7" kind="function"><name>SetBodyOrientationEuler</name></member>
+    <member refid="raylibODE_8h_1a37e31d3074a98d5f5a40096dc9b342f7" kind="function"><name>CreateBoxGeom</name></member>
+    <member refid="raylibODE_8h_1a5b5b0b12adc7119a13eaacef8d097499" kind="function"><name>SetGeomOrientationEuler</name></member>
+    <member refid="raylibODE_8h_1a710981c5db9781e25b27318e8d56dfbb" kind="function"><name>FreeMultiPiston</name></member>
   </compound>
   <compound refid="rlights_8h" kind="file"><name>rlights.h</name>
     <member refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kind="define"><name>MAX_LIGHTS</name></member>
@@ -228,7 +236,9 @@
     <member refid="exampleCamera_8c_1a207a2d02b9d6e34a0a7c97429a388f05" kind="variable"><name>cameraYaw</name></member>
     <member refid="exampleCamera_8c_1afbdbe8367f94fd8f5cfad18ea0c9cc44" kind="variable"><name>cameraPitch</name></member>
     <member refid="exampleCamera_8c_1a9904774abec2bae71c6d75094d47cbe3" kind="function"><name>GetCameraYaw</name></member>
+    <member refid="exampleCamera_8c_1aaadc2473185a23c67ec11371dd33d09e" kind="function"><name>SetCameraYaw</name></member>
     <member refid="exampleCamera_8c_1afbfa8af7ad686732f5ddcea617d03d1b" kind="function"><name>GetCameraPitch</name></member>
+    <member refid="exampleCamera_8c_1a7caa09910fec92084c165ade48d9c375" kind="function"><name>SetCameraPitch</name></member>
     <member refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" kind="function"><name>SetupCamera</name></member>
     <member refid="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" kind="function"><name>UpdateVehicleCamera</name></member>
     <member refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kind="function"><name>UpdateExampleCamera</name></member>
@@ -252,6 +262,8 @@
     <member refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" kind="function"><name>StepPhysics</name></member>
     <member refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" kind="function"><name>CreateBaseEntity</name></member>
     <member refid="raylibODE_8c_1a0201472030d3c51d3b13c7f807b59b01" kind="function"><name>CreateSphereGeom</name></member>
+    <member refid="raylibODE_8c_1a8928fb910d045f15136fd02999b7ffa6" kind="function"><name>CreateCylinderGeom</name></member>
+    <member refid="raylibODE_8c_1a37e31d3074a98d5f5a40096dc9b342f7" kind="function"><name>CreateBoxGeom</name></member>
     <member refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kind="function"><name>CreateBox</name></member>
     <member refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" kind="function"><name>CreateSphere</name></member>
     <member refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" kind="function"><name>CreateCylinder</name></member>
@@ -275,10 +287,13 @@
     <member refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
     <member refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kind="function"><name>CreatePiston</name></member>
     <member refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kind="function"><name>SetPistonLimits</name></member>
+    <member refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" kind="function"><name>FreeMultiPiston</name></member>
     <member refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" kind="function"><name>CreateMultiPiston</name></member>
     <member refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" kind="function"><name>SetMultiPistonVelocity</name></member>
     <member refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kind="function"><name>SetBodyOrientation</name></member>
     <member refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" kind="function"><name>PinEntityToWorld</name></member>
+    <member refid="raylibODE_8c_1a3ae92d4efc27587000b0f3ca889d19e7" kind="function"><name>SetBodyOrientationEuler</name></member>
+    <member refid="raylibODE_8c_1a5b5b0b12adc7119a13eaacef8d097499" kind="function"><name>SetGeomOrientationEuler</name></member>
   </compound>
   <compound refid="rlights_8c" kind="file"><name>rlights.c</name>
     <member refid="rlights_8c_1a959fef16d77f17db49364491cbd4175b" kind="variable"><name>lightsCount</name></member>
