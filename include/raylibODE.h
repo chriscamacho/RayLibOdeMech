@@ -30,6 +30,7 @@
 
 #include <ode/ode.h>
 #include "clist.h"
+#include "surface.h"
 
 #define WORLD_GROUP		0x0001
 #define PISTON_GROUP	0x0002
@@ -42,7 +43,16 @@
 #define PLANE_THICKNESS 1.0f
 
 #define maxPsteps 6
-    
+
+enum SHAPE_TYPE {
+	SHAPE_BOX		= 0x01,
+	SHAPE_SPHERE	= 0x02,
+	SHAPE_CYLINDER	= 0x04,
+	SHAPE_CAPSULE	= 0x08,
+	SHAPE_DUMBBELL	= 0x10,
+	SHAPE_ALL		= 0x20 - 1,
+};
+
 typedef struct entity {
 	dBodyID body;/**< ODE physics body for this entity */
 	cnode_t* node; /**< all entities are in a global list, this is its list node */
@@ -87,6 +97,8 @@ typedef struct geomInfo {
     float uvScaleV;         /**< Vertical texture tiling factor. */
     Model visual;           /**< Model override used for custom static trimeshes. */
     Color hew;				/**< white for normal, used to tint a geom */
+    SurfaceMaterial* surface; /**< friction, restitution and so on */
+    
     /** @name Trimesh Encapsulation
      * Members used specifically for raw triangle mesh data.
      * @{ */
@@ -153,7 +165,7 @@ entity* CreateCapsule(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius
 entity* CreateDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaftRad, float shaftLen, float endRad, Vector3 pos, Vector3 rot, float mass);
 
 // add a random simple physics object to the world
-entity* CreateRandomEntity(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos);
+entity* CreateRandomEntity(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos, unsigned char mask);
 
 // return a reference to an entity the mouse is pointing to...
 entity* PickEntity(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hitPoint);

@@ -21,10 +21,16 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
       </node>
       <node id="5">
         <label>rlights.h</label>
         <link refid="rlights_8h"/>
+      </node>
+      <node id="8">
+        <label>surface.h</label>
+        <link refid="surface_8h"/>
       </node>
       <node id="1">
         <label>collision.c</label>
@@ -53,7 +59,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="collision.c" line="41" column="9" bodyfile="collision.c" bodystart="41" bodyend="-1"/>
-        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="91">nearCallback</referencedby>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
       </memberdef>
     </sectiondef>
     <sectiondef kind="func">
@@ -80,13 +86,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="collision.c" line="43" column="6" bodyfile="collision.c" bodystart="43" bodyend="91"/>
-        <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="84">geomInfo::collidable</references>
-        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="56">PhysicsContext::contactgroup</references>
+        <location file="collision.c" line="43" column="6" bodyfile="collision.c" bodystart="43" bodyend="107"/>
+        <references refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" compoundref="surface_8h" startline="41">SurfaceMaterial::bounce</references>
+        <references refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" compoundref="surface_8h" startline="42">SurfaceMaterial::bounce_vel</references>
+        <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="94">geomInfo::collidable</references>
+        <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="66">PhysicsContext::contactgroup</references>
+        <references refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" compoundref="surface_8h" startline="40">SurfaceMaterial::friction</references>
         <references refid="collision_8c_1a84bfa512ba2269b77a80f391fbdde0a3" compoundref="collision_8c" startline="41">MAX_CONTACTS</references>
-        <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="97">geomInfo::triggerOnCollide</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="54">PhysicsContext::world</references>
-        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="240" endline="263">StepPhysics</referencedby>
+        <references refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" compoundref="surface_8h" startline="43">SurfaceMaterial::slip1</references>
+        <references refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" compoundref="surface_8h" startline="44">SurfaceMaterial::slip2</references>
+        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
+        <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="109">geomInfo::triggerOnCollide</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="64">PhysicsContext::world</references>
+        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -149,53 +161,69 @@
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
 <codeline lineno="43" refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" kindref="member">nearCallback</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*data,<sp/>dGeomID<sp/>o1,<sp/>dGeomID<sp/>o2)</highlight></codeline>
 <codeline lineno="44"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>b1<sp/>=<sp/>dGeomGetBody(o1);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>b2<sp/>=<sp/>dGeomGetBody(o2);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b1<sp/>&amp;&amp;<sp/>b2<sp/>&amp;&amp;<sp/>dAreConnectedExcluding(b1,<sp/>b2,<sp/>dJointTypeContact))</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>gi1<sp/>=<sp/>(<ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*)dGeomGetData(o1);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>gi2<sp/>=<sp/>(<ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*)dGeomGetData(o2);<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>for<sp/>trigger<sp/>callbacks</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx<sp/>=<sp/>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*)data;</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gi1<sp/>&amp;&amp;<sp/>gi1-&gt;<ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gi1-&gt;<ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>(ctx,<sp/>o1,<sp/>o2);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Skip<sp/>physical<sp/>resolution</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gi2<sp/>&amp;&amp;<sp/>gi2-&gt;<ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>)<sp/>{</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gi2-&gt;<ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>(ctx,<sp/>o2,<sp/>o1);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Skip<sp/>physical<sp/>resolution</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gi1<sp/>&amp;&amp;<sp/>!gi1-&gt;<ref refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" kindref="member">collidable</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gi2<sp/>&amp;&amp;<sp/>!gi2-&gt;<ref refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" kindref="member">collidable</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>dContact<sp/>contact[<ref refid="collision_8c_1a84bfa512ba2269b77a80f391fbdde0a3" kindref="member">MAX_CONTACTS</ref>];<sp/></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numc<sp/>=<sp/>dCollide(o1,<sp/>o2,<sp/><ref refid="collision_8c_1a84bfa512ba2269b77a80f391fbdde0a3" kindref="member">MAX_CONTACTS</ref>,<sp/>&amp;contact[0].geom,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dContact));</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(numc<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>numc;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.mode<sp/>=<sp/>dContactSlip1<sp/>|<sp/>dContactSlip2<sp/>|</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dContactSoftERP<sp/>|<sp/>dContactSoftCFM<sp/>|<sp/>dContactApprox1;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.mu<sp/>=<sp/>dInfinity;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.slip1<sp/>=<sp/>0.005;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.slip2<sp/>=<sp/>0.005;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.soft_erp<sp/>=<sp/>0.1;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.soft_cfm<sp/>=<sp/>0.001;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.bounce<sp/>=<sp/>0.001;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.bounce_vel<sp/>=<sp/>0.001;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointID<sp/>c<sp/>=<sp/>dJointCreateContact(ctx-&gt;<ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>,<sp/>ctx-&gt;<ref refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" kindref="member">contactgroup</ref>,<sp/>&amp;contact[i]);</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointAttach(c,<sp/>b1,<sp/>b2);</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>b1<sp/>=<sp/>dGeomGetBody(o1);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>b2<sp/>=<sp/>dGeomGetBody(o2);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(b1<sp/>&amp;&amp;<sp/>b2<sp/>&amp;&amp;<sp/>dAreConnectedExcluding(b1,<sp/>b2,<sp/>dJointTypeContact))</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>gi1<sp/>=<sp/>(<ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*)dGeomGetData(o1);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>gi2<sp/>=<sp/>(<ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*)dGeomGetData(o2);<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Check<sp/>for<sp/>trigger<sp/>callbacks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>ctx<sp/>=<sp/>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*)data;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gi1<sp/>&amp;&amp;<sp/>gi1-&gt;<ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gi1-&gt;<ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>(ctx,<sp/>o1,<sp/>o2);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Skip<sp/>physical<sp/>resolution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gi2<sp/>&amp;&amp;<sp/>gi2-&gt;<ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gi2-&gt;<ref refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kindref="member">triggerOnCollide</ref>(ctx,<sp/>o2,<sp/>o1);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>Skip<sp/>physical<sp/>resolution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gi1<sp/>&amp;&amp;<sp/>!gi1-&gt;<ref refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" kindref="member">collidable</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(gi2<sp/>&amp;&amp;<sp/>!gi2-&gt;<ref refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" kindref="member">collidable</ref>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>dContact<sp/>contact[<ref refid="collision_8c_1a84bfa512ba2269b77a80f391fbdde0a3" kindref="member">MAX_CONTACTS</ref>];<sp/></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numc<sp/>=<sp/>dCollide(o1,<sp/>o2,<sp/><ref refid="collision_8c_1a84bfa512ba2269b77a80f391fbdde0a3" kindref="member">MAX_CONTACTS</ref>,<sp/>&amp;contact[0].geom,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dContact));</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(numc<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref>*<sp/>mat1<sp/>=<sp/>gi1-&gt;<ref refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" kindref="member">surface</ref>;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref>*<sp/>mat2<sp/>=<sp/>gi2-&gt;<ref refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" kindref="member">surface</ref>;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dContact<sp/>surfContact;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>surfContact.surface.mu<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>sqrtf(mat1-&gt;<ref refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" kindref="member">friction</ref><sp/>*<sp/>mat2-&gt;<ref refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" kindref="member">friction</ref>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>surfContact.surface.bounce<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>fmaxf(mat1-&gt;<ref refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" kindref="member">bounce</ref>,<sp/>mat2-&gt;<ref refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" kindref="member">bounce</ref>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>surfContact.surface.bounce_vel<sp/><sp/>=<sp/>fminf(mat1-&gt;<ref refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" kindref="member">bounce_vel</ref>,<sp/>mat2-&gt;<ref refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" kindref="member">bounce_vel</ref>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>surfContact.surface.slip1<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>sqrtf(mat1-&gt;<ref refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" kindref="member">slip1</ref><sp/>*<sp/>mat2-&gt;<ref refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" kindref="member">slip1</ref>);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>surfContact.surface.slip2<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>sqrtf(mat1-&gt;<ref refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" kindref="member">slip2</ref><sp/>*<sp/>mat2-&gt;<ref refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" kindref="member">slip2</ref>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>numc;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.mode<sp/>=<sp/>dContactBounce<sp/>|<sp/><sp/>dContactSlip1<sp/>|<sp/>dContactSlip2<sp/>|</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dContactSoftERP<sp/>|<sp/>dContactSoftCFM<sp/>|<sp/>dContactApprox1;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.mu<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>surfContact.surface.mu;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.bounce<sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>surfContact.surface.bounce;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.bounce_vel<sp/><sp/><sp/>=<sp/>surfContact.surface.bounce_vel;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.soft_erp<sp/><sp/><sp/><sp/><sp/>=<sp/>0.9;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.soft_cfm<sp/><sp/><sp/><sp/><sp/>=<sp/>0.001;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.slip1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>surfContact.surface.slip1;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>contact[i].surface.slip2<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>surfContact.surface.slip2;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//contact[i].surface.slip1<sp/>=<sp/>0.001;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//contact[i].surface.slip2<sp/>=<sp/>0.001;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//contact[i].surface.bounce<sp/>=<sp/>0.001;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//contact[i].surface.bounce_vel<sp/>=<sp/>0.001;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointID<sp/>c<sp/>=<sp/>dJointCreateContact(ctx-&gt;<ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>,<sp/>ctx-&gt;<ref refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" kindref="member">contactgroup</ref>,<sp/>&amp;contact[i]);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointAttach(c,<sp/>b1,<sp/>b2);</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="collision.c"/>
   </compounddef>

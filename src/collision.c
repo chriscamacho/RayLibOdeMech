@@ -42,9 +42,10 @@
 
 void nearCallback(void *data, dGeomID o1, dGeomID o2)
 {
+    
     dBodyID b1 = dGeomGetBody(o1);
     dBodyID b2 = dGeomGetBody(o2);
-
+    
     if (b1 && b2 && dAreConnectedExcluding(b1, b2, dJointTypeContact))
         return;
 
@@ -70,19 +71,34 @@ void nearCallback(void *data, dGeomID o1, dGeomID o2)
     int numc = dCollide(o1, o2, MAX_CONTACTS, &contact[0].geom, sizeof(dContact));
 
     if (numc > 0) {
+		
+		SurfaceMaterial* mat1 = gi1->surface;
+		SurfaceMaterial* mat2 = gi2->surface;
         
-
+		dContact surfContact;
+		surfContact.surface.mu 			= sqrtf(mat1->friction * mat2->friction);
+		surfContact.surface.bounce 		= fmaxf(mat1->bounce, mat2->bounce);
+		surfContact.surface.bounce_vel 	= fminf(mat1->bounce_vel, mat2->bounce_vel);
+		surfContact.surface.slip1		= sqrtf(mat1->slip1 * mat2->slip1);
+		surfContact.surface.slip2		= sqrtf(mat1->slip2 * mat2->slip2);
+		
         for (int i = 0; i < numc; i++) {
-			contact[i].surface.mode = dContactSlip1 | dContactSlip2 |
+			contact[i].surface.mode = dContactBounce |  dContactSlip1 | dContactSlip2 |
 										dContactSoftERP | dContactSoftCFM | dContactApprox1;
-			contact[i].surface.mu = dInfinity;
-			contact[i].surface.slip1 = 0.005;
-			contact[i].surface.slip2 = 0.005;
-			contact[i].surface.soft_erp = 0.1;
-			contact[i].surface.soft_cfm = 0.001;
-		  
-			contact[i].surface.bounce = 0.001;
-			contact[i].surface.bounce_vel = 0.001;
+										
+			
+			contact[i].surface.mu 			= surfContact.surface.mu;
+			contact[i].surface.bounce 		= surfContact.surface.bounce;
+			contact[i].surface.bounce_vel 	= surfContact.surface.bounce_vel;
+			contact[i].surface.soft_erp 	= 0.9;
+			contact[i].surface.soft_cfm 	= 0.001;
+			contact[i].surface.slip1		= surfContact.surface.slip1;
+			contact[i].surface.slip2		= surfContact.surface.slip2;
+			
+			//contact[i].surface.slip1 = 0.001;
+			//contact[i].surface.slip2 = 0.001;
+			//contact[i].surface.bounce = 0.001;
+			//contact[i].surface.bounce_vel = 0.001;
 
             dJointID c = dJointCreateContact(ctx->world, ctx->contactgroup, &contact[i]);
             dJointAttach(c, b1, b2);

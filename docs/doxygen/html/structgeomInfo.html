@@ -106,6 +106,7 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a0670722f17ac3020238ee399bd93f32e" id="r_a0670722f17ac3020238ee399bd93f32e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0670722f17ac3020238ee399bd93f32e">uvScaleV</a></td></tr>
 <tr class="memitem:aac9cece1fdb9d0079901008842994523" id="r_aac9cece1fdb9d0079901008842994523"><td class="memItemLeft" align="right" valign="top">Model&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac9cece1fdb9d0079901008842994523">visual</a></td></tr>
 <tr class="memitem:a97039a3fbf7a1f1c905762a6f4adb0c3" id="r_a97039a3fbf7a1f1c905762a6f4adb0c3"><td class="memItemLeft" align="right" valign="top">Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a></td></tr>
+<tr class="memitem:a8e530854793906e8d625e058ac7b616c" id="r_a8e530854793906e8d625e058ac7b616c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSurfaceMaterial.html">SurfaceMaterial</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e530854793906e8d625e058ac7b616c">surface</a></td></tr>
 <tr class="memitem:a520884eb761f24547c835107a37d024c" id="r_a520884eb761f24547c835107a37d024c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="raylibODE_8h.html#aa5c459ebe4c67891450ca45a48d09490">TriggerCallback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a520884eb761f24547c835107a37d024c">triggerOnCollide</a></td></tr>
 <tr class="memitem:a41da5e74536721516cb6d2f603654e94" id="r_a41da5e74536721516cb6d2f603654e94"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41da5e74536721516cb6d2f603654e94">data</a></td></tr>
 <tr id="pub-attribs-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Trimesh Encapsulation</div></td></tr>
@@ -119,10 +120,10 @@ Data Fields</h2></td></tr>
 <ul>
 <li>This structure encapsulates everything needed to render and handle physics for a specific piece of geometry, including UV scaling and raw mesh indices. </li>
 </ul>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#_a3">arm.c</a>, <a class="el" href="derby_8c-example.html#_a16">derby.c</a>, and <a class="el" href="fountain_8c-example.html#_a2">fountain.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#_a3">arm.c</a>, <a class="el" href="derby_8c-example.html#_a10">derby.c</a>, <a class="el" href="fountain_8c-example.html#_a2">fountain.c</a>, and <a class="el" href="rotor_8c-example.html#_a8">rotor.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00083">83</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00093">93</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="ad2ac5594ef66f909538bc4af4252d387" name="ad2ac5594ef66f909538bc4af4252d387"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2ac5594ef66f909538bc4af4252d387">&#9670;&#160;</a></span>collidable</h2>
@@ -136,12 +137,12 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Toggle for physics engine interaction. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#a23">arm.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#a24">arm.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00084">84</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00094">94</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00672">CreateGeomInfo()</a>, and <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, and <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
 
 </div>
 </div>
@@ -158,7 +159,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>user data pointer tag on extra meta data to a geom. </p>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00098">98</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00110">110</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
 </div>
 </div>
@@ -177,9 +178,9 @@ Data Fields</h2></td></tr>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#a4">arm.c</a>, and <a class="el" href="fountain_8c-example.html#a3">fountain.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00089">89</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00099">99</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00672">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00825">DrawGeom()</a>, and <a class="el" href="raylibODE_8c_source.html#l00956">SetEntityHew()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00846">DrawGeom()</a>, and <a class="el" href="raylibODE_8c_source.html#l00977">SetEntityHew()</a>.</p>
 
 </div>
 </div>
@@ -196,9 +197,30 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Pointer to the array of vertex indices. </p>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00093">93</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00105">105</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00635">CreateStaticTrimesh()</a>, and <a class="el" href="init_8c_source.html#l00195">FreePhysics()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00655">CreateStaticTrimesh()</a>, and <a class="el" href="init_8c_source.html#l00195">FreePhysics()</a>.</p>
+
+</div>
+</div>
+<a id="a8e530854793906e8d625e058ac7b616c" name="a8e530854793906e8d625e058ac7b616c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e530854793906e8d625e058ac7b616c">&#9670;&#160;</a></span>surface</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structSurfaceMaterial.html">SurfaceMaterial</a>* geomInfo::surface</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>friction, restitution and so on </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="derby_8c-example.html#a14">derby.c</a>, and <a class="el" href="rotor_8c-example.html#a11">rotor.c</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00100">100</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="vehicle_8c_source.html#l00056">CreateVehicle()</a>, and <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
 
 </div>
 </div>
@@ -214,12 +236,12 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Pointer to the associated diffuse/albedo map. set to null for invisible geom </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="derby_8c-example.html#a18">derby.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="derby_8c-example.html#a22">derby.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00085">85</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00095">95</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00672">CreateGeomInfo()</a>, and <a class="el" href="raylibODE_8c_source.html#l00825">DrawGeom()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, and <a class="el" href="raylibODE_8c_source.html#l00846">DrawGeom()</a>.</p>
 
 </div>
 </div>
@@ -236,9 +258,9 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>ODE/Physics-specific trimesh data identifier. </p>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00094">94</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00106">106</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00635">CreateStaticTrimesh()</a>, and <a class="el" href="init_8c_source.html#l00195">FreePhysics()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00655">CreateStaticTrimesh()</a>, and <a class="el" href="init_8c_source.html#l00195">FreePhysics()</a>.</p>
 
 </div>
 </div>
@@ -254,12 +276,12 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>If this is non-NULL, the geom acts as a ghost/trigger </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="fountain_8c-example.html#a18">fountain.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="fountain_8c-example.html#a19">fountain.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00097">97</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00109">109</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00825">DrawGeom()</a>, and <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00846">DrawGeom()</a>, and <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
 
 </div>
 </div>
@@ -276,9 +298,9 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Horizontal texture tiling factor. </p>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00086">86</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00096">96</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00672">CreateGeomInfo()</a>, and <a class="el" href="raylibODE_8c_source.html#l00825">DrawGeom()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, and <a class="el" href="raylibODE_8c_source.html#l00846">DrawGeom()</a>.</p>
 
 </div>
 </div>
@@ -295,9 +317,9 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Vertical texture tiling factor. </p>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00087">87</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00097">97</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00672">CreateGeomInfo()</a>, and <a class="el" href="raylibODE_8c_source.html#l00825">DrawGeom()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, and <a class="el" href="raylibODE_8c_source.html#l00846">DrawGeom()</a>.</p>
 
 </div>
 </div>
@@ -313,12 +335,12 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Model override used for custom static trimeshes. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="derby_8c-example.html#a17">derby.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="derby_8c-example.html#a20">derby.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00088">88</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8h_source.html#l00098">98</a> of file <a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00635">CreateStaticTrimesh()</a>, and <a class="el" href="raylibODE_8c_source.html#l00825">DrawGeom()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00655">CreateStaticTrimesh()</a>, and <a class="el" href="raylibODE_8c_source.html#l00846">DrawGeom()</a>.</p>
 
 </div>
 </div>

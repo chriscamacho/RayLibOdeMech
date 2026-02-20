@@ -86,8 +86,10 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ ground\ plane}}
 \DoxyCodeLine{\ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ 1000,\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ 1000);}
 \DoxyCodeLine{\ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
-\DoxyCodeLine{\ \ \ \ dGeomSetData(planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 50.0f,\ 50.0f));}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ groundInfo\ =\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 50.0f,\ 50.0f);}
+\DoxyCodeLine{\ \ \ \ dGeomSetData(planeGeom,\ groundInfo);}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{\ \ \ \ groundInfo-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96}{SURFACE\_EARTH}}];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ Model\ carBody\ =\ LoadModel(\textcolor{stringliteral}{"{}data/car-\/body.obj"{}});}
 \DoxyCodeLine{}
@@ -154,12 +156,14 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(cars[j]-\/>geoms[0]);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}}\ =\ carBody;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}{SURFACE\_RUBBER}}];\ \textcolor{comment}{//\ make\ the\ body\ bouncy!}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ use\ the\ front\ marker\ as\ the\ top\ part\ of\ the\ body}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ dGeomBoxSetLengths\ (cars[j]-\/>geoms[6],\ 3,\ 2,\ 3);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ dGeomSetOffsetPosition(cars[j]-\/>geoms[6],-\/1,1,0);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ gi\ =\ dGeomGetData(cars[j]-\/>geoms[6]);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}}\ =\ 0;\ \textcolor{comment}{//\ make\ it\ invisible\ (still\ collides)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}{SURFACE\_RUBBER}}];}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}

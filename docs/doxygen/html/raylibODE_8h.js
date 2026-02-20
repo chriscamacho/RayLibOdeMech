@@ -19,6 +19,14 @@ var raylibODE_8h =
     [ "PhysicsContext", "raylibODE_8h.html#aef1bb5a28545a6ce8ceea26ca98c70b0", null ],
     [ "RayHit", "raylibODE_8h.html#a4697631c336e0354cd1eb1bc2743d5ba", null ],
     [ "TriggerCallback", "raylibODE_8h.html#aa5c459ebe4c67891450ca45a48d09490", null ],
+    [ "SHAPE_TYPE", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391b", [
+      [ "SHAPE_BOX", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5", null ],
+      [ "SHAPE_SPHERE", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391bac7a9839306104e6733f1adc2bb66274b", null ],
+      [ "SHAPE_CYLINDER", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391ba62eea2af0cd8bf0530c0799ce72b93cf", null ],
+      [ "SHAPE_CAPSULE", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391badccfd8c5874464bfd348e8cd8d7bd879", null ],
+      [ "SHAPE_DUMBBELL", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc", null ],
+      [ "SHAPE_ALL", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf", null ]
+    ] ],
     [ "CreateBaseEntity", "raylibODE_8h.html#a9a4fddcfd406e6bfb1987111e4ad64f1", null ],
     [ "CreateBox", "raylibODE_8h.html#ae436b97d6296f4b3c35e493dde37cee3", null ],
     [ "CreateBoxGeom", "raylibODE_8h.html#a37e31d3074a98d5f5a40096dc9b342f7", null ],
@@ -29,7 +37,7 @@ var raylibODE_8h =
     [ "CreateGeomInfo", "raylibODE_8h.html#a79db70091e3c86494f485979529984c8", null ],
     [ "CreateMultiPiston", "raylibODE_8h.html#a8d2339918b2d47fcaea5c861ccfbc3d8", null ],
     [ "CreatePiston", "raylibODE_8h.html#aa35dd966752d4afeffcb8f39e474594c", null ],
-    [ "CreateRandomEntity", "raylibODE_8h.html#a8e5b28e0781017c62176133087f3590c", null ],
+    [ "CreateRandomEntity", "raylibODE_8h.html#ae7890e5cf20ab8875b9d08bf80d9d018", null ],
     [ "CreateRotor", "raylibODE_8h.html#a70760bcdbb95dca2cd9cbb1a640485d2", null ],
     [ "CreateSphere", "raylibODE_8h.html#ad03521efcc05b3315d24f47d0eed52a6", null ],
     [ "CreateSphereGeom", "raylibODE_8h.html#a0201472030d3c51d3b13c7f807b59b01", null ],

@@ -80,8 +80,10 @@ int main(void)
     // Create ground plane
     dGeomID planeGeom = dCreateBox(physCtx->space, 1000, PLANE_THICKNESS, 1000);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 50.0f, 50.0f));
+    geomInfo* groundInfo = CreateGeomInfo(true, &graphics->groundTexture, 50.0f, 50.0f);
+    dGeomSetData(planeGeom, groundInfo);
     clistAddNode(physCtx->statics, planeGeom);
+    groundInfo->surface = &gSurfaces[SURFACE_EARTH];
 
 	Model carBody = LoadModel("data/car-body.obj");
 
@@ -148,12 +150,14 @@ int main(void)
 
 		geomInfo* gi = dGeomGetData(cars[j]->geoms[0]);
 		gi->visual = carBody;
+		gi->surface = &gSurfaces[SURFACE_RUBBER]; // make the body bouncy!
 		
 		// use the front marker as the top part of the body
 		dGeomBoxSetLengths (cars[j]->geoms[6], 3, 2, 3);
 		dGeomSetOffsetPosition(cars[j]->geoms[6],-1,1,0);
 		gi = dGeomGetData(cars[j]->geoms[6]);
 		gi->texture = 0; // make it invisible (still collides)
+		gi->surface = &gSurfaces[SURFACE_RUBBER];
 	}
 
     float physTime = 0;

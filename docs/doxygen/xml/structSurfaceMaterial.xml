@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structSurfaceMaterial" kind="struct" language="C++" prot="public">
+    <compoundname>SurfaceMaterial</compoundname>
+    <includes refid="surface_8h" local="no">surface.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SurfaceMaterial::friction</definition>
+        <argsstring></argsstring>
+        <name>friction</name>
+        <qualifiedname>SurfaceMaterial::friction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="surface.h" line="40" column="11" bodyfile="surface.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SurfaceMaterial::bounce</definition>
+        <argsstring></argsstring>
+        <name>bounce</name>
+        <qualifiedname>SurfaceMaterial::bounce</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="surface.h" line="41" column="11" bodyfile="surface.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SurfaceMaterial::bounce_vel</definition>
+        <argsstring></argsstring>
+        <name>bounce_vel</name>
+        <qualifiedname>SurfaceMaterial::bounce_vel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="surface.h" line="42" column="11" bodyfile="surface.h" bodystart="42" bodyend="-1"/>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SurfaceMaterial::slip1</definition>
+        <argsstring></argsstring>
+        <name>slip1</name>
+        <qualifiedname>SurfaceMaterial::slip1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="surface.h" line="43" column="11" bodyfile="surface.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SurfaceMaterial::slip2</definition>
+        <argsstring></argsstring>
+        <name>slip2</name>
+        <qualifiedname>SurfaceMaterial::slip2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="surface.h" line="44" column="11" bodyfile="surface.h" bodystart="44" bodyend="-1"/>
+        <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="surface.h" line="38" column="1" bodyfile="surface.h" bodystart="39" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" prot="public" virt="non-virtual"><scope>SurfaceMaterial</scope><name>bounce</name></member>
+      <member refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" prot="public" virt="non-virtual"><scope>SurfaceMaterial</scope><name>bounce_vel</name></member>
+      <member refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" prot="public" virt="non-virtual"><scope>SurfaceMaterial</scope><name>friction</name></member>
+      <member refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" prot="public" virt="non-virtual"><scope>SurfaceMaterial</scope><name>slip1</name></member>
+      <member refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" prot="public" virt="non-virtual"><scope>SurfaceMaterial</scope><name>slip2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -23,6 +23,7 @@
     <member refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" kind="variable"><name>uvScaleV</name></member>
     <member refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" kind="variable"><name>visual</name></member>
     <member refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" kind="variable"><name>hew</name></member>
+    <member refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" kind="variable"><name>surface</name></member>
     <member refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" kind="variable"><name>triggerOnCollide</name></member>
     <member refid="structgeomInfo_1a41da5e74536721516cb6d2f603654e94" kind="variable"><name>data</name></member>
   </compound>
@@ -80,6 +81,13 @@
     <member refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" kind="variable"><name>geom</name></member>
     <member refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" kind="variable"><name>depth</name></member>
     <member refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" kind="variable"><name>pos</name></member>
+  </compound>
+  <compound refid="structSurfaceMaterial" kind="struct"><name>SurfaceMaterial</name>
+    <member refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" kind="variable"><name>friction</name></member>
+    <member refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" kind="variable"><name>bounce</name></member>
+    <member refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" kind="variable"><name>bounce_vel</name></member>
+    <member refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" kind="variable"><name>slip1</name></member>
+    <member refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" kind="variable"><name>slip2</name></member>
   </compound>
   <compound refid="structvehicle" kind="struct"><name>vehicle</name>
     <member refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kind="variable"><name>bodies</name></member>
@@ -154,6 +162,13 @@
     <member refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kind="define"><name>PLANE_SIZE</name></member>
     <member refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kind="define"><name>PLANE_THICKNESS</name></member>
     <member refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" kind="define"><name>maxPsteps</name></member>
+    <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391b" kind="enum"><name>SHAPE_TYPE</name></member>
+    <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5" kind="enumvalue"><name>SHAPE_BOX</name></member>
+    <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391bac7a9839306104e6733f1adc2bb66274b" kind="enumvalue"><name>SHAPE_SPHERE</name></member>
+    <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391ba62eea2af0cd8bf0530c0799ce72b93cf" kind="enumvalue"><name>SHAPE_CYLINDER</name></member>
+    <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391badccfd8c5874464bfd348e8cd8d7bd879" kind="enumvalue"><name>SHAPE_CAPSULE</name></member>
+    <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc" kind="enumvalue"><name>SHAPE_DUMBBELL</name></member>
+    <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf" kind="enumvalue"><name>SHAPE_ALL</name></member>
     <member refid="raylibODE_8h_1a6ba18cca02784a1046f755105545d6cb" kind="typedef"><name>entity</name></member>
     <member refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" kind="typedef"><name>PhysicsContext</name></member>
     <member refid="raylibODE_8h_1aa5c459ebe4c67891450ca45a48d09490" kind="typedef"><name>TriggerCallback</name></member>
@@ -170,7 +185,7 @@
     <member refid="raylibODE_8h_1a6985c096003040ae46ed46b117f01d69" kind="function"><name>CreateCylinder</name></member>
     <member refid="raylibODE_8h_1adec02d5fa7b8838d8f98956b68e2246c" kind="function"><name>CreateCapsule</name></member>
     <member refid="raylibODE_8h_1a04c854eee30cf8430f2d978c4259459b" kind="function"><name>CreateDumbbell</name></member>
-    <member refid="raylibODE_8h_1a8e5b28e0781017c62176133087f3590c" kind="function"><name>CreateRandomEntity</name></member>
+    <member refid="raylibODE_8h_1ae7890e5cf20ab8875b9d08bf80d9d018" kind="function"><name>CreateRandomEntity</name></member>
     <member refid="raylibODE_8h_1a6038bcb143e6ca12696aa65bf164f488" kind="function"><name>PickEntity</name></member>
     <member refid="raylibODE_8h_1a227dded5dce29a7e3b71e9589e2b4c22" kind="function"><name>SetEntityHew</name></member>
     <member refid="raylibODE_8h_1a70760bcdbb95dca2cd9cbb1a640485d2" kind="function"><name>CreateRotor</name></member>
@@ -203,6 +218,17 @@
     <member refid="rlights_8h_1adc3ec8293e6a97ebe43f0196b9a7f638abdec4858df81ac7fc719321ed2b4fe7c" kind="enumvalue"><name>LIGHT_POINT</name></member>
     <member refid="rlights_8h_1afc243bc3de16abf2627f9ae16dd484de" kind="function"><name>CreateLight</name></member>
     <member refid="rlights_8h_1a147b7e5788024577fc8abb7df32e4c5c" kind="function"><name>UpdateLightValues</name></member>
+  </compound>
+  <compound refid="surface_8h" kind="file"><name>surface.h</name>
+    <member refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169f" kind="enum"><name>SurfaceType</name></member>
+    <member refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe" kind="enumvalue"><name>SURFACE_WOOD</name></member>
+    <member refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" kind="enumvalue"><name>SURFACE_METAL</name></member>
+    <member refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5" kind="enumvalue"><name>SURFACE_ICE</name></member>
+    <member refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" kind="enumvalue"><name>SURFACE_RUBBER</name></member>
+    <member refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96" kind="enumvalue"><name>SURFACE_EARTH</name></member>
+    <member refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" kind="enumvalue"><name>SURFACE_COUNT</name></member>
+    <member refid="surface_8h_1a25b919c252b86e01e91d4f349cbdabbc" kind="typedef"><name>SurfaceMaterial</name></member>
+    <member refid="surface_8h_1aa26755a73be46b483bf7098bcbf679dd" kind="variable"><name>gSurfaces</name></member>
   </compound>
   <compound refid="vehicle_8h" kind="file"><name>vehicle.h</name>
     <member refid="vehicle_8h_1ab457cfa8f57435d5385ae9ae2babb18b" kind="define"><name>VEH_PART_COUNT</name></member>
@@ -269,7 +295,7 @@
     <member refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" kind="function"><name>CreateCylinder</name></member>
     <member refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" kind="function"><name>CreateCapsule</name></member>
     <member refid="raylibODE_8c_1a04c854eee30cf8430f2d978c4259459b" kind="function"><name>CreateDumbbell</name></member>
-    <member refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" kind="function"><name>CreateRandomEntity</name></member>
+    <member refid="raylibODE_8c_1ae7890e5cf20ab8875b9d08bf80d9d018" kind="function"><name>CreateRandomEntity</name></member>
     <member refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" kind="function"><name>CreateStaticTrimesh</name></member>
     <member refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kind="function"><name>CreateGeomInfo</name></member>
     <member refid="raylibODE_8c_1a3c34ddfaf3a71bac062e99f033d28030" kind="function"><name>rayCallback</name></member>
@@ -299,6 +325,9 @@
     <member refid="rlights_8c_1a959fef16d77f17db49364491cbd4175b" kind="variable"><name>lightsCount</name></member>
     <member refid="rlights_8c_1afc243bc3de16abf2627f9ae16dd484de" kind="function"><name>CreateLight</name></member>
     <member refid="rlights_8c_1a147b7e5788024577fc8abb7df32e4c5c" kind="function"><name>UpdateLightValues</name></member>
+  </compound>
+  <compound refid="surface_8c" kind="file"><name>surface.c</name>
+    <member refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kind="variable"><name>gSurfaces</name></member>
   </compound>
   <compound refid="vehicle_8c" kind="file"><name>vehicle.c</name>
     <member refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" kind="function"><name>CreateVehicle</name></member>

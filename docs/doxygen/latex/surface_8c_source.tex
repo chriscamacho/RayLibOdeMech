@@ -1,0 +1,77 @@
+\doxysection{surface.\+c}
+\hypertarget{surface_8c_source}{}\label{surface_8c_source}\mbox{\hyperlink{surface_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{surface_8h}{surface.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00026}\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{00026}}\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}\ \mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c}{SURFACE\_COUNT}}]\ =}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ WOOD}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00029}00029\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ .friction\ =\ 2.60f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ .bounce\ =\ 0.02f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ .bounce\_vel\ =\ 0.1f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ .slip1\ =\ 0.001f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ .slip2\ =\ 0.001f}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00035}00035\ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ METAL}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ .friction\ =\ 2.8f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ .bounce\ =\ 0.005f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ .bounce\_vel\ =\ 0.05f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ .slip1\ =\ 0.001f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ .slip2\ =\ 0.001f}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00044}00044\ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ ICE}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00047}00047\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ .friction\ =\ .4f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ .bounce\ =\ 0.0f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ .bounce\_vel\ =\ 0.0f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ .slip1\ =\ 0.05f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ .slip2\ =\ 0.05f}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00053}00053\ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//\ RUBBER}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00056}00056\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ .friction\ =\ 2.80f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ .bounce\ =\ 0.85f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ .bounce\_vel\ =\ 0.1f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ .slip1\ =\ 0.0005f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ .slip2\ =\ 0.0005f}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00062}00062\ \ \ \ \ \},}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00064}00064\ \ \ \ \ \textcolor{comment}{//\ EARTH\ (dirt\ /\ ground)}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00065}00065\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ .friction\ =\ 2.9f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ .bounce\ =\ 0.05f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ .bounce\_vel\ =\ 0.1f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ .slip1\ =\ 0.0005f,}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ .slip2\ =\ 0.0005f}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00071}00071\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{surface_8c_source_l00072}00072\ \};}
+
+\end{DoxyCode}

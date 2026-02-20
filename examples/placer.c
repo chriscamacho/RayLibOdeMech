@@ -44,7 +44,7 @@ int main(void)
 
     // Initial random objects
     for (int i = 0; i < NUM_OBJ; i++) {
-        CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+        CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)}, SHAPE_ALL);
     }
 
     while (!WindowShouldClose())

@@ -29,9 +29,14 @@
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
 
-static const Vector3 gravPoint = {0.0f,8.0f,0.0f};
-static const float gravSize = 6.0f; 
+
+static const float gravSize = 8.0f; 
+static const Vector3 gravPoint = {0.0f,gravSize,0.0f};
+static const float planetSize = 1.0f;
+static const float kullSize = planetSize * 1.1f;
 static const Vector3 G = {0.0f ,-9.8f, 0.0f};
+
+#define trailSize 8
 
 Vector3 GetSpawnOnSphereBorder(Vector3 center, float radius) 
 {
@@ -48,10 +53,12 @@ Vector3 GetSpawnOnSphereBorder(Vector3 center, float radius)
     return Vector3Add(center, offset);
 }
 
-void CreateOrbiter(PhysicsContext* physCtx, GraphicsContext* graphics)
+entity* CreateOrbiter(PhysicsContext* physCtx, GraphicsContext* graphics)
 {
 	Vector3 p = GetSpawnOnSphereBorder(gravPoint, gravSize * 0.9f); 
-	entity* e = CreateRandomEntity(physCtx, graphics, p);
+	entity* e = CreateSphere(physCtx,graphics,.2, p, Vector3Zero(), 100.f); 
+	geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
+	gi->surface = &gSurfaces[SURFACE_RUBBER];
 	
 	Vector3 toSpawn = Vector3Subtract(p, gravPoint);
 	Vector3 fDir = Vector3Normalize(toSpawn);
@@ -67,8 +74,17 @@ void CreateOrbiter(PhysicsContext* physCtx, GraphicsContext* graphics)
 	float orbitSpeed = sqrtf(Vector3Length(G) * Vector3Length(toSpawn));
 
 	// Apply some(!) of the initial linear velocity to the ODE body
-	Vector3 velocity = Vector3Scale(tangent, orbitSpeed / 8.0f);
+	Vector3 velocity = Vector3Scale(tangent, orbitSpeed / 6.0f);
 	dBodySetLinearVel(e->body, velocity.x, velocity.y, velocity.z);
+	
+	// using user data for point of the trails
+	e->data = MemAlloc(sizeof(Vector3) * trailSize);
+	Vector3* v = e->data;
+	for (int i = 0; i < trailSize; i++) {
+		v[i] = p;
+	}
+	
+	return e;
 }
 
 
@@ -83,20 +99,23 @@ int main(void)
 	
 	// Create random simple objects with random textures
 	// deliberatly make them all fall out of the world
-	for (int i = 0; i < NUM_OBJ / 6; i++) {
+	for (int i = 0; i < NUM_OBJ; i++) {
 		CreateOrbiter(physCtx, graphics);
 	}
 	
 	dVector3 g;
 	dWorldGetGravity(physCtx->world, g);
 	
+	int frameCount = 0;
     while (!WindowShouldClose())
     {
+		frameCount++;
         UpdateExampleCamera(graphics);
         StepPhysics(physCtx);
 
 		bool spcdn = IsKeyPressed(KEY_SPACE);  // cache space key status (don't look up for each object iterration  
 		cnode_t* node = physCtx->objList->head;
+
         while (node != NULL) 
         {
 			entity* ent = node->data;
@@ -131,18 +150,19 @@ int main(void)
 				dMass M;
 				dBodyGetMass(bdy, &M);
 				f = Vector3Scale(f, M.mass);
-				if (d<2) {
+				if (d < kullSize) {
 					// this is just to make it more interesting so they
 					// don't all clump in the centre it also helps
 					// to regenrate the object orbit by adding more energy
-					f = Vector3Negate(f); // push away if too close
-					f = Vector3Scale(f, 8.0f);
+					//f = Vector3Negate(f); // push away if too close
+					//f = Vector3Scale(f, 8.0f);
 					
 					// as an alternatice you can use this with a smaller radius
-					//FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-					//CreateOrbiter(physCtx, graphics);
-					//node = next;
-					//continue;
+					free(ent->data);
+					FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
+					CreateOrbiter(physCtx, graphics);
+					node = next;
+					continue;
 				}
 				dBodyAddForce(bdy, f.x, f.y, f.z);
 			} else {
@@ -150,10 +170,20 @@ int main(void)
 			}
                         
             if(pos[1]<-10) {
+				free(ent->data);
                 FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
 				CreateOrbiter(physCtx, graphics);
+				node = next;
+				continue;
             }
             
+            if (frameCount % 4 == 0) {
+				Vector3* v = ent->data;
+				for (int i = 1; i < trailSize; i++) {
+					v[i-1] = v[i];
+				}
+				v[trailSize-1] = (Vector3){pos[0], pos[1], pos[2]};
+			}
             node = next;
         }
 
@@ -163,7 +193,23 @@ int main(void)
             BeginMode3D(graphics->camera);
                 DrawBodies(graphics, physCtx);
                 DrawStatics(graphics, physCtx);
-                DrawSphereWires(gravPoint, gravSize, 8, 8, BLUE);
+                
+                DrawSphereWires(gravPoint, gravSize, 9, 9, BLUE);
+                DrawSphere(gravPoint, planetSize, GREEN);
+                
+				node = physCtx->objList->head;
+
+				while (node != NULL) 
+				{
+					entity* e = node->data;
+					cnode_t* next = node->next;
+					Vector3* v = e->data;
+					for (int i = 1; i < trailSize; i++) {
+						DrawLine3D(v[i-1], v[i], YELLOW);
+					}
+					node = next;
+				}
+                
                 DrawGrid(100,10); // for context (no ground!)
             EndMode3D();
 
@@ -172,6 +218,13 @@ int main(void)
         EndDrawing();
     }
 
+	cnode_t* node = physCtx->objList->head;
+	while (node != NULL) 
+	{
+		entity* ent = node->data;
+		free(ent->data);
+		node = node->next;
+	}	
     FreePhysics(physCtx);
     FreeGraphics(graphics);
     CloseWindow();

@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="surface_8h" kind="file" language="C++">
+    <compoundname>surface.h</compoundname>
+    <includedby refid="raylibODE_8c" local="yes">raylibODE.c</includedby>
+    <includedby refid="raylibODE_8h" local="yes">raylibODE.h</includedby>
+    <includedby refid="surface_8c" local="yes">surface.c</includedby>
+    <invincdepgraph>
+      <node id="10">
+        <label>exampleCamera.h</label>
+        <link refid="exampleCamera_8h"/>
+      </node>
+      <node id="6">
+        <label>init.h</label>
+        <link refid="init_8h"/>
+      </node>
+      <node id="3">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>surface.h</label>
+        <link refid="surface_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>vehicle.h</label>
+        <link refid="vehicle_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>collision.c</label>
+        <link refid="collision_8c"/>
+      </node>
+      <node id="9">
+        <label>exampleCamera.c</label>
+        <link refid="exampleCamera_8c"/>
+      </node>
+      <node id="5">
+        <label>init.c</label>
+        <link refid="init_8c"/>
+      </node>
+      <node id="7">
+        <label>ragdoll.c</label>
+        <link refid="ragdoll_8c"/>
+      </node>
+      <node id="2">
+        <label>raylibODE.c</label>
+        <link refid="raylibODE_8c"/>
+      </node>
+      <node id="12">
+        <label>surface.c</label>
+        <link refid="surface_8c"/>
+      </node>
+      <node id="11">
+        <label>vehicle.c</label>
+        <link refid="vehicle_8c"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structSurfaceMaterial" prot="public">SurfaceMaterial</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169f" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SurfaceType</name>
+        <enumvalue id="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe" prot="public">
+          <name>SURFACE_WOOD</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" prot="public">
+          <name>SURFACE_METAL</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5" prot="public">
+          <name>SURFACE_ICE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" prot="public">
+          <name>SURFACE_RUBBER</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96" prot="public">
+          <name>SURFACE_EARTH</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" prot="public">
+          <name>SURFACE_COUNT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="surface.h" line="28" column="1" bodyfile="surface.h" bodystart="29" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="surface_8h_1a25b919c252b86e01e91d4f349cbdabbc" prot="public" static="no">
+        <type>struct SurfaceMaterial</type>
+        <definition>typedef struct SurfaceMaterial SurfaceMaterial</definition>
+        <argsstring></argsstring>
+        <name>SurfaceMaterial</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="surface.h" line="45" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="surface_8h_1aa26755a73be46b483bf7098bcbf679dd" prot="public" static="no" extern="yes" mutable="no">
+        <type><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref></type>
+        <definition>SurfaceMaterial gSurfaces[SURFACE_COUNT]</definition>
+        <argsstring>[SURFACE_COUNT]</argsstring>
+        <name>gSurfaces</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="surface.h" line="47" column="24" bodyfile="surface.c" bodystart="26" bodyend="72" declfile="surface.h" declline="47" declcolumn="24"/>
+        <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="692" endline="704">CreateGeomInfo</referencedby>
+        <referencedby refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1067" endline="1103">CreatePiston</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2026<sp/>Chris<sp/>Camacho<sp/>(codifies<sp/>-<sp/><sp/>http://bedroomcoders.co.uk/)</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SURFACE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SURFACE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169f" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30" refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe" kindref="member">SURFACE_WOOD</ref>,</highlight></codeline>
+<codeline lineno="31" refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" kindref="member">SURFACE_METAL</ref>,</highlight></codeline>
+<codeline lineno="32" refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5" kindref="member">SURFACE_ICE</ref>,</highlight></codeline>
+<codeline lineno="33" refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" kindref="member">SURFACE_RUBBER</ref>,</highlight></codeline>
+<codeline lineno="34" refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96" kindref="member">SURFACE_EARTH</ref>,</highlight></codeline>
+<codeline lineno="35" refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" kindref="member">SURFACE_COUNT</ref></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}<sp/><ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169f" kindref="member">SurfaceType</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="structSurfaceMaterial" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="40" refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" kindref="member">friction</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>mu</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" kindref="member">bounce</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>restitution</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" kindref="member">bounce_vel</ref>;<sp/><sp/></highlight><highlight class="comment">//<sp/>min<sp/>velocity<sp/>to<sp/>bounce</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" kindref="member">slip1</ref>;</highlight></codeline>
+<codeline lineno="44" refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" kindref="member">slip2</ref>;</highlight></codeline>
+<codeline lineno="45" refid="surface_8h_1a25b919c252b86e01e91d4f349cbdabbc" refkind="member"><highlight class="normal">}<sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref>;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref><sp/><ref refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" kindref="member">SURFACE_COUNT</ref>];</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SURFACE_H</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="surface.h"/>
+  </compounddef>
+</doxygen>

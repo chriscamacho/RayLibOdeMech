@@ -45,52 +45,68 @@
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00042}00042\ }
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00043}\mbox{\hyperlink{collision_8c_ad6680ae487b581622710e22bdfdb3146}{00043}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{collision_8c_ad6680ae487b581622710e22bdfdb3146}{nearCallback}}(\textcolor{keywordtype}{void}\ *data,\ dGeomID\ o1,\ dGeomID\ o2)}
 \DoxyCodeLine{\Hypertarget{collision_8c_source_l00044}00044\ \{}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00045}00045\ \ \ \ \ dBodyID\ b1\ =\ dGeomGetBody(o1);}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00046}00046\ \ \ \ \ dBodyID\ b2\ =\ dGeomGetBody(o2);}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00047}00047\ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (b1\ \&\&\ b2\ \&\&\ dAreConnectedExcluding(b1,\ b2,\ dJointTypeContact))}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00050}00050\ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi1\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(o1);}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00053}00053\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi2\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(o2);\ \ \ \ \textcolor{comment}{//\ Check\ for\ trigger\ callbacks}}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00054}00054\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx\ =\ (\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*)data;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00056}00056\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi1\ \&\&\ gi1-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}})\ \{}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ gi1-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}}(ctx,\ o1,\ o2);}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Skip\ physical\ resolution}}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00060}00060\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00061}00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi2\ \&\&\ gi2-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}})\ \{}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ gi2-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}}(ctx,\ o2,\ o1);}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Skip\ physical\ resolution}}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00064}00064\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi1\ \&\&\ !gi1-\/>\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}})\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi2\ \&\&\ !gi2-\/>\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}})\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00068}00068\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00069}00069\ \ \ \ \ dContact\ contact[\mbox{\hyperlink{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}{MAX\_CONTACTS}}];\ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{int}\ numc\ =\ dCollide(o1,\ o2,\ \mbox{\hyperlink{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}{MAX\_CONTACTS}},\ \&contact[0].geom,\ \textcolor{keyword}{sizeof}(dContact));}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00071}00071\ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{if}\ (numc\ >\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00074}00074\ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numc;\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mode\ =\ dContactSlip1\ |\ dContactSlip2\ |}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dContactSoftERP\ |\ dContactSoftCFM\ |\ dContactApprox1;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mu\ =\ dInfinity;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip1\ =\ 0.005;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip2\ =\ 0.005;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.soft\_erp\ =\ 0.1;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.soft\_cfm\ =\ 0.001;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.bounce\ =\ 0.001;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.bounce\_vel\ =\ 0.001;}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00086}00086\ }
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ dJointID\ c\ =\ dJointCreateContact(ctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ ctx-\/>\mbox{\hyperlink{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}{contactgroup}},\ \&contact[i]);}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ dJointAttach(c,\ b1,\ b2);}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00090}00090\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{collision_8c_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00045}00045\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00046}00046\ \ \ \ \ dBodyID\ b1\ =\ dGeomGetBody(o1);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00047}00047\ \ \ \ \ dBodyID\ b2\ =\ dGeomGetBody(o2);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00048}00048\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (b1\ \&\&\ b2\ \&\&\ dAreConnectedExcluding(b1,\ b2,\ dJointTypeContact))}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00053}00053\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi1\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(o1);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi2\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(o2);\ \ \ \ \textcolor{comment}{//\ Check\ for\ trigger\ callbacks}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00055}00055\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx\ =\ (\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*)data;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00057}00057\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi1\ \&\&\ gi1-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}})\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ gi1-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}}(ctx,\ o1,\ o2);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Skip\ physical\ resolution}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi2\ \&\&\ gi2-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}})\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ gi2-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}}(ctx,\ o2,\ o1);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Skip\ physical\ resolution}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi1\ \&\&\ !gi1-\/>\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi2\ \&\&\ !gi2-\/>\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00069}00069\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00070}00070\ \ \ \ \ dContact\ contact[\mbox{\hyperlink{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}{MAX\_CONTACTS}}];\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{int}\ numc\ =\ dCollide(o1,\ o2,\ \mbox{\hyperlink{collision_8c_a84bfa512ba2269b77a80f391fbdde0a3}{MAX\_CONTACTS}},\ \&contact[0].geom,\ \textcolor{keyword}{sizeof}(dContact));}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{if}\ (numc\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}*\ mat1\ =\ gi1-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}};}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}*\ mat2\ =\ gi2-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}};}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ dContact\ surfContact;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ surfContact.surface.mu\ \ \ \ \ \ \ \ \ \ =\ sqrtf(mat1-\/>\mbox{\hyperlink{structSurfaceMaterial_a4145324bfc476e67974224cb6d71a1b5}{friction}}\ *\ mat2-\/>\mbox{\hyperlink{structSurfaceMaterial_a4145324bfc476e67974224cb6d71a1b5}{friction}});}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ surfContact.surface.bounce\ \ \ \ \ \ =\ fmaxf(mat1-\/>\mbox{\hyperlink{structSurfaceMaterial_a64bd5db7504bd8b360437bb6bb7e7c5a}{bounce}},\ mat2-\/>\mbox{\hyperlink{structSurfaceMaterial_a64bd5db7504bd8b360437bb6bb7e7c5a}{bounce}});}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ surfContact.surface.bounce\_vel\ \ =\ fminf(mat1-\/>\mbox{\hyperlink{structSurfaceMaterial_a7485362063dcf11d986344793fa27735}{bounce\_vel}},\ mat2-\/>\mbox{\hyperlink{structSurfaceMaterial_a7485362063dcf11d986344793fa27735}{bounce\_vel}});}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ surfContact.surface.slip1\ \ \ \ \ \ \ =\ sqrtf(mat1-\/>\mbox{\hyperlink{structSurfaceMaterial_aba49fbf41af54a806c100d5437ed72e0}{slip1}}\ *\ mat2-\/>\mbox{\hyperlink{structSurfaceMaterial_aba49fbf41af54a806c100d5437ed72e0}{slip1}});}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ surfContact.surface.slip2\ \ \ \ \ \ \ =\ sqrtf(mat1-\/>\mbox{\hyperlink{structSurfaceMaterial_aab3183c75292be449944abd2d5f4e869}{slip2}}\ *\ mat2-\/>\mbox{\hyperlink{structSurfaceMaterial_aab3183c75292be449944abd2d5f4e869}{slip2}});}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ numc;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mode\ =\ dContactBounce\ |\ \ dContactSlip1\ |\ dContactSlip2\ |}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dContactSoftERP\ |\ dContactSoftCFM\ |\ dContactApprox1;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.mu\ \ \ \ \ \ \ \ \ \ \ =\ surfContact.surface.mu;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.bounce\ \ \ \ \ \ \ =\ surfContact.surface.bounce;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.bounce\_vel\ \ \ =\ surfContact.surface.bounce\_vel;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.soft\_erp\ \ \ \ \ =\ 0.9;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.soft\_cfm\ \ \ \ \ =\ 0.001;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip1\ \ \ \ \ \ \ \ =\ surfContact.surface.slip1;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ contact[i].surface.slip2\ \ \ \ \ \ \ \ =\ surfContact.surface.slip2;}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//contact[i].surface.slip1\ =\ 0.001;}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//contact[i].surface.slip2\ =\ 0.001;}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//contact[i].surface.bounce\ =\ 0.001;}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//contact[i].surface.bounce\_vel\ =\ 0.001;}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ dJointID\ c\ =\ dJointCreateContact(ctx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ ctx-\/>\mbox{\hyperlink{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}{contactgroup}},\ \&contact[i]);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ dJointAttach(c,\ b1,\ b2);}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00106}00106\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{collision_8c_source_l00107}00107\ \}}
 
 \end{DoxyCode}

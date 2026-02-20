@@ -27,6 +27,10 @@
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
 
+// 0x01 = world 0x02 = pistons
+
+#define WALL_GROUP   0x00000004
+#define ROTOR_GROUP   0x00000008
 
 int main(void)
 {
@@ -41,27 +45,37 @@ int main(void)
     //--------------------------------------------------------------------------------------
 
     // Create ground "plane"
-    dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE, PLANE_THICKNESS, PLANE_SIZE);
+    dGeomID planeGeom = dCreateBox(physCtx->space, PLANE_SIZE+2, PLANE_THICKNESS, PLANE_SIZE+2);
     dGeomSetPosition(planeGeom, 0, -PLANE_THICKNESS / 2.0, 0);
-    dGeomSetData(planeGeom, CreateGeomInfo(true, &graphics->groundTexture, 25.0f, 25.0f));
+    geomInfo* groundInfo = CreateGeomInfo(true, &graphics->groundTexture, 50.0f, 50.0f);
+    groundInfo->surface = &gSurfaces[SURFACE_EARTH];
+    dGeomSetData(planeGeom, groundInfo);
+    dGeomSetCategoryBits(planeGeom, WALL_GROUP);
+    dGeomSetCollideBits(planeGeom, WORLD_GROUP); // Ignore WALL_ROTOR (and WALL!)
 
 	clistAddNode(physCtx->statics, planeGeom);
 	
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ; i++) {
-		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+		entity* e = CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)}, SHAPE_ALL & ~SHAPE_DUMBBELL);
+		geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
+		gi->surface = &gSurfaces[SURFACE_RUBBER];
 	}
 	
 	
 	entity* rotor = CreateBox(physCtx, graphics, 
-		(Vector3){7, 1.75,.5}, // size
-		(Vector3){0,.88,0}, // pos
+		(Vector3){7, 6,1}, // size
+		(Vector3){0,0,0}, // pos
 		(Vector3){0,0,0}, // rot
 		 4); // mass
 
 	// offset the geom so it is being rotated from one end
 	dGeomID rgeom = dBodyGetFirstGeom(rotor->body);
 	dGeomSetOffsetPosition(rgeom, 3.5, 0, 0);
+	geomInfo* gi = dGeomGetData(rgeom);
+	gi->surface = &gSurfaces[SURFACE_ICE];
+	dGeomSetCategoryBits(rgeom, ROTOR_GROUP);
+	dGeomSetCollideBits(rgeom, WORLD_GROUP); // Ignore WALL_GROUP (and rotors too)
 	
 	dJointID joint_hinge = CreateRotor(physCtx, rotor, 0, (Vector3){0,1,0});
 
@@ -72,6 +86,8 @@ int main(void)
     // Main game loop
     //
     //--------------------------------------------------------------------------------------
+    float rotorSpeed = -1;
+    bool wiper = false;
     while (!WindowShouldClose())            // Detect window close button or ESC key
     {
         //--------------------------------------------------------------------------------------
@@ -80,12 +96,25 @@ int main(void)
 		
 		// baked in controls (example only camera!)
 		UpdateExampleCamera(graphics);
+        if (IsKeyPressed(KEY_O)) {
+			wiper = !wiper;
+		}
+		
+		if (wiper) {
+			float ha = dJointGetHingeAngle (joint_hinge);
+			if (ha < -M_PI_2/2) rotorSpeed = fabs(rotorSpeed);
+			if (ha > M_PI_2/2) rotorSpeed = -fabs(rotorSpeed);
+		}
+		
+        if (IsKeyPressed(KEY_R)) {
+			rotorSpeed = -rotorSpeed;
+		}
         
         if (IsKeyDown(KEY_P)) {
 			// will get slowed if pushing too much...
-			dJointSetHingeParam(joint_hinge, dParamVel, 3.0);
+			dJointSetHingeParam(joint_hinge, dParamVel, rotorSpeed*4.0f);
 		} else {
-			dJointSetHingeParam(joint_hinge, dParamVel, 0.5);
+			dJointSetHingeParam(joint_hinge, dParamVel, rotorSpeed);
 		}
         
         bool spcdn = IsKeyDown(KEY_SPACE);  // cache space key status (don't look up for each object iterration    
@@ -112,8 +141,9 @@ int main(void)
             
             if(pos[1]<-10) {
                 FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
-
+                entity* e = CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)}, SHAPE_ALL & ~SHAPE_DUMBBELL);
+				geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
+				gi->surface = &gSurfaces[SURFACE_RUBBER];
             }
             
             node = next;

@@ -139,149 +139,151 @@
 \DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ car-\/>\mbox{\hyperlink{structvehicle_a058cc60e3227703b2d840ce60600a29a}{geoms}}[bIdx]\ =\ dCreateCylinder(space,\ scaledWheelRadius,\ wheelWidth);}
 \DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ dGeomSetBody(car-\/>\mbox{\hyperlink{structvehicle_a058cc60e3227703b2d840ce60600a29a}{geoms}}[bIdx],\ car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[bIdx]);}
 \DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ dGeomSetData(car-\/>\mbox{\hyperlink{structvehicle_a058cc60e3227703b2d840ce60600a29a}{geoms}}[bIdx],\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ wheelTex,\ 1.0f,\ 1.0f));}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00139}00139\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hinge2\ Joints\ (Joints\ 0-\/3)\ -\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i]\ =\ dJointCreateHinge2(world,\ 0);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ dJointAttach(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0],\ car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[bIdx]);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ dJointSetHinge2Anchor(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ pos.x\ +\ wheelOffsets[i][0],\ pos.y\ +\ wheelOffsets[i][1],\ pos.z\ +\ wheelOffsets[i][2]);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ dReal\ axis1[]\ =\ \{\ 0,\ 1,\ 0\ \};\ \textcolor{comment}{//\ Steering\ axis\ (Y\ -\/\ up/down)}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ dReal\ axis2[]\ =\ \{\ 0\ ,\ 0,\ ((i\ \%\ 2)\ ==\ 0)\ ?\ -\/1\ :\ 1\ \};}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ dJointSetHinge2Axes(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ axis1,\ axis2);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00148}00148\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Soften\ suspension\ to\ help\ prevent\ the\ car\ from\ bouncing\ or\ flipping}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamSuspensionERP,\ 0.9);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamSuspensionCFM,\ 0.002);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00152}00152\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 2)\ \{\ \textcolor{comment}{//\ Front\ wheel\ steering\ limits}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamLoStop,\ -\/.75);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamHiStop,\ .75);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamFMax,\ 15000);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Rear\ wheels\ -\/\ LOCK\ steering\ axis\ completely}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamLoStop,\ 0.0);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamHiStop,\ 0.0);\ \ \textcolor{comment}{//\ Same\ as\ LoStop\ =\ locked}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00161}00161\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(car-\/>\mbox{\hyperlink{structvehicle_a058cc60e3227703b2d840ce60600a29a}{geoms}}[bIdx]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}{SURFACE\_RUBBER}}];}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Hinge2\ Joints\ (Joints\ 0-\/3)\ -\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i]\ =\ dJointCreateHinge2(world,\ 0);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ dJointAttach(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0],\ car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[bIdx]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ dJointSetHinge2Anchor(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ pos.x\ +\ wheelOffsets[i][0],\ pos.y\ +\ wheelOffsets[i][1],\ pos.z\ +\ wheelOffsets[i][2]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ dReal\ axis1[]\ =\ \{\ 0,\ 1,\ 0\ \};\ \textcolor{comment}{//\ Steering\ axis\ (Y\ -\/\ up/down)}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ dReal\ axis2[]\ =\ \{\ 0\ ,\ 0,\ ((i\ \%\ 2)\ ==\ 0)\ ?\ -\/1\ :\ 1\ \};}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ dJointSetHinge2Axes(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ axis1,\ axis2);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Soften\ suspension\ to\ help\ prevent\ the\ car\ from\ bouncing\ or\ flipping}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamSuspensionERP,\ 0.9);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamSuspensionCFM,\ 0.002);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ 2)\ \{\ \textcolor{comment}{//\ Front\ wheel\ steering\ limits}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamLoStop,\ -\/.75);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamHiStop,\ .75);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamFMax,\ 15000);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Rear\ wheels\ -\/\ LOCK\ steering\ axis\ completely}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamLoStop,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamHiStop,\ 0.0);\ \ \textcolor{comment}{//\ Same\ as\ LoStop\ =\ locked}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00163}00163\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00164}00164\ \ \ \ \ \textcolor{comment}{//\ Link\ bodies\ to\ entities\ so\ drawBodies\ and\ FreeVehicle\ function\ correctly}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00165}00165\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 6;\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ RL\_MALLOC(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structentity}{entity}}));}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}}\ =\ car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i];}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ dBodySetData(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i],\ ent);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ ent-\/>\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}}\ =\ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ ent);\ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00170}00170\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00171}00171\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00172}00172\ \ \ \ \ \textcolor{keywordflow}{return}\ car;}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00173}00173\ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00174}00174\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00175}00175\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00176}00176\ \textcolor{comment}{\ *\ @brief\ Update\ vehicle\ control\ inputs}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00177}00177\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00178}00178\ \textcolor{comment}{\ *\ Applies\ acceleration\ and\ steering\ to\ the\ vehicle.\ This\ should}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00179}00179\ \textcolor{comment}{\ *\ be\ called\ every\ frame\ with\ current\ control\ inputs.}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00180}00180\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00181}00181\ \textcolor{comment}{\ *\ @param\ car\ Pointer\ to\ the\ vehicle\ structure}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00182}00182\ \textcolor{comment}{\ *\ @param\ accel\ Acceleration\ input\ (-\/1.0\ to\ 1.0,\ negative\ for\ reverse)}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00183}00183\ \textcolor{comment}{\ *\ @param\ steer\ Steering\ input\ (-\/1.0\ to\ 1.0,\ negative\ for\ left)}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00184}00184\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00185}00185\ \textcolor{comment}{\ *\ @note\ Set\ accel\ to\ 0\ for\ coasting\ (wheels\ spin\ free)}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00186}00186\ \textcolor{comment}{\ *\ @note\ Front\ wheels\ provide\ steering\ and\ all-\/wheel\ drive}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00187}00187\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00188}\mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{00188}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{UpdateVehicle}}(\mbox{\hyperlink{structvehicle}{vehicle}}\ *car,\ \textcolor{keywordtype}{float}\ accel,\ \textcolor{keywordtype}{float}\ steer)}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00189}00189\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00190}00190\ \ \ \ \ \textcolor{comment}{//\ Match\ original\ force\ values}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00191}00191\ \ \ \ \ \textcolor{keywordtype}{float}\ driveTorque\ =\ 800.0f;\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00192}00192\ \ \ \ \ \textcolor{keywordtype}{float}\ steeringForce\ =\ 800.0f;\textcolor{comment}{//500.0f;}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00193}00193\ \ \ \ \ \textcolor{keywordtype}{float}\ steerFactor\ =\ 10.0f;}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00194}00194\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00195}00195\ \ \ \ \ \textcolor{comment}{//\ If\ no\ acceleration\ input,\ let\ the\ wheels\ spin\ free\ (coasting)}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00196}00196\ \ \ \ \ \textcolor{comment}{//\ Otherwise,\ it\ acts\ like\ a\ permanent\ brake}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00197}00197\ \ \ \ \ \textcolor{keywordtype}{float}\ currentTorque\ =\ (accel\ ==\ 0)\ ?\ 0.0f\ :\ driveTorque;}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00198}00198\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00199}00199\ \ \ \ \ \textcolor{comment}{//\ Front\ Wheels\ (0,\ 1)\ -\/\ Driving}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00200}00200\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00201}00201\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[0],\ dParamVel2,\ -\/accel);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00202}00202\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[1],\ dParamVel2,\ accel);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00203}00203\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[0],\ dParamFMax2,\ currentTorque);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00204}00204\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[1],\ dParamFMax2,\ currentTorque);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00205}00205\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00206}00206\ \ \ \ \ \textcolor{comment}{//\ Rear\ Wheels\ (2,\ 3)\ -\/\ Driving}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00207}00207\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[2],\ dParamVel2,\ -\/accel);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00208}00208\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[3],\ dParamVel2,\ accel);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00209}00209\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[2],\ dParamFMax2,\ currentTorque);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00210}00210\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[3],\ dParamFMax2,\ currentTorque);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00211}00211\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00212}00212\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00213}00213\ \ \ \ \ \textcolor{comment}{//\ Steering\ Logic\ \ \ \ }}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00214}00214\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ dReal\ v\ =\ steer\ -\/\ dJointGetHinge2Angle1(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i]);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ v\ *=\ steerFactor;}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamFMax,\ steeringForce);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamVel,\ v);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00220}00220\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00221}00221\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00222}00222\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00223}00223\ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00224}00224\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00225}00225\ \textcolor{comment}{/**@brief\ this\ releases\ all\ resources\ in\ use\ by\ a\ vehicle\ struct}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00226}00226\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00227}00227\ \textcolor{comment}{\ *\ @param\ pctx\ the\ physics\ context}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00228}00228\ \textcolor{comment}{\ *\ @param\ car\ the\ vehicle\ to\ free}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00229}00229\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00230}00230\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00231}\mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{00231}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car)}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00232}00232\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00233}00233\ \ \ \ \ \textcolor{keywordflow}{if}\ (!car)\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00234}00234\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00235}00235\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ car-\/>\mbox{\hyperlink{structvehicle_a734bcc32ada0399492de70cbb42e5c90}{bodyCount}};\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ the\ entity\ wrapper\ attached\ to\ the\ ODE\ body}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ (\mbox{\hyperlink{structentity}{entity}}*)dBodyGetData(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i]);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ent)\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Remove\ the\ node\ from\ the\ framework's\ render\ list}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clistDeleteNode}}(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ \&ent-\/>\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}});}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i]);\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ RL\_FREE(ent);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00245}00245\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00246}00246\ \ \ \ \ RL\_FREE(car);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00247}00247\ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00248}00248\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00249}00249\ \textcolor{comment}{/**\ @brief\ flips\ an\ upside\ down\ vehicle}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00250}00250\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00251}00251\ \textcolor{comment}{\ *\ @param\ car\ the\ vehicle\ to\ flip}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00164}00164\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00166}00166\ \ \ \ \ \textcolor{comment}{//\ Link\ bodies\ to\ entities\ so\ drawBodies\ and\ FreeVehicle\ function\ correctly}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 6;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ RL\_MALLOC(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structentity}{entity}}));}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}}\ =\ car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i];}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ dBodySetData(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i],\ ent);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ ent-\/>\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}}\ =\ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ ent);\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00174}00174\ \ \ \ \ \textcolor{keywordflow}{return}\ car;}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00175}00175\ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00176}00176\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00177}00177\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00178}00178\ \textcolor{comment}{\ *\ @brief\ Update\ vehicle\ control\ inputs}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00179}00179\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00180}00180\ \textcolor{comment}{\ *\ Applies\ acceleration\ and\ steering\ to\ the\ vehicle.\ This\ should}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00181}00181\ \textcolor{comment}{\ *\ be\ called\ every\ frame\ with\ current\ control\ inputs.}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00182}00182\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00183}00183\ \textcolor{comment}{\ *\ @param\ car\ Pointer\ to\ the\ vehicle\ structure}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00184}00184\ \textcolor{comment}{\ *\ @param\ accel\ Acceleration\ input\ (-\/1.0\ to\ 1.0,\ negative\ for\ reverse)}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00185}00185\ \textcolor{comment}{\ *\ @param\ steer\ Steering\ input\ (-\/1.0\ to\ 1.0,\ negative\ for\ left)}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00186}00186\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00187}00187\ \textcolor{comment}{\ *\ @note\ Set\ accel\ to\ 0\ for\ coasting\ (wheels\ spin\ free)}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00188}00188\ \textcolor{comment}{\ *\ @note\ Front\ wheels\ provide\ steering\ and\ all-\/wheel\ drive}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00189}00189\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00190}\mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{00190}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{UpdateVehicle}}(\mbox{\hyperlink{structvehicle}{vehicle}}\ *car,\ \textcolor{keywordtype}{float}\ accel,\ \textcolor{keywordtype}{float}\ steer)}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00191}00191\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00192}00192\ \ \ \ \ \textcolor{comment}{//\ Match\ original\ force\ values}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00193}00193\ \ \ \ \ \textcolor{keywordtype}{float}\ driveTorque\ =\ 800.0f;\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00194}00194\ \ \ \ \ \textcolor{keywordtype}{float}\ steeringForce\ =\ 800.0f;\textcolor{comment}{//500.0f;}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00195}00195\ \ \ \ \ \textcolor{keywordtype}{float}\ steerFactor\ =\ 10.0f;}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00196}00196\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00197}00197\ \ \ \ \ \textcolor{comment}{//\ If\ no\ acceleration\ input,\ let\ the\ wheels\ spin\ free\ (coasting)}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00198}00198\ \ \ \ \ \textcolor{comment}{//\ Otherwise,\ it\ acts\ like\ a\ permanent\ brake}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00199}00199\ \ \ \ \ \textcolor{keywordtype}{float}\ currentTorque\ =\ (accel\ ==\ 0)\ ?\ 0.0f\ :\ driveTorque;}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00201}00201\ \ \ \ \ \textcolor{comment}{//\ Front\ Wheels\ (0,\ 1)\ -\/\ Driving}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00202}00202\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00203}00203\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[0],\ dParamVel2,\ -\/accel);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00204}00204\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[1],\ dParamVel2,\ accel);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00205}00205\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[0],\ dParamFMax2,\ currentTorque);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00206}00206\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[1],\ dParamFMax2,\ currentTorque);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00207}00207\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00208}00208\ \ \ \ \ \textcolor{comment}{//\ Rear\ Wheels\ (2,\ 3)\ -\/\ Driving}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00209}00209\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[2],\ dParamVel2,\ -\/accel);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00210}00210\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[3],\ dParamVel2,\ accel);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00211}00211\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[2],\ dParamFMax2,\ currentTorque);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00212}00212\ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[3],\ dParamFMax2,\ currentTorque);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00213}00213\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00214}00214\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00215}00215\ \ \ \ \ \textcolor{comment}{//\ Steering\ Logic\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 2;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ dReal\ v\ =\ steer\ -\/\ dJointGetHinge2Angle1(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ v\ *=\ steerFactor;}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamFMax,\ steeringForce);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ dJointSetHinge2Param(car-\/>\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[i],\ dParamVel,\ v);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00222}00222\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00223}00223\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00225}00225\ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00226}00226\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00227}00227\ \textcolor{comment}{/**@brief\ this\ releases\ all\ resources\ in\ use\ by\ a\ vehicle\ struct}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00228}00228\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00229}00229\ \textcolor{comment}{\ *\ @param\ pctx\ the\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00230}00230\ \textcolor{comment}{\ *\ @param\ car\ the\ vehicle\ to\ free}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00231}00231\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00232}00232\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00233}\mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{00233}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car)}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00234}00234\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00235}00235\ \ \ \ \ \textcolor{keywordflow}{if}\ (!car)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00237}00237\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ car-\/>\mbox{\hyperlink{structvehicle_a734bcc32ada0399492de70cbb42e5c90}{bodyCount}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ the\ entity\ wrapper\ attached\ to\ the\ ODE\ body}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ (\mbox{\hyperlink{structentity}{entity}}*)dBodyGetData(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ent)\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Remove\ the\ node\ from\ the\ framework's\ render\ list}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clistDeleteNode}}(pctx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ \&ent-\/>\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}});}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i]);\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ RL\_FREE(ent);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00247}00247\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00248}00248\ \ \ \ \ RL\_FREE(car);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00249}00249\ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00250}00250\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00251}00251\ \textcolor{comment}{/**\ @brief\ flips\ an\ upside\ down\ vehicle}}
 \DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00252}00252\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00253}00253\ \textcolor{comment}{\ *\ @note\ this\ is\ a\ quick\ hack,\ it\ violently\ pops\ the\ vehicle\ back}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00254}00254\ \textcolor{comment}{\ *\ upright\ -\/\ there\ are\ better\ ways\ of\ doing\ this!}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00255}00255\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00256}\mbox{\hyperlink{vehicle_8c_a0419ed48c974e9d5efab4263b4cee46f}{00256}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8c_a0419ed48c974e9d5efab4263b4cee46f}{UnflipVehicle}}\ (\mbox{\hyperlink{structvehicle}{vehicle}}\ *car)}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00257}00257\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00258}00258\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ cp\ =\ dBodyGetPosition(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0]);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00259}00259\ \ \ \ \ dBodySetPosition(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0],\ cp[0],\ cp[1]+2,\ cp[2]);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00260}00260\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00261}00261\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ R\ =\ dBodyGetRotation(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0]);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00262}00262\ \ \ \ \ dReal\ newR[16];}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00263}00263\ \ \ \ \ dRFromEulerAngles(newR,\ 0,\ -\/atan2(-\/R[2],R[0])\ ,\ 0);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00264}00264\ \ \ \ \ dBodySetRotation(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0],\ newR);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00265}00265\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00266}00266\ \ \ \ \ \textcolor{comment}{//\ wheel\ offsets}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00267}00267\ \ \ \ \ \textcolor{comment}{//\ TODO\ make\ configurable\ \&\ use\ in\ vehicle\ set\ up\ }}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00268}00268\ \ \ \ \ \textcolor{comment}{//\ these\ should\ be\ close\ enough\ however...}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00269}00269\ \ \ \ \ dReal\ wheelOffsets[4][3]\ =\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \{\ +1.2,\ -\/.6,\ -\/1\ \},}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \{\ +1.2,\ -\/.6,\ +1\ \},}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \{\ -\/1.2,\ -\/.6,\ -\/1\ \},}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \{\ -\/1.2,\ -\/.6,\ +1\ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00275}00275\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00276}00276\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=1;\ i<5;\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ dVector3\ pb;}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00278}00278\ \ \ \ \ \ \ \ \ dBodyGetRelPointPos(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0],\ wheelOffsets[i-\/1][0],\ wheelOffsets[i-\/1][1],\ wheelOffsets[i-\/1][2],\ pb);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ dBodySetPosition(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i],\ pb[0],\ pb[1],\ pb[2]);}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00280}00280\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00281}00281\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00282}00282\ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00253}00253\ \textcolor{comment}{\ *\ @param\ car\ the\ vehicle\ to\ flip}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00254}00254\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00255}00255\ \textcolor{comment}{\ *\ @note\ this\ is\ a\ quick\ hack,\ it\ violently\ pops\ the\ vehicle\ back}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00256}00256\ \textcolor{comment}{\ *\ upright\ -\/\ there\ are\ better\ ways\ of\ doing\ this!}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00257}00257\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00258}\mbox{\hyperlink{vehicle_8c_a0419ed48c974e9d5efab4263b4cee46f}{00258}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8c_a0419ed48c974e9d5efab4263b4cee46f}{UnflipVehicle}}\ (\mbox{\hyperlink{structvehicle}{vehicle}}\ *car)}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00259}00259\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00260}00260\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ cp\ =\ dBodyGetPosition(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00261}00261\ \ \ \ \ dBodySetPosition(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0],\ cp[0],\ cp[1]+2,\ cp[2]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00263}00263\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ R\ =\ dBodyGetRotation(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00264}00264\ \ \ \ \ dReal\ newR[16];}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00265}00265\ \ \ \ \ dRFromEulerAngles(newR,\ 0,\ -\/atan2(-\/R[2],R[0])\ ,\ 0);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00266}00266\ \ \ \ \ dBodySetRotation(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0],\ newR);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00267}00267\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00268}00268\ \ \ \ \ \textcolor{comment}{//\ wheel\ offsets}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00269}00269\ \ \ \ \ \textcolor{comment}{//\ TODO\ make\ configurable\ \&\ use\ in\ vehicle\ set\ up\ }}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00270}00270\ \ \ \ \ \textcolor{comment}{//\ these\ should\ be\ close\ enough\ however...}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00271}00271\ \ \ \ \ dReal\ wheelOffsets[4][3]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \{\ +1.2,\ -\/.6,\ -\/1\ \},}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \{\ +1.2,\ -\/.6,\ +1\ \},}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \{\ -\/1.2,\ -\/.6,\ -\/1\ \},}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \{\ -\/1.2,\ -\/.6,\ +1\ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00278}00278\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=1;\ i<5;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ dVector3\ pb;}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ dBodyGetRelPointPos(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[0],\ wheelOffsets[i-\/1][0],\ wheelOffsets[i-\/1][1],\ wheelOffsets[i-\/1][2],\ pb);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ dBodySetPosition(car-\/>\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[i],\ pb[0],\ pb[1],\ pb[2]);}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00282}00282\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8c_source_l00284}00284\ \}}
 
 \end{DoxyCode}

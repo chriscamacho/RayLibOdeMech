@@ -90,7 +90,7 @@ int main(void)
 	
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ/4; i++) {
-		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)});
+		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)}, SHAPE_ALL);
 	}
 
 	// creation of the arm
@@ -245,7 +245,7 @@ int main(void)
             
             if(pos[1]<-10) {
                 FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)});
+                CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)}, SHAPE_ALL);
             }
             
             node = next;

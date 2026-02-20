@@ -174,10 +174,10 @@
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
         <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
-        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="282" endline="289">CreateBaseEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="283" endline="290">CreateBaseEntity</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="635" endline="660">CreateStaticTrimesh</referencedby>
-        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="173">CreateVehicle</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="655" endline="680">CreateStaticTrimesh</referencedby>
+        <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
       </memberdef>
       <memberdef kind="function" id="clist_8h_1a97454fa26f4edb61884e4e46b04fc7e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
@@ -332,9 +332,9 @@
         <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
         <referencedby refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" compoundref="clist_8c" startline="178" endline="187">clistDeleteNodeFromData</referencedby>
         <referencedby refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</referencedby>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1027" endline="1032">FreeEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1048" endline="1053">FreeEntity</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
-        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="231" endline="247">FreeVehicle</referencedby>
+        <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="233" endline="249">FreeVehicle</referencedby>
       </memberdef>
       <memberdef kind="function" id="clist_8h_1ac83038fbf67c63eef1ed8162f4899ff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>

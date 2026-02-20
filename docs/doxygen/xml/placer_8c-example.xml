@@ -28,8 +28,6 @@
 <codeline><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal"><sp/></highlight></codeline>
-<codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="init_8h" kindref="compound">init.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="exampleCamera_8h" kindref="compound">exampleCamera.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
@@ -54,7 +52,7 @@
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Initial<sp/>random<sp/>objects</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" kindref="member">NUM_OBJ</ref>;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8e5b28e0781017c62176133087f3590c" kindref="member">CreateRandomEntity</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)});</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1ae7890e5cf20ab8875b9d08bf80d9d018" kindref="member">CreateRandomEntity</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){<ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(6,<sp/>12),<sp/><ref refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kindref="member">rndf</ref>(-3,<sp/>3)},<sp/><ref refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf" kindref="member">SHAPE_ALL</ref>);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!WindowShouldClose())</highlight></codeline>

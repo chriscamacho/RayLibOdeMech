@@ -136,6 +136,8 @@ vehicle* CreateVehicle(PhysicsContext* pctx, struct GraphicsContext* ctx, Vector
 		car->geoms[bIdx] = dCreateCylinder(space, scaledWheelRadius, wheelWidth);
 		dGeomSetBody(car->geoms[bIdx], car->bodies[bIdx]);
 		dGeomSetData(car->geoms[bIdx], CreateGeomInfo(true, wheelTex, 1.0f, 1.0f));
+		geomInfo* gi = dGeomGetData(car->geoms[bIdx]);
+		gi->surface = &gSurfaces[SURFACE_RUBBER];
 
         // Hinge2 Joints (Joints 0-3) ---
         car->joints[i] = dJointCreateHinge2(world, 0);

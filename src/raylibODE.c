@@ -194,7 +194,7 @@
 #include <string.h>  // memset
 #include "raylibODE.h"
 #include "collision.h"
-
+#include "surface.h"
 
 /**
  * @brief Physics simulation time slice
@@ -577,30 +577,49 @@ entity* CreateDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaft
  * @param ctx Pointer to the physics context
  * @param gfxCtx Pointer to the graphics context
  * @param pos Position where the random object should be created
+ * @param mask which shapes to choose from SHAPE_ALL for all of them SHAPE & ~SHAPE_CAPSULE for all but capsule etc
  * @return Pointer to the newly created entity
+ * 
  *
  * @note Distribution: 20% boxes, 20% spheres, 20% cylinders, 20% capsules, 20% dumbbells
  * @note Mass is fixed at 10.0f for all random objects
  * @note Each type has randomized dimensions within reasonable ranges
  */
-entity* CreateRandomEntity(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos)
-{
-    float typ = rndf(0, 1);
+ 
 
+entity* CreateRandomEntity(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos, unsigned char mask)
+{
+    unsigned char typ;
+    
+    do {
+		float c = rndf(0, 1);
+		if (c < 0.20) {  // Box
+			typ = SHAPE_BOX;
+		} else if (c < 0.40) {  // Sphere
+			typ = SHAPE_SPHERE;
+		} else if (c < 0.60) {  // Cylinder
+			typ = SHAPE_CYLINDER;
+		} else if (c < 0.80) {  // Capsule
+			typ = SHAPE_CAPSULE;
+		} else {  // Dumbbell
+			typ = SHAPE_DUMBBELL;
+		}
+		if (mask & typ) break;
+	} while(true);
     Vector3 rot = (Vector3){rndf(0, 6.28), rndf(0, 6.28), rndf(0, 6.28)};
     float mass = 10.0f;
 
-    if (typ < 0.20) {  // Box
+    if (typ == SHAPE_BOX) {  // Box
         Vector3 s = (Vector3){rndf(0.25, .5), rndf(0.25, .5), rndf(0.25, .5)};
         return CreateBox(ctx, gfxCtx, s, pos, rot, mass);
 
-    } else if (typ < 0.40) {  // Sphere
+    } else if (typ == SHAPE_SPHERE) {  // Sphere
         return CreateSphere(ctx, gfxCtx, rndf(0.25, .4), pos, rot, mass);
 
-    } else if (typ < 0.60) {  // Cylinder
+    } else if (typ == SHAPE_CYLINDER) {  // Cylinder
         return CreateCylinder(ctx, gfxCtx, rndf(0.125, .5), rndf(0.4, 1), pos, rot, mass);
 
-    } else if (typ < 0.80) {  // Capsule
+    } else if (typ == SHAPE_CAPSULE) {  // Capsule
         return CreateCapsule(ctx, gfxCtx, rndf(0.125, .3), rndf(0.4, 1), pos, rot, mass);
 
     } else {  // Dumbbell
@@ -680,6 +699,7 @@ geomInfo* CreateGeomInfo(bool collidable, Texture* texture, float uvScaleU, floa
     gi->uvScaleU = uvScaleU;
     gi->uvScaleV = uvScaleV;
     gi->hew = WHITE;
+    gi->surface = &gSurfaces[SURFACE_WOOD];
     return gi;
 }
 
@@ -1051,6 +1071,9 @@ dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB, float
     dBodyID bodyA = entA->body;
     dBodyID bodyB = (entB != NULL) ? entB->body : 0; // 0 = world
     dJointAttach(joint, bodyA, bodyB);
+    
+    ((geomInfo*)dGeomGetData(dBodyGetFirstGeom(bodyA)))->surface = &gSurfaces[SURFACE_METAL];
+    ((geomInfo*)dGeomGetData(dBodyGetFirstGeom(bodyB)))->surface = &gSurfaces[SURFACE_METAL];
 
     dReal axis[3];
     const dReal* posA = dBodyGetPosition(bodyA);

@@ -43,14 +43,15 @@ typedef struct LevelElement {
 
 // Define the level layout
 LevelElement levelData[] = {
-    { SLOPE,    0, 8, 0, 0.0f },      
-    { SLOPE,    1, 7, 0, 0.0f },      
-    { STRAIGHT, 2, 6, 0, 0.0f },      
-    { STRAIGHT, 3, 6, 0, 0.0f },
-    { CORNER,   4, 6, 0, M_PI },
-    { SLOPE,    4, 6, 1, -M_PI/2 },   
-    { CORNER,   4, 5, 2, 0.0f },
-    { SLOPE,    5, 5, 2, 0.0f },      
+    { SLOPE,    0, 9, 0, 0.0f },      
+    { STRAIGHT,    1, 8, 0, 0.0f },      
+    { SLOPE , 	2, 7, 0, 0.0f },
+          
+    { SLOPE, 	3, 6, 0, 0.0f },
+    { CORNER,   4, 5, 0, M_PI },
+    { SLOPE,    4, 5, 1, -M_PI/2 },   
+    { CORNER,   4, 4, 2, 0.0f },
+    { STRAIGHT, 5, 4, 2, 0.0f },      
     { CORNER,   6, 4, 2, M_PI/2 },
     { SLOPE,    6, 4, 1, M_PI/2 },      
     { SLOPE,    6, 3, 0, M_PI/2 },      
@@ -61,10 +62,11 @@ LevelElement levelData[] = {
 	{ SLOPE, 	5, 0, 2, -M_PI/2 },        
 	{ SLOPE, 	5, -1, 3, -M_PI/2 },        
 
-	{ STRAIGHT, 	5, 6, 9, -M_PI/2 },  
-	{ CORNER,   5, 5.5, 10, M_PI/2},
-	{ STRAIGHT, 4, 5.5, 10, 0.0f },       
-	{ SLOPE, 	3, 5, 10, M_PI },  
+	// after 1st lift
+	{ SLOPE, 	5, 6, 9, -M_PI/2 },  
+	{ CORNER,   5, 5, 10, M_PI/2},
+	{ SLOPE, 4, 5, 10, M_PI },       
+	{ STRAIGHT, 	3, 4, 10, M_PI },  
 	{ STRAIGHT, 2, 4, 10, 0.0f },       
 	{ STRAIGHT, 1, 4, 10, 0.0f },       
 	{ STRAIGHT, 0, 4, 10, 0.0f },       
@@ -80,14 +82,16 @@ LevelElement levelData[] = {
 	{ STRAIGHT, -2, 2, 2, M_PI/2 },       
 	{ SLOPE, -2, 2, 1, M_PI/2 },   
 	
-	{ STRAIGHT, -2, 9, -5, M_PI/2 },       
-	{ SLOPE, -2, 9, -6, M_PI/2 },       
+	// after second lift
+	{ SLOPE, -2, 9, -5, M_PI/2 },       
+	{ STRAIGHT, -2, 8, -6, M_PI/2 },       
 	{ CORNER, -2, 8, -7, -M_PI/2 },  
 	{ STRAIGHT, -1, 8, -7, 0},   
 	{ CORNER, 0, 8, -7, M_PI},   
 	{ SLOPE, 0, 8, -6, -M_PI/2 },   
 	 
-	{ STRAIGHT, 0, 14, 0, M_PI/2},   
+	// after third lift
+	{ SLOPE, 0, 15, 0, -M_PI/2},   
 	{ STRAIGHT, 0, 14, 1, M_PI/2},   
 	{ CORNER, 0, 14, 2, M_PI/2},   
 	{ SLOPE, -1, 14, 2, M_PI },   
@@ -100,10 +104,12 @@ LevelElement levelData[] = {
 	{ CORNER, -2, 11, 2, 0},  
 	{ SLOPE, -2, 11, 1, M_PI/2 },  
 	{ CORNER, -2, 10, 0, -M_PI/2},  
-	{ SLOPE, -1, 10, 0,0},  
+	{ STRAIGHT, -1, 10, 0,0},  
 	
 };
 
+
+const SurfaceType levelSurface = SURFACE_WOOD;
 
 void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics) {
     int numElements = sizeof(levelData) / sizeof(LevelElement);
@@ -137,12 +143,16 @@ void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics) {
 					(float)e.gridY * layerHeight -.2f,
 					(float)e.gridZ * 2.0f - offZ};
 				dGeomID dg = CreateCylinderGeom(physCtx, graphics, 0.1f, 2.4f, pos);
+				geomInfo* gi = dGeomGetData(dg);
+				gi->surface = &gSurfaces[levelSurface];
 				dGeomSetRotation(dg, R);
 		
 				// Rail 2
 				pos.x = (float)e.gridX * 2.0f - offX;
 				pos.z = (float)e.gridZ * 2.0f + offZ;
 				dGeomID dg2 = CreateCylinderGeom(physCtx, graphics, 0.1f, 2.4f, pos);
+				gi = dGeomGetData(dg2);
+				gi->surface = &gSurfaces[levelSurface];
 				dGeomSetRotation(dg2, R);
 
 				clistAddNode(physCtx->statics, dg);
@@ -160,12 +170,16 @@ void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics) {
 					(float)e.gridZ * 2.0f - offZ};
             
 				dg = CreateCylinderGeom(physCtx, graphics, 0.1f, 2, pos);
-				
+				gi = dGeomGetData(dg);
+				gi->surface = &gSurfaces[levelSurface];
+
 				pos.x = (float)e.gridX * 2.0f - offX;
 				pos.z = (float)e.gridZ * 2.0f + offZ;
 				
 				dg2 = CreateCylinderGeom(physCtx, graphics, 0.1f, 2, pos);
-				
+				gi = dGeomGetData(dg2);
+				gi->surface = &gSurfaces[levelSurface];
+
 				// always rotate as Z axis cylinders need extra half pi rotation
 				dQFromAxisAndAngle(q, 0, 1, 0, e.angle+M_PI_2);
 				dGeomSetQuaternion(dg, q);
@@ -190,8 +204,8 @@ void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics) {
 					
 					float lx1 = -1.0f + 0.5f * cosf(pAngle);
 					float lz1 = -1.0f + 0.5f * sinf(pAngle);
-					float lx2 = -1.0f + 1.55f * cosf(pAngle);
-					float lz2 = -1.0f + 1.55f * sinf(pAngle);
+					float lx2 = -1.0f + 1.6f * cosf(pAngle);
+					float lz2 = -1.0f + 1.6f * sinf(pAngle);
 
 					pos.x = offX - (lx1 * c + lz1 * s); 
 					pos.y = (float)e.gridY * layerHeight + 0.4f;
@@ -202,6 +216,8 @@ void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics) {
 
 					// Inner Rail
 					dg = CreateCylinderGeom(physCtx, graphics, 0.1f, 0.261f, pos);
+					gi = dGeomGetData(dg);
+					gi->surface = &gSurfaces[levelSurface];
 					dGeomSetRotation(dg, R);
 					clistAddNode(physCtx->statics, dg);
 
@@ -210,7 +226,9 @@ void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics) {
 					pos.z = offZ - (lz2 * c - lx2 * s);
 					
 					// Outer Rail
-					dg2 = CreateCylinderGeom(physCtx, graphics, 0.1f, 0.776f, pos);
+					dg2 = CreateCylinderGeom(physCtx, graphics, 0.1f, 1.f, pos);
+					gi = dGeomGetData(dg2);
+					gi->surface = &gSurfaces[levelSurface];
 					dGeomSetRotation(dg2, R);
 					clistAddNode(physCtx->statics, dg2);
 				}
@@ -277,7 +295,7 @@ MultiPiston** CreateLift(PhysicsContext* physCtx,
     // Lift End
     // -------------------------------------------------
     {
-        Vector3 localPos = (Vector3){9.2f, 5.f, 16.7f};
+        Vector3 localPos = (Vector3){10.f, 5.f, 16.7f};
 
         Vector3 worldPos = Vector3Add(
             position,
@@ -359,6 +377,9 @@ MultiPiston** CreateLift(PhysicsContext* physCtx,
     return mp;
 }
 
+/***********************************************************************
+ * main !
+ **********************************************************************/
 
 int main(void)
 {
@@ -369,7 +390,7 @@ int main(void)
     graphics->camera.position = (Vector3){0.f,5.f,8.f};
     SetCameraYaw(M_PI/4);
 
-	const Vector3 dropPoint = (Vector3){0.f,10.f,0.f};
+	const Vector3 dropPoint = (Vector3){0.f,12.f,0.f};
 	
 	LoadLevel(physCtx,graphics);
 	
@@ -377,26 +398,27 @@ int main(void)
 	
 	MultiPiston** lift1 = CreateLift(physCtx,
 							graphics,
-							(Vector3){0.f, 0.f, 0.f},
+							(Vector3){0.f, 0.4f, 0.0f},
 							0,
-							400.0f);
+							360.0f);
 
 	
 	MultiPiston** lift2 = CreateLift(physCtx,
                                 graphics,
                                 (Vector3){6.f, 4.f, 8.f},
                                 PI,
-                                400.0f);
+                                360.0f);
 
 	MultiPiston** lift3 = CreateLift(physCtx,
                                 graphics,
-                                (Vector3){-10.f, 10.f, -18.f},
+                                (Vector3){-10.f, 11.f, -18.f},
                                 0,
-                                400.0f);
+                                360.0f);
                                                                 	
 	int frameCount = 0;
 	int released = 0;
 	const int maxRelesed = 16;
+	const float ballSize = .6f;
 	
     while (!WindowShouldClose())
     {
@@ -404,16 +426,18 @@ int main(void)
 			float offset = 0.f;
 			// every other piston is 180 degrees out of phase
 			if (i % 2 == 0) offset = M_PI;
-			SetMultiPistonVelocity(lift1[i], sin(((float)frameCount)/64.0f+offset)*8.0f);
-			SetMultiPistonVelocity(lift2[i], sin(((float)frameCount)/64.0f+offset)*8.0f);
-			SetMultiPistonVelocity(lift3[i], sin(((float)frameCount)/64.0f+offset)*8.0f);
+			SetMultiPistonVelocity(lift1[i], sin(((float)frameCount)/60.0f+offset));
+			SetMultiPistonVelocity(lift2[i], sin(((float)frameCount)/60.0f+offset));
+			SetMultiPistonVelocity(lift3[i], sin(((float)frameCount)/60.0f+offset));
 		}
 		
 		
 		if (released < maxRelesed) {
 			if (frameCount % 420 == 0) {
-				entity* e = CreateSphere(physCtx, graphics, 0.55, dropPoint, Vector3Zero(), 10);
+				entity* e = CreateSphere(physCtx, graphics, ballSize, dropPoint, Vector3Zero(), 1);
 				dBodySetAutoDisableFlag(e->body, 0);
+				geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
+				gi->surface = &gSurfaces[SURFACE_METAL];
 				released++;
 			}
 		}
@@ -432,7 +456,11 @@ int main(void)
 
             if(pos[1]<-10) {
                 FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                CreateSphere(physCtx, graphics, 0.55, dropPoint, Vector3Zero(), 10);
+                //entity* e = CreateSphere(physCtx, graphics, 0.55, dropPoint, Vector3Zero(), 1);
+				//dBodySetAutoDisableFlag(e->body, 0);
+				//geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
+				//gi->surface = &gSurfaces[SURFACE_RUBBER];
+				released--;
             }
             
             node = next;

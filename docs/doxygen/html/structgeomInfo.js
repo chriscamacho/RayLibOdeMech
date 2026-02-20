@@ -4,6 +4,7 @@ var structgeomInfo =
     [ "data", "structgeomInfo.html#a41da5e74536721516cb6d2f603654e94", null ],
     [ "hew", "structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3", null ],
     [ "indices", "structgeomInfo.html#abb6babda7d8a31c2ea76ed4654d9b55e", null ],
+    [ "surface", "structgeomInfo.html#a8e530854793906e8d625e058ac7b616c", null ],
     [ "texture", "structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14", null ],
     [ "triData", "structgeomInfo.html#a0cdf37aab555ef5003f8d3be2b553fa8", null ],
     [ "triggerOnCollide", "structgeomInfo.html#a520884eb761f24547c835107a37d024c", null ],

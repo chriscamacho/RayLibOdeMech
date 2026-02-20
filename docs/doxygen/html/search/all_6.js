@@ -11,5 +11,6 @@ var searchData=
   ['freemultipiston_8',['FreeMultiPiston',['../raylibODE_8c.html#a710981c5db9781e25b27318e8d56dfbb',1,'FreeMultiPiston(MultiPiston *mp):&#160;raylibODE.c'],['../raylibODE_8h.html#a710981c5db9781e25b27318e8d56dfbb',1,'FreeMultiPiston(MultiPiston *mp):&#160;raylibODE.c']]],
   ['freephysics_9',['FreePhysics',['../init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad',1,'FreePhysics(PhysicsContext *ctx):&#160;init.c'],['../init_8h.html#aadcc246e22ab4be2dd926a25c5bc9bad',1,'FreePhysics(PhysicsContext *ctx):&#160;init.c']]],
   ['freeragdoll_10',['FreeRagdoll',['../ragdoll_8c.html#ab17f6d5cfecd7a8573b900f78460c816',1,'FreeRagdoll(PhysicsContext *ctx, RagDoll *ragdoll):&#160;ragdoll.c'],['../ragdoll_8h.html#ab17f6d5cfecd7a8573b900f78460c816',1,'FreeRagdoll(PhysicsContext *ctx, RagDoll *ragdoll):&#160;ragdoll.c']]],
-  ['freevehicle_11',['FreeVehicle',['../vehicle_8c.html#ab0b188b6b47157b4f3c4aae241a933c8',1,'FreeVehicle(PhysicsContext *pctx, vehicle *car):&#160;vehicle.c'],['../vehicle_8h.html#ab0b188b6b47157b4f3c4aae241a933c8',1,'FreeVehicle(PhysicsContext *pctx, vehicle *car):&#160;vehicle.c']]]
+  ['freevehicle_11',['FreeVehicle',['../vehicle_8c.html#ab0b188b6b47157b4f3c4aae241a933c8',1,'FreeVehicle(PhysicsContext *pctx, vehicle *car):&#160;vehicle.c'],['../vehicle_8h.html#ab0b188b6b47157b4f3c4aae241a933c8',1,'FreeVehicle(PhysicsContext *pctx, vehicle *car):&#160;vehicle.c']]],
+  ['friction_12',['friction',['../structSurfaceMaterial.html#a4145324bfc476e67974224cb6d71a1b5',1,'SurfaceMaterial']]]
 ];

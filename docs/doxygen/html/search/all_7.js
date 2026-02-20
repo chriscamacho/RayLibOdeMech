@@ -7,5 +7,6 @@ var searchData=
   ['getcamerayaw_4',['GetCameraYaw',['../exampleCamera_8c.html#a9904774abec2bae71c6d75094d47cbe3',1,'GetCameraYaw():&#160;exampleCamera.c'],['../exampleCamera_8h.html#a9904774abec2bae71c6d75094d47cbe3',1,'GetCameraYaw():&#160;exampleCamera.c']]],
   ['getragdollspawnposition_5',['GetRagdollSpawnPosition',['../ragdoll_8c.html#ae5044c65f2f6758624a2182347b6d945',1,'GetRagdollSpawnPosition(void):&#160;ragdoll.c'],['../ragdoll_8h.html#ae5044c65f2f6758624a2182347b6d945',1,'GetRagdollSpawnPosition(void):&#160;ragdoll.c']]],
   ['graphicscontext_6',['GraphicsContext',['../structGraphicsContext.html',1,'GraphicsContext'],['../raylibODE_8h.html#a92862474db45e097a7381460ac67f859',1,'GraphicsContext:&#160;raylibODE.h']]],
-  ['groundtexture_7',['groundTexture',['../structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6',1,'GraphicsContext']]]
+  ['groundtexture_7',['groundTexture',['../structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6',1,'GraphicsContext']]],
+  ['gsurfaces_8',['gSurfaces',['../surface_8c.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c'],['../surface_8h.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c']]]
 ];

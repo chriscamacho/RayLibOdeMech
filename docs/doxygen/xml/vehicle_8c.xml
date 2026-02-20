@@ -23,10 +23,16 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="6">
         <label>rlights.h</label>
         <link refid="rlights_8h"/>
+      </node>
+      <node id="9">
+        <label>surface.h</label>
+        <link refid="surface_8h"/>
       </node>
       <node id="2">
         <label>vehicle.h</label>
@@ -39,12 +45,12 @@
         <link refid="vehicle_8c"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
-      <node id="10">
+      <node id="11">
         <label>math.h</label>
       </node>
       <node id="7">
@@ -56,7 +62,7 @@
       <node id="5">
         <label>raymath.h</label>
       </node>
-      <node id="9">
+      <node id="10">
         <label>stdlib.h</label>
       </node>
     </incdepgraph>
@@ -160,20 +166,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vehicle.c" line="56" column="9" bodyfile="vehicle.c" bodystart="56" bodyend="173"/>
+        <location file="vehicle.c" line="56" column="9" bodyfile="vehicle.c" bodystart="56" bodyend="175"/>
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="47">entity::body</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
-        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="119">GraphicsContext::boxTextures</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="131">GraphicsContext::boxTextures</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="672" endline="683">CreateGeomInfo</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="120">GraphicsContext::cylinderTextures</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="692" endline="704">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="132">GraphicsContext::cylinderTextures</references>
         <references refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" compoundref="vehicle_8h" startline="11">vehicle::geoms</references>
+        <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
         <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="vehicle_8h" startline="12">vehicle::joints</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="58">PhysicsContext::objList</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="55">PhysicsContext::space</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="54">PhysicsContext::world</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="58">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="65">PhysicsContext::space</references>
+        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
+        <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" compoundref="surface_8h" startline="33">SURFACE_RUBBER</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="64">PhysicsContext::world</references>
       </memberdef>
       <memberdef kind="function" id="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -230,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vehicle.c" line="188" column="6" bodyfile="vehicle.c" bodystart="188" bodyend="223"/>
+        <location file="vehicle.c" line="190" column="6" bodyfile="vehicle.c" bodystart="190" bodyend="225"/>
         <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="vehicle_8h" startline="12">vehicle::joints</references>
       </memberdef>
       <memberdef kind="function" id="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -271,13 +280,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vehicle.c" line="231" column="6" bodyfile="vehicle.c" bodystart="231" bodyend="247"/>
+        <location file="vehicle.c" line="233" column="6" bodyfile="vehicle.c" bodystart="233" bodyend="249"/>
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
         <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="760" endline="773">FreeBodyAndGeoms</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="48">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="58">PhysicsContext::objList</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="781" endline="794">FreeBodyAndGeoms</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="58">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
       </memberdef>
       <memberdef kind="function" id="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -307,7 +316,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vehicle.c" line="256" column="6" bodyfile="vehicle.c" bodystart="256" bodyend="282"/>
+        <location file="vehicle.c" line="258" column="6" bodyfile="vehicle.c" bodystart="258" bodyend="284"/>
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
       </memberdef>
     </sectiondef>
@@ -478,150 +487,152 @@
 <codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>car-&gt;<ref refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" kindref="member">geoms</ref>[bIdx]<sp/>=<sp/>dCreateCylinder(space,<sp/>scaledWheelRadius,<sp/>wheelWidth);</highlight></codeline>
 <codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomSetBody(car-&gt;<ref refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" kindref="member">geoms</ref>[bIdx],<sp/>car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[bIdx]);</highlight></codeline>
 <codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomSetData(car-&gt;<ref refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" kindref="member">geoms</ref>[bIdx],<sp/><ref refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>wheelTex,<sp/>1.0f,<sp/>1.0f));</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Hinge2<sp/>Joints<sp/>(Joints<sp/>0-3)<sp/>---</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i]<sp/>=<sp/>dJointCreateHinge2(world,<sp/>0);</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointAttach(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[bIdx]);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Anchor(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>pos.x<sp/>+<sp/>wheelOffsets[i][0],<sp/>pos.y<sp/>+<sp/>wheelOffsets[i][1],<sp/>pos.z<sp/>+<sp/>wheelOffsets[i][2]);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dReal<sp/>axis1[]<sp/>=<sp/>{<sp/>0,<sp/>1,<sp/>0<sp/>};<sp/></highlight><highlight class="comment">//<sp/>Steering<sp/>axis<sp/>(Y<sp/>-<sp/>up/down)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dReal<sp/>axis2[]<sp/>=<sp/>{<sp/>0<sp/>,<sp/>0,<sp/>((i<sp/>%<sp/>2)<sp/>==<sp/>0)<sp/>?<sp/>-1<sp/>:<sp/>1<sp/>};</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Axes(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>axis1,<sp/>axis2);</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Soften<sp/>suspension<sp/>to<sp/>help<sp/>prevent<sp/>the<sp/>car<sp/>from<sp/>bouncing<sp/>or<sp/>flipping</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamSuspensionERP,<sp/>0.9);</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamSuspensionCFM,<sp/>0.002);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&lt;<sp/>2)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Front<sp/>wheel<sp/>steering<sp/>limits</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamLoStop,<sp/>-.75);</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamHiStop,<sp/>.75);</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamFMax,<sp/>15000);</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="comment">//<sp/>Rear<sp/>wheels<sp/>-<sp/>LOCK<sp/>steering<sp/>axis<sp/>completely</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamLoStop,<sp/>0.0);</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamHiStop,<sp/>0.0);<sp/><sp/></highlight><highlight class="comment">//<sp/>Same<sp/>as<sp/>LoStop<sp/>=<sp/>locked</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>gi<sp/>=<sp/>dGeomGetData(car-&gt;<ref refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" kindref="member">geoms</ref>[bIdx]);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gi-&gt;<ref refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" kindref="member">surface</ref><sp/>=<sp/>&amp;<ref refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" kindref="member">SURFACE_RUBBER</ref>];</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Hinge2<sp/>Joints<sp/>(Joints<sp/>0-3)<sp/>---</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i]<sp/>=<sp/>dJointCreateHinge2(world,<sp/>0);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointAttach(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[bIdx]);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Anchor(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>pos.x<sp/>+<sp/>wheelOffsets[i][0],<sp/>pos.y<sp/>+<sp/>wheelOffsets[i][1],<sp/>pos.z<sp/>+<sp/>wheelOffsets[i][2]);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dReal<sp/>axis1[]<sp/>=<sp/>{<sp/>0,<sp/>1,<sp/>0<sp/>};<sp/></highlight><highlight class="comment">//<sp/>Steering<sp/>axis<sp/>(Y<sp/>-<sp/>up/down)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dReal<sp/>axis2[]<sp/>=<sp/>{<sp/>0<sp/>,<sp/>0,<sp/>((i<sp/>%<sp/>2)<sp/>==<sp/>0)<sp/>?<sp/>-1<sp/>:<sp/>1<sp/>};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Axes(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>axis1,<sp/>axis2);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Soften<sp/>suspension<sp/>to<sp/>help<sp/>prevent<sp/>the<sp/>car<sp/>from<sp/>bouncing<sp/>or<sp/>flipping</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamSuspensionERP,<sp/>0.9);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamSuspensionCFM,<sp/>0.002);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&lt;<sp/>2)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Front<sp/>wheel<sp/>steering<sp/>limits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamLoStop,<sp/>-.75);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamHiStop,<sp/>.75);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamFMax,<sp/>15000);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="comment">//<sp/>Rear<sp/>wheels<sp/>-<sp/>LOCK<sp/>steering<sp/>axis<sp/>completely</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamLoStop,<sp/>0.0);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamHiStop,<sp/>0.0);<sp/><sp/></highlight><highlight class="comment">//<sp/>Same<sp/>as<sp/>LoStop<sp/>=<sp/>locked</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Link<sp/>bodies<sp/>to<sp/>entities<sp/>so<sp/>drawBodies<sp/>and<sp/>FreeVehicle<sp/>function<sp/>correctly</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>6;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent<sp/>=<sp/>RL_MALLOC(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity" kindref="compound">entity</ref>));</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref><sp/>=<sp/>car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i];</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodySetData(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i],<sp/>ent);</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref><sp/>=<sp/><ref refid="clist_8c_1a264922774fdf767e31797fe81f2231be" kindref="member">clistAddNode</ref>(pctx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>,<sp/>ent);<sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>car;</highlight></codeline>
-<codeline lineno="173"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="175"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="176"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Update<sp/>vehicle<sp/>control<sp/>inputs</highlight></codeline>
-<codeline lineno="177"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="178"><highlight class="comment"><sp/>*<sp/>Applies<sp/>acceleration<sp/>and<sp/>steering<sp/>to<sp/>the<sp/>vehicle.<sp/>This<sp/>should</highlight></codeline>
-<codeline lineno="179"><highlight class="comment"><sp/>*<sp/>be<sp/>called<sp/>every<sp/>frame<sp/>with<sp/>current<sp/>control<sp/>inputs.</highlight></codeline>
-<codeline lineno="180"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="181"><highlight class="comment"><sp/>*<sp/>@param<sp/>car<sp/>Pointer<sp/>to<sp/>the<sp/>vehicle<sp/>structure</highlight></codeline>
-<codeline lineno="182"><highlight class="comment"><sp/>*<sp/>@param<sp/>accel<sp/>Acceleration<sp/>input<sp/>(-1.0<sp/>to<sp/>1.0,<sp/>negative<sp/>for<sp/>reverse)</highlight></codeline>
-<codeline lineno="183"><highlight class="comment"><sp/>*<sp/>@param<sp/>steer<sp/>Steering<sp/>input<sp/>(-1.0<sp/>to<sp/>1.0,<sp/>negative<sp/>for<sp/>left)</highlight></codeline>
-<codeline lineno="184"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="185"><highlight class="comment"><sp/>*<sp/>@note<sp/>Set<sp/>accel<sp/>to<sp/>0<sp/>for<sp/>coasting<sp/>(wheels<sp/>spin<sp/>free)</highlight></codeline>
-<codeline lineno="186"><highlight class="comment"><sp/>*<sp/>@note<sp/>Front<sp/>wheels<sp/>provide<sp/>steering<sp/>and<sp/>all-wheel<sp/>drive</highlight></codeline>
-<codeline lineno="187"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="188" refid="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" kindref="member">UpdateVehicle</ref>(<ref refid="structvehicle" kindref="compound">vehicle</ref><sp/>*car,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>accel,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>steer)</highlight></codeline>
-<codeline lineno="189"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Match<sp/>original<sp/>force<sp/>values</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>driveTorque<sp/>=<sp/>800.0f;<sp/></highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>steeringForce<sp/>=<sp/>800.0f;</highlight><highlight class="comment">//500.0f;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>steerFactor<sp/>=<sp/>10.0f;</highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>no<sp/>acceleration<sp/>input,<sp/>let<sp/>the<sp/>wheels<sp/>spin<sp/>free<sp/>(coasting)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Otherwise,<sp/>it<sp/>acts<sp/>like<sp/>a<sp/>permanent<sp/>brake</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>currentTorque<sp/>=<sp/>(accel<sp/>==<sp/>0)<sp/>?<sp/>0.0f<sp/>:<sp/>driveTorque;</highlight></codeline>
-<codeline lineno="198"><highlight class="normal"></highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Front<sp/>Wheels<sp/>(0,<sp/>1)<sp/>-<sp/>Driving</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[0],<sp/>dParamVel2,<sp/>-accel);</highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[1],<sp/>dParamVel2,<sp/>accel);</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[0],<sp/>dParamFMax2,<sp/>currentTorque);</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[1],<sp/>dParamFMax2,<sp/>currentTorque);</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Rear<sp/>Wheels<sp/>(2,<sp/>3)<sp/>-<sp/>Driving</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[2],<sp/>dParamVel2,<sp/>-accel);</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[3],<sp/>dParamVel2,<sp/>accel);</highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[2],<sp/>dParamFMax2,<sp/>currentTorque);</highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[3],<sp/>dParamFMax2,<sp/>currentTorque);</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Steering<sp/>Logic<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dReal<sp/>v<sp/>=<sp/>steer<sp/>-<sp/>dJointGetHinge2Angle1(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i]);</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>*=<sp/>steerFactor;</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamFMax,<sp/>steeringForce);</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamVel,<sp/>v);</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="222"><highlight class="normal"></highlight></codeline>
-<codeline lineno="223"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="224"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="225"><highlight class="comment">/**@brief<sp/>this<sp/>releases<sp/>all<sp/>resources<sp/>in<sp/>use<sp/>by<sp/>a<sp/>vehicle<sp/>struct</highlight></codeline>
-<codeline lineno="226"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="227"><highlight class="comment"><sp/>*<sp/>@param<sp/>pctx<sp/>the<sp/>physics<sp/>context</highlight></codeline>
-<codeline lineno="228"><highlight class="comment"><sp/>*<sp/>@param<sp/>car<sp/>the<sp/>vehicle<sp/>to<sp/>free</highlight></codeline>
-<codeline lineno="229"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="230"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="231" refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" kindref="member">FreeVehicle</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx,<sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car)</highlight></codeline>
-<codeline lineno="232"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!car)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"></highlight></codeline>
-<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>car-&gt;<ref refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" kindref="member">bodyCount</ref>;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>entity<sp/>wrapper<sp/>attached<sp/>to<sp/>the<sp/>ODE<sp/>body</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent<sp/>=<sp/>(<ref refid="structentity" kindref="compound">entity</ref>*)dBodyGetData(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i]);</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ent)<sp/>{</highlight></codeline>
-<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remove<sp/>the<sp/>node<sp/>from<sp/>the<sp/>framework&apos;s<sp/>render<sp/>list</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" kindref="member">clistDeleteNode</ref>(pctx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>,<sp/>&amp;ent-&gt;<ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref>);</highlight></codeline>
-<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" kindref="member">FreeBodyAndGeoms</ref>(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i]);<sp/></highlight></codeline>
-<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RL_FREE(ent);</highlight></codeline>
-<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/>RL_FREE(car);</highlight></codeline>
-<codeline lineno="247"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="248"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="249"><highlight class="comment">/**<sp/>@brief<sp/>flips<sp/>an<sp/>upside<sp/>down<sp/>vehicle</highlight></codeline>
-<codeline lineno="250"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="251"><highlight class="comment"><sp/>*<sp/>@param<sp/>car<sp/>the<sp/>vehicle<sp/>to<sp/>flip</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Link<sp/>bodies<sp/>to<sp/>entities<sp/>so<sp/>drawBodies<sp/>and<sp/>FreeVehicle<sp/>function<sp/>correctly</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>6;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent<sp/>=<sp/>RL_MALLOC(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity" kindref="compound">entity</ref>));</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref><sp/>=<sp/>car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i];</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodySetData(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i],<sp/>ent);</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ent-&gt;<ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref><sp/>=<sp/><ref refid="clist_8c_1a264922774fdf767e31797fe81f2231be" kindref="member">clistAddNode</ref>(pctx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>,<sp/>ent);<sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>car;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="177"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Update<sp/>vehicle<sp/>control<sp/>inputs</highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/>*<sp/>Applies<sp/>acceleration<sp/>and<sp/>steering<sp/>to<sp/>the<sp/>vehicle.<sp/>This<sp/>should</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/>*<sp/>be<sp/>called<sp/>every<sp/>frame<sp/>with<sp/>current<sp/>control<sp/>inputs.</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/>*<sp/>@param<sp/>car<sp/>Pointer<sp/>to<sp/>the<sp/>vehicle<sp/>structure</highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/>*<sp/>@param<sp/>accel<sp/>Acceleration<sp/>input<sp/>(-1.0<sp/>to<sp/>1.0,<sp/>negative<sp/>for<sp/>reverse)</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/>*<sp/>@param<sp/>steer<sp/>Steering<sp/>input<sp/>(-1.0<sp/>to<sp/>1.0,<sp/>negative<sp/>for<sp/>left)</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="187"><highlight class="comment"><sp/>*<sp/>@note<sp/>Set<sp/>accel<sp/>to<sp/>0<sp/>for<sp/>coasting<sp/>(wheels<sp/>spin<sp/>free)</highlight></codeline>
+<codeline lineno="188"><highlight class="comment"><sp/>*<sp/>@note<sp/>Front<sp/>wheels<sp/>provide<sp/>steering<sp/>and<sp/>all-wheel<sp/>drive</highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" kindref="member">UpdateVehicle</ref>(<ref refid="structvehicle" kindref="compound">vehicle</ref><sp/>*car,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>accel,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>steer)</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Match<sp/>original<sp/>force<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>driveTorque<sp/>=<sp/>800.0f;<sp/></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>steeringForce<sp/>=<sp/>800.0f;</highlight><highlight class="comment">//500.0f;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>steerFactor<sp/>=<sp/>10.0f;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>no<sp/>acceleration<sp/>input,<sp/>let<sp/>the<sp/>wheels<sp/>spin<sp/>free<sp/>(coasting)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Otherwise,<sp/>it<sp/>acts<sp/>like<sp/>a<sp/>permanent<sp/>brake</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>currentTorque<sp/>=<sp/>(accel<sp/>==<sp/>0)<sp/>?<sp/>0.0f<sp/>:<sp/>driveTorque;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Front<sp/>Wheels<sp/>(0,<sp/>1)<sp/>-<sp/>Driving</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[0],<sp/>dParamVel2,<sp/>-accel);</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[1],<sp/>dParamVel2,<sp/>accel);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[0],<sp/>dParamFMax2,<sp/>currentTorque);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[1],<sp/>dParamFMax2,<sp/>currentTorque);</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Rear<sp/>Wheels<sp/>(2,<sp/>3)<sp/>-<sp/>Driving</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[2],<sp/>dParamVel2,<sp/>-accel);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[3],<sp/>dParamVel2,<sp/>accel);</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[2],<sp/>dParamFMax2,<sp/>currentTorque);</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[3],<sp/>dParamFMax2,<sp/>currentTorque);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Steering<sp/>Logic<sp/><sp/><sp/><sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dReal<sp/>v<sp/>=<sp/>steer<sp/>-<sp/>dJointGetHinge2Angle1(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i]);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>v<sp/>*=<sp/>steerFactor;</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamFMax,<sp/>steeringForce);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetHinge2Param(car-&gt;<ref refid="structvehicle_1a0317690c9ddade2a37344024197942e2" kindref="member">joints</ref>[i],<sp/>dParamVel,<sp/>v);</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="227"><highlight class="comment">/**@brief<sp/>this<sp/>releases<sp/>all<sp/>resources<sp/>in<sp/>use<sp/>by<sp/>a<sp/>vehicle<sp/>struct</highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/>*<sp/>@param<sp/>pctx<sp/>the<sp/>physics<sp/>context</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/>*<sp/>@param<sp/>car<sp/>the<sp/>vehicle<sp/>to<sp/>free</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" kindref="member">FreeVehicle</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx,<sp/><ref refid="structvehicle" kindref="compound">vehicle</ref>*<sp/>car)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!car)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>car-&gt;<ref refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" kindref="member">bodyCount</ref>;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Get<sp/>the<sp/>entity<sp/>wrapper<sp/>attached<sp/>to<sp/>the<sp/>ODE<sp/>body</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent<sp/>=<sp/>(<ref refid="structentity" kindref="compound">entity</ref>*)dBodyGetData(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i]);</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ent)<sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Remove<sp/>the<sp/>node<sp/>from<sp/>the<sp/>framework&apos;s<sp/>render<sp/>list</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" kindref="member">clistDeleteNode</ref>(pctx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>,<sp/>&amp;ent-&gt;<ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref>);</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" kindref="member">FreeBodyAndGeoms</ref>(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i]);<sp/></highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>RL_FREE(ent);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>RL_FREE(car);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="251"><highlight class="comment">/**<sp/>@brief<sp/>flips<sp/>an<sp/>upside<sp/>down<sp/>vehicle</highlight></codeline>
 <codeline lineno="252"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="253"><highlight class="comment"><sp/>*<sp/>@note<sp/>this<sp/>is<sp/>a<sp/>quick<sp/>hack,<sp/>it<sp/>violently<sp/>pops<sp/>the<sp/>vehicle<sp/>back</highlight></codeline>
-<codeline lineno="254"><highlight class="comment"><sp/>*<sp/>upright<sp/>-<sp/>there<sp/>are<sp/>better<sp/>ways<sp/>of<sp/>doing<sp/>this!</highlight></codeline>
-<codeline lineno="255"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="256" refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" kindref="member">UnflipVehicle</ref><sp/>(<ref refid="structvehicle" kindref="compound">vehicle</ref><sp/>*car)</highlight></codeline>
-<codeline lineno="257"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>cp<sp/>=<sp/>dBodyGetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0]);</highlight></codeline>
-<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>cp[0],<sp/>cp[1]+2,<sp/>cp[2]);</highlight></codeline>
-<codeline lineno="260"><highlight class="normal"></highlight></codeline>
-<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>R<sp/>=<sp/>dBodyGetRotation(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0]);</highlight></codeline>
-<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/>newR[16];</highlight></codeline>
-<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/>dRFromEulerAngles(newR,<sp/>0,<sp/>-atan2(-R[2],R[0])<sp/>,<sp/>0);</highlight></codeline>
-<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetRotation(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>newR);</highlight></codeline>
-<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wheel<sp/>offsets</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>make<sp/>configurable<sp/>&amp;<sp/>use<sp/>in<sp/>vehicle<sp/>set<sp/>up<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>these<sp/>should<sp/>be<sp/>close<sp/>enough<sp/>however...</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/>wheelOffsets[4][3]<sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>+1.2,<sp/>-.6,<sp/>-1<sp/>},</highlight></codeline>
-<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>+1.2,<sp/>-.6,<sp/>+1<sp/>},</highlight></codeline>
-<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>-1.2,<sp/>-.6,<sp/>-1<sp/>},</highlight></codeline>
-<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>-1.2,<sp/>-.6,<sp/>+1<sp/>}</highlight></codeline>
-<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="275"><highlight class="normal"></highlight></codeline>
-<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=1;<sp/>i&lt;5;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dVector3<sp/>pb;</highlight></codeline>
-<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodyGetRelPointPos(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>wheelOffsets[i-1][0],<sp/>wheelOffsets[i-1][1],<sp/>wheelOffsets[i-1][2],<sp/>pb);</highlight></codeline>
-<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodySetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i],<sp/>pb[0],<sp/>pb[1],<sp/>pb[2]);</highlight></codeline>
-<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="281"><highlight class="normal"></highlight></codeline>
-<codeline lineno="282"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="253"><highlight class="comment"><sp/>*<sp/>@param<sp/>car<sp/>the<sp/>vehicle<sp/>to<sp/>flip</highlight></codeline>
+<codeline lineno="254"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="255"><highlight class="comment"><sp/>*<sp/>@note<sp/>this<sp/>is<sp/>a<sp/>quick<sp/>hack,<sp/>it<sp/>violently<sp/>pops<sp/>the<sp/>vehicle<sp/>back</highlight></codeline>
+<codeline lineno="256"><highlight class="comment"><sp/>*<sp/>upright<sp/>-<sp/>there<sp/>are<sp/>better<sp/>ways<sp/>of<sp/>doing<sp/>this!</highlight></codeline>
+<codeline lineno="257"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="258" refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" kindref="member">UnflipVehicle</ref><sp/>(<ref refid="structvehicle" kindref="compound">vehicle</ref><sp/>*car)</highlight></codeline>
+<codeline lineno="259"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>cp<sp/>=<sp/>dBodyGetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0]);</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>cp[0],<sp/>cp[1]+2,<sp/>cp[2]);</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>R<sp/>=<sp/>dBodyGetRotation(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0]);</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/>newR[16];</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>dRFromEulerAngles(newR,<sp/>0,<sp/>-atan2(-R[2],R[0])<sp/>,<sp/>0);</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetRotation(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>newR);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>wheel<sp/>offsets</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO<sp/>make<sp/>configurable<sp/>&amp;<sp/>use<sp/>in<sp/>vehicle<sp/>set<sp/>up<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>these<sp/>should<sp/>be<sp/>close<sp/>enough<sp/>however...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/>wheelOffsets[4][3]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>+1.2,<sp/>-.6,<sp/>-1<sp/>},</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>+1.2,<sp/>-.6,<sp/>+1<sp/>},</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>-1.2,<sp/>-.6,<sp/>-1<sp/>},</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/>-1.2,<sp/>-.6,<sp/>+1<sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=1;<sp/>i&lt;5;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dVector3<sp/>pb;</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodyGetRelPointPos(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[0],<sp/>wheelOffsets[i-1][0],<sp/>wheelOffsets[i-1][1],<sp/>wheelOffsets[i-1][2],<sp/>pb);</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodySetPosition(car-&gt;<ref refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" kindref="member">bodies</ref>[i],<sp/>pb[0],<sp/>pb[1],<sp/>pb[2]);</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="vehicle.c"/>
   </compounddef>
