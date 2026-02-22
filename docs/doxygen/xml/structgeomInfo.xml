@@ -144,7 +144,7 @@
         <location file="raylibODE.h" line="99" column="11" bodyfile="raylibODE.h" bodystart="99" bodyend="-1"/>
         <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="692" endline="704">CreateGeomInfo</referencedby>
         <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="846" endline="928">DrawGeom</referencedby>
-        <referencedby refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" compoundref="raylibODE_8c" startline="977" endline="987">SetEntityHew</referencedby>
+        <referencedby refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" compoundref="raylibODE_8c" startline="977" endline="985">SetEntityHew</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" prot="public" static="no" mutable="no">
         <type><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref> *</type>
@@ -163,6 +163,7 @@
         <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="692" endline="704">CreateGeomInfo</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
+        <referencedby refid="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" compoundref="raylibODE_8c" startline="997" endline="1005">SetEntitySurfaces</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structgeomInfo_1a520884eb761f24547c835107a37d024c" prot="public" static="no" mutable="no">
         <type><ref refid="raylibODE_8h_1aa5c459ebe4c67891450ca45a48d09490" kindref="member">TriggerCallback</ref></type>

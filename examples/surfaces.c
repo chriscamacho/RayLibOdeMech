@@ -59,18 +59,10 @@ int main(void)
 	clistAddNode(physCtx->statics, planeGeom);
 	
 	
-	// Create random simple objects with random textures
-	//for (int i = 0; i < NUM_OBJ; i++) {
-	//	CreateRandomEntity(physCtx, graphics, (Vector3){rndf(5, 11), rndf(6, 12), rndf(-3, 3)}, SHAPE_ALL);
-	//}
-	
-	
 	for (SurfaceType i = 0; i < SURFACE_COUNT; i++) {
 		Vector3 pos = (Vector3){i*2, 2, 0};
 		entity* testBox = CreateBox(physCtx, graphics, (Vector3){1,1,1}, pos, Vector3Zero(), 20.f);
-		dGeomID testGeom = dBodyGetFirstGeom(testBox->body);
-		geomInfo* boxInfo = dGeomGetData(testGeom);
-		boxInfo->surface = &gSurfaces[i];
+		SetEntitySurfaces(testBox, &gSurfaces[i]);
 	}
 	
 

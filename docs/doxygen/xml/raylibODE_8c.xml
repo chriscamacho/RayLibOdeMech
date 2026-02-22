@@ -448,7 +448,7 @@
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="692" endline="704">CreateGeomInfo</references>
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="219" endline="222">rndf</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="65">PhysicsContext::space</references>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1128" endline="1165">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1146" endline="1183">CreateMultiPiston</referencedby>
         <referencedby refid="raylibODE_8c_1ae7890e5cf20ab8875b9d08bf80d9d018" compoundref="raylibODE_8c" startline="590" endline="631">CreateRandomEntity</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -1291,7 +1291,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.c" line="781" column="6" bodyfile="raylibODE.c" bodystart="781" bodyend="794"/>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1048" endline="1053">FreeEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1066" endline="1071">FreeEntity</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="233" endline="249">FreeVehicle</referencedby>
@@ -1431,9 +1431,9 @@ As well as freeing all associated metadata it will also remove the body and its 
         <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="96">geomInfo::uvScaleU</references>
         <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="97">geomInfo::uvScaleV</references>
         <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="98">geomInfo::visual</references>
-        <referencedby refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" compoundref="raylibODE_8c" startline="1002" endline="1012">DrawBodyGeoms</referencedby>
+        <referencedby refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" compoundref="raylibODE_8c" startline="1020" endline="1030">DrawBodyGeoms</referencedby>
         <referencedby refid="ragdoll_8c_1a15a95f2545a01b96973e728cdd451bf9" compoundref="ragdoll_8c" startline="454" endline="463">DrawRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1026" endline="1035">DrawStatics</referencedby>
+        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1044" endline="1053">DrawStatics</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>dJointID</type>
@@ -1517,7 +1517,7 @@ As well as freeing all associated metadata it will also remove the body and its 
           <declname>c</declname>
         </param>
         <briefdescription>
-<para>changes the hew (tint) of all entities geoms </para>
+<para>changes the hew (tint) of all anentities geoms </para>
         </briefdescription>
         <detaileddescription>
 <para>go through each geom attached to the entities body and change their hew or tint</para>
@@ -1542,9 +1542,52 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="977" column="6" bodyfile="raylibODE.c" bodystart="977" bodyend="987"/>
+        <location file="raylibODE.c" line="977" column="6" bodyfile="raylibODE.c" bodystart="977" bodyend="985"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="99">geomInfo::hew</references>
+      </memberdef>
+      <memberdef kind="function" id="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SetEntitySurfaces</definition>
+        <argsstring>(entity *ent, SurfaceMaterial *mat)</argsstring>
+        <name>SetEntitySurfaces</name>
+        <param>
+          <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+          <declname>ent</declname>
+        </param>
+        <param>
+          <type><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref> *</type>
+          <declname>mat</declname>
+        </param>
+        <briefdescription>
+<para>changes the surface material of all an entities geoms </para>
+        </briefdescription>
+        <detaileddescription>
+<para>go through each geom attached to the entities body and change their surface properties</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ent</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the entity </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>mat</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>new surface material to use </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.c" line="997" column="6" bodyfile="raylibODE.c" bodystart="997" bodyend="1005"/>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
+        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1565,10 +1608,10 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="989" column="6" bodyfile="raylibODE.c" bodystart="989" bodyend="1000"/>
+        <location file="raylibODE.c" line="1007" column="6" bodyfile="raylibODE.c" bodystart="1007" bodyend="1018"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" compoundref="raylibODE_8c" startline="1002" endline="1012">DrawBodyGeoms</references>
+        <references refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" compoundref="raylibODE_8c" startline="1020" endline="1030">DrawBodyGeoms</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
         <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
@@ -1592,9 +1635,9 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1002" column="6" bodyfile="raylibODE.c" bodystart="1002" bodyend="1012"/>
+        <location file="raylibODE.c" line="1020" column="6" bodyfile="raylibODE.c" bodystart="1020" bodyend="1030"/>
         <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="846" endline="928">DrawGeom</references>
-        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="989" endline="1000">DrawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1007" endline="1018">DrawBodies</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1636,7 +1679,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1026" column="6" bodyfile="raylibODE.c" bodystart="1026" bodyend="1035"/>
+        <location file="raylibODE.c" line="1044" column="6" bodyfile="raylibODE.c" bodystart="1044" bodyend="1053"/>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
         <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="846" endline="928">DrawGeom</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
@@ -1683,7 +1726,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1048" column="6" bodyfile="raylibODE.c" bodystart="1048" bodyend="1053"/>
+        <location file="raylibODE.c" line="1066" column="6" bodyfile="raylibODE.c" bodystart="1066" bodyend="1071"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
         <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="781" endline="794">FreeBodyAndGeoms</references>
@@ -1753,12 +1796,12 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1067" column="10" bodyfile="raylibODE.c" bodystart="1067" bodyend="1103"/>
+        <location file="raylibODE.c" line="1085" column="10" bodyfile="raylibODE.c" bodystart="1085" bodyend="1121"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
         <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" compoundref="surface_8h" startline="42">SURFACE_METAL</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="64">PhysicsContext::world</references>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1128" endline="1165">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1146" endline="1183">CreateMultiPiston</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1811,8 +1854,8 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1115" column="6" bodyfile="raylibODE.c" bodystart="1115" bodyend="1119"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1128" endline="1165">CreateMultiPiston</referencedby>
+        <location file="raylibODE.c" line="1133" column="6" bodyfile="raylibODE.c" bodystart="1133" bodyend="1137"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1146" endline="1183">CreateMultiPiston</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1829,7 +1872,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1121" column="6" bodyfile="raylibODE.c" bodystart="1121" bodyend="1126"/>
+        <location file="raylibODE.c" line="1139" column="6" bodyfile="raylibODE.c" bodystart="1139" bodyend="1144"/>
         <references refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" compoundref="raylibODE_8h" startline="144">MultiPiston::joints</references>
         <references refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" compoundref="raylibODE_8h" startline="143">MultiPiston::sections</references>
       </memberdef>
@@ -1876,16 +1919,16 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1128" column="13" bodyfile="raylibODE.c" bodystart="1128" bodyend="1165"/>
+        <location file="raylibODE.c" line="1146" column="13" bodyfile="raylibODE.c" bodystart="1146" bodyend="1183"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" compoundref="raylibODE_8h" startline="145">MultiPiston::count</references>
         <references refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="356" endline="376">CreateBox</references>
-        <references refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1067" endline="1103">CreatePiston</references>
+        <references refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1085" endline="1121">CreatePiston</references>
         <references refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" compoundref="raylibODE_8h" startline="144">MultiPiston::joints</references>
         <references refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" compoundref="raylibODE_8h" startline="36">PISTON_GROUP</references>
         <references refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" compoundref="raylibODE_8h" startline="143">MultiPiston::sections</references>
-        <references refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" compoundref="raylibODE_8c" startline="1191" endline="1218">SetBodyOrientation</references>
-        <references refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" compoundref="raylibODE_8c" startline="1115" endline="1119">SetPistonLimits</references>
+        <references refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" compoundref="raylibODE_8c" startline="1209" endline="1236">SetBodyOrientation</references>
+        <references refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" compoundref="raylibODE_8c" startline="1133" endline="1137">SetPistonLimits</references>
         <references refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" compoundref="raylibODE_8h" startline="35">WORLD_GROUP</references>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -1927,7 +1970,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1176" column="6" bodyfile="raylibODE.c" bodystart="1176" bodyend="1182"/>
+        <location file="raylibODE.c" line="1194" column="6" bodyfile="raylibODE.c" bodystart="1194" bodyend="1200"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" compoundref="raylibODE_8h" startline="145">MultiPiston::count</references>
         <references refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" compoundref="raylibODE_8h" startline="144">MultiPiston::joints</references>
@@ -1971,8 +2014,8 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1191" column="6" bodyfile="raylibODE.c" bodystart="1191" bodyend="1218"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1128" endline="1165">CreateMultiPiston</referencedby>
+        <location file="raylibODE.c" line="1209" column="6" bodyfile="raylibODE.c" bodystart="1209" bodyend="1236"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1146" endline="1183">CreateMultiPiston</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>dJointID</type>
@@ -2015,7 +2058,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1231" column="10" bodyfile="raylibODE.c" bodystart="1231" bodyend="1237"/>
+        <location file="raylibODE.c" line="1249" column="10" bodyfile="raylibODE.c" bodystart="1249" bodyend="1255"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="64">PhysicsContext::world</references>
       </memberdef>
@@ -2046,7 +2089,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1239" column="6" bodyfile="raylibODE.c" bodystart="1239" bodyend="1244"/>
+        <location file="raylibODE.c" line="1257" column="6" bodyfile="raylibODE.c" bodystart="1257" bodyend="1262"/>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8c_1a5b5b0b12adc7119a13eaacef8d097499" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2075,7 +2118,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.c" line="1246" column="6" bodyfile="raylibODE.c" bodystart="1246" bodyend="1251"/>
+        <location file="raylibODE.c" line="1264" column="6" bodyfile="raylibODE.c" bodystart="1264" bodyend="1269"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -3057,7 +3100,7 @@ As well as freeing all associated metadata it will also remove the body and its 
 <codeline lineno="965"><highlight class="normal"></highlight></codeline>
 <codeline lineno="966"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
 <codeline lineno="967"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="968"><highlight class="comment"><sp/>*<sp/>@brief<sp/>changes<sp/>the<sp/>hew<sp/>(tint)<sp/>of<sp/>all<sp/>entities<sp/>geoms</highlight></codeline>
+<codeline lineno="968"><highlight class="comment"><sp/>*<sp/>@brief<sp/>changes<sp/>the<sp/>hew<sp/>(tint)<sp/>of<sp/>all<sp/>anentities<sp/>geoms</highlight></codeline>
 <codeline lineno="969"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="970"><highlight class="comment"><sp/>*<sp/>go<sp/>through<sp/>each<sp/>geom<sp/>attached<sp/>to<sp/>the<sp/>entities<sp/>body<sp/>and<sp/>change</highlight></codeline>
 <codeline lineno="971"><highlight class="comment"><sp/>*<sp/>their<sp/>hew<sp/>or<sp/>tint</highlight></codeline>
@@ -3070,277 +3113,295 @@ As well as freeing all associated metadata it will also remove the body and its 
 <codeline lineno="978"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="979"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>geom<sp/>=<sp/>dBodyGetFirstGeom(ent-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
 <codeline lineno="980"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(geom)<sp/>{</highlight></codeline>
-<codeline lineno="981"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomID<sp/>next<sp/>=<sp/>dBodyGetNextGeom(geom);</highlight></codeline>
-<codeline lineno="982"><highlight class="normal"></highlight></codeline>
-<codeline lineno="983"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>gi<sp/>=<sp/>dGeomGetData(geom);</highlight></codeline>
-<codeline lineno="984"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gi-&gt;<ref refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" kindref="member">hew</ref><sp/>=<sp/>c;</highlight></codeline>
-<codeline lineno="985"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>geom<sp/>=<sp/>next;</highlight></codeline>
-<codeline lineno="986"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="987"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="988"><highlight class="normal"></highlight></codeline>
-<codeline lineno="989" refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kindref="member">DrawBodies</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx)</highlight></codeline>
-<codeline lineno="990"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="991"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>pctx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
-<codeline lineno="992"><highlight class="normal"></highlight></codeline>
-<codeline lineno="993"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
-<codeline lineno="994"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>e<sp/>=<sp/>(<ref refid="structentity" kindref="compound">entity</ref>*)node-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="995"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodyID<sp/>bdy<sp/>=<sp/>e-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>;</highlight></codeline>
-<codeline lineno="996"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" kindref="member">DrawBodyGeoms</ref>(bdy,<sp/>ctx);</highlight></codeline>
-<codeline lineno="997"><highlight class="normal"></highlight></codeline>
-<codeline lineno="998"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
-<codeline lineno="999"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1000"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1001"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1002" refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" kindref="member">DrawBodyGeoms</ref>(dBodyID<sp/>bdy,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx)</highlight></codeline>
-<codeline lineno="1003"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1004"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>geom<sp/>=<sp/>dBodyGetFirstGeom(bdy);</highlight></codeline>
-<codeline lineno="1005"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(geom)<sp/>{</highlight></codeline>
-<codeline lineno="1006"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomID<sp/>next<sp/>=<sp/>dBodyGetNextGeom(geom);</highlight></codeline>
-<codeline lineno="1007"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1008"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" kindref="member">DrawGeom</ref>(geom,<sp/>ctx);</highlight></codeline>
-<codeline lineno="1009"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>geom<sp/>=<sp/>next;</highlight></codeline>
-<codeline lineno="1010"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1011"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1012"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1013"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="1014"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="1015"><highlight class="comment"><sp/>*<sp/>@brief<sp/>draws<sp/>the<sp/>static<sp/>geometries</highlight></codeline>
-<codeline lineno="1016"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1017"><highlight class="comment"><sp/>*<sp/>As<sp/>static<sp/>geometries<sp/>have<sp/>no<sp/>bodies<sp/>they<sp/>are<sp/>handled<sp/>a<sp/>little<sp/>different</highlight></codeline>
-<codeline lineno="1018"><highlight class="comment"><sp/>*<sp/>this<sp/>will<sp/>draw<sp/>all<sp/>the<sp/>dGeomID&apos;s<sp/>that<sp/>are<sp/>registed<sp/>on<sp/>the<sp/>physics<sp/>context</highlight></codeline>
-<codeline lineno="1019"><highlight class="comment"><sp/>*<sp/>static<sp/>lists</highlight></codeline>
-<codeline lineno="1020"><highlight class="comment"><sp/>*<sp/>@note<sp/>all<sp/>geoms<sp/>on<sp/>the<sp/>statics<sp/>list<sp/>must<sp/>have<sp/>attached<sp/>geomInfo</highlight></codeline>
-<codeline lineno="1021"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1022"><highlight class="comment"><sp/>*<sp/>@param<sp/>ctx<sp/>the<sp/>graphics<sp/>context</highlight></codeline>
-<codeline lineno="1023"><highlight class="comment"><sp/>*<sp/>@param<sp/>pctx<sp/>the<sp/>physics<sp/>context</highlight></codeline>
-<codeline lineno="1024"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1025"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="1026" refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kindref="member">DrawStatics</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx)</highlight></codeline>
-<codeline lineno="1027"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1028"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>pctx-&gt;<ref refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kindref="member">statics</ref>-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="981"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>gi<sp/>=<sp/>dGeomGetData(geom);</highlight></codeline>
+<codeline lineno="982"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gi-&gt;<ref refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" kindref="member">hew</ref><sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="983"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>geom<sp/>=<sp/>dBodyGetNextGeom(geom);</highlight></codeline>
+<codeline lineno="984"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="985"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="986"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="987"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="988"><highlight class="comment"><sp/>*<sp/>@brief<sp/>changes<sp/>the<sp/>surface<sp/>material<sp/>of<sp/>all<sp/>an<sp/>entities<sp/>geoms</highlight></codeline>
+<codeline lineno="989"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="990"><highlight class="comment"><sp/>*<sp/>go<sp/>through<sp/>each<sp/>geom<sp/>attached<sp/>to<sp/>the<sp/>entities<sp/>body<sp/>and<sp/>change</highlight></codeline>
+<codeline lineno="991"><highlight class="comment"><sp/>*<sp/>their<sp/>surface<sp/>properties</highlight></codeline>
+<codeline lineno="992"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="993"><highlight class="comment"><sp/>*<sp/>@param<sp/>ent<sp/>pointer<sp/>to<sp/>the<sp/>entity</highlight></codeline>
+<codeline lineno="994"><highlight class="comment"><sp/>*<sp/>@param<sp/>mat<sp/>new<sp/>surface<sp/>material<sp/>to<sp/>use</highlight></codeline>
+<codeline lineno="995"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="996"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="997" refid="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" kindref="member">SetEntitySurfaces</ref>(<ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent,<sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref>*<sp/>mat)</highlight></codeline>
+<codeline lineno="998"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="999"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>geom<sp/>=<sp/>dBodyGetFirstGeom(ent-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
+<codeline lineno="1000"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(geom)<sp/>{</highlight></codeline>
+<codeline lineno="1001"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*<sp/>gi<sp/>=<sp/>dGeomGetData(geom);</highlight></codeline>
+<codeline lineno="1002"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gi-&gt;<ref refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" kindref="member">surface</ref><sp/>=<sp/>mat;</highlight></codeline>
+<codeline lineno="1003"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>geom<sp/>=<sp/>dBodyGetNextGeom(geom);</highlight></codeline>
+<codeline lineno="1004"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1005"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1006"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1007" refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kindref="member">DrawBodies</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx)</highlight></codeline>
+<codeline lineno="1008"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1009"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>pctx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
+<codeline lineno="1010"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1011"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="1012"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>e<sp/>=<sp/>(<ref refid="structentity" kindref="compound">entity</ref>*)node-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="1013"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodyID<sp/>bdy<sp/>=<sp/>e-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>;</highlight></codeline>
+<codeline lineno="1014"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" kindref="member">DrawBodyGeoms</ref>(bdy,<sp/>ctx);</highlight></codeline>
+<codeline lineno="1015"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1016"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="1017"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1018"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1019"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1020" refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" kindref="member">DrawBodyGeoms</ref>(dBodyID<sp/>bdy,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx)</highlight></codeline>
+<codeline lineno="1021"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1022"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>geom<sp/>=<sp/>dBodyGetFirstGeom(bdy);</highlight></codeline>
+<codeline lineno="1023"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal">(geom)<sp/>{</highlight></codeline>
+<codeline lineno="1024"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomID<sp/>next<sp/>=<sp/>dBodyGetNextGeom(geom);</highlight></codeline>
+<codeline lineno="1025"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1026"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" kindref="member">DrawGeom</ref>(geom,<sp/>ctx);</highlight></codeline>
+<codeline lineno="1027"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>geom<sp/>=<sp/>next;</highlight></codeline>
+<codeline lineno="1028"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1029"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1030"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
-<codeline lineno="1031"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomID<sp/>geom<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref>;</highlight></codeline>
-<codeline lineno="1032"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" kindref="member">DrawGeom</ref>(geom,<sp/>ctx);</highlight></codeline>
-<codeline lineno="1033"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
-<codeline lineno="1034"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1035"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1036"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="1037"><highlight class="comment">/**<sp/>@brief<sp/>frees<sp/>an<sp/>entity</highlight></codeline>
-<codeline lineno="1038"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="1039"><highlight class="comment"><sp/>*<sp/>this<sp/>is<sp/>essentially<sp/>destroying<sp/>the<sp/>entity<sp/>it<sp/>is<sp/>no<sp/>longer<sp/>part<sp/>of<sp/>the<sp/>world</highlight></codeline>
-<codeline lineno="1040"><highlight class="comment"><sp/>*<sp/>@note<sp/>if<sp/>iterrating<sp/>through<sp/>the<sp/>global<sp/>entity<sp/>list<sp/>while<sp/>calling<sp/>this,</highlight></codeline>
-<codeline lineno="1041"><highlight class="comment"><sp/>*<sp/>ensure<sp/>you<sp/>have<sp/>stored<sp/>the<sp/>next<sp/>node<sp/>in<sp/>the<sp/>chain,<sp/>for<sp/>use<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the</highlight></codeline>
-<codeline lineno="1042"><highlight class="comment"><sp/>*<sp/>while<sp/>loop<sp/>as<sp/>obviously<sp/>node-&gt;next<sp/>won&apos;t<sp/>work</highlight></codeline>
-<codeline lineno="1043"><highlight class="comment"><sp/>*</highlight></codeline>
-<codeline lineno="1044"><highlight class="comment"><sp/>*<sp/>@param<sp/>physCtx<sp/>physics<sp/>context</highlight></codeline>
-<codeline lineno="1045"><highlight class="comment"><sp/>*<sp/>@param<sp/>ent<sp/>the<sp/>entity<sp/>to<sp/>destroy</highlight></codeline>
-<codeline lineno="1046"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1030"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1031"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="1032"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="1033"><highlight class="comment"><sp/>*<sp/>@brief<sp/>draws<sp/>the<sp/>static<sp/>geometries</highlight></codeline>
+<codeline lineno="1034"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1035"><highlight class="comment"><sp/>*<sp/>As<sp/>static<sp/>geometries<sp/>have<sp/>no<sp/>bodies<sp/>they<sp/>are<sp/>handled<sp/>a<sp/>little<sp/>different</highlight></codeline>
+<codeline lineno="1036"><highlight class="comment"><sp/>*<sp/>this<sp/>will<sp/>draw<sp/>all<sp/>the<sp/>dGeomID&apos;s<sp/>that<sp/>are<sp/>registed<sp/>on<sp/>the<sp/>physics<sp/>context</highlight></codeline>
+<codeline lineno="1037"><highlight class="comment"><sp/>*<sp/>static<sp/>lists</highlight></codeline>
+<codeline lineno="1038"><highlight class="comment"><sp/>*<sp/>@note<sp/>all<sp/>geoms<sp/>on<sp/>the<sp/>statics<sp/>list<sp/>must<sp/>have<sp/>attached<sp/>geomInfo</highlight></codeline>
+<codeline lineno="1039"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1040"><highlight class="comment"><sp/>*<sp/>@param<sp/>ctx<sp/>the<sp/>graphics<sp/>context</highlight></codeline>
+<codeline lineno="1041"><highlight class="comment"><sp/>*<sp/>@param<sp/>pctx<sp/>the<sp/>physics<sp/>context</highlight></codeline>
+<codeline lineno="1042"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1043"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="1044" refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kindref="member">DrawStatics</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>ctx,<sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>pctx)</highlight></codeline>
+<codeline lineno="1045"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1046"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>pctx-&gt;<ref refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kindref="member">statics</ref>-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>
 <codeline lineno="1047"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1048" refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kindref="member">FreeEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent)</highlight></codeline>
-<codeline lineno="1049"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1050"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" kindref="member">FreeBodyAndGeoms</ref>(ent-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
-<codeline lineno="1051"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" kindref="member">clistDeleteNode</ref>(physCtx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>,<sp/>&amp;ent-&gt;<ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref>);</highlight></codeline>
-<codeline lineno="1052"><highlight class="normal"><sp/><sp/><sp/><sp/>free(ent);</highlight></codeline>
+<codeline lineno="1048"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(node<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="1049"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomID<sp/>geom<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" kindref="member">data</ref>;</highlight></codeline>
+<codeline lineno="1050"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" kindref="member">DrawGeom</ref>(geom,<sp/>ctx);</highlight></codeline>
+<codeline lineno="1051"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>node<sp/>=<sp/>node-&gt;<ref refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" kindref="member">next</ref>;</highlight></codeline>
+<codeline lineno="1052"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1053"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="1054"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="1055"><highlight class="comment">/**<sp/>@brief<sp/>creates<sp/>a<sp/>piston<sp/>using<sp/>two<sp/>entities<sp/>as<sp/>its<sp/>base<sp/>on<sp/>extending<sp/>sections</highlight></codeline>
-<codeline lineno="1056"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1057"><highlight class="comment"><sp/>*<sp/>both<sp/>entities<sp/>should<sp/>be<sp/>positioned<sp/>and<sp/>oriented<sp/>before<sp/>calling<sp/>this,<sp/>they<sp/>MUST<sp/>NOT</highlight></codeline>
-<codeline lineno="1058"><highlight class="comment"><sp/>*<sp/>be<sp/>in<sp/>exactly<sp/>the<sp/>same<sp/>position,<sp/>as<sp/>the<sp/>vector<sp/>between<sp/>them<sp/>is<sp/>used<sp/>as<sp/>the<sp/>axis<sp/>for</highlight></codeline>
-<codeline lineno="1059"><highlight class="comment"><sp/>*<sp/>the<sp/>piston</highlight></codeline>
-<codeline lineno="1060"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1061"><highlight class="comment"><sp/>*<sp/>@param<sp/>physCtx<sp/>the<sp/>physics<sp/>context</highlight></codeline>
-<codeline lineno="1062"><highlight class="comment"><sp/>*<sp/>@param<sp/>entA<sp/>the<sp/>base<sp/>entity</highlight></codeline>
-<codeline lineno="1063"><highlight class="comment"><sp/>*<sp/>@param<sp/>entB<sp/>the<sp/>extending<sp/>entity</highlight></codeline>
-<codeline lineno="1064"><highlight class="comment"><sp/>*<sp/>@param<sp/>strength<sp/>the<sp/>maximum<sp/>force<sp/>the<sp/>piston<sp/>can<sp/>use</highlight></codeline>
-<codeline lineno="1065"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1066"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1067" refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" refkind="member"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kindref="member">CreatePiston</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>entA,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>entB,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>strength)</highlight></codeline>
-<codeline lineno="1068"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1069"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>joint<sp/>=<sp/>dJointCreateSlider(physCtx-&gt;<ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>,<sp/>0);</highlight></codeline>
-<codeline lineno="1070"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1071"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>bodyA<sp/>=<sp/>entA-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>;</highlight></codeline>
-<codeline lineno="1072"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>bodyB<sp/>=<sp/>(entB<sp/>!=<sp/>NULL)<sp/>?<sp/>entB-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref><sp/>:<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>0<sp/>=<sp/>world</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1073"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointAttach(joint,<sp/>bodyA,<sp/>bodyB);</highlight></codeline>
-<codeline lineno="1074"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1075"><highlight class="normal"><sp/><sp/><sp/><sp/>((<ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*)dGeomGetData(dBodyGetFirstGeom(bodyA)))-&gt;surface<sp/>=<sp/>&amp;<ref refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" kindref="member">SURFACE_METAL</ref>];</highlight></codeline>
-<codeline lineno="1076"><highlight class="normal"><sp/><sp/><sp/><sp/>((<ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*)dGeomGetData(dBodyGetFirstGeom(bodyB)))-&gt;surface<sp/>=<sp/>&amp;<ref refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" kindref="member">SURFACE_METAL</ref>];</highlight></codeline>
-<codeline lineno="1077"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1078"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/>axis[3];</highlight></codeline>
-<codeline lineno="1079"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>posA<sp/>=<sp/>dBodyGetPosition(bodyA);</highlight></codeline>
-<codeline lineno="1080"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1081"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(entB<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
-<codeline lineno="1082"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>posB<sp/>=<sp/>dBodyGetPosition(bodyB);</highlight></codeline>
-<codeline lineno="1083"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis[0]<sp/>=<sp/>posA[0]<sp/>-<sp/>posB[0];</highlight></codeline>
-<codeline lineno="1084"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis[1]<sp/>=<sp/>posA[1]<sp/>-<sp/>posB[1];</highlight></codeline>
-<codeline lineno="1085"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis[2]<sp/>=<sp/>posA[2]<sp/>-<sp/>posB[2];</highlight></codeline>
-<codeline lineno="1086"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="1087"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Default<sp/>to<sp/>&quot;Up&quot;<sp/>or<sp/>a<sp/>specific<sp/>direction<sp/>if<sp/>B<sp/>is<sp/>world</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1088"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis[0]<sp/>=<sp/>0;<sp/>axis[1]<sp/>=<sp/>1;<sp/>axis[2]<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="1089"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1090"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1091"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Normalize<sp/>and<sp/>set<sp/>the<sp/>axis</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1092"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/>length<sp/>=<sp/>sqrt(axis[0]*axis[0]<sp/>+<sp/>axis[1]*axis[1]<sp/>+<sp/>axis[2]*axis[2]);</highlight></codeline>
-<codeline lineno="1093"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(length<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="1094"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderAxis(joint,<sp/>axis[0]/length,<sp/>axis[1]/length,<sp/>axis[2]/length);</highlight></codeline>
-<codeline lineno="1095"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1096"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1097"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetSliderParam(joint,<sp/>dParamVel,<sp/>0.0);</highlight></codeline>
-<codeline lineno="1098"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetSliderParam(joint,<sp/>dParamFMax,<sp/>strength);</highlight></codeline>
-<codeline lineno="1099"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>joint;</highlight></codeline>
-<codeline lineno="1103"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="1105"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="1106"><highlight class="comment"><sp/>*<sp/>@brief<sp/>sets<sp/>the<sp/>limits<sp/>of<sp/>travel<sp/>for<sp/>a<sp/>piston</highlight></codeline>
-<codeline lineno="1107"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1108"><highlight class="comment"><sp/>*<sp/>min<sp/>must<sp/>be<sp/>smaller<sp/>than<sp/>max<sp/>values<sp/>can<sp/>be<sp/>negative</highlight></codeline>
-<codeline lineno="1109"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1110"><highlight class="comment"><sp/>*<sp/>@param<sp/>joint<sp/>the<sp/>ODE<sp/>joint<sp/>id<sp/>of<sp/>the<sp/>joint<sp/>you<sp/>want<sp/>to<sp/>change</highlight></codeline>
-<codeline lineno="1111"><highlight class="comment"><sp/>*<sp/>@param<sp/>min<sp/>the<sp/>low<sp/>end<sp/>stop<sp/>point</highlight></codeline>
-<codeline lineno="1112"><highlight class="comment"><sp/>*<sp/>@param<sp/>max<sp/>the<sp/>high<sp/>end<sp/>stop<sp/>point</highlight></codeline>
-<codeline lineno="1113"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1114"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1115" refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(dJointID<sp/>joint,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max)</highlight></codeline>
-<codeline lineno="1116"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1117"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetSliderParam(joint,<sp/>dParamLoStop,<sp/>min);</highlight></codeline>
-<codeline lineno="1118"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetSliderParam(joint,<sp/>dParamHiStop,<sp/>max);</highlight></codeline>
-<codeline lineno="1119"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1121" refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" kindref="member">FreeMultiPiston</ref>(<ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/>mp)</highlight></codeline>
-<codeline lineno="1122"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1123"><highlight class="normal"><sp/><sp/><sp/><sp/>free(mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>);</highlight></codeline>
-<codeline lineno="1124"><highlight class="normal"><sp/><sp/><sp/><sp/>free(mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>);</highlight></codeline>
-<codeline lineno="1125"><highlight class="normal"><sp/><sp/><sp/><sp/>free(mp);</highlight></codeline>
-<codeline lineno="1126"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1128" refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" refkind="member"><highlight class="normal"><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/><ref refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" kindref="member">CreateMultiPiston</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics,<sp/></highlight></codeline>
-<codeline lineno="1129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>direction,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count,<sp/></highlight></codeline>
-<codeline lineno="1130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sectionLen,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>baseWidth,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>strength)<sp/></highlight></codeline>
-<codeline lineno="1131"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1132"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/>mp<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>));</highlight></codeline>
-<codeline lineno="1133"><highlight class="normal"><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" kindref="member">count</ref><sp/>=<sp/>count;</highlight></codeline>
-<codeline lineno="1134"><highlight class="normal"><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity" kindref="compound">entity</ref>*)<sp/>*<sp/>count);</highlight></codeline>
-<codeline lineno="1135"><highlight class="normal"><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dJointID)<sp/>*<sp/>(count<sp/>-<sp/>1));</highlight></codeline>
-<codeline lineno="1136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1137"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>dir<sp/>=<sp/>Vector3Normalize(direction);</highlight></codeline>
+<codeline lineno="1055"><highlight class="comment">/**<sp/>@brief<sp/>frees<sp/>an<sp/>entity</highlight></codeline>
+<codeline lineno="1056"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="1057"><highlight class="comment"><sp/>*<sp/>this<sp/>is<sp/>essentially<sp/>destroying<sp/>the<sp/>entity<sp/>it<sp/>is<sp/>no<sp/>longer<sp/>part<sp/>of<sp/>the<sp/>world</highlight></codeline>
+<codeline lineno="1058"><highlight class="comment"><sp/>*<sp/>@note<sp/>if<sp/>iterrating<sp/>through<sp/>the<sp/>global<sp/>entity<sp/>list<sp/>while<sp/>calling<sp/>this,</highlight></codeline>
+<codeline lineno="1059"><highlight class="comment"><sp/>*<sp/>ensure<sp/>you<sp/>have<sp/>stored<sp/>the<sp/>next<sp/>node<sp/>in<sp/>the<sp/>chain,<sp/>for<sp/>use<sp/>at<sp/>the<sp/>end<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="1060"><highlight class="comment"><sp/>*<sp/>while<sp/>loop<sp/>as<sp/>obviously<sp/>node-&gt;next<sp/>won&apos;t<sp/>work</highlight></codeline>
+<codeline lineno="1061"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="1062"><highlight class="comment"><sp/>*<sp/>@param<sp/>physCtx<sp/>physics<sp/>context</highlight></codeline>
+<codeline lineno="1063"><highlight class="comment"><sp/>*<sp/>@param<sp/>ent<sp/>the<sp/>entity<sp/>to<sp/>destroy</highlight></codeline>
+<codeline lineno="1064"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1065"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1066" refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kindref="member">FreeEntity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent)</highlight></codeline>
+<codeline lineno="1067"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1068"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" kindref="member">FreeBodyAndGeoms</ref>(ent-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
+<codeline lineno="1069"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" kindref="member">clistDeleteNode</ref>(physCtx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>,<sp/>&amp;ent-&gt;<ref refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" kindref="member">node</ref>);</highlight></codeline>
+<codeline lineno="1070"><highlight class="normal"><sp/><sp/><sp/><sp/>free(ent);</highlight></codeline>
+<codeline lineno="1071"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1072"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="1073"><highlight class="comment">/**<sp/>@brief<sp/>creates<sp/>a<sp/>piston<sp/>using<sp/>two<sp/>entities<sp/>as<sp/>its<sp/>base<sp/>on<sp/>extending<sp/>sections</highlight></codeline>
+<codeline lineno="1074"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1075"><highlight class="comment"><sp/>*<sp/>both<sp/>entities<sp/>should<sp/>be<sp/>positioned<sp/>and<sp/>oriented<sp/>before<sp/>calling<sp/>this,<sp/>they<sp/>MUST<sp/>NOT</highlight></codeline>
+<codeline lineno="1076"><highlight class="comment"><sp/>*<sp/>be<sp/>in<sp/>exactly<sp/>the<sp/>same<sp/>position,<sp/>as<sp/>the<sp/>vector<sp/>between<sp/>them<sp/>is<sp/>used<sp/>as<sp/>the<sp/>axis<sp/>for</highlight></codeline>
+<codeline lineno="1077"><highlight class="comment"><sp/>*<sp/>the<sp/>piston</highlight></codeline>
+<codeline lineno="1078"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1079"><highlight class="comment"><sp/>*<sp/>@param<sp/>physCtx<sp/>the<sp/>physics<sp/>context</highlight></codeline>
+<codeline lineno="1080"><highlight class="comment"><sp/>*<sp/>@param<sp/>entA<sp/>the<sp/>base<sp/>entity</highlight></codeline>
+<codeline lineno="1081"><highlight class="comment"><sp/>*<sp/>@param<sp/>entB<sp/>the<sp/>extending<sp/>entity</highlight></codeline>
+<codeline lineno="1082"><highlight class="comment"><sp/>*<sp/>@param<sp/>strength<sp/>the<sp/>maximum<sp/>force<sp/>the<sp/>piston<sp/>can<sp/>use</highlight></codeline>
+<codeline lineno="1083"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1084"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1085" refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" refkind="member"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kindref="member">CreatePiston</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>entA,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>entB,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>strength)</highlight></codeline>
+<codeline lineno="1086"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1087"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>joint<sp/>=<sp/>dJointCreateSlider(physCtx-&gt;<ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="1088"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1089"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>bodyA<sp/>=<sp/>entA-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>;</highlight></codeline>
+<codeline lineno="1090"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodyID<sp/>bodyB<sp/>=<sp/>(entB<sp/>!=<sp/>NULL)<sp/>?<sp/>entB-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref><sp/>:<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>0<sp/>=<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1091"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointAttach(joint,<sp/>bodyA,<sp/>bodyB);</highlight></codeline>
+<codeline lineno="1092"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1093"><highlight class="normal"><sp/><sp/><sp/><sp/>((<ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*)dGeomGetData(dBodyGetFirstGeom(bodyA)))-&gt;surface<sp/>=<sp/>&amp;<ref refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" kindref="member">SURFACE_METAL</ref>];</highlight></codeline>
+<codeline lineno="1094"><highlight class="normal"><sp/><sp/><sp/><sp/>((<ref refid="structgeomInfo" kindref="compound">geomInfo</ref>*)dGeomGetData(dBodyGetFirstGeom(bodyB)))-&gt;surface<sp/>=<sp/>&amp;<ref refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" kindref="member">SURFACE_METAL</ref>];</highlight></codeline>
+<codeline lineno="1095"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1096"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/>axis[3];</highlight></codeline>
+<codeline lineno="1097"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>posA<sp/>=<sp/>dBodyGetPosition(bodyA);</highlight></codeline>
+<codeline lineno="1098"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1099"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(entB<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="1100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>dReal*<sp/>posB<sp/>=<sp/>dBodyGetPosition(bodyB);</highlight></codeline>
+<codeline lineno="1101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis[0]<sp/>=<sp/>posA[0]<sp/>-<sp/>posB[0];</highlight></codeline>
+<codeline lineno="1102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis[1]<sp/>=<sp/>posA[1]<sp/>-<sp/>posB[1];</highlight></codeline>
+<codeline lineno="1103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis[2]<sp/>=<sp/>posA[2]<sp/>-<sp/>posB[2];</highlight></codeline>
+<codeline lineno="1104"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="1105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Default<sp/>to<sp/>&quot;Up&quot;<sp/>or<sp/>a<sp/>specific<sp/>direction<sp/>if<sp/>B<sp/>is<sp/>world</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>axis[0]<sp/>=<sp/>0;<sp/>axis[1]<sp/>=<sp/>1;<sp/>axis[2]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="1107"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Normalize<sp/>and<sp/>set<sp/>the<sp/>axis</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1110"><highlight class="normal"><sp/><sp/><sp/><sp/>dReal<sp/>length<sp/>=<sp/>sqrt(axis[0]*axis[0]<sp/>+<sp/>axis[1]*axis[1]<sp/>+<sp/>axis[2]*axis[2]);</highlight></codeline>
+<codeline lineno="1111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(length<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="1112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderAxis(joint,<sp/>axis[0]/length,<sp/>axis[1]/length,<sp/>axis[2]/length);</highlight></codeline>
+<codeline lineno="1113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1115"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetSliderParam(joint,<sp/>dParamVel,<sp/>0.0);</highlight></codeline>
+<codeline lineno="1116"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetSliderParam(joint,<sp/>dParamFMax,<sp/>strength);</highlight></codeline>
+<codeline lineno="1117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>joint;</highlight></codeline>
+<codeline lineno="1121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1122"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="1123"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="1124"><highlight class="comment"><sp/>*<sp/>@brief<sp/>sets<sp/>the<sp/>limits<sp/>of<sp/>travel<sp/>for<sp/>a<sp/>piston</highlight></codeline>
+<codeline lineno="1125"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1126"><highlight class="comment"><sp/>*<sp/>min<sp/>must<sp/>be<sp/>smaller<sp/>than<sp/>max<sp/>values<sp/>can<sp/>be<sp/>negative</highlight></codeline>
+<codeline lineno="1127"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1128"><highlight class="comment"><sp/>*<sp/>@param<sp/>joint<sp/>the<sp/>ODE<sp/>joint<sp/>id<sp/>of<sp/>the<sp/>joint<sp/>you<sp/>want<sp/>to<sp/>change</highlight></codeline>
+<codeline lineno="1129"><highlight class="comment"><sp/>*<sp/>@param<sp/>min<sp/>the<sp/>low<sp/>end<sp/>stop<sp/>point</highlight></codeline>
+<codeline lineno="1130"><highlight class="comment"><sp/>*<sp/>@param<sp/>max<sp/>the<sp/>high<sp/>end<sp/>stop<sp/>point</highlight></codeline>
+<codeline lineno="1131"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1132"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1133" refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(dJointID<sp/>joint,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>min,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>max)</highlight></codeline>
+<codeline lineno="1134"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1135"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetSliderParam(joint,<sp/>dParamLoStop,<sp/>min);</highlight></codeline>
+<codeline lineno="1136"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetSliderParam(joint,<sp/>dParamHiStop,<sp/>max);</highlight></codeline>
+<codeline lineno="1137"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="1138"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>count;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="1140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scale<sp/>=<sp/>1.0f<sp/>-<sp/>(i<sp/>*<sp/>0.1f);</highlight></codeline>
-<codeline lineno="1141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3<sp/>size<sp/>=<sp/>{<sp/>sectionLen,<sp/>baseWidth<sp/>*<sp/>scale,<sp/>baseWidth<sp/>*<sp/>scale<sp/>};</highlight></codeline>
-<codeline lineno="1142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>stagger<sp/>each<sp/>section<sp/>0.1<sp/>units<sp/>along<sp/>the<sp/>direction<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3<sp/>sPos<sp/>=<sp/>{</highlight></codeline>
-<codeline lineno="1145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos.x<sp/>+<sp/>(dir.x<sp/>*<sp/>i<sp/>*<sp/>0.1f),</highlight></codeline>
-<codeline lineno="1146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos.y<sp/>+<sp/>(dir.y<sp/>*<sp/>i<sp/>*<sp/>0.1f),</highlight></codeline>
-<codeline lineno="1147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos.z<sp/>+<sp/>(dir.z<sp/>*<sp/>i<sp/>*<sp/>0.1f)</highlight></codeline>
-<codeline lineno="1148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
-<codeline lineno="1149"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i]<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,<sp/>size,<sp/>sPos,<sp/>(Vector3){0,0,0},<sp/>4);</highlight></codeline>
-<codeline lineno="1151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Orient<sp/>the<sp/>box<sp/>to<sp/>face<sp/>the<sp/>direction<sp/>of<sp/>travel</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kindref="member">SetBodyOrientation</ref>(mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i]-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>,<sp/>dir);</highlight></codeline>
+<codeline lineno="1139" refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" kindref="member">FreeMultiPiston</ref>(<ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/>mp)</highlight></codeline>
+<codeline lineno="1140"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1141"><highlight class="normal"><sp/><sp/><sp/><sp/>free(mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>);</highlight></codeline>
+<codeline lineno="1142"><highlight class="normal"><sp/><sp/><sp/><sp/>free(mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>);</highlight></codeline>
+<codeline lineno="1143"><highlight class="normal"><sp/><sp/><sp/><sp/>free(mp);</highlight></codeline>
+<codeline lineno="1144"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1146" refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" refkind="member"><highlight class="normal"><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/><ref refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" kindref="member">CreateMultiPiston</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics,<sp/></highlight></codeline>
+<codeline lineno="1147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3<sp/>pos,<sp/>Vector3<sp/>direction,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count,<sp/></highlight></codeline>
+<codeline lineno="1148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sectionLen,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>baseWidth,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>strength)<sp/></highlight></codeline>
+<codeline lineno="1149"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/>mp<sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>));</highlight></codeline>
+<codeline lineno="1151"><highlight class="normal"><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" kindref="member">count</ref><sp/>=<sp/>count;</highlight></codeline>
+<codeline lineno="1152"><highlight class="normal"><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="structentity" kindref="compound">entity</ref>*)<sp/>*<sp/>count);</highlight></codeline>
+<codeline lineno="1153"><highlight class="normal"><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref><sp/>=<sp/>malloc(</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(dJointID)<sp/>*<sp/>(count<sp/>-<sp/>1));</highlight></codeline>
 <codeline lineno="1154"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomID<sp/>g<sp/>=<sp/>dBodyGetFirstGeom(mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i]-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
-<codeline lineno="1156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomSetCategoryBits(g,<sp/><ref refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" kindref="member">PISTON_GROUP</ref>);</highlight></codeline>
-<codeline lineno="1157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomSetCollideBits(g,<sp/><ref refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" kindref="member">WORLD_GROUP</ref>);</highlight></codeline>
-<codeline lineno="1158"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="1160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>[i-1]<sp/>=<sp/><ref refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kindref="member">CreatePiston</ref>(physCtx,<sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i-1],<sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i],<sp/>strength);</highlight></codeline>
-<codeline lineno="1161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>[i-1],<sp/>0,<sp/>sectionLen<sp/>-<sp/>0.3f);</highlight></codeline>
-<codeline lineno="1162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mp;</highlight></codeline>
-<codeline lineno="1165"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1166"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="1167"><highlight class="comment">/**<sp/>@brief<sp/>set<sp/>a<sp/>MultiPiston&apos;s<sp/>velocity</highlight></codeline>
-<codeline lineno="1168"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1169"><highlight class="comment"><sp/>*<sp/>While<sp/>setting<sp/>all<sp/>the<sp/>join<sp/>velocities<sp/>in<sp/>the<sp/>piston<sp/>it<sp/>also</highlight></codeline>
-<codeline lineno="1170"><highlight class="comment"><sp/>*<sp/>ensures<sp/>all<sp/>the<sp/>bodies<sp/>are<sp/>active</highlight></codeline>
-<codeline lineno="1171"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1172"><highlight class="comment"><sp/>*<sp/>@param<sp/>mp<sp/>the<sp/>multipiston<sp/>you<sp/>want<sp/>to<sp/>change<sp/>the<sp/>speed<sp/>of</highlight></codeline>
-<codeline lineno="1173"><highlight class="comment"><sp/>*<sp/>@param<sp/>velocity<sp/>the<sp/>speed<sp/>you<sp/>want<sp/>the<sp/>piston<sp/>set<sp/>to</highlight></codeline>
-<codeline lineno="1174"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1175"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1176" refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" kindref="member">SetMultiPistonVelocity</ref>(<ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/>mp,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>velocity)<sp/>{</highlight></codeline>
-<codeline lineno="1177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!mp)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>mp-&gt;<ref refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" kindref="member">count</ref><sp/>-<sp/>1;<sp/>i++)<sp/>{</highlight></codeline>
-<codeline lineno="1179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderParam(mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>[i],<sp/>dParamVel,<sp/>velocity);</highlight></codeline>
-<codeline lineno="1180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodyEnable(mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i+1]-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
+<codeline lineno="1155"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>dir<sp/>=<sp/>Vector3Normalize(direction);</highlight></codeline>
+<codeline lineno="1156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>count;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="1158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>scale<sp/>=<sp/>1.0f<sp/>-<sp/>(i<sp/>*<sp/>0.1f);</highlight></codeline>
+<codeline lineno="1159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3<sp/>size<sp/>=<sp/>{<sp/>sectionLen,<sp/>baseWidth<sp/>*<sp/>scale,<sp/>baseWidth<sp/>*<sp/>scale<sp/>};</highlight></codeline>
+<codeline lineno="1160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>stagger<sp/>each<sp/>section<sp/>0.1<sp/>units<sp/>along<sp/>the<sp/>direction<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3<sp/>sPos<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="1163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos.x<sp/>+<sp/>(dir.x<sp/>*<sp/>i<sp/>*<sp/>0.1f),</highlight></codeline>
+<codeline lineno="1164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos.y<sp/>+<sp/>(dir.y<sp/>*<sp/>i<sp/>*<sp/>0.1f),</highlight></codeline>
+<codeline lineno="1165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos.z<sp/>+<sp/>(dir.z<sp/>*<sp/>i<sp/>*<sp/>0.1f)</highlight></codeline>
+<codeline lineno="1166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="1167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i]<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,<sp/>size,<sp/>sPos,<sp/>(Vector3){0,0,0},<sp/>4);</highlight></codeline>
+<codeline lineno="1169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Orient<sp/>the<sp/>box<sp/>to<sp/>face<sp/>the<sp/>direction<sp/>of<sp/>travel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kindref="member">SetBodyOrientation</ref>(mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i]-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>,<sp/>dir);</highlight></codeline>
+<codeline lineno="1172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomID<sp/>g<sp/>=<sp/>dBodyGetFirstGeom(mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i]-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
+<codeline lineno="1174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomSetCategoryBits(g,<sp/><ref refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" kindref="member">PISTON_GROUP</ref>);</highlight></codeline>
+<codeline lineno="1175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dGeomSetCollideBits(g,<sp/><ref refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" kindref="member">WORLD_GROUP</ref>);</highlight></codeline>
+<codeline lineno="1176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="1178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>[i-1]<sp/>=<sp/><ref refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kindref="member">CreatePiston</ref>(physCtx,<sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i-1],<sp/>mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i],<sp/>strength);</highlight></codeline>
+<codeline lineno="1179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" kindref="member">SetPistonLimits</ref>(mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>[i-1],<sp/>0,<sp/>sectionLen<sp/>-<sp/>0.3f);</highlight></codeline>
+<codeline lineno="1180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="1181"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1182"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="1184"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="1185"><highlight class="comment"><sp/>*<sp/>@brief<sp/>sets<sp/>to<sp/>bodies<sp/>orientation<sp/>to<sp/>align<sp/>with<sp/>a<sp/>vector</highlight></codeline>
+<codeline lineno="1182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>mp;</highlight></codeline>
+<codeline lineno="1183"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1184"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="1185"><highlight class="comment">/**<sp/>@brief<sp/>set<sp/>a<sp/>MultiPiston&apos;s<sp/>velocity</highlight></codeline>
 <codeline lineno="1186"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1187"><highlight class="comment"><sp/>*<sp/>@param<sp/>body<sp/>the<sp/>ODE<sp/>body<sp/>id<sp/>you<sp/>want<sp/>to<sp/>orient</highlight></codeline>
-<codeline lineno="1188"><highlight class="comment"><sp/>*<sp/>@param<sp/>direction<sp/>the<sp/>vector<sp/>you<sp/>want<sp/>the<sp/>body<sp/>oriented<sp/>along</highlight></codeline>
+<codeline lineno="1187"><highlight class="comment"><sp/>*<sp/>While<sp/>setting<sp/>all<sp/>the<sp/>join<sp/>velocities<sp/>in<sp/>the<sp/>piston<sp/>it<sp/>also</highlight></codeline>
+<codeline lineno="1188"><highlight class="comment"><sp/>*<sp/>ensures<sp/>all<sp/>the<sp/>bodies<sp/>are<sp/>active</highlight></codeline>
 <codeline lineno="1189"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1190"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1191" refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kindref="member">SetBodyOrientation</ref>(dBodyID<sp/>body,<sp/>Vector3<sp/>direction)<sp/>{</highlight></codeline>
-<codeline lineno="1192"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>source<sp/>=<sp/>{1,<sp/>0,<sp/>0};<sp/></highlight><highlight class="comment">//<sp/>The<sp/>default<sp/>&quot;length&quot;<sp/>axis<sp/>of<sp/>your<sp/>box</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1193"><highlight class="normal"><sp/><sp/><sp/><sp/>direction<sp/>=<sp/>Vector3Normalize(direction);</highlight></codeline>
-<codeline lineno="1194"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Find<sp/>the<sp/>rotation<sp/>axis<sp/>(perpendicular<sp/>to<sp/>both<sp/>vectors)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1196"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>rotAxis<sp/>=<sp/>Vector3CrossProduct(source,<sp/>direction);</highlight></codeline>
-<codeline lineno="1197"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cosTheta<sp/>=<sp/>Vector3DotProduct(source,<sp/>direction);</highlight></codeline>
-<codeline lineno="1198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>the<sp/>angle<sp/>in<sp/>radians</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle<sp/>=<sp/>acosf(fminf(1.0f,<sp/>fmaxf(-1.0f,<sp/>cosTheta)));</highlight></codeline>
-<codeline lineno="1201"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Handle<sp/>the<sp/>&quot;Parallel&quot;<sp/>case<sp/>(if<sp/>target<sp/>is<sp/>-source,<sp/>cross<sp/>product<sp/>is<sp/>zero)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1203"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Vector3Length(rotAxis)<sp/>&lt;<sp/>0.001f)<sp/>{</highlight></codeline>
-<codeline lineno="1204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cosTheta<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
-<codeline lineno="1205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Target<sp/>is<sp/>exactly<sp/>opposite,<sp/>rotate<sp/>180<sp/>degrees<sp/>around<sp/>Any<sp/>perpendicular<sp/>axis</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rotAxis<sp/>=<sp/>(Vector3){0,<sp/>1,<sp/>0};</highlight></codeline>
-<codeline lineno="1207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angle<sp/>=<sp/>PI;</highlight></codeline>
-<codeline lineno="1208"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="1209"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Target<sp/>is<sp/>same<sp/>as<sp/>source,<sp/>no<sp/>rotation<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="1211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1212"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="1213"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1214"><highlight class="normal"><sp/><sp/><sp/><sp/>dQuaternion<sp/>q;</highlight></codeline>
-<codeline lineno="1215"><highlight class="normal"><sp/><sp/><sp/><sp/>dQFromAxisAndAngle(q,<sp/>rotAxis.x,<sp/>rotAxis.y,<sp/>rotAxis.z,<sp/>angle);</highlight></codeline>
+<codeline lineno="1190"><highlight class="comment"><sp/>*<sp/>@param<sp/>mp<sp/>the<sp/>multipiston<sp/>you<sp/>want<sp/>to<sp/>change<sp/>the<sp/>speed<sp/>of</highlight></codeline>
+<codeline lineno="1191"><highlight class="comment"><sp/>*<sp/>@param<sp/>velocity<sp/>the<sp/>speed<sp/>you<sp/>want<sp/>the<sp/>piston<sp/>set<sp/>to</highlight></codeline>
+<codeline lineno="1192"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1193"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1194" refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" kindref="member">SetMultiPistonVelocity</ref>(<ref refid="structMultiPiston" kindref="compound">MultiPiston</ref>*<sp/>mp,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>velocity)<sp/>{</highlight></codeline>
+<codeline lineno="1195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!mp)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1196"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>mp-&gt;<ref refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" kindref="member">count</ref><sp/>-<sp/>1;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="1197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dJointSetSliderParam(mp-&gt;<ref refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" kindref="member">joints</ref>[i],<sp/>dParamVel,<sp/>velocity);</highlight></codeline>
+<codeline lineno="1198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dBodyEnable(mp-&gt;<ref refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" kindref="member">sections</ref>[i+1]-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
+<codeline lineno="1199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1200"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1201"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="1202"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="1203"><highlight class="comment"><sp/>*<sp/>@brief<sp/>sets<sp/>to<sp/>bodies<sp/>orientation<sp/>to<sp/>align<sp/>with<sp/>a<sp/>vector</highlight></codeline>
+<codeline lineno="1204"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1205"><highlight class="comment"><sp/>*<sp/>@param<sp/>body<sp/>the<sp/>ODE<sp/>body<sp/>id<sp/>you<sp/>want<sp/>to<sp/>orient</highlight></codeline>
+<codeline lineno="1206"><highlight class="comment"><sp/>*<sp/>@param<sp/>direction<sp/>the<sp/>vector<sp/>you<sp/>want<sp/>the<sp/>body<sp/>oriented<sp/>along</highlight></codeline>
+<codeline lineno="1207"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1208"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1209" refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kindref="member">SetBodyOrientation</ref>(dBodyID<sp/>body,<sp/>Vector3<sp/>direction)<sp/>{</highlight></codeline>
+<codeline lineno="1210"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>source<sp/>=<sp/>{1,<sp/>0,<sp/>0};<sp/></highlight><highlight class="comment">//<sp/>The<sp/>default<sp/>&quot;length&quot;<sp/>axis<sp/>of<sp/>your<sp/>box</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1211"><highlight class="normal"><sp/><sp/><sp/><sp/>direction<sp/>=<sp/>Vector3Normalize(direction);</highlight></codeline>
+<codeline lineno="1212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Find<sp/>the<sp/>rotation<sp/>axis<sp/>(perpendicular<sp/>to<sp/>both<sp/>vectors)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1214"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector3<sp/>rotAxis<sp/>=<sp/>Vector3CrossProduct(source,<sp/>direction);</highlight></codeline>
+<codeline lineno="1215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>cosTheta<sp/>=<sp/>Vector3DotProduct(source,<sp/>direction);</highlight></codeline>
 <codeline lineno="1216"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="1217"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetQuaternion(body,<sp/>q);</highlight></codeline>
-<codeline lineno="1218"><highlight class="normal">}</highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="1219"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="1220"><highlight class="comment"><sp/>*<sp/>@brief<sp/>pins<sp/>an<sp/>entity<sp/>to<sp/>the<sp/>world</highlight></codeline>
-<codeline lineno="1221"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1222"><highlight class="comment"><sp/>*<sp/>This<sp/>joint<sp/>will<sp/>attempt<sp/>to<sp/>keep<sp/>the<sp/>position<sp/>and<sp/>orientation<sp/>of</highlight></codeline>
-<codeline lineno="1223"><highlight class="comment"><sp/>*<sp/>the<sp/>body<sp/>static,<sp/>position<sp/>and<sp/>rotate<sp/>the<sp/>body<sp/>as<sp/>needed<sp/>before</highlight></codeline>
-<codeline lineno="1224"><highlight class="comment"><sp/>*<sp/>calling<sp/>this</highlight></codeline>
-<codeline lineno="1225"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1226"><highlight class="comment"><sp/>*<sp/>@param<sp/>physCtx<sp/><sp/><sp/>physics<sp/>context</highlight></codeline>
-<codeline lineno="1227"><highlight class="comment"><sp/>*<sp/>@param<sp/>ent<sp/><sp/><sp/>The<sp/>entity<sp/>to<sp/>pin<sp/>to<sp/>the<sp/>world</highlight></codeline>
-<codeline lineno="1228"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
-<codeline lineno="1229"><highlight class="comment"><sp/>*<sp/>@returns<sp/>the<sp/>joint<sp/>id<sp/>of<sp/>the<sp/>constraint<sp/></highlight></codeline>
-<codeline lineno="1230"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="1231" refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" refkind="member"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" kindref="member">PinEntityToWorld</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent)</highlight></codeline>
-<codeline lineno="1232"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1233"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>pin<sp/>=<sp/>dJointCreateFixed<sp/>(physCtx-&gt;<ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>,<sp/>0);</highlight></codeline>
-<codeline lineno="1234"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointAttach(pin,<sp/>ent-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>,<sp/>0);</highlight></codeline>
-<codeline lineno="1235"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetFixed(pin);</highlight></codeline>
-<codeline lineno="1236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pin;</highlight></codeline>
-<codeline lineno="1237"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1238"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1239" refid="raylibODE_8c_1a3ae92d4efc27587000b0f3ca889d19e7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a3ae92d4efc27587000b0f3ca889d19e7" kindref="member">SetBodyOrientationEuler</ref>(dBodyID<sp/>bdy,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>p,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r)</highlight></codeline>
-<codeline lineno="1240"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1241"><highlight class="normal"><sp/><sp/><sp/><sp/>dMatrix3<sp/>R;</highlight></codeline>
-<codeline lineno="1242"><highlight class="normal"><sp/><sp/><sp/><sp/>dRFromEulerAngles(R,<sp/>p,<sp/>y,<sp/>r);</highlight></codeline>
-<codeline lineno="1243"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetRotation(bdy,<sp/>R);</highlight></codeline>
-<codeline lineno="1244"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="1245"><highlight class="normal"></highlight></codeline>
-<codeline lineno="1246" refid="raylibODE_8c_1a5b5b0b12adc7119a13eaacef8d097499" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a5b5b0b12adc7119a13eaacef8d097499" kindref="member">SetGeomOrientationEuler</ref>(dGeomID<sp/>g,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>p,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r)</highlight></codeline>
-<codeline lineno="1247"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="1248"><highlight class="normal"><sp/><sp/><sp/><sp/>dMatrix3<sp/>R;</highlight></codeline>
-<codeline lineno="1249"><highlight class="normal"><sp/><sp/><sp/><sp/>dRFromEulerAngles(R,<sp/>p,<sp/>y,<sp/>r);</highlight></codeline>
-<codeline lineno="1250"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetRotation(g,<sp/>R);</highlight></codeline>
-<codeline lineno="1251"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1217"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Calculate<sp/>the<sp/>angle<sp/>in<sp/>radians</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1218"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>angle<sp/>=<sp/>acosf(fminf(1.0f,<sp/>fmaxf(-1.0f,<sp/>cosTheta)));</highlight></codeline>
+<codeline lineno="1219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Handle<sp/>the<sp/>&quot;Parallel&quot;<sp/>case<sp/>(if<sp/>target<sp/>is<sp/>-source,<sp/>cross<sp/>product<sp/>is<sp/>zero)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Vector3Length(rotAxis)<sp/>&lt;<sp/>0.001f)<sp/>{</highlight></codeline>
+<codeline lineno="1222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(cosTheta<sp/>&lt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="1223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Target<sp/>is<sp/>exactly<sp/>opposite,<sp/>rotate<sp/>180<sp/>degrees<sp/>around<sp/>Any<sp/>perpendicular<sp/>axis</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rotAxis<sp/>=<sp/>(Vector3){0,<sp/>1,<sp/>0};</highlight></codeline>
+<codeline lineno="1225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>angle<sp/>=<sp/>PI;</highlight></codeline>
+<codeline lineno="1226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="1227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Target<sp/>is<sp/>same<sp/>as<sp/>source,<sp/>no<sp/>rotation<sp/>needed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="1229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1230"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="1231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1232"><highlight class="normal"><sp/><sp/><sp/><sp/>dQuaternion<sp/>q;</highlight></codeline>
+<codeline lineno="1233"><highlight class="normal"><sp/><sp/><sp/><sp/>dQFromAxisAndAngle(q,<sp/>rotAxis.x,<sp/>rotAxis.y,<sp/>rotAxis.z,<sp/>angle);</highlight></codeline>
+<codeline lineno="1234"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="1235"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetQuaternion(body,<sp/>q);</highlight></codeline>
+<codeline lineno="1236"><highlight class="normal">}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="1237"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="1238"><highlight class="comment"><sp/>*<sp/>@brief<sp/>pins<sp/>an<sp/>entity<sp/>to<sp/>the<sp/>world</highlight></codeline>
+<codeline lineno="1239"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1240"><highlight class="comment"><sp/>*<sp/>This<sp/>joint<sp/>will<sp/>attempt<sp/>to<sp/>keep<sp/>the<sp/>position<sp/>and<sp/>orientation<sp/>of</highlight></codeline>
+<codeline lineno="1241"><highlight class="comment"><sp/>*<sp/>the<sp/>body<sp/>static,<sp/>position<sp/>and<sp/>rotate<sp/>the<sp/>body<sp/>as<sp/>needed<sp/>before</highlight></codeline>
+<codeline lineno="1242"><highlight class="comment"><sp/>*<sp/>calling<sp/>this</highlight></codeline>
+<codeline lineno="1243"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1244"><highlight class="comment"><sp/>*<sp/>@param<sp/>physCtx<sp/><sp/><sp/>physics<sp/>context</highlight></codeline>
+<codeline lineno="1245"><highlight class="comment"><sp/>*<sp/>@param<sp/>ent<sp/><sp/><sp/>The<sp/>entity<sp/>to<sp/>pin<sp/>to<sp/>the<sp/>world</highlight></codeline>
+<codeline lineno="1246"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="1247"><highlight class="comment"><sp/>*<sp/>@returns<sp/>the<sp/>joint<sp/>id<sp/>of<sp/>the<sp/>constraint<sp/></highlight></codeline>
+<codeline lineno="1248"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1249" refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" refkind="member"><highlight class="normal">dJointID<sp/><ref refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" kindref="member">PinEntityToWorld</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structentity" kindref="compound">entity</ref>*<sp/>ent)</highlight></codeline>
+<codeline lineno="1250"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1251"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointID<sp/>pin<sp/>=<sp/>dJointCreateFixed<sp/>(physCtx-&gt;<ref refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" kindref="member">world</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="1252"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointAttach(pin,<sp/>ent-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>,<sp/>0);</highlight></codeline>
+<codeline lineno="1253"><highlight class="normal"><sp/><sp/><sp/><sp/>dJointSetFixed(pin);</highlight></codeline>
+<codeline lineno="1254"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>pin;</highlight></codeline>
+<codeline lineno="1255"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1257" refid="raylibODE_8c_1a3ae92d4efc27587000b0f3ca889d19e7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a3ae92d4efc27587000b0f3ca889d19e7" kindref="member">SetBodyOrientationEuler</ref>(dBodyID<sp/>bdy,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>p,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r)</highlight></codeline>
+<codeline lineno="1258"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1259"><highlight class="normal"><sp/><sp/><sp/><sp/>dMatrix3<sp/>R;</highlight></codeline>
+<codeline lineno="1260"><highlight class="normal"><sp/><sp/><sp/><sp/>dRFromEulerAngles(R,<sp/>p,<sp/>y,<sp/>r);</highlight></codeline>
+<codeline lineno="1261"><highlight class="normal"><sp/><sp/><sp/><sp/>dBodySetRotation(bdy,<sp/>R);</highlight></codeline>
+<codeline lineno="1262"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="1263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="1264" refid="raylibODE_8c_1a5b5b0b12adc7119a13eaacef8d097499" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="raylibODE_8c_1a5b5b0b12adc7119a13eaacef8d097499" kindref="member">SetGeomOrientationEuler</ref>(dGeomID<sp/>g,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>p,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r)</highlight></codeline>
+<codeline lineno="1265"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="1266"><highlight class="normal"><sp/><sp/><sp/><sp/>dMatrix3<sp/>R;</highlight></codeline>
+<codeline lineno="1267"><highlight class="normal"><sp/><sp/><sp/><sp/>dRFromEulerAngles(R,<sp/>p,<sp/>y,<sp/>r);</highlight></codeline>
+<codeline lineno="1268"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetRotation(g,<sp/>R);</highlight></codeline>
+<codeline lineno="1269"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="raylibODE.c"/>
   </compounddef>

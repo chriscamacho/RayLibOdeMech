@@ -965,7 +965,7 @@ dJointID CreateRotor(PhysicsContext* physCtx, entity* from, entity* to, Vector3 
 
 
 /**
- * @brief changes the hew (tint) of all entities geoms
+ * @brief changes the hew (tint) of all anentities geoms
  *
  * go through each geom attached to the entities body and change
  * their hew or tint
@@ -978,11 +978,29 @@ void SetEntityHew(entity* ent, Color c)
 {
 	dGeomID geom = dBodyGetFirstGeom(ent->body);
 	while(geom) {
-		dGeomID next = dBodyGetNextGeom(geom);
-
 		geomInfo* gi = dGeomGetData(geom);
 		gi->hew = c;
-		geom = next;
+		geom = dBodyGetNextGeom(geom);
+	}
+}
+
+/**
+ * @brief changes the surface material of all an entities geoms
+ *
+ * go through each geom attached to the entities body and change
+ * their surface properties
+ *
+ * @param ent pointer to the entity
+ * @param mat new surface material to use
+ *
+ */
+void SetEntitySurfaces(entity* ent, SurfaceMaterial* mat)
+{
+	dGeomID geom = dBodyGetFirstGeom(ent->body);
+	while(geom) {
+		geomInfo* gi = dGeomGetData(geom);
+		gi->surface = mat;
+		geom = dBodyGetNextGeom(geom);
 	}
 }
 

@@ -256,7 +256,7 @@
         <references refid="struct____clist_1a1a628ee10b4e61019e547e2d0f2cb887" compoundref="clist_8h" startline="28">__clist::tail</references>
         <referencedby refid="clist_8c_1aa7962ca08d379de807f9cd6179dc4823" compoundref="clist_8c" startline="178" endline="187">clistDeleteNodeFromData</referencedby>
         <referencedby refid="clist_8c_1a7688a8ecfc46dfc2d8734c3c8ffd2224" compoundref="clist_8c" startline="198" endline="206">clistEmptyList</referencedby>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1048" endline="1053">FreeEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1066" endline="1071">FreeEntity</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="233" endline="249">FreeVehicle</referencedby>
       </memberdef>

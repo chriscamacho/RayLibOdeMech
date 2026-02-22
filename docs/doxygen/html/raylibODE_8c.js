@@ -31,6 +31,7 @@ var raylibODE_8c =
     [ "SetBodyOrientation", "raylibODE_8c.html#aea5e471f2ffcadf7bcce5b25993d1d0f", null ],
     [ "SetBodyOrientationEuler", "raylibODE_8c.html#a3ae92d4efc27587000b0f3ca889d19e7", null ],
     [ "SetEntityHew", "raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22", null ],
+    [ "SetEntitySurfaces", "raylibODE_8c.html#aa8656255a05c3f38ce0b13825642acdf", null ],
     [ "SetGeomOrientationEuler", "raylibODE_8c.html#a5b5b0b12adc7119a13eaacef8d097499", null ],
     [ "SetMultiPistonVelocity", "raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a", null ],
     [ "SetPistonLimits", "raylibODE_8c.html#a878892d1015e3c9349f667325d129d43", null ],

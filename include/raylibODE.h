@@ -222,6 +222,8 @@ void SetGeomOrientationEuler(dGeomID g, float p, float y, float r);
 
 void FreeMultiPiston(MultiPiston* mp);
 
+void SetEntitySurfaces(entity* ent, SurfaceMaterial* mat);
+
 #endif // RAYLIBODE_H
 
 

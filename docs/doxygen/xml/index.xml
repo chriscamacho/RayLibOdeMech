@@ -210,6 +210,7 @@
     <member refid="raylibODE_8h_1a37e31d3074a98d5f5a40096dc9b342f7" kind="function"><name>CreateBoxGeom</name></member>
     <member refid="raylibODE_8h_1a5b5b0b12adc7119a13eaacef8d097499" kind="function"><name>SetGeomOrientationEuler</name></member>
     <member refid="raylibODE_8h_1a710981c5db9781e25b27318e8d56dfbb" kind="function"><name>FreeMultiPiston</name></member>
+    <member refid="raylibODE_8h_1aa8656255a05c3f38ce0b13825642acdf" kind="function"><name>SetEntitySurfaces</name></member>
   </compound>
   <compound refid="rlights_8h" kind="file"><name>rlights.h</name>
     <member refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kind="define"><name>MAX_LIGHTS</name></member>
@@ -307,6 +308,7 @@
     <member refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" kind="function"><name>DrawGeom</name></member>
     <member refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" kind="function"><name>CreateRotor</name></member>
     <member refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" kind="function"><name>SetEntityHew</name></member>
+    <member refid="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" kind="function"><name>SetEntitySurfaces</name></member>
     <member refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kind="function"><name>DrawBodies</name></member>
     <member refid="raylibODE_8c_1a01fc58efa7854e13c41c4b40bc5c8b62" kind="function"><name>DrawBodyGeoms</name></member>
     <member refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kind="function"><name>DrawStatics</name></member>
