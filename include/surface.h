@@ -56,12 +56,11 @@ typedef enum
  * entity* testBox = CreateBox(physCtx, graphics, (Vector3){1,1,1}, pos, Vector3Zero(), 20.f);
  * dGeomID testGeom = dBodyGetFirstGeom(testBox->body);
  * geomInfo* boxInfo = dGeomGetData(testGeom);
- * * // Assign the specific surface properties using the loop index
- * boxInfo->surface = &gSurfaces[i];
+ * boxInfo->surface = &gSurfaces[SURFACE_ICE];
  * @endcode
  * @note the surface should be set on every geom attached to a body you expect to
  * collide, it defaults to SURFACE_EARTH and is not needed for things like triggers
- * of geom's maked as not colliding
+ * or geom's maked as not colliding
  */
 typedef struct SurfaceMaterial
 {
