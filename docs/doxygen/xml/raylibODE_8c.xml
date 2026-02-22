@@ -1161,7 +1161,7 @@
         <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
         <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="99">geomInfo::hew</references>
         <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
-        <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe" compoundref="surface_8h" startline="30">SURFACE_WOOD</references>
+        <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe" compoundref="surface_8h" startline="41">SURFACE_WOOD</references>
         <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="95">geomInfo::texture</references>
         <references refid="structgeomInfo_1ab566e6f3debd1b3092ec83aa09e961b9" compoundref="raylibODE_8h" startline="96">geomInfo::uvScaleU</references>
         <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="97">geomInfo::uvScaleV</references>
@@ -1756,7 +1756,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         <location file="raylibODE.c" line="1067" column="10" bodyfile="raylibODE.c" bodystart="1067" bodyend="1103"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
-        <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" compoundref="surface_8h" startline="31">SURFACE_METAL</references>
+        <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" compoundref="surface_8h" startline="42">SURFACE_METAL</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="64">PhysicsContext::world</references>
         <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1128" endline="1165">CreateMultiPiston</referencedby>
       </memberdef>

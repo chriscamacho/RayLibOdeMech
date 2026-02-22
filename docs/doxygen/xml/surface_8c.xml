@@ -22,6 +22,7 @@
         <argsstring>[SURFACE_COUNT]</argsstring>
         <name>gSurfaces</name>
         <briefdescription>
+<para>Global lookup table for surface properties. This array is indexed by <ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169f" kindref="member">SurfaceType</ref>. and contains default values for each surface type. </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>

@@ -93,11 +93,15 @@ $(function(){initNavTree('surface_8h.html','',''); });
 </div><!--header-->
 <div class="contents">
 
+<p>Physics surface material definitions and lookup table.  
+<a href="#details">More...</a></p>
+
 <p><a href="surface_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:SurfaceMaterial" id="r_SurfaceMaterial"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSurfaceMaterial.html">SurfaceMaterial</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Physical coefficients defining how an object interacts with a surface.  <a href="structSurfaceMaterial.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -106,7 +110,7 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a24dfdcf13ae4e2b7985a3868a1b5169f" id="r_a24dfdcf13ae4e2b7985a3868a1b5169f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169f">SurfaceType</a> { <br />
-&#160;&#160;<a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe">SURFACE_WOOD</a>
+&#160;&#160;<a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe">SURFACE_WOOD</a> = 0
 , <a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d">SURFACE_METAL</a>
 , <a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5">SURFACE_ICE</a>
 , <a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1">SURFACE_RUBBER</a>
@@ -115,12 +119,21 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c">SURFACE_COUNT</a>
 <br />
  }</td></tr>
+<tr class="memdesc:a24dfdcf13ae4e2b7985a3868a1b5169f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique identifiers for different physical materials.  <a href="#a24dfdcf13ae4e2b7985a3868a1b5169f">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aa26755a73be46b483bf7098bcbf679dd" id="r_aa26755a73be46b483bf7098bcbf679dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structSurfaceMaterial.html">SurfaceMaterial</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a> [<a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c">SURFACE_COUNT</a>]</td></tr>
+<tr class="memdesc:aa26755a73be46b483bf7098bcbf679dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global lookup table for surface properties. This array is indexed by <a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169f">SurfaceType</a>. and contains default values for each surface type.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Physics surface material definitions and lookup table. </p>
+<ul>
+<li>Defines the physical properties for different world surfaces to be used in collision and friction calculations. </li>
+</ul>
+
+<p class="definition">Definition in file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="a25b919c252b86e01e91d4f349cbdabbc" name="a25b919c252b86e01e91d4f349cbdabbc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25b919c252b86e01e91d4f349cbdabbc">&#9670;&#160;</a></span>SurfaceMaterial</h2>
 
@@ -147,16 +160,28 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Unique identifiers for different physical materials. </p>
+<ul>
+<li>These constants are used as indices into the gSurfaces array. <dl class="section note"><dt>Note</dt><dd>SURFACE_COUNT must always remain the last element to allow for loop iteration. </dd></dl>
+</li>
+</ul>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe" name="a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe"></a>SURFACE_WOOD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" name="a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d"></a>SURFACE_METAL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5" name="a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5"></a>SURFACE_ICE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" name="a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1"></a>SURFACE_RUBBER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96" name="a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96"></a>SURFACE_EARTH&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" name="a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c"></a>SURFACE_COUNT&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe" name="a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe"></a>SURFACE_WOOD&#160;</td><td class="fielddoc"><p>Hard organic surface with moderate friction. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" name="a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d"></a>SURFACE_METAL&#160;</td><td class="fielddoc"><p>Smooth metallic surface with high density. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5" name="a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5"></a>SURFACE_ICE&#160;</td><td class="fielddoc"><p>Low-friction crystalline surface. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" name="a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1"></a>SURFACE_RUBBER&#160;</td><td class="fielddoc"><p>High-friction elastic surface. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96" name="a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96"></a>SURFACE_EARTH&#160;</td><td class="fielddoc"><p>Granular, high-damping surface (soil/dirt). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" name="a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c"></a>SURFACE_COUNT&#160;</td><td class="fielddoc"><p>The total number of defined surfaces. </p>
+</td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00028">28</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00039">39</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
 
 </div>
 </div>
@@ -180,6 +205,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Global lookup table for surface properties. This array is indexed by <a class="el" href="#a24dfdcf13ae4e2b7985a3868a1b5169f">SurfaceType</a>. and contains default values for each surface type. </p>
 
 <p class="definition">Definition at line <a class="el" href="surface_8c_source.html#l00026">26</a> of file <a class="el" href="surface_8c_source.html">surface.c</a>.</p>
 

@@ -1,10 +1,15 @@
 \doxysection{surface.\+h File Reference}
 \hypertarget{surface_8h}{}\label{surface_8h}\index{surface.h@{surface.h}}
+
+
+Physics surface material definitions and lookup table.  
+
+
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structSurfaceMaterial}{Surface\+Material}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Physical coefficients defining how an object interacts with a surface. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -14,7 +19,7 @@ typedef struct Surface\+Material \mbox{\hyperlink{surface_8h_a25b919c252b86e01e9
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Type}} \{ \newline
-\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe}{SURFACE\+\_\+\+WOOD}}
+\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe}{SURFACE\+\_\+\+WOOD}} = 0
 , \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d}{SURFACE\+\_\+\+METAL}}
 , \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5}{SURFACE\+\_\+\+ICE}}
 , \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}{SURFACE\+\_\+\+RUBBER}}
@@ -22,12 +27,24 @@ enum \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Typ
 \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96}{SURFACE\+\_\+\+EARTH}}
 , \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c}{SURFACE\+\_\+\+COUNT}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Unique identifiers for different physical materials. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{structSurfaceMaterial}{Surface\+Material}} \mbox{\hyperlink{surface_8h_aa26755a73be46b483bf7098bcbf679dd}{g\+Surfaces}} \mbox{[}\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c}{SURFACE\+\_\+\+COUNT}}\mbox{]}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Global lookup table for surface properties. This array is indexed by \doxylink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Type}. and contains default values for each surface type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Physics surface material definitions and lookup table. 
+
+
+\begin{DoxyItemize}
+\item Defines the physical properties for different world surfaces to be used in collision and friction calculations. 
+\end{DoxyItemize}
+
+Definition in file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+
 
 
 \label{doc-typedef-members}
@@ -50,35 +67,45 @@ typedef struct Surface\+Material Surface\+Material}
 {\footnotesize\ttfamily \label{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f} 
 enum \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Type}}}
 
-\begin{DoxyEnumFields}[2]{Enumerator}
+
+
+Unique identifiers for different physical materials. 
+
+
+\begin{DoxyItemize}
+\item These constants are used as indices into the g\+Surfaces array. \begin{DoxyNote}{Note}
+SURFACE\+\_\+\+COUNT must always remain the last element to allow for loop iteration. 
+\end{DoxyNote}
+
+\end{DoxyItemize}\begin{DoxyEnumFields}[2]{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SURFACE\_WOOD@{SURFACE\_WOOD}!surface.h@{surface.h}}\index{surface.h@{surface.h}!SURFACE\_WOOD@{SURFACE\_WOOD}}}\Hypertarget{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe}\label{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe} 
-SURFACE\+\_\+\+WOOD&\\
+SURFACE\+\_\+\+WOOD&Hard organic surface with moderate friction. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SURFACE\_METAL@{SURFACE\_METAL}!surface.h@{surface.h}}\index{surface.h@{surface.h}!SURFACE\_METAL@{SURFACE\_METAL}}}\Hypertarget{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d}\label{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d} 
-SURFACE\+\_\+\+METAL&\\
+SURFACE\+\_\+\+METAL&Smooth metallic surface with high density. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SURFACE\_ICE@{SURFACE\_ICE}!surface.h@{surface.h}}\index{surface.h@{surface.h}!SURFACE\_ICE@{SURFACE\_ICE}}}\Hypertarget{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5}\label{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5} 
-SURFACE\+\_\+\+ICE&\\
+SURFACE\+\_\+\+ICE&Low-\/friction crystalline surface. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SURFACE\_RUBBER@{SURFACE\_RUBBER}!surface.h@{surface.h}}\index{surface.h@{surface.h}!SURFACE\_RUBBER@{SURFACE\_RUBBER}}}\Hypertarget{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}\label{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1} 
-SURFACE\+\_\+\+RUBBER&\\
+SURFACE\+\_\+\+RUBBER&High-\/friction elastic surface. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SURFACE\_EARTH@{SURFACE\_EARTH}!surface.h@{surface.h}}\index{surface.h@{surface.h}!SURFACE\_EARTH@{SURFACE\_EARTH}}}\Hypertarget{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96}\label{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96} 
-SURFACE\+\_\+\+EARTH&\\
+SURFACE\+\_\+\+EARTH&Granular, high-\/damping surface (soil/dirt). \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{SURFACE\_COUNT@{SURFACE\_COUNT}!surface.h@{surface.h}}\index{surface.h@{surface.h}!SURFACE\_COUNT@{SURFACE\_COUNT}}}\Hypertarget{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c}\label{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c} 
-SURFACE\+\_\+\+COUNT&\\
+SURFACE\+\_\+\+COUNT&The total number of defined surfaces. \\
 \hline
 
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00028}{28}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00039}{39}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 
@@ -90,6 +117,10 @@ Definition at line \mbox{\hyperlink{surface_8h_source_l00028}{28}} of file \mbox
 \doxysubsubsection{\texorpdfstring{gSurfaces}{gSurfaces}}
 {\footnotesize\ttfamily \label{surface_8h_aa26755a73be46b483bf7098bcbf679dd} 
 \mbox{\hyperlink{structSurfaceMaterial}{Surface\+Material}} g\+Surfaces\mbox{[}\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c}{SURFACE\+\_\+\+COUNT}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Global lookup table for surface properties. This array is indexed by \doxylink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Type}. and contains default values for each surface type. 
 
 
 

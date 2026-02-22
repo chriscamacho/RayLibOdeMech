@@ -27,8 +27,22 @@
 #include "init.h"
 #include "exampleCamera.h"
 
+// instances slops, level sections and corners from an array of coordinates
+void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics);
+
+// creates an array of multipistons, and other support geoms to
+// provide a marble lift
+MultiPiston** CreateLift(PhysicsContext* physCtx,
+                         GraphicsContext* graphics,
+                         Vector3 position,
+                         float yaw,
+                         float strength);
+
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
+
+const SurfaceType levelSurface = SURFACE_WOOD;
+#define MAX_PISTON 6
 
 typedef enum { SLOPE, STRAIGHT, CORNER } MeshType;
 
@@ -109,7 +123,128 @@ LevelElement levelData[] = {
 };
 
 
-const SurfaceType levelSurface = SURFACE_WOOD;
+
+
+/***********************************************************************
+ * main !
+ **********************************************************************/
+
+int main(void)
+{
+	// init
+    PhysicsContext* physCtx = CreatePhysics();
+    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
+    SetupCamera(graphics);
+    graphics->camera.position = (Vector3){0.f,5.f,8.f};
+    SetCameraYaw(M_PI/4);
+
+	const Vector3 dropPoint = (Vector3){0.f,12.f,0.f};
+	
+	LoadLevel(physCtx,graphics);
+	
+
+	
+	MultiPiston** lift1 = CreateLift(physCtx,
+							graphics,
+							(Vector3){0.f, 0.4f, 0.0f},
+							0,
+							360.0f);
+
+	
+	MultiPiston** lift2 = CreateLift(physCtx,
+                                graphics,
+                                (Vector3){6.f, 4.f, 8.f},
+                                PI,
+                                360.0f);
+
+	MultiPiston** lift3 = CreateLift(physCtx,
+                                graphics,
+                                (Vector3){-10.f, 11.f, -18.f},
+                                0,
+                                360.0f);
+                                                                	
+	int frameCount = 0;
+	int released = 0;
+	const int maxRelesed = 16;
+	const float ballSize = .6f;
+	
+    while (!WindowShouldClose())
+    {
+		for(int i=0; i < MAX_PISTON; i++) {
+			float offset = 0.f;
+			// every other piston is 180 degrees out of phase
+			if (i % 2 == 0) offset = M_PI;
+			SetMultiPistonVelocity(lift1[i], sin(((float)frameCount)/60.0f+offset));
+			SetMultiPistonVelocity(lift2[i], sin(((float)frameCount)/60.0f+offset));
+			SetMultiPistonVelocity(lift3[i], sin(((float)frameCount)/60.0f+offset));
+		}
+		
+		
+		if (released < maxRelesed) {
+			if (frameCount % 420 == 0) {
+				entity* e = CreateSphere(physCtx, graphics, ballSize, dropPoint, Vector3Zero(), 1);
+				dBodySetAutoDisableFlag(e->body, 0);
+				geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
+				gi->surface = &gSurfaces[SURFACE_METAL];
+				released++;
+			}
+		}
+        frameCount++;
+		
+		UpdateExampleCamera(graphics);
+        StepPhysics(physCtx);
+        
+		cnode_t* node = physCtx->objList->head;
+
+        while (node != NULL) {
+			entity* ent = node->data;
+            dBodyID bdy = ent->body;
+            cnode_t* next = node->next; // get the next node now in case we delete this one
+            const dReal* pos = dBodyGetPosition(bdy);
+
+            if(pos[1]<-10) {
+                FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
+                //entity* e = CreateSphere(physCtx, graphics, 0.55, dropPoint, Vector3Zero(), 1);
+				//dBodySetAutoDisableFlag(e->body, 0);
+				//geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
+				//gi->surface = &gSurfaces[SURFACE_RUBBER];
+				released--;
+            }
+            
+            node = next;
+        }
+
+        // drawing
+        BeginDrawing();
+            ClearBackground(BLACK);
+            BeginMode3D(graphics->camera);
+                DrawBodies(graphics, physCtx);
+                DrawStatics(graphics, physCtx);
+            EndMode3D();
+
+            DrawText("Marbles!", 10, 40, 20, RAYWHITE);
+
+        EndDrawing();
+    }
+
+    FreePhysics(physCtx);
+    FreeGraphics(graphics);
+    
+    // TODO make this easier !
+    for (int i = 0; i < MAX_PISTON; i++)
+    {
+		FreeMultiPiston(lift1[i]);
+		FreeMultiPiston(lift2[i]);
+		FreeMultiPiston(lift3[i]);
+	}
+	free(lift1);
+	free(lift2);
+	free(lift3);
+	
+    CloseWindow();
+    return 0;
+}
+
 
 void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics) {
     int numElements = sizeof(levelData) / sizeof(LevelElement);
@@ -238,7 +373,7 @@ void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics) {
     }
 }
 
-#define MAX_PISTON 6
+
 
 MultiPiston** CreateLift(PhysicsContext* physCtx,
                          GraphicsContext* graphics,
@@ -375,124 +510,4 @@ MultiPiston** CreateLift(PhysicsContext* physCtx,
     }
 
     return mp;
-}
-
-/***********************************************************************
- * main !
- **********************************************************************/
-
-int main(void)
-{
-	// init
-    PhysicsContext* physCtx = CreatePhysics();
-    GraphicsContext* graphics = CreateGraphics(screenWidth, screenHeight, "Raylib and OpenDE Sandbox");
-    SetupCamera(graphics);
-    graphics->camera.position = (Vector3){0.f,5.f,8.f};
-    SetCameraYaw(M_PI/4);
-
-	const Vector3 dropPoint = (Vector3){0.f,12.f,0.f};
-	
-	LoadLevel(physCtx,graphics);
-	
-
-	
-	MultiPiston** lift1 = CreateLift(physCtx,
-							graphics,
-							(Vector3){0.f, 0.4f, 0.0f},
-							0,
-							360.0f);
-
-	
-	MultiPiston** lift2 = CreateLift(physCtx,
-                                graphics,
-                                (Vector3){6.f, 4.f, 8.f},
-                                PI,
-                                360.0f);
-
-	MultiPiston** lift3 = CreateLift(physCtx,
-                                graphics,
-                                (Vector3){-10.f, 11.f, -18.f},
-                                0,
-                                360.0f);
-                                                                	
-	int frameCount = 0;
-	int released = 0;
-	const int maxRelesed = 16;
-	const float ballSize = .6f;
-	
-    while (!WindowShouldClose())
-    {
-		for(int i=0; i < MAX_PISTON; i++) {
-			float offset = 0.f;
-			// every other piston is 180 degrees out of phase
-			if (i % 2 == 0) offset = M_PI;
-			SetMultiPistonVelocity(lift1[i], sin(((float)frameCount)/60.0f+offset));
-			SetMultiPistonVelocity(lift2[i], sin(((float)frameCount)/60.0f+offset));
-			SetMultiPistonVelocity(lift3[i], sin(((float)frameCount)/60.0f+offset));
-		}
-		
-		
-		if (released < maxRelesed) {
-			if (frameCount % 420 == 0) {
-				entity* e = CreateSphere(physCtx, graphics, ballSize, dropPoint, Vector3Zero(), 1);
-				dBodySetAutoDisableFlag(e->body, 0);
-				geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
-				gi->surface = &gSurfaces[SURFACE_METAL];
-				released++;
-			}
-		}
-        frameCount++;
-		
-		UpdateExampleCamera(graphics);
-        StepPhysics(physCtx);
-        
-		cnode_t* node = physCtx->objList->head;
-
-        while (node != NULL) {
-			entity* ent = node->data;
-            dBodyID bdy = ent->body;
-            cnode_t* next = node->next; // get the next node now in case we delete this one
-            const dReal* pos = dBodyGetPosition(bdy);
-
-            if(pos[1]<-10) {
-                FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-                //entity* e = CreateSphere(physCtx, graphics, 0.55, dropPoint, Vector3Zero(), 1);
-				//dBodySetAutoDisableFlag(e->body, 0);
-				//geomInfo* gi = dGeomGetData(dBodyGetFirstGeom(e->body));
-				//gi->surface = &gSurfaces[SURFACE_RUBBER];
-				released--;
-            }
-            
-            node = next;
-        }
-
-        // drawing
-        BeginDrawing();
-            ClearBackground(BLACK);
-            BeginMode3D(graphics->camera);
-                DrawBodies(graphics, physCtx);
-                DrawStatics(graphics, physCtx);
-            EndMode3D();
-
-            DrawText("Marbles!", 10, 40, 20, RAYWHITE);
-
-        EndDrawing();
-    }
-
-    FreePhysics(physCtx);
-    FreeGraphics(graphics);
-    
-    // TODO make this easier !
-    for (int i = 0; i < MAX_PISTON; i++)
-    {
-		FreeMultiPiston(lift1[i]);
-		FreeMultiPiston(lift2[i]);
-		FreeMultiPiston(lift3[i]);
-	}
-	free(lift1);
-	free(lift2);
-	free(lift3);
-	
-    CloseWindow();
-    return 0;
 }
