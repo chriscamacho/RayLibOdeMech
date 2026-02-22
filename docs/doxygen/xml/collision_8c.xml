@@ -87,14 +87,14 @@
         <inbodydescription>
         </inbodydescription>
         <location file="collision.c" line="43" column="6" bodyfile="collision.c" bodystart="43" bodyend="107"/>
-        <references refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" compoundref="surface_8h" startline="69">SurfaceMaterial::bounce</references>
-        <references refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" compoundref="surface_8h" startline="70">SurfaceMaterial::bounce_vel</references>
+        <references refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" compoundref="surface_8h" startline="68">SurfaceMaterial::bounce</references>
+        <references refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" compoundref="surface_8h" startline="69">SurfaceMaterial::bounce_vel</references>
         <references refid="structgeomInfo_1ad2ac5594ef66f909538bc4af4252d387" compoundref="raylibODE_8h" startline="94">geomInfo::collidable</references>
         <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="66">PhysicsContext::contactgroup</references>
-        <references refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" compoundref="surface_8h" startline="68">SurfaceMaterial::friction</references>
+        <references refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" compoundref="surface_8h" startline="67">SurfaceMaterial::friction</references>
         <references refid="collision_8c_1a84bfa512ba2269b77a80f391fbdde0a3" compoundref="collision_8c" startline="41">MAX_CONTACTS</references>
-        <references refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" compoundref="surface_8h" startline="71">SurfaceMaterial::slip1</references>
-        <references refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" compoundref="surface_8h" startline="72">SurfaceMaterial::slip2</references>
+        <references refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" compoundref="surface_8h" startline="70">SurfaceMaterial::slip1</references>
+        <references refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" compoundref="surface_8h" startline="71">SurfaceMaterial::slip2</references>
         <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
         <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="109">geomInfo::triggerOnCollide</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="64">PhysicsContext::world</references>

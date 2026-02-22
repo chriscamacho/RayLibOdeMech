@@ -36,19 +36,18 @@ Physical coefficients defining how an object interacts with a surface.
 \DoxyCodeLine{\mbox{\hyperlink{raylibODE_8h_a6ba18cca02784a1046f755105545d6cb}{entity}}*\ testBox\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ (Vector3)\{1,1,1\},\ pos,\ Vector3Zero(),\ 20.f);}
 \DoxyCodeLine{dGeomID\ testGeom\ =\ dBodyGetFirstGeom(testBox-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
 \DoxyCodeLine{\mbox{\hyperlink{raylibODE_8h_a7db85dfed979eba9e4954e9af045e215}{geomInfo}}*\ boxInfo\ =\ dGeomGetData(testGeom);}
-\DoxyCodeLine{*\ \textcolor{comment}{//\ Assign\ the\ specific\ surface\ properties\ using\ the\ loop\ index}}
-\DoxyCodeLine{boxInfo-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8h_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[i];}
+\DoxyCodeLine{boxInfo-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8h_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5}{SURFACE\_ICE}}];}
 
 \end{DoxyCode}
  
 \end{DoxyParagraph}
 \begin{DoxyNote}{Note}
-the surface should be set on every geom attached to a body you expect to collide, it defaults to SURFACE\+\_\+\+EARTH and is not needed for things like triggers of geom\textquotesingle{}s maked as not colliding 
+the surface should be set on every geom attached to a body you expect to collide, it defaults to SURFACE\+\_\+\+EARTH and is not needed for things like triggers or geom\textquotesingle{}s maked as not colliding 
 \end{DoxyNote}
 
 \end{DoxyItemize}
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00066}{66}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00065}{65}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 
@@ -63,7 +62,7 @@ float Surface\+Material\+::bounce}
 
 Coefficient of restitution. Defines energy loss on impact. 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00069}{69}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00068}{68}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 
@@ -77,7 +76,7 @@ float Surface\+Material\+::bounce\+\_\+vel}
 
 bounce velocity factor. 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00070}{70}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00069}{69}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 
@@ -91,7 +90,7 @@ float Surface\+Material\+::friction}
 
 Coefficient of friction (mu). 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00068}{68}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00067}{67}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 
@@ -105,7 +104,7 @@ float Surface\+Material\+::slip1}
 
 Primary slip coefficient. 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00071}{71}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00070}{70}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 
@@ -119,7 +118,7 @@ float Surface\+Material\+::slip2}
 
 Secondary slip coefficient. 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00072}{72}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00071}{71}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 

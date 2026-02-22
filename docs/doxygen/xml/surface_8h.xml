@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="surface.h" line="73" column="17"/>
+        <location file="surface.h" line="72" column="17"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="var">
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="surface.h" line="80" column="24" bodyfile="surface.c" bodystart="26" bodyend="72" declfile="surface.h" declline="80" declcolumn="24"/>
+        <location file="surface.h" line="79" column="24" bodyfile="surface.c" bodystart="26" bodyend="72" declfile="surface.h" declline="79" declcolumn="24"/>
         <referencedby refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="692" endline="704">CreateGeomInfo</referencedby>
         <referencedby refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1067" endline="1103">CreatePiston</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
@@ -251,30 +251,29 @@
 <codeline lineno="56"><highlight class="comment"><sp/>*<sp/>entity*<sp/>testBox<sp/>=<sp/>CreateBox(physCtx,<sp/>graphics,<sp/>(Vector3){1,1,1},<sp/>pos,<sp/>Vector3Zero(),<sp/>20.f);</highlight></codeline>
 <codeline lineno="57"><highlight class="comment"><sp/>*<sp/>dGeomID<sp/>testGeom<sp/>=<sp/>dBodyGetFirstGeom(testBox-&gt;body);</highlight></codeline>
 <codeline lineno="58"><highlight class="comment"><sp/>*<sp/>geomInfo*<sp/>boxInfo<sp/>=<sp/>dGeomGetData(testGeom);</highlight></codeline>
-<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>*<sp/>//<sp/>Assign<sp/>the<sp/>specific<sp/>surface<sp/>properties<sp/>using<sp/>the<sp/>loop<sp/>index</highlight></codeline>
-<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>boxInfo-&gt;surface<sp/>=<sp/>&amp;gSurfaces[i];</highlight></codeline>
-<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>@endcode</highlight></codeline>
-<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>@note<sp/>the<sp/>surface<sp/>should<sp/>be<sp/>set<sp/>on<sp/>every<sp/>geom<sp/>attached<sp/>to<sp/>a<sp/>body<sp/>you<sp/>expect<sp/>to</highlight></codeline>
-<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>collide,<sp/>it<sp/>defaults<sp/>to<sp/>SURFACE_EARTH<sp/>and<sp/>is<sp/>not<sp/>needed<sp/>for<sp/>things<sp/>like<sp/>triggers</highlight></codeline>
-<codeline lineno="64"><highlight class="comment"><sp/>*<sp/>of<sp/>geom&apos;s<sp/>maked<sp/>as<sp/>not<sp/>colliding</highlight></codeline>
-<codeline lineno="65"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="66" refid="structSurfaceMaterial" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref></highlight></codeline>
-<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="68" refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" kindref="member">friction</ref>;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Coefficient<sp/>of<sp/>friction<sp/>(mu).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69" refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" kindref="member">bounce</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Coefficient<sp/>of<sp/>restitution.<sp/>Defines<sp/>energy<sp/>loss<sp/>on<sp/>impact.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="70" refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" kindref="member">bounce_vel</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>bounce<sp/>velocity<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71" refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" kindref="member">slip1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Primary<sp/>slip<sp/>coefficient.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72" refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" kindref="member">slip2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Secondary<sp/>slip<sp/>coefficient.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73" refid="surface_8h_1a25b919c252b86e01e91d4f349cbdabbc" refkind="member"><highlight class="normal">}<sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref>;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="75"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Global<sp/>lookup<sp/>table<sp/>for<sp/>surface<sp/>properties.</highlight></codeline>
-<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>This<sp/>array<sp/>is<sp/>indexed<sp/>by<sp/>@ref<sp/>SurfaceType.<sp/>and<sp/>contains<sp/>default</highlight></codeline>
-<codeline lineno="78"><highlight class="comment"><sp/>*<sp/>values<sp/>for<sp/>each<sp/>surface<sp/>type</highlight></codeline>
-<codeline lineno="79"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref><sp/><ref refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" kindref="member">SURFACE_COUNT</ref>];</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SURFACE_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/>*<sp/>boxInfo-&gt;surface<sp/>=<sp/>&amp;gSurfaces[SURFACE_ICE];</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/>*<sp/>@endcode</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/>*<sp/>@note<sp/>the<sp/>surface<sp/>should<sp/>be<sp/>set<sp/>on<sp/>every<sp/>geom<sp/>attached<sp/>to<sp/>a<sp/>body<sp/>you<sp/>expect<sp/>to</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/>*<sp/>collide,<sp/>it<sp/>defaults<sp/>to<sp/>SURFACE_EARTH<sp/>and<sp/>is<sp/>not<sp/>needed<sp/>for<sp/>things<sp/>like<sp/>triggers</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/>*<sp/>or<sp/>geom&apos;s<sp/>maked<sp/>as<sp/>not<sp/>colliding</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="structSurfaceMaterial" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67" refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" kindref="member">friction</ref>;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Coefficient<sp/>of<sp/>friction<sp/>(mu).<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" kindref="member">bounce</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Coefficient<sp/>of<sp/>restitution.<sp/>Defines<sp/>energy<sp/>loss<sp/>on<sp/>impact.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" kindref="member">bounce_vel</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>bounce<sp/>velocity<sp/>factor.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" kindref="member">slip1</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Primary<sp/>slip<sp/>coefficient.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" kindref="member">slip2</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Secondary<sp/>slip<sp/>coefficient.<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72" refid="surface_8h_1a25b919c252b86e01e91d4f349cbdabbc" refkind="member"><highlight class="normal">}<sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref>;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="74"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Global<sp/>lookup<sp/>table<sp/>for<sp/>surface<sp/>properties.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/>*<sp/>This<sp/>array<sp/>is<sp/>indexed<sp/>by<sp/>@ref<sp/>SurfaceType.<sp/>and<sp/>contains<sp/>default</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/>*<sp/>values<sp/>for<sp/>each<sp/>surface<sp/>type</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structSurfaceMaterial" kindref="compound">SurfaceMaterial</ref><sp/><ref refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c" kindref="member">SURFACE_COUNT</ref>];</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>SURFACE_H</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
     <location file="surface.h"/>
   </compounddef>

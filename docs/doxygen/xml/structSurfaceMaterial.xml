@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="surface.h" line="68" column="11" bodyfile="surface.h" bodystart="68" bodyend="-1"/>
+        <location file="surface.h" line="67" column="11" bodyfile="surface.h" bodystart="67" bodyend="-1"/>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" prot="public" static="no" mutable="no">
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="surface.h" line="69" column="11" bodyfile="surface.h" bodystart="69" bodyend="-1"/>
+        <location file="surface.h" line="68" column="11" bodyfile="surface.h" bodystart="68" bodyend="-1"/>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" prot="public" static="no" mutable="no">
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="surface.h" line="70" column="11" bodyfile="surface.h" bodystart="70" bodyend="-1"/>
+        <location file="surface.h" line="69" column="11" bodyfile="surface.h" bodystart="69" bodyend="-1"/>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structSurfaceMaterial_1aba49fbf41af54a806c100d5437ed72e0" prot="public" static="no" mutable="no">
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="surface.h" line="71" column="11" bodyfile="surface.h" bodystart="71" bodyend="-1"/>
+        <location file="surface.h" line="70" column="11" bodyfile="surface.h" bodystart="70" bodyend="-1"/>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structSurfaceMaterial_1aab3183c75292be449944abd2d5f4e869" prot="public" static="no" mutable="no">
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="surface.h" line="72" column="11" bodyfile="surface.h" bodystart="72" bodyend="-1"/>
+        <location file="surface.h" line="71" column="11" bodyfile="surface.h" bodystart="71" bodyend="-1"/>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
       </memberdef>
     </sectiondef>
@@ -94,17 +94,16 @@
 </listitem><listitem><para>* <simplesect kind="par"><title>Example Usage:</title><para><programlisting><codeline><highlight class="normal"><ref refid="raylibODE_8h_1a6ba18cca02784a1046f755105545d6cb" kindref="member">entity</ref>*<sp/>testBox<sp/>=<sp/><ref refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" kindref="member">CreateBox</ref>(physCtx,<sp/>graphics,<sp/>(Vector3){1,1,1},<sp/>pos,<sp/>Vector3Zero(),<sp/>20.f);</highlight></codeline>
 <codeline><highlight class="normal">dGeomID<sp/>testGeom<sp/>=<sp/>dBodyGetFirstGeom(testBox-&gt;<ref refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" kindref="member">body</ref>);</highlight></codeline>
 <codeline><highlight class="normal"><ref refid="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" kindref="member">geomInfo</ref>*<sp/>boxInfo<sp/>=<sp/>dGeomGetData(testGeom);</highlight></codeline>
-<codeline><highlight class="normal">*<sp/></highlight><highlight class="comment">//<sp/>Assign<sp/>the<sp/>specific<sp/>surface<sp/>properties<sp/>using<sp/>the<sp/>loop<sp/>index</highlight><highlight class="normal"></highlight></codeline>
-<codeline><highlight class="normal">boxInfo-&gt;<ref refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" kindref="member">surface</ref><sp/>=<sp/>&amp;<ref refid="surface_8h_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[i];</highlight></codeline>
+<codeline><highlight class="normal">boxInfo-&gt;<ref refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" kindref="member">surface</ref><sp/>=<sp/>&amp;<ref refid="surface_8h_1aa26755a73be46b483bf7098bcbf679dd" kindref="member">gSurfaces</ref>[<ref refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5" kindref="member">SURFACE_ICE</ref>];</highlight></codeline>
 </programlisting> </para>
 </simplesect>
-<simplesect kind="note"><para>the surface should be set on every geom attached to a body you expect to collide, it defaults to SURFACE_EARTH and is not needed for things like triggers of geom&apos;s maked as not colliding </para>
+<simplesect kind="note"><para>the surface should be set on every geom attached to a body you expect to collide, it defaults to SURFACE_EARTH and is not needed for things like triggers or geom&apos;s maked as not colliding </para>
 </simplesect>
 </para>
 </listitem></itemizedlist>
 </para>
     </detaileddescription>
-    <location file="surface.h" line="66" column="1" bodyfile="surface.h" bodystart="67" bodyend="73"/>
+    <location file="surface.h" line="65" column="1" bodyfile="surface.h" bodystart="66" bodyend="72"/>
     <listofallmembers>
       <member refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" prot="public" virt="non-virtual"><scope>SurfaceMaterial</scope><name>bounce</name></member>
       <member refid="structSurfaceMaterial_1a7485362063dcf11d986344793fa27735" prot="public" virt="non-virtual"><scope>SurfaceMaterial</scope><name>bounce_vel</name></member>

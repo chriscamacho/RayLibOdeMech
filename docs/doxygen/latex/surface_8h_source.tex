@@ -59,29 +59,28 @@
 \DoxyCodeLine{\Hypertarget{surface_8h_source_l00056}00056\ \textcolor{comment}{\ *\ entity*\ testBox\ =\ CreateBox(physCtx,\ graphics,\ (Vector3)\{1,1,1\},\ pos,\ Vector3Zero(),\ 20.f);}}
 \DoxyCodeLine{\Hypertarget{surface_8h_source_l00057}00057\ \textcolor{comment}{\ *\ dGeomID\ testGeom\ =\ dBodyGetFirstGeom(testBox-\/>body);}}
 \DoxyCodeLine{\Hypertarget{surface_8h_source_l00058}00058\ \textcolor{comment}{\ *\ geomInfo*\ boxInfo\ =\ dGeomGetData(testGeom);}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00059}00059\ \textcolor{comment}{\ *\ *\ //\ Assign\ the\ specific\ surface\ properties\ using\ the\ loop\ index}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00060}00060\ \textcolor{comment}{\ *\ boxInfo-\/>surface\ =\ \&gSurfaces[i];}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00061}00061\ \textcolor{comment}{\ *\ @endcode}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00062}00062\ \textcolor{comment}{\ *\ @note\ the\ surface\ should\ be\ set\ on\ every\ geom\ attached\ to\ a\ body\ you\ expect\ to}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00063}00063\ \textcolor{comment}{\ *\ collide,\ it\ defaults\ to\ SURFACE\_EARTH\ and\ is\ not\ needed\ for\ things\ like\ triggers}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00064}00064\ \textcolor{comment}{\ *\ of\ geom's\ maked\ as\ not\ colliding}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00065}00065\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00066}\mbox{\hyperlink{structSurfaceMaterial}{00066}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00067}00067\ \{}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00068}\mbox{\hyperlink{structSurfaceMaterial_a4145324bfc476e67974224cb6d71a1b5}{00068}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_a4145324bfc476e67974224cb6d71a1b5}{friction}};\ \ \ \ \ \textcolor{comment}{/**<\ Coefficient\ of\ friction\ (mu).\ */}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00069}\mbox{\hyperlink{structSurfaceMaterial_a64bd5db7504bd8b360437bb6bb7e7c5a}{00069}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_a64bd5db7504bd8b360437bb6bb7e7c5a}{bounce}};\ \ \ \ \ \ \ \textcolor{comment}{/**<\ Coefficient\ of\ restitution.\ Defines\ energy\ loss\ on\ impact.\ */}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00070}\mbox{\hyperlink{structSurfaceMaterial_a7485362063dcf11d986344793fa27735}{00070}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_a7485362063dcf11d986344793fa27735}{bounce\_vel}};\ \ \ \textcolor{comment}{/**<\ bounce\ velocity\ factor.\ */}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00071}\mbox{\hyperlink{structSurfaceMaterial_aba49fbf41af54a806c100d5437ed72e0}{00071}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_aba49fbf41af54a806c100d5437ed72e0}{slip1}};\ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Primary\ slip\ coefficient.\ */}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00072}\mbox{\hyperlink{structSurfaceMaterial_aab3183c75292be449944abd2d5f4e869}{00072}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_aab3183c75292be449944abd2d5f4e869}{slip2}};\ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Secondary\ slip\ coefficient.\ */}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00073}\mbox{\hyperlink{surface_8h_a25b919c252b86e01e91d4f349cbdabbc}{00073}}\ \}\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}};}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00074}00074\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00075}00075\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00076}00076\ \textcolor{comment}{\ *\ @brief\ Global\ lookup\ table\ for\ surface\ properties.}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00077}00077\ \textcolor{comment}{\ *\ This\ array\ is\ indexed\ by\ @ref\ SurfaceType.\ and\ contains\ default}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00078}00078\ \textcolor{comment}{\ *\ values\ for\ each\ surface\ type}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00079}00079\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00080}00080\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}\ \mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c}{SURFACE\_COUNT}}];}
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{surface_8h_source_l00082}00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SURFACE\_H}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00059}00059\ \textcolor{comment}{\ *\ boxInfo-\/>surface\ =\ \&gSurfaces[SURFACE\_ICE];}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00060}00060\ \textcolor{comment}{\ *\ @endcode}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00061}00061\ \textcolor{comment}{\ *\ @note\ the\ surface\ should\ be\ set\ on\ every\ geom\ attached\ to\ a\ body\ you\ expect\ to}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00062}00062\ \textcolor{comment}{\ *\ collide,\ it\ defaults\ to\ SURFACE\_EARTH\ and\ is\ not\ needed\ for\ things\ like\ triggers}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00063}00063\ \textcolor{comment}{\ *\ or\ geom's\ maked\ as\ not\ colliding}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00064}00064\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00065}\mbox{\hyperlink{structSurfaceMaterial}{00065}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00066}00066\ \{}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00067}\mbox{\hyperlink{structSurfaceMaterial_a4145324bfc476e67974224cb6d71a1b5}{00067}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_a4145324bfc476e67974224cb6d71a1b5}{friction}};\ \ \ \ \ \textcolor{comment}{/**<\ Coefficient\ of\ friction\ (mu).\ */}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00068}\mbox{\hyperlink{structSurfaceMaterial_a64bd5db7504bd8b360437bb6bb7e7c5a}{00068}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_a64bd5db7504bd8b360437bb6bb7e7c5a}{bounce}};\ \ \ \ \ \ \ \textcolor{comment}{/**<\ Coefficient\ of\ restitution.\ Defines\ energy\ loss\ on\ impact.\ */}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00069}\mbox{\hyperlink{structSurfaceMaterial_a7485362063dcf11d986344793fa27735}{00069}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_a7485362063dcf11d986344793fa27735}{bounce\_vel}};\ \ \ \textcolor{comment}{/**<\ bounce\ velocity\ factor.\ */}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00070}\mbox{\hyperlink{structSurfaceMaterial_aba49fbf41af54a806c100d5437ed72e0}{00070}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_aba49fbf41af54a806c100d5437ed72e0}{slip1}};\ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Primary\ slip\ coefficient.\ */}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00071}\mbox{\hyperlink{structSurfaceMaterial_aab3183c75292be449944abd2d5f4e869}{00071}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structSurfaceMaterial_aab3183c75292be449944abd2d5f4e869}{slip2}};\ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Secondary\ slip\ coefficient.\ */}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00072}\mbox{\hyperlink{surface_8h_a25b919c252b86e01e91d4f349cbdabbc}{00072}}\ \}\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}};}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00073}00073\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00074}00074\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00075}00075\ \textcolor{comment}{\ *\ @brief\ Global\ lookup\ table\ for\ surface\ properties.}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00076}00076\ \textcolor{comment}{\ *\ This\ array\ is\ indexed\ by\ @ref\ SurfaceType.\ and\ contains\ default}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00077}00077\ \textcolor{comment}{\ *\ values\ for\ each\ surface\ type}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00078}00078\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00079}00079\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}\ \mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c}{SURFACE\_COUNT}}];}
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{surface_8h_source_l00081}00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SURFACE\_H}}
 
 \end{DoxyCode}

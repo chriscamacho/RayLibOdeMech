@@ -113,20 +113,20 @@ Data Fields</h2></td></tr>
 <li>* <dl class="section user"><dt>Example Usage:</dt><dd><div class="fragment"><div class="line"><a class="code hl_struct" href="structentity.html">entity</a>* testBox = <a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics, (Vector3){1,1,1}, pos, Vector3Zero(), 20.f);</div>
 <div class="line">dGeomID testGeom = dBodyGetFirstGeom(testBox-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
 <div class="line"><a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* boxInfo = dGeomGetData(testGeom);</div>
-<div class="line">* <span class="comment">// Assign the specific surface properties using the loop index</span></div>
-<div class="line">boxInfo-&gt;<a class="code hl_variable" href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">surface</a> = &amp;<a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[i];</div>
+<div class="line">boxInfo-&gt;<a class="code hl_variable" href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">surface</a> = &amp;<a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5">SURFACE_ICE</a>];</div>
 <div class="ttc" id="araylibODE_8c_html_ae436b97d6296f4b3c35e493dde37cee3"><div class="ttname"><a href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a></div><div class="ttdeci">entity * CreateBox(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a box-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00356">raylibODE.c:356</a></div></div>
 <div class="ttc" id="astructentity_html"><div class="ttname"><a href="structentity.html">entity</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00056">raylibODE.h:56</a></div></div>
 <div class="ttc" id="astructentity_html_ada0e6866acb68b3f1e2bff5d70b2b760"><div class="ttname"><a href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">entity::body</a></div><div class="ttdeci">dBodyID body</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00057">raylibODE.h:57</a></div></div>
 <div class="ttc" id="astructgeomInfo_html"><div class="ttname"><a href="structgeomInfo.html">geomInfo</a></div><div class="ttdoc">Stores geometry metadata for collision, texturing, and trimesh data.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00093">raylibODE.h:93</a></div></div>
 <div class="ttc" id="astructgeomInfo_html_a8e530854793906e8d625e058ac7b616c"><div class="ttname"><a href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">geomInfo::surface</a></div><div class="ttdeci">SurfaceMaterial * surface</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00100">raylibODE.h:100</a></div></div>
 <div class="ttc" id="asurface_8c_html_aa26755a73be46b483bf7098bcbf679dd"><div class="ttname"><a href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a></div><div class="ttdeci">SurfaceMaterial gSurfaces[SURFACE_COUNT]</div><div class="ttdoc">Global lookup table for surface properties. This array is indexed by SurfaceType. and contains defaul...</div><div class="ttdef"><b>Definition</b> <a href="surface_8c_source.html#l00026">surface.c:26</a></div></div>
+<div class="ttc" id="asurface_8h_html_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5"><div class="ttname"><a href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5">SURFACE_ICE</a></div><div class="ttdeci">@ SURFACE_ICE</div><div class="ttdef"><b>Definition</b> <a href="surface_8h_source.html#l00043">surface.h:43</a></div></div>
 </div><!-- fragment --> </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>the surface should be set on every geom attached to a body you expect to collide, it defaults to SURFACE_EARTH and is not needed for things like triggers of geom's maked as not colliding </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>the surface should be set on every geom attached to a body you expect to collide, it defaults to SURFACE_EARTH and is not needed for things like triggers or geom's maked as not colliding </dd></dl>
 </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00066">66</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00065">65</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Field Documentation</h2>
 <a id="a64bd5db7504bd8b360437bb6bb7e7c5a" name="a64bd5db7504bd8b360437bb6bb7e7c5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a64bd5db7504bd8b360437bb6bb7e7c5a">&#9670;&#160;</a></span>bounce</h2>
@@ -141,7 +141,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Coefficient of restitution. Defines energy loss on impact. </p>
 
-<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00069">69</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00068">68</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
 
@@ -160,7 +160,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>bounce velocity factor. </p>
 
-<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00070">70</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00069">69</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
 
@@ -179,7 +179,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Coefficient of friction (mu). </p>
 
-<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00068">68</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00067">67</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
 
@@ -198,7 +198,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Primary slip coefficient. </p>
 
-<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00071">71</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00070">70</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
 
@@ -217,7 +217,7 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 <p>Secondary slip coefficient. </p>
 
-<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00072">72</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00071">71</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>.</p>
 
