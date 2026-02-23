@@ -12,6 +12,7 @@ var raylibODE_8c =
     [ "CreatePiston", "raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c", null ],
     [ "CreateRandomEntity", "raylibODE_8c.html#ae7890e5cf20ab8875b9d08bf80d9d018", null ],
     [ "CreateRotor", "raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2", null ],
+    [ "CreateRotorPID", "raylibODE_8c.html#a51c7fa5bc9007621b52ed19bceadc142", null ],
     [ "CreateSphere", "raylibODE_8c.html#ad03521efcc05b3315d24f47d0eed52a6", null ],
     [ "CreateSphereGeom", "raylibODE_8c.html#a0201472030d3c51d3b13c7f807b59b01", null ],
     [ "CreateStaticTrimesh", "raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265", null ],
@@ -25,6 +26,7 @@ var raylibODE_8c =
     [ "FreeMultiPiston", "raylibODE_8c.html#a710981c5db9781e25b27318e8d56dfbb", null ],
     [ "OdeToRayMat", "raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421", null ],
     [ "PickEntity", "raylibODE_8c.html#a6038bcb143e6ca12696aa65bf164f488", null ],
+    [ "PinEntities", "raylibODE_8c.html#a4fdbdf714b807f26feab3176718e274c", null ],
     [ "PinEntityToWorld", "raylibODE_8c.html#a57b8ac137f7e79fc8deb53b7ba410166", null ],
     [ "RayToOdeMat", "raylibODE_8c.html#a261ecb0743898782ddf0e56b07f32f2b", null ],
     [ "rndf", "raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8", null ],
@@ -36,5 +38,6 @@ var raylibODE_8c =
     [ "SetMultiPistonVelocity", "raylibODE_8c.html#a801a17c097329ca4d55d35f1c5ae7b5a", null ],
     [ "SetPistonLimits", "raylibODE_8c.html#a878892d1015e3c9349f667325d129d43", null ],
     [ "StepPhysics", "raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e", null ],
+    [ "UpdateRotorPID", "raylibODE_8c.html#a3c235bbe76330e3669fb881394ab8767", null ],
     [ "physSlice", "raylibODE_8c.html#ad4efdb006e87d1e0709eb9a32edb2f2d", null ]
 ];

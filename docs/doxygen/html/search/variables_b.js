@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['motorcount_0',['motorCount',['../structRagDoll.html#a48922d5094768dcacf07717590dccd00',1,'RagDoll']]],
-  ['motors_1',['motors',['../structRagDoll.html#a6abc7a02734741bc55d4bafcaaf534a2',1,'RagDoll']]]
+  ['lasterror_0',['lastError',['../structRotorPID.html#afdb6e3aebf5da57db2d769fc8a74a05b',1,'RotorPID']]],
+  ['lights_1',['lights',['../structGraphicsContext.html#a61bca66f0addd3b1ebf71f1369b55e00',1,'GraphicsContext']]],
+  ['lo_2',['lo',['../structRotorPID.html#af2941ac4e0f3caf388abbf8c6a3fdba8',1,'RotorPID']]]
 ];

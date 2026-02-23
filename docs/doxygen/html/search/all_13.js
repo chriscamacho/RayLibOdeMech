@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['unflipvehicle_0',['UnflipVehicle',['../vehicle_8c.html#a0419ed48c974e9d5efab4263b4cee46f',1,'UnflipVehicle(vehicle *car):&#160;vehicle.c'],['../vehicle_8h.html#a0419ed48c974e9d5efab4263b4cee46f',1,'UnflipVehicle(vehicle *car):&#160;vehicle.c']]],
-  ['updateexamplecamera_1',['UpdateExampleCamera',['../exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b',1,'UpdateExampleCamera(struct GraphicsContext *ctx):&#160;exampleCamera.c'],['../exampleCamera_8h.html#ad0a902b3760c7a5f8725bdb73ddc174b',1,'UpdateExampleCamera(struct GraphicsContext *ctx):&#160;exampleCamera.c']]],
-  ['updatelightvalues_2',['UpdateLightValues',['../rlights_8c.html#a147b7e5788024577fc8abb7df32e4c5c',1,'UpdateLightValues(Shader shader, Light light):&#160;rlights.c'],['../rlights_8h.html#a147b7e5788024577fc8abb7df32e4c5c',1,'UpdateLightValues(Shader shader, Light light):&#160;rlights.c']]],
-  ['updateragdollmotors_3',['UpdateRagdollMotors',['../ragdoll_8c.html#aabb2deb6a54bb247892b4a5fabd6449c',1,'UpdateRagdollMotors(RagDoll *ragdoll, float *motorForces):&#160;ragdoll.c'],['../ragdoll_8h.html#aabb2deb6a54bb247892b4a5fabd6449c',1,'UpdateRagdollMotors(RagDoll *ragdoll, float *motorForces):&#160;ragdoll.c']]],
-  ['updatevehicle_4',['UpdateVehicle',['../vehicle_8c.html#a9c16065d67848dde985d9a21631eb01c',1,'UpdateVehicle(vehicle *car, float accel, float steer):&#160;vehicle.c'],['../vehicle_8h.html#a9c16065d67848dde985d9a21631eb01c',1,'UpdateVehicle(vehicle *car, float accel, float steer):&#160;vehicle.c']]],
-  ['updatevehiclecamera_5',['UpdateVehicleCamera',['../exampleCamera_8c.html#afa1b8031e4fc015dfe8093339c904e50',1,'UpdateVehicleCamera(struct GraphicsContext *ctx, vehicle *car):&#160;exampleCamera.c'],['../exampleCamera_8h.html#afa1b8031e4fc015dfe8093339c904e50',1,'UpdateVehicleCamera(struct GraphicsContext *ctx, vehicle *car):&#160;exampleCamera.c']]],
-  ['usage_6',['Basic Usage',['../index.html#usage',1,'']]],
-  ['uvscaleu_7',['uvScaleU',['../structgeomInfo.html#ab566e6f3debd1b3092ec83aa09e961b9',1,'geomInfo']]],
-  ['uvscalev_8',['uvScaleV',['../structgeomInfo.html#a0670722f17ac3020238ee399bd93f32e',1,'geomInfo']]]
+  ['tail_0',['tail',['../struct____clist.html#a1a628ee10b4e61019e547e2d0f2cb887',1,'__clist']]],
+  ['target_1',['target',['../structLight.html#ada0bd72079232cbfaba34001229e8cfa',1,'Light']]],
+  ['targetangle_2',['targetAngle',['../structRotorPID.html#a7ea2978fd04b56af0f7adc741b9bd69a',1,'RotorPID']]],
+  ['targetloc_3',['targetLoc',['../structLight.html#a39192f609cfe392cca178e4a7f36937b',1,'Light']]],
+  ['texture_4',['texture',['../structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14',1,'geomInfo']]],
+  ['the_20framework_5',['Compiling ODE for the framework',['../index.html#preperation',1,'']]],
+  ['tridata_6',['triData',['../structgeomInfo.html#a0cdf37aab555ef5003f8d3be2b553fa8',1,'geomInfo']]],
+  ['triggercallback_7',['TriggerCallback',['../raylibODE_8h.html#aa5c459ebe4c67891450ca45a48d09490',1,'raylibODE.h']]],
+  ['triggeroncollide_8',['triggerOnCollide',['../structgeomInfo.html#a520884eb761f24547c835107a37d024c',1,'geomInfo']]],
+  ['type_9',['type',['../structLight.html#ad5c0b51a5d09ab56d1119706b58a6941',1,'Light']]],
+  ['typeloc_10',['typeLoc',['../structLight.html#a69074799494a828b60170d962675fb90',1,'Light']]]
 ];

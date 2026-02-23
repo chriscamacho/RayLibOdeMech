@@ -10,6 +10,7 @@ var annotated_dup =
     [ "PhysicsContext", "structPhysicsContext.html", "structPhysicsContext" ],
     [ "RagDoll", "structRagDoll.html", "structRagDoll" ],
     [ "RayHit", "structRayHit.html", "structRayHit" ],
+    [ "RotorPID", "structRotorPID.html", "structRotorPID" ],
     [ "SurfaceMaterial", "structSurfaceMaterial.html", "structSurfaceMaterial" ],
     [ "vehicle", "structvehicle.html", "structvehicle" ]
 ];

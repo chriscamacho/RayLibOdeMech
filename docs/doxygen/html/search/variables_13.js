@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['world_0',['world',['../structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f',1,'PhysicsContext']]]
+  ['visual_0',['visual',['../structgeomInfo.html#aac9cece1fdb9d0079901008842994523',1,'geomInfo']]]
 ];

@@ -107,6 +107,7 @@ Data Structures</h2></td></tr>
 <tr class="memitem:PhysicsContext" id="r_PhysicsContext"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPhysicsContext.html">PhysicsContext</a></td></tr>
 <tr class="memitem:geomInfo" id="r_geomInfo"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgeomInfo.html">geomInfo</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores geometry metadata for collision, texturing, and trimesh data.  <a href="structgeomInfo.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RotorPID" id="r_RotorPID"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRotorPID.html">RotorPID</a></td></tr>
 <tr class="memitem:RayHit" id="r_RayHit"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRayHit.html">RayHit</a></td></tr>
 <tr class="memitem:GraphicsContext" id="r_GraphicsContext"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structGraphicsContext.html">GraphicsContext</a></td></tr>
 <tr class="memitem:MultiPiston" id="r_MultiPiston"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMultiPiston.html">MultiPiston</a></td></tr>
@@ -128,6 +129,7 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:aa5c459ebe4c67891450ca45a48d09490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function pointer type for physics trigger events.  <br /></td></tr>
 <tr class="memitem:a7db85dfed979eba9e4954e9af045e215" id="r_a7db85dfed979eba9e4954e9af045e215"><td class="memItemLeft" align="right" valign="top">typedef struct geomInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7db85dfed979eba9e4954e9af045e215">geomInfo</a></td></tr>
 <tr class="memdesc:a7db85dfed979eba9e4954e9af045e215"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores geometry metadata for collision, texturing, and trimesh data.  <br /></td></tr>
+<tr class="memitem:ad292e4e6fd1ef03a883a0b515382cf48" id="r_ad292e4e6fd1ef03a883a0b515382cf48"><td class="memItemLeft" align="right" valign="top">typedef struct RotorPID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad292e4e6fd1ef03a883a0b515382cf48">RotorPID</a></td></tr>
 <tr class="memitem:a4697631c336e0354cd1eb1bc2743d5ba" id="r_a4697631c336e0354cd1eb1bc2743d5ba"><td class="memItemLeft" align="right" valign="top">typedef struct RayHit&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4697631c336e0354cd1eb1bc2743d5ba">RayHit</a></td></tr>
 <tr class="memitem:a92862474db45e097a7381460ac67f859" id="r_a92862474db45e097a7381460ac67f859"><td class="memItemLeft" align="right" valign="top">typedef struct GraphicsContext&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92862474db45e097a7381460ac67f859">GraphicsContext</a></td></tr>
 <tr class="memitem:a2570bb818f3867a7373604ee19b4f8b4" id="r_a2570bb818f3867a7373604ee19b4f8b4"><td class="memItemLeft" align="right" valign="top">typedef struct MultiPiston&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2570bb818f3867a7373604ee19b4f8b4">MultiPiston</a></td></tr>
@@ -200,6 +202,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:aea5e471f2ffcadf7bcce5b25993d1d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets to bodies orientation to align with a vector  <br /></td></tr>
 <tr class="memitem:a57b8ac137f7e79fc8deb53b7ba410166" id="r_a57b8ac137f7e79fc8deb53b7ba410166"><td class="memItemLeft" align="right" valign="top">dJointID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57b8ac137f7e79fc8deb53b7ba410166">PinEntityToWorld</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structentity.html">entity</a> *ent)</td></tr>
 <tr class="memdesc:a57b8ac137f7e79fc8deb53b7ba410166"><td class="mdescLeft">&#160;</td><td class="mdescRight">pins an entity to the world  <br /></td></tr>
+<tr class="memitem:a4fdbdf714b807f26feab3176718e274c" id="r_a4fdbdf714b807f26feab3176718e274c"><td class="memItemLeft" align="right" valign="top">dJointID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fdbdf714b807f26feab3176718e274c">PinEntities</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *physCtx, <a class="el" href="structentity.html">entity</a> *entA, <a class="el" href="structentity.html">entity</a> *entB)</td></tr>
 <tr class="memitem:a8928fb910d045f15136fd02999b7ffa6" id="r_a8928fb910d045f15136fd02999b7ffa6"><td class="memItemLeft" align="right" valign="top">dGeomID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8928fb910d045f15136fd02999b7ffa6">CreateCylinderGeom</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, float radius, float length, Vector3 pos)</td></tr>
 <tr class="memitem:a3ae92d4efc27587000b0f3ca889d19e7" id="r_a3ae92d4efc27587000b0f3ca889d19e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ae92d4efc27587000b0f3ca889d19e7">SetBodyOrientationEuler</a> (dBodyID bdy, float p, float y, float r)</td></tr>
 <tr class="memitem:a37e31d3074a98d5f5a40096dc9b342f7" id="r_a37e31d3074a98d5f5a40096dc9b342f7"><td class="memItemLeft" align="right" valign="top">dGeomID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37e31d3074a98d5f5a40096dc9b342f7">CreateBoxGeom</a> (<a class="el" href="structPhysicsContext.html">PhysicsContext</a> *ctx, <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *gfxCtx, Vector3 size, Vector3 pos)</td></tr>
@@ -207,6 +210,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a710981c5db9781e25b27318e8d56dfbb" id="r_a710981c5db9781e25b27318e8d56dfbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a710981c5db9781e25b27318e8d56dfbb">FreeMultiPiston</a> (<a class="el" href="structMultiPiston.html">MultiPiston</a> *mp)</td></tr>
 <tr class="memitem:aa8656255a05c3f38ce0b13825642acdf" id="r_aa8656255a05c3f38ce0b13825642acdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8656255a05c3f38ce0b13825642acdf">SetEntitySurfaces</a> (<a class="el" href="structentity.html">entity</a> *ent, <a class="el" href="structSurfaceMaterial.html">SurfaceMaterial</a> *mat)</td></tr>
 <tr class="memdesc:aa8656255a05c3f38ce0b13825642acdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">changes the surface material of all an entities geoms  <br /></td></tr>
+<tr class="memitem:a3c235bbe76330e3669fb881394ab8767" id="r_a3c235bbe76330e3669fb881394ab8767"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c235bbe76330e3669fb881394ab8767">UpdateRotorPID</a> (<a class="el" href="structRotorPID.html">RotorPID</a> *pid, dJointID joint)</td></tr>
+<tr class="memitem:a51c7fa5bc9007621b52ed19bceadc142" id="r_a51c7fa5bc9007621b52ed19bceadc142"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRotorPID.html">RotorPID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51c7fa5bc9007621b52ed19bceadc142">CreateRotorPID</a> (float p, float i, float d, float lo, float hi)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="afeff8fa28bbbf9c2ddbc85a38993d92e" name="afeff8fa28bbbf9c2ddbc85a38993d92e"></a>
@@ -415,6 +420,20 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad292e4e6fd1ef03a883a0b515382cf48" name="ad292e4e6fd1ef03a883a0b515382cf48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad292e4e6fd1ef03a883a0b515382cf48">&#9670;&#160;</a></span>RotorPID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct RotorPID RotorPID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa5c459ebe4c67891450ca45a48d09490" name="aa5c459ebe4c67891450ca45a48d09490"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa5c459ebe4c67891450ca45a48d09490">&#9670;&#160;</a></span>TriggerCallback</h2>
 
@@ -569,7 +588,7 @@ The physics context is passed with the callback, which has a user data pointer t
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00356">356</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00131">GraphicsContext::boxTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00140">GraphicsContext::boxTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l01146">CreateMultiPiston()</a>, and <a class="el" href="raylibODE_8c_source.html#l00590">CreateRandomEntity()</a>.</p>
 
@@ -606,7 +625,7 @@ The physics context is passed with the callback, which has a user data pointer t
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00322">322</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00131">GraphicsContext::boxTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00140">GraphicsContext::boxTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
 
 </div>
 </div>
@@ -674,7 +693,7 @@ The physics context is passed with the callback, which has a user data pointer t
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00487">487</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00132">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00141">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00590">CreateRandomEntity()</a>.</p>
 
@@ -746,7 +765,7 @@ Cylinder is assigned a random texture from the available cylinder textures </dd>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00443">443</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00132">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00141">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00590">CreateRandomEntity()</a>.</p>
 
@@ -788,7 +807,7 @@ Cylinder is assigned a random texture from the available cylinder textures </dd>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00309">309</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00132">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00141">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
 
 </div>
 </div>
@@ -864,7 +883,7 @@ Mass is distributed: 50% shaft, 25% each end </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00533">533</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00132">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00141">GraphicsContext::cylinderTextures</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00590">CreateRandomEntity()</a>.</p>
 
@@ -969,7 +988,7 @@ Mass is distributed: 50% shaft, 25% each end </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01146">1146</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00145">MultiPiston::count</a>, <a class="el" href="raylibODE_8c_source.html#l00356">CreateBox()</a>, <a class="el" href="raylibODE_8c_source.html#l01085">CreatePiston()</a>, <a class="el" href="raylibODE_8h_source.html#l00144">MultiPiston::joints</a>, <a class="el" href="raylibODE_8h_source.html#l00036">PISTON_GROUP</a>, <a class="el" href="raylibODE_8h_source.html#l00143">MultiPiston::sections</a>, <a class="el" href="raylibODE_8c_source.html#l01209">SetBodyOrientation()</a>, <a class="el" href="raylibODE_8c_source.html#l01133">SetPistonLimits()</a>, and <a class="el" href="raylibODE_8h_source.html#l00035">WORLD_GROUP</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00154">MultiPiston::count</a>, <a class="el" href="raylibODE_8c_source.html#l00356">CreateBox()</a>, <a class="el" href="raylibODE_8c_source.html#l01085">CreatePiston()</a>, <a class="el" href="raylibODE_8h_source.html#l00153">MultiPiston::joints</a>, <a class="el" href="raylibODE_8h_source.html#l00036">PISTON_GROUP</a>, <a class="el" href="raylibODE_8h_source.html#l00152">MultiPiston::sections</a>, <a class="el" href="raylibODE_8c_source.html#l01209">SetBodyOrientation()</a>, <a class="el" href="raylibODE_8c_source.html#l01133">SetPistonLimits()</a>, and <a class="el" href="raylibODE_8h_source.html#l00035">WORLD_GROUP</a>.</p>
 
 </div>
 </div>
@@ -1122,6 +1141,46 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
 
 </div>
 </div>
+<a id="a51c7fa5bc9007621b52ed19bceadc142" name="a51c7fa5bc9007621b52ed19bceadc142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51c7fa5bc9007621b52ed19bceadc142">&#9670;&#160;</a></span>CreateRotorPID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRotorPID.html">RotorPID</a> CreateRotorPID </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>hi</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01279">1279</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00116">RotorPID::antiWindup</a>, <a class="el" href="raylibODE_8h_source.html#l00117">RotorPID::hi</a>, <a class="el" href="raylibODE_8h_source.html#l00115">RotorPID::Kd</a>, <a class="el" href="raylibODE_8h_source.html#l00115">RotorPID::Ki</a>, <a class="el" href="raylibODE_8h_source.html#l00115">RotorPID::Kp</a>, and <a class="el" href="raylibODE_8h_source.html#l00117">RotorPID::lo</a>.</p>
+
+</div>
+</div>
 <a id="ad03521efcc05b3315d24f47d0eed52a6" name="ad03521efcc05b3315d24f47d0eed52a6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad03521efcc05b3315d24f47d0eed52a6">&#9670;&#160;</a></span>CreateSphere()</h2>
 
@@ -1182,7 +1241,7 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00399">399</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00130">GraphicsContext::sphereTextures</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8c_source.html#l00283">CreateBaseEntity()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00139">GraphicsContext::sphereTextures</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l00590">CreateRandomEntity()</a>.</p>
 
@@ -1219,7 +1278,7 @@ Each type has randomized dimensions within reasonable ranges </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00296">296</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00130">GraphicsContext::sphereTextures</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8c_source.html#l00219">rndf()</a>, <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00139">GraphicsContext::sphereTextures</a>.</p>
 
 </div>
 </div>
@@ -1281,7 +1340,7 @@ Model </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00655">655</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00105">geomInfo::indices</a>, <a class="el" href="raylibODE_8h_source.html#l00136">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>, <a class="el" href="raylibODE_8h_source.html#l00069">PhysicsContext::statics</a>, <a class="el" href="raylibODE_8h_source.html#l00106">geomInfo::triData</a>, and <a class="el" href="raylibODE_8h_source.html#l00098">geomInfo::visual</a>.</p>
+<p class="reference">References <a class="el" href="clist_8c_source.html#l00047">clistAddNode()</a>, <a class="el" href="raylibODE_8c_source.html#l00692">CreateGeomInfo()</a>, <a class="el" href="raylibODE_8h_source.html#l00105">geomInfo::indices</a>, <a class="el" href="raylibODE_8h_source.html#l00145">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>, <a class="el" href="raylibODE_8h_source.html#l00069">PhysicsContext::statics</a>, <a class="el" href="raylibODE_8h_source.html#l00106">geomInfo::triData</a>, and <a class="el" href="raylibODE_8h_source.html#l00098">geomInfo::visual</a>.</p>
 
 </div>
 </div>
@@ -1358,7 +1417,7 @@ Model </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00846">846</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00124">GraphicsContext::ball</a>, <a class="el" href="raylibODE_8h_source.html#l00123">GraphicsContext::box</a>, <a class="el" href="raylibODE_8h_source.html#l00125">GraphicsContext::cylinder</a>, <a class="el" href="raylibODE_8c_source.html#l00798">DrawModelTinted()</a>, <a class="el" href="raylibODE_8h_source.html#l00099">geomInfo::hew</a>, <a class="el" href="raylibODE_8c_source.html#l00836">OdeToRayMat()</a>, <a class="el" href="raylibODE_8h_source.html#l00136">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00095">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00109">geomInfo::triggerOnCollide</a>, <a class="el" href="raylibODE_8h_source.html#l00096">geomInfo::uvScaleU</a>, <a class="el" href="raylibODE_8h_source.html#l00097">geomInfo::uvScaleV</a>, and <a class="el" href="raylibODE_8h_source.html#l00098">geomInfo::visual</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00133">GraphicsContext::ball</a>, <a class="el" href="raylibODE_8h_source.html#l00132">GraphicsContext::box</a>, <a class="el" href="raylibODE_8h_source.html#l00134">GraphicsContext::cylinder</a>, <a class="el" href="raylibODE_8c_source.html#l00798">DrawModelTinted()</a>, <a class="el" href="raylibODE_8h_source.html#l00099">geomInfo::hew</a>, <a class="el" href="raylibODE_8c_source.html#l00836">OdeToRayMat()</a>, <a class="el" href="raylibODE_8h_source.html#l00145">GraphicsContext::shader</a>, <a class="el" href="raylibODE_8h_source.html#l00095">geomInfo::texture</a>, <a class="el" href="raylibODE_8h_source.html#l00109">geomInfo::triggerOnCollide</a>, <a class="el" href="raylibODE_8h_source.html#l00096">geomInfo::uvScaleU</a>, <a class="el" href="raylibODE_8h_source.html#l00097">geomInfo::uvScaleV</a>, and <a class="el" href="raylibODE_8h_source.html#l00098">geomInfo::visual</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="raylibODE_8c_source.html#l01020">DrawBodyGeoms()</a>, <a class="el" href="ragdoll_8c_source.html#l00454">DrawRagdoll()</a>, and <a class="el" href="raylibODE_8c_source.html#l01044">DrawStatics()</a>.</p>
 
@@ -1482,7 +1541,7 @@ Model </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01139">1139</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00144">MultiPiston::joints</a>, and <a class="el" href="raylibODE_8h_source.html#l00143">MultiPiston::sections</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00153">MultiPiston::joints</a>, and <a class="el" href="raylibODE_8h_source.html#l00152">MultiPiston::sections</a>.</p>
 
 </div>
 </div>
@@ -1557,7 +1616,37 @@ Model </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00734">734</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00135">GraphicsContext::camera</a>, <a class="el" href="raylibODE_8h_source.html#l00117">RayHit::depth</a>, <a class="el" href="raylibODE_8h_source.html#l00116">RayHit::geom</a>, <a class="el" href="raylibODE_8h_source.html#l00118">RayHit::pos</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00144">GraphicsContext::camera</a>, <a class="el" href="raylibODE_8h_source.html#l00126">RayHit::depth</a>, <a class="el" href="raylibODE_8h_source.html#l00125">RayHit::geom</a>, <a class="el" href="raylibODE_8h_source.html#l00127">RayHit::pos</a>, and <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>.</p>
+
+</div>
+</div>
+<a id="a4fdbdf714b807f26feab3176718e274c" name="a4fdbdf714b807f26feab3176718e274c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fdbdf714b807f26feab3176718e274c">&#9670;&#160;</a></span>PinEntities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dJointID PinEntities </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structPhysicsContext.html">PhysicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>physCtx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>entA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structentity.html">entity</a> *</td>          <td class="paramname"><span class="paramname"><em>entB</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01257">1257</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, and <a class="el" href="raylibODE_8h_source.html#l00064">PhysicsContext::world</a>.</p>
 
 </div>
 </div>
@@ -1728,7 +1817,7 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01257">1257</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01265">1265</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 </div>
 </div>
@@ -1831,7 +1920,7 @@ Model </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01264">1264</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01272">1272</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 </div>
 </div>
@@ -1866,7 +1955,7 @@ Model </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01194">1194</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00145">MultiPiston::count</a>, <a class="el" href="raylibODE_8h_source.html#l00144">MultiPiston::joints</a>, and <a class="el" href="raylibODE_8h_source.html#l00143">MultiPiston::sections</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00057">entity::body</a>, <a class="el" href="raylibODE_8h_source.html#l00154">MultiPiston::count</a>, <a class="el" href="raylibODE_8h_source.html#l00153">MultiPiston::joints</a>, and <a class="el" href="raylibODE_8h_source.html#l00152">MultiPiston::sections</a>.</p>
 
 </div>
 </div>
@@ -1945,6 +2034,31 @@ dWorldQuickStep </dd></dl>
 <p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l00241">241</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
 
 <p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00066">PhysicsContext::contactgroup</a>, <a class="el" href="raylibODE_8h_source.html#l00067">PhysicsContext::frameTime</a>, <a class="el" href="raylibODE_8h_source.html#l00045">maxPsteps</a>, <a class="el" href="collision_8c_source.html#l00043">nearCallback()</a>, <a class="el" href="raylibODE_8c_source.html#l00208">physSlice</a>, <a class="el" href="raylibODE_8h_source.html#l00065">PhysicsContext::space</a>, and <a class="el" href="raylibODE_8h_source.html#l00064">PhysicsContext::world</a>.</p>
+
+</div>
+</div>
+<a id="a3c235bbe76330e3669fb881394ab8767" name="a3c235bbe76330e3669fb881394ab8767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c235bbe76330e3669fb881394ab8767">&#9670;&#160;</a></span>UpdateRotorPID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UpdateRotorPID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRotorPID.html">RotorPID</a> *</td>          <td class="paramname"><span class="paramname"><em>pid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dJointID</td>          <td class="paramname"><span class="paramname"><em>joint</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="raylibODE_8c_source.html#l01293">1293</a> of file <a class="el" href="raylibODE_8c_source.html">raylibODE.c</a>.</p>
+
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00117">RotorPID::hi</a>, <a class="el" href="raylibODE_8h_source.html#l00119">RotorPID::integral</a>, <a class="el" href="raylibODE_8h_source.html#l00115">RotorPID::Kd</a>, <a class="el" href="raylibODE_8h_source.html#l00115">RotorPID::Ki</a>, <a class="el" href="raylibODE_8h_source.html#l00115">RotorPID::Kp</a>, <a class="el" href="raylibODE_8h_source.html#l00120">RotorPID::lastError</a>, <a class="el" href="raylibODE_8h_source.html#l00117">RotorPID::lo</a>, and <a class="el" href="raylibODE_8h_source.html#l00118">RotorPID::targetAngle</a>.</p>
 
 </div>
 </div>

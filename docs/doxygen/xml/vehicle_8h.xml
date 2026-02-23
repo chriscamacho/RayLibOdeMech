@@ -219,10 +219,10 @@
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
         <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
-        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="131">GraphicsContext::boxTextures</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="140">GraphicsContext::boxTextures</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="692" endline="704">CreateGeomInfo</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="132">GraphicsContext::cylinderTextures</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="141">GraphicsContext::cylinderTextures</references>
         <references refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" compoundref="vehicle_8h" startline="11">vehicle::geoms</references>
         <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
         <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="vehicle_8h" startline="12">vehicle::joints</references>

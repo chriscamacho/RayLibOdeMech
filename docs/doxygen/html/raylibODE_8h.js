@@ -3,6 +3,7 @@ var raylibODE_8h =
     [ "entity", "structentity.html", "structentity" ],
     [ "PhysicsContext", "structPhysicsContext.html", "structPhysicsContext" ],
     [ "geomInfo", "structgeomInfo.html", "structgeomInfo" ],
+    [ "RotorPID", "structRotorPID.html", "structRotorPID" ],
     [ "RayHit", "structRayHit.html", "structRayHit" ],
     [ "GraphicsContext", "structGraphicsContext.html", "structGraphicsContext" ],
     [ "MultiPiston", "structMultiPiston.html", "structMultiPiston" ],
@@ -18,6 +19,7 @@ var raylibODE_8h =
     [ "MultiPiston", "raylibODE_8h.html#a2570bb818f3867a7373604ee19b4f8b4", null ],
     [ "PhysicsContext", "raylibODE_8h.html#aef1bb5a28545a6ce8ceea26ca98c70b0", null ],
     [ "RayHit", "raylibODE_8h.html#a4697631c336e0354cd1eb1bc2743d5ba", null ],
+    [ "RotorPID", "raylibODE_8h.html#ad292e4e6fd1ef03a883a0b515382cf48", null ],
     [ "TriggerCallback", "raylibODE_8h.html#aa5c459ebe4c67891450ca45a48d09490", null ],
     [ "SHAPE_TYPE", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391b", [
       [ "SHAPE_BOX", "raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5", null ],
@@ -39,6 +41,7 @@ var raylibODE_8h =
     [ "CreatePiston", "raylibODE_8h.html#aa35dd966752d4afeffcb8f39e474594c", null ],
     [ "CreateRandomEntity", "raylibODE_8h.html#ae7890e5cf20ab8875b9d08bf80d9d018", null ],
     [ "CreateRotor", "raylibODE_8h.html#a70760bcdbb95dca2cd9cbb1a640485d2", null ],
+    [ "CreateRotorPID", "raylibODE_8h.html#a51c7fa5bc9007621b52ed19bceadc142", null ],
     [ "CreateSphere", "raylibODE_8h.html#ad03521efcc05b3315d24f47d0eed52a6", null ],
     [ "CreateSphereGeom", "raylibODE_8h.html#a0201472030d3c51d3b13c7f807b59b01", null ],
     [ "CreateStaticTrimesh", "raylibODE_8h.html#ae8b06665a78b486c57e6795da4b3e265", null ],
@@ -51,6 +54,7 @@ var raylibODE_8h =
     [ "FreeMultiPiston", "raylibODE_8h.html#a710981c5db9781e25b27318e8d56dfbb", null ],
     [ "OdeToRayMat", "raylibODE_8h.html#ae64d38b48236f4a10077e64b19b953b3", null ],
     [ "PickEntity", "raylibODE_8h.html#a6038bcb143e6ca12696aa65bf164f488", null ],
+    [ "PinEntities", "raylibODE_8h.html#a4fdbdf714b807f26feab3176718e274c", null ],
     [ "PinEntityToWorld", "raylibODE_8h.html#a57b8ac137f7e79fc8deb53b7ba410166", null ],
     [ "RayToOdeMat", "raylibODE_8h.html#ac18f122edccf31f40c3ce18ea1be58cd", null ],
     [ "rndf", "raylibODE_8h.html#a4a4933f37c736fd2d311be9eaf9b7fa8", null ],
@@ -61,5 +65,6 @@ var raylibODE_8h =
     [ "SetGeomOrientationEuler", "raylibODE_8h.html#a5b5b0b12adc7119a13eaacef8d097499", null ],
     [ "SetMultiPistonVelocity", "raylibODE_8h.html#a801a17c097329ca4d55d35f1c5ae7b5a", null ],
     [ "SetPistonLimits", "raylibODE_8h.html#a878892d1015e3c9349f667325d129d43", null ],
-    [ "StepPhysics", "raylibODE_8h.html#ad087bfe56f8c97e250f6dd5054fdf76e", null ]
+    [ "StepPhysics", "raylibODE_8h.html#ad087bfe56f8c97e250f6dd5054fdf76e", null ],
+    [ "UpdateRotorPID", "raylibODE_8h.html#a3c235bbe76330e3669fb881394ab8767", null ]
 ];

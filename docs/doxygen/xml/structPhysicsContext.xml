@@ -25,6 +25,7 @@
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
+        <referencedby refid="raylibODE_8c_1a4fdbdf714b807f26feab3176718e274c" compoundref="raylibODE_8c" startline="1257" endline="1263">PinEntities</referencedby>
         <referencedby refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" compoundref="raylibODE_8c" startline="1249" endline="1255">PinEntityToWorld</referencedby>
         <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</referencedby>
       </memberdef>

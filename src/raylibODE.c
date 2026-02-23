@@ -1254,6 +1254,14 @@ dJointID PinEntityToWorld(PhysicsContext* physCtx, entity* ent)
     return pin;
 }
 
+dJointID PinEntities(PhysicsContext* physCtx, entity* entA, entity* entB)
+{
+	dJointID pin = dJointCreateFixed (physCtx->world, 0);
+    dJointAttach(pin, entA->body, entB->body);
+    dJointSetFixed(pin);
+    return pin;
+}
+
 void SetBodyOrientationEuler(dBodyID bdy, float p, float y, float r)
 {
 	dMatrix3 R;
@@ -1267,3 +1275,44 @@ void SetGeomOrientationEuler(dGeomID g, float p, float y, float r)
 	dRFromEulerAngles(R, p, y, r);
 	dGeomSetRotation(g, R);
 }
+
+RotorPID CreateRotorPID(float p, float i, float d, float lo, float hi) 
+{
+    RotorPID pid = {0};
+    pid.Kp = p;
+    pid.Ki = i;
+    pid.Kd = d;
+    pid.antiWindup = 10.0f; // Prevents the motor from "over-charging" if stuck
+    pid.lo = lo;
+    pid.hi = hi;
+
+    return pid;
+}
+
+
+void UpdateRotorPID(RotorPID* pid, dJointID joint) 
+{
+    if (pid->targetAngle < pid->lo) pid->targetAngle = pid->lo;
+    if (pid->targetAngle > pid->hi) pid->targetAngle = pid->hi;
+    float currentAngle = dJointGetHingeAngle(joint);
+    
+    float error = pid->targetAngle - currentAngle;
+    while (error >  PI) error -= 2.0f * PI;
+    while (error < -PI) error += 2.0f * PI;
+
+    // Integral term with Anti-Windup
+    pid->integral += error;
+    //if (pid->integral >  pid->antiWindup) pid->integral =  pid->antiWindup;
+    //if (pid->integral < -pid->antiWindup) pid->integral = -pid->antiWindup;
+
+    // Derivative term
+    float derivative = (error - pid->lastError);
+    pid->lastError = error;
+
+    // Calculate Output (Velocity)
+    float outputVel = (pid->Kp * error) + 
+                      (pid->Ki * pid->integral) + 
+                      (pid->Kd * derivative);
+    dJointSetHingeParam(joint, dParamVel, outputVel);
+}
+

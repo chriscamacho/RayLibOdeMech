@@ -82,6 +82,17 @@
     <member refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" kind="variable"><name>depth</name></member>
     <member refid="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" kind="variable"><name>pos</name></member>
   </compound>
+  <compound refid="structRotorPID" kind="struct"><name>RotorPID</name>
+    <member refid="structRotorPID_1acfaa26f8f2115c47a4db93781231e406" kind="variable"><name>Kp</name></member>
+    <member refid="structRotorPID_1a2d5ed52841172c4d8b866a298d664414" kind="variable"><name>Ki</name></member>
+    <member refid="structRotorPID_1ada89e789ba855cf729f920fc1c1bb929" kind="variable"><name>Kd</name></member>
+    <member refid="structRotorPID_1ab110cb5e184bcd5145e6ed3b89e2cf82" kind="variable"><name>antiWindup</name></member>
+    <member refid="structRotorPID_1af2941ac4e0f3caf388abbf8c6a3fdba8" kind="variable"><name>lo</name></member>
+    <member refid="structRotorPID_1abb76a89765c6b44add67c2a0bc21ef96" kind="variable"><name>hi</name></member>
+    <member refid="structRotorPID_1a7ea2978fd04b56af0f7adc741b9bd69a" kind="variable"><name>targetAngle</name></member>
+    <member refid="structRotorPID_1acb043fd74456df5ff732c47777e734a8" kind="variable"><name>integral</name></member>
+    <member refid="structRotorPID_1afdb6e3aebf5da57db2d769fc8a74a05b" kind="variable"><name>lastError</name></member>
+  </compound>
   <compound refid="structSurfaceMaterial" kind="struct"><name>SurfaceMaterial</name>
     <member refid="structSurfaceMaterial_1a4145324bfc476e67974224cb6d71a1b5" kind="variable"><name>friction</name></member>
     <member refid="structSurfaceMaterial_1a64bd5db7504bd8b360437bb6bb7e7c5a" kind="variable"><name>bounce</name></member>
@@ -173,6 +184,7 @@
     <member refid="raylibODE_8h_1aef1bb5a28545a6ce8ceea26ca98c70b0" kind="typedef"><name>PhysicsContext</name></member>
     <member refid="raylibODE_8h_1aa5c459ebe4c67891450ca45a48d09490" kind="typedef"><name>TriggerCallback</name></member>
     <member refid="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" kind="typedef"><name>geomInfo</name></member>
+    <member refid="raylibODE_8h_1ad292e4e6fd1ef03a883a0b515382cf48" kind="typedef"><name>RotorPID</name></member>
     <member refid="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" kind="typedef"><name>RayHit</name></member>
     <member refid="raylibODE_8h_1a92862474db45e097a7381460ac67f859" kind="typedef"><name>GraphicsContext</name></member>
     <member refid="raylibODE_8h_1a2570bb818f3867a7373604ee19b4f8b4" kind="typedef"><name>MultiPiston</name></member>
@@ -205,12 +217,15 @@
     <member refid="raylibODE_8h_1a801a17c097329ca4d55d35f1c5ae7b5a" kind="function"><name>SetMultiPistonVelocity</name></member>
     <member refid="raylibODE_8h_1aea5e471f2ffcadf7bcce5b25993d1d0f" kind="function"><name>SetBodyOrientation</name></member>
     <member refid="raylibODE_8h_1a57b8ac137f7e79fc8deb53b7ba410166" kind="function"><name>PinEntityToWorld</name></member>
+    <member refid="raylibODE_8h_1a4fdbdf714b807f26feab3176718e274c" kind="function"><name>PinEntities</name></member>
     <member refid="raylibODE_8h_1a8928fb910d045f15136fd02999b7ffa6" kind="function"><name>CreateCylinderGeom</name></member>
     <member refid="raylibODE_8h_1a3ae92d4efc27587000b0f3ca889d19e7" kind="function"><name>SetBodyOrientationEuler</name></member>
     <member refid="raylibODE_8h_1a37e31d3074a98d5f5a40096dc9b342f7" kind="function"><name>CreateBoxGeom</name></member>
     <member refid="raylibODE_8h_1a5b5b0b12adc7119a13eaacef8d097499" kind="function"><name>SetGeomOrientationEuler</name></member>
     <member refid="raylibODE_8h_1a710981c5db9781e25b27318e8d56dfbb" kind="function"><name>FreeMultiPiston</name></member>
     <member refid="raylibODE_8h_1aa8656255a05c3f38ce0b13825642acdf" kind="function"><name>SetEntitySurfaces</name></member>
+    <member refid="raylibODE_8h_1a3c235bbe76330e3669fb881394ab8767" kind="function"><name>UpdateRotorPID</name></member>
+    <member refid="raylibODE_8h_1a51c7fa5bc9007621b52ed19bceadc142" kind="function"><name>CreateRotorPID</name></member>
   </compound>
   <compound refid="rlights_8h" kind="file"><name>rlights.h</name>
     <member refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kind="define"><name>MAX_LIGHTS</name></member>
@@ -320,8 +335,11 @@
     <member refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" kind="function"><name>SetMultiPistonVelocity</name></member>
     <member refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" kind="function"><name>SetBodyOrientation</name></member>
     <member refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" kind="function"><name>PinEntityToWorld</name></member>
+    <member refid="raylibODE_8c_1a4fdbdf714b807f26feab3176718e274c" kind="function"><name>PinEntities</name></member>
     <member refid="raylibODE_8c_1a3ae92d4efc27587000b0f3ca889d19e7" kind="function"><name>SetBodyOrientationEuler</name></member>
     <member refid="raylibODE_8c_1a5b5b0b12adc7119a13eaacef8d097499" kind="function"><name>SetGeomOrientationEuler</name></member>
+    <member refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" kind="function"><name>CreateRotorPID</name></member>
+    <member refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" kind="function"><name>UpdateRotorPID</name></member>
   </compound>
   <compound refid="rlights_8c" kind="file"><name>rlights.c</name>
     <member refid="rlights_8c_1a959fef16d77f17db49364491cbd4175b" kind="variable"><name>lightsCount</name></member>

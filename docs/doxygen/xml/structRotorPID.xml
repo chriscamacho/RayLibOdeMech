@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structRotorPID" kind="struct" language="C++" prot="public">
+    <compoundname>RotorPID</compoundname>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRotorPID_1acfaa26f8f2115c47a4db93781231e406" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::Kp</definition>
+        <argsstring></argsstring>
+        <name>Kp</name>
+        <qualifiedname>RotorPID::Kp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="115" column="11" bodyfile="raylibODE.h" bodystart="115" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1279" endline="1290">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1293" endline="1317">UpdateRotorPID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRotorPID_1a2d5ed52841172c4d8b866a298d664414" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::Ki</definition>
+        <argsstring></argsstring>
+        <name>Ki</name>
+        <qualifiedname>RotorPID::Ki</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="115" column="14" bodyfile="raylibODE.h" bodystart="115" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1279" endline="1290">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1293" endline="1317">UpdateRotorPID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRotorPID_1ada89e789ba855cf729f920fc1c1bb929" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::Kd</definition>
+        <argsstring></argsstring>
+        <name>Kd</name>
+        <qualifiedname>RotorPID::Kd</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="115" column="17" bodyfile="raylibODE.h" bodystart="115" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1279" endline="1290">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1293" endline="1317">UpdateRotorPID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRotorPID_1ab110cb5e184bcd5145e6ed3b89e2cf82" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::antiWindup</definition>
+        <argsstring></argsstring>
+        <name>antiWindup</name>
+        <qualifiedname>RotorPID::antiWindup</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="116" column="11" bodyfile="raylibODE.h" bodystart="116" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1279" endline="1290">CreateRotorPID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRotorPID_1af2941ac4e0f3caf388abbf8c6a3fdba8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::lo</definition>
+        <argsstring></argsstring>
+        <name>lo</name>
+        <qualifiedname>RotorPID::lo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="117" column="11" bodyfile="raylibODE.h" bodystart="117" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1279" endline="1290">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1293" endline="1317">UpdateRotorPID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRotorPID_1abb76a89765c6b44add67c2a0bc21ef96" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::hi</definition>
+        <argsstring></argsstring>
+        <name>hi</name>
+        <qualifiedname>RotorPID::hi</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="117" column="14" bodyfile="raylibODE.h" bodystart="117" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1279" endline="1290">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1293" endline="1317">UpdateRotorPID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRotorPID_1a7ea2978fd04b56af0f7adc741b9bd69a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::targetAngle</definition>
+        <argsstring></argsstring>
+        <name>targetAngle</name>
+        <qualifiedname>RotorPID::targetAngle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="118" column="11" bodyfile="raylibODE.h" bodystart="118" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1293" endline="1317">UpdateRotorPID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRotorPID_1acb043fd74456df5ff732c47777e734a8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::integral</definition>
+        <argsstring></argsstring>
+        <name>integral</name>
+        <qualifiedname>RotorPID::integral</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="119" column="11" bodyfile="raylibODE.h" bodystart="119" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1293" endline="1317">UpdateRotorPID</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRotorPID_1afdb6e3aebf5da57db2d769fc8a74a05b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RotorPID::lastError</definition>
+        <argsstring></argsstring>
+        <name>lastError</name>
+        <qualifiedname>RotorPID::lastError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="120" column="11" bodyfile="raylibODE.h" bodystart="120" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1293" endline="1317">UpdateRotorPID</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="raylibODE.h" line="114" column="1" bodyfile="raylibODE.h" bodystart="114" bodyend="121"/>
+    <listofallmembers>
+      <member refid="structRotorPID_1ab110cb5e184bcd5145e6ed3b89e2cf82" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>antiWindup</name></member>
+      <member refid="structRotorPID_1abb76a89765c6b44add67c2a0bc21ef96" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>hi</name></member>
+      <member refid="structRotorPID_1acb043fd74456df5ff732c47777e734a8" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>integral</name></member>
+      <member refid="structRotorPID_1ada89e789ba855cf729f920fc1c1bb929" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>Kd</name></member>
+      <member refid="structRotorPID_1a2d5ed52841172c4d8b866a298d664414" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>Ki</name></member>
+      <member refid="structRotorPID_1acfaa26f8f2115c47a4db93781231e406" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>Kp</name></member>
+      <member refid="structRotorPID_1afdb6e3aebf5da57db2d769fc8a74a05b" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>lastError</name></member>
+      <member refid="structRotorPID_1af2941ac4e0f3caf388abbf8c6a3fdba8" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>lo</name></member>
+      <member refid="structRotorPID_1a7ea2978fd04b56af0f7adc741b9bd69a" prot="public" virt="non-virtual"><scope>RotorPID</scope><name>targetAngle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="116" column="13" bodyfile="raylibODE.h" bodystart="116" bodyend="-1"/>
+        <location file="raylibODE.h" line="125" column="13" bodyfile="raylibODE.h" bodystart="125" bodyend="-1"/>
         <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="734" endline="767">PickEntity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" prot="public" static="no" mutable="no">
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="117" column="11" bodyfile="raylibODE.h" bodystart="117" bodyend="-1"/>
+        <location file="raylibODE.h" line="126" column="11" bodyfile="raylibODE.h" bodystart="126" bodyend="-1"/>
         <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="734" endline="767">PickEntity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" prot="public" static="no" mutable="no">
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="118" column="13" bodyfile="raylibODE.h" bodystart="118" bodyend="-1"/>
+        <location file="raylibODE.h" line="127" column="13" bodyfile="raylibODE.h" bodystart="127" bodyend="-1"/>
         <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="734" endline="767">PickEntity</referencedby>
       </memberdef>
     </sectiondef>
@@ -54,7 +54,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="raylibODE.h" line="115" column="1" bodyfile="raylibODE.h" bodystart="115" bodyend="119"/>
+    <location file="raylibODE.h" line="124" column="1" bodyfile="raylibODE.h" bodystart="124" bodyend="128"/>
     <listofallmembers>
       <member refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" prot="public" virt="non-virtual"><scope>RayHit</scope><name>depth</name></member>
       <member refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" prot="public" virt="non-virtual"><scope>RayHit</scope><name>geom</name></member>

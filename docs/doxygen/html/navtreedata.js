@@ -53,7 +53,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"rlights_8h.html"
+"raylibODE_8h.html#aef1bb5a28545a6ce8ceea26ca98c70b0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

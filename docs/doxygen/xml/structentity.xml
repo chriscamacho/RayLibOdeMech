@@ -32,6 +32,7 @@
         <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1007" endline="1018">DrawBodies</referencedby>
         <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1066" endline="1071">FreeEntity</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1a4fdbdf714b807f26feab3176718e274c" compoundref="raylibODE_8c" startline="1257" endline="1263">PinEntities</referencedby>
         <referencedby refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" compoundref="raylibODE_8c" startline="1249" endline="1255">PinEntityToWorld</referencedby>
         <referencedby refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" compoundref="raylibODE_8c" startline="977" endline="985">SetEntityHew</referencedby>
         <referencedby refid="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" compoundref="raylibODE_8c" startline="997" endline="1005">SetEntitySurfaces</referencedby>

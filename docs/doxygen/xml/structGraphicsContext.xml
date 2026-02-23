@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="123" column="11" bodyfile="raylibODE.h" bodystart="123" bodyend="-1"/>
+        <location file="raylibODE.h" line="132" column="11" bodyfile="raylibODE.h" bodystart="132" bodyend="-1"/>
         <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
         <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="846" endline="928">DrawGeom</referencedby>
         <referencedby refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</referencedby>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="124" column="11" bodyfile="raylibODE.h" bodystart="124" bodyend="-1"/>
+        <location file="raylibODE.h" line="133" column="11" bodyfile="raylibODE.h" bodystart="133" bodyend="-1"/>
         <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
         <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="846" endline="928">DrawGeom</referencedby>
         <referencedby refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</referencedby>
@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="125" column="11" bodyfile="raylibODE.h" bodystart="125" bodyend="-1"/>
+        <location file="raylibODE.h" line="134" column="11" bodyfile="raylibODE.h" bodystart="134" bodyend="-1"/>
         <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
         <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="846" endline="928">DrawGeom</referencedby>
         <referencedby refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</referencedby>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="130" column="13" bodyfile="raylibODE.h" bodystart="130" bodyend="-1"/>
+        <location file="raylibODE.h" line="139" column="13" bodyfile="raylibODE.h" bodystart="139" bodyend="-1"/>
         <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
         <referencedby refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="399" endline="419">CreateSphere</referencedby>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="131" column="13" bodyfile="raylibODE.h" bodystart="131" bodyend="-1"/>
+        <location file="raylibODE.h" line="140" column="13" bodyfile="raylibODE.h" bodystart="140" bodyend="-1"/>
         <referencedby refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="356" endline="376">CreateBox</referencedby>
         <referencedby refid="raylibODE_8c_1a37e31d3074a98d5f5a40096dc9b342f7" compoundref="raylibODE_8c" startline="322" endline="332">CreateBoxGeom</referencedby>
         <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="132" column="13" bodyfile="raylibODE.h" bodystart="132" bodyend="-1"/>
+        <location file="raylibODE.h" line="141" column="13" bodyfile="raylibODE.h" bodystart="141" bodyend="-1"/>
         <referencedby refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="487" endline="506">CreateCapsule</referencedby>
         <referencedby refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="443" endline="464">CreateCylinder</referencedby>
         <referencedby refid="raylibODE_8c_1a8928fb910d045f15136fd02999b7ffa6" compoundref="raylibODE_8c" startline="309" endline="320">CreateCylinderGeom</referencedby>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="133" column="13" bodyfile="raylibODE.h" bodystart="133" bodyend="-1"/>
+        <location file="raylibODE.h" line="142" column="13" bodyfile="raylibODE.h" bodystart="142" bodyend="-1"/>
         <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
         <referencedby refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</referencedby>
       </memberdef>
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="135" column="12" bodyfile="raylibODE.h" bodystart="135" bodyend="-1"/>
+        <location file="raylibODE.h" line="144" column="12" bodyfile="raylibODE.h" bodystart="144" bodyend="-1"/>
         <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="734" endline="767">PickEntity</referencedby>
         <referencedby refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="81" endline="93">SetupCamera</referencedby>
         <referencedby refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" compoundref="exampleCamera_8c" startline="168" endline="218">UpdateExampleCamera</referencedby>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="136" column="12" bodyfile="raylibODE.h" bodystart="136" bodyend="-1"/>
+        <location file="raylibODE.h" line="145" column="12" bodyfile="raylibODE.h" bodystart="145" bodyend="-1"/>
         <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
         <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="655" endline="680">CreateStaticTrimesh</referencedby>
         <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="846" endline="928">DrawGeom</referencedby>
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="137" column="11" bodyfile="raylibODE.h" bodystart="137" bodyend="-1"/>
+        <location file="raylibODE.h" line="146" column="11" bodyfile="raylibODE.h" bodystart="146" bodyend="-1"/>
         <referencedby refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</referencedby>
       </memberdef>
     </sectiondef>
@@ -203,7 +203,7 @@
         <link refid="structLight"/>
       </node>
     </collaborationgraph>
-    <location file="raylibODE.h" line="122" column="1" bodyfile="raylibODE.h" bodystart="122" bodyend="138"/>
+    <location file="raylibODE.h" line="131" column="1" bodyfile="raylibODE.h" bodystart="131" bodyend="147"/>
     <listofallmembers>
       <member refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>ball</name></member>
       <member refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" prot="public" virt="non-virtual"><scope>GraphicsContext</scope><name>box</name></member>

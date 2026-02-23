@@ -111,6 +111,15 @@ typedef struct geomInfo {
 } geomInfo;
 
 
+typedef struct RotorPID {
+    float Kp, Ki, Kd;
+    float antiWindup;
+    float lo, hi;
+    float targetAngle;
+    float integral;
+    float lastError;
+} RotorPID;
+
 // Struct to track the results of our raycast
 typedef struct RayHit {
     dGeomID geom;
@@ -211,6 +220,7 @@ void SetMultiPistonVelocity(MultiPiston* mp, float velocity);
 void SetBodyOrientation(dBodyID body, Vector3 direction);
 
 dJointID PinEntityToWorld(PhysicsContext* physCtx, entity* ent);                      
+dJointID PinEntities(PhysicsContext* physCtx, entity* entA, entity* entB);
 
 dGeomID CreateCylinderGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos);
 
@@ -223,6 +233,10 @@ void SetGeomOrientationEuler(dGeomID g, float p, float y, float r);
 void FreeMultiPiston(MultiPiston* mp);
 
 void SetEntitySurfaces(entity* ent, SurfaceMaterial* mat);
+
+void UpdateRotorPID(RotorPID* pid, dJointID joint);
+RotorPID CreateRotorPID(float p, float i, float d, float lo, float hi);
+
 
 #endif // RAYLIBODE_H
 
