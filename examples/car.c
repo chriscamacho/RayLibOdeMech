@@ -21,8 +21,7 @@
  *
  */
 
-#include "init.h"
-#include "exampleCamera.h"
+#include "raylibODE.h"
 
 
 #define screenWidth 1920/1.2

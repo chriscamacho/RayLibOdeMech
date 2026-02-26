@@ -21,8 +21,7 @@
  *
  */
  
-#include "init.h"
-#include "exampleCamera.h"
+#include "raylibODE.h"
 #include "ragdoll.h"
 
 #define screenWidth 1920/1.2
@@ -74,9 +73,8 @@ int main(void)
         // Update
         //----------------------------------------------------------------------------------
 		
-		// baked in controls (example only camera!)
-		UpdateExampleCamera(graphics);
-        
+		// baked in controls (example camera)
+		UpdateCameraControl(graphics);
         
         bool spcdn = IsKeyDown(KEY_SPACE);  // cache space key status (don't look up for each object iterration    
         

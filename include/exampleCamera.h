@@ -29,7 +29,7 @@
 #include "vehicle.h"
 
 void SetupCamera(struct GraphicsContext* ctx);
-void UpdateExampleCamera(struct GraphicsContext* ctx);
+void UpdateCameraControl(struct GraphicsContext* ctx);
 void UpdateVehicleCamera(struct GraphicsContext* ctx, vehicle* car);
 float GetCameraYaw();
 float GetCameraPitch();

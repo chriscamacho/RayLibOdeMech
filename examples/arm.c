@@ -22,9 +22,7 @@
  */
  
 #include <stdbool.h>
-
-#include "init.h"
-#include "exampleCamera.h"
+#include "raylibODE.h"
 
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
@@ -173,8 +171,8 @@ int main(void)
         // Update
         //----------------------------------------------------------------------------------
 		
-		// baked in controls (example only camera!)
-		UpdateExampleCamera(graphics);
+		// baked in controls (example camera)
+		UpdateCameraControl(graphics);
 		
 		if (IsKeyDown(KEY_G)) {
 			if (gData.attachment) {

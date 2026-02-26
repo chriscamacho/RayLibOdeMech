@@ -45,10 +45,11 @@
  */
 
 
-// example camera intended for the examples only probably more useful
+// example camera intended for the examples, probably more useful
 // to make something more specific for individual projects 
 
-#include "vehicle.h"
+
+#include "raylibODE.h"
 static float cameraYaw; 
 static float cameraPitch; 
 
@@ -165,7 +166,7 @@ void UpdateVehicleCamera(struct GraphicsContext* ctx, vehicle* car)
  * 
  * @param ctx pointer to the graphics context
  */
-void UpdateExampleCamera(struct GraphicsContext* ctx)
+void UpdateCameraControl(struct GraphicsContext* ctx)
 {    
 
 	// Update camera with mouse look (first-person style)

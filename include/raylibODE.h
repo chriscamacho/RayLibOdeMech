@@ -32,6 +32,8 @@
 #include "clist.h"
 #include "surface.h"
 
+
+
 #define WORLD_GROUP		0x0001
 #define PISTON_GROUP	0x0002
 
@@ -69,6 +71,9 @@ typedef struct PhysicsContext {
 	clist_t* statics; // list of static ode geoms
 	void* data; // user data pointer
 } PhysicsContext;
+
+
+
 
 /**
  * @brief Function pointer type for physics trigger events
@@ -154,6 +159,30 @@ typedef struct MultiPiston {
     int count;
     Vector3 direction;
 } MultiPiston;
+
+#define VEH_PART_COUNT 7 // Chassis + 4 wheels + front marker sway
+#define WHEEL_COUNT 5
+
+typedef struct vehicle {
+    dBodyID bodies[VEH_PART_COUNT];
+    dGeomID geoms[VEH_PART_COUNT];
+    dJointID joints[WHEEL_COUNT];
+    int bodyCount;
+} vehicle;
+
+#include "exampleCamera.h"
+
+// Initialize graphics resources and window
+GraphicsContext* CreateGraphics(int width, int height, const char* title);
+
+// Initialize the physics world and create all objects
+// Returns pointer to PhysicsContext
+PhysicsContext* CreatePhysics();
+
+// clean up physics
+void FreePhysics(PhysicsContext* ctx);
+// Clean up application resources
+void FreeGraphics(GraphicsContext* ctx);
 
 entity* CreateBaseEntity(PhysicsContext* ctx);
 

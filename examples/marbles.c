@@ -24,8 +24,8 @@
 #include <stdlib.h>
 #include <math.h>
  
-#include "init.h"
-#include "exampleCamera.h"
+#include "raylibODE.h"
+
 
 // instances slops, level sections and corners from an array of coordinates
 void LoadLevel(PhysicsContext* physCtx, GraphicsContext* graphics);
@@ -190,8 +190,8 @@ int main(void)
 			}
 		}
         frameCount++;
-		
-		UpdateExampleCamera(graphics);
+
+		UpdateCameraControl(graphics);
         StepPhysics(physCtx);
         
 		cnode_t* node = physCtx->objList->head;

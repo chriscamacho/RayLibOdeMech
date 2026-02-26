@@ -20,11 +20,11 @@
  * SOFTWARE.
  *
  */
- 
+
+#include <stdlib.h> 
 #include <math.h>
 
-#include "init.h"
-#include "exampleCamera.h"
+#include "raylibODE.h"
 
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
@@ -111,7 +111,7 @@ int main(void)
     while (!WindowShouldClose())
     {
 		frameCount++;
-        UpdateExampleCamera(graphics);
+		UpdateCameraControl(graphics);
 		
 		updateGravity(physCtx, graphics);
 		if (IsKeyDown(KEY_F)) {

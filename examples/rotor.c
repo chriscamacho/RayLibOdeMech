@@ -21,8 +21,10 @@
  *
  */
 
-#include "init.h"
-#include "exampleCamera.h"
+#include <stdbool.h>
+#include <math.h>
+#include "raylibODE.h"
+
 
 #define screenWidth 1920/1.2
 #define screenHeight 1080/1.2
@@ -94,8 +96,8 @@ int main(void)
         // Update
         //----------------------------------------------------------------------------------
 		
-		// baked in controls (example only camera!)
-		UpdateExampleCamera(graphics);
+		// baked in controls (example camera)
+		UpdateCameraControl(graphics);
         if (IsKeyPressed(KEY_O)) {
 			wiper = !wiper;
 		}

@@ -20,8 +20,13 @@
  * SOFTWARE.
  *
  */
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>  // memset
 #include "raylibODE.h"
-static void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx);
+#include "collision.h"
+
+
 
 /**
  * @file raylibODE.c
@@ -191,12 +196,8 @@ static void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx);
  * @par
  * shows shapes colliding and coming to rest on a static trimesh
  */
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>  // memset
-#include "raylibODE.h"
-#include "collision.h"
-#include "surface.h"
+
+static void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx);
 
 /**
  * @brief Physics simulation time slice
