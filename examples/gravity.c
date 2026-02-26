@@ -87,7 +87,8 @@ entity* CreateOrbiter(PhysicsContext* physCtx, GraphicsContext* graphics)
 	return e;
 }
 
-
+int frameCount = 0;
+void updateGravity(PhysicsContext* physCtx, GraphicsContext* graphics );
 
 int main(void)
 {
@@ -106,86 +107,18 @@ int main(void)
 	dVector3 g;
 	dWorldGetGravity(physCtx->world, g);
 	
-	int frameCount = 0;
+	
     while (!WindowShouldClose())
     {
 		frameCount++;
         UpdateExampleCamera(graphics);
-        StepPhysics(physCtx);
-
-		bool spcdn = IsKeyPressed(KEY_SPACE);  // cache space key status (don't look up for each object iterration  
-		cnode_t* node = physCtx->objList->head;
-
-        while (node != NULL) 
-        {
-			entity* ent = node->data;
-            dBodyID bdy = ent->body;
-            cnode_t* next = node->next; // get the next node now in case we delete this one
-            const dReal* pos = dBodyGetPosition(bdy);
-            
-			Vector3* pv = (Vector3*)pos;	// not sure if I like this!
-            Vector3 dist = Vector3Subtract(gravPoint, *pv);
-            float d = Vector3Length(dist);
-            
-			if (spcdn) {
-                // apply an outward force if the space key is pressed
-
-				dBodyEnable (bdy); // case its gone to sleep
-				dMass mass;
-				dBodyGetMass (bdy, &mass);
-				// give some object more force than others
-				float f = rndf(100,10) * mass.mass;
-				Vector3 fv = Vector3Normalize(dist);
-				fv = Vector3Negate(fv);
-				fv = Vector3Scale(fv, f);
-				dBodyAddForce(bdy, fv.x, fv.y, fv.z);
-            }
-            
-
-            if (d < gravSize) {
-				dBodySetGravityMode(bdy, 0);
-
-				Vector3 f = Vector3Normalize(dist);
-				Vector3Scale(f, Vector3Length(G));
-				dMass M;
-				dBodyGetMass(bdy, &M);
-				f = Vector3Scale(f, M.mass);
-				if (d < kullSize) {
-					// this is just to make it more interesting so they
-					// don't all clump in the centre it also helps
-					// to regenrate the object orbit by adding more energy
-					//f = Vector3Negate(f); // push away if too close
-					//f = Vector3Scale(f, 8.0f);
-					
-					// as an alternatice you can use this with a smaller radius
-					free(ent->data);
-					FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-					CreateOrbiter(physCtx, graphics);
-					node = next;
-					continue;
-				}
-				dBodyAddForce(bdy, f.x, f.y, f.z);
-			} else {
-				dBodySetGravityMode(bdy, 1); // normal gravity
+		
+		updateGravity(physCtx, graphics);
+		if (IsKeyDown(KEY_F)) {
+			for (int i=0; i < 4; i++) {
+				updateGravity(physCtx, graphics);
 			}
-                        
-            if(pos[1]<-10) {
-				free(ent->data);
-                FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
-				CreateOrbiter(physCtx, graphics);
-				node = next;
-				continue;
-            }
-            
-            if (frameCount % 4 == 0) {
-				Vector3* v = ent->data;
-				for (int i = 1; i < trailSize; i++) {
-					v[i-1] = v[i];
-				}
-				v[trailSize-1] = (Vector3){pos[0], pos[1], pos[2]};
-			}
-            node = next;
-        }
+		}
 
         // drawing
         BeginDrawing();
@@ -197,7 +130,7 @@ int main(void)
                 DrawSphereWires(gravPoint, gravSize, 9, 9, BLUE);
                 DrawSphere(gravPoint, planetSize, GREEN);
                 
-				node = physCtx->objList->head;
+				cnode_t* node = physCtx->objList->head;
 
 				while (node != NULL) 
 				{
@@ -230,3 +163,68 @@ int main(void)
     CloseWindow();
     return 0;
 }
+
+void updateGravity(PhysicsContext* physCtx, GraphicsContext* graphics )
+{
+	StepPhysics(physCtx);
+
+	cnode_t* node = physCtx->objList->head;
+
+	while (node != NULL) 
+	{
+		entity* ent = node->data;
+		dBodyID bdy = ent->body;
+		cnode_t* next = node->next; // get the next node now in case we delete this one
+		const dReal* pos = dBodyGetPosition(bdy);
+		
+		Vector3* pv = (Vector3*)pos;	// not sure if I like this!
+		Vector3 dist = Vector3Subtract(gravPoint, *pv);
+		float d = Vector3Length(dist);
+		
+		if (d < gravSize) {
+			dBodySetGravityMode(bdy, 0);
+
+			Vector3 f = Vector3Normalize(dist);
+			Vector3Scale(f, Vector3Length(G));
+			dMass M;
+			dBodyGetMass(bdy, &M);
+			f = Vector3Scale(f, M.mass);
+			if (d < kullSize) {
+				// this is just to make it more interesting so they
+				// don't all clump in the centre it also helps
+				// to regenrate the object orbit by adding more energy
+				//f = Vector3Negate(f); // push away if too close
+				//f = Vector3Scale(f, 8.0f);
+				
+				// as an alternatice you can use this with a smaller radius
+				free(ent->data);
+				FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
+				CreateOrbiter(physCtx, graphics);
+				node = next;
+				continue;
+			}
+			dBodyAddForce(bdy, f.x, f.y, f.z);
+		} else {
+			dBodySetGravityMode(bdy, 1); // normal gravity
+		}
+					
+		if(pos[1]<-10) {
+			free(ent->data);
+			FreeEntity(physCtx, ent); // warning deletes global entity list entry, get your next node before doing this!
+			CreateOrbiter(physCtx, graphics);
+			node = next;
+			continue;
+		}
+		
+		if (frameCount % 4 == 0) {
+			Vector3* v = ent->data;
+			for (int i = 1; i < trailSize; i++) {
+				v[i-1] = v[i];
+			}
+			v[trailSize-1] = (Vector3){pos[0], pos[1], pos[2]};
+		}
+		node = next;
+	}
+
+}
+
