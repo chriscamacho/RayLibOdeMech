@@ -1,0 +1,225 @@
+\doxysection{pid\+Joint.\+c}
+\hypertarget{pidJoint_8c-example}{}\label{pidJoint_8c-example}create a rotor PID helper
+
+create a rotor PID helper
+\begin{DoxyParams}{Parameters}
+{\em p} & proportional value for the PID \\
+\hline
+{\em i} & integral value \\
+\hline
+{\em d} & derivative \\
+\hline
+{\em lo} & the low stop \\
+\hline
+{\em hi} & the high stop\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+a rotor\+PID contains a target\+Angle, set this for your desired rotor angle
+
+tuning a PID can be a bit of a dark art! I recommend looking at \href{https://pidexplained.com/how-to-tune-a-pid-controller/}{\texttt{https\+://pidexplained.\+com/how-\/to-\/tune-\/a-\/pid-\/controller/}} and the example
+\end{DoxyNote}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\textcolor{comment}{\ *}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**\ @file\ pidJoint.c\ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ init}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ ground\ plane}}
+\DoxyCodeLine{\ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
+\DoxyCodeLine{\ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
+\DoxyCodeLine{\ \ \ \ dGeomSetData(planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f));}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Create\ random\ simple\ objects\ with\ random\ textures}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//for\ (int\ i\ =\ 0;\ i\ <\ NUM\_OBJ;\ i++)\ \{}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ CreateRandomEntity(physCtx,\ graphics,\ (Vector3)\{rndf(-\/3,\ 3),\ rndf(6,\ 12),\ rndf(-\/3,\ 3)\},\ SHAPE\_ALL);}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ rotor\ =\ \mbox{\hyperlink{raylibODE_8c_a6985c096003040ae46ed46b117f01d69}{CreateCylinder}}(physCtx,\ graphics,\ 2.f,\ 1.f,\ (Vector3)\{0,.6,0\},\ (Vector3)\{M\_PI\_2,0,0\},\ 100);}
+\DoxyCodeLine{\ \ \ \ dJointID\ rotorJoint\ =\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(physCtx,\ rotor,\ 0,\ (Vector3)\{0,1,0\});}
+\DoxyCodeLine{\ \ \ \ dBodySetAutoDisableFlag(rotor-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ elivate\ =\ \mbox{\hyperlink{raylibODE_8c_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(physCtx,\ graphics,\ 1.f,\ (Vector3)\{0,1.6,0\},\ (Vector3)\{M\_PI\_2,0,0\},\ 1);}
+\DoxyCodeLine{\ \ \ \ dJointID\ elivateJoint\ =\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(physCtx,\ elivate,\ rotor,\ (Vector3)\{1,0,0\});}
+\DoxyCodeLine{\ \ \ \ dBodySetAutoDisableFlag(elivate-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ create\ a\ multi\ piston\ and\ pin\ it\ to\ the\ world}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ extends\ from\ .22\ to\ 5.54\ with\ the\ furthest\ extent\ being\ plus\ section\ height\ /\ 2}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ bottom\ for\ first\ section\ is\ section[0]\ position\ minus\ section\ height\ /\ 2}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ upperArm\ =\ \mbox{\hyperlink{raylibODE_8c_a8d2339918b2d47fcaea5c861ccfbc3d8}{CreateMultiPiston}}(physCtx,\ graphics,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Vector3)\{0,3.5,0\},\ \ \textcolor{comment}{//\ position}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Vector3)\{0,1,0\},\ \ \ \ \textcolor{comment}{//\ direction\ (or\ axis)\ of\ the\ piston}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ sections}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ distance\ each\ section\ travels}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ base\ width}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stength}}
+\DoxyCodeLine{\ \ \ \ dBodySetAutoDisableFlag(upperArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[0]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a4fdbdf714b807f26feab3176718e274c}{PinEntities}}(physCtx,\ elivate,\ upperArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[0]);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ elbow\ =\ \mbox{\hyperlink{raylibODE_8c_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(physCtx,\ graphics,\ 1.f,\ (Vector3)\{0,5.8,0\},\ (Vector3)\{M\_PI\_2,0,0\},\ 1);}
+\DoxyCodeLine{\ \ \ \ dJointID\ elbowJoint\ =\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(physCtx,\ elbow,\ upperArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[upperArm-\/>\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}}-\/1],\ (Vector3)\{1,0,0\});}
+\DoxyCodeLine{\ \ \ \ dBodySetAutoDisableFlag(elbow-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ foreArm\ =\ \mbox{\hyperlink{raylibODE_8c_a8d2339918b2d47fcaea5c861ccfbc3d8}{CreateMultiPiston}}(physCtx,\ graphics,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Vector3)\{0,7.8,0\},\ \ \textcolor{comment}{//\ position}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (Vector3)\{0,1,0\},\ \ \ \ \textcolor{comment}{//\ direction\ (or\ axis)\ of\ the\ piston}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ sections}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ distance\ each\ section\ travels}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ base\ width}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1000);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stength}}
+\DoxyCodeLine{\ \ \ \ dBodySetAutoDisableFlag(foreArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[0]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a4fdbdf714b807f26feab3176718e274c}{PinEntities}}(physCtx,\ elbow,\ foreArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[0]);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRotorPID}{RotorPID}}\ elivatePID\ =\ \mbox{\hyperlink{raylibODE_8c_a51c7fa5bc9007621b52ed19bceadc142}{CreateRotorPID}}(100.0f,\ 1.6f,\ 3.f,\ -\/M\_PI\_2\ +\ 0.2f,\ M\_PI\_2\ -\/\ 0.2f);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRotorPID}{RotorPID}}\ elbowPID\ =\ \mbox{\hyperlink{raylibODE_8c_a51c7fa5bc9007621b52ed19bceadc142}{CreateRotorPID}}(100.0f,\ 1.6f,3.f,\ -\/M\_PI\_2\ +\ 0.2f,\ M\_PI\_2\ -\/\ 0.2f);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ grabber\ =\ \mbox{\hyperlink{raylibODE_8c_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(physCtx,\ graphics,\ 1.f,\ (Vector3)\{0,10.2f,0\},\ (Vector3)\{M\_PI\_2,0,0\},\ 1);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a4fdbdf714b807f26feab3176718e274c}{PinEntities}}(physCtx,\ grabber,\ foreArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[foreArm-\/>\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}}-\/1]);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ dJointSetHingeParam(rotorJoint,\ dParamVel,\ 0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_I))\ dJointSetHingeParam(rotorJoint,\ dParamVel,\ 1.0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_O))\ dJointSetHingeParam(rotorJoint,\ dParamVel,\ -\/1.0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_K))\ elivatePID.\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ +=\ 0.01;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_L))\ elivatePID.\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ -\/=\ 0.01;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a3c235bbe76330e3669fb881394ab8767}{UpdateRotorPID}}(\&elivatePID,\ elivateJoint);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(upperArm,\ 0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_COMMA))\ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(upperArm,\ 1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_PERIOD))\ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(upperArm,\ -\/1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_Y))\ elbowPID.\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ +=\ 0.01;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_U))\ elbowPID.\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ -\/=\ 0.01;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a3c235bbe76330e3669fb881394ab8767}{UpdateRotorPID}}(\&elbowPID,\ elbowJoint);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(foreArm,\ 0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_H))\ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(foreArm,\ 1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_J))\ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(foreArm,\ -\/1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ next\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};\ \textcolor{comment}{//\ get\ the\ next\ node\ now\ in\ case\ we\ delete\ this\ one}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spcdn)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ force\ if\ the\ space\ key\ is\ held}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ v\ =\ dBodyGetLinearVel(bdy);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[1]\ <\ 10\ \&\&\ pos[1]<10)\ \{\ \textcolor{comment}{//\ cap\ upwards\ velocity\ and\ don't\ let\ it\ get\ too\ high}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable\ (bdy);\ \textcolor{comment}{//\ case\ its\ gone\ to\ sleep}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dMass\ mass;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyGetMass\ (bdy,\ \&mass);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ give\ some\ object\ more\ force\ than\ others}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ f\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(8,20)\ *\ mass.mass;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyAddForce(bdy,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f),\ f*10,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos[1]<-\/10)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ drawing}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//DrawText("{}Press\ O\ and\ P\ to\ move\ the\ piston"{},\ 10,\ 40,\ 20,\ RAYWHITE);}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ ea\ =\ dJointGetHingeAngle(elivateJoint);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Elivate\ angle\ \%f"{}},ea),\ 10,\ 120,\ 20,\ WHITE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ea\ =\ dJointGetHingeAngle(rotorJoint);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Rotor\ angle\ \%f"{}},ea),\ 10,\ 140,\ 20,\ WHITE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ea\ =\ dJointGetHingeAngle(elbowJoint);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}elbow\ angle\ \%f"{}},ea),\ 10,\ 160,\ 20,\ WHITE);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ op1\ =\ dBodyGetPosition(foreArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[0]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ op2\ =\ dBodyGetPosition(foreArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[foreArm-\/>\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}}-\/1]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ dv\ =\ (Vector3)\{op1[0]-\/op2[0],\ op1[1]-\/op2[1],\ op1[2]-\/op2[2]\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l\ =\ Vector3Length(dv);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}forarm\ length\ \%f"{}},\ l),\ 10,\ 180,\ 20,\ WHITE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ op1\ =\ dBodyGetPosition(upperArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[0]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ op2\ =\ dBodyGetPosition(upperArm-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[upperArm-\/>\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}}-\/1]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ dv\ =\ (Vector3)\{op1[0]-\/op2[0],\ op1[1]-\/op2[1],\ op1[2]-\/op2[2]\};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l\ =\ Vector3Length(dv);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}upperArm\ length\ \%f"{}},\ l),\ 10,\ 200,\ 20,\ WHITE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ op1\ =\ dBodyGetPosition(grabber-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}grabber\ position\ \%f,\ \%f,\ \%f"{}},\ op1[0],\ op1[1],\ op1[2]),\ 10,\ 220,\ 20,\ WHITE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a710981c5db9781e25b27318e8d56dfbb}{FreeMultiPiston}}(upperArm);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
+\DoxyCodeLine{\ \ \ \ CloseWindow();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

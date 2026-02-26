@@ -1,15 +1,14 @@
 var searchData=
 [
-  ['shape_5fall_0',['SHAPE_ALL',['../raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf',1,'raylibODE.h']]],
-  ['shape_5fbox_1',['SHAPE_BOX',['../raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5',1,'raylibODE.h']]],
-  ['shape_5fcapsule_2',['SHAPE_CAPSULE',['../raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391badccfd8c5874464bfd348e8cd8d7bd879',1,'raylibODE.h']]],
-  ['shape_5fcylinder_3',['SHAPE_CYLINDER',['../raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391ba62eea2af0cd8bf0530c0799ce72b93cf',1,'raylibODE.h']]],
-  ['shape_5fdumbbell_4',['SHAPE_DUMBBELL',['../raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc',1,'raylibODE.h']]],
-  ['shape_5fsphere_5',['SHAPE_SPHERE',['../raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391bac7a9839306104e6733f1adc2bb66274b',1,'raylibODE.h']]],
-  ['surface_5fcount_6',['SURFACE_COUNT',['../surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c',1,'surface.h']]],
-  ['surface_5fearth_7',['SURFACE_EARTH',['../surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96',1,'surface.h']]],
-  ['surface_5fice_8',['SURFACE_ICE',['../surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5',1,'surface.h']]],
-  ['surface_5fmetal_9',['SURFACE_METAL',['../surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d',1,'surface.h']]],
-  ['surface_5frubber_10',['SURFACE_RUBBER',['../surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1',1,'surface.h']]],
-  ['surface_5fwood_11',['SURFACE_WOOD',['../surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe',1,'surface.h']]]
+  ['ragdoll_5fbody_5fcount_0',['RAGDOLL_BODY_COUNT',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9ea63ae122c1cc44a4855a2f3040aa1ba54',1,'ragdoll.h']]],
+  ['ragdoll_5fhead_1',['RAGDOLL_HEAD',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364',1,'ragdoll.h']]],
+  ['ragdoll_5fleft_5flower_5farm_2',['RAGDOLL_LEFT_LOWER_ARM',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9eaecead3b97ba8dd9fc09e3031917ac5b6',1,'ragdoll.h']]],
+  ['ragdoll_5fleft_5flower_5fleg_3',['RAGDOLL_LEFT_LOWER_LEG',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9eacb49283629cb77208bbdcbbe143e875e',1,'ragdoll.h']]],
+  ['ragdoll_5fleft_5fupper_5farm_4',['RAGDOLL_LEFT_UPPER_ARM',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9eafcbc781f6e0087bc63939fa8e7558c68',1,'ragdoll.h']]],
+  ['ragdoll_5fleft_5fupper_5fleg_5',['RAGDOLL_LEFT_UPPER_LEG',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9ea7719991e1f3405e6e63322b0a52f7ac3',1,'ragdoll.h']]],
+  ['ragdoll_5fright_5flower_5farm_6',['RAGDOLL_RIGHT_LOWER_ARM',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9ea576f7a0fcff61d3c892c510090e6a0b0',1,'ragdoll.h']]],
+  ['ragdoll_5fright_5flower_5fleg_7',['RAGDOLL_RIGHT_LOWER_LEG',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9ea7a81b2c4ff436d22d185a879f2992cc0',1,'ragdoll.h']]],
+  ['ragdoll_5fright_5fupper_5farm_8',['RAGDOLL_RIGHT_UPPER_ARM',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9ea0687525ae5895e57afbe77b366e7b5c3',1,'ragdoll.h']]],
+  ['ragdoll_5fright_5fupper_5fleg_9',['RAGDOLL_RIGHT_UPPER_LEG',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9ea20bde2850b83951929e77a883b69ce34',1,'ragdoll.h']]],
+  ['ragdoll_5ftorso_10',['RAGDOLL_TORSO',['../ragdoll_8h.html#a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608',1,'ragdoll.h']]]
 ];

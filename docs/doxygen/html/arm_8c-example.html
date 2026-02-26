@@ -127,24 +127,24 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// custom struct to save with physics context for use in trigger callback</span></div>
-<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>grabberData {</div>
-<div class="line">    dGeomID planeGeom;</div>
-<div class="line">    dJointID attachment;</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_struct" href="structentity.html">entity</a>* grabber;</div>
-<div class="line">} grabberData;</div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span><a id="_a0" name="_a0"></a><a class="code hl_struct" href="structgrabberData.html">grabberData</a> {</div>
+<div class="line">    dGeomID <a id="a1" name="a1"></a><a class="code hl_variable" href="structgrabberData.html#ad5f2a9c6087f11d2347347c4ea49b2ee">planeGeom</a>;</div>
+<div class="line">    dJointID <a id="a2" name="a2"></a><a class="code hl_variable" href="structgrabberData.html#ae203f18a3030f78c0da2d0d0aa5dce2d">attachment</a>;</div>
+<div class="line">    <a id="_a3" name="_a3"></a><a class="code hl_struct" href="structentity.html">entity</a>* <a id="a4" name="a4"></a><a class="code hl_variable" href="structgrabberData.html#abcbe92caa2c5e2601121826c0cb91c56">grabber</a>;</div>
+<div class="line">} <a class="code hl_struct" href="structgrabberData.html">grabberData</a>;</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// this will end up joining to the first collided in a frame (could be any!)</span></div>
-<div class="line"><span class="keywordtype">void</span> triggerCallback(<a id="_a1" name="_a1"></a><a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, dGeomID trigger, dGeomID intruder) </div>
+<div class="line"><span class="keywordtype">void</span> <a id="a5" name="a5"></a><a class="code hl_function" href="arm_8c.html#ab295c09645dc1cb3f5e2495e25e2c2b9">triggerCallback</a>(<a id="_a6" name="_a6"></a><a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx, dGeomID trigger, dGeomID intruder) </div>
 <div class="line">{</div>
 <div class="line">    (void)trigger;</div>
-<div class="line">    grabberData* gdata = (grabberData*)physCtx-&gt;<a id="a2" name="a2"></a><a class="code hl_variable" href="structPhysicsContext.html#a700dab42e1cd527f86163f6359cac5c6">data</a>;</div>
+<div class="line">    <a class="code hl_struct" href="structgrabberData.html">grabberData</a>* gdata = (<a class="code hl_struct" href="structgrabberData.html">grabberData</a>*)physCtx-&gt;<a id="a7" name="a7"></a><a class="code hl_variable" href="structPhysicsContext.html#a700dab42e1cd527f86163f6359cac5c6">data</a>;</div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">if</span> (intruder == gdata-&gt;planeGeom) <span class="keywordflow">return</span>;</div>
-<div class="line">    <a id="_a3" name="_a3"></a><a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(intruder);</div>
+<div class="line">    <a id="_a8" name="_a8"></a><a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(intruder);</div>
 <div class="line">    <span class="keywordflow">if</span> (gi) {</div>
-<div class="line">        gi-&gt;<a id="a4" name="a4"></a><a class="code hl_variable" href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a> = RED;</div>
+<div class="line">        gi-&gt;<a id="a9" name="a9"></a><a class="code hl_variable" href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a> = RED;</div>
 <div class="line">        <span class="keywordflow">if</span> (!gdata-&gt;attachment &amp;&amp; !IsKeyDown(KEY_G)) {</div>
 <div class="line">            dBodyID bdy = dGeomGetBody(intruder);</div>
 <div class="line">            gdata-&gt;attachment = dJointCreateBall (physCtx-&gt;world, 0);</div>
@@ -158,39 +158,39 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div>
+<div class="line"><span class="keywordtype">int</span> <a id="a10" name="a10"></a><a class="code hl_function" href="arm_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Initialization</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    </div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* graphics = <a id="a6" name="a6"></a><a class="code hl_function" href="init_8c.html#a0c011796e9f74e7eb4b5bb26305193f9">CreateGraphics</a>(screenWidth, screenHeight, <span class="stringliteral">&quot;Raylib and OpenDE&quot;</span>);</div>
-<div class="line">    <a id="a7" name="a7"></a><a class="code hl_function" href="exampleCamera_8c.html#af155bf31f5a69e64716e1eb1a010f647">SetupCamera</a>(graphics);</div>
-<div class="line">    <a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx = <a id="a8" name="a8"></a><a class="code hl_function" href="init_8c.html#a57d526245eb2f059fac1e6bb3f64ae42">CreatePhysics</a>();</div>
+<div class="line">    <a id="_a11" name="_a11"></a><a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* graphics = <a id="a12" name="a12"></a><a class="code hl_function" href="init_8c.html#a0c011796e9f74e7eb4b5bb26305193f9">CreateGraphics</a>(<a id="_a13" name="_a13"></a><a class="code hl_define" href="arm_8c.html#a76da26d519b3a4158847daa8783a7a5b">screenWidth</a>, <a id="_a14" name="_a14"></a><a class="code hl_define" href="arm_8c.html#a8c472bd07ea66dbb884992785271e1d1">screenHeight</a>, <span class="stringliteral">&quot;Raylib and OpenDE&quot;</span>);</div>
+<div class="line">    <a id="a15" name="a15"></a><a class="code hl_function" href="exampleCamera_8c.html#af155bf31f5a69e64716e1eb1a010f647">SetupCamera</a>(graphics);</div>
+<div class="line">    <a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx = <a id="a16" name="a16"></a><a class="code hl_function" href="init_8c.html#a57d526245eb2f059fac1e6bb3f64ae42">CreatePhysics</a>();</div>
 <div class="line">    </div>
-<div class="line">    grabberData gData;</div>
+<div class="line">    <a class="code hl_struct" href="structgrabberData.html">grabberData</a> gData;</div>
 <div class="line">    physCtx-&gt;<a class="code hl_variable" href="structPhysicsContext.html#a700dab42e1cd527f86163f6359cac5c6">data</a> = &amp;gData;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// set up for the items in the world</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create ground &quot;plane&quot;</span></div>
-<div class="line">    gData.planeGeom = dCreateBox(physCtx-&gt;<a id="a9" name="a9"></a><a class="code hl_variable" href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">space</a>, <a id="_a10" name="_a10"></a><a class="code hl_define" href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a>, <a id="_a11" name="_a11"></a><a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a>, <a class="code hl_define" href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a>);</div>
-<div class="line">    dGeomSetPosition(gData.planeGeom, 0, -<a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a> / 2.0, 0);</div>
-<div class="line">    dGeomSetData(gData.planeGeom, <a id="_a12" name="_a12"></a><a class="code hl_function" href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a>(<span class="keyword">true</span>, &amp;graphics-&gt;<a id="a13" name="a13"></a><a class="code hl_variable" href="structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6">groundTexture</a>, 25.0f, 25.0f));</div>
+<div class="line">    gData.<a class="code hl_variable" href="structgrabberData.html#ad5f2a9c6087f11d2347347c4ea49b2ee">planeGeom</a> = dCreateBox(physCtx-&gt;<a id="a17" name="a17"></a><a class="code hl_variable" href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">space</a>, <a id="_a18" name="_a18"></a><a class="code hl_define" href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a>, <a id="_a19" name="_a19"></a><a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a>, <a class="code hl_define" href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a>);</div>
+<div class="line">    dGeomSetPosition(gData.<a class="code hl_variable" href="structgrabberData.html#ad5f2a9c6087f11d2347347c4ea49b2ee">planeGeom</a>, 0, -<a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a> / 2.0, 0);</div>
+<div class="line">    dGeomSetData(gData.<a class="code hl_variable" href="structgrabberData.html#ad5f2a9c6087f11d2347347c4ea49b2ee">planeGeom</a>, <a id="_a20" name="_a20"></a><a class="code hl_function" href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a>(<span class="keyword">true</span>, &amp;graphics-&gt;<a id="a21" name="a21"></a><a class="code hl_variable" href="structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6">groundTexture</a>, 25.0f, 25.0f));</div>
 <div class="line"> </div>
-<div class="line">    <a id="a14" name="a14"></a><a class="code hl_function" href="clist_8c.html#a264922774fdf767e31797fe81f2231be">clistAddNode</a>(physCtx-&gt;<a id="a15" name="a15"></a><a class="code hl_variable" href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">statics</a>, gData.planeGeom);</div>
+<div class="line">    <a id="a22" name="a22"></a><a class="code hl_function" href="clist_8c.html#a264922774fdf767e31797fe81f2231be">clistAddNode</a>(physCtx-&gt;<a id="a23" name="a23"></a><a class="code hl_variable" href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">statics</a>, gData.<a class="code hl_variable" href="structgrabberData.html#ad5f2a9c6087f11d2347347c4ea49b2ee">planeGeom</a>);</div>
 <div class="line">    </div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// Create random simple objects with random textures</span></div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a id="_a16" name="_a16"></a><a class="code hl_define" href="raylibODE_8h.html#a5c3a0114b1e58dd42011cae154c7827e">NUM_OBJ</a>/4; i++) {</div>
-<div class="line">        <a id="a17" name="a17"></a><a class="code hl_function" href="raylibODE_8c.html#ae7890e5cf20ab8875b9d08bf80d9d018">CreateRandomEntity</a>(physCtx, graphics, (Vector3){<a id="a18" name="a18"></a><a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(5, 11), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(6, 12), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3)}, <a id="_a19" name="_a19"></a><a class="code hl_enumvalue" href="raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf">SHAPE_ALL</a>);</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a id="_a24" name="_a24"></a><a class="code hl_define" href="raylibODE_8h.html#a5c3a0114b1e58dd42011cae154c7827e">NUM_OBJ</a>/4; i++) {</div>
+<div class="line">        <a id="a25" name="a25"></a><a class="code hl_function" href="raylibODE_8c.html#ae7890e5cf20ab8875b9d08bf80d9d018">CreateRandomEntity</a>(physCtx, graphics, (Vector3){<a id="a26" name="a26"></a><a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(5, 11), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(6, 12), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3)}, <a id="_a27" name="_a27"></a><a class="code hl_enumvalue" href="raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf">SHAPE_ALL</a>);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// creation of the arm</span></div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_struct" href="structentity.html">entity</a>* platform = <a id="a20" name="a20"></a><a class="code hl_function" href="raylibODE_8c.html#a6985c096003040ae46ed46b117f01d69">CreateCylinder</a>(physCtx, graphics, 1,<span class="comment">//radius</span></div>
+<div class="line">    <a class="code hl_struct" href="structentity.html">entity</a>* platform = <a id="a28" name="a28"></a><a class="code hl_function" href="raylibODE_8c.html#a6985c096003040ae46ed46b117f01d69">CreateCylinder</a>(physCtx, graphics, 1,<span class="comment">//radius</span></div>
 <div class="line">        .5,<span class="comment">//length</span></div>
 <div class="line">        (Vector3){0,1.5,0}, <span class="comment">// pos</span></div>
 <div class="line">        (Vector3){0,0,0}, <span class="comment">// rot</span></div>
@@ -200,20 +200,20 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line"> </div>
 <div class="line">    dMatrix3 Rr;</div>
 <div class="line">    dRFromAxisAndAngle(Rr, 1, 0, 0, M_PI/2.0);</div>
-<div class="line">    dBodySetRotation (platform-&gt;<a id="a21" name="a21"></a><a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, Rr);</div>
+<div class="line">    dBodySetRotation (platform-&gt;<a id="a29" name="a29"></a><a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, Rr);</div>
 <div class="line"> </div>
-<div class="line">    dJointID platform_joint = <a id="a22" name="a22"></a><a class="code hl_function" href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a>(physCtx, platform,0, (Vector3){0,1,0});</div>
+<div class="line">    dJointID platform_joint = <a id="a30" name="a30"></a><a class="code hl_function" href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a>(physCtx, platform,0, (Vector3){0,1,0});</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// platform boot is just cosmetic to hide the joint</span></div>
-<div class="line">    dGeomID plat_boot = <a id="a23" name="a23"></a><a class="code hl_function" href="raylibODE_8c.html#a0201472030d3c51d3b13c7f807b59b01">CreateSphereGeom</a>(physCtx, graphics, .6, (Vector3){0,0,0});</div>
+<div class="line">    dGeomID plat_boot = <a id="a31" name="a31"></a><a class="code hl_function" href="raylibODE_8c.html#a0201472030d3c51d3b13c7f807b59b01">CreateSphereGeom</a>(physCtx, graphics, .6, (Vector3){0,0,0});</div>
 <div class="line">    dGeomSetBody(plat_boot, platform-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
 <div class="line">    dGeomSetOffsetPosition(plat_boot, 0, 0, -0.5);</div>
 <div class="line">    <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* pbgi = dGeomGetData(plat_boot);</div>
-<div class="line">    pbgi-&gt;<a id="a24" name="a24"></a><a class="code hl_variable" href="structgeomInfo.html#ad2ac5594ef66f909538bc4af4252d387">collidable</a> = <span class="keyword">false</span>;</div>
+<div class="line">    pbgi-&gt;<a id="a32" name="a32"></a><a class="code hl_variable" href="structgeomInfo.html#ad2ac5594ef66f909538bc4af4252d387">collidable</a> = <span class="keyword">false</span>;</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    </div>
-<div class="line">    <a class="code hl_struct" href="structentity.html">entity</a>* rotor2 = <a id="a25" name="a25"></a><a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics, </div>
+<div class="line">    <a class="code hl_struct" href="structentity.html">entity</a>* rotor2 = <a id="a33" name="a33"></a><a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics, </div>
 <div class="line">        (Vector3){.5, 4,.5}, <span class="comment">// size</span></div>
 <div class="line">        (Vector3){0,2,0}, <span class="comment">// pos</span></div>
 <div class="line">        (Vector3){0,0,0}, <span class="comment">// rot</span></div>
@@ -238,12 +238,12 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line">    </div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// a ball for a grabber includes a sensor to grab stuff automatically</span></div>
-<div class="line">    gData.grabber = <a id="a26" name="a26"></a><a class="code hl_function" href="raylibODE_8c.html#ad03521efcc05b3315d24f47d0eed52a6">CreateSphere</a>(physCtx, graphics, .5, (Vector3){0,10.5,0}, (Vector3){0,0,0}, 1);</div>
-<div class="line">    dBodySetAngularDamping(gData.grabber-&gt;body, 0.5f); <span class="comment">// make it stiffer</span></div>
+<div class="line">    gData.<a class="code hl_variable" href="structgrabberData.html#abcbe92caa2c5e2601121826c0cb91c56">grabber</a> = <a id="a34" name="a34"></a><a class="code hl_function" href="raylibODE_8c.html#ad03521efcc05b3315d24f47d0eed52a6">CreateSphere</a>(physCtx, graphics, .5, (Vector3){0,10.5,0}, (Vector3){0,0,0}, 1);</div>
+<div class="line">    dBodySetAngularDamping(gData.<a class="code hl_variable" href="structgrabberData.html#abcbe92caa2c5e2601121826c0cb91c56">grabber</a>-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, 0.5f); <span class="comment">// make it stiffer</span></div>
 <div class="line">    </div>
-<div class="line">    dJointID grabber_joint = dJointCreateBall (physCtx-&gt;<a id="a27" name="a27"></a><a class="code hl_variable" href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">world</a>, 0);</div>
+<div class="line">    dJointID grabber_joint = dJointCreateBall (physCtx-&gt;<a id="a35" name="a35"></a><a class="code hl_variable" href="structPhysicsContext.html#ae036c70d830c45f16ea1fbeafd94680f">world</a>, 0);</div>
 <div class="line">    dJointSetBallAnchor (grabber_joint, 0, 10.5, 0);</div>
-<div class="line">    dJointAttach(grabber_joint, gData.grabber-&gt;body, rotor3-&gt;body);</div>
+<div class="line">    dJointAttach(grabber_joint, gData.<a class="code hl_variable" href="structgrabberData.html#abcbe92caa2c5e2601121826c0cb91c56">grabber</a>-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>, rotor3-&gt;body);</div>
 <div class="line"> </div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// create just a geom</span></div>
@@ -252,8 +252,8 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line">    <span class="comment">// set the trigger callback for the geom its now invisible </span></div>
 <div class="line">    <span class="comment">// and other things don&#39;t collide with it - but it will register &quot;collisions&quot;</span></div>
 <div class="line">    <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* triggergi = dGeomGetData(grab_sensor);</div>
-<div class="line">    triggergi-&gt;triggerOnCollide = triggerCallback;</div>
-<div class="line">    dGeomSetBody(grab_sensor, gData.grabber-&gt;body); <span class="comment">// attach the sensor to the grabber</span></div>
+<div class="line">    triggergi-&gt;triggerOnCollide = <a class="code hl_function" href="arm_8c.html#ab295c09645dc1cb3f5e2495e25e2c2b9">triggerCallback</a>;</div>
+<div class="line">    dGeomSetBody(grab_sensor, gData.<a class="code hl_variable" href="structgrabberData.html#abcbe92caa2c5e2601121826c0cb91c56">grabber</a>-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>); <span class="comment">// attach the sensor to the grabber</span></div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordtype">float</span> physTime = 0;</div>
 <div class="line"> </div>
@@ -269,12 +269,12 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line">        <span class="comment">//----------------------------------------------------------------------------------</span></div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">// baked in controls (example only camera!)</span></div>
-<div class="line">        <a id="a28" name="a28"></a><a class="code hl_function" href="exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a>(graphics);</div>
+<div class="line">        <a id="a36" name="a36"></a><a class="code hl_function" href="exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a>(graphics);</div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">if</span> (IsKeyDown(KEY_G)) {</div>
-<div class="line">            <span class="keywordflow">if</span> (gData.attachment) {</div>
-<div class="line">                dJointDestroy(gData.attachment);</div>
-<div class="line">                gData.attachment = 0;</div>
+<div class="line">            <span class="keywordflow">if</span> (gData.<a class="code hl_variable" href="structgrabberData.html#ae203f18a3030f78c0da2d0d0aa5dce2d">attachment</a>) {</div>
+<div class="line">                dJointDestroy(gData.<a class="code hl_variable" href="structgrabberData.html#ae203f18a3030f78c0da2d0d0aa5dce2d">attachment</a>);</div>
+<div class="line">                gData.<a class="code hl_variable" href="structgrabberData.html#ae203f18a3030f78c0da2d0d0aa5dce2d">attachment</a> = 0;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">        </div>
@@ -313,15 +313,15 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line">        }</div>
 <div class="line">                </div>
 <div class="line">        <span class="keywordtype">bool</span> spcdn = IsKeyDown(KEY_SPACE);  <span class="comment">// cache space key status (don&#39;t look up for each object iterration    </span></div>
-<div class="line">        <a id="_a29" name="_a29"></a><a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = physCtx-&gt;<a id="a30" name="a30"></a><a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>-&gt;<a id="a31" name="a31"></a><a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
+<div class="line">        <a id="_a37" name="_a37"></a><a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = physCtx-&gt;<a id="a38" name="a38"></a><a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>-&gt;<a id="a39" name="a39"></a><a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
 <div class="line"> </div>
 <div class="line">        <span class="keywordflow">while</span> (node != NULL) {</div>
-<div class="line">            <a class="code hl_struct" href="structentity.html">entity</a>* ent = node-&gt;<a id="a32" name="a32"></a><a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
+<div class="line">            <a class="code hl_struct" href="structentity.html">entity</a>* ent = node-&gt;<a id="a40" name="a40"></a><a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
 <div class="line">            dBodyID bdy = ent-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>;</div>
-<div class="line">            <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* next = node-&gt;<a id="a33" name="a33"></a><a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>; <span class="comment">// get the next node now in case we delete this one</span></div>
+<div class="line">            <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* next = node-&gt;<a id="a41" name="a41"></a><a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>; <span class="comment">// get the next node now in case we delete this one</span></div>
 <div class="line">            </div>
 <div class="line">            <span class="comment">// reset entities for setting by collision</span></div>
-<div class="line">            <a id="a34" name="a34"></a><a class="code hl_function" href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a>(ent, WHITE);</div>
+<div class="line">            <a id="a42" name="a42"></a><a class="code hl_function" href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a>(ent, WHITE);</div>
 <div class="line">            </div>
 <div class="line">            <span class="keyword">const</span> dReal* pos = dBodyGetPosition(bdy);</div>
 <div class="line">            <span class="keywordflow">if</span> (spcdn) {</div>
@@ -339,7 +339,7 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line"> </div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">if</span>(pos[1]&lt;-10) {</div>
-<div class="line">                <a id="a35" name="a35"></a><a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(physCtx, ent); <span class="comment">// warning deletes global entity list entry, get your next node before doing this!</span></div>
+<div class="line">                <a id="a43" name="a43"></a><a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(physCtx, ent); <span class="comment">// warning deletes global entity list entry, get your next node before doing this!</span></div>
 <div class="line">                <a class="code hl_function" href="raylibODE_8c.html#ae7890e5cf20ab8875b9d08bf80d9d018">CreateRandomEntity</a>(physCtx, graphics, (Vector3){<a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(6, 12), <a class="code hl_function" href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a>(-3, 3)}, <a class="code hl_enumvalue" href="raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf">SHAPE_ALL</a>);</div>
 <div class="line">            }</div>
 <div class="line">            </div>
@@ -350,7 +350,7 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line">        <span class="comment">//----------------------------------------------------------------------------------</span></div>
 <div class="line"> </div>
 <div class="line">        physTime = GetTime(); </div>
-<div class="line">        <span class="keywordtype">int</span> pSteps = <a id="a36" name="a36"></a><a class="code hl_function" href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a>(physCtx);</div>
+<div class="line">        <span class="keywordtype">int</span> pSteps = <a id="a44" name="a44"></a><a class="code hl_function" href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a>(physCtx);</div>
 <div class="line">        physTime = GetTime() - physTime;    </div>
 <div class="line"> </div>
 <div class="line"> </div>
@@ -361,13 +361,13 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line"> </div>
 <div class="line">        ClearBackground(BLACK);</div>
 <div class="line"> </div>
-<div class="line">        BeginMode3D(graphics-&gt;<a id="a37" name="a37"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>);</div>
-<div class="line">            <a id="a38" name="a38"></a><a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(graphics, physCtx);</div>
-<div class="line">            <a id="a39" name="a39"></a><a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(graphics, physCtx);</div>
+<div class="line">        BeginMode3D(graphics-&gt;<a id="a45" name="a45"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>);</div>
+<div class="line">            <a id="a46" name="a46"></a><a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(graphics, physCtx);</div>
+<div class="line">            <a id="a47" name="a47"></a><a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(graphics, physCtx);</div>
 <div class="line">        EndMode3D();</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">if</span> (pSteps &gt; <a id="_a40" name="_a40"></a><a class="code hl_define" href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a>) DrawText(<span class="stringliteral">&quot;WARNING CPU overloaded lagging real time&quot;</span>, 10, 0, 20, RED);</div>
+<div class="line">        <span class="keywordflow">if</span> (pSteps &gt; <a id="_a48" name="_a48"></a><a class="code hl_define" href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a>) DrawText(<span class="stringliteral">&quot;WARNING CPU overloaded lagging real time&quot;</span>, 10, 0, 20, RED);</div>
 <div class="line">        DrawText(TextFormat(<span class="stringliteral">&quot;%2i FPS&quot;</span>, GetFPS()), 10, 20, 20, WHITE);</div>
 <div class="line">        DrawText(<span class="stringliteral">&quot;Press SPACE to apply force to objects&quot;</span>, 10, 60, 20, WHITE);</div>
 <div class="line"> </div>
@@ -382,8 +382,8 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line">    </div>
 <div class="line">    <span class="comment">// De-Initialization</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
-<div class="line">    <a id="a41" name="a41"></a><a class="code hl_function" href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a>(physCtx);</div>
-<div class="line">    <a id="a42" name="a42"></a><a class="code hl_function" href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a>(graphics);</div>
+<div class="line">    <a id="a49" name="a49"></a><a class="code hl_function" href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a>(physCtx);</div>
+<div class="line">    <a id="a50" name="a50"></a><a class="code hl_function" href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a>(graphics);</div>
 <div class="line"> </div>
 <div class="line">    CloseWindow();              <span class="comment">// Close window and OpenGL context</span></div>
 <div class="line">    </div>
@@ -392,6 +392,10 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"> </div>
+<div class="ttc" id="aarm_8c_html_a76da26d519b3a4158847daa8783a7a5b"><div class="ttname"><a href="arm_8c.html#a76da26d519b3a4158847daa8783a7a5b">screenWidth</a></div><div class="ttdeci">#define screenWidth</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00029">arm.c:29</a></div></div>
+<div class="ttc" id="aarm_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="arm_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00066">arm.c:66</a></div></div>
+<div class="ttc" id="aarm_8c_html_a8c472bd07ea66dbb884992785271e1d1"><div class="ttname"><a href="arm_8c.html#a8c472bd07ea66dbb884992785271e1d1">screenHeight</a></div><div class="ttdeci">#define screenHeight</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00030">arm.c:30</a></div></div>
+<div class="ttc" id="aarm_8c_html_ab295c09645dc1cb3f5e2495e25e2c2b9"><div class="ttname"><a href="arm_8c.html#ab295c09645dc1cb3f5e2495e25e2c2b9">triggerCallback</a></div><div class="ttdeci">void triggerCallback(PhysicsContext *physCtx, dGeomID trigger, dGeomID intruder)</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00044">arm.c:44</a></div></div>
 <div class="ttc" id="aclist_8c_html_a264922774fdf767e31797fe81f2231be"><div class="ttname"><a href="clist_8c.html#a264922774fdf767e31797fe81f2231be">clistAddNode</a></div><div class="ttdeci">cnode_t * clistAddNode(clist_t *list, void *data)</div><div class="ttdoc">adds a node to a list</div><div class="ttdef"><b>Definition</b> <a href="clist_8c_source.html#l00047">clist.c:47</a></div></div>
 <div class="ttc" id="aclist_8h_html_a9957c4c04b6e17b9b8fa99e68b94aa9a"><div class="ttname"><a href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a></div><div class="ttdeci">struct __cnode cnode_t</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00007">clist.h:7</a></div></div>
 <div class="ttc" id="aexampleCamera_8c_html_ad0a902b3760c7a5f8725bdb73ddc174b"><div class="ttname"><a href="exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a></div><div class="ttdeci">void UpdateExampleCamera(struct GraphicsContext *ctx)</div><div class="ttdoc">update the camera</div><div class="ttdef"><b>Definition</b> <a href="exampleCamera_8c_source.html#l00168">exampleCamera.c:168</a></div></div>
@@ -402,19 +406,19 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="ttc" id="ainit_8c_html_a6569bf61ca03001b6fabedc21aff855a"><div class="ttname"><a href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a></div><div class="ttdeci">void FreeGraphics(GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00246">init.c:246</a></div></div>
 <div class="ttc" id="ainit_8c_html_aadcc246e22ab4be2dd926a25c5bc9bad"><div class="ttname"><a href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a></div><div class="ttdeci">void FreePhysics(PhysicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00195">init.c:195</a></div></div>
 <div class="ttc" id="ainit_8h_html"><div class="ttname"><a href="init_8h.html">init.h</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a0201472030d3c51d3b13c7f807b59b01"><div class="ttname"><a href="raylibODE_8c.html#a0201472030d3c51d3b13c7f807b59b01">CreateSphereGeom</a></div><div class="ttdeci">dGeomID CreateSphereGeom(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, Vector3 pos)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00296">raylibODE.c:296</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">draws the static geometries</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01044">raylibODE.c:1044</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a227dded5dce29a7e3b71e9589e2b4c22"><div class="ttname"><a href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a></div><div class="ttdeci">void SetEntityHew(entity *ent, Color c)</div><div class="ttdoc">changes the hew (tint) of all anentities geoms</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00977">raylibODE.c:977</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a0201472030d3c51d3b13c7f807b59b01"><div class="ttname"><a href="raylibODE_8c.html#a0201472030d3c51d3b13c7f807b59b01">CreateSphereGeom</a></div><div class="ttdeci">dGeomID CreateSphereGeom(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, Vector3 pos)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00310">raylibODE.c:310</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">draws the static geometries</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01086">raylibODE.c:1086</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a227dded5dce29a7e3b71e9589e2b4c22"><div class="ttname"><a href="raylibODE_8c.html#a227dded5dce29a7e3b71e9589e2b4c22">SetEntityHew</a></div><div class="ttdeci">void SetEntityHew(entity *ent, Color c)</div><div class="ttdoc">changes the hew (tint) of all anentities geoms</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01014">raylibODE.c:1014</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a4a4933f37c736fd2d311be9eaf9b7fa8"><div class="ttname"><a href="raylibODE_8c.html#a4a4933f37c736fd2d311be9eaf9b7fa8">rndf</a></div><div class="ttdeci">float rndf(float min, float max)</div><div class="ttdoc">Generate a random float in the specified range.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00219">raylibODE.c:219</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a6985c096003040ae46ed46b117f01d69"><div class="ttname"><a href="raylibODE_8c.html#a6985c096003040ae46ed46b117f01d69">CreateCylinder</a></div><div class="ttdeci">entity * CreateCylinder(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a cylinder-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00443">raylibODE.c:443</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a70760bcdbb95dca2cd9cbb1a640485d2"><div class="ttname"><a href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a></div><div class="ttdeci">dJointID CreateRotor(PhysicsContext *physCtx, entity *from, entity *to, Vector3 axis)</div><div class="ttdoc">crates a rotor joint the joint is created with the anchor at the from enties location</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00944">raylibODE.c:944</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a79db70091e3c86494f485979529984c8"><div class="ttname"><a href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a></div><div class="ttdeci">geomInfo * CreateGeomInfo(bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</div><div class="ttdoc">Helper to allocate geomInfo with collision flag, optional texture, and UV scale this is useful when g...</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00692">raylibODE.c:692</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01007">raylibODE.c:1007</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01066">raylibODE.c:1066</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_ad03521efcc05b3315d24f47d0eed52a6"><div class="ttname"><a href="raylibODE_8c.html#ad03521efcc05b3315d24f47d0eed52a6">CreateSphere</a></div><div class="ttdeci">entity * CreateSphere(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a sphere-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00399">raylibODE.c:399</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a6985c096003040ae46ed46b117f01d69"><div class="ttname"><a href="raylibODE_8c.html#a6985c096003040ae46ed46b117f01d69">CreateCylinder</a></div><div class="ttdeci">entity * CreateCylinder(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, float length, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a cylinder-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00485">raylibODE.c:485</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a70760bcdbb95dca2cd9cbb1a640485d2"><div class="ttname"><a href="raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2">CreateRotor</a></div><div class="ttdeci">dJointID CreateRotor(PhysicsContext *physCtx, entity *from, entity *to, Vector3 axis)</div><div class="ttdoc">crates a rotor joint the joint is created with the anchor at the from enties location</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00981">raylibODE.c:981</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a79db70091e3c86494f485979529984c8"><div class="ttname"><a href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a></div><div class="ttdeci">geomInfo * CreateGeomInfo(bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</div><div class="ttdoc">Helper to allocate geomInfo with collision flag, optional texture, and UV scale this is useful when g...</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00732">raylibODE.c:732</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">Draws all the dynamic bodies the framework is tracking.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01050">raylibODE.c:1050</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01107">raylibODE.c:1107</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_ad03521efcc05b3315d24f47d0eed52a6"><div class="ttname"><a href="raylibODE_8c.html#ad03521efcc05b3315d24f47d0eed52a6">CreateSphere</a></div><div class="ttdeci">entity * CreateSphere(PhysicsContext *ctx, GraphicsContext *gfxCtx, float radius, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a sphere-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00441">raylibODE.c:441</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ad087bfe56f8c97e250f6dd5054fdf76e"><div class="ttname"><a href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a></div><div class="ttdeci">int StepPhysics(PhysicsContext *physCtx)</div><div class="ttdoc">Step the physics simulation forward.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00241">raylibODE.c:241</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_ae436b97d6296f4b3c35e493dde37cee3"><div class="ttname"><a href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a></div><div class="ttdeci">entity * CreateBox(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a box-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00356">raylibODE.c:356</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_ae7890e5cf20ab8875b9d08bf80d9d018"><div class="ttname"><a href="raylibODE_8c.html#ae7890e5cf20ab8875b9d08bf80d9d018">CreateRandomEntity</a></div><div class="ttdeci">entity * CreateRandomEntity(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 pos, unsigned char mask)</div><div class="ttdoc">Add a random physics object at the specified position.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00590">raylibODE.c:590</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_ae436b97d6296f4b3c35e493dde37cee3"><div class="ttname"><a href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a></div><div class="ttdeci">entity * CreateBox(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a box-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00398">raylibODE.c:398</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_ae7890e5cf20ab8875b9d08bf80d9d018"><div class="ttname"><a href="raylibODE_8c.html#ae7890e5cf20ab8875b9d08bf80d9d018">CreateRandomEntity</a></div><div class="ttdeci">entity * CreateRandomEntity(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 pos, unsigned char mask)</div><div class="ttdoc">Add a random physics object at the specified position.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00630">raylibODE.c:630</a></div></div>
 <div class="ttc" id="araylibODE_8h_html_a0c734b6e492fcd4bfaeeb1e858978a40"><div class="ttname"><a href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a></div><div class="ttdeci">#define PLANE_SIZE</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00042">raylibODE.h:42</a></div></div>
 <div class="ttc" id="araylibODE_8h_html_a5c3a0114b1e58dd42011cae154c7827e"><div class="ttname"><a href="raylibODE_8h.html#a5c3a0114b1e58dd42011cae154c7827e">NUM_OBJ</a></div><div class="ttdeci">#define NUM_OBJ</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00039">raylibODE.h:39</a></div></div>
 <div class="ttc" id="araylibODE_8h_html_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf"><div class="ttname"><a href="raylibODE_8h.html#a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf">SHAPE_ALL</a></div><div class="ttdeci">@ SHAPE_ALL</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00053">raylibODE.h:53</a></div></div>
@@ -437,6 +441,10 @@ $(function(){initNavTree('arm_8c-example.html','',''); });
 <div class="ttc" id="astructgeomInfo_html"><div class="ttname"><a href="structgeomInfo.html">geomInfo</a></div><div class="ttdoc">Stores geometry metadata for collision, texturing, and trimesh data.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00093">raylibODE.h:93</a></div></div>
 <div class="ttc" id="astructgeomInfo_html_a97039a3fbf7a1f1c905762a6f4adb0c3"><div class="ttname"><a href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">geomInfo::hew</a></div><div class="ttdeci">Color hew</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00099">raylibODE.h:99</a></div></div>
 <div class="ttc" id="astructgeomInfo_html_ad2ac5594ef66f909538bc4af4252d387"><div class="ttname"><a href="structgeomInfo.html#ad2ac5594ef66f909538bc4af4252d387">geomInfo::collidable</a></div><div class="ttdeci">bool collidable</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00094">raylibODE.h:94</a></div></div>
+<div class="ttc" id="astructgrabberData_html"><div class="ttname"><a href="structgrabberData.html">grabberData</a></div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00035">arm.c:35</a></div></div>
+<div class="ttc" id="astructgrabberData_html_abcbe92caa2c5e2601121826c0cb91c56"><div class="ttname"><a href="structgrabberData.html#abcbe92caa2c5e2601121826c0cb91c56">grabberData::grabber</a></div><div class="ttdeci">entity * grabber</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00038">arm.c:38</a></div></div>
+<div class="ttc" id="astructgrabberData_html_ad5f2a9c6087f11d2347347c4ea49b2ee"><div class="ttname"><a href="structgrabberData.html#ad5f2a9c6087f11d2347347c4ea49b2ee">grabberData::planeGeom</a></div><div class="ttdeci">dGeomID planeGeom</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00036">arm.c:36</a></div></div>
+<div class="ttc" id="astructgrabberData_html_ae203f18a3030f78c0da2d0d0aa5dce2d"><div class="ttname"><a href="structgrabberData.html#ae203f18a3030f78c0da2d0d0aa5dce2d">grabberData::attachment</a></div><div class="ttdeci">dJointID attachment</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00037">arm.c:37</a></div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

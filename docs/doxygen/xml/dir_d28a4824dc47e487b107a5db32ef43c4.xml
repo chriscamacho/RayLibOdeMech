@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="dir_d28a4824dc47e487b107a5db32ef43c4" kind="dir">
+    <compoundname>/home/chris/development/RayLibOdeMech/examples</compoundname>
+    <innerfile refid="arm_8c">arm.c</innerfile>
+    <innerfile refid="car_8c">car.c</innerfile>
+    <innerfile refid="derby_8c">derby.c</innerfile>
+    <innerfile refid="fountain_8c">fountain.c</innerfile>
+    <innerfile refid="gravity_8c">gravity.c</innerfile>
+    <innerfile refid="marbles_8c">marbles.c</innerfile>
+    <innerfile refid="pidJoint_8c">pidJoint.c</innerfile>
+    <innerfile refid="piston_8c">piston.c</innerfile>
+    <innerfile refid="placer_8c">placer.c</innerfile>
+    <innerfile refid="ragdolls_8c">ragdolls.c</innerfile>
+    <innerfile refid="rotor_8c">rotor.c</innerfile>
+    <innerfile refid="surfaces_8c">surfaces.c</innerfile>
+    <innerfile refid="template_8c">template.c</innerfile>
+    <innerfile refid="terrain_8c">terrain.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/chris/development/RayLibOdeMech/examples/"/>
+  </compounddef>
+</doxygen>

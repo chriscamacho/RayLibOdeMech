@@ -126,7 +126,7 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line"><span class="preprocessor">#define screenWidth 1920/1.2</span></div>
 <div class="line"><span class="preprocessor">#define screenHeight 1080/1.2</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">float</span> GetSteerAngle(Vector2 carPos, Vector2 carForward, Vector2 targetPos) {</div>
+<div class="line"><span class="keywordtype">float</span> <a id="a0" name="a0"></a><a class="code hl_function" href="derby_8c.html#ad2b31ed253e397341af2a396db3704df">GetSteerAngle</a>(Vector2 carPos, Vector2 carForward, Vector2 targetPos) {</div>
 <div class="line"> </div>
 <div class="line">    Vector2 toTarget = Vector2Subtract(targetPos, carPos);</div>
 <div class="line">    Vector2 forwardNorm = Vector2Normalize(carForward);</div>
@@ -150,17 +150,17 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div>
+<div class="line"><span class="keywordtype">int</span> <a id="a1" name="a1"></a><a class="code hl_function" href="arm_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Initialization</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Physics context, holds all physics state</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx = <a id="a1" name="a1"></a><a class="code hl_function" href="init_8c.html#a57d526245eb2f059fac1e6bb3f64ae42">CreatePhysics</a>();</div>
-<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* graphics = <a id="a3" name="a3"></a><a class="code hl_function" href="init_8c.html#a0c011796e9f74e7eb4b5bb26305193f9">CreateGraphics</a>(screenWidth, screenHeight, <span class="stringliteral">&quot;Raylib and OpenDE&quot;</span>);</div>
+<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_struct" href="structPhysicsContext.html">PhysicsContext</a>* physCtx = <a id="a3" name="a3"></a><a class="code hl_function" href="init_8c.html#a57d526245eb2f059fac1e6bb3f64ae42">CreatePhysics</a>();</div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_struct" href="structGraphicsContext.html">GraphicsContext</a>* graphics = <a id="a5" name="a5"></a><a class="code hl_function" href="init_8c.html#a0c011796e9f74e7eb4b5bb26305193f9">CreateGraphics</a>(<a id="_a6" name="_a6"></a><a class="code hl_define" href="arm_8c.html#a76da26d519b3a4158847daa8783a7a5b">screenWidth</a>, <a id="_a7" name="_a7"></a><a class="code hl_define" href="arm_8c.html#a8c472bd07ea66dbb884992785271e1d1">screenHeight</a>, <span class="stringliteral">&quot;Raylib and OpenDE&quot;</span>);</div>
 <div class="line">    </div>
-<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="exampleCamera_8c.html#af155bf31f5a69e64716e1eb1a010f647">SetupCamera</a>(graphics);</div>
-<div class="line">    graphics-&gt;<a id="a5" name="a5"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>.position = (Vector3){80,40,0};</div>
+<div class="line">    <a id="a8" name="a8"></a><a class="code hl_function" href="exampleCamera_8c.html#af155bf31f5a69e64716e1eb1a010f647">SetupCamera</a>(graphics);</div>
+<div class="line">    graphics-&gt;<a id="a9" name="a9"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>.position = (Vector3){80,40,0};</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// set up for the items in the world</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
@@ -170,49 +170,49 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line">    </div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// framework looks after the physics stuff and rendering</span></div>
-<div class="line">    <a id="a6" name="a6"></a><a class="code hl_function" href="raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265">CreateStaticTrimesh</a>(physCtx, graphics, ground, &amp;graphics-&gt;<a id="a7" name="a7"></a><a class="code hl_variable" href="structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6">groundTexture</a>, 2.5f);</div>
+<div class="line">    <a id="a10" name="a10"></a><a class="code hl_function" href="raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265">CreateStaticTrimesh</a>(physCtx, graphics, ground, &amp;graphics-&gt;<a id="a11" name="a11"></a><a class="code hl_variable" href="structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6">groundTexture</a>, 2.5f);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Create ground plane</span></div>
-<div class="line">    dGeomID planeGeom = dCreateBox(physCtx-&gt;<a id="a8" name="a8"></a><a class="code hl_variable" href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">space</a>, 1000, <a id="_a9" name="_a9"></a><a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a>, 1000);</div>
+<div class="line">    dGeomID planeGeom = dCreateBox(physCtx-&gt;<a id="a12" name="a12"></a><a class="code hl_variable" href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">space</a>, 1000, <a id="_a13" name="_a13"></a><a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a>, 1000);</div>
 <div class="line">    dGeomSetPosition(planeGeom, 0, -<a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a> / 2.0, 0);</div>
-<div class="line">    <a id="_a10" name="_a10"></a><a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* groundInfo = <a id="a11" name="a11"></a><a class="code hl_function" href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a>(<span class="keyword">true</span>, &amp;graphics-&gt;<a class="code hl_variable" href="structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6">groundTexture</a>, 50.0f, 50.0f);</div>
+<div class="line">    <a id="_a14" name="_a14"></a><a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* groundInfo = <a id="a15" name="a15"></a><a class="code hl_function" href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a>(<span class="keyword">true</span>, &amp;graphics-&gt;<a class="code hl_variable" href="structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6">groundTexture</a>, 50.0f, 50.0f);</div>
 <div class="line">    dGeomSetData(planeGeom, groundInfo);</div>
-<div class="line">    <a id="a12" name="a12"></a><a class="code hl_function" href="clist_8c.html#a264922774fdf767e31797fe81f2231be">clistAddNode</a>(physCtx-&gt;<a id="a13" name="a13"></a><a class="code hl_variable" href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">statics</a>, planeGeom);</div>
-<div class="line">    groundInfo-&gt;<a id="a14" name="a14"></a><a class="code hl_variable" href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">surface</a> = &amp;<a id="_a15" name="_a15"></a><a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a id="_a16" name="_a16"></a><a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96">SURFACE_EARTH</a>];</div>
+<div class="line">    <a id="a16" name="a16"></a><a class="code hl_function" href="clist_8c.html#a264922774fdf767e31797fe81f2231be">clistAddNode</a>(physCtx-&gt;<a id="a17" name="a17"></a><a class="code hl_variable" href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">statics</a>, planeGeom);</div>
+<div class="line">    groundInfo-&gt;<a id="a18" name="a18"></a><a class="code hl_variable" href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">surface</a> = &amp;<a id="_a19" name="_a19"></a><a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a id="_a20" name="_a20"></a><a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96">SURFACE_EARTH</a>];</div>
 <div class="line"> </div>
 <div class="line">    Model carBody = LoadModel(<span class="stringliteral">&quot;data/car-body.obj&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// make a figure of 8 path</span></div>
 <div class="line"><span class="preprocessor">    #define MAXPATH 32</span></div>
-<div class="line">    Vector3 path[MAXPATH];</div>
+<div class="line">    Vector3 path[<a id="_a21" name="_a21"></a><a class="code hl_define" href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a>];</div>
 <div class="line">    <span class="keywordtype">float</span> a = 0;</div>
 <div class="line">        </div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;MAXPATH; i++) {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a>; i++) {</div>
 <div class="line">        path[i] = (Vector3){sin(a*2)*50, 2, cos(a)*80};</div>
-<div class="line">        a+=(M_PI*2)/MAXPATH;</div>
+<div class="line">        a+=(M_PI*2)/<a class="code hl_define" href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a>;</div>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line"><span class="preprocessor">    #define MAXCAR 12</span></div>
 <div class="line">    a=0;</div>
-<div class="line">    <a id="_a17" name="_a17"></a><a class="code hl_struct" href="structvehicle.html">vehicle</a>* cars[MAXCAR];</div>
-<div class="line">    <span class="keywordtype">int</span> carTarget[MAXCAR];</div>
+<div class="line">    <a id="_a22" name="_a22"></a><a class="code hl_struct" href="structvehicle.html">vehicle</a>* cars[<a id="_a23" name="_a23"></a><a class="code hl_define" href="derby_8c.html#a738887643e2a12f694d8a37b1ff95839">MAXCAR</a>];</div>
+<div class="line">    <span class="keywordtype">int</span> carTarget[<a class="code hl_define" href="derby_8c.html#a738887643e2a12f694d8a37b1ff95839">MAXCAR</a>];</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// position cars around path</span></div>
 <div class="line">    <span class="keywordtype">int</span> step = 2; </div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; MAXCAR; j++) {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; <a class="code hl_define" href="derby_8c.html#a738887643e2a12f694d8a37b1ff95839">MAXCAR</a>; j++) {</div>
 <div class="line">        <span class="keywordtype">int</span> i = j * step;</div>
-<div class="line">        <span class="keywordflow">if</span> (i&gt;MAXPATH) i-=MAXPATH;</div>
+<div class="line">        <span class="keywordflow">if</span> (i&gt;<a class="code hl_define" href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a>) i-=<a class="code hl_define" href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a>;</div>
 <div class="line"> </div>
 <div class="line">        </div>
 <div class="line">        dVector3 pos = { path[i].x, path[i].y, path[i].z };</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// Wrap around to the start of the path for the last point</span></div>
-<div class="line">        <span class="keywordtype">int</span> nextIdx = (i + 1) % MAXPATH;</div>
+<div class="line">        <span class="keywordtype">int</span> nextIdx = (i + 1) % <a class="code hl_define" href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a>;</div>
 <div class="line">        carTarget[j] = nextIdx;</div>
 <div class="line">        </div>
-<div class="line">        cars[j] = <a id="a18" name="a18"></a><a class="code hl_function" href="vehicle_8c.html#af0740a75defe24708df5577107ed9ba7">CreateVehicle</a>(physCtx, graphics, (Vector3){pos[0],pos[1]+1,pos[2]},<span class="comment">// pos, </span></div>
+<div class="line">        cars[j] = <a id="a24" name="a24"></a><a class="code hl_function" href="vehicle_8c.html#af0740a75defe24708df5577107ed9ba7">CreateVehicle</a>(physCtx, graphics, (Vector3){pos[0],pos[1]+1,pos[2]},<span class="comment">// pos, </span></div>
 <div class="line">            (Vector3){6, 1.2, 3},<span class="comment">// car body size</span></div>
 <div class="line">            .85, .6); <span class="comment">// wheel radius/width</span></div>
 <div class="line"> </div>
@@ -241,22 +241,22 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line">        dBodySetQuaternion(cars[j]-&gt;bodies[0], odeQ);</div>
 <div class="line">        <span class="comment">// end of TODO</span></div>
 <div class="line"> </div>
-<div class="line">        <a id="a19" name="a19"></a><a class="code hl_function" href="vehicle_8c.html#a0419ed48c974e9d5efab4263b4cee46f">UnflipVehicle</a>(cars[j]); <span class="comment">// hack to get everything else in the car to align!</span></div>
+<div class="line">        <a id="a25" name="a25"></a><a class="code hl_function" href="vehicle_8c.html#a0419ed48c974e9d5efab4263b4cee46f">UnflipVehicle</a>(cars[j]); <span class="comment">// hack to get everything else in the car to align!</span></div>
 <div class="line"> </div>
 <div class="line">        <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(cars[j]-&gt;geoms[0]);</div>
-<div class="line">        gi-&gt;<a id="a20" name="a20"></a><a class="code hl_variable" href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">visual</a> = carBody;</div>
-<div class="line">        gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">surface</a> = &amp;<a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a id="_a21" name="_a21"></a><a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1">SURFACE_RUBBER</a>]; <span class="comment">// make the body bouncy!</span></div>
+<div class="line">        gi-&gt;<a id="a26" name="a26"></a><a class="code hl_variable" href="structgeomInfo.html#aac9cece1fdb9d0079901008842994523">visual</a> = carBody;</div>
+<div class="line">        gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">surface</a> = &amp;<a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a id="_a27" name="_a27"></a><a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1">SURFACE_RUBBER</a>]; <span class="comment">// make the body bouncy!</span></div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">// use the front marker as the top part of the body</span></div>
 <div class="line">        dGeomBoxSetLengths (cars[j]-&gt;geoms[6], 3, 2, 3);</div>
 <div class="line">        dGeomSetOffsetPosition(cars[j]-&gt;geoms[6],-1,1,0);</div>
 <div class="line">        gi = dGeomGetData(cars[j]-&gt;geoms[6]);</div>
-<div class="line">        gi-&gt;<a id="a22" name="a22"></a><a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a> = 0; <span class="comment">// make it invisible (still collides)</span></div>
+<div class="line">        gi-&gt;<a id="a28" name="a28"></a><a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a> = 0; <span class="comment">// make it invisible (still collides)</span></div>
 <div class="line">        gi-&gt;<a class="code hl_variable" href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">surface</a> = &amp;<a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1">SURFACE_RUBBER</a>];</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">float</span> physTime = 0;</div>
-<div class="line">    <span class="keywordtype">int</span> frameCount = 0;</div>
+<div class="line">    <span class="keywordtype">int</span> <a id="_a29" name="_a29"></a><a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a> = 0;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
 <div class="line">    <span class="comment">//</span></div>
@@ -265,17 +265,17 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
 <div class="line">    <span class="keywordflow">while</span> (!WindowShouldClose())            <span class="comment">// Detect window close button or ESC key</span></div>
 <div class="line">    {</div>
-<div class="line">        frameCount++;</div>
+<div class="line">        <a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a>++;</div>
 <div class="line">        <span class="comment">//--------------------------------------------------------------------------------------</span></div>
 <div class="line">        <span class="comment">// Update</span></div>
 <div class="line">        <span class="comment">//----------------------------------------------------------------------------------</span></div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">// baked in controls (example only camera!)</span></div>
 <div class="line">        <span class="comment">//updateVehicleCamera(&amp;graphics, car);</span></div>
-<div class="line">        <a id="a23" name="a23"></a><a class="code hl_function" href="exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a>(graphics);</div>
+<div class="line">        <a id="a30" name="a30"></a><a class="code hl_function" href="exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a>(graphics);</div>
 <div class="line">        </div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;MAXCAR; i++) {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="derby_8c.html#a738887643e2a12f694d8a37b1ff95839">MAXCAR</a>; i++) {</div>
 <div class="line">            <span class="keyword">const</span> dReal* pos = dBodyGetPosition(cars[i]-&gt;bodies[0]);</div>
 <div class="line">            Vector2 carPos = (Vector2){pos[0],pos[2]};</div>
 <div class="line">            Vector2 target = (Vector2){path[carTarget[i]].x,path[carTarget[i]].z};</div>
@@ -283,22 +283,22 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">            Matrix rR;</div>
-<div class="line">            <a id="a24" name="a24"></a><a class="code hl_function" href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a>(R, &amp;rR);</div>
+<div class="line">            <a id="a31" name="a31"></a><a class="code hl_function" href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a>(R, &amp;rR);</div>
 <div class="line">            Vector3 f3 = (Vector3){1,0,0};</div>
 <div class="line">            f3 = Vector3Transform(f3,rR);</div>
 <div class="line">            Vector2 forward = (Vector2){f3.x,f3.z};</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordtype">float</span> s = GetSteerAngle(carPos, forward, target);</div>
+<div class="line">            <span class="keywordtype">float</span> s = <a class="code hl_function" href="derby_8c.html#ad2b31ed253e397341af2a396db3704df">GetSteerAngle</a>(carPos, forward, target);</div>
 <div class="line">            <span class="comment">// each cars speed is modified by how much they steer.</span></div>
-<div class="line">            <a id="a25" name="a25"></a><a class="code hl_function" href="vehicle_8c.html#a9c16065d67848dde985d9a21631eb01c">UpdateVehicle</a>(cars[i], 16+(15-abs((<span class="keywordtype">int</span>)(s*10))), s);</div>
+<div class="line">            <a id="a32" name="a32"></a><a class="code hl_function" href="vehicle_8c.html#a9c16065d67848dde985d9a21631eb01c">UpdateVehicle</a>(cars[i], 16+(15-abs((<span class="keywordtype">int</span>)(s*10))), s);</div>
 <div class="line"> </div>
 <div class="line">            </div>
 <div class="line">            <span class="keywordflow">if</span> (Vector2Distance(carPos, target) &lt; 8.0) {</div>
 <div class="line">                carTarget[i]++;</div>
-<div class="line">                <span class="keywordflow">if</span> (carTarget[i]&gt;MAXPATH-1) carTarget[i] = 0;</div>
+<div class="line">                <span class="keywordflow">if</span> (carTarget[i]&gt;<a class="code hl_define" href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a>-1) carTarget[i] = 0;</div>
 <div class="line">            }</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">if</span> (frameCount % 350 == 0) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a> % 350 == 0) {</div>
 <div class="line">                <span class="comment">// detect over turned</span></div>
 <div class="line">                f3 = (Vector3){0,1,0};</div>
 <div class="line">                f3 = Vector3Transform(f3,rR);</div>
@@ -312,7 +312,7 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line">        <span class="comment">//----------------------------------------------------------------------------------</span></div>
 <div class="line"> </div>
 <div class="line">        physTime = GetTime(); </div>
-<div class="line">        <span class="keywordtype">int</span> pSteps = <a id="a26" name="a26"></a><a class="code hl_function" href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a>(physCtx);</div>
+<div class="line">        <span class="keywordtype">int</span> pSteps = <a id="a33" name="a33"></a><a class="code hl_function" href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a>(physCtx);</div>
 <div class="line">        physTime = GetTime() - physTime;    </div>
 <div class="line"> </div>
 <div class="line"> </div>
@@ -325,10 +325,10 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line"> </div>
 <div class="line">        BeginMode3D(graphics-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>);</div>
 <div class="line"> </div>
-<div class="line">            <a id="a27" name="a27"></a><a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(graphics, physCtx);</div>
-<div class="line">            <a id="a28" name="a28"></a><a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(graphics, physCtx);</div>
+<div class="line">            <a id="a34" name="a34"></a><a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(graphics, physCtx);</div>
+<div class="line">            <a id="a35" name="a35"></a><a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(graphics, physCtx);</div>
 <div class="line">            </div>
-<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;MAXPATH; i++) {</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a>; i++) {</div>
 <div class="line">                DrawCylinder(path[i], .2,.2,8,1,YELLOW);</div>
 <div class="line">            }</div>
 <div class="line"> </div>
@@ -343,7 +343,7 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line">        EndMode3D();</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">if</span> (pSteps &gt; <a id="_a29" name="_a29"></a><a class="code hl_define" href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a>) DrawText(<span class="stringliteral">&quot;WARNING CPU overloaded lagging real time&quot;</span>, 10, 0, 20, RED);</div>
+<div class="line">        <span class="keywordflow">if</span> (pSteps &gt; <a id="_a36" name="_a36"></a><a class="code hl_define" href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a>) DrawText(<span class="stringliteral">&quot;WARNING CPU overloaded lagging real time&quot;</span>, 10, 0, 20, RED);</div>
 <div class="line">        DrawText(TextFormat(<span class="stringliteral">&quot;%2i FPS&quot;</span>, GetFPS()), 10, 20, 20, WHITE);</div>
 <div class="line"> </div>
 <div class="line">        DrawText(TextFormat(<span class="stringliteral">&quot;Phys steps per frame %i&quot;</span>,pSteps), 10, 120, 20, WHITE);</div>
@@ -358,34 +358,41 @@ $(function(){initNavTree('derby_8c-example.html','',''); });
 <div class="line">    <span class="comment">// De-Initialization</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
 <div class="line">       </div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;MAXCAR; i++) {</div>
-<div class="line">        <a id="a30" name="a30"></a><a class="code hl_function" href="vehicle_8c.html#ab0b188b6b47157b4f3c4aae241a933c8">FreeVehicle</a>(physCtx, cars[i]);</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i&lt;<a class="code hl_define" href="derby_8c.html#a738887643e2a12f694d8a37b1ff95839">MAXCAR</a>; i++) {</div>
+<div class="line">        <a id="a37" name="a37"></a><a class="code hl_function" href="vehicle_8c.html#ab0b188b6b47157b4f3c4aae241a933c8">FreeVehicle</a>(physCtx, cars[i]);</div>
 <div class="line">    }</div>
 <div class="line">    UnloadModel(ground);</div>
 <div class="line">    UnloadModel(carBody);</div>
 <div class="line"> </div>
-<div class="line">    <a id="a31" name="a31"></a><a class="code hl_function" href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a>(physCtx);</div>
-<div class="line">    <a id="a32" name="a32"></a><a class="code hl_function" href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a>(graphics);</div>
+<div class="line">    <a id="a38" name="a38"></a><a class="code hl_function" href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a>(physCtx);</div>
+<div class="line">    <a id="a39" name="a39"></a><a class="code hl_function" href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a>(graphics);</div>
 <div class="line"> </div>
 <div class="line">    CloseWindow();              <span class="comment">// Close window and OpenGL context</span></div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aarm_8c_html_a76da26d519b3a4158847daa8783a7a5b"><div class="ttname"><a href="arm_8c.html#a76da26d519b3a4158847daa8783a7a5b">screenWidth</a></div><div class="ttdeci">#define screenWidth</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00029">arm.c:29</a></div></div>
+<div class="ttc" id="aarm_8c_html_a840291bc02cba5474a4cb46a9b9566fe"><div class="ttname"><a href="arm_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a></div><div class="ttdeci">int main(void)</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00066">arm.c:66</a></div></div>
+<div class="ttc" id="aarm_8c_html_a8c472bd07ea66dbb884992785271e1d1"><div class="ttname"><a href="arm_8c.html#a8c472bd07ea66dbb884992785271e1d1">screenHeight</a></div><div class="ttdeci">#define screenHeight</div><div class="ttdef"><b>Definition</b> <a href="arm_8c_source.html#l00030">arm.c:30</a></div></div>
 <div class="ttc" id="aclist_8c_html_a264922774fdf767e31797fe81f2231be"><div class="ttname"><a href="clist_8c.html#a264922774fdf767e31797fe81f2231be">clistAddNode</a></div><div class="ttdeci">cnode_t * clistAddNode(clist_t *list, void *data)</div><div class="ttdoc">adds a node to a list</div><div class="ttdef"><b>Definition</b> <a href="clist_8c_source.html#l00047">clist.c:47</a></div></div>
+<div class="ttc" id="aderby_8c_html_a2d1edde91ea515b363277f4bbdc3244d"><div class="ttname"><a href="derby_8c.html#a2d1edde91ea515b363277f4bbdc3244d">MAXPATH</a></div><div class="ttdeci">#define MAXPATH</div></div>
+<div class="ttc" id="aderby_8c_html_a738887643e2a12f694d8a37b1ff95839"><div class="ttname"><a href="derby_8c.html#a738887643e2a12f694d8a37b1ff95839">MAXCAR</a></div><div class="ttdeci">#define MAXCAR</div></div>
+<div class="ttc" id="aderby_8c_html_ad2b31ed253e397341af2a396db3704df"><div class="ttname"><a href="derby_8c.html#ad2b31ed253e397341af2a396db3704df">GetSteerAngle</a></div><div class="ttdeci">float GetSteerAngle(Vector2 carPos, Vector2 carForward, Vector2 targetPos)</div><div class="ttdef"><b>Definition</b> <a href="derby_8c_source.html#l00034">derby.c:34</a></div></div>
 <div class="ttc" id="aexampleCamera_8c_html_ad0a902b3760c7a5f8725bdb73ddc174b"><div class="ttname"><a href="exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a></div><div class="ttdeci">void UpdateExampleCamera(struct GraphicsContext *ctx)</div><div class="ttdoc">update the camera</div><div class="ttdef"><b>Definition</b> <a href="exampleCamera_8c_source.html#l00168">exampleCamera.c:168</a></div></div>
 <div class="ttc" id="aexampleCamera_8c_html_af155bf31f5a69e64716e1eb1a010f647"><div class="ttname"><a href="exampleCamera_8c.html#af155bf31f5a69e64716e1eb1a010f647">SetupCamera</a></div><div class="ttdeci">void SetupCamera(struct GraphicsContext *ctx)</div><div class="ttdoc">Initialize the camera.</div><div class="ttdef"><b>Definition</b> <a href="exampleCamera_8c_source.html#l00081">exampleCamera.c:81</a></div></div>
 <div class="ttc" id="aexampleCamera_8h_html"><div class="ttname"><a href="exampleCamera_8h.html">exampleCamera.h</a></div></div>
+<div class="ttc" id="agravity_8c_html_abaf7d77bd2fc7eb6125fa605bd645b67"><div class="ttname"><a href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a></div><div class="ttdeci">int frameCount</div><div class="ttdef"><b>Definition</b> <a href="gravity_8c_source.html#l00090">gravity.c:90</a></div></div>
 <div class="ttc" id="ainit_8c_html_a0c011796e9f74e7eb4b5bb26305193f9"><div class="ttname"><a href="init_8c.html#a0c011796e9f74e7eb4b5bb26305193f9">CreateGraphics</a></div><div class="ttdeci">GraphicsContext * CreateGraphics(int width, int height, const char *title)</div><div class="ttdoc">Initialize graphics context and window.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00077">init.c:77</a></div></div>
 <div class="ttc" id="ainit_8c_html_a57d526245eb2f059fac1e6bb3f64ae42"><div class="ttname"><a href="init_8c.html#a57d526245eb2f059fac1e6bb3f64ae42">CreatePhysics</a></div><div class="ttdeci">PhysicsContext * CreatePhysics()</div><div class="ttdoc">Initialize physics world and context.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00158">init.c:158</a></div></div>
 <div class="ttc" id="ainit_8c_html_a6569bf61ca03001b6fabedc21aff855a"><div class="ttname"><a href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a></div><div class="ttdeci">void FreeGraphics(GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00246">init.c:246</a></div></div>
 <div class="ttc" id="ainit_8c_html_aadcc246e22ab4be2dd926a25c5bc9bad"><div class="ttname"><a href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a></div><div class="ttdeci">void FreePhysics(PhysicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00195">init.c:195</a></div></div>
 <div class="ttc" id="ainit_8h_html"><div class="ttname"><a href="init_8h.html">init.h</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">draws the static geometries</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01044">raylibODE.c:1044</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a79db70091e3c86494f485979529984c8"><div class="ttname"><a href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a></div><div class="ttdeci">geomInfo * CreateGeomInfo(bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</div><div class="ttdoc">Helper to allocate geomInfo with collision flag, optional texture, and UV scale this is useful when g...</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00692">raylibODE.c:692</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01007">raylibODE.c:1007</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">draws the static geometries</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01086">raylibODE.c:1086</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a79db70091e3c86494f485979529984c8"><div class="ttname"><a href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a></div><div class="ttdeci">geomInfo * CreateGeomInfo(bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</div><div class="ttdoc">Helper to allocate geomInfo with collision flag, optional texture, and UV scale this is useful when g...</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00732">raylibODE.c:732</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">Draws all the dynamic bodies the framework is tracking.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01050">raylibODE.c:1050</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ad087bfe56f8c97e250f6dd5054fdf76e"><div class="ttname"><a href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a></div><div class="ttdeci">int StepPhysics(PhysicsContext *physCtx)</div><div class="ttdoc">Step the physics simulation forward.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00241">raylibODE.c:241</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_ae8b06665a78b486c57e6795da4b3e265"><div class="ttname"><a href="raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265">CreateStaticTrimesh</a></div><div class="ttdeci">cnode_t * CreateStaticTrimesh(PhysicsContext *physCtx, GraphicsContext *gfxCtx, Model model, Texture *tex, float uvScale)</div><div class="ttdoc">Create a static trimesh collision geometry from a model.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00655">raylibODE.c:655</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aeaef389f404abef038f38518fc1a0421"><div class="ttname"><a href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a></div><div class="ttdeci">void OdeToRayMat(const dReal *R, Matrix *m)</div><div class="ttdoc">sets a raylib matrix from an ODE rotation matrix</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00836">raylibODE.c:836</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_ae8b06665a78b486c57e6795da4b3e265"><div class="ttname"><a href="raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265">CreateStaticTrimesh</a></div><div class="ttdeci">cnode_t * CreateStaticTrimesh(PhysicsContext *physCtx, GraphicsContext *gfxCtx, Model model, Texture *tex, float uvScale)</div><div class="ttdoc">Create a static trimesh collision geometry from a model.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00695">raylibODE.c:695</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aeaef389f404abef038f38518fc1a0421"><div class="ttname"><a href="raylibODE_8c.html#aeaef389f404abef038f38518fc1a0421">OdeToRayMat</a></div><div class="ttdeci">void OdeToRayMat(const dReal *R, Matrix *m)</div><div class="ttdoc">sets a raylib matrix from an ODE rotation matrix</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00874">raylibODE.c:874</a></div></div>
 <div class="ttc" id="araylibODE_8h_html_aeca363633c4fad02497dc3ebd42fa298"><div class="ttname"><a href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a></div><div class="ttdeci">#define PLANE_THICKNESS</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00043">raylibODE.h:43</a></div></div>
 <div class="ttc" id="araylibODE_8h_html_afeff8fa28bbbf9c2ddbc85a38993d92e"><div class="ttname"><a href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a></div><div class="ttdeci">#define maxPsteps</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00045">raylibODE.h:45</a></div></div>
 <div class="ttc" id="astructGraphicsContext_html"><div class="ttname"><a href="structGraphicsContext.html">GraphicsContext</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00131">raylibODE.h:131</a></div></div>

@@ -1,0 +1,203 @@
+\doxysection{rotor.\+c}
+\hypertarget{rotor_8c_source}{}\label{rotor_8c_source}\index{/home/chris/development/RayLibOdeMech/examples/rotor.c@{/home/chris/development/RayLibOdeMech/examples/rotor.c}}
+\mbox{\hyperlink{rotor_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00027}\mbox{\hyperlink{rotor_8c_a76da26d519b3a4158847daa8783a7a5b}{00027}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00028}\mbox{\hyperlink{rotor_8c_a8c472bd07ea66dbb884992785271e1d1}{00028}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00030}00030\ \textcolor{comment}{//\ 0x01\ =\ world\ 0x02\ =\ pistons}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00032}\mbox{\hyperlink{rotor_8c_acb3b855fb7a21f26fd85ffd573c7d5f4}{00032}}\ \textcolor{preprocessor}{\#define\ WALL\_GROUP\ \ \ 0x00000004}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00033}\mbox{\hyperlink{rotor_8c_a51110cf21cae1fa8568bb223d233b212}{00033}}\ \textcolor{preprocessor}{\#define\ ROTOR\_GROUP\ \ \ 0x00000008}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00035}\mbox{\hyperlink{rotor_8c_a840291bc02cba5474a4cb46a9b9566fe}{00035}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ Create\ ground\ "{}plane"{}}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00048}00048\ \ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}}+2,\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}}+2);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00049}00049\ \ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ groundInfo\ =\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 50.0f,\ 50.0f);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00051}00051\ \ \ \ \ groundInfo-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96}{SURFACE\_EARTH}}];}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00052}00052\ \ \ \ \ dGeomSetData(planeGeom,\ groundInfo);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00053}00053\ \ \ \ \ dGeomSetCategoryBits(planeGeom,\ \mbox{\hyperlink{rotor_8c_acb3b855fb7a21f26fd85ffd573c7d5f4}{WALL\_GROUP}});}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00054}00054\ \ \ \ \ dGeomSetCollideBits(planeGeom,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});\ \textcolor{comment}{//\ Ignore\ WALL\_ROTOR\ (and\ WALL!)}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00057}00057\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ Create\ random\ simple\ objects\ with\ random\ textures}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{raylibODE_8h_a5c3a0114b1e58dd42011cae154c7827e}{NUM\_OBJ}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ e\ =\ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}}\ \&\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc}{\string~SHAPE\_DUMBBELL}});}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(dBodyGetFirstGeom(e-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}}));}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ gi-\/>surface\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}{SURFACE\_RUBBER}}];}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00064}00064\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00065}00065\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ rotor\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ (Vector3)\{7,\ 6,1\},\ \textcolor{comment}{//\ size}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ (Vector3)\{0,0,0\},\ \textcolor{comment}{//\ pos}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ (Vector3)\{0,0,0\},\ \textcolor{comment}{//\ rot}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ 4);\ \textcolor{comment}{//\ mass}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00072}00072\ \ \ \ \ \textcolor{comment}{//\ offset\ the\ geom\ so\ it\ is\ being\ rotated\ from\ one\ end}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00073}00073\ \ \ \ \ dGeomID\ rgeom\ =\ dBodyGetFirstGeom(rotor-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00074}00074\ \ \ \ \ dGeomSetOffsetPosition(rgeom,\ 3.5,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(rgeom);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00076}00076\ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5}{SURFACE\_ICE}}];}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00077}00077\ \ \ \ \ dGeomSetCategoryBits(rgeom,\ \mbox{\hyperlink{rotor_8c_a51110cf21cae1fa8568bb223d233b212}{ROTOR\_GROUP}});}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00078}00078\ \ \ \ \ dGeomSetCollideBits(rgeom,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});\ \textcolor{comment}{//\ Ignore\ WALL\_GROUP\ (and\ rotors\ too)}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00079}00079\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00080}00080\ \ \ \ \ dJointID\ joint\_hinge\ =\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(physCtx,\ rotor,\ 0,\ (Vector3)\{0,1,0\});}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00086}00086\ \ \ \ \ \textcolor{comment}{//\ Main\ game\ loop}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00087}00087\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00088}00088\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{float}\ rotorSpeed\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ wiper\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detect\ window\ close\ button\ or\ ESC\ key}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00092}00092\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_O))\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ wiper\ =\ !wiper;}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (wiper)\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ ha\ =\ dJointGetHingeAngle\ (joint\_hinge);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ha\ <\ -\/M\_PI\_2/2)\ rotorSpeed\ =\ fabs(rotorSpeed);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ha\ >\ M\_PI\_2/2)\ rotorSpeed\ =\ -\/fabs(rotorSpeed);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_R))\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ rotorSpeed\ =\ -\/rotorSpeed;}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_P))\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ will\ get\ slowed\ if\ pushing\ too\ much...}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(joint\_hinge,\ dParamVel,\ rotorSpeed*4.0f);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(joint\_hinge,\ dParamVel,\ rotorSpeed);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ \ \textcolor{comment}{//\ cache\ space\ key\ status\ (don't\ look\ up\ for\ each\ object\ iterration\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ next\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};\ \textcolor{comment}{//\ get\ the\ next\ node\ now\ in\ case\ we\ delete\ this\ one}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spcdn)\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ force\ if\ the\ space\ key\ is\ held}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ v\ =\ dBodyGetLinearVel(bdy);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[1]\ <\ 10\ \&\&\ pos[1]<10)\ \{\ \textcolor{comment}{//\ cap\ upwards\ velocity\ and\ don't\ let\ it\ get\ too\ high}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable\ (bdy);\ \textcolor{comment}{//\ case\ its\ gone\ to\ sleep}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dMass\ mass;}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyGetMass\ (bdy,\ \&mass);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ give\ some\ object\ more\ force\ than\ others}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ f\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(8,20)\ *\ mass.mass;}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyAddForce(bdy,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f),\ f*10,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f));}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos[1]<-\/10)\ \{}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ e\ =\ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}}\ \&\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc}{\string~SHAPE\_DUMBBELL}});}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(dBodyGetFirstGeom(e-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}}));}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gi-\/>surface\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}{SURFACE\_RUBBER}}];}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ the\ physics}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00162}00162\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSteps\ >\ \mbox{\hyperlink{raylibODE_8h_afeff8fa28bbbf9c2ddbc85a38993d92e}{maxPsteps}})\ DrawText(\textcolor{stringliteral}{"{}WARNING\ CPU\ overloaded\ lagging\ real\ time"{}},\ 10,\ 0,\ 20,\ RED);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}\%2i\ FPS"{}},\ GetFPS()),\ 10,\ 20,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}Press\ SPACE\ to\ apply\ force\ to\ objects"{}},\ 10,\ 60,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ steps\ per\ frame\ \%i"{}},pSteps),\ 10,\ 120,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ time\ per\ frame\ \%f"{}},physTime),\ 10,\ 140,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}total\ time\ per\ frame\ \%f"{}},GetFrameTime()),\ 10,\ 160,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00180}00180\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00185}00185\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00186}00186\ \ \ \ \ \textcolor{comment}{//\ De-\/Initialization}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00187}00187\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00188}00188\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00189}00189\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00191}00191\ \ \ \ \ CloseWindow();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Close\ window\ and\ OpenGL\ context}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00192}00192\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00193}00193\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00194}00194\ \}}
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{rotor_8c_source_l00197}00197\ }
+
+\end{DoxyCode}

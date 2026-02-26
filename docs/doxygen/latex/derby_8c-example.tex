@@ -37,7 +37,7 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{float}\ GetSteerAngle(Vector2\ carPos,\ Vector2\ carForward,\ Vector2\ targetPos)\ \{}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ \mbox{\hyperlink{derby_8c_ad2b31ed253e397341af2a396db3704df}{GetSteerAngle}}(Vector2\ carPos,\ Vector2\ carForward,\ Vector2\ targetPos)\ \{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ Vector2\ toTarget\ =\ Vector2Subtract(targetPos,\ carPos);}
 \DoxyCodeLine{\ \ \ \ Vector2\ forwardNorm\ =\ Vector2Normalize(carForward);}
@@ -61,14 +61,14 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Initialization}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Physics\ context,\ holds\ all\ physics\ state}}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(screenWidth,\ screenHeight,\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
 \DoxyCodeLine{\ \ \ \ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position\ =\ (Vector3)\{80,40,0\};}
@@ -95,32 +95,32 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ make\ a\ figure\ of\ 8\ path}}
 \DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \#define\ MAXPATH\ 32}}
-\DoxyCodeLine{\ \ \ \ Vector3\ path[MAXPATH];}
+\DoxyCodeLine{\ \ \ \ Vector3\ path[\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}}];}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ a\ =\ 0;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<MAXPATH;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ path[i]\ =\ (Vector3)\{sin(a*2)*50,\ 2,\ cos(a)*80\};}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ a+=(M\_PI*2)/MAXPATH;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ a+=(M\_PI*2)/\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\textcolor{preprocessor}{\ \ \ \ \#define\ MAXCAR\ 12}}
 \DoxyCodeLine{\ \ \ \ a=0;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structvehicle}{vehicle}}*\ cars[MAXCAR];}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ carTarget[MAXCAR];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structvehicle}{vehicle}}*\ cars[\mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}}];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ carTarget[\mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}}];}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ position\ cars\ around\ path}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ step\ =\ 2;\ }
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ MAXCAR;\ j++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}};\ j++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ j\ *\ step;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i>MAXPATH)\ i-\/=MAXPATH;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i>\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}})\ i-\/=\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ dVector3\ pos\ =\ \{\ path[i].x,\ path[i].y,\ path[i].z\ \};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wrap\ around\ to\ the\ start\ of\ the\ path\ for\ the\ last\ point}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nextIdx\ =\ (i\ +\ 1)\ \%\ MAXPATH;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nextIdx\ =\ (i\ +\ 1)\ \%\ \mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ carTarget[j]\ =\ nextIdx;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ cars[j]\ =\ \mbox{\hyperlink{vehicle_8c_af0740a75defe24708df5577107ed9ba7}{CreateVehicle}}(physCtx,\ graphics,\ (Vector3)\{pos[0],pos[1]+1,pos[2]\},\textcolor{comment}{//\ pos,\ }}
@@ -167,7 +167,7 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ frameCount\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}\ =\ 0;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//}}
@@ -176,7 +176,7 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detect\ window\ close\ button\ or\ ESC\ key}}
 \DoxyCodeLine{\ \ \ \ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ frameCount++;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}++;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
@@ -186,7 +186,7 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<MAXCAR;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}};\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(cars[i]-\/>bodies[0]);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Vector2\ carPos\ =\ (Vector2)\{pos[0],pos[2]\};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Vector2\ target\ =\ (Vector2)\{path[carTarget[i]].x,path[carTarget[i]].z\};}
@@ -199,17 +199,17 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ f3\ =\ Vector3Transform(f3,rR);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Vector2\ forward\ =\ (Vector2)\{f3.x,f3.z\};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ s\ =\ GetSteerAngle(carPos,\ forward,\ target);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ s\ =\ \mbox{\hyperlink{derby_8c_ad2b31ed253e397341af2a396db3704df}{GetSteerAngle}}(carPos,\ forward,\ target);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ each\ cars\ speed\ is\ modified\ by\ how\ much\ they\ steer.}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{UpdateVehicle}}(cars[i],\ 16+(15-\/abs((\textcolor{keywordtype}{int})(s*10))),\ s);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Vector2Distance(carPos,\ target)\ <\ 8.0)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ carTarget[i]++;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (carTarget[i]>MAXPATH-\/1)\ carTarget[i]\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (carTarget[i]>\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}}-\/1)\ carTarget[i]\ =\ 0;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (frameCount\ \%\ 350\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}\ \%\ 350\ ==\ 0)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ detect\ over\ turned}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f3\ =\ (Vector3)\{0,1,0\};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f3\ =\ Vector3Transform(f3,rR);}
@@ -239,7 +239,7 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<MAXPATH;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawCylinder(path[i],\ .2,.2,8,1,YELLOW);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{}
@@ -269,7 +269,7 @@ a whole bunch of cars, following a figure of 8 path and making no attempt to avo
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ De-\/Initialization}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{\ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<MAXCAR;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}};\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(physCtx,\ cars[i]);}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ UnloadModel(ground);}

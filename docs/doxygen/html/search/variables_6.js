@@ -2,6 +2,10 @@ var searchData=
 [
   ['geom_0',['geom',['../structRayHit.html#a86f485fd67387a8c18d90b717d891015',1,'RayHit']]],
   ['geoms_1',['geoms',['../structRagDoll.html#adac575b2a7d8284989639922b01e43cf',1,'RagDoll::geoms'],['../structvehicle.html#a058cc60e3227703b2d840ce60600a29a',1,'vehicle::geoms']]],
-  ['groundtexture_2',['groundTexture',['../structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6',1,'GraphicsContext']]],
-  ['gsurfaces_3',['gSurfaces',['../surface_8c.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c'],['../surface_8h.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c']]]
+  ['grabber_2',['grabber',['../structgrabberData.html#abcbe92caa2c5e2601121826c0cb91c56',1,'grabberData']]],
+  ['gridx_3',['gridX',['../structLevelElement.html#a67e19f29936b4653f96bd92d7594fdfe',1,'LevelElement']]],
+  ['gridy_4',['gridY',['../structLevelElement.html#a3ce9993b2d632fea668910a38133d900',1,'LevelElement']]],
+  ['gridz_5',['gridZ',['../structLevelElement.html#ac63ed2f7a3634b640da0cdb56dca1b98',1,'LevelElement']]],
+  ['groundtexture_6',['groundTexture',['../structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6',1,'GraphicsContext']]],
+  ['gsurfaces_7',['gSurfaces',['../surface_8c.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c'],['../surface_8h.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c']]]
 ];

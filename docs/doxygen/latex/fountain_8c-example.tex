@@ -37,7 +37,7 @@ many shapes being created and destroyed, show using a sphere as a trigger area
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ geoms\ inside\ a\ trigger\ geom\ will\ be\ tinted\ red}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ triggerCallback(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ dGeomID\ trigger,\ dGeomID\ intruder)\ \{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{arm_8c_ab295c09645dc1cb3f5e2495e25e2c2b9}{triggerCallback}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ dGeomID\ trigger,\ dGeomID\ intruder)\ \{}
 \DoxyCodeLine{\ \ \ \ (void)trigger;}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ rule\ out\ any\ collisions\ with\ the\ ground\ which\ we\ store}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ in\ the\ physics\ context\ data\ pointer}}
@@ -48,14 +48,14 @@ many shapes being created and destroyed, show using a sphere as a trigger area
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Initialization}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Physics\ context,\ holds\ all\ physics\ state}}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(screenWidth,\ screenHeight,\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
 \DoxyCodeLine{}
@@ -97,7 +97,7 @@ many shapes being created and destroyed, show using a sphere as a trigger area
 \DoxyCodeLine{\ \ \ \ dGeomID\ TriggerGeom\ =\ dCreateSphere(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ TrigSize);}
 \DoxyCodeLine{\ \ \ \ dGeomSetPosition(TriggerGeom,\ TrigPos.x,\ TrigPos.y,\ TrigPos.z);}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ triggergi\ =\ MemAlloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structgeomInfo}{geomInfo}}));}
-\DoxyCodeLine{\ \ \ \ triggergi-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}}\ =\ triggerCallback;}
+\DoxyCodeLine{\ \ \ \ triggergi-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}}\ =\ \mbox{\hyperlink{arm_8c_ab295c09645dc1cb3f5e2495e25e2c2b9}{triggerCallback}};}
 \DoxyCodeLine{\ \ \ \ dGeomSetData(TriggerGeom,\ triggergi);}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ TriggerGeom);}

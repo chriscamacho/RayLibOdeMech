@@ -37,13 +37,13 @@ press space to move them around (random upwards and sideways force applied to he
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ NRAGDOLLS\ 16}}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Initialization}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(screenWidth,\ screenHeight,\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{}
@@ -62,8 +62,8 @@ press space to move them around (random upwards and sideways force applied to he
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRagDoll}{RagDoll}}*\ rd[NRAGDOLLS];}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<NRAGDOLLS;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRagDoll}{RagDoll}}*\ rd[\mbox{\hyperlink{ragdolls_8c_ad406bed34c14b9c8fc59247845d3c639}{NRAGDOLLS}}];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{ragdolls_8c_ad406bed34c14b9c8fc59247845d3c639}{NRAGDOLLS}};\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ rd[i]\ =\ \mbox{\hyperlink{ragdoll_8c_a280e6f0bf4084257707b2e69342bfa61}{CreateRagdoll}}(physCtx,\ graphics,\ \mbox{\hyperlink{ragdoll_8c_ae5044c65f2f6758624a2182347b6d945}{GetRagdollSpawnPosition}}());}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ }
@@ -88,7 +88,7 @@ press space to move them around (random upwards and sideways force applied to he
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Apply\ lifting\ force\ to\ ragdolls\ when\ space\ is\ held}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spcdn)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ NRAGDOLLS;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{ragdolls_8c_ad406bed34c14b9c8fc59247845d3c639}{NRAGDOLLS}};\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rd[i]\ \&\&\ rd[i]-\/>bodies[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}])\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(rd[i]-\/>bodies[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea821db74822da83fb2993b38683976364}{RAGDOLL\_HEAD}}]);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ total\ mass\ of\ all\ body\ parts\ in\ the\ ragdoll}}
@@ -109,7 +109,7 @@ press space to move them around (random upwards and sideways force applied to he
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reset\ rag\ dolls\ if\ they\ fall\ off\ the\ plane}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ NRAGDOLLS;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{ragdolls_8c_ad406bed34c14b9c8fc59247845d3c639}{NRAGDOLLS}};\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rd[i]\ \&\&\ rd[i]-\/>bodies[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}])\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(rd[i]-\/>bodies[\mbox{\hyperlink{ragdoll_8h_a11fed3f43b81149a5ee2e3c882609d9ea89aaa87c546461f8007f4593b16d6608}{RAGDOLL\_TORSO}}]);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pos[1]\ <\ -\/10)\ \{}
@@ -157,7 +157,7 @@ press space to move them around (random upwards and sideways force applied to he
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ De-\/Initialization}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<NRAGDOLLS;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{ragdolls_8c_ad406bed34c14b9c8fc59247845d3c639}{NRAGDOLLS}};\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{ragdoll_8c_ab17f6d5cfecd7a8573b900f78460c816}{FreeRagdoll}}(physCtx,rd[i]);}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}

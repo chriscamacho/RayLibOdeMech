@@ -1,0 +1,111 @@
+\doxysection{/home/chris/development/\+Ray\+Lib\+Ode\+Mech/examples/derby.c File Reference}
+\hypertarget{derby_8c}{}\label{derby_8c}\index{/home/chris/development/RayLibOdeMech/examples/derby.c@{/home/chris/development/RayLibOdeMech/examples/derby.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}init.\+h"{}}\newline
+{\ttfamily \#include "{}example\+Camera.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{derby_8c_a76da26d519b3a4158847daa8783a7a5b}{screen\+Width}}~1920/1.\+2
+\item 
+\#define \mbox{\hyperlink{derby_8c_a8c472bd07ea66dbb884992785271e1d1}{screen\+Height}}~1080/1.\+2
+\item 
+\#define \mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}}~32
+\item 
+\#define \mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}}~12
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{derby_8c_ad2b31ed253e397341af2a396db3704df}{Get\+Steer\+Angle}} (Vector2 car\+Pos, Vector2 car\+Forward, Vector2 target\+Pos)
+\item 
+int \mbox{\hyperlink{derby_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{derby_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{derby_8c_a738887643e2a12f694d8a37b1ff95839}\index{derby.c@{derby.c}!MAXCAR@{MAXCAR}}
+\index{MAXCAR@{MAXCAR}!derby.c@{derby.c}}
+\doxysubsubsection{\texorpdfstring{MAXCAR}{MAXCAR}}
+{\footnotesize\ttfamily \label{derby_8c_a738887643e2a12f694d8a37b1ff95839} 
+\#define MAXCAR~12}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
+
+
+Referenced by \mbox{\hyperlink{derby_8c_source_l00058}{main()}}.
+
+\Hypertarget{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}\index{derby.c@{derby.c}!MAXPATH@{MAXPATH}}
+\index{MAXPATH@{MAXPATH}!derby.c@{derby.c}}
+\doxysubsubsection{\texorpdfstring{MAXPATH}{MAXPATH}}
+{\footnotesize\ttfamily \label{derby_8c_a2d1edde91ea515b363277f4bbdc3244d} 
+\#define MAXPATH~32}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
+
+
+Referenced by \mbox{\hyperlink{derby_8c_source_l00058}{main()}}.
+
+\Hypertarget{derby_8c_a8c472bd07ea66dbb884992785271e1d1}\index{derby.c@{derby.c}!screenHeight@{screenHeight}}
+\index{screenHeight@{screenHeight}!derby.c@{derby.c}}
+\doxysubsubsection{\texorpdfstring{screenHeight}{screenHeight}}
+{\footnotesize\ttfamily \label{derby_8c_a8c472bd07ea66dbb884992785271e1d1} 
+\#define screen\+Height~1080/1.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{derby_8c_source_l00032}{32}} of file \mbox{\hyperlink{derby_8c_source}{derby.\+c}}.
+
+\Hypertarget{derby_8c_a76da26d519b3a4158847daa8783a7a5b}\index{derby.c@{derby.c}!screenWidth@{screenWidth}}
+\index{screenWidth@{screenWidth}!derby.c@{derby.c}}
+\doxysubsubsection{\texorpdfstring{screenWidth}{screenWidth}}
+{\footnotesize\ttfamily \label{derby_8c_a76da26d519b3a4158847daa8783a7a5b} 
+\#define screen\+Width~1920/1.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{derby_8c_source_l00031}{31}} of file \mbox{\hyperlink{derby_8c_source}{derby.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{derby_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{derby_8c_ad2b31ed253e397341af2a396db3704df}\index{derby.c@{derby.c}!GetSteerAngle@{GetSteerAngle}}
+\index{GetSteerAngle@{GetSteerAngle}!derby.c@{derby.c}}
+\doxysubsubsection{\texorpdfstring{GetSteerAngle()}{GetSteerAngle()}}
+{\footnotesize\ttfamily \label{derby_8c_ad2b31ed253e397341af2a396db3704df} 
+float Get\+Steer\+Angle (\begin{DoxyParamCaption}\item[{Vector2}]{car\+Pos}{, }\item[{Vector2}]{car\+Forward}{, }\item[{Vector2}]{target\+Pos}{}\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{derby_8c_source_l00034}{34}} of file \mbox{\hyperlink{derby_8c_source}{derby.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{derby_8c_source_l00058}{main()}}.
+
+\Hypertarget{derby_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{derby.c@{derby.c}!main@{main}}
+\index{main@{main}!derby.c@{derby.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{derby_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{derby_8c_source_l00058}{58}} of file \mbox{\hyperlink{derby_8c_source}{derby.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00144}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00695}{Create\+Static\+Trimesh()}}, \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}, \mbox{\hyperlink{raylibODE_8c_source_l01050}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01086}{Draw\+Statics()}}, \mbox{\hyperlink{gravity_8c_source_l00090}{frame\+Count}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{vehicle_8c_source_l00233}{Free\+Vehicle()}}, \mbox{\hyperlink{derby_8c_source_l00034}{Get\+Steer\+Angle()}}, \mbox{\hyperlink{raylibODE_8h_source_l00142}{Graphics\+Context\+::ground\+Texture}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}}, \mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}}, \mbox{\hyperlink{raylibODE_8h_source_l00045}{max\+Psteps}}, \mbox{\hyperlink{raylibODE_8c_source_l00874}{Ode\+To\+Ray\+Mat()}}, \mbox{\hyperlink{raylibODE_8h_source_l00043}{PLANE\+\_\+\+THICKNESS}}, \mbox{\hyperlink{arm_8c_source_l00030}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00029}{screen\+Width}}, \mbox{\hyperlink{exampleCamera_8c_source_l00081}{Setup\+Camera()}}, \mbox{\hyperlink{raylibODE_8h_source_l00065}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00069}{Physics\+Context\+::statics}}, \mbox{\hyperlink{raylibODE_8c_source_l00241}{Step\+Physics()}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00045}{SURFACE\+\_\+\+EARTH}}, \mbox{\hyperlink{surface_8h_source_l00044}{SURFACE\+\_\+\+RUBBER}}, \mbox{\hyperlink{raylibODE_8h_source_l00095}{geom\+Info\+::texture}}, \mbox{\hyperlink{vehicle_8c_source_l00258}{Unflip\+Vehicle()}}, \mbox{\hyperlink{exampleCamera_8c_source_l00168}{Update\+Example\+Camera()}}, \mbox{\hyperlink{vehicle_8c_source_l00190}{Update\+Vehicle()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00098}{geom\+Info\+::visual}}.
+

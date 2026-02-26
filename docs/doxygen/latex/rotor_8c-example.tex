@@ -38,13 +38,13 @@ shows the rotor convenience function
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ WALL\_GROUP\ \ \ 0x00000004}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ ROTOR\_GROUP\ \ \ 0x00000008}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Initialization}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(screenWidth,\ screenHeight,\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
@@ -56,7 +56,7 @@ shows the rotor convenience function
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ groundInfo\ =\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 50.0f,\ 50.0f);}
 \DoxyCodeLine{\ \ \ \ groundInfo-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96}{SURFACE\_EARTH}}];}
 \DoxyCodeLine{\ \ \ \ dGeomSetData(planeGeom,\ groundInfo);}
-\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(planeGeom,\ WALL\_GROUP);}
+\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(planeGeom,\ \mbox{\hyperlink{rotor_8c_acb3b855fb7a21f26fd85ffd573c7d5f4}{WALL\_GROUP}});}
 \DoxyCodeLine{\ \ \ \ dGeomSetCollideBits(planeGeom,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});\ \textcolor{comment}{//\ Ignore\ WALL\_ROTOR\ (and\ WALL!)}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
@@ -80,7 +80,7 @@ shows the rotor convenience function
 \DoxyCodeLine{\ \ \ \ dGeomSetOffsetPosition(rgeom,\ 3.5,\ 0,\ 0);}
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(rgeom);}
 \DoxyCodeLine{\ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5}{SURFACE\_ICE}}];}
-\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(rgeom,\ ROTOR\_GROUP);}
+\DoxyCodeLine{\ \ \ \ dGeomSetCategoryBits(rgeom,\ \mbox{\hyperlink{rotor_8c_a51110cf21cae1fa8568bb223d233b212}{ROTOR\_GROUP}});}
 \DoxyCodeLine{\ \ \ \ dGeomSetCollideBits(rgeom,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});\ \textcolor{comment}{//\ Ignore\ WALL\_GROUP\ (and\ rotors\ too)}}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ dJointID\ joint\_hinge\ =\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(physCtx,\ rotor,\ 0,\ (Vector3)\{0,1,0\});}

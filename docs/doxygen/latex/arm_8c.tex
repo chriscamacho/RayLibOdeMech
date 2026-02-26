@@ -1,0 +1,122 @@
+\doxysection{/home/chris/development/\+Ray\+Lib\+Ode\+Mech/examples/arm.c File Reference}
+\hypertarget{arm_8c}{}\label{arm_8c}\index{/home/chris/development/RayLibOdeMech/examples/arm.c@{/home/chris/development/RayLibOdeMech/examples/arm.c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}init.\+h"{}}\newline
+{\ttfamily \#include "{}example\+Camera.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgrabberData}{grabber\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screen\+Width}}~1920/1.\+2
+\item 
+\#define \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screen\+Height}}~1080/1.\+2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct grabber\+Data \mbox{\hyperlink{arm_8c_af4dda86bdfce3f85af8bb4416ece329d}{grabber\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{arm_8c_ab295c09645dc1cb3f5e2495e25e2c2b9}{trigger\+Callback}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}phys\+Ctx, d\+Geom\+ID trigger, d\+Geom\+ID intruder)
+\item 
+int \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{arm_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{arm_8c_a8c472bd07ea66dbb884992785271e1d1}\index{arm.c@{arm.c}!screenHeight@{screenHeight}}
+\index{screenHeight@{screenHeight}!arm.c@{arm.c}}
+\doxysubsubsection{\texorpdfstring{screenHeight}{screenHeight}}
+{\footnotesize\ttfamily \label{arm_8c_a8c472bd07ea66dbb884992785271e1d1} 
+\#define screen\+Height~1080/1.\+2}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{car_8c-example}{car.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{piston_8c-example}{piston.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, \mbox{\hyperlink{template_8c-example}{template.\+c}}, and \mbox{\hyperlink{terrain_8c-example}{terrain.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{arm_8c_source_l00030}{30}} of file \mbox{\hyperlink{arm_8c_source}{arm.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{arm_8c_source_l00066}{main()}}.
+
+\Hypertarget{arm_8c_a76da26d519b3a4158847daa8783a7a5b}\index{arm.c@{arm.c}!screenWidth@{screenWidth}}
+\index{screenWidth@{screenWidth}!arm.c@{arm.c}}
+\doxysubsubsection{\texorpdfstring{screenWidth}{screenWidth}}
+{\footnotesize\ttfamily \label{arm_8c_a76da26d519b3a4158847daa8783a7a5b} 
+\#define screen\+Width~1920/1.\+2}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{car_8c-example}{car.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{piston_8c-example}{piston.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, \mbox{\hyperlink{template_8c-example}{template.\+c}}, and \mbox{\hyperlink{terrain_8c-example}{terrain.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{arm_8c_source_l00029}{29}} of file \mbox{\hyperlink{arm_8c_source}{arm.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{arm_8c_source_l00066}{main()}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{arm_8c_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{arm_8c_af4dda86bdfce3f85af8bb4416ece329d}\index{arm.c@{arm.c}!grabberData@{grabberData}}
+\index{grabberData@{grabberData}!arm.c@{arm.c}}
+\doxysubsubsection{\texorpdfstring{grabberData}{grabberData}}
+{\footnotesize\ttfamily \label{arm_8c_af4dda86bdfce3f85af8bb4416ece329d} 
+typedef struct grabber\+Data grabber\+Data}
+
+
+
+\label{doc-func-members}
+\Hypertarget{arm_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{arm.c@{arm.c}!main@{main}}
+\index{main@{main}!arm.c@{arm.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{arm_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{car_8c-example}{car.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{piston_8c-example}{piston.\+c}}, \mbox{\hyperlink{placer_8c-example}{placer.\+c}}, \mbox{\hyperlink{ragdolls_8c-example}{ragdolls.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, \mbox{\hyperlink{template_8c-example}{template.\+c}}, and \mbox{\hyperlink{terrain_8c-example}{terrain.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{arm_8c_source_l00066}{66}} of file \mbox{\hyperlink{arm_8c_source}{arm.\+c}}.
+
+
+
+References \mbox{\hyperlink{arm_8c_source_l00037}{grabber\+Data\+::attachment}}, \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00144}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8h_source_l00094}{geom\+Info\+::collidable}}, \mbox{\hyperlink{raylibODE_8c_source_l00398}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00485}{Create\+Cylinder()}}, \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00630}{Create\+Random\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00981}{Create\+Rotor()}}, \mbox{\hyperlink{raylibODE_8c_source_l00441}{Create\+Sphere()}}, \mbox{\hyperlink{raylibODE_8c_source_l00310}{Create\+Sphere\+Geom()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l01050}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01086}{Draw\+Statics()}}, \mbox{\hyperlink{raylibODE_8c_source_l01107}{Free\+Entity()}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{arm_8c_source_l00038}{grabber\+Data\+::grabber}}, \mbox{\hyperlink{raylibODE_8h_source_l00142}{Graphics\+Context\+::ground\+Texture}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{raylibODE_8h_source_l00045}{max\+Psteps}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00039}{NUM\+\_\+\+OBJ}}, \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8h_source_l00042}{PLANE\+\_\+\+SIZE}}, \mbox{\hyperlink{raylibODE_8h_source_l00043}{PLANE\+\_\+\+THICKNESS}}, \mbox{\hyperlink{arm_8c_source_l00036}{grabber\+Data\+::plane\+Geom}}, \mbox{\hyperlink{raylibODE_8c_source_l00219}{rndf()}}, \mbox{\hyperlink{arm_8c_source_l00030}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00029}{screen\+Width}}, \mbox{\hyperlink{raylibODE_8c_source_l01014}{Set\+Entity\+Hew()}}, \mbox{\hyperlink{exampleCamera_8c_source_l00081}{Setup\+Camera()}}, \mbox{\hyperlink{raylibODE_8h_source_l00053}{SHAPE\+\_\+\+ALL}}, \mbox{\hyperlink{raylibODE_8h_source_l00065}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00069}{Physics\+Context\+::statics}}, \mbox{\hyperlink{raylibODE_8c_source_l00241}{Step\+Physics()}}, \mbox{\hyperlink{arm_8c_source_l00044}{trigger\+Callback()}}, \mbox{\hyperlink{exampleCamera_8c_source_l00168}{Update\+Example\+Camera()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00064}{Physics\+Context\+::world}}.
+
+\Hypertarget{arm_8c_ab295c09645dc1cb3f5e2495e25e2c2b9}\index{arm.c@{arm.c}!triggerCallback@{triggerCallback}}
+\index{triggerCallback@{triggerCallback}!arm.c@{arm.c}}
+\doxysubsubsection{\texorpdfstring{triggerCallback()}{triggerCallback()}}
+{\footnotesize\ttfamily \label{arm_8c_ab295c09645dc1cb3f5e2495e25e2c2b9} 
+void trigger\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{phys\+Ctx}{, }\item[{d\+Geom\+ID}]{trigger}{, }\item[{d\+Geom\+ID}]{intruder}{}\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, and \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{arm_8c_source_l00044}{44}} of file \mbox{\hyperlink{arm_8c_source}{arm.\+c}}.
+
+
+
+References \mbox{\hyperlink{arm_8c_source_l00037}{grabber\+Data\+::attachment}}, \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::data}}, \mbox{\hyperlink{arm_8c_source_l00038}{grabber\+Data\+::grabber}}, \mbox{\hyperlink{raylibODE_8h_source_l00099}{geom\+Info\+::hew}}, \mbox{\hyperlink{arm_8c_source_l00036}{grabber\+Data\+::plane\+Geom}}, and \mbox{\hyperlink{raylibODE_8h_source_l00064}{Physics\+Context\+::world}}.
+
+
+
+Referenced by \mbox{\hyperlink{arm_8c_source_l00066}{main()}}.
+

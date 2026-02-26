@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="pidJoint_8c_source-example" kind="example">
+    <compoundname>pidJoint.c_source</compoundname>
+    <briefdescription>
+<para>create a rotor PID helper </para>
+    </briefdescription>
+    <detaileddescription>
+<para>create a rotor PID helper<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>proportional value for the PID </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>integral value </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>d</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>derivative </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the low stop </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hi</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the high stop</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>a rotorPID contains a targetAngle, set this for your desired rotor angle</para>
+</simplesect>
+<simplesect kind="note"><para>tuning a PID can be a bit of a dark art! I recommend looking at <ulink url="https://pidexplained.com/how-to-tune-a-pid-controller/">https://pidexplained.com/how-to-tune-a-pid-controller/</ulink> and the example <programlisting filename="pidJoint.c_source"></programlisting> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="raylibODE.c"/>
+  </compounddef>
+</doxygen>

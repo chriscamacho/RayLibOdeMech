@@ -20,6 +20,8 @@
  * SOFTWARE.
  *
  */
+#include "raylibODE.h"
+static void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx);
 
 /**
  * @file raylibODE.c
@@ -279,6 +281,7 @@ int StepPhysics(PhysicsContext* physCtx)
  * @return Pointer to newly created entity
  *
  * @note Internal function - but might be useful for manual creation
+ * it creates an "empty" body without geoms
  */
 entity* CreateBaseEntity(PhysicsContext* ctx) {
     dBodyID bdy = dBodyCreate(ctx->world);
@@ -293,6 +296,19 @@ entity* CreateBaseEntity(PhysicsContext* ctx) {
 // create entity function CreateBall CreateBox etc
 
 // just an isolated geom, most useful to add to existing bodies
+/**
+ * Create a sphere geom
+ * 
+ * This creates just the geometry, useful for building composite shapes
+ * 
+ * @param ctx the physics context
+ * @param gfxCtx the graphics context
+ * @param radius radius of the sphere
+ * @param pos where you want the geom positioned
+ * 
+ * @note if you want to use this as a static collider in the world you will
+ * need to add it to the world and the physics context statics list
+ */
 dGeomID CreateSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, Vector3 pos)
 {
     dGeomID geom = dCreateSphere(ctx->space, radius);
@@ -306,6 +322,20 @@ dGeomID CreateSphereGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float rad
 }
 
 // isolated cylinder geom
+/**
+ * Create a cylinder geom
+ * 
+ * This creates just the geometry, useful for building composite shapes
+ * 
+ * @param ctx the physics context
+ * @param gfxCtx the graphics context
+ * @param radius radius of the cylinder
+ * @param length length of the cylinder
+ * @param pos where you want the geom positioned
+ * 
+ * @note if you want to use this as a static collider in the world you will
+ * need to add it to the world and the physics context statics list
+ */
 dGeomID CreateCylinderGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float radius, float length, Vector3 pos)
 {
     // ODE Cylinders are aligned along the Z-axis by default
@@ -319,6 +349,20 @@ dGeomID CreateCylinderGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, float r
     return geom;
 }
 
+/**
+ * Create a box geom
+ * 
+ * This creates just the geometry, useful for building composite shapes
+ * 
+ * @param ctx the physics context
+ * @param gfxCtx the graphics context
+ * @param size the size of the sphere
+ * @param pos where you want the geom positioned
+ * 
+ * @note if you want to use this as a static collider in the world you will
+ * need to add it to the world and the physics context statics list
+ * 
+ */
 dGeomID CreateBoxGeom(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 size, Vector3 pos)
 {
 	dGeomID geom = dCreateBox(ctx->space, size.x, size.y, size.z);
@@ -585,8 +629,6 @@ entity* CreateDumbbell(PhysicsContext* ctx, GraphicsContext* gfxCtx, float shaft
  * @note Mass is fixed at 10.0f for all random objects
  * @note Each type has randomized dimensions within reasonable ranges
  */
- 
-
 entity* CreateRandomEntity(PhysicsContext* ctx, GraphicsContext* gfxCtx, Vector3 pos, unsigned char mask)
 {
     unsigned char typ;
@@ -777,7 +819,6 @@ entity* PickEntity(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hi
  * @param bdy the dBodyID you want to free the attached meta data for
  * 
  */
-
 void FreeBodyAndGeoms(dBodyID bdy)
 {
 	dGeomID geom = dBodyGetFirstGeom(bdy);
@@ -795,9 +836,8 @@ void FreeBodyAndGeoms(dBodyID bdy)
 
 // position rotation scale all done with the models transform...
 // TODO check there isn't a new raylib function that does this now _pro _ex or similar!
-void DrawModelTinted(Model model, Color tint)
+static void DrawModelTinted(Model model, Color tint)
 {
-
     for (int i = 0; i < model.meshCount; i++)
     {
         Color color = model.materials[model.meshMaterial[i]].maps[MATERIAL_MAP_DIFFUSE].color;
@@ -842,7 +882,6 @@ void OdeToRayMat(const dReal* R, Matrix* m)
 }
 
 // called by draw all geoms
-
 void DrawGeom(dGeomID geom, struct GraphicsContext* ctx)
 {
     geomInfo* gi = (geomInfo*)dGeomGetData(geom);
@@ -1004,6 +1043,12 @@ void SetEntitySurfaces(entity* ent, SurfaceMaterial* mat)
 	}
 }
 
+/**
+ * @brief Draws all the dynamic bodies the framework is tracking
+ * 
+ * @param ctx the graphics context
+ * @param pctx the physics context
+ */
 void DrawBodies(struct GraphicsContext* ctx, PhysicsContext* pctx)
 {
 	cnode_t* node = pctx->objList->head;
@@ -1017,7 +1062,7 @@ void DrawBodies(struct GraphicsContext* ctx, PhysicsContext* pctx)
 	}
 }
 
-void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx)
+static void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx)
 {
 	dGeomID geom = dBodyGetFirstGeom(bdy);
 	while(geom) {
@@ -1040,7 +1085,6 @@ void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx)
  * @param ctx the graphics context
  * @param pctx the physics context
  */
- 
 void DrawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx)
 {
 	cnode_t* node = pctx->statics->head;
@@ -1062,7 +1106,6 @@ void DrawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx)
  * @param physCtx physics context
  * @param ent the entity to destroy
  */
-
 void FreeEntity(PhysicsContext* physCtx, entity* ent)
 {
 	FreeBodyAndGeoms(ent->body);
@@ -1115,8 +1158,6 @@ dJointID CreatePiston(PhysicsContext* physCtx, entity* entA, entity* entB, float
     dJointSetSliderParam(joint, dParamVel, 0.0);
 	dJointSetSliderParam(joint, dParamFMax, strength);
 	
-
-
     return joint;
 }
 
@@ -1136,6 +1177,15 @@ void SetPistonLimits(dJointID joint, float min, float max)
     dJointSetSliderParam(joint, dParamHiStop, max);
 }
 
+/**
+ * @brief frees all the internal resources of a multipiston
+ * 
+ * @param mp the multipiston to free
+ * 
+ * @note this is not done automagically (like dynamic bodies for example)
+ * when you create a multipiston add a call to this function in your
+ * exit path
+ */
 void FreeMultiPiston(MultiPiston* mp)
 {
 	free(mp->joints);
@@ -1143,6 +1193,20 @@ void FreeMultiPiston(MultiPiston* mp)
 	free(mp);
 }
 
+/** 
+ * @brief add a multi section piston
+ * 
+ * @param physCtx the physics context
+ * @param graphics the graphical context
+ * @param pos where the base of the piston should be positioned
+ * @param direction a vector pointing from the base towards the end of the piston
+ * @param count the number of sections for the piston
+ * @param sectionLen How far each section extends fully retracted it will be a little longer than this
+ * as each section doesn't go into its parent 100% 
+ * @param baseWidth the width of the base
+ * @param strength the maximum force the piston can use to extend or retract
+ * 
+ */
 MultiPiston* CreateMultiPiston(PhysicsContext* physCtx, GraphicsContext* graphics, 
                                Vector3 pos, Vector3 direction, int count, 
                                float sectionLen, float baseWidth, float strength) 
@@ -1254,6 +1318,16 @@ dJointID PinEntityToWorld(PhysicsContext* physCtx, entity* ent)
     return pin;
 }
 
+/**
+ * @brief pin two entities together
+ * 
+ * @param physCtx the physics context
+ * @param entA the first entity
+ * @param entB the second entity
+ * 
+ * The constraint will attempt to keep the relative
+ * position and orientation of the two entities as it was when this is called. 
+ */
 dJointID PinEntities(PhysicsContext* physCtx, entity* entA, entity* entB)
 {
 	dJointID pin = dJointCreateFixed (physCtx->world, 0);
@@ -1262,6 +1336,16 @@ dJointID PinEntities(PhysicsContext* physCtx, entity* entA, entity* entB)
     return pin;
 }
 
+/**
+ * @brief sets a bodies orientation
+ * 
+ * @param bdy the body id
+ * @param p the pitch
+ * @param y the yaw
+ * @param r the roll
+ * 
+ * @note you shouldn't be doing this every frame rather use forces (torque)
+ */
 void SetBodyOrientationEuler(dBodyID bdy, float p, float y, float r)
 {
 	dMatrix3 R;
@@ -1269,6 +1353,17 @@ void SetBodyOrientationEuler(dBodyID bdy, float p, float y, float r)
 	dBodySetRotation(bdy, R);
 }
 
+/**
+ * @brief sets a geoms orientation
+ * 
+ * @param g the geom id
+ * @param p the pitch
+ * @param y the yaw
+ * @param r the roll
+ * 
+ * This is most useful when you are creating bodies with composite
+ * geoms or for use with a static geom
+ */
 void SetGeomOrientationEuler(dGeomID g, float p, float y, float r)
 {
 	dMatrix3 R;
@@ -1276,6 +1371,24 @@ void SetGeomOrientationEuler(dGeomID g, float p, float y, float r)
 	dGeomSetRotation(g, R);
 }
 
+/**
+ * @brief create a rotor PID helper
+ * @param p proportional value for the PID
+ * @param i integral value
+ * @param d derivative
+ * @param lo the low stop
+ * @param hi the high stop
+ * 
+ * @note a rotorPID contains a targetAngle, set this for your desired 
+ * rotor angle
+ * 
+ * @note tuning a PID can be a bit of a dark art! 
+ * I recommend looking at https://pidexplained.com/how-to-tune-a-pid-controller/
+ * and the example
+ * <a href="pidJoint_8c_source.html">pidJoint.c</a>
+ */
+ 
+ // file:///home/chris/development/RayLibOdeMech/docs/doxygen/html/pidJoint_8c_source.html
 RotorPID CreateRotorPID(float p, float i, float d, float lo, float hi) 
 {
     RotorPID pid = {0};
@@ -1289,7 +1402,13 @@ RotorPID CreateRotorPID(float p, float i, float d, float lo, float hi)
     return pid;
 }
 
-
+/**
+ * @brief update rotor PID
+ * 
+ * @param pid the RotorPID to update
+ * @param joint the rotor joint to align with the targetAngle of the RotorPID
+ * 
+ */
 void UpdateRotorPID(RotorPID* pid, dJointID joint) 
 {
     if (pid->targetAngle < pid->lo) pid->targetAngle = pid->lo;

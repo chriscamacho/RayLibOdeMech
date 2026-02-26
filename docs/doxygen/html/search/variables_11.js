@@ -7,6 +7,6 @@ var searchData=
   ['texture_4',['texture',['../structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14',1,'geomInfo']]],
   ['tridata_5',['triData',['../structgeomInfo.html#a0cdf37aab555ef5003f8d3be2b553fa8',1,'geomInfo']]],
   ['triggeroncollide_6',['triggerOnCollide',['../structgeomInfo.html#a520884eb761f24547c835107a37d024c',1,'geomInfo']]],
-  ['type_7',['type',['../structLight.html#ad5c0b51a5d09ab56d1119706b58a6941',1,'Light']]],
+  ['type_7',['type',['../structLight.html#ad5c0b51a5d09ab56d1119706b58a6941',1,'Light::type'],['../structLevelElement.html#a46c67baf96e2ae166a66fdc0c4fbc0b0',1,'LevelElement::type']]],
   ['typeloc_8',['typeLoc',['../structLight.html#a69074799494a828b60170d962675fb90',1,'Light']]]
 ];

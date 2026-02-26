@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structLevelElement" kind="struct" language="C++" prot="public">
+    <compoundname>LevelElement</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structLevelElement_1a46c67baf96e2ae166a66fdc0c4fbc0b0" prot="public" static="no" mutable="no">
+        <type><ref refid="marbles_8c_1a24f376ccef7a39450a2fcdbf5ba97ced" kindref="member">MeshType</ref></type>
+        <definition>MeshType LevelElement::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>LevelElement::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/marbles.c" line="50" column="14" bodyfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" bodystart="50" bodyend="-1"/>
+        <referencedby refid="marbles_8c_1abac6925a410fdbe4f0bc5bdf2d8f5ff6" compoundref="marbles_8c" startline="249" endline="374">LoadLevel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structLevelElement_1a67e19f29936b4653f96bd92d7594fdfe" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LevelElement::gridX</definition>
+        <argsstring></argsstring>
+        <name>gridX</name>
+        <qualifiedname>LevelElement::gridX</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/marbles.c" line="51" column="11" bodyfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" bodystart="51" bodyend="-1"/>
+        <referencedby refid="marbles_8c_1abac6925a410fdbe4f0bc5bdf2d8f5ff6" compoundref="marbles_8c" startline="249" endline="374">LoadLevel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structLevelElement_1a3ce9993b2d632fea668910a38133d900" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LevelElement::gridY</definition>
+        <argsstring></argsstring>
+        <name>gridY</name>
+        <qualifiedname>LevelElement::gridY</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/marbles.c" line="52" column="11" bodyfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" bodystart="52" bodyend="-1"/>
+        <referencedby refid="marbles_8c_1abac6925a410fdbe4f0bc5bdf2d8f5ff6" compoundref="marbles_8c" startline="249" endline="374">LoadLevel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structLevelElement_1ac63ed2f7a3634b640da0cdb56dca1b98" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LevelElement::gridZ</definition>
+        <argsstring></argsstring>
+        <name>gridZ</name>
+        <qualifiedname>LevelElement::gridZ</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/marbles.c" line="53" column="11" bodyfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" bodystart="53" bodyend="-1"/>
+        <referencedby refid="marbles_8c_1abac6925a410fdbe4f0bc5bdf2d8f5ff6" compoundref="marbles_8c" startline="249" endline="374">LoadLevel</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structLevelElement_1a6e25bcc9e5e5dba96caa47c85c17d9b0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float LevelElement::angle</definition>
+        <argsstring></argsstring>
+        <name>angle</name>
+        <qualifiedname>LevelElement::angle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/marbles.c" line="54" column="11" bodyfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" bodystart="54" bodyend="-1"/>
+        <referencedby refid="marbles_8c_1abac6925a410fdbe4f0bc5bdf2d8f5ff6" compoundref="marbles_8c" startline="249" endline="374">LoadLevel</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/chris/development/RayLibOdeMech/examples/marbles.c" line="49" column="1" bodyfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" bodystart="49" bodyend="55"/>
+    <listofallmembers>
+      <member refid="structLevelElement_1a6e25bcc9e5e5dba96caa47c85c17d9b0" prot="public" virt="non-virtual"><scope>LevelElement</scope><name>angle</name></member>
+      <member refid="structLevelElement_1a67e19f29936b4653f96bd92d7594fdfe" prot="public" virt="non-virtual"><scope>LevelElement</scope><name>gridX</name></member>
+      <member refid="structLevelElement_1a3ce9993b2d632fea668910a38133d900" prot="public" virt="non-virtual"><scope>LevelElement</scope><name>gridY</name></member>
+      <member refid="structLevelElement_1ac63ed2f7a3634b640da0cdb56dca1b98" prot="public" virt="non-virtual"><scope>LevelElement</scope><name>gridZ</name></member>
+      <member refid="structLevelElement_1a46c67baf96e2ae166a66fdc0c4fbc0b0" prot="public" virt="non-virtual"><scope>LevelElement</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

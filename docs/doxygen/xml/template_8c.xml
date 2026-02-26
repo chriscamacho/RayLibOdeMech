@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="template_8c" kind="file" language="C++">
+    <compoundname>template.c</compoundname>
+    <includes refid="init_8h" local="yes">init.h</includes>
+    <includes refid="exampleCamera_8h" local="yes">exampleCamera.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/home/chris/development/RayLibOdeMech/examples/template.c</label>
+        <link refid="template_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>clist.h</label>
+        <link refid="clist_8h"/>
+      </node>
+      <node id="10">
+        <label>exampleCamera.h</label>
+        <link refid="exampleCamera_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>init.h</label>
+        <link refid="init_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>rlights.h</label>
+        <link refid="rlights_8h"/>
+      </node>
+      <node id="9">
+        <label>surface.h</label>
+        <link refid="surface_8h"/>
+      </node>
+      <node id="11">
+        <label>vehicle.h</label>
+        <link refid="vehicle_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>ode/ode.h</label>
+      </node>
+      <node id="3">
+        <label>raylib.h</label>
+      </node>
+      <node id="6">
+        <label>raymath.h</label>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="template_8c_1a76da26d519b3a4158847daa8783a7a5b" prot="public" static="no">
+        <name>screenWidth</name>
+        <initializer>1920/1.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/template.c" line="27" column="9" bodyfile="/home/chris/development/RayLibOdeMech/examples/template.c" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="template_8c_1a8c472bd07ea66dbb884992785271e1d1" prot="public" static="no">
+        <name>screenHeight</name>
+        <initializer>1080/1.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/template.c" line="28" column="9" bodyfile="/home/chris/development/RayLibOdeMech/examples/template.c" bodystart="28" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="template_8c_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int main</definition>
+        <argsstring>(void)</argsstring>
+        <name>main</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/template.c" line="32" column="5" bodyfile="/home/chris/development/RayLibOdeMech/examples/template.c" bodystart="32" bodyend="69"/>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="144">GraphicsContext::camera</references>
+        <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="732" endline="744">CreateGeomInfo</references>
+        <references refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</references>
+        <references refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</references>
+        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1050" endline="1061">DrawBodies</references>
+        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1086" endline="1095">DrawStatics</references>
+        <references refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</references>
+        <references refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</references>
+        <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="142">GraphicsContext::groundTexture</references>
+        <references refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" compoundref="raylibODE_8h" startline="42">PLANE_SIZE</references>
+        <references refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" compoundref="raylibODE_8h" startline="43">PLANE_THICKNESS</references>
+        <references refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" compoundref="arm_8c" startline="30">screenHeight</references>
+        <references refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" compoundref="arm_8c" startline="29">screenWidth</references>
+        <references refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="81" endline="93">SetupCamera</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="65">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="69">PhysicsContext::statics</references>
+        <references refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</references>
+        <references refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" compoundref="exampleCamera_8c" startline="168" endline="218">UpdateExampleCamera</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2021-2026<sp/>Chris<sp/>Camacho<sp/>(codifies<sp/>-<sp/><sp/>http://bedroomcoders.co.uk/)</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/>of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>all<sp/>copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="init_8h" kindref="compound">init.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="exampleCamera_8h" kindref="compound">exampleCamera.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="template_8c_1a76da26d519b3a4158847daa8783a7a5b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>screenWidth<sp/>1920/1.2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="template_8c_1a8c472bd07ea66dbb884992785271e1d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>screenHeight<sp/>1080/1.2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="template_8c_1a840291bc02cba5474a4cb46a9b9566fe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>init</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kindref="member">CreatePhysics</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics<sp/>=<sp/><ref refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kindref="member">CreateGraphics</ref>(<ref refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" kindref="member">screenWidth</ref>,<sp/><ref refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" kindref="member">screenHeight</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE<sp/>Sandbox&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" kindref="member">SetupCamera</ref>(graphics);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>ground<sp/>plane</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomID<sp/>planeGeom<sp/>=<sp/>dCreateBox(physCtx-&gt;<ref refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" kindref="member">space</ref>,<sp/><ref refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kindref="member">PLANE_SIZE</ref>,<sp/><ref refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kindref="member">PLANE_THICKNESS</ref>,<sp/><ref refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kindref="member">PLANE_SIZE</ref>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetPosition(planeGeom,<sp/>0,<sp/>-<ref refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kindref="member">PLANE_THICKNESS</ref><sp/>/<sp/>2.0,<sp/>0);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>dGeomSetData(planeGeom,<sp/><ref refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kindref="member">CreateGeomInfo</ref>(</highlight><highlight class="keyword">true</highlight><highlight class="normal">,<sp/>&amp;graphics-&gt;<ref refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" kindref="member">groundTexture</ref>,<sp/>25.0f,<sp/>25.0f));</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="clist_8c_1a264922774fdf767e31797fe81f2231be" kindref="member">clistAddNode</ref>(physCtx-&gt;<ref refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" kindref="member">statics</ref>,<sp/>planeGeom);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!WindowShouldClose())</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kindref="member">UpdateExampleCamera</ref>(graphics);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" kindref="member">StepPhysics</ref>(physCtx);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>drawing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginDrawing();</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ClearBackground(BLACK);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>BeginMode3D(graphics-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kindref="member">DrawBodies</ref>(graphics,<sp/>physCtx);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kindref="member">DrawStatics</ref>(graphics,<sp/>physCtx);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EndMode3D();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DrawText(</highlight><highlight class="stringliteral">&quot;This<sp/>does<sp/>nothing<sp/>use<sp/>it<sp/>for<sp/>your<sp/>own<sp/>experiments!&quot;</highlight><highlight class="normal">,<sp/>10,<sp/>40,<sp/>20,<sp/>RAYWHITE);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EndDrawing();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" kindref="member">FreePhysics</ref>(physCtx);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" kindref="member">FreeGraphics</ref>(graphics);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>CloseWindow();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/chris/development/RayLibOdeMech/examples/template.c"/>
+  </compounddef>
+</doxygen>

@@ -17,7 +17,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="125" column="13" bodyfile="raylibODE.h" bodystart="125" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="734" endline="767">PickEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="774" endline="807">PickEntity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" prot="public" static="no" mutable="no">
         <type>dReal</type>
@@ -32,7 +32,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="126" column="11" bodyfile="raylibODE.h" bodystart="126" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="734" endline="767">PickEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="774" endline="807">PickEntity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRayHit_1adcef8883ac52e6d421436e08b1b6201e" prot="public" static="no" mutable="no">
         <type>Vector3</type>
@@ -47,7 +47,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="127" column="13" bodyfile="raylibODE.h" bodystart="127" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="734" endline="767">PickEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="774" endline="807">PickEntity</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>

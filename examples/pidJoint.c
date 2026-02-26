@@ -21,6 +21,8 @@
  *
  */
 
+/** @file pidJoint.c */
+
 #include "init.h"
 #include "exampleCamera.h"
 

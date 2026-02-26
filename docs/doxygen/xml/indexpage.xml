@@ -39,7 +39,7 @@
 <title>Basic Usage</title><sect2 id="index_1initialization">
 <title>Initialization</title><para><programlisting><codeline><highlight class="comment">//<sp/>Initialize<sp/>graphics<sp/>and<sp/>physics</highlight><highlight class="normal"></highlight></codeline>
 <codeline><highlight class="normal"><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kindref="member">CreatePhysics</ref>();</highlight></codeline>
-<codeline><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics<sp/>=<sp/><ref refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kindref="member">CreateGraphics</ref>(screenWidth,<sp/>screenHeight,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE<sp/>Sandbox&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline><highlight class="normal"><sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics<sp/>=<sp/><ref refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kindref="member">CreateGraphics</ref>(<ref refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" kindref="member">screenWidth</ref>,<sp/><ref refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" kindref="member">screenHeight</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Raylib<sp/>and<sp/>OpenDE<sp/>Sandbox&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline><highlight class="normal"><sp/><ref refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" kindref="member">SetupCamera</ref>(graphics);</highlight></codeline>
 </programlisting></para>
 </sect2>

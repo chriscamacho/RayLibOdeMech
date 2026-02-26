@@ -1,0 +1,98 @@
+\doxysection{/home/chris/development/\+Ray\+Lib\+Ode\+Mech/examples/rotor.c File Reference}
+\hypertarget{rotor_8c}{}\label{rotor_8c}\index{/home/chris/development/RayLibOdeMech/examples/rotor.c@{/home/chris/development/RayLibOdeMech/examples/rotor.c}}
+{\ttfamily \#include "{}init.\+h"{}}\newline
+{\ttfamily \#include "{}example\+Camera.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{rotor_8c_a76da26d519b3a4158847daa8783a7a5b}{screen\+Width}}~1920/1.\+2
+\item 
+\#define \mbox{\hyperlink{rotor_8c_a8c472bd07ea66dbb884992785271e1d1}{screen\+Height}}~1080/1.\+2
+\item 
+\#define \mbox{\hyperlink{rotor_8c_acb3b855fb7a21f26fd85ffd573c7d5f4}{WALL\+\_\+\+GROUP}}~0x00000004
+\item 
+\#define \mbox{\hyperlink{rotor_8c_a51110cf21cae1fa8568bb223d233b212}{ROTOR\+\_\+\+GROUP}}~0x00000008
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rotor_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{rotor_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{rotor_8c_a51110cf21cae1fa8568bb223d233b212}\index{rotor.c@{rotor.c}!ROTOR\_GROUP@{ROTOR\_GROUP}}
+\index{ROTOR\_GROUP@{ROTOR\_GROUP}!rotor.c@{rotor.c}}
+\doxysubsubsection{\texorpdfstring{ROTOR\_GROUP}{ROTOR\_GROUP}}
+{\footnotesize\ttfamily \label{rotor_8c_a51110cf21cae1fa8568bb223d233b212} 
+\#define ROTOR\+\_\+\+GROUP~0x00000008}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{rotor_8c_source_l00033}{33}} of file \mbox{\hyperlink{rotor_8c_source}{rotor.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{rotor_8c_source_l00035}{main()}}.
+
+\Hypertarget{rotor_8c_a8c472bd07ea66dbb884992785271e1d1}\index{rotor.c@{rotor.c}!screenHeight@{screenHeight}}
+\index{screenHeight@{screenHeight}!rotor.c@{rotor.c}}
+\doxysubsubsection{\texorpdfstring{screenHeight}{screenHeight}}
+{\footnotesize\ttfamily \label{rotor_8c_a8c472bd07ea66dbb884992785271e1d1} 
+\#define screen\+Height~1080/1.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{rotor_8c_source_l00028}{28}} of file \mbox{\hyperlink{rotor_8c_source}{rotor.\+c}}.
+
+\Hypertarget{rotor_8c_a76da26d519b3a4158847daa8783a7a5b}\index{rotor.c@{rotor.c}!screenWidth@{screenWidth}}
+\index{screenWidth@{screenWidth}!rotor.c@{rotor.c}}
+\doxysubsubsection{\texorpdfstring{screenWidth}{screenWidth}}
+{\footnotesize\ttfamily \label{rotor_8c_a76da26d519b3a4158847daa8783a7a5b} 
+\#define screen\+Width~1920/1.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{rotor_8c_source_l00027}{27}} of file \mbox{\hyperlink{rotor_8c_source}{rotor.\+c}}.
+
+\Hypertarget{rotor_8c_acb3b855fb7a21f26fd85ffd573c7d5f4}\index{rotor.c@{rotor.c}!WALL\_GROUP@{WALL\_GROUP}}
+\index{WALL\_GROUP@{WALL\_GROUP}!rotor.c@{rotor.c}}
+\doxysubsubsection{\texorpdfstring{WALL\_GROUP}{WALL\_GROUP}}
+{\footnotesize\ttfamily \label{rotor_8c_acb3b855fb7a21f26fd85ffd573c7d5f4} 
+\#define WALL\+\_\+\+GROUP~0x00000004}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}.\end{Desc}
+
+
+Definition at line \mbox{\hyperlink{rotor_8c_source_l00032}{32}} of file \mbox{\hyperlink{rotor_8c_source}{rotor.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{rotor_8c_source_l00035}{main()}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{rotor_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{rotor_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{rotor.c@{rotor.c}!main@{main}}
+\index{main@{main}!rotor.c@{rotor.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{rotor_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{rotor_8c_source_l00035}{35}} of file \mbox{\hyperlink{rotor_8c_source}{rotor.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00144}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00398}{Create\+Box()}}, \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00630}{Create\+Random\+Entity()}}, \mbox{\hyperlink{raylibODE_8c_source_l00981}{Create\+Rotor()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l01050}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01086}{Draw\+Statics()}}, \mbox{\hyperlink{raylibODE_8c_source_l01107}{Free\+Entity()}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{raylibODE_8h_source_l00142}{Graphics\+Context\+::ground\+Texture}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{raylibODE_8h_source_l00045}{max\+Psteps}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00039}{NUM\+\_\+\+OBJ}}, \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8h_source_l00042}{PLANE\+\_\+\+SIZE}}, \mbox{\hyperlink{raylibODE_8h_source_l00043}{PLANE\+\_\+\+THICKNESS}}, \mbox{\hyperlink{raylibODE_8c_source_l00219}{rndf()}}, \mbox{\hyperlink{rotor_8c_source_l00033}{ROTOR\+\_\+\+GROUP}}, \mbox{\hyperlink{arm_8c_source_l00030}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00029}{screen\+Width}}, \mbox{\hyperlink{exampleCamera_8c_source_l00081}{Setup\+Camera()}}, \mbox{\hyperlink{raylibODE_8h_source_l00053}{SHAPE\+\_\+\+ALL}}, \mbox{\hyperlink{raylibODE_8h_source_l00052}{SHAPE\+\_\+\+DUMBBELL}}, \mbox{\hyperlink{raylibODE_8h_source_l00065}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00069}{Physics\+Context\+::statics}}, \mbox{\hyperlink{raylibODE_8c_source_l00241}{Step\+Physics()}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00045}{SURFACE\+\_\+\+EARTH}}, \mbox{\hyperlink{surface_8h_source_l00043}{SURFACE\+\_\+\+ICE}}, \mbox{\hyperlink{surface_8h_source_l00044}{SURFACE\+\_\+\+RUBBER}}, \mbox{\hyperlink{exampleCamera_8c_source_l00168}{Update\+Example\+Camera()}}, \mbox{\hyperlink{rotor_8c_source_l00032}{WALL\+\_\+\+GROUP}}, and \mbox{\hyperlink{raylibODE_8h_source_l00035}{WORLD\+\_\+\+GROUP}}.
+

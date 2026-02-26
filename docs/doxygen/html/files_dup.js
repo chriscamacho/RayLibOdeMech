@@ -1,5 +1,6 @@
 var files_dup =
 [
+    [ "examples", "dir_d28a4824dc47e487b107a5db32ef43c4.html", "dir_d28a4824dc47e487b107a5db32ef43c4" ],
     [ "clist.h", "clist_8h.html", "clist_8h" ],
     [ "collision.h", "collision_8h.html", "collision_8h" ],
     [ "exampleCamera.h", "exampleCamera_8h.html", "exampleCamera_8h" ],

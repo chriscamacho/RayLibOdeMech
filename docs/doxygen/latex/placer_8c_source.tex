@@ -1,0 +1,139 @@
+\doxysection{placer.\+c}
+\hypertarget{placer_8c_source}{}\label{placer_8c_source}\index{/home/chris/development/RayLibOdeMech/examples/placer.c@{/home/chris/development/RayLibOdeMech/examples/placer.c}}
+\mbox{\hyperlink{placer_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00027}\mbox{\hyperlink{placer_8c_a76da26d519b3a4158847daa8783a7a5b}{00027}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00028}\mbox{\hyperlink{placer_8c_a8c472bd07ea66dbb884992785271e1d1}{00028}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00032}\mbox{\hyperlink{placer_8c_a840291bc02cba5474a4cb46a9b9566fe}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00037}00037\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Create\ ground\ plane}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00040}00040\ \ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00041}00041\ \ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00042}00042\ \ \ \ \ dGeomSetData(planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f));}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ Initial\ random\ objects}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{raylibODE_8h_a5c3a0114b1e58dd42011cae154c7827e}{NUM\_OBJ}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}});}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00051}00051\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ placing\ new\ objects}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ Vector3\ forward\ =\ Vector3Normalize(Vector3Subtract(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.target,\ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position));}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ Vector3\ spawnPos\ =\ Vector3Add(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position,\ Vector3Scale(forward,\ 3.0f));}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ Vector3\ defaultRot\ =\ \{\ 0,\ \mbox{\hyperlink{exampleCamera_8c_a9904774abec2bae71c6d75094d47cbe3}{GetCameraYaw}}(),\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_ONE))\ \ \ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ (Vector3)\{0.5,\ 0.5,\ 0.5\},\ spawnPos,\ defaultRot,\ 10.0f);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_TWO))\ \ \ \mbox{\hyperlink{raylibODE_8c_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(physCtx,\ graphics,\ 0.4f,\ spawnPos,\ defaultRot,\ 10.0f);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_THREE))\ \mbox{\hyperlink{raylibODE_8c_a6985c096003040ae46ed46b117f01d69}{CreateCylinder}}(physCtx,\ graphics,\ 0.3f,\ 1.0f,\ spawnPos,\ defaultRot,\ 10.0f);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_FOUR))\ \ \mbox{\hyperlink{raylibODE_8c_adec02d5fa7b8838d8f98956b68e2246c}{CreateCapsule}}(physCtx,\ graphics,\ 0.3f,\ 1.0f,\ spawnPos,\ defaultRot,\ 10.0f);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_FIVE))\ \ \mbox{\hyperlink{raylibODE_8c_a04c854eee30cf8430f2d978c4259459b}{CreateDumbbell}}(physCtx,\ graphics,\ 0.1f,\ 1.0f,\ 0.3f,\ spawnPos,\ defaultRot,\ 10.0f);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ picking\ /\ pushing}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ Vector3\ hitPoint\ =\ \{\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ picked\ =\ \mbox{\hyperlink{raylibODE_8c_a6038bcb143e6ca12696aa65bf164f488}{PickEntity}}(physCtx,\ graphics,\ \&hitPoint);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ hasHit\ =\ (picked\ !=\ NULL);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsMouseButtonDown(MOUSE\_LEFT\_BUTTON)\ \&\&\ hasHit\ \&\&\ picked-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}}\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(picked-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ dir\ =\ Vector3Normalize(Vector3Subtract(hitPoint,\ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position));}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ force\ =\ Vector3Scale(dir,\ 500.0f);\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyAddForceAtPos(picked-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ force.x,\ force.y,\ force.z,\ hitPoint.x,\ hitPoint.y,\ hitPoint.z);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ \ \textcolor{comment}{//\ cache\ space\ key\ status\ (don't\ look\ up\ for\ each\ object\ iterration\ \ }}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ check\ world\ bounds\ and\ add\ force\ if\ needed}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ next\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};\ \textcolor{comment}{//\ get\ the\ next\ node\ now\ in\ case\ we\ delete\ this\ one}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spcdn)\ \{}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ force\ if\ the\ space\ key\ is\ held}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ v\ =\ dBodyGetLinearVel(bdy);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[1]\ <\ 10\ \&\&\ pos[1]<10)\ \{\ \textcolor{comment}{//\ cap\ upwards\ velocity\ and\ don't\ let\ it\ get\ too\ high}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable\ (bdy);\ \textcolor{comment}{//\ case\ its\ gone\ to\ sleep}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dMass\ mass;}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyGetMass\ (bdy,\ \&mass);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ give\ some\ object\ more\ force\ than\ others}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ f\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(8,20)\ *\ mass.mass;}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyAddForce(bdy,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f),\ f*10,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f));}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos[1]\ <\ -\/10)\ \{}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ drawing}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Target\ indicator\ (Red\ dot)}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hasHit)\ \{\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawSphere(hitPoint,\ 0.05f,\ RED);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Spawn\ point\ preview\ (Grey\ dot)}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawSphereEx(spawnPos,\ 0.05f,\ 8,\ 8,\ DARKGRAY);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}1-\/5:\ Spawn\ Objects\ |\ LMB:\ Push\ |\ Space:\ Apply\ Force"{}},\ 10,\ 40,\ 20,\ RAYWHITE);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00129}00129\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00130}00130\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00131}00131\ \ \ \ \ CloseWindow();}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00132}00132\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{placer_8c_source_l00133}00133\ \}}
+
+\end{DoxyCode}

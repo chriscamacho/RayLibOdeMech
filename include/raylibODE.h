@@ -192,8 +192,6 @@ void DrawGeom(dGeomID geom, struct GraphicsContext* ctx);
 // draw all the bodies in the object list
 void DrawBodies(struct GraphicsContext* ctx, PhysicsContext* pctx);
 
-// draw geoms attached to a body
-void DrawBodyGeoms(dBodyID bdy, struct GraphicsContext* ctx);
 
 // draw static geoms
 void DrawStatics(struct GraphicsContext* ctx, PhysicsContext* pctx);

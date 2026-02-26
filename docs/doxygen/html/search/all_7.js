@@ -6,7 +6,15 @@ var searchData=
   ['getcamerapitch_3',['GetCameraPitch',['../exampleCamera_8c.html#afbfa8af7ad686732f5ddcea617d03d1b',1,'GetCameraPitch():&#160;exampleCamera.c'],['../exampleCamera_8h.html#afbfa8af7ad686732f5ddcea617d03d1b',1,'GetCameraPitch():&#160;exampleCamera.c']]],
   ['getcamerayaw_4',['GetCameraYaw',['../exampleCamera_8c.html#a9904774abec2bae71c6d75094d47cbe3',1,'GetCameraYaw():&#160;exampleCamera.c'],['../exampleCamera_8h.html#a9904774abec2bae71c6d75094d47cbe3',1,'GetCameraYaw():&#160;exampleCamera.c']]],
   ['getragdollspawnposition_5',['GetRagdollSpawnPosition',['../ragdoll_8c.html#ae5044c65f2f6758624a2182347b6d945',1,'GetRagdollSpawnPosition(void):&#160;ragdoll.c'],['../ragdoll_8h.html#ae5044c65f2f6758624a2182347b6d945',1,'GetRagdollSpawnPosition(void):&#160;ragdoll.c']]],
-  ['graphicscontext_6',['GraphicsContext',['../structGraphicsContext.html',1,'GraphicsContext'],['../raylibODE_8h.html#a92862474db45e097a7381460ac67f859',1,'GraphicsContext:&#160;raylibODE.h']]],
-  ['groundtexture_7',['groundTexture',['../structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6',1,'GraphicsContext']]],
-  ['gsurfaces_8',['gSurfaces',['../surface_8c.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c'],['../surface_8h.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c']]]
+  ['getspawnonsphereborder_6',['GetSpawnOnSphereBorder',['../gravity_8c.html#a060fbd74071544413b43fd6aca32f2c7',1,'gravity.c']]],
+  ['getsteerangle_7',['GetSteerAngle',['../derby_8c.html#ad2b31ed253e397341af2a396db3704df',1,'derby.c']]],
+  ['grabber_8',['grabber',['../structgrabberData.html#abcbe92caa2c5e2601121826c0cb91c56',1,'grabberData']]],
+  ['grabberdata_9',['grabberData',['../structgrabberData.html',1,'grabberData'],['../arm_8c.html#af4dda86bdfce3f85af8bb4416ece329d',1,'grabberData:&#160;arm.c']]],
+  ['graphicscontext_10',['GraphicsContext',['../structGraphicsContext.html',1,'GraphicsContext'],['../raylibODE_8h.html#a92862474db45e097a7381460ac67f859',1,'GraphicsContext:&#160;raylibODE.h']]],
+  ['gravity_2ec_11',['gravity.c',['../gravity_8c.html',1,'']]],
+  ['gridx_12',['gridX',['../structLevelElement.html#a67e19f29936b4653f96bd92d7594fdfe',1,'LevelElement']]],
+  ['gridy_13',['gridY',['../structLevelElement.html#a3ce9993b2d632fea668910a38133d900',1,'LevelElement']]],
+  ['gridz_14',['gridZ',['../structLevelElement.html#ac63ed2f7a3634b640da0cdb56dca1b98',1,'LevelElement']]],
+  ['groundtexture_15',['groundTexture',['../structGraphicsContext.html#ad3030611b0418e63e186207a3ce3b9b6',1,'GraphicsContext']]],
+  ['gsurfaces_16',['gSurfaces',['../surface_8c.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c'],['../surface_8h.html#aa26755a73be46b483bf7098bcbf679dd',1,'gSurfaces:&#160;surface.c']]]
 ];

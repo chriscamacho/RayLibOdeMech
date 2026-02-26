@@ -1,0 +1,76 @@
+\doxysection{/home/chris/development/\+Ray\+Lib\+Ode\+Mech/examples/fountain.c File Reference}
+\hypertarget{fountain_8c}{}\label{fountain_8c}\index{/home/chris/development/RayLibOdeMech/examples/fountain.c@{/home/chris/development/RayLibOdeMech/examples/fountain.c}}
+{\ttfamily \#include "{}init.\+h"{}}\newline
+{\ttfamily \#include "{}example\+Camera.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fountain_8c_a76da26d519b3a4158847daa8783a7a5b}{screen\+Width}}~1920/1.\+2
+\item 
+\#define \mbox{\hyperlink{fountain_8c_a8c472bd07ea66dbb884992785271e1d1}{screen\+Height}}~1080/1.\+2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fountain_8c_a0c279e80849ff972e19e0aa15b17925b}{trigger\+Callback}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}pctx, d\+Geom\+ID trigger, d\+Geom\+ID intruder)
+\item 
+int \mbox{\hyperlink{fountain_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{fountain_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{fountain_8c_a8c472bd07ea66dbb884992785271e1d1}\index{fountain.c@{fountain.c}!screenHeight@{screenHeight}}
+\index{screenHeight@{screenHeight}!fountain.c@{fountain.c}}
+\doxysubsubsection{\texorpdfstring{screenHeight}{screenHeight}}
+{\footnotesize\ttfamily \label{fountain_8c_a8c472bd07ea66dbb884992785271e1d1} 
+\#define screen\+Height~1080/1.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{fountain_8c_source_l00028}{28}} of file \mbox{\hyperlink{fountain_8c_source}{fountain.\+c}}.
+
+\Hypertarget{fountain_8c_a76da26d519b3a4158847daa8783a7a5b}\index{fountain.c@{fountain.c}!screenWidth@{screenWidth}}
+\index{screenWidth@{screenWidth}!fountain.c@{fountain.c}}
+\doxysubsubsection{\texorpdfstring{screenWidth}{screenWidth}}
+{\footnotesize\ttfamily \label{fountain_8c_a76da26d519b3a4158847daa8783a7a5b} 
+\#define screen\+Width~1920/1.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{fountain_8c_source_l00027}{27}} of file \mbox{\hyperlink{fountain_8c_source}{fountain.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{fountain_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{fountain_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{fountain.c@{fountain.c}!main@{main}}
+\index{main@{main}!fountain.c@{fountain.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{fountain_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fountain_8c_source_l00045}{45}} of file \mbox{\hyperlink{fountain_8c_source}{fountain.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00144}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00630}{Create\+Random\+Entity()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l01050}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01086}{Draw\+Statics()}}, \mbox{\hyperlink{raylibODE_8c_source_l01107}{Free\+Entity()}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{raylibODE_8h_source_l00142}{Graphics\+Context\+::ground\+Texture}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{raylibODE_8h_source_l00045}{max\+Psteps}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00039}{NUM\+\_\+\+OBJ}}, \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8h_source_l00042}{PLANE\+\_\+\+SIZE}}, \mbox{\hyperlink{raylibODE_8h_source_l00043}{PLANE\+\_\+\+THICKNESS}}, \mbox{\hyperlink{raylibODE_8c_source_l00219}{rndf()}}, \mbox{\hyperlink{arm_8c_source_l00030}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00029}{screen\+Width}}, \mbox{\hyperlink{raylibODE_8c_source_l01014}{Set\+Entity\+Hew()}}, \mbox{\hyperlink{exampleCamera_8c_source_l00081}{Setup\+Camera()}}, \mbox{\hyperlink{raylibODE_8h_source_l00053}{SHAPE\+\_\+\+ALL}}, \mbox{\hyperlink{raylibODE_8h_source_l00065}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00069}{Physics\+Context\+::statics}}, \mbox{\hyperlink{raylibODE_8c_source_l00241}{Step\+Physics()}}, \mbox{\hyperlink{arm_8c_source_l00044}{trigger\+Callback()}}, \mbox{\hyperlink{raylibODE_8h_source_l00109}{geom\+Info\+::trigger\+On\+Collide}}, and \mbox{\hyperlink{exampleCamera_8c_source_l00168}{Update\+Example\+Camera()}}.
+
+\Hypertarget{fountain_8c_a0c279e80849ff972e19e0aa15b17925b}\index{fountain.c@{fountain.c}!triggerCallback@{triggerCallback}}
+\index{triggerCallback@{triggerCallback}!fountain.c@{fountain.c}}
+\doxysubsubsection{\texorpdfstring{triggerCallback()}{triggerCallback()}}
+{\footnotesize\ttfamily \label{fountain_8c_a0c279e80849ff972e19e0aa15b17925b} 
+void trigger\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{pctx}{, }\item[{d\+Geom\+ID}]{trigger}{, }\item[{d\+Geom\+ID}]{intruder}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{fountain_8c_source_l00034}{34}} of file \mbox{\hyperlink{fountain_8c_source}{fountain.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::data}}, and \mbox{\hyperlink{raylibODE_8h_source_l00099}{geom\+Info\+::hew}}.
+

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structgrabberData" kind="struct" language="C++" prot="public">
+    <compoundname>grabberData</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structgrabberData_1ad5f2a9c6087f11d2347347c4ea49b2ee" prot="public" static="no" mutable="no">
+        <type>dGeomID</type>
+        <definition>dGeomID grabberData::planeGeom</definition>
+        <argsstring></argsstring>
+        <name>planeGeom</name>
+        <qualifiedname>grabberData::planeGeom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/arm.c" line="36" column="9" bodyfile="/home/chris/development/RayLibOdeMech/examples/arm.c" bodystart="36" bodyend="-1"/>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
+        <referencedby refid="arm_8c_1ab295c09645dc1cb3f5e2495e25e2c2b9" compoundref="arm_8c" startline="44" endline="63">triggerCallback</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgrabberData_1ae203f18a3030f78c0da2d0d0aa5dce2d" prot="public" static="no" mutable="no">
+        <type>dJointID</type>
+        <definition>dJointID grabberData::attachment</definition>
+        <argsstring></argsstring>
+        <name>attachment</name>
+        <qualifiedname>grabberData::attachment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/arm.c" line="37" column="10" bodyfile="/home/chris/development/RayLibOdeMech/examples/arm.c" bodystart="37" bodyend="-1"/>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
+        <referencedby refid="arm_8c_1ab295c09645dc1cb3f5e2495e25e2c2b9" compoundref="arm_8c" startline="44" endline="63">triggerCallback</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structgrabberData_1abcbe92caa2c5e2601121826c0cb91c56" prot="public" static="no" mutable="no">
+        <type><ref refid="structentity" kindref="compound">entity</ref> *</type>
+        <definition>entity* grabberData::grabber</definition>
+        <argsstring></argsstring>
+        <name>grabber</name>
+        <qualifiedname>grabberData::grabber</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/chris/development/RayLibOdeMech/examples/arm.c" line="38" column="8" bodyfile="/home/chris/development/RayLibOdeMech/examples/arm.c" bodystart="38" bodyend="-1"/>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
+        <referencedby refid="arm_8c_1ab295c09645dc1cb3f5e2495e25e2c2b9" compoundref="arm_8c" startline="44" endline="63">triggerCallback</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>__cnode</label>
+        <link refid="struct____cnode"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>prev</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entity</label>
+        <link refid="structentity"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>node</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>grabberData</label>
+        <link refid="structgrabberData"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>grabber</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/chris/development/RayLibOdeMech/examples/arm.c" line="35" column="1" bodyfile="/home/chris/development/RayLibOdeMech/examples/arm.c" bodystart="35" bodyend="39"/>
+    <listofallmembers>
+      <member refid="structgrabberData_1ae203f18a3030f78c0da2d0d0aa5dce2d" prot="public" virt="non-virtual"><scope>grabberData</scope><name>attachment</name></member>
+      <member refid="structgrabberData_1abcbe92caa2c5e2601121826c0cb91c56" prot="public" virt="non-virtual"><scope>grabberData</scope><name>grabber</name></member>
+      <member refid="structgrabberData_1ad5f2a9c6087f11d2347347c4ea49b2ee" prot="public" virt="non-virtual"><scope>grabberData</scope><name>planeGeom</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

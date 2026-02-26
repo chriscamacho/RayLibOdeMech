@@ -1,0 +1,284 @@
+\doxysection{derby.\+c}
+\hypertarget{derby_8c_source}{}\label{derby_8c_source}\index{/home/chris/development/RayLibOdeMech/examples/derby.c@{/home/chris/development/RayLibOdeMech/examples/derby.c}}
+\mbox{\hyperlink{derby_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00028}00028\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00031}\mbox{\hyperlink{derby_8c_a76da26d519b3a4158847daa8783a7a5b}{00031}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00032}\mbox{\hyperlink{derby_8c_a8c472bd07ea66dbb884992785271e1d1}{00032}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00034}\mbox{\hyperlink{derby_8c_ad2b31ed253e397341af2a396db3704df}{00034}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{derby_8c_ad2b31ed253e397341af2a396db3704df}{GetSteerAngle}}(Vector2\ carPos,\ Vector2\ carForward,\ Vector2\ targetPos)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00036}00036\ \ \ \ \ Vector2\ toTarget\ =\ Vector2Subtract(targetPos,\ carPos);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00037}00037\ \ \ \ \ Vector2\ forwardNorm\ =\ Vector2Normalize(carForward);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00038}00038\ \ \ \ \ Vector2\ targetNorm\ =\ Vector2Normalize(toTarget);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{float}\ dot\ =\ Vector2DotProduct(forwardNorm,\ targetNorm);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00040}00040\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Clamp\ the\ dot\ product\ to\ avoid\ NaN\ errors\ with\ acos()\ due\ to\ precision}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00042}00042\ \ \ \ \ dot\ =\ Clamp(dot,\ -\/1.0f,\ 1.0f);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00043}00043\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{float}\ angle\ =\ acosf(dot);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00045}00045\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ Determine\ the\ sign\ (Left\ vs\ Right)\ using\ a\ 2D\ Cross\ Product\ (Perp-\/Dot)}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ Formula:\ (Ax\ *\ By)\ -\/\ (Ay\ *\ Bx)}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{float}\ cross\ =\ (forwardNorm.x\ *\ targetNorm.y)\ -\/\ (forwardNorm.y\ *\ targetNorm.x);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00049}00049\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (cross\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ angle\ =\ -\/angle;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00052}00052\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00053}00053\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{return}\ angle;\ \textcolor{comment}{//\ Angle\ is\ in\ radians}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00058}\mbox{\hyperlink{derby_8c_a840291bc02cba5474a4cb46a9b9566fe}{00058}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ Physics\ context,\ holds\ all\ physics\ state}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00066}00066\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00068}00068\ \ \ \ \ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position\ =\ (Vector3)\{80,40,0\};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00069}00069\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//\ the\ graphical\ mesh\ for\ the\ ground\ must\ be\ unloaded\ by\ the\ user}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00074}00074\ \ \ \ \ Model\ ground\ =\ LoadModel(\textcolor{stringliteral}{"{}data/ground.obj"{}});}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00075}00075\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00077}00077\ \ \ \ \ \textcolor{comment}{//\ framework\ looks\ after\ the\ physics\ stuff\ and\ rendering}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae8b06665a78b486c57e6795da4b3e265}{CreateStaticTrimesh}}(physCtx,\ graphics,\ ground,\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 2.5f);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ Create\ ground\ plane}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00081}00081\ \ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ 1000,\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ 1000);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00082}00082\ \ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ groundInfo\ =\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 50.0f,\ 50.0f);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00084}00084\ \ \ \ \ dGeomSetData(planeGeom,\ groundInfo);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00086}00086\ \ \ \ \ groundInfo-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96}{SURFACE\_EARTH}}];}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00088}00088\ \ \ \ \ Model\ carBody\ =\ LoadModel(\textcolor{stringliteral}{"{}data/car-\/body.obj"{}});}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ make\ a\ figure\ of\ 8\ path}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00091}00091\ \textcolor{preprocessor}{\ \ \ \ \#define\ MAXPATH\ 32}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00092}00092\ \ \ \ \ Vector3\ path[\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}}];}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{float}\ a\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ path[i]\ =\ (Vector3)\{sin(a*2)*50,\ 2,\ cos(a)*80\};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ a+=(M\_PI*2)/\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00098}00098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00099}00099\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00100}00100\ \textcolor{preprocessor}{\ \ \ \ \#define\ MAXCAR\ 12}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00101}00101\ \ \ \ \ a=0;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00102}00102\ \ \ \ \ \mbox{\hyperlink{structvehicle}{vehicle}}*\ cars[\mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}}];}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00103}00103\ \ \ \ \ \textcolor{keywordtype}{int}\ carTarget[\mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}}];}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//\ position\ cars\ around\ path}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{int}\ step\ =\ 2;\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ \mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}};\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ j\ *\ step;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i>\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}})\ i-\/=\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ dVector3\ pos\ =\ \{\ path[i].x,\ path[i].y,\ path[i].z\ \};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Wrap\ around\ to\ the\ start\ of\ the\ path\ for\ the\ last\ point}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nextIdx\ =\ (i\ +\ 1)\ \%\ \mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ carTarget[j]\ =\ nextIdx;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ cars[j]\ =\ \mbox{\hyperlink{vehicle_8c_af0740a75defe24708df5577107ed9ba7}{CreateVehicle}}(physCtx,\ graphics,\ (Vector3)\{pos[0],pos[1]+1,pos[2]\},\textcolor{comment}{//\ pos,\ }}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ (Vector3)\{6,\ 1.2,\ 3\},\textcolor{comment}{//\ car\ body\ size}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ .85,\ .6);\ \textcolor{comment}{//\ wheel\ radius/width}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ find\ an\ easier\ way\ as\ reliable\ as\ this\ and\ make\ a\ function\ for\ it...}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ Vector3\ forward\ =\ Vector3Normalize(Vector3Subtract(path[carTarget[j]],\ path[i]));}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ Vector3\ worldUp\ =\ \{\ 0.0f,\ 1.0f,\ 0.0f\ \};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ Vector3\ right\ =\ Vector3Normalize(Vector3CrossProduct(worldUp,\ forward));}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ Vector3\ actualUp\ =\ Vector3CrossProduct(forward,\ right);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ for\ historical\ reasons,\ i\ think\ the\ cars\ travel\ along\ their\ X\ axis}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ and\ I\ cannot\ bare\ to\ bring\ myself\ to\ ripping\ apart\ all\ the\ vehicle}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ code\ (it\ works!)}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ Matrix\ worldRot\ =\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ note\ to\ self\ stop\ hacking\ matrices\ till\ they\ do\ what\ they\ want}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ this\ is\ not\ how\ a\ matrix\ is\ normally\ set\ up\ !\ }}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ forward.x,\ forward.y,\ forward.z,\ 0.0f,}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ actualUp.x,\ actualUp.y,\ actualUp.z,\ 0.0f,}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ -\/right.x,\ \ \ -\/right.y,\ \ \ -\/right.z,\ \ \ 0.0f,}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ 0.0f,\ \ \ \ \ \ 0.0f,\ \ \ \ \ \ 0.0f,\ \ \ \ \ \ 1.0f}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ Quaternion\ q\ =\ QuaternionFromMatrix(worldRot);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ dQuaternion\ odeQ\ =\ \{\ q.w,\ q.x,\ q.y,\ q.z\ \};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ dBodySetQuaternion(cars[j]-\/>bodies[0],\ odeQ);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ end\ of\ TODO}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vehicle_8c_a0419ed48c974e9d5efab4263b4cee46f}{UnflipVehicle}}(cars[j]);\ \textcolor{comment}{//\ hack\ to\ get\ everything\ else\ in\ the\ car\ to\ align!}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(cars[j]-\/>geoms[0]);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}}\ =\ carBody;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}{SURFACE\_RUBBER}}];\ \textcolor{comment}{//\ make\ the\ body\ bouncy!}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ use\ the\ front\ marker\ as\ the\ top\ part\ of\ the\ body}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ dGeomBoxSetLengths\ (cars[j]-\/>geoms[6],\ 3,\ 2,\ 3);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ dGeomSetOffsetPosition(cars[j]-\/>geoms[6],-\/1,1,0);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ gi\ =\ dGeomGetData(cars[j]-\/>geoms[6]);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}}\ =\ 0;\ \textcolor{comment}{//\ make\ it\ invisible\ (still\ collides)}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1}{SURFACE\_RUBBER}}];}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00161}00161\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00163}00163\ \ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00164}00164\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00166}00166\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00167}00167\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00168}00168\ \ \ \ \ \textcolor{comment}{//\ Main\ game\ loop}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00170}00170\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00171}00171\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detect\ window\ close\ button\ or\ ESC\ key}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00172}00172\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}++;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{comment}{//updateVehicleCamera(\&graphics,\ car);}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(cars[i]-\/>bodies[0]);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ Vector2\ carPos\ =\ (Vector2)\{pos[0],pos[2]\};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ Vector2\ target\ =\ (Vector2)\{path[carTarget[i]].x,path[carTarget[i]].z\};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ R\ =\ dBodyGetRotation(cars[i]-\/>bodies[0]);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ Matrix\ rR;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aeaef389f404abef038f38518fc1a0421}{OdeToRayMat}}(R,\ \&rR);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ f3\ =\ (Vector3)\{1,0,0\};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ f3\ =\ Vector3Transform(f3,rR);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ Vector2\ forward\ =\ (Vector2)\{f3.x,f3.z\};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ s\ =\ \mbox{\hyperlink{derby_8c_ad2b31ed253e397341af2a396db3704df}{GetSteerAngle}}(carPos,\ forward,\ target);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ each\ cars\ speed\ is\ modified\ by\ how\ much\ they\ steer.}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{UpdateVehicle}}(cars[i],\ 16+(15-\/abs((\textcolor{keywordtype}{int})(s*10))),\ s);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Vector2Distance(carPos,\ target)\ <\ 8.0)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ carTarget[i]++;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (carTarget[i]>\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}}-\/1)\ carTarget[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}\ \%\ 350\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ detect\ over\ turned}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f3\ =\ (Vector3)\{0,1,0\};}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ f3\ =\ Vector3Transform(f3,rR);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f3.y<0)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vehicle_8c_a0419ed48c974e9d5efab4263b4cee46f}{UnflipVehicle}}\ (cars[i]);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00215}00215\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ the\ physics}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00226}00226\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{derby_8c_a2d1edde91ea515b363277f4bbdc3244d}{MAXPATH}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawCylinder(path[i],\ .2,.2,8,1,YELLOW);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00241}00241\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ for\ (int\ i=0;\ i<MAXCAR;\ i++)\ \{}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00242}00242\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ const\ dReal*\ pos\ =\ dBodyGetPosition(cars[i]-\/>bodies[0]);}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00243}00243\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ from\ =\ (Vector3)\{pos[0],pos[1],pos[2]\};}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00244}00244\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawLine3D(from,\ path[carTarget[i]],\ WHITE);\ }}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00245}00245\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00246}00246\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00250}00250\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSteps\ >\ \mbox{\hyperlink{raylibODE_8h_afeff8fa28bbbf9c2ddbc85a38993d92e}{maxPsteps}})\ DrawText(\textcolor{stringliteral}{"{}WARNING\ CPU\ overloaded\ lagging\ real\ time"{}},\ 10,\ 0,\ 20,\ RED);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}\%2i\ FPS"{}},\ GetFPS()),\ 10,\ 20,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ steps\ per\ frame\ \%i"{}},pSteps),\ 10,\ 120,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ time\ per\ frame\ \%f"{}},physTime),\ 10,\ 140,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00256}00256\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}total\ time\ per\ frame\ \%f"{}},GetFrameTime()),\ 10,\ 160,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00260}00260\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00262}00262\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00263}00263\ \ \ \ \ \textcolor{comment}{//\ De-\/Initialization}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00264}00264\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00265}00265\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00266}00266\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{derby_8c_a738887643e2a12f694d8a37b1ff95839}{MAXCAR}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(physCtx,\ cars[i]);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00268}00268\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00269}00269\ \ \ \ \ UnloadModel(ground);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00270}00270\ \ \ \ \ UnloadModel(carBody);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00272}00272\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00273}00273\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00275}00275\ \ \ \ \ CloseWindow();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Close\ window\ and\ OpenGL\ context}}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00276}00276\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00277}00277\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{derby_8c_source_l00278}00278\ \}}
+
+\end{DoxyCode}

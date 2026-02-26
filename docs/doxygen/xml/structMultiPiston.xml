@@ -17,9 +17,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="152" column="12" bodyfile="raylibODE.h" bodystart="152" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1146" endline="1183">CreateMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1139" endline="1144">FreeMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1194" endline="1200">SetMultiPistonVelocity</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1208" endline="1245">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1187" endline="1192">FreeMultiPiston</referencedby>
+        <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="34" endline="199">main</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1256" endline="1262">SetMultiPistonVelocity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" prot="public" static="no" mutable="no">
         <type>dJointID *</type>
@@ -34,9 +35,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="153" column="14" bodyfile="raylibODE.h" bodystart="153" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1146" endline="1183">CreateMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1139" endline="1144">FreeMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1194" endline="1200">SetMultiPistonVelocity</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1208" endline="1245">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1187" endline="1192">FreeMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1256" endline="1262">SetMultiPistonVelocity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -51,8 +52,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="154" column="9" bodyfile="raylibODE.h" bodystart="154" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1146" endline="1183">CreateMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1194" endline="1200">SetMultiPistonVelocity</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1208" endline="1245">CreateMultiPiston</referencedby>
+        <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="34" endline="199">main</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1256" endline="1262">SetMultiPistonVelocity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structMultiPiston_1ad3e235df247bc80c0c47bc0b45a195ce" prot="public" static="no" mutable="no">
         <type>Vector3</type>

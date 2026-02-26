@@ -1,0 +1,171 @@
+\doxysection{surfaces.\+c}
+\hypertarget{surfaces_8c_source}{}\label{surfaces_8c_source}\index{/home/chris/development/RayLibOdeMech/examples/surfaces.c@{/home/chris/development/RayLibOdeMech/examples/surfaces.c}}
+\mbox{\hyperlink{surfaces_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00027}\mbox{\hyperlink{surfaces_8c_a76da26d519b3a4158847daa8783a7a5b}{00027}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00028}\mbox{\hyperlink{surfaces_8c_a8c472bd07ea66dbb884992785271e1d1}{00028}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00032}\mbox{\hyperlink{surfaces_8c_a840291bc02cba5474a4cb46a9b9566fe}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{surfaces_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//\ Physics\ context,\ holds\ all\ physics\ state}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00040}00040\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00042}00042\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00043}00043\ \ \ \ \ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ =\ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ \ -\/\ 8.f;}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ Create\ ground\ "{}plane"{}}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00049}00049\ \ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00050}00050\ \ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00051}00051\ \ \ \ \ dMatrix3\ R\_plane;}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00052}00052\ \ \ \ \ dRFromAxisAndAngle(R\_plane,\ 1,\ 0,\ 0,\ M\_PI\ *\ 0.125);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00053}00053\ \ \ \ \ dGeomSetRotation(planeGeom,\ R\_plane);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ groundInfo\ =\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00055}00055\ \ \ \ \ groundInfo-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169faad21792bfdbe53c2ba6961d583196d96}{SURFACE\_EARTH}}];}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00056}00056\ \ \ \ \ dGeomSetData(planeGeom,\ groundInfo);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00057}00057\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00058}00058\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00060}00060\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00061}00061\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{SurfaceType}}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa18459c8ebe5f9f9ab0b6cfc5a8267f4c}{SURFACE\_COUNT}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ Vector3\ pos\ =\ (Vector3)\{i*2,\ 2,\ 0\};}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ testBox\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ (Vector3)\{1,1,1\},\ pos,\ Vector3Zero(),\ 20.f);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa8656255a05c3f38ce0b13825642acdf}{SetEntitySurfaces}}(testBox,\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[i]);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00067}00067\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00071}00071\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00072}00072\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//\ Main\ game\ loop}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detect\ window\ close\ button\ or\ ESC\ key}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00077}00077\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ \ \textcolor{comment}{//\ cache\ space\ key\ status\ (don't\ look\ up\ for\ each\ object\ iterration\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a227dded5dce29a7e3b71e9589e2b4c22}{SetEntityHew}}(ent,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ next\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};\ \textcolor{comment}{//\ get\ the\ next\ node\ now\ in\ case\ we\ delete\ this\ one}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spcdn)\ \{}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ force\ if\ the\ space\ key\ is\ held}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ v\ =\ dBodyGetLinearVel(bdy);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[1]\ <\ 10\ \&\&\ pos[1]<10)\ \{\ \textcolor{comment}{//\ cap\ upwards\ velocity\ and\ don't\ let\ it\ get\ too\ high}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable\ (bdy);\ \textcolor{comment}{//\ case\ its\ gone\ to\ sleep}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dMass\ mass;}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyGetMass\ (bdy,\ \&mass);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ give\ some\ object\ more\ force\ than\ others}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ f\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(8,20)\ *\ mass.mass;}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyAddForce(bdy,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f),\ f*10,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f));}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos[1]<-\/10)\ \{}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ would\ be\ more\ efficient\ to\ just\ reuse\ the\ object\ and}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reposition\ it\ with\ zeroed\ velocities}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ this\ is\ used\ to\ aid\ testing}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//CreateRandomEntity(physCtx,\ graphics,\ (Vector3)\{rndf(5,\ 11),\ rndf(6,\ 12),\ rndf(-\/3,\ 3)\},\ SHAPE\_ALL);}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ the\ physics}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00143}00143\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSteps\ >\ \mbox{\hyperlink{raylibODE_8h_afeff8fa28bbbf9c2ddbc85a38993d92e}{maxPsteps}})\ DrawText(\textcolor{stringliteral}{"{}WARNING\ CPU\ overloaded\ lagging\ real\ time"{}},\ 10,\ 0,\ 20,\ RED);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}\%2i\ FPS"{}},\ GetFPS()),\ 10,\ 20,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}Press\ SPACE\ to\ apply\ force\ to\ objects"{}},\ 10,\ 60,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}Wood,\ Metal,\ Ice,\ Rubber,\ Earth\ on\ Earth"{}},\ 10,\ 80,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ steps\ per\ frame\ \%i"{}},pSteps),\ 10,\ 120,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ time\ per\ frame\ \%f"{}},physTime),\ 10,\ 140,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}total\ time\ per\ frame\ \%f"{}},GetFrameTime()),\ 10,\ 160,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00154}00154\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00156}00156\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//\ De-\/Initialization}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00158}00158\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00159}00159\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00162}00162\ \ \ \ \ CloseWindow();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Close\ window\ and\ OpenGL\ context}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00163}00163\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00164}00164\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00165}00165\ \}}
+
+\end{DoxyCode}

@@ -18,25 +18,29 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="57" column="9" bodyfile="raylibODE.h" bodystart="57" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="283" endline="290">CreateBaseEntity</referencedby>
-        <referencedby refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="356" endline="376">CreateBox</referencedby>
-        <referencedby refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="487" endline="506">CreateCapsule</referencedby>
-        <referencedby refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="443" endline="464">CreateCylinder</referencedby>
-        <referencedby refid="raylibODE_8c_1a04c854eee30cf8430f2d978c4259459b" compoundref="raylibODE_8c" startline="533" endline="568">CreateDumbbell</referencedby>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1146" endline="1183">CreateMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1085" endline="1121">CreatePiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="284" endline="291">CreateBaseEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="398" endline="418">CreateBox</referencedby>
+        <referencedby refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="529" endline="548">CreateCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="485" endline="506">CreateCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a04c854eee30cf8430f2d978c4259459b" compoundref="raylibODE_8c" startline="575" endline="610">CreateDumbbell</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1208" endline="1245">CreateMultiPiston</referencedby>
+        <referencedby refid="gravity_8c_1ab6639462e293ab35eda53aea3c029a23" compoundref="gravity_8c" startline="56" endline="88">CreateOrbiter</referencedby>
+        <referencedby refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1126" endline="1160">CreatePiston</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" compoundref="raylibODE_8c" startline="944" endline="964">CreateRotor</referencedby>
-        <referencedby refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="399" endline="419">CreateSphere</referencedby>
+        <referencedby refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" compoundref="raylibODE_8c" startline="981" endline="1001">CreateRotor</referencedby>
+        <referencedby refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="441" endline="461">CreateSphere</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
-        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1007" endline="1018">DrawBodies</referencedby>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1066" endline="1071">FreeEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1050" endline="1061">DrawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1107" endline="1112">FreeEntity</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
-        <referencedby refid="raylibODE_8c_1a4fdbdf714b807f26feab3176718e274c" compoundref="raylibODE_8c" startline="1257" endline="1263">PinEntities</referencedby>
-        <referencedby refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" compoundref="raylibODE_8c" startline="1249" endline="1255">PinEntityToWorld</referencedby>
-        <referencedby refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" compoundref="raylibODE_8c" startline="977" endline="985">SetEntityHew</referencedby>
-        <referencedby refid="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" compoundref="raylibODE_8c" startline="997" endline="1005">SetEntitySurfaces</referencedby>
-        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1194" endline="1200">SetMultiPistonVelocity</referencedby>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
+        <referencedby refid="raylibODE_8c_1a4fdbdf714b807f26feab3176718e274c" compoundref="raylibODE_8c" startline="1329" endline="1335">PinEntities</referencedby>
+        <referencedby refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" compoundref="raylibODE_8c" startline="1311" endline="1317">PinEntityToWorld</referencedby>
+        <referencedby refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" compoundref="raylibODE_8c" startline="1014" endline="1022">SetEntityHew</referencedby>
+        <referencedby refid="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" compoundref="raylibODE_8c" startline="1034" endline="1042">SetEntitySurfaces</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1256" endline="1262">SetMultiPistonVelocity</referencedby>
+        <referencedby refid="arm_8c_1ab295c09645dc1cb3f5e2495e25e2c2b9" compoundref="arm_8c" startline="44" endline="63">triggerCallback</referencedby>
+        <referencedby refid="gravity_8c_1a335d70770f61bc5f2de93dac31fbfa52" compoundref="gravity_8c" startline="167" endline="229">updateGravity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structentity_1a4ba0008223828f414cf5303ca935bcd8" prot="public" static="no" mutable="no">
         <type><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref> *</type>
@@ -52,10 +56,10 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="58" column="9" bodyfile="raylibODE.h" bodystart="58" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="283" endline="290">CreateBaseEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="284" endline="291">CreateBaseEntity</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1066" endline="1071">FreeEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1107" endline="1112">FreeEntity</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="233" endline="249">FreeVehicle</referencedby>
       </memberdef>
@@ -73,6 +77,9 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="59" column="6" bodyfile="raylibODE.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="gravity_8c_1ab6639462e293ab35eda53aea3c029a23" compoundref="gravity_8c" startline="56" endline="88">CreateOrbiter</referencedby>
+        <referencedby refid="gravity_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="gravity_8c" startline="93" endline="165">main</referencedby>
+        <referencedby refid="gravity_8c_1a335d70770f61bc5f2de93dac31fbfa52" compoundref="gravity_8c" startline="167" endline="229">updateGravity</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>

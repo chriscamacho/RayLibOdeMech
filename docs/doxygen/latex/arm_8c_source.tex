@@ -1,0 +1,305 @@
+\doxysection{arm.\+c}
+\hypertarget{arm_8c_source}{}\label{arm_8c_source}\index{/home/chris/development/RayLibOdeMech/examples/arm.c@{/home/chris/development/RayLibOdeMech/examples/arm.c}}
+\mbox{\hyperlink{arm_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00002}00002\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2021-\/2026\ Chris\ Camacho\ (codifies\ -\/\ \ http://bedroomcoders.co.uk/)}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00003}00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00004}00004\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00005}00005\ \textcolor{comment}{\ *\ of\ this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00006}00006\ \textcolor{comment}{\ *\ in\ the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00007}00007\ \textcolor{comment}{\ *\ to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00008}00008\ \textcolor{comment}{\ *\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software\ is}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00009}00009\ \textcolor{comment}{\ *\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00010}00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00011}00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00012}00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00013}00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00014}00014\ \textcolor{comment}{\ *\ THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00015}00015\ \textcolor{comment}{\ *\ IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00016}00016\ \textcolor{comment}{\ *\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00017}00017\ \textcolor{comment}{\ *\ AUTHORS\ OR\ COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00018}00018\ \textcolor{comment}{\ *\ LIABILITY,\ WHETHER\ IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00019}00019\ \textcolor{comment}{\ *\ OUT\ OF\ OR\ IN\ CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00020}00020\ \textcolor{comment}{\ *\ SOFTWARE.}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00023}00023\ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00026}00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00027}00027\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00029}\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{00029}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00030}\mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{00030}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00034}00034\ \textcolor{comment}{//\ custom\ struct\ to\ save\ with\ physics\ context\ for\ use\ in\ trigger\ callback}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00035}\mbox{\hyperlink{structgrabberData}{00035}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgrabberData}{grabberData}}\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00036}\mbox{\hyperlink{structgrabberData_ad5f2a9c6087f11d2347347c4ea49b2ee}{00036}}\ \ \ \ \ dGeomID\ \mbox{\hyperlink{structgrabberData_ad5f2a9c6087f11d2347347c4ea49b2ee}{planeGeom}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00037}\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{00037}}\ \ \ \ \ dJointID\ \mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00038}\mbox{\hyperlink{structgrabberData_abcbe92caa2c5e2601121826c0cb91c56}{00038}}\ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{structgrabberData_abcbe92caa2c5e2601121826c0cb91c56}{grabber}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00039}\mbox{\hyperlink{arm_8c_af4dda86bdfce3f85af8bb4416ece329d}{00039}}\ \}\ \mbox{\hyperlink{structgrabberData}{grabberData}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00043}00043\ \textcolor{comment}{//\ this\ will\ end\ up\ joining\ to\ the\ first\ collided\ in\ a\ frame\ (could\ be\ any!)}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00044}\mbox{\hyperlink{arm_8c_ab295c09645dc1cb3f5e2495e25e2c2b9}{00044}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{arm_8c_ab295c09645dc1cb3f5e2495e25e2c2b9}{triggerCallback}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ dGeomID\ trigger,\ dGeomID\ intruder)\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00046}00046\ \ \ \ \ (void)trigger;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{structgrabberData}{grabberData}}*\ gdata\ =\ (\mbox{\hyperlink{structgrabberData}{grabberData}}*)physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a700dab42e1cd527f86163f6359cac5c6}{data}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00048}00048\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (intruder\ ==\ gdata-\/>\mbox{\hyperlink{structgrabberData_ad5f2a9c6087f11d2347347c4ea49b2ee}{planeGeom}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(intruder);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi)\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{hew}}\ =\ RED;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!gdata-\/>\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}}\ \&\&\ !IsKeyDown(KEY\_G))\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ dGeomGetBody(intruder);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ gdata-\/>\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}}\ =\ dJointCreateBall\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetBallAnchor\ (gdata-\/>\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}},\ pos[1],\ pos[2],\ pos[3]);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ dJointAttach(gdata-\/>\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}},\ bdy,\ gdata-\/>\mbox{\hyperlink{structgrabberData_abcbe92caa2c5e2601121826c0cb91c56}{grabber}}-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00063}00063\ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00066}\mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{00066}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00072}00072\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00076}00076\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00077}00077\ \ \ \ \ \mbox{\hyperlink{structgrabberData}{grabberData}}\ gData;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00078}00078\ \ \ \ \ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a700dab42e1cd527f86163f6359cac5c6}{data}}\ =\ \&gData;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ Create\ ground\ "{}plane"{}}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00084}00084\ \ \ \ \ gData.\mbox{\hyperlink{structgrabberData_ad5f2a9c6087f11d2347347c4ea49b2ee}{planeGeom}}\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00085}00085\ \ \ \ \ dGeomSetPosition(gData.\mbox{\hyperlink{structgrabberData_ad5f2a9c6087f11d2347347c4ea49b2ee}{planeGeom}},\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00086}00086\ \ \ \ \ dGeomSetData(gData.\mbox{\hyperlink{structgrabberData_ad5f2a9c6087f11d2347347c4ea49b2ee}{planeGeom}},\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f));}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ gData.\mbox{\hyperlink{structgrabberData_ad5f2a9c6087f11d2347347c4ea49b2ee}{planeGeom}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00089}00089\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00090}00090\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//\ Create\ random\ simple\ objects\ with\ random\ textures}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{raylibODE_8h_a5c3a0114b1e58dd42011cae154c7827e}{NUM\_OBJ}}/4;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(5,\ 11),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//\ creation\ of\ the\ arm}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00098}00098\ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ platform\ =\ \mbox{\hyperlink{raylibODE_8c_a6985c096003040ae46ed46b117f01d69}{CreateCylinder}}(physCtx,\ graphics,\ 1,\textcolor{comment}{//radius}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ .5,\textcolor{comment}{//length}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ (Vector3)\{0,1.5,0\},\ \textcolor{comment}{//\ pos}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ (Vector3)\{0,0,0\},\ \textcolor{comment}{//\ rot}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ 4);\ \textcolor{comment}{//\ mass}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00106}00106\ \ \ \ \ dMatrix3\ Rr;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00107}00107\ \ \ \ \ dRFromAxisAndAngle(Rr,\ 1,\ 0,\ 0,\ M\_PI/2.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00108}00108\ \ \ \ \ dBodySetRotation\ (platform-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ Rr);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00110}00110\ \ \ \ \ dJointID\ platform\_joint\ =\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(physCtx,\ platform,0,\ (Vector3)\{0,1,0\});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00111}00111\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00112}00112\ \ \ \ \ \textcolor{comment}{//\ platform\ boot\ is\ just\ cosmetic\ to\ hide\ the\ joint}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00113}00113\ \ \ \ \ dGeomID\ plat\_boot\ =\ \mbox{\hyperlink{raylibODE_8c_a0201472030d3c51d3b13c7f807b59b01}{CreateSphereGeom}}(physCtx,\ graphics,\ .6,\ (Vector3)\{0,0,0\});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00114}00114\ \ \ \ \ dGeomSetBody(plat\_boot,\ platform-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00115}00115\ \ \ \ \ dGeomSetOffsetPosition(plat\_boot,\ 0,\ 0,\ -\/0.5);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00116}00116\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ pbgi\ =\ dGeomGetData(plat\_boot);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00117}00117\ \ \ \ \ pbgi-\/>\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00120}00120\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00121}00121\ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ rotor2\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ (Vector3)\{.5,\ 4,.5\},\ \textcolor{comment}{//\ size}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ (Vector3)\{0,2,0\},\ \textcolor{comment}{//\ pos}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ (Vector3)\{0,0,0\},\ \textcolor{comment}{//\ rot}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ 4);\ \textcolor{comment}{//\ mass}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00127}00127\ \ \ \ \ dGeomID\ rgeom2\ =\ dBodyGetFirstGeom(rotor2-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00128}00128\ \ \ \ \ dGeomSetOffsetPosition(rgeom2,\ 0,\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00130}00130\ \ \ \ \ dJointID\ rotor\_joint2\ =\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(physCtx,\ rotor2,\ platform,(Vector3)\{1,0,0\});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00131}00131\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00132}00132\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00133}00133\ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ rotor3\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ (Vector3)\{.5,\ 4,.5\},\ \textcolor{comment}{//\ size}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ (Vector3)\{0,6,0\},\ \textcolor{comment}{//\ pos}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ (Vector3)\{0,0,0\},\ \textcolor{comment}{//\ rot}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ 4);\ \textcolor{comment}{//\ mass}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00139}00139\ \ \ \ \ dGeomID\ rgeom3\ =\ dBodyGetFirstGeom(rotor3-\/>body);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00140}00140\ \ \ \ \ dGeomSetOffsetPosition(rgeom3,\ 0,\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00142}00142\ \ \ \ \ dJointID\ rotor\_joint3\ =\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(physCtx,\ rotor3,\ rotor2,(Vector3)\{1,0,0\});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00143}00143\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00144}00144\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00145}00145\ \ \ \ \ \textcolor{comment}{//\ a\ ball\ for\ a\ grabber\ includes\ a\ sensor\ to\ grab\ stuff\ automatically}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00146}00146\ \ \ \ \ gData.\mbox{\hyperlink{structgrabberData_abcbe92caa2c5e2601121826c0cb91c56}{grabber}}\ =\ \mbox{\hyperlink{raylibODE_8c_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(physCtx,\ graphics,\ .5,\ (Vector3)\{0,10.5,0\},\ (Vector3)\{0,0,0\},\ 1);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00147}00147\ \ \ \ \ dBodySetAngularDamping(gData.\mbox{\hyperlink{structgrabberData_abcbe92caa2c5e2601121826c0cb91c56}{grabber}}-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0.5f);\ \textcolor{comment}{//\ make\ it\ stiffer}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00148}00148\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00149}00149\ \ \ \ \ dJointID\ grabber\_joint\ =\ dJointCreateBall\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00150}00150\ \ \ \ \ dJointSetBallAnchor\ (grabber\_joint,\ 0,\ 10.5,\ 0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00151}00151\ \ \ \ \ dJointAttach(grabber\_joint,\ gData.\mbox{\hyperlink{structgrabberData_abcbe92caa2c5e2601121826c0cb91c56}{grabber}}-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ rotor3-\/>body);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00153}00153\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ create\ just\ a\ geom}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00155}00155\ \ \ \ \ dGeomID\ grab\_sensor\ =\ \mbox{\hyperlink{raylibODE_8c_a0201472030d3c51d3b13c7f807b59b01}{CreateSphereGeom}}(physCtx,\ graphics,\ .6,\ (Vector3)\{0,0,0\});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00156}00156\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//\ set\ the\ trigger\ callback\ for\ the\ geom\ its\ now\ invisible\ }}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00158}00158\ \ \ \ \ \textcolor{comment}{//\ and\ other\ things\ don't\ collide\ with\ it\ -\/\ but\ it\ will\ register\ "{}collisions"{}}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00159}00159\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ triggergi\ =\ dGeomGetData(grab\_sensor);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00160}00160\ \ \ \ \ triggergi-\/>triggerOnCollide\ =\ \mbox{\hyperlink{arm_8c_ab295c09645dc1cb3f5e2495e25e2c2b9}{triggerCallback}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00161}00161\ \ \ \ \ dGeomSetBody(grab\_sensor,\ gData.\mbox{\hyperlink{structgrabberData_abcbe92caa2c5e2601121826c0cb91c56}{grabber}}-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});\ \textcolor{comment}{//\ attach\ the\ sensor\ to\ the\ grabber}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00162}00162\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00163}00163\ \ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00165}00165\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00166}00166\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00167}00167\ \ \ \ \ \textcolor{comment}{//\ Main\ game\ loop}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00168}00168\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00169}00169\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detect\ window\ close\ button\ or\ ESC\ key}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00171}00171\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00178}00178\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_G))\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gData.\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}})\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dJointDestroy(gData.\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gData.\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00186}00186\ \ \ \ \ \ \ \ \ dJointSetHingeParam(platform\_joint,\ dParamVel,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00187}00187\ \ \ \ \ \ \ \ \ dJointSetHingeParam(rotor\_joint2,\ dParamVel,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00188}00188\ \ \ \ \ \ \ \ \ dJointSetHingeParam(rotor\_joint3,\ dParamVel,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_I))\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(platform\_joint,\ dParamVel,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(platform-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00193}00193\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00194}00194\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_O))\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(platform\_joint,\ dParamVel,\ -\/1.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(platform-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_K))\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(rotor\_joint2,\ dParamVel,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(rotor2-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_L))\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(rotor\_joint2,\ dParamVel,\ -\/1.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(rotor2-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00209}00209\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_COMMA))\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(rotor\_joint3,\ dParamVel,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(rotor3-\/>body);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00213}00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_PERIOD))\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ dJointSetHingeParam(rotor\_joint3,\ dParamVel,\ -\/1.0);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable(rotor3-\/>body);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00218}00218\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00220}00220\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ \ \textcolor{comment}{//\ cache\ space\ key\ status\ (don't\ look\ up\ for\ each\ object\ iterration\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00221}00221\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ next\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};\ \textcolor{comment}{//\ get\ the\ next\ node\ now\ in\ case\ we\ delete\ this\ one}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reset\ entities\ for\ setting\ by\ collision}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a227dded5dce29a7e3b71e9589e2b4c22}{SetEntityHew}}(ent,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spcdn)\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ force\ if\ the\ space\ key\ is\ held}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ v\ =\ dBodyGetLinearVel(bdy);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[1]\ <\ 10\ \&\&\ pos[1]<10)\ \{\ \textcolor{comment}{//\ cap\ upwards\ velocity\ and\ don't\ let\ it\ get\ too\ high}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable\ (bdy);\ \textcolor{comment}{//\ case\ its\ gone\ to\ sleep}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dMass\ mass;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyGetMass\ (bdy,\ \&mass);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ give\ some\ object\ more\ force\ than\ others}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ f\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(8,20)\ *\ mass.mass;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyAddForce(bdy,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f),\ f*10,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f));}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos[1]<-\/10)\ \{}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00252}00252\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ the\ physics}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00255}00255\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00257}00257\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00263}00263\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00264}00264\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00267}00267\ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00269}00269\ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00272}00272\ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00274}00274\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSteps\ >\ \mbox{\hyperlink{raylibODE_8h_afeff8fa28bbbf9c2ddbc85a38993d92e}{maxPsteps}})\ DrawText(\textcolor{stringliteral}{"{}WARNING\ CPU\ overloaded\ lagging\ real\ time"{}},\ 10,\ 0,\ 20,\ RED);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00276}00276\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}\%2i\ FPS"{}},\ GetFPS()),\ 10,\ 20,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00277}00277\ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}Press\ SPACE\ to\ apply\ force\ to\ objects"{}},\ 10,\ 60,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00279}00279\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ steps\ per\ frame\ \%i"{}},pSteps),\ 10,\ 120,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00280}00280\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ time\ per\ frame\ \%f"{}},physTime),\ 10,\ 140,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00281}00281\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}total\ time\ per\ frame\ \%f"{}},GetFrameTime()),\ 10,\ 160,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00283}00283\ \ \ \ \ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00285}00285\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00287}00287\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00288}00288\ \ \ \ \ \textcolor{comment}{//\ De-\/Initialization}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00289}00289\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00290}00290\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00291}00291\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00292}00292\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00293}00293\ \ \ \ \ CloseWindow();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Close\ window\ and\ OpenGL\ context}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00294}00294\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00295}00295\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00296}00296\ \}}
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{arm_8c_source_l00299}00299\ }
+
+\end{DoxyCode}

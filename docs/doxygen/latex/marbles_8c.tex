@@ -1,0 +1,216 @@
+\doxysection{/home/chris/development/\+Ray\+Lib\+Ode\+Mech/examples/marbles.c File Reference}
+\hypertarget{marbles_8c}{}\label{marbles_8c}\index{/home/chris/development/RayLibOdeMech/examples/marbles.c@{/home/chris/development/RayLibOdeMech/examples/marbles.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}init.\+h"{}}\newline
+{\ttfamily \#include "{}example\+Camera.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structLevelElement}{Level\+Element}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{marbles_8c_a76da26d519b3a4158847daa8783a7a5b}{screen\+Width}}~1920/1.\+2
+\item 
+\#define \mbox{\hyperlink{marbles_8c_a8c472bd07ea66dbb884992785271e1d1}{screen\+Height}}~1080/1.\+2
+\item 
+\#define \mbox{\hyperlink{marbles_8c_a0b8b9c89bad94e57bcb490bb29704e00}{MAX\+\_\+\+PISTON}}~6
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct Level\+Element \mbox{\hyperlink{marbles_8c_ab3a7a54432d0d8ac7a955c19dbd83610}{Level\+Element}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ced}{Mesh\+Type}} \{ \mbox{\hyperlink{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda99231f09ee2e40643fa578adc2095194}{SLOPE}}
+, \mbox{\hyperlink{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda08707fd429345dc72f3d7b0cc867ef05}{STRAIGHT}}
+, \mbox{\hyperlink{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda91c566614c1c87c437ab3d686408e9ea}{CORNER}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{marbles_8c_abac6925a410fdbe4f0bc5bdf2d8f5ff6}{Load\+Level}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}phys\+Ctx, \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}graphics)
+\item 
+\mbox{\hyperlink{structMultiPiston}{Multi\+Piston}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{marbles_8c_aff4f938c7169a18032e8016ba3a2ede6}{Create\+Lift}} (\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}phys\+Ctx, \mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}graphics, Vector3 position, float yaw, float strength)
+\item 
+int \mbox{\hyperlink{marbles_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Type}} \mbox{\hyperlink{marbles_8c_aff0dc55dc38a2313b97620b8856f701a}{level\+Surface}} = \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe}{SURFACE\+\_\+\+WOOD}}
+\item 
+\mbox{\hyperlink{structLevelElement}{Level\+Element}} \mbox{\hyperlink{marbles_8c_a577686ba60ae8772f0078a474d3aff97}{level\+Data}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{marbles_8c_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{marbles_8c_a0b8b9c89bad94e57bcb490bb29704e00}\index{marbles.c@{marbles.c}!MAX\_PISTON@{MAX\_PISTON}}
+\index{MAX\_PISTON@{MAX\_PISTON}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{MAX\_PISTON}{MAX\_PISTON}}
+{\footnotesize\ttfamily \label{marbles_8c_a0b8b9c89bad94e57bcb490bb29704e00} 
+\#define MAX\+\_\+\+PISTON~6}
+
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00045}{45}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{marbles_8c_source_l00378}{Create\+Lift()}}, and \mbox{\hyperlink{marbles_8c_source_l00132}{main()}}.
+
+\Hypertarget{marbles_8c_a8c472bd07ea66dbb884992785271e1d1}\index{marbles.c@{marbles.c}!screenHeight@{screenHeight}}
+\index{screenHeight@{screenHeight}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{screenHeight}{screenHeight}}
+{\footnotesize\ttfamily \label{marbles_8c_a8c472bd07ea66dbb884992785271e1d1} 
+\#define screen\+Height~1080/1.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00042}{42}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+\Hypertarget{marbles_8c_a76da26d519b3a4158847daa8783a7a5b}\index{marbles.c@{marbles.c}!screenWidth@{screenWidth}}
+\index{screenWidth@{screenWidth}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{screenWidth}{screenWidth}}
+{\footnotesize\ttfamily \label{marbles_8c_a76da26d519b3a4158847daa8783a7a5b} 
+\#define screen\+Width~1920/1.\+2}
+
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00041}{41}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+
+
+\label{doc-typedef-members}
+\Hypertarget{marbles_8c_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{marbles_8c_ab3a7a54432d0d8ac7a955c19dbd83610}\index{marbles.c@{marbles.c}!LevelElement@{LevelElement}}
+\index{LevelElement@{LevelElement}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{LevelElement}{LevelElement}}
+{\footnotesize\ttfamily \label{marbles_8c_ab3a7a54432d0d8ac7a955c19dbd83610} 
+typedef struct Level\+Element Level\+Element}
+
+
+
+\label{doc-enum-members}
+\Hypertarget{marbles_8c_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ced}\index{marbles.c@{marbles.c}!MeshType@{MeshType}}
+\index{MeshType@{MeshType}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{MeshType}{MeshType}}
+{\footnotesize\ttfamily \label{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ced} 
+enum \mbox{\hyperlink{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ced}{Mesh\+Type}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SLOPE@{SLOPE}!marbles.c@{marbles.c}}\index{marbles.c@{marbles.c}!SLOPE@{SLOPE}}}\Hypertarget{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda99231f09ee2e40643fa578adc2095194}\label{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda99231f09ee2e40643fa578adc2095194} 
+SLOPE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STRAIGHT@{STRAIGHT}!marbles.c@{marbles.c}}\index{marbles.c@{marbles.c}!STRAIGHT@{STRAIGHT}}}\Hypertarget{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda08707fd429345dc72f3d7b0cc867ef05}\label{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda08707fd429345dc72f3d7b0cc867ef05} 
+STRAIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CORNER@{CORNER}!marbles.c@{marbles.c}}\index{marbles.c@{marbles.c}!CORNER@{CORNER}}}\Hypertarget{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda91c566614c1c87c437ab3d686408e9ea}\label{marbles_8c_a24f376ccef7a39450a2fcdbf5ba97ceda91c566614c1c87c437ab3d686408e9ea} 
+CORNER&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00047}{47}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{marbles_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{marbles_8c_aff4f938c7169a18032e8016ba3a2ede6}\index{marbles.c@{marbles.c}!CreateLift@{CreateLift}}
+\index{CreateLift@{CreateLift}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{CreateLift()}{CreateLift()}}
+{\footnotesize\ttfamily \label{marbles_8c_aff4f938c7169a18032e8016ba3a2ede6} 
+\mbox{\hyperlink{structMultiPiston}{Multi\+Piston}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Create\+Lift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{phys\+Ctx}{, }\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{graphics}{, }\item[{Vector3}]{position}{, }\item[{float}]{yaw}{, }\item[{float}]{strength}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00378}{378}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+
+
+References \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00364}{Create\+Box\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l01208}{Create\+Multi\+Piston()}}, \mbox{\hyperlink{marbles_8c_source_l00045}{MAX\+\_\+\+PISTON}}, \mbox{\hyperlink{raylibODE_8c_source_l01311}{Pin\+Entity\+To\+World()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00069}{Physics\+Context\+::statics}}.
+
+
+
+Referenced by \mbox{\hyperlink{marbles_8c_source_l00132}{main()}}.
+
+\Hypertarget{marbles_8c_abac6925a410fdbe4f0bc5bdf2d8f5ff6}\index{marbles.c@{marbles.c}!LoadLevel@{LoadLevel}}
+\index{LoadLevel@{LoadLevel}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{LoadLevel()}{LoadLevel()}}
+{\footnotesize\ttfamily \label{marbles_8c_abac6925a410fdbe4f0bc5bdf2d8f5ff6} 
+void Load\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{phys\+Ctx}{, }\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{graphics}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00249}{249}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+
+
+References \mbox{\hyperlink{marbles_8c_source_l00054}{Level\+Element\+::angle}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{marbles_8c_source_l00047}{CORNER}}, \mbox{\hyperlink{raylibODE_8c_source_l00337}{Create\+Cylinder\+Geom()}}, \mbox{\hyperlink{marbles_8c_source_l00051}{Level\+Element\+::gridX}}, \mbox{\hyperlink{marbles_8c_source_l00052}{Level\+Element\+::gridY}}, \mbox{\hyperlink{marbles_8c_source_l00053}{Level\+Element\+::gridZ}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{marbles_8c_source_l00059}{level\+Data}}, \mbox{\hyperlink{marbles_8c_source_l00044}{level\+Surface}}, \mbox{\hyperlink{marbles_8c_source_l00047}{SLOPE}}, \mbox{\hyperlink{raylibODE_8h_source_l00069}{Physics\+Context\+::statics}}, \mbox{\hyperlink{marbles_8c_source_l00047}{STRAIGHT}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{geom\+Info\+::surface}}, and \mbox{\hyperlink{marbles_8c_source_l00050}{Level\+Element\+::type}}.
+
+
+
+Referenced by \mbox{\hyperlink{marbles_8c_source_l00132}{main()}}.
+
+\Hypertarget{marbles_8c_a840291bc02cba5474a4cb46a9b9566fe}\index{marbles.c@{marbles.c}!main@{main}}
+\index{main@{main}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{marbles_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+int main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00132}{132}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+
+
+References \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00144}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{marbles_8c_source_l00378}{Create\+Lift()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00441}{Create\+Sphere()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l01050}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01086}{Draw\+Statics()}}, \mbox{\hyperlink{gravity_8c_source_l00090}{frame\+Count}}, \mbox{\hyperlink{raylibODE_8c_source_l01107}{Free\+Entity()}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{raylibODE_8c_source_l01187}{Free\+Multi\+Piston()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{marbles_8c_source_l00249}{Load\+Level()}}, \mbox{\hyperlink{marbles_8c_source_l00045}{MAX\+\_\+\+PISTON}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{arm_8c_source_l00030}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00029}{screen\+Width}}, \mbox{\hyperlink{exampleCamera_8c_source_l00061}{Set\+Camera\+Yaw()}}, \mbox{\hyperlink{raylibODE_8c_source_l01256}{Set\+Multi\+Piston\+Velocity()}}, \mbox{\hyperlink{exampleCamera_8c_source_l00081}{Setup\+Camera()}}, \mbox{\hyperlink{raylibODE_8c_source_l00241}{Step\+Physics()}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00042}{SURFACE\+\_\+\+METAL}}, and \mbox{\hyperlink{exampleCamera_8c_source_l00168}{Update\+Example\+Camera()}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{marbles_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{marbles_8c_a577686ba60ae8772f0078a474d3aff97}\index{marbles.c@{marbles.c}!levelData@{levelData}}
+\index{levelData@{levelData}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{levelData}{levelData}}
+{\footnotesize\ttfamily \label{marbles_8c_a577686ba60ae8772f0078a474d3aff97} 
+\mbox{\hyperlink{structLevelElement}{Level\+Element}} level\+Data\mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00059}{59}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{marbles_8c_source_l00249}{Load\+Level()}}.
+
+\Hypertarget{marbles_8c_aff0dc55dc38a2313b97620b8856f701a}\index{marbles.c@{marbles.c}!levelSurface@{levelSurface}}
+\index{levelSurface@{levelSurface}!marbles.c@{marbles.c}}
+\doxysubsubsection{\texorpdfstring{levelSurface}{levelSurface}}
+{\footnotesize\ttfamily \label{marbles_8c_aff0dc55dc38a2313b97620b8856f701a} 
+const \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Type}} level\+Surface = \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe}{SURFACE\+\_\+\+WOOD}}}
+
+
+
+Definition at line \mbox{\hyperlink{marbles_8c_source_l00044}{44}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{marbles_8c_source_l00249}{Load\+Level()}}.
+

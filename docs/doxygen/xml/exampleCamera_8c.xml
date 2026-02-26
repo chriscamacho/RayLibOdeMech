@@ -99,6 +99,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="exampleCamera.c" line="60" column="7" bodyfile="exampleCamera.c" bodystart="60" bodyend="60"/>
+        <referencedby refid="placer_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="placer_8c" startline="32" endline="133">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="exampleCamera_8c_1aaadc2473185a23c67ec11371dd33d09e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -116,6 +117,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="exampleCamera.c" line="61" column="6" bodyfile="exampleCamera.c" bodystart="61" bodyend="61"/>
+        <referencedby refid="marbles_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="marbles_8c" startline="132" endline="246">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="exampleCamera_8c_1afbfa8af7ad686732f5ddcea617d03d1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -184,6 +186,7 @@
         </inbodydescription>
         <location file="exampleCamera.c" line="81" column="6" bodyfile="exampleCamera.c" bodystart="81" bodyend="93"/>
         <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="144">GraphicsContext::camera</references>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -228,6 +231,7 @@
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
         <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="144">GraphicsContext::camera</references>
         <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="145">GraphicsContext::shader</references>
+        <referencedby refid="car_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="car_8c" startline="34" endline="168">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -259,6 +263,7 @@
         <location file="exampleCamera.c" line="168" column="6" bodyfile="exampleCamera.c" bodystart="168" bodyend="218"/>
         <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="144">GraphicsContext::camera</references>
         <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="145">GraphicsContext::shader</references>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
