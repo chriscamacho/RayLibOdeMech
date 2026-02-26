@@ -66,7 +66,7 @@ int main(void)
                                4, 					// number of sections
                                2, 				// distance each section travels
                                1, 					// base width
-                               100000);				// stength
+                               1000);				// stength
 	dBodySetAutoDisableFlag(upperArm->sections[0]->body, 0);
     
     PinEntities(physCtx, elivate, upperArm->sections[0]);
@@ -82,13 +82,13 @@ int main(void)
                                4, 					// number of sections
                                2, 				// distance each section travels
                                1, 					// base width
-                               100000);				// stength
+                               1000);				// stength
 	dBodySetAutoDisableFlag(foreArm->sections[0]->body, 0);
     
     PinEntities(physCtx, elbow, foreArm->sections[0]);
     
-    RotorPID elivatePID = CreateRotorPID(40.0f, 1.6f, 3.f, -M_PI_2 + 0.2f, M_PI_2 - 0.2f);
-    RotorPID elbowPID = CreateRotorPID(40.0f, 1.6f,3.f, -M_PI_2 + 0.2f, M_PI_2 - 0.2f);
+    RotorPID elivatePID = CreateRotorPID(100.0f, 1.6f, 3.f, -M_PI_2 + 0.2f, M_PI_2 - 0.2f);
+    RotorPID elbowPID = CreateRotorPID(100.0f, 1.6f,3.f, -M_PI_2 + 0.2f, M_PI_2 - 0.2f);
     
     entity* grabber = CreateSphere(physCtx, graphics, 1.f, (Vector3){0,10.2f,0}, (Vector3){M_PI_2,0,0}, 1);
     PinEntities(physCtx, grabber, foreArm->sections[foreArm->count-1]);
