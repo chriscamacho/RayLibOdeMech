@@ -148,20 +148,20 @@ int main(void)
 							graphics,
 							(Vector3){0.f, 0.4f, 0.0f},
 							0,
-							360.0f);
+							1000.0f);
 
 	
 	MultiPiston** lift2 = CreateLift(physCtx,
                                 graphics,
                                 (Vector3){6.f, 4.f, 8.f},
                                 PI,
-                                360.0f);
+                                1000.0f);
 
 	MultiPiston** lift3 = CreateLift(physCtx,
                                 graphics,
                                 (Vector3){-10.f, 11.f, -18.f},
                                 0,
-                                360.0f);
+                                1000.0f);
                                                                 	
 	int frameCount = 0;
 	int released = 0;
