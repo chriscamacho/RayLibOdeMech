@@ -4,7 +4,6 @@ var files_dup =
     [ "clist.h", "clist_8h.html", "clist_8h" ],
     [ "collision.h", "collision_8h.html", "collision_8h" ],
     [ "exampleCamera.h", "exampleCamera_8h.html", "exampleCamera_8h" ],
-    [ "init.h", "init_8h.html", "init_8h" ],
     [ "ragdoll.h", "ragdoll_8h.html", "ragdoll_8h" ],
     [ "raylibODE.h", "raylibODE_8h.html", "raylibODE_8h" ],
     [ "rlights.h", "rlights_8h.html", "rlights_8h" ],

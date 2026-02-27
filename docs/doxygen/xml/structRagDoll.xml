@@ -86,7 +86,7 @@
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
         <referencedby refid="ragdoll_8c_1a15a95f2545a01b96973e728cdd451bf9" compoundref="ragdoll_8c" startline="454" endline="463">DrawRagdoll</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
-        <referencedby refid="ragdolls_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="ragdolls_8c" startline="34" endline="163">main</referencedby>
+        <referencedby refid="ragdolls_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="ragdolls_8c" startline="33" endline="161">main</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" prot="public" static="no" mutable="no">
         <type>int</type>

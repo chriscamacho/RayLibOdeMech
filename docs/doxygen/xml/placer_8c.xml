@@ -2,76 +2,63 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="placer_8c" kind="file" language="C++">
     <compoundname>placer.c</compoundname>
-    <includes refid="init_8h" local="yes">init.h</includes>
-    <includes refid="exampleCamera_8h" local="yes">exampleCamera.h</includes>
+    <includes refid="raylibODE_8h" local="yes">raylibODE.h</includes>
     <incdepgraph>
       <node id="1">
         <label>/home/chris/development/RayLibOdeMech/examples/placer.c</label>
         <link refid="placer_8c"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
-      <node id="8">
+      <node id="7">
         <label>clist.h</label>
         <link refid="clist_8h"/>
       </node>
-      <node id="10">
+      <node id="9">
         <label>exampleCamera.h</label>
         <link refid="exampleCamera_8h"/>
-        <childnode refid="11" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="2">
-        <label>init.h</label>
-        <link refid="init_8h"/>
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>raylibODE.h</label>
-        <link refid="raylibODE_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="5">
         <label>rlights.h</label>
         <link refid="rlights_8h"/>
       </node>
-      <node id="9">
+      <node id="8">
         <label>surface.h</label>
         <link refid="surface_8h"/>
       </node>
-      <node id="11">
+      <node id="10">
         <label>vehicle.h</label>
         <link refid="vehicle_8h"/>
-        <childnode refid="5" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="4">
+      <node id="6">
         <label>ode/ode.h</label>
       </node>
       <node id="3">
         <label>raylib.h</label>
       </node>
-      <node id="6">
+      <node id="4">
         <label>raymath.h</label>
       </node>
     </incdepgraph>
@@ -115,42 +102,42 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/chris/development/RayLibOdeMech/examples/placer.c" line="32" column="5" bodyfile="/home/chris/development/RayLibOdeMech/examples/placer.c" bodystart="32" bodyend="133"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="144">GraphicsContext::camera</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="159">GraphicsContext::camera</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
-        <references refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="398" endline="418">CreateBox</references>
-        <references refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="529" endline="548">CreateCapsule</references>
-        <references refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="485" endline="506">CreateCylinder</references>
-        <references refid="raylibODE_8c_1a04c854eee30cf8430f2d978c4259459b" compoundref="raylibODE_8c" startline="575" endline="610">CreateDumbbell</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="732" endline="744">CreateGeomInfo</references>
+        <references refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="417" endline="437">CreateBox</references>
+        <references refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="548" endline="567">CreateCapsule</references>
+        <references refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="504" endline="525">CreateCylinder</references>
+        <references refid="raylibODE_8c_1a04c854eee30cf8430f2d978c4259459b" compoundref="raylibODE_8c" startline="594" endline="629">CreateDumbbell</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="751" endline="763">CreateGeomInfo</references>
         <references refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</references>
         <references refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</references>
-        <references refid="raylibODE_8c_1ae7890e5cf20ab8875b9d08bf80d9d018" compoundref="raylibODE_8c" startline="630" endline="671">CreateRandomEntity</references>
-        <references refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="441" endline="461">CreateSphere</references>
+        <references refid="raylibODE_8c_1ae7890e5cf20ab8875b9d08bf80d9d018" compoundref="raylibODE_8c" startline="649" endline="690">CreateRandomEntity</references>
+        <references refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="460" endline="480">CreateSphere</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1050" endline="1061">DrawBodies</references>
-        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1086" endline="1095">DrawStatics</references>
-        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1107" endline="1112">FreeEntity</references>
+        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1125" endline="1136">DrawBodies</references>
+        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1161" endline="1170">DrawStatics</references>
+        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1182" endline="1187">FreeEntity</references>
         <references refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</references>
         <references refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</references>
-        <references refid="exampleCamera_8c_1a9904774abec2bae71c6d75094d47cbe3" compoundref="exampleCamera_8c" startline="60" endline="60">GetCameraYaw</references>
-        <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="142">GraphicsContext::groundTexture</references>
+        <references refid="exampleCamera_8c_1a9904774abec2bae71c6d75094d47cbe3" compoundref="exampleCamera_8c" startline="61" endline="61">GetCameraYaw</references>
+        <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="157">GraphicsContext::groundTexture</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
-        <references refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" compoundref="raylibODE_8h" startline="39">NUM_OBJ</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
-        <references refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="774" endline="807">PickEntity</references>
-        <references refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" compoundref="raylibODE_8h" startline="42">PLANE_SIZE</references>
-        <references refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" compoundref="raylibODE_8h" startline="43">PLANE_THICKNESS</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="219" endline="222">rndf</references>
-        <references refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" compoundref="arm_8c" startline="30">screenHeight</references>
-        <references refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" compoundref="arm_8c" startline="29">screenWidth</references>
-        <references refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="81" endline="93">SetupCamera</references>
-        <references refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf" compoundref="raylibODE_8h" startline="53">SHAPE_ALL</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="65">PhysicsContext::space</references>
-        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="69">PhysicsContext::statics</references>
-        <references refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</references>
-        <references refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" compoundref="exampleCamera_8c" startline="168" endline="218">UpdateExampleCamera</references>
+        <references refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" compoundref="raylibODE_8h" startline="41">NUM_OBJ</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
+        <references refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="794" endline="827">PickEntity</references>
+        <references refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" compoundref="raylibODE_8h" startline="44">PLANE_SIZE</references>
+        <references refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" compoundref="raylibODE_8h" startline="45">PLANE_THICKNESS</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="238" endline="241">rndf</references>
+        <references refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" compoundref="arm_8c" startline="28">screenHeight</references>
+        <references refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" compoundref="arm_8c" startline="27">screenWidth</references>
+        <references refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="82" endline="94">SetupCamera</references>
+        <references refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf" compoundref="raylibODE_8h" startline="55">SHAPE_ALL</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="67">PhysicsContext::space</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="71">PhysicsContext::statics</references>
+        <references refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="260" endline="283">StepPhysics</references>
+        <references refid="exampleCamera_8c_1a577102dfa73642e5465f7d33ba01465e" compoundref="exampleCamera_8c" startline="169" endline="219">UpdateCameraControl</references>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -181,8 +168,8 @@
 <codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="init_8h" kindref="compound">init.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="exampleCamera_8h" kindref="compound">exampleCamera.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="raylibODE_8h" kindref="compound">raylibODE.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27" refid="placer_8c_1a76da26d519b3a4158847daa8783a7a5b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>screenWidth<sp/>1920/1.2</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28" refid="placer_8c_1a8c472bd07ea66dbb884992785271e1d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>screenHeight<sp/>1080/1.2</highlight><highlight class="normal"></highlight></codeline>
@@ -209,7 +196,7 @@
 <codeline lineno="49"><highlight class="normal"></highlight></codeline>
 <codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!WindowShouldClose())</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kindref="member">UpdateExampleCamera</ref>(graphics);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1a577102dfa73642e5465f7d33ba01465e" kindref="member">UpdateCameraControl</ref>(graphics);</highlight></codeline>
 <codeline lineno="53"><highlight class="normal"></highlight></codeline>
 <codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>placing<sp/>new<sp/>objects</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector3<sp/>forward<sp/>=<sp/>Vector3Normalize(Vector3Subtract(graphics-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.target,<sp/>graphics-&gt;<ref refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" kindref="member">camera</ref>.position));</highlight></codeline>

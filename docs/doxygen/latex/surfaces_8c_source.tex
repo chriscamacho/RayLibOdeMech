@@ -25,15 +25,15 @@
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raylibODE_8h}{raylibODE.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00025}00025\ }
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00026}00026\ }
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00027}\mbox{\hyperlink{surfaces_8c_a76da26d519b3a4158847daa8783a7a5b}{00027}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00028}\mbox{\hyperlink{surfaces_8c_a8c472bd07ea66dbb884992785271e1d1}{00028}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00029}00029\ }
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00030}00030\ }
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00032}\mbox{\hyperlink{surfaces_8c_a840291bc02cba5474a4cb46a9b9566fe}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{surfaces_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00032}\mbox{\hyperlink{surfaces_8c_a840291bc02cba5474a4cb46a9b9566fe}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00033}00033\ \{}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
@@ -83,8 +83,8 @@
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
-\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ camera)}}
+\DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_a577102dfa73642e5465f7d33ba01465e}{UpdateCameraControl}}(graphics);}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ \ \textcolor{comment}{//\ cache\ space\ key\ status\ (don't\ look\ up\ for\ each\ object\ iterration\ \ \ \ }}
 \DoxyCodeLine{\Hypertarget{surfaces_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}

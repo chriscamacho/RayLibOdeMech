@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
+  <compounddef id="structRayCast" kind="struct" language="C++" prot="public">
+    <compoundname>RayCast</compoundname>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structRayCast_1a1c3db63edf08a000f6c66b7c92550628" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RayCast::maxHits</definition>
+        <argsstring></argsstring>
+        <name>maxHits</name>
+        <qualifiedname>RayCast::maxHits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="136" column="5" bodyfile="raylibODE.h" bodystart="136" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1aae31409e8c5cfe1cf9148f2c18207e61" compoundref="raylibODE_8c" startline="839" endline="848">CreateRayCast</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRayCast_1a29020fd2803e3c920f2062aeae6b7db5" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RayCast::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>RayCast::count</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="137" column="5" bodyfile="raylibODE.h" bodystart="137" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a2b934e0acb1163c93b0f2613ce850a2c" compoundref="raylibODE_8c" startline="874" endline="882">CastRay</referencedby>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRayCast_1ad462fddf059c2869e85e01ca5a56d12b" prot="public" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 RayCast::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <qualifiedname>RayCast::position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="138" column="9" bodyfile="raylibODE.h" bodystart="138" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a2b934e0acb1163c93b0f2613ce850a2c" compoundref="raylibODE_8c" startline="874" endline="882">CastRay</referencedby>
+        <referencedby refid="raylibODE_8c_1aae31409e8c5cfe1cf9148f2c18207e61" compoundref="raylibODE_8c" startline="839" endline="848">CreateRayCast</referencedby>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRayCast_1a751c178a9bc21a4359de943eda31ae1a" prot="public" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 RayCast::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>RayCast::direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="139" column="9" bodyfile="raylibODE.h" bodystart="139" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a2b934e0acb1163c93b0f2613ce850a2c" compoundref="raylibODE_8c" startline="874" endline="882">CastRay</referencedby>
+        <referencedby refid="raylibODE_8c_1aae31409e8c5cfe1cf9148f2c18207e61" compoundref="raylibODE_8c" startline="839" endline="848">CreateRayCast</referencedby>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRayCast_1abc0fa92554941dedbef1a17241c86543" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RayCast::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <qualifiedname>RayCast::length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="140" column="7" bodyfile="raylibODE.h" bodystart="140" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a2b934e0acb1163c93b0f2613ce850a2c" compoundref="raylibODE_8c" startline="874" endline="882">CastRay</referencedby>
+        <referencedby refid="raylibODE_8c_1aae31409e8c5cfe1cf9148f2c18207e61" compoundref="raylibODE_8c" startline="839" endline="848">CreateRayCast</referencedby>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structRayCast_1ad75ba1adf10c04564d8dd8ba2a959b57" prot="public" static="no" mutable="no">
+        <type><ref refid="structRayHit" kindref="compound">RayHit</ref></type>
+        <definition>RayHit RayCast::hits[]</definition>
+        <argsstring>[]</argsstring>
+        <name>hits</name>
+        <qualifiedname>RayCast::hits</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="raylibODE.h" line="141" column="8" bodyfile="raylibODE.h" bodystart="141" bodyend="-1"/>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RayCast</label>
+        <link refid="structRayCast"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>hits</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>RayHit</label>
+        <link refid="structRayHit"/>
+      </node>
+    </collaborationgraph>
+    <location file="raylibODE.h" line="135" column="1" bodyfile="raylibODE.h" bodystart="135" bodyend="142"/>
+    <listofallmembers>
+      <member refid="structRayCast_1a29020fd2803e3c920f2062aeae6b7db5" prot="public" virt="non-virtual"><scope>RayCast</scope><name>count</name></member>
+      <member refid="structRayCast_1a751c178a9bc21a4359de943eda31ae1a" prot="public" virt="non-virtual"><scope>RayCast</scope><name>direction</name></member>
+      <member refid="structRayCast_1ad75ba1adf10c04564d8dd8ba2a959b57" prot="public" virt="non-virtual"><scope>RayCast</scope><name>hits</name></member>
+      <member refid="structRayCast_1abc0fa92554941dedbef1a17241c86543" prot="public" virt="non-virtual"><scope>RayCast</scope><name>length</name></member>
+      <member refid="structRayCast_1a1c3db63edf08a000f6c66b7c92550628" prot="public" virt="non-virtual"><scope>RayCast</scope><name>maxHits</name></member>
+      <member refid="structRayCast_1ad462fddf059c2869e85e01ca5a56d12b" prot="public" virt="non-virtual"><scope>RayCast</scope><name>position</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

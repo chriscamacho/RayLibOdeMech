@@ -48,10 +48,10 @@ Stores geometry metadata for collision, texturing, and trimesh data.
 \item This structure encapsulates everything needed to render and handle physics for a specific piece of geometry, including UV scaling and raw mesh indices. 
 \end{DoxyItemize}\begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, and \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}.\end{Desc}
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, \mbox{\hyperlink{gravity_8c-example}{gravity.\+c}}, \mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}, \mbox{\hyperlink{raycasting_8c-example}{raycasting.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, and \mbox{\hyperlink{surfaces_8c-example}{surfaces.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00093}{93}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00098}{98}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
@@ -69,11 +69,11 @@ Toggle for physics engine interaction. \begin{Desc}
 \mbox{\hyperlink{arm_8c-example}{arm.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00094}{94}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00099}{99}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, \mbox{\hyperlink{arm_8c_source_l00066}{main()}}, and \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00751}{Create\+Geom\+Info()}}, \mbox{\hyperlink{arm_8c_source_l00064}{main()}}, and \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}.
 
 \Hypertarget{structgeomInfo_a41da5e74536721516cb6d2f603654e94}\index{geomInfo@{geomInfo}!data@{data}}
 \index{data@{data}!geomInfo@{geomInfo}}
@@ -83,7 +83,7 @@ void\texorpdfstring{$\ast$}{*} geom\+Info\+::data}
 
 user data pointer tag on extra meta data to a geom. 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00110}{110}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00115}{115}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 \Hypertarget{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}\index{geomInfo@{geomInfo}!hew@{hew}}
 \index{hew@{hew}!geomInfo@{geomInfo}}
@@ -93,14 +93,14 @@ Color geom\+Info\+::hew}
 
 white for normal, used to tint a geom \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, and \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}.\end{Desc}
+\mbox{\hyperlink{arm_8c-example}{arm.\+c}}, \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}, and \mbox{\hyperlink{raycasting_8c-example}{raycasting.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00099}{99}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00104}{104}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l01014}{Set\+Entity\+Hew()}}, \mbox{\hyperlink{fountain_8c_source_l00034}{trigger\+Callback()}}, and \mbox{\hyperlink{arm_8c_source_l00044}{trigger\+Callback()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00751}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00958}{Draw\+Geom()}}, \mbox{\hyperlink{raycasting_8c_source_l00032}{main()}}, \mbox{\hyperlink{raylibODE_8c_source_l01089}{Set\+Entity\+Hew()}}, \mbox{\hyperlink{fountain_8c_source_l00033}{trigger\+Callback()}}, and \mbox{\hyperlink{arm_8c_source_l00042}{trigger\+Callback()}}.
 
 \Hypertarget{structgeomInfo_abb6babda7d8a31c2ea76ed4654d9b55e}\index{geomInfo@{geomInfo}!indices@{indices}}
 \index{indices@{indices}!geomInfo@{geomInfo}}
@@ -110,11 +110,11 @@ int\texorpdfstring{$\ast$}{*} geom\+Info\+::indices}
 
 Pointer to the array of vertex indices. 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00105}{105}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00110}{110}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00695}{Create\+Static\+Trimesh()}}, and \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00714}{Create\+Static\+Trimesh()}}, and \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}.
 
 \Hypertarget{structgeomInfo_a8e530854793906e8d625e058ac7b616c}\index{geomInfo@{geomInfo}!surface@{surface}}
 \index{surface@{surface}!geomInfo@{geomInfo}}
@@ -124,14 +124,14 @@ Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00695}{Create\+Static\+Trime
 
 friction, restitution and so on \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{derby_8c-example}{derby.\+c}}, and \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}.\end{Desc}
+\mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{gravity_8c-example}{gravity.\+c}}, \mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}, \mbox{\hyperlink{raycasting_8c-example}{raycasting.\+c}}, \mbox{\hyperlink{rotor_8c-example}{rotor.\+c}}, and \mbox{\hyperlink{surfaces_8c-example}{surfaces.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00100}{100}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00105}{105}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, \mbox{\hyperlink{gravity_8c_source_l00056}{Create\+Orbiter()}}, \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}, \mbox{\hyperlink{marbles_8c_source_l00249}{Load\+Level()}}, \mbox{\hyperlink{derby_8c_source_l00058}{main()}}, \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}, and \mbox{\hyperlink{raylibODE_8c_source_l01034}{Set\+Entity\+Surfaces()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00751}{Create\+Geom\+Info()}}, \mbox{\hyperlink{gravity_8c_source_l00056}{Create\+Orbiter()}}, \mbox{\hyperlink{vehicle_8c_source_l00056}{Create\+Vehicle()}}, \mbox{\hyperlink{marbles_8c_source_l00249}{Load\+Level()}}, \mbox{\hyperlink{derby_8c_source_l00056}{main()}}, \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}, and \mbox{\hyperlink{raylibODE_8c_source_l01109}{Set\+Entity\+Surfaces()}}.
 
 \Hypertarget{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}\index{geomInfo@{geomInfo}!texture@{texture}}
 \index{texture@{texture}!geomInfo@{geomInfo}}
@@ -144,11 +144,11 @@ Pointer to the associated diffuse/albedo map. set to null for invisible geom \be
 \mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00095}{95}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00100}{100}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, and \mbox{\hyperlink{derby_8c_source_l00058}{main()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00751}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8c_source_l00958}{Draw\+Geom()}}, and \mbox{\hyperlink{derby_8c_source_l00056}{main()}}.
 
 \Hypertarget{structgeomInfo_a0cdf37aab555ef5003f8d3be2b553fa8}\index{geomInfo@{geomInfo}!triData@{triData}}
 \index{triData@{triData}!geomInfo@{geomInfo}}
@@ -158,11 +158,11 @@ d\+Tri\+Mesh\+Data\+ID geom\+Info\+::tri\+Data}
 
 ODE/\+Physics-\/specific trimesh data identifier. 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00106}{106}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00111}{111}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00695}{Create\+Static\+Trimesh()}}, and \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00714}{Create\+Static\+Trimesh()}}, and \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}.
 
 \Hypertarget{structgeomInfo_a520884eb761f24547c835107a37d024c}\index{geomInfo@{geomInfo}!triggerOnCollide@{triggerOnCollide}}
 \index{triggerOnCollide@{triggerOnCollide}!geomInfo@{geomInfo}}
@@ -175,11 +175,11 @@ If this is non-\/\+NULL, the geom acts as a ghost/trigger \begin{Desc}
 \mbox{\hyperlink{fountain_8c-example}{fountain.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00109}{109}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00114}{114}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{fountain_8c_source_l00045}{main()}}, and \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00958}{Draw\+Geom()}}, \mbox{\hyperlink{fountain_8c_source_l00044}{main()}}, and \mbox{\hyperlink{collision_8c_source_l00043}{near\+Callback()}}.
 
 \Hypertarget{structgeomInfo_ab566e6f3debd1b3092ec83aa09e961b9}\index{geomInfo@{geomInfo}!uvScaleU@{uvScaleU}}
 \index{uvScaleU@{uvScaleU}!geomInfo@{geomInfo}}
@@ -189,11 +189,11 @@ float geom\+Info\+::uv\+ScaleU}
 
 Horizontal texture tiling factor. 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00096}{96}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00101}{101}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00751}{Create\+Geom\+Info()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00958}{Draw\+Geom()}}.
 
 \Hypertarget{structgeomInfo_a0670722f17ac3020238ee399bd93f32e}\index{geomInfo@{geomInfo}!uvScaleV@{uvScaleV}}
 \index{uvScaleV@{uvScaleV}!geomInfo@{geomInfo}}
@@ -203,11 +203,11 @@ float geom\+Info\+::uv\+ScaleV}
 
 Vertical texture tiling factor. 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00097}{97}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00102}{102}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00751}{Create\+Geom\+Info()}}, and \mbox{\hyperlink{raylibODE_8c_source_l00958}{Draw\+Geom()}}.
 
 \Hypertarget{structgeomInfo_aac9cece1fdb9d0079901008842994523}\index{geomInfo@{geomInfo}!visual@{visual}}
 \index{visual@{visual}!geomInfo@{geomInfo}}
@@ -220,11 +220,11 @@ Model override used for custom static trimeshes. \begin{Desc}
 \mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
 
 
-Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00098}{98}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
+Definition at line \mbox{\hyperlink{raylibODE_8h_source_l00103}{103}} of file \mbox{\hyperlink{raylibODE_8h_source}{raylib\+ODE.\+h}}.
 
 
 
-Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00695}{Create\+Static\+Trimesh()}}, and \mbox{\hyperlink{derby_8c_source_l00058}{main()}}.
+Referenced by \mbox{\hyperlink{raylibODE_8c_source_l00714}{Create\+Static\+Trimesh()}}, \mbox{\hyperlink{raylibODE_8c_source_l00958}{Draw\+Geom()}}, and \mbox{\hyperlink{derby_8c_source_l00056}{main()}}.
 
 
 

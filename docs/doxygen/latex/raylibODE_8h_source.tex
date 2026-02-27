@@ -35,214 +35,253 @@
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{clist_8h}{clist.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{surface_8h}{surface.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00035}\mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{00035}}\ \textcolor{preprocessor}{\#define\ WORLD\_GROUP\ \ \ \ \ 0x0001}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00036}\mbox{\hyperlink{raylibODE_8h_ad7a3394d1169a116327a236fc91cad61}{00036}}\ \textcolor{preprocessor}{\#define\ PISTON\_GROUP\ \ \ \ 0x0002}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00037}00037\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00038}00038\ \textcolor{comment}{//\ Object\ counts}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00039}\mbox{\hyperlink{raylibODE_8h_a5c3a0114b1e58dd42011cae154c7827e}{00039}}\ \textcolor{preprocessor}{\#define\ NUM\_OBJ\ 300}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00041}00041\ \textcolor{comment}{//\ Plane\ configuration}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00042}\mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{00042}}\ \textcolor{preprocessor}{\#define\ PLANE\_SIZE\ 20.0f}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00043}\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{00043}}\ \textcolor{preprocessor}{\#define\ PLANE\_THICKNESS\ 1.0f}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00045}\mbox{\hyperlink{raylibODE_8h_afeff8fa28bbbf9c2ddbc85a38993d92e}{00045}}\ \textcolor{preprocessor}{\#define\ maxPsteps\ 6}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00037}\mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{00037}}\ \textcolor{preprocessor}{\#define\ WORLD\_GROUP\ \ \ \ \ 0x0001}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00038}\mbox{\hyperlink{raylibODE_8h_ad7a3394d1169a116327a236fc91cad61}{00038}}\ \textcolor{preprocessor}{\#define\ PISTON\_GROUP\ \ \ \ 0x0002}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00040}00040\ \textcolor{comment}{//\ Object\ counts}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00041}\mbox{\hyperlink{raylibODE_8h_a5c3a0114b1e58dd42011cae154c7827e}{00041}}\ \textcolor{preprocessor}{\#define\ NUM\_OBJ\ 300}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00043}00043\ \textcolor{comment}{//\ Plane\ configuration}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00044}\mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{00044}}\ \textcolor{preprocessor}{\#define\ PLANE\_SIZE\ 20.0f}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00045}\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{00045}}\ \textcolor{preprocessor}{\#define\ PLANE\_THICKNESS\ 1.0f}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00047}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391b}{00047}}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391b}{SHAPE\_TYPE}}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00048}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5}{00048}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5}{SHAPE\_BOX}}\ \ \ \ \ \ =\ 0x01,}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00049}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391bac7a9839306104e6733f1adc2bb66274b}{00049}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391bac7a9839306104e6733f1adc2bb66274b}{SHAPE\_SPHERE}}\ \ \ \ =\ 0x02,}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00050}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba62eea2af0cd8bf0530c0799ce72b93cf}{00050}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba62eea2af0cd8bf0530c0799ce72b93cf}{SHAPE\_CYLINDER}}\ \ \ \ =\ 0x04,}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00051}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391badccfd8c5874464bfd348e8cd8d7bd879}{00051}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391badccfd8c5874464bfd348e8cd8d7bd879}{SHAPE\_CAPSULE}}\ \ =\ 0x08,}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00052}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc}{00052}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc}{SHAPE\_DUMBBELL}}\ \ \ \ =\ 0x10,}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00053}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{00053}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}}\ \ \ \ \ \ =\ 0x20\ -\/\ 1,}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00054}00054\ \};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00055}00055\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00056}\mbox{\hyperlink{structentity}{00056}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structentity}{entity}}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00057}\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{00057}}\ \ \ \ \ dBodyID\ \mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};\textcolor{comment}{/**<\ ODE\ physics\ body\ for\ this\ entity\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00058}\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{00058}}\ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ \mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}};\ \textcolor{comment}{/**<\ all\ entities\ are\ in\ a\ global\ list,\ this\ is\ its\ list\ node\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00059}\mbox{\hyperlink{structentity_a9a2f7fbcb9768c13b8ab45108dcdce44}{00059}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structentity_a9a2f7fbcb9768c13b8ab45108dcdce44}{data}};\ \textcolor{comment}{/**<\ user\ data\ pointer\ tag\ on\ extra\ meta\ data\ to\ a\ geom.\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00060}\mbox{\hyperlink{raylibODE_8h_a6ba18cca02784a1046f755105545d6cb}{00060}}\ \}\ \mbox{\hyperlink{structentity}{entity}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00061}00061\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00062}00062\ \textcolor{comment}{//\ Physics\ context\ -\/\ holds\ all\ physics\ state}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00063}\mbox{\hyperlink{structPhysicsContext}{00063}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00064}\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{00064}}\ \ \ \ \ dWorldID\ \mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00065}\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{00065}}\ \ \ \ \ dSpaceID\ \mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00066}\mbox{\hyperlink{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}{00066}}\ \ \ \ \ dJointGroupID\ \mbox{\hyperlink{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}{contactgroup}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00067}\mbox{\hyperlink{structPhysicsContext_a9d9d8a36dbf5ada397c97512528ee62b}{00067}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structPhysicsContext_a9d9d8a36dbf5ada397c97512528ee62b}{frameTime}};\ \textcolor{comment}{//\ cumlative\ frame\ time}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00068}\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{00068}}\ \ \ \ \ \mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\_t}}*\ \mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00069}\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{00069}}\ \ \ \ \ \mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\_t}}*\ \mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}};\ \textcolor{comment}{//\ list\ of\ static\ ode\ geoms}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00070}\mbox{\hyperlink{structPhysicsContext_a700dab42e1cd527f86163f6359cac5c6}{00070}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structPhysicsContext_a700dab42e1cd527f86163f6359cac5c6}{data}};\ \textcolor{comment}{//\ user\ data\ pointer}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00071}\mbox{\hyperlink{raylibODE_8h_aef1bb5a28545a6ce8ceea26ca98c70b0}{00071}}\ \}\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00072}00072\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00073}00073\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00074}00074\ \textcolor{comment}{\ *\ @brief\ Function\ pointer\ type\ for\ physics\ trigger\ events}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00075}00075\ \textcolor{comment}{\ *\ *\ This\ callback\ is\ triggered\ when\ a\ geometry\ designated\ as\ a\ "{}ghost"{}\ or\ sensor\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00076}00076\ \textcolor{comment}{\ *\ overlaps\ with\ another\ geometry.\ When\ this\ callback\ is\ set\ in\ geomInfo,\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00077}00077\ \textcolor{comment}{\ *\ the\ physics\ engine\ will\ skip\ standard\ contact\ resolution,\ allowing\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00078}00078\ \textcolor{comment}{\ *\ objects\ to\ pass\ through\ while\ still\ notifying\ game\ logic.}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00079}00079\ \textcolor{comment}{\ *\ @param\ trigger\ \ The\ dGeomID\ of\ the\ geometry\ that\ has\ the\ callback\ assigned.}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00080}00080\ \textcolor{comment}{\ *\ @param\ intruder\ The\ dGeomID\ of\ the\ geometry\ that\ entered\ or\ is\ inside\ the\ trigger.}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00081}00081\ \textcolor{comment}{\ *\ @note\ If\ the\ triggering\ geom\ is\ attached\ to\ a\ body,\ the\ trigger\ will\ follow\ the\ body's\ transform.}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00082}00082\ \textcolor{comment}{\ *\ @note\ The\ physics\ context\ is\ passed\ with\ the\ callback,\ which\ has\ a\ user\ data\ pointer}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00083}00083\ \textcolor{comment}{\ *\ this\ can\ be\ used\ to\ avoid\ having\ to\ use\ global\ variables\ in\ the\ callback}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00084}00084\ \textcolor{comment}{\ *\ @see\ geomInfo}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00085}00085\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00086}\mbox{\hyperlink{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490}{00086}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490}{TriggerCallback}})(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ dGeomID\ trigger,\ dGeomID\ intruder);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00087}00087\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00088}00088\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00089}00089\ \textcolor{comment}{\ *\ @brief\ Stores\ geometry\ metadata\ for\ collision,\ texturing,\ and\ trimesh\ data.}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00090}00090\ \textcolor{comment}{\ *\ *\ This\ structure\ encapsulates\ everything\ needed\ to\ render\ and\ handle\ physics\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00091}00091\ \textcolor{comment}{\ *\ for\ a\ specific\ piece\ of\ geometry,\ including\ UV\ scaling\ and\ raw\ mesh\ indices.}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00092}00092\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00093}\mbox{\hyperlink{structgeomInfo}{00093}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgeomInfo}{geomInfo}}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00094}\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{00094}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}};\ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Toggle\ for\ physics\ engine\ interaction.\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00095}\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{00095}}\ \ \ \ \ Texture*\ \mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};\ \ \ \ \ \ \ \textcolor{comment}{/**<\ Pointer\ to\ the\ associated\ diffuse/albedo\ map.\ set\ to\ null\ for\ invisible\ geom*/}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00096}\mbox{\hyperlink{structgeomInfo_ab566e6f3debd1b3092ec83aa09e961b9}{00096}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgeomInfo_ab566e6f3debd1b3092ec83aa09e961b9}{uvScaleU}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Horizontal\ texture\ tiling\ factor.\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00097}\mbox{\hyperlink{structgeomInfo_a0670722f17ac3020238ee399bd93f32e}{00097}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgeomInfo_a0670722f17ac3020238ee399bd93f32e}{uvScaleV}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Vertical\ texture\ tiling\ factor.\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00098}\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{00098}}\ \ \ \ \ Model\ \mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Model\ override\ used\ for\ custom\ static\ trimeshes.\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00099}\mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{00099}}\ \ \ \ \ Color\ \mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{hew}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ white\ for\ normal,\ used\ to\ tint\ a\ geom\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00100}\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{00100}}\ \ \ \ \ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}*\ \mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}};\ \textcolor{comment}{/**<\ friction,\ restitution\ and\ so\ on\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00101}00101\ \ \ \ \ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00102}00102\ \textcolor{comment}{\ \ \ \ /**\ @name\ Trimesh\ Encapsulation}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00103}00103\ \textcolor{comment}{\ \ \ \ \ *\ Members\ used\ specifically\ for\ raw\ triangle\ mesh\ data.}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00104}00104\ \textcolor{comment}{\ \ \ \ \ *\ @\{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00105}\mbox{\hyperlink{structgeomInfo_abb6babda7d8a31c2ea76ed4654d9b55e}{00105}}\ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{structgeomInfo_abb6babda7d8a31c2ea76ed4654d9b55e}{indices}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Pointer\ to\ the\ array\ of\ vertex\ indices.\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00106}\mbox{\hyperlink{structgeomInfo_a0cdf37aab555ef5003f8d3be2b553fa8}{00106}}\ \ \ \ \ dTriMeshDataID\ \mbox{\hyperlink{structgeomInfo_a0cdf37aab555ef5003f8d3be2b553fa8}{triData}};\ \textcolor{comment}{/**<\ ODE/Physics-\/specific\ trimesh\ data\ identifier.\ */}\textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00107}00107\ \textcolor{comment}{\ \ \ \ /**\ @\}\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00108}00108\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00109}\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{00109}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490}{TriggerCallback}}\ \mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}};\ \ \textcolor{comment}{/**<\ If\ this\ is\ non-\/NULL,\ the\ geom\ acts\ as\ a\ ghost/trigger\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00110}\mbox{\hyperlink{structgeomInfo_a41da5e74536721516cb6d2f603654e94}{00110}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structgeomInfo_a41da5e74536721516cb6d2f603654e94}{data}};\ \textcolor{comment}{/**<\ user\ data\ pointer\ tag\ on\ extra\ meta\ data\ to\ a\ geom.\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00111}\mbox{\hyperlink{raylibODE_8h_a7db85dfed979eba9e4954e9af045e215}{00111}}\ \}\ \mbox{\hyperlink{structgeomInfo}{geomInfo}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00047}\mbox{\hyperlink{raylibODE_8h_afeff8fa28bbbf9c2ddbc85a38993d92e}{00047}}\ \textcolor{preprocessor}{\#define\ maxPsteps\ 6}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00049}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391b}{00049}}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391b}{SHAPE\_TYPE}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00050}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5}{00050}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5}{SHAPE\_BOX}}\ \ \ \ \ \ =\ 0x01,}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00051}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391bac7a9839306104e6733f1adc2bb66274b}{00051}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391bac7a9839306104e6733f1adc2bb66274b}{SHAPE\_SPHERE}}\ \ \ \ =\ 0x02,}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00052}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba62eea2af0cd8bf0530c0799ce72b93cf}{00052}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba62eea2af0cd8bf0530c0799ce72b93cf}{SHAPE\_CYLINDER}}\ \ \ \ =\ 0x04,}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00053}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391badccfd8c5874464bfd348e8cd8d7bd879}{00053}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391badccfd8c5874464bfd348e8cd8d7bd879}{SHAPE\_CAPSULE}}\ \ =\ 0x08,}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00054}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc}{00054}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391ba31cc776a8f4dc3f70df15d1417f75ccc}{SHAPE\_DUMBBELL}}\ \ \ \ =\ 0x10,}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00055}\mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{00055}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}}\ \ \ \ \ \ =\ 0x20\ -\/\ 1,}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00056}00056\ \};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00058}\mbox{\hyperlink{structentity}{00058}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structentity}{entity}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00059}\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{00059}}\ \ \ \ \ dBodyID\ \mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};\textcolor{comment}{/**<\ ODE\ physics\ body\ for\ this\ entity\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00060}\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{00060}}\ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ \mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}};\ \textcolor{comment}{/**<\ all\ entities\ are\ in\ a\ global\ list,\ this\ is\ its\ list\ node\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00061}\mbox{\hyperlink{structentity_a9a2f7fbcb9768c13b8ab45108dcdce44}{00061}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structentity_a9a2f7fbcb9768c13b8ab45108dcdce44}{data}};\ \textcolor{comment}{/**<\ user\ data\ pointer\ tag\ on\ extra\ meta\ data\ to\ a\ geom.\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00062}\mbox{\hyperlink{raylibODE_8h_a6ba18cca02784a1046f755105545d6cb}{00062}}\ \}\ \mbox{\hyperlink{structentity}{entity}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00064}00064\ \textcolor{comment}{//\ Physics\ context\ -\/\ holds\ all\ physics\ state}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00065}\mbox{\hyperlink{structPhysicsContext}{00065}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00066}\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{00066}}\ \ \ \ \ dWorldID\ \mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00067}\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{00067}}\ \ \ \ \ dSpaceID\ \mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00068}\mbox{\hyperlink{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}{00068}}\ \ \ \ \ dJointGroupID\ \mbox{\hyperlink{structPhysicsContext_a7127872c521cd13698a53ceba9113a0e}{contactgroup}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00069}\mbox{\hyperlink{structPhysicsContext_a9d9d8a36dbf5ada397c97512528ee62b}{00069}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structPhysicsContext_a9d9d8a36dbf5ada397c97512528ee62b}{frameTime}};\ \textcolor{comment}{//\ cumlative\ frame\ time}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00070}\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{00070}}\ \ \ \ \ \mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\_t}}*\ \mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00071}\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{00071}}\ \ \ \ \ \mbox{\hyperlink{clist_8h_ae641c9c28a8009771acb03aa32e12e80}{clist\_t}}*\ \mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}};\ \textcolor{comment}{//\ list\ of\ static\ ode\ geoms}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00072}\mbox{\hyperlink{structPhysicsContext_a700dab42e1cd527f86163f6359cac5c6}{00072}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structPhysicsContext_a700dab42e1cd527f86163f6359cac5c6}{data}};\ \textcolor{comment}{//\ user\ data\ pointer}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00073}\mbox{\hyperlink{raylibODE_8h_aef1bb5a28545a6ce8ceea26ca98c70b0}{00073}}\ \}\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00077}00077\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00078}00078\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00079}00079\ \textcolor{comment}{\ *\ @brief\ Function\ pointer\ type\ for\ physics\ trigger\ events}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00080}00080\ \textcolor{comment}{\ *\ *\ This\ callback\ is\ triggered\ when\ a\ geometry\ designated\ as\ a\ "{}ghost"{}\ or\ sensor\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00081}00081\ \textcolor{comment}{\ *\ overlaps\ with\ another\ geometry.\ When\ this\ callback\ is\ set\ in\ geomInfo,\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00082}00082\ \textcolor{comment}{\ *\ the\ physics\ engine\ will\ skip\ standard\ contact\ resolution,\ allowing\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00083}00083\ \textcolor{comment}{\ *\ objects\ to\ pass\ through\ while\ still\ notifying\ game\ logic.}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00084}00084\ \textcolor{comment}{\ *\ @param\ trigger\ \ The\ dGeomID\ of\ the\ geometry\ that\ has\ the\ callback\ assigned.}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00085}00085\ \textcolor{comment}{\ *\ @param\ intruder\ The\ dGeomID\ of\ the\ geometry\ that\ entered\ or\ is\ inside\ the\ trigger.}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00086}00086\ \textcolor{comment}{\ *\ @note\ If\ the\ triggering\ geom\ is\ attached\ to\ a\ body,\ the\ trigger\ will\ follow\ the\ body's\ transform.}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00087}00087\ \textcolor{comment}{\ *\ @note\ The\ physics\ context\ is\ passed\ with\ the\ callback,\ which\ has\ a\ user\ data\ pointer}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00088}00088\ \textcolor{comment}{\ *\ this\ can\ be\ used\ to\ avoid\ having\ to\ use\ global\ variables\ in\ the\ callback}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00089}00089\ \textcolor{comment}{\ *\ @see\ geomInfo}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00090}00090\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00091}\mbox{\hyperlink{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490}{00091}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490}{TriggerCallback}})(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ dGeomID\ trigger,\ dGeomID\ intruder);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00092}00092\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00093}00093\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00094}00094\ \textcolor{comment}{\ *\ @brief\ Stores\ geometry\ metadata\ for\ collision,\ texturing,\ and\ trimesh\ data.}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00095}00095\ \textcolor{comment}{\ *\ *\ This\ structure\ encapsulates\ everything\ needed\ to\ render\ and\ handle\ physics\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00096}00096\ \textcolor{comment}{\ *\ for\ a\ specific\ piece\ of\ geometry,\ including\ UV\ scaling\ and\ raw\ mesh\ indices.}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00097}00097\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00098}\mbox{\hyperlink{structgeomInfo}{00098}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgeomInfo}{geomInfo}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00099}\mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{00099}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structgeomInfo_ad2ac5594ef66f909538bc4af4252d387}{collidable}};\ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Toggle\ for\ physics\ engine\ interaction.\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00100}\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{00100}}\ \ \ \ \ Texture*\ \mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};\ \ \ \ \ \ \ \textcolor{comment}{/**<\ Pointer\ to\ the\ associated\ diffuse/albedo\ map.\ set\ to\ null\ for\ invisible\ geom*/}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00101}\mbox{\hyperlink{structgeomInfo_ab566e6f3debd1b3092ec83aa09e961b9}{00101}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgeomInfo_ab566e6f3debd1b3092ec83aa09e961b9}{uvScaleU}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Horizontal\ texture\ tiling\ factor.\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00102}\mbox{\hyperlink{structgeomInfo_a0670722f17ac3020238ee399bd93f32e}{00102}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structgeomInfo_a0670722f17ac3020238ee399bd93f32e}{uvScaleV}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Vertical\ texture\ tiling\ factor.\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00103}\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{00103}}\ \ \ \ \ Model\ \mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Model\ override\ used\ for\ custom\ static\ trimeshes.\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00104}\mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{00104}}\ \ \ \ \ Color\ \mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{hew}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ white\ for\ normal,\ used\ to\ tint\ a\ geom\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00105}\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{00105}}\ \ \ \ \ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}*\ \mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}};\ \textcolor{comment}{/**<\ friction,\ restitution\ and\ so\ on\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00106}00106\ \ \ \ \ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00107}00107\ \textcolor{comment}{\ \ \ \ /**\ @name\ Trimesh\ Encapsulation}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00108}00108\ \textcolor{comment}{\ \ \ \ \ *\ Members\ used\ specifically\ for\ raw\ triangle\ mesh\ data.}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00109}00109\ \textcolor{comment}{\ \ \ \ \ *\ @\{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00110}\mbox{\hyperlink{structgeomInfo_abb6babda7d8a31c2ea76ed4654d9b55e}{00110}}\ \ \ \ \ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{structgeomInfo_abb6babda7d8a31c2ea76ed4654d9b55e}{indices}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/**<\ Pointer\ to\ the\ array\ of\ vertex\ indices.\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00111}\mbox{\hyperlink{structgeomInfo_a0cdf37aab555ef5003f8d3be2b553fa8}{00111}}\ \ \ \ \ dTriMeshDataID\ \mbox{\hyperlink{structgeomInfo_a0cdf37aab555ef5003f8d3be2b553fa8}{triData}};\ \textcolor{comment}{/**<\ ODE/Physics-\/specific\ trimesh\ data\ identifier.\ */}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00112}00112\ \textcolor{comment}{\ \ \ \ /**\ @\}\ */}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00113}00113\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00114}\mbox{\hyperlink{structRotorPID}{00114}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRotorPID}{RotorPID}}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00115}\mbox{\hyperlink{structRotorPID_ada89e789ba855cf729f920fc1c1bb929}{00115}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_acfaa26f8f2115c47a4db93781231e406}{Kp}},\ \mbox{\hyperlink{structRotorPID_a2d5ed52841172c4d8b866a298d664414}{Ki}},\ \mbox{\hyperlink{structRotorPID_ada89e789ba855cf729f920fc1c1bb929}{Kd}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00116}\mbox{\hyperlink{structRotorPID_ab110cb5e184bcd5145e6ed3b89e2cf82}{00116}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_ab110cb5e184bcd5145e6ed3b89e2cf82}{antiWindup}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00117}\mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{00117}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_af2941ac4e0f3caf388abbf8c6a3fdba8}{lo}},\ \mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{hi}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00118}\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{00118}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00119}\mbox{\hyperlink{structRotorPID_acb043fd74456df5ff732c47777e734a8}{00119}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_acb043fd74456df5ff732c47777e734a8}{integral}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00120}\mbox{\hyperlink{structRotorPID_afdb6e3aebf5da57db2d769fc8a74a05b}{00120}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_afdb6e3aebf5da57db2d769fc8a74a05b}{lastError}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00121}\mbox{\hyperlink{raylibODE_8h_ad292e4e6fd1ef03a883a0b515382cf48}{00121}}\ \}\ \mbox{\hyperlink{structRotorPID}{RotorPID}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00122}00122\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00123}00123\ \textcolor{comment}{//\ Struct\ to\ track\ the\ results\ of\ our\ raycast}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00124}\mbox{\hyperlink{structRayHit}{00124}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRayHit}{RayHit}}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00125}\mbox{\hyperlink{structRayHit_a86f485fd67387a8c18d90b717d891015}{00125}}\ \ \ \ \ dGeomID\ \mbox{\hyperlink{structRayHit_a86f485fd67387a8c18d90b717d891015}{geom}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00126}\mbox{\hyperlink{structRayHit_adbc494bc1bad81d80a620b42d71f29b4}{00126}}\ \ \ \ \ dReal\ \mbox{\hyperlink{structRayHit_adbc494bc1bad81d80a620b42d71f29b4}{depth}};\ \textcolor{comment}{//\ Distance\ from\ ray\ origin}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00127}\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{00127}}\ \ \ \ \ Vector3\ \mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}};\ \textcolor{comment}{//\ Hit\ position\ in\ world\ space}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00128}\mbox{\hyperlink{raylibODE_8h_a4697631c336e0354cd1eb1bc2743d5ba}{00128}}\ \}\ \mbox{\hyperlink{structRayHit}{RayHit}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00129}00129\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00130}00130\ \textcolor{comment}{//\ Graphics\ context\ -\/\ holds\ all\ rendering\ resources}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00131}\mbox{\hyperlink{structGraphicsContext}{00131}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00132}\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{00132}}\ \ \ \ \ Model\ \mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00133}\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{00133}}\ \ \ \ \ Model\ \mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00134}\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{00134}}\ \ \ \ \ Model\ \mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00135}00135\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00136}00136\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00137}00137\ \ \ \ \ \textcolor{comment}{//\ TODO\ capsules\ really\ need\ their\ own\ textures\ not\ cylinder\ texutres}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00138}00138\ \ \ \ \ \textcolor{comment}{//\ Texture\ arrays\ for\ different\ geometry\ types}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00139}\mbox{\hyperlink{structGraphicsContext_a0f22083c4b2ff44151d92d717137a8c4}{00139}}\ \ \ \ \ Texture\ \mbox{\hyperlink{structGraphicsContext_a0f22083c4b2ff44151d92d717137a8c4}{sphereTextures}}[3];\ \ \ \ \ \ \textcolor{comment}{//\ ball.png,\ beach-\/ball.png,\ earth.png}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00140}\mbox{\hyperlink{structGraphicsContext_acef5b7178754c6babfd8e4745f7b3612}{00140}}\ \ \ \ \ Texture\ \mbox{\hyperlink{structGraphicsContext_acef5b7178754c6babfd8e4745f7b3612}{boxTextures}}[2];\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ crate.png,\ grid.png}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00141}\mbox{\hyperlink{structGraphicsContext_a5e593f3ae02930886863f6b381db3a71}{00141}}\ \ \ \ \ Texture\ \mbox{\hyperlink{structGraphicsContext_a5e593f3ae02930886863f6b381db3a71}{cylinderTextures}}[2];\ \ \ \ \textcolor{comment}{//\ drum.png,\ cylinder2.png}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00142}\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{00142}}\ \ \ \ \ Texture\ \mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ grass.png}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00143}00143\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00144}\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{00144}}\ \ \ \ \ Camera\ \mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00145}\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{00145}}\ \ \ \ \ Shader\ \mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00146}\mbox{\hyperlink{structGraphicsContext_a61bca66f0addd3b1ebf71f1369b55e00}{00146}}\ \ \ \ \ \mbox{\hyperlink{structLight}{Light}}\ \mbox{\hyperlink{structGraphicsContext_a61bca66f0addd3b1ebf71f1369b55e00}{lights}}[\mbox{\hyperlink{rlights_8h_a737b417f16ea225cf15e8d4c23df53dc}{MAX\_LIGHTS}}];}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00147}\mbox{\hyperlink{raylibODE_8h_a92862474db45e097a7381460ac67f859}{00147}}\ \}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00148}00148\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00149}00149\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00150}00150\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00151}\mbox{\hyperlink{structMultiPiston}{00151}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structMultiPiston}{MultiPiston}}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00152}\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{00152}}\ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}**\ \mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00153}\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{00153}}\ \ \ \ \ dJointID*\ \mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00154}\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{00154}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00155}\mbox{\hyperlink{structMultiPiston_ad3e235df247bc80c0c47bc0b45a195ce}{00155}}\ \ \ \ \ Vector3\ \mbox{\hyperlink{structMultiPiston_ad3e235df247bc80c0c47bc0b45a195ce}{direction}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00156}\mbox{\hyperlink{raylibODE_8h_a2570bb818f3867a7373604ee19b4f8b4}{00156}}\ \}\ \mbox{\hyperlink{structMultiPiston}{MultiPiston}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00157}00157\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00158}00158\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_a9a4fddcfd406e6bfb1987111e4ad64f1}{CreateBaseEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00159}00159\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00160}00160\ \textcolor{comment}{//\ Helper\ to\ allocate\ geomInfo\ with\ collision\ flag,\ optional\ texture,\ and\ UV\ scale}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00161}00161\ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ \mbox{\hyperlink{raylibODE_8h_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keywordtype}{bool}\ collidable,\ Texture*\ texture,\ \textcolor{keywordtype}{float}\ uvScaleU,\ \textcolor{keywordtype}{float}\ uvScaleV);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00162}00162\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00163}00163\ \textcolor{comment}{//\ create\ a\ geom\ only\ but\ with\ geomInfo\ attched}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00164}00164\ dGeomID\ \mbox{\hyperlink{raylibODE_8h_a0201472030d3c51d3b13c7f807b59b01}{CreateSphereGeom}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ Vector3\ pos);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00114}\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{00114}}\ \ \ \ \ \mbox{\hyperlink{raylibODE_8h_aa5c459ebe4c67891450ca45a48d09490}{TriggerCallback}}\ \mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}};\ \ \textcolor{comment}{/**<\ If\ this\ is\ non-\/NULL,\ the\ geom\ acts\ as\ a\ ghost/trigger\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00115}\mbox{\hyperlink{structgeomInfo_a41da5e74536721516cb6d2f603654e94}{00115}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structgeomInfo_a41da5e74536721516cb6d2f603654e94}{data}};\ \textcolor{comment}{/**<\ user\ data\ pointer\ tag\ on\ extra\ meta\ data\ to\ a\ geom.\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00116}\mbox{\hyperlink{raylibODE_8h_a7db85dfed979eba9e4954e9af045e215}{00116}}\ \}\ \mbox{\hyperlink{structgeomInfo}{geomInfo}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00119}\mbox{\hyperlink{structRotorPID}{00119}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRotorPID}{RotorPID}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00120}\mbox{\hyperlink{structRotorPID_ada89e789ba855cf729f920fc1c1bb929}{00120}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_acfaa26f8f2115c47a4db93781231e406}{Kp}},\ \mbox{\hyperlink{structRotorPID_a2d5ed52841172c4d8b866a298d664414}{Ki}},\ \mbox{\hyperlink{structRotorPID_ada89e789ba855cf729f920fc1c1bb929}{Kd}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00121}\mbox{\hyperlink{structRotorPID_ab110cb5e184bcd5145e6ed3b89e2cf82}{00121}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_ab110cb5e184bcd5145e6ed3b89e2cf82}{antiWindup}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00122}\mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{00122}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_af2941ac4e0f3caf388abbf8c6a3fdba8}{lo}},\ \mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{hi}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00123}\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{00123}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00124}\mbox{\hyperlink{structRotorPID_acb043fd74456df5ff732c47777e734a8}{00124}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_acb043fd74456df5ff732c47777e734a8}{integral}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00125}\mbox{\hyperlink{structRotorPID_afdb6e3aebf5da57db2d769fc8a74a05b}{00125}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRotorPID_afdb6e3aebf5da57db2d769fc8a74a05b}{lastError}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00126}\mbox{\hyperlink{raylibODE_8h_ad292e4e6fd1ef03a883a0b515382cf48}{00126}}\ \}\ \mbox{\hyperlink{structRotorPID}{RotorPID}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00128}00128\ \textcolor{comment}{//\ Struct\ to\ track\ the\ results\ of\ our\ raycast}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00129}\mbox{\hyperlink{structRayHit}{00129}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRayHit}{RayHit}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00130}\mbox{\hyperlink{structRayHit_a86f485fd67387a8c18d90b717d891015}{00130}}\ \ \ \ \ dGeomID\ \mbox{\hyperlink{structRayHit_a86f485fd67387a8c18d90b717d891015}{geom}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00131}\mbox{\hyperlink{structRayHit_adbc494bc1bad81d80a620b42d71f29b4}{00131}}\ \ \ \ \ dReal\ \mbox{\hyperlink{structRayHit_adbc494bc1bad81d80a620b42d71f29b4}{depth}};\ \textcolor{comment}{//\ Distance\ from\ ray\ origin}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00132}\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{00132}}\ \ \ \ \ Vector3\ \mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}};\ \textcolor{comment}{//\ Hit\ position\ in\ world\ space}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00133}\mbox{\hyperlink{raylibODE_8h_a4697631c336e0354cd1eb1bc2743d5ba}{00133}}\ \}\ \mbox{\hyperlink{structRayHit}{RayHit}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00135}\mbox{\hyperlink{structRayCast}{00135}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRayCast}{RayCast}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00136}\mbox{\hyperlink{structRayCast_a1c3db63edf08a000f6c66b7c92550628}{00136}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structRayCast_a1c3db63edf08a000f6c66b7c92550628}{maxHits}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00137}\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{00137}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00138}\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{00138}}\ \ \ \ \ Vector3\ \mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00139}\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{00139}}\ \ \ \ \ Vector3\ \mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00140}\mbox{\hyperlink{structRayCast_abc0fa92554941dedbef1a17241c86543}{00140}}\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structRayCast_abc0fa92554941dedbef1a17241c86543}{length}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00141}\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{00141}}\ \ \ \ \ \mbox{\hyperlink{structRayHit}{RayHit}}\ \mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[];\ \ \textcolor{comment}{//\ must\ be\ the\ last\ member\ of\ the\ struct\ !!}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00142}\mbox{\hyperlink{raylibODE_8h_ae62366fb752ff404e16a22487fa85bbe}{00142}}\ \}\ \mbox{\hyperlink{structRayCast}{RayCast}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00145}00145\ \textcolor{comment}{//\ Graphics\ context\ -\/\ holds\ all\ rendering\ resources}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00146}\mbox{\hyperlink{structGraphicsContext}{00146}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00147}\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{00147}}\ \ \ \ \ Model\ \mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00148}\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{00148}}\ \ \ \ \ Model\ \mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00149}\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{00149}}\ \ \ \ \ Model\ \mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00150}00150\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00151}00151\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00152}00152\ \ \ \ \ \textcolor{comment}{//\ TODO\ capsules\ really\ need\ their\ own\ textures\ not\ cylinder\ texutres}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00153}00153\ \ \ \ \ \textcolor{comment}{//\ Texture\ arrays\ for\ different\ geometry\ types}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00154}\mbox{\hyperlink{structGraphicsContext_a0f22083c4b2ff44151d92d717137a8c4}{00154}}\ \ \ \ \ Texture\ \mbox{\hyperlink{structGraphicsContext_a0f22083c4b2ff44151d92d717137a8c4}{sphereTextures}}[3];\ \ \ \ \ \ \textcolor{comment}{//\ ball.png,\ beach-\/ball.png,\ earth.png}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00155}\mbox{\hyperlink{structGraphicsContext_acef5b7178754c6babfd8e4745f7b3612}{00155}}\ \ \ \ \ Texture\ \mbox{\hyperlink{structGraphicsContext_acef5b7178754c6babfd8e4745f7b3612}{boxTextures}}[2];\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ crate.png,\ grid.png}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00156}\mbox{\hyperlink{structGraphicsContext_a5e593f3ae02930886863f6b381db3a71}{00156}}\ \ \ \ \ Texture\ \mbox{\hyperlink{structGraphicsContext_a5e593f3ae02930886863f6b381db3a71}{cylinderTextures}}[2];\ \ \ \ \textcolor{comment}{//\ drum.png,\ cylinder2.png}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00157}\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{00157}}\ \ \ \ \ Texture\ \mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}};\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ grass.png}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00158}00158\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00159}\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{00159}}\ \ \ \ \ Camera\ \mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00160}\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{00160}}\ \ \ \ \ Shader\ \mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00161}\mbox{\hyperlink{structGraphicsContext_a61bca66f0addd3b1ebf71f1369b55e00}{00161}}\ \ \ \ \ \mbox{\hyperlink{structLight}{Light}}\ \mbox{\hyperlink{structGraphicsContext_a61bca66f0addd3b1ebf71f1369b55e00}{lights}}[\mbox{\hyperlink{rlights_8h_a737b417f16ea225cf15e8d4c23df53dc}{MAX\_LIGHTS}}];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00162}\mbox{\hyperlink{raylibODE_8h_a92862474db45e097a7381460ac67f859}{00162}}\ \}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00164}00164\ }
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00165}00165\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00166}00166\ \textcolor{comment}{//\ helper\ to\ create\ a\ static\ collision\ geom\ from\ a\ model}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00167}00167\ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ \mbox{\hyperlink{raylibODE_8h_ae8b06665a78b486c57e6795da4b3e265}{CreateStaticTrimesh}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Model\ model,\ Texture*\ tex,\ \textcolor{keywordtype}{float}\ uvScale);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00168}00168\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00169}00169\ \textcolor{comment}{//\ add\ a\ physics\ visual\ to\ the\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00170}00170\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Vector3\ size,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00171}00171\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00172}00172\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_a6985c096003040ae46ed46b117f01d69}{CreateCylinder}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ length,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00173}00173\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_adec02d5fa7b8838d8f98956b68e2246c}{CreateCapsule}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ length,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00174}00174\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_a04c854eee30cf8430f2d978c4259459b}{CreateDumbbell}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ shaftRad,\ \textcolor{keywordtype}{float}\ shaftLen,\ \textcolor{keywordtype}{float}\ endRad,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00166}\mbox{\hyperlink{structMultiPiston}{00166}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structMultiPiston}{MultiPiston}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00167}\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{00167}}\ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}**\ \mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00168}\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{00168}}\ \ \ \ \ dJointID*\ \mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00169}\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{00169}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00170}\mbox{\hyperlink{structMultiPiston_ad3e235df247bc80c0c47bc0b45a195ce}{00170}}\ \ \ \ \ Vector3\ \mbox{\hyperlink{structMultiPiston_ad3e235df247bc80c0c47bc0b45a195ce}{direction}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00171}\mbox{\hyperlink{raylibODE_8h_a2570bb818f3867a7373604ee19b4f8b4}{00171}}\ \}\ \mbox{\hyperlink{structMultiPiston}{MultiPiston}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00173}\mbox{\hyperlink{raylibODE_8h_ab457cfa8f57435d5385ae9ae2babb18b}{00173}}\ \textcolor{preprocessor}{\#define\ VEH\_PART\_COUNT\ 7\ }\textcolor{comment}{//\ Chassis\ +\ 4\ wheels\ +\ front\ marker\ sway}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00174}\mbox{\hyperlink{raylibODE_8h_a2cc43825b9f0c5d1dfbb6dd03eeb35b6}{00174}}\ \textcolor{preprocessor}{\#define\ WHEEL\_COUNT\ 5}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00175}00175\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00176}00176\ \textcolor{comment}{//\ add\ a\ random\ simple\ physics\ object\ to\ the\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00177}00177\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Vector3\ pos,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ mask);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00178}00178\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00179}00179\ \textcolor{comment}{//\ return\ a\ reference\ to\ an\ entity\ the\ mouse\ is\ pointing\ to...}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00180}00180\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_a6038bcb143e6ca12696aa65bf164f488}{PickEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Vector3*\ hitPoint);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00181}00181\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00182}00182\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a227dded5dce29a7e3b71e9589e2b4c22}{SetEntityHew}}(\mbox{\hyperlink{structentity}{entity}}*\ ent,\ Color\ c);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00183}00183\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00184}00184\ dJointID\ \mbox{\hyperlink{raylibODE_8h_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ from,\ \mbox{\hyperlink{structentity}{entity}}*\ to,\ Vector3\ axis);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00185}00185\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00186}00186\ \textcolor{comment}{//\ free\ a\ body,\ freeing\ its\ geoms\ first}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00187}00187\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(dBodyID\ bdy);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00188}00188\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00189}00189\ \textcolor{comment}{//void\ drawAllSpaceGeoms(dSpaceID\ space,\ struct\ GraphicsContext*\ ctx);}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00190}\mbox{\hyperlink{raylibODE_8h_a5a3f56ed394d3d2c1400e25d83fc05af}{00190}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a5a3f56ed394d3d2c1400e25d83fc05af}{DrawGeom}}(dGeomID\ geom,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00176}\mbox{\hyperlink{structvehicle}{00176}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvehicle}{vehicle}}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00177}\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{00177}}\ \ \ \ \ dBodyID\ \mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[\mbox{\hyperlink{raylibODE_8h_ab457cfa8f57435d5385ae9ae2babb18b}{VEH\_PART\_COUNT}}];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00178}\mbox{\hyperlink{structvehicle_a058cc60e3227703b2d840ce60600a29a}{00178}}\ \ \ \ \ dGeomID\ \mbox{\hyperlink{structvehicle_a058cc60e3227703b2d840ce60600a29a}{geoms}}[\mbox{\hyperlink{raylibODE_8h_ab457cfa8f57435d5385ae9ae2babb18b}{VEH\_PART\_COUNT}}];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00179}\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{00179}}\ \ \ \ \ dJointID\ \mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[\mbox{\hyperlink{raylibODE_8h_a2cc43825b9f0c5d1dfbb6dd03eeb35b6}{WHEEL\_COUNT}}];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00180}\mbox{\hyperlink{structvehicle_a734bcc32ada0399492de70cbb42e5c90}{00180}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvehicle_a734bcc32ada0399492de70cbb42e5c90}{bodyCount}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00181}\mbox{\hyperlink{raylibODE_8h_a48a9ef4b71413cbc1d2cac1c56b541d1}{00181}}\ \}\ \mbox{\hyperlink{structvehicle}{vehicle}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00183}00183\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00185}00185\ \textcolor{comment}{//\ Initialize\ graphics\ resources\ and\ window}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00186}00186\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ \mbox{\hyperlink{raylibODE_8h_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ title);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00188}00188\ \textcolor{comment}{//\ Initialize\ the\ physics\ world\ and\ create\ all\ objects}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00189}00189\ \textcolor{comment}{//\ Returns\ pointer\ to\ PhysicsContext}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00190}00190\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ \mbox{\hyperlink{raylibODE_8h_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00191}00191\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00192}00192\ \textcolor{comment}{//\ draw\ all\ the\ bodies\ in\ the\ object\ list}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00193}00193\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00194}00194\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00195}00195\ \textcolor{comment}{//\ draw\ geoms\ attached\ to\ a\ body}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00196}\mbox{\hyperlink{raylibODE_8h_a01fc58efa7854e13c41c4b40bc5c8b62}{00196}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a01fc58efa7854e13c41c4b40bc5c8b62}{DrawBodyGeoms}}(dBodyID\ bdy,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00197}00197\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00198}00198\ \textcolor{comment}{//\ draw\ static\ geoms}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00199}00199\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00200}00200\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00201}00201\ \textcolor{comment}{//\ Random\ float\ in\ range\ [min,\ max]}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00202}00202\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{raylibODE_8h_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(\textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00203}00203\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00204}00204\ \textcolor{comment}{//\ step\ the\ physics\ world\ enough\ times\ to\ keep\ up\ with\ realtime}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00205}00205\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{raylibODE_8h_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00206}00206\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00207}00207\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ ent);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00208}00208\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00209}00209\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(dJointID\ joint,\ \textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00210}00210\ dJointID\ \mbox{\hyperlink{raylibODE_8h_aa35dd966752d4afeffcb8f39e474594c}{CreatePiston}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ entA,\ \mbox{\hyperlink{structentity}{entity}}*\ entB,\ \textcolor{keywordtype}{float}\ strength);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00211}00211\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00212}00212\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_ac18f122edccf31f40c3ce18ea1be58cd}{RayToOdeMat}}(Matrix*\ mat,\ dReal*\ R);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00213}00213\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_ae64d38b48236f4a10077e64b19b953b3}{OdeToRayMat}}(\textcolor{keyword}{const}\ dReal*\ R,\ Matrix*\ matrix);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00192}00192\ \textcolor{comment}{//\ clean\ up\ physics}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00193}00193\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00194}00194\ \textcolor{comment}{//\ Clean\ up\ application\ resources}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00195}00195\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(\mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00197}00197\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_a9a4fddcfd406e6bfb1987111e4ad64f1}{CreateBaseEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00199}00199\ \textcolor{comment}{//\ Helper\ to\ allocate\ geomInfo\ with\ collision\ flag,\ optional\ texture,\ and\ UV\ scale}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00200}00200\ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ \mbox{\hyperlink{raylibODE_8h_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keywordtype}{bool}\ collidable,\ Texture*\ texture,\ \textcolor{keywordtype}{float}\ uvScaleU,\ \textcolor{keywordtype}{float}\ uvScaleV);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00201}00201\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00202}00202\ \textcolor{comment}{//\ create\ a\ geom\ only\ but\ with\ geomInfo\ attched}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00203}00203\ dGeomID\ \mbox{\hyperlink{raylibODE_8h_a0201472030d3c51d3b13c7f807b59b01}{CreateSphereGeom}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ Vector3\ pos);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00205}00205\ \textcolor{comment}{//\ helper\ to\ create\ a\ static\ collision\ geom\ from\ a\ model}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00206}00206\ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ \mbox{\hyperlink{raylibODE_8h_ae8b06665a78b486c57e6795da4b3e265}{CreateStaticTrimesh}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Model\ model,\ Texture*\ tex,\ \textcolor{keywordtype}{float}\ uvScale);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00208}00208\ \textcolor{comment}{//\ add\ a\ physics\ visual\ to\ the\ world}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00209}00209\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Vector3\ size,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00210}00210\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_ad03521efcc05b3315d24f47d0eed52a6}{CreateSphere}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00211}00211\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_a6985c096003040ae46ed46b117f01d69}{CreateCylinder}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ length,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00212}00212\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_adec02d5fa7b8838d8f98956b68e2246c}{CreateCapsule}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ length,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00213}00213\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_a04c854eee30cf8430f2d978c4259459b}{CreateDumbbell}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ shaftRad,\ \textcolor{keywordtype}{float}\ shaftLen,\ \textcolor{keywordtype}{float}\ endRad,\ Vector3\ pos,\ Vector3\ rot,\ \textcolor{keywordtype}{float}\ mass);}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00214}00214\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00215}00215\ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ \mbox{\hyperlink{raylibODE_8h_a8d2339918b2d47fcaea5c861ccfbc3d8}{CreateMultiPiston}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics,\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ pos,\ Vector3\ direction,\ \textcolor{keywordtype}{int}\ count,\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sectionLen,\ \textcolor{keywordtype}{float}\ baseWidth,\ \textcolor{keywordtype}{float}\ strength);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00218}00218\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp,\ \textcolor{keywordtype}{float}\ velocity);\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00219}00219\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00220}00220\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(dBodyID\ body,\ Vector3\ direction);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00221}00221\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00222}00222\ dJointID\ \mbox{\hyperlink{raylibODE_8h_a57b8ac137f7e79fc8deb53b7ba410166}{PinEntityToWorld}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ ent);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00223}00223\ dJointID\ \mbox{\hyperlink{raylibODE_8h_a4fdbdf714b807f26feab3176718e274c}{PinEntities}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ entA,\ \mbox{\hyperlink{structentity}{entity}}*\ entB);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00215}00215\ \textcolor{comment}{//\ add\ a\ random\ simple\ physics\ object\ to\ the\ world}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00216}00216\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Vector3\ pos,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ mask);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00217}00217\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00218}00218\ \textcolor{comment}{//\ return\ a\ reference\ to\ an\ entity\ the\ mouse\ is\ pointing\ to...}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00219}00219\ \mbox{\hyperlink{structentity}{entity}}*\ \mbox{\hyperlink{raylibODE_8h_a6038bcb143e6ca12696aa65bf164f488}{PickEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Vector3*\ hitPoint);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00221}00221\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a227dded5dce29a7e3b71e9589e2b4c22}{SetEntityHew}}(\mbox{\hyperlink{structentity}{entity}}*\ ent,\ Color\ c);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00223}00223\ dJointID\ \mbox{\hyperlink{raylibODE_8h_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ from,\ \mbox{\hyperlink{structentity}{entity}}*\ to,\ Vector3\ axis);}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00224}00224\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00225}00225\ dGeomID\ \mbox{\hyperlink{raylibODE_8h_a8928fb910d045f15136fd02999b7ffa6}{CreateCylinderGeom}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ length,\ Vector3\ pos);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00226}00226\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00227}00227\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a3ae92d4efc27587000b0f3ca889d19e7}{SetBodyOrientationEuler}}(dBodyID\ bdy,\ \textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00228}00228\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00229}00229\ dGeomID\ \mbox{\hyperlink{raylibODE_8h_a37e31d3074a98d5f5a40096dc9b342f7}{CreateBoxGeom}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Vector3\ size,\ Vector3\ pos);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00225}00225\ \textcolor{comment}{//\ free\ a\ body,\ freeing\ its\ geoms\ first}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00226}00226\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(dBodyID\ bdy);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00228}00228\ \textcolor{comment}{//void\ drawAllSpaceGeoms(dSpaceID\ space,\ struct\ GraphicsContext*\ ctx);}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00229}00229\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a5a3f56ed394d3d2c1400e25d83fc05af}{DrawGeom}}(dGeomID\ geom,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx);}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00230}00230\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00231}00231\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a5b5b0b12adc7119a13eaacef8d097499}{SetGeomOrientationEuler}}(dGeomID\ g,\ \textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00232}00232\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00233}00233\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a710981c5db9781e25b27318e8d56dfbb}{FreeMultiPiston}}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00231}00231\ \textcolor{comment}{//\ draw\ all\ the\ bodies\ in\ the\ object\ list}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00232}00232\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00233}00233\ }
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00234}00234\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00235}00235\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aa8656255a05c3f38ce0b13825642acdf}{SetEntitySurfaces}}(\mbox{\hyperlink{structentity}{entity}}*\ ent,\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}*\ mat);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00236}00236\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00237}00237\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a3c235bbe76330e3669fb881394ab8767}{UpdateRotorPID}}(\mbox{\hyperlink{structRotorPID}{RotorPID}}*\ pid,\ dJointID\ joint);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00238}00238\ \mbox{\hyperlink{structRotorPID}{RotorPID}}\ \mbox{\hyperlink{raylibODE_8h_a51c7fa5bc9007621b52ed19bceadc142}{CreateRotorPID}}(\textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ i,\ \textcolor{keywordtype}{float}\ d,\ \textcolor{keywordtype}{float}\ lo,\ \textcolor{keywordtype}{float}\ hi);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00239}00239\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00235}00235\ \textcolor{comment}{//\ draw\ static\ geoms}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00236}00236\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00238}00238\ \textcolor{comment}{//\ Random\ float\ in\ range\ [min,\ max]}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00239}00239\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{raylibODE_8h_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(\textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00240}00240\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00241}00241\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RAYLIBODE\_H}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00241}00241\ \textcolor{comment}{//\ step\ the\ physics\ world\ enough\ times\ to\ keep\ up\ with\ realtime}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00242}00242\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{raylibODE_8h_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx);}
 \DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00244}00244\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ ent);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00246}00246\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(dJointID\ joint,\ \textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00247}00247\ dJointID\ \mbox{\hyperlink{raylibODE_8h_aa35dd966752d4afeffcb8f39e474594c}{CreatePiston}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ entA,\ \mbox{\hyperlink{structentity}{entity}}*\ entB,\ \textcolor{keywordtype}{float}\ strength);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00249}00249\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_ac18f122edccf31f40c3ce18ea1be58cd}{RayToOdeMat}}(Matrix*\ mat,\ dReal*\ R);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00250}00250\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_ae64d38b48236f4a10077e64b19b953b3}{OdeToRayMat}}(\textcolor{keyword}{const}\ dReal*\ R,\ Matrix*\ matrix);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00252}00252\ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ \mbox{\hyperlink{raylibODE_8h_a8d2339918b2d47fcaea5c861ccfbc3d8}{CreateMultiPiston}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics,\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ pos,\ Vector3\ direction,\ \textcolor{keywordtype}{int}\ count,\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sectionLen,\ \textcolor{keywordtype}{float}\ baseWidth,\ \textcolor{keywordtype}{float}\ strength);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00255}00255\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp,\ \textcolor{keywordtype}{float}\ velocity);\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00257}00257\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(dBodyID\ body,\ Vector3\ direction);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00258}00258\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00259}00259\ dJointID\ \mbox{\hyperlink{raylibODE_8h_a57b8ac137f7e79fc8deb53b7ba410166}{PinEntityToWorld}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ ent);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00260}00260\ dJointID\ \mbox{\hyperlink{raylibODE_8h_a4fdbdf714b807f26feab3176718e274c}{PinEntities}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ entA,\ \mbox{\hyperlink{structentity}{entity}}*\ entB);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00262}00262\ dGeomID\ \mbox{\hyperlink{raylibODE_8h_a8928fb910d045f15136fd02999b7ffa6}{CreateCylinderGeom}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ length,\ Vector3\ pos);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00264}00264\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a3ae92d4efc27587000b0f3ca889d19e7}{SetBodyOrientationEuler}}(dBodyID\ bdy,\ \textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00266}00266\ dGeomID\ \mbox{\hyperlink{raylibODE_8h_a37e31d3074a98d5f5a40096dc9b342f7}{CreateBoxGeom}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ ctx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ gfxCtx,\ Vector3\ size,\ Vector3\ pos);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00268}00268\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a5b5b0b12adc7119a13eaacef8d097499}{SetGeomOrientationEuler}}(dGeomID\ g,\ \textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00270}00270\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a710981c5db9781e25b27318e8d56dfbb}{FreeMultiPiston}}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00272}00272\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_aa8656255a05c3f38ce0b13825642acdf}{SetEntitySurfaces}}(\mbox{\hyperlink{structentity}{entity}}*\ ent,\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}*\ mat);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00274}00274\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a3c235bbe76330e3669fb881394ab8767}{UpdateRotorPID}}(\mbox{\hyperlink{structRotorPID}{RotorPID}}*\ pid,\ dJointID\ joint);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00275}00275\ \mbox{\hyperlink{structRotorPID}{RotorPID}}\ \mbox{\hyperlink{raylibODE_8h_a51c7fa5bc9007621b52ed19bceadc142}{CreateRotorPID}}(\textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ i,\ \textcolor{keywordtype}{float}\ d,\ \textcolor{keywordtype}{float}\ lo,\ \textcolor{keywordtype}{float}\ hi);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00277}00277\ \mbox{\hyperlink{structRayCast}{RayCast}}*\ \mbox{\hyperlink{raylibODE_8h_aae31409e8c5cfe1cf9148f2c18207e61}{CreateRayCast}}(\textcolor{keywordtype}{int}\ maxHits,\ Vector3\ pos,\ Vector3\ direction,\ dReal\ length);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00278}00278\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8h_a2b934e0acb1163c93b0f2613ce850a2c}{CastRay}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structRayCast}{RayCast}}*\ rc);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00280}00280\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RAYLIBODE\_H}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8h_source_l00282}00282\ }
 
 \end{DoxyCode}

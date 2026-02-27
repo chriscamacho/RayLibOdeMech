@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="structvehicle" kind="struct" language="C++" prot="public">
     <compoundname>vehicle</compoundname>
-    <includes refid="vehicle_8h" local="no">vehicle.h</includes>
+    <includes refid="raylibODE_8h" local="no">raylibODE.h</includes>
     <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" prot="public" static="no" mutable="no">
         <type>dBodyID</type>
@@ -16,11 +16,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vehicle.h" line="10" column="13" bodyfile="vehicle.h" bodystart="10" bodyend="-1"/>
+        <location file="raylibODE.h" line="177" column="13" bodyfile="raylibODE.h" bodystart="177" bodyend="-1"/>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="233" endline="249">FreeVehicle</referencedby>
         <referencedby refid="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" compoundref="vehicle_8c" startline="258" endline="284">UnflipVehicle</referencedby>
-        <referencedby refid="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" compoundref="exampleCamera_8c" startline="104" endline="158">UpdateVehicleCamera</referencedby>
+        <referencedby refid="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" compoundref="exampleCamera_8c" startline="105" endline="159">UpdateVehicleCamera</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structvehicle_1a058cc60e3227703b2d840ce60600a29a" prot="public" static="no" mutable="no">
         <type>dGeomID</type>
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vehicle.h" line="11" column="13" bodyfile="vehicle.h" bodystart="11" bodyend="-1"/>
+        <location file="raylibODE.h" line="178" column="13" bodyfile="raylibODE.h" bodystart="178" bodyend="-1"/>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structvehicle_1a0317690c9ddade2a37344024197942e2" prot="public" static="no" mutable="no">
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vehicle.h" line="12" column="14" bodyfile="vehicle.h" bodystart="12" bodyend="-1"/>
+        <location file="raylibODE.h" line="179" column="14" bodyfile="raylibODE.h" bodystart="179" bodyend="-1"/>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
         <referencedby refid="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" compoundref="vehicle_8c" startline="190" endline="225">UpdateVehicle</referencedby>
       </memberdef>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="vehicle.h" line="13" column="9" bodyfile="vehicle.h" bodystart="13" bodyend="-1"/>
+        <location file="raylibODE.h" line="180" column="9" bodyfile="raylibODE.h" bodystart="180" bodyend="-1"/>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="233" endline="249">FreeVehicle</referencedby>
       </memberdef>
@@ -74,7 +74,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="vehicle.h" line="9" column="1" bodyfile="vehicle.h" bodystart="9" bodyend="14"/>
+    <location file="raylibODE.h" line="176" column="1" bodyfile="raylibODE.h" bodystart="176" bodyend="181"/>
     <listofallmembers>
       <member refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" prot="public" virt="non-virtual"><scope>vehicle</scope><name>bodies</name></member>
       <member refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" prot="public" virt="non-virtual"><scope>vehicle</scope><name>bodyCount</name></member>

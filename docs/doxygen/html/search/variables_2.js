@@ -5,7 +5,7 @@ var searchData=
   ['color_2',['color',['../structLight.html#ad7a168d26aed1bf7cca1a8d8e6f8ada4',1,'Light']]],
   ['colorloc_3',['colorLoc',['../structLight.html#a98df12cebc437d739f22dd809b66878c',1,'Light']]],
   ['contactgroup_4',['contactgroup',['../structPhysicsContext.html#a7127872c521cd13698a53ceba9113a0e',1,'PhysicsContext']]],
-  ['count_5',['count',['../structMultiPiston.html#a96962d42f96ba90adb333956b1c3ddd4',1,'MultiPiston']]],
+  ['count_5',['count',['../structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5',1,'RayCast::count'],['../structMultiPiston.html#a96962d42f96ba90adb333956b1c3ddd4',1,'MultiPiston::count']]],
   ['cylinder_6',['cylinder',['../structGraphicsContext.html#a06643972947afcd3a8cef634cce65ed8',1,'GraphicsContext']]],
   ['cylindertextures_7',['cylinderTextures',['../structGraphicsContext.html#a5e593f3ae02930886863f6b381db3a71',1,'GraphicsContext']]]
 ];

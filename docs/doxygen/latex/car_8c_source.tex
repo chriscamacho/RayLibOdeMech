@@ -25,150 +25,149 @@
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raylibODE_8h}{raylibODE.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00025}00025\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00027}00027\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00028}\mbox{\hyperlink{car_8c_a76da26d519b3a4158847daa8783a7a5b}{00028}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00029}\mbox{\hyperlink{car_8c_a8c472bd07ea66dbb884992785271e1d1}{00029}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00027}\mbox{\hyperlink{car_8c_a76da26d519b3a4158847daa8783a7a5b}{00027}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00028}\mbox{\hyperlink{car_8c_a8c472bd07ea66dbb884992785271e1d1}{00028}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00029}00029\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00030}00030\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00031}00031\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00032}00032\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00033}00033\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00034}\mbox{\hyperlink{car_8c_a840291bc02cba5474a4cb46a9b9566fe}{00034}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00035}00035\ \{}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00037}00037\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Physics\ context,\ holds\ all\ physics\ state}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00043}00043\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00045}00045\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ the\ graphical\ mesh\ for\ the\ ground\ must\ be\ unloaded\ by\ the\ user}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00048}00048\ \ \ \ \ Model\ ground\ =\ LoadModel(\textcolor{stringliteral}{"{}data/ground2.obj"{}});}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00049}00049\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ framework\ looks\ after\ the\ physics\ stuff\ and\ rendering}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae8b06665a78b486c57e6795da4b3e265}{CreateStaticTrimesh}}(physCtx,\ graphics,\ ground,\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 2.5f);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00033}\mbox{\hyperlink{car_8c_a840291bc02cba5474a4cb46a9b9566fe}{00033}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00035}00035\ \ \ \ \ \textcolor{comment}{//\ Initialization}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ Physics\ context,\ holds\ all\ physics\ state}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00039}00039\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00040}00040\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE"{}});}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ the\ graphical\ mesh\ for\ the\ ground\ must\ be\ unloaded\ by\ the\ user}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00047}00047\ \ \ \ \ Model\ ground\ =\ LoadModel(\textcolor{stringliteral}{"{}data/ground2.obj"{}});}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00048}00048\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ framework\ looks\ after\ the\ physics\ stuff\ and\ rendering}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae8b06665a78b486c57e6795da4b3e265}{CreateStaticTrimesh}}(physCtx,\ graphics,\ ground,\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 2.5f);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00051}00051\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00052}00052\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00054}00054\ \ \ \ \ \textcolor{comment}{//\ vehicle*\ CreateVehicle(PhysicsContext*\ pctx,\ struct\ GraphicsContext*\ ctx,\ Vector3\ pos,\ Vector3\ carScale,\ float\ wheelRadius,\ float\ wheelWidth);}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car\ =\ \mbox{\hyperlink{vehicle_8c_af0740a75defe24708df5577107ed9ba7}{CreateVehicle}}(physCtx,\ graphics,\ (Vector3)\{15,\ 6,\ 15\},(Vector3)\{3.5,\ 0.5,\ 2.4\},\ .8,\ .6);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ vehicle*\ CreateVehicle(PhysicsContext*\ pctx,\ struct\ GraphicsContext*\ ctx,\ Vector3\ pos,\ Vector3\ carScale,\ float\ wheelRadius,\ float\ wheelWidth);}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car\ =\ \mbox{\hyperlink{vehicle_8c_af0740a75defe24708df5577107ed9ba7}{CreateVehicle}}(physCtx,\ graphics,\ (Vector3)\{15,\ 6,\ 15\},(Vector3)\{3.5,\ 0.5,\ 2.4\},\ .8,\ .6);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00055}00055\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00056}00056\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00057}00057\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00058}00058\ \ \ \ \ \textcolor{comment}{//\ Create\ random\ simple\ objects\ with\ random\ textures}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{raylibODE_8h_a5c3a0114b1e58dd42011cae154c7827e}{NUM\_OBJ}};\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}});}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00057}00057\ \ \ \ \ \textcolor{comment}{//\ Create\ random\ simple\ objects\ with\ random\ textures}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{raylibODE_8h_a5c3a0114b1e58dd42011cae154c7827e}{NUM\_OBJ}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}});}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00061}00061\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00062}00062\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00063}00063\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00065}00065\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//\ Main\ game\ loop}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detect\ window\ close\ button\ or\ ESC\ key}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00072}00072\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}{UpdateVehicleCamera}}(graphics,\ car);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ \ \textcolor{comment}{//\ cache\ space\ key\ status\ (don't\ look\ up\ for\ each\ object\ iterration\ \ \ \ }}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00082}00082\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ next\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};\ \textcolor{comment}{//\ get\ the\ next\ node\ now\ in\ case\ we\ delete\ this\ one}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spcdn)\ \{}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ force\ if\ the\ space\ key\ is\ held}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ v\ =\ dBodyGetLinearVel(bdy);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[1]\ <\ 10\ \&\&\ pos[1]<10)\ \{\ \textcolor{comment}{//\ cap\ upwards\ velocity\ and\ don't\ let\ it\ get\ too\ high}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable\ (bdy);\ \textcolor{comment}{//\ case\ its\ gone\ to\ sleep}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dMass\ mass;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyGetMass\ (bdy,\ \&mass);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ give\ some\ object\ more\ force\ than\ others}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ f\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(80,200)\ *\ mass.mass;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyAddForce(bdy,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f),\ f*10,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f));}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00100}00100\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos[1]<-\/10)\ \{}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ would\ be\ more\ efficient\ to\ just\ reuse\ the\ object\ and}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reposition\ it\ with\ zeroed\ velocities}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ this\ is\ used\ to\ aid\ testing}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}});}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ accel\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_DOWN))\ accel\ =\ -\/100.0f;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_UP))\ accel\ =\ 100.0f;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ steer\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_LEFT))\ steer\ =\ -\/0.4f;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_RIGHT))\ steer\ =\ 0.4f;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00119}00119\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{UpdateVehicle}}(car,\ accel,\ steer);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00121}00121\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ the\ physics}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00124}00124\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//\ Main\ game\ loop}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Detect\ window\ close\ button\ or\ ESC\ key}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00071}00071\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_afa1b8031e4fc015dfe8093339c904e50}{UpdateVehicleCamera}}(graphics,\ car);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ spcdn\ =\ IsKeyDown(KEY\_SPACE);\ \ \textcolor{comment}{//\ cache\ space\ key\ status\ (don't\ look\ up\ for\ each\ object\ iterration\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ ent\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ next\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};\ \textcolor{comment}{//\ get\ the\ next\ node\ now\ in\ case\ we\ delete\ this\ one}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(bdy);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (spcdn)\ \{}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ apply\ force\ if\ the\ space\ key\ is\ held}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ v\ =\ dBodyGetLinearVel(bdy);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v[1]\ <\ 10\ \&\&\ pos[1]<10)\ \{\ \textcolor{comment}{//\ cap\ upwards\ velocity\ and\ don't\ let\ it\ get\ too\ high}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyEnable\ (bdy);\ \textcolor{comment}{//\ case\ its\ gone\ to\ sleep}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dMass\ mass;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyGetMass\ (bdy,\ \&mass);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ give\ some\ object\ more\ force\ than\ others}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ f\ =\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(80,200)\ *\ mass.mass;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dBodyAddForce(bdy,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f),\ f*10,\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/f,f));}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(pos[1]<-\/10)\ \{}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ would\ be\ more\ efficient\ to\ just\ reuse\ the\ object\ and}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ reposition\ it\ with\ zeroed\ velocities}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ but\ this\ is\ used\ to\ aid\ testing}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(physCtx,\ ent);\ \textcolor{comment}{//\ warning\ deletes\ global\ entity\ list\ entry,\ get\ your\ next\ node\ before\ doing\ this!}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ae7890e5cf20ab8875b9d08bf80d9d018}{CreateRandomEntity}}(physCtx,\ graphics,\ (Vector3)\{\mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(6,\ 12),\ \mbox{\hyperlink{raylibODE_8c_a4a4933f37c736fd2d311be9eaf9b7fa8}{rndf}}(-\/3,\ 3)\},\ \mbox{\hyperlink{raylibODE_8h_a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf}{SHAPE\_ALL}});}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ accel\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_DOWN))\ accel\ =\ -\/100.0f;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_UP))\ accel\ =\ 100.0f;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ steer\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_LEFT))\ steer\ =\ -\/0.4f;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_RIGHT))\ steer\ =\ 0.4f;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{vehicle_8c_a9c16065d67848dde985d9a21631eb01c}{UpdateVehicle}}(car,\ accel,\ steer);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00120}00120\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ the\ physics}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00127}00127\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00128}00128\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00129}00129\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00132}00132\ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ BeginDrawing();}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00134}00134\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00136}00136\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00131}00131\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00136}00136\ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00140}00140\ }
 \DoxyCodeLine{\Hypertarget{car_8c_source_l00141}00141\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00142}00142\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSteps\ >\ \mbox{\hyperlink{raylibODE_8h_afeff8fa28bbbf9c2ddbc85a38993d92e}{maxPsteps}})\ DrawText(\textcolor{stringliteral}{"{}WARNING\ CPU\ overloaded\ lagging\ real\ time"{}},\ 10,\ 0,\ 20,\ RED);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}\%2i\ FPS"{}},\ GetFPS()),\ 10,\ 20,\ 20,\ WHITE);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}Press\ SPACE\ to\ apply\ force\ to\ objects"{}},\ 10,\ 60,\ 20,\ WHITE);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00146}00146\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ steps\ per\ frame\ \%i"{}},pSteps),\ 10,\ 120,\ 20,\ WHITE);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ time\ per\ frame\ \%f"{}},physTime),\ 10,\ 140,\ 20,\ WHITE);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00149}00149\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}total\ time\ per\ frame\ \%f"{}},GetFrameTime()),\ 10,\ 160,\ 20,\ WHITE);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00150}00150\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00151}00151\ \ \ \ \ \ \ \ \ EndDrawing();}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00152}00152\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00153}00153\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00154}00154\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00155}00155\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00156}00156\ \ \ \ \ \textcolor{comment}{//\ De-\/Initialization}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00158}00158\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00159}00159\ \ \ \ \ \mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(physCtx,\ car);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00160}00160\ \ \ \ \ UnloadModel(ground);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00161}00161\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00162}00162\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00163}00163\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00164}00164\ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00165}00165\ \ \ \ \ CloseWindow();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Close\ window\ and\ OpenGL\ context}}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00166}00166\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{car_8c_source_l00168}00168\ \}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pSteps\ >\ \mbox{\hyperlink{raylibODE_8h_afeff8fa28bbbf9c2ddbc85a38993d92e}{maxPsteps}})\ DrawText(\textcolor{stringliteral}{"{}WARNING\ CPU\ overloaded\ lagging\ real\ time"{}},\ 10,\ 0,\ 20,\ RED);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}\%2i\ FPS"{}},\ GetFPS()),\ 10,\ 20,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}Press\ SPACE\ to\ apply\ force\ to\ objects"{}},\ 10,\ 60,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ steps\ per\ frame\ \%i"{}},pSteps),\ 10,\ 120,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ time\ per\ frame\ \%f"{}},physTime),\ 10,\ 140,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}total\ time\ per\ frame\ \%f"{}},GetFrameTime()),\ 10,\ 160,\ 20,\ WHITE);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00152}00152\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00154}00154\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00155}00155\ \ \ \ \ \textcolor{comment}{//\ De-\/Initialization}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00156}00156\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00157}00157\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{vehicle_8c_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(physCtx,\ car);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00159}00159\ \ \ \ \ UnloadModel(ground);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00161}00161\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00162}00162\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00164}00164\ \ \ \ \ CloseWindow();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Close\ window\ and\ OpenGL\ context}}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00165}00165\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{car_8c_source_l00167}00167\ \}}
 
 \end{DoxyCode}

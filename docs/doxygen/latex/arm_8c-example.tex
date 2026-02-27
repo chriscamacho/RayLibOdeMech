@@ -28,9 +28,7 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{\textcolor{comment}{\ */}}
 \DoxyCodeLine{\ }
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raylibODE_8h}{raylibODE.h}}"{}}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
@@ -179,8 +177,8 @@ control a robot arm with IO, KL, ,. keys and G to release grabber
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ only\ camera!)}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ camera)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_a577102dfa73642e5465f7d33ba01465e}{UpdateCameraControl}}(graphics);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyDown(KEY\_G))\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gData.\mbox{\hyperlink{structgrabberData_ae203f18a3030f78c0da2d0d0aa5dce2d}{attachment}})\ \{}

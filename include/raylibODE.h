@@ -132,6 +132,16 @@ typedef struct RayHit {
     Vector3 pos; // Hit position in world space
 } RayHit;
 
+typedef struct RayCast {
+	int maxHits;
+	int count;
+	Vector3 position;
+	Vector3 direction;
+	float length;
+	RayHit hits[];  // must be the last member of the struct !!
+} RayCast;
+
+
 // Graphics context - holds all rendering resources
 typedef struct GraphicsContext {
     Model box;
@@ -264,6 +274,8 @@ void SetEntitySurfaces(entity* ent, SurfaceMaterial* mat);
 void UpdateRotorPID(RotorPID* pid, dJointID joint);
 RotorPID CreateRotorPID(float p, float i, float d, float lo, float hi);
 
+RayCast* CreateRayCast(int maxHits, Vector3 pos, Vector3 direction, dReal length);
+void CastRay(PhysicsContext* physCtx, RayCast* rc);
 
 #endif // RAYLIBODE_H
 

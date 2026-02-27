@@ -167,6 +167,14 @@
  * @par
  * many shapes being created and destroyed, show using a sphere
  * as a trigger area
+ * 
+ * @example gravity.c
+ * @par
+ * Gravity manipulation, interesting aside shows emergent planetary ring formation
+ * 
+ * @example marbles.c
+ * @par
+ * Marble run, uses multi pistons to create marble lifts
  *  
  * @example piston.c
  * @par
@@ -182,10 +190,18 @@
  * @par
  * press space to move them around (random upwards and sideways
  * force applied to head)
+ * 
+ * @example raycasting.c
+ * more advanced raycasting that PickEntity, start from any point
+ * any direction, returns multiple hits
  *  
  * @example rotor.c
  * @par
  * shows the rotor convenience function
+ * 
+ * @example surfaces.c
+ * @par
+ * shows how different surface types react with each other
  *  
  * @example template.c
  * @par
@@ -748,7 +764,8 @@ geomInfo* CreateGeomInfo(bool collidable, Texture* texture, float uvScaleU, floa
 
 
 // Callback for ODE to test ray against other geoms
-static void rayCallback(void* data, dGeomID o1, dGeomID o2) {
+static void rayCallback(void* data, dGeomID o1, dGeomID o2) 
+{
     RayHit* hit = (RayHit*)data;
     dContact contact;
 
@@ -807,6 +824,61 @@ entity* PickEntity(PhysicsContext* physCtx, GraphicsContext* gfxCtx, Vector3* hi
     }
 
     return NULL;
+}
+
+/** @brief find the entities that collide with a ray
+ * 
+ * @param maxHits Maximum number of hits that can be registered by the ray cast
+ * @param pos Start position of the ray
+ * @param direction vector pointing along the ray
+ * @param length how long the ray should be
+ * 
+ * @note A RayCast is not released by the framework and must be manually
+ * released there is no special function for this just free it.
+ */
+RayCast* CreateRayCast(int maxHits, Vector3 pos, Vector3 direction, dReal length)
+{
+	struct RayCast* rc = malloc(sizeof(RayCast) + (maxHits * sizeof(RayHit)));
+	rc->maxHits = maxHits;
+	rc->position = pos;
+	rc->direction = direction;
+	rc->length = length;
+	
+	return rc;
+}
+
+// this callback gets hit multiple times per dSpaceCollide2 ...
+static void rayCastCallback(void* data, dGeomID o1, dGeomID o2)
+{
+	RayCast* rc = (RayCast*)data;
+	if (rc->count == rc->maxHits) return;
+	
+    dContact contact[rc->maxHits - rc->count];
+	int c  = dCollide(o1, o2, rc->maxHits - rc->count, &contact[0].geom, sizeof(dContact));
+    if (c > 0) {
+		for (int i = rc->count; i < rc->count + c; i++) {
+            rc->hits[i].depth = contact[i - rc->count].geom.depth;
+            rc->hits[i].geom = o2;
+            rc->hits[i].pos = (Vector3){contact[i - rc->count].geom.pos[0], contact[i - rc->count].geom.pos[1], contact[i - rc->count].geom.pos[2]};
+        }
+		rc->count += c;
+
+    }
+
+}
+
+/** cast a ray into the world building an array of results
+ * @param physCtx physics context
+ * @param rc raycast holding ray properties and results
+ */
+void CastRay(PhysicsContext* physCtx, RayCast* rc)
+{
+	dGeomID odeRay = dCreateRay(physCtx->space, rc->length);
+    dGeomRaySet(odeRay, rc->position.x, rc->position.y, rc->position.z,
+                        rc->direction.x, rc->direction.y, rc->direction.z);
+    rc->count = 0;
+    dSpaceCollide2(odeRay, (dGeomID)physCtx->space, rc, &rayCastCallback);
+    dGeomDestroy(odeRay);
 }
 
 /** @brief given a body it will remove it and its geoms from ODE's world

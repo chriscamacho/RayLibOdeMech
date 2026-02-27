@@ -6,20 +6,11 @@
 \DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00003}00003\ }
 \DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raylibODE_8h}{raylibODE.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00006}\mbox{\hyperlink{vehicle_8h_ab457cfa8f57435d5385ae9ae2babb18b}{00006}}\ \textcolor{preprocessor}{\#define\ VEH\_PART\_COUNT\ 7\ }\textcolor{comment}{//\ Chassis\ +\ 4\ wheels\ +\ front\ marker\ sway}}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00007}\mbox{\hyperlink{vehicle_8h_a2cc43825b9f0c5d1dfbb6dd03eeb35b6}{00007}}\ \textcolor{preprocessor}{\#define\ WHEEL\_COUNT\ 5}}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00008}00008\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00009}\mbox{\hyperlink{structvehicle}{00009}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structvehicle}{vehicle}}\ \{}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00010}\mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{00010}}\ \ \ \ \ dBodyID\ \mbox{\hyperlink{structvehicle_a26952b98198ea34cf69e135ff78a3ba6}{bodies}}[\mbox{\hyperlink{vehicle_8h_ab457cfa8f57435d5385ae9ae2babb18b}{VEH\_PART\_COUNT}}];}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00011}\mbox{\hyperlink{structvehicle_a058cc60e3227703b2d840ce60600a29a}{00011}}\ \ \ \ \ dGeomID\ \mbox{\hyperlink{structvehicle_a058cc60e3227703b2d840ce60600a29a}{geoms}}[\mbox{\hyperlink{vehicle_8h_ab457cfa8f57435d5385ae9ae2babb18b}{VEH\_PART\_COUNT}}];}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00012}\mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{00012}}\ \ \ \ \ dJointID\ \mbox{\hyperlink{structvehicle_a0317690c9ddade2a37344024197942e2}{joints}}[\mbox{\hyperlink{vehicle_8h_a2cc43825b9f0c5d1dfbb6dd03eeb35b6}{WHEEL\_COUNT}}];}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00013}\mbox{\hyperlink{structvehicle_a734bcc32ada0399492de70cbb42e5c90}{00013}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structvehicle_a734bcc32ada0399492de70cbb42e5c90}{bodyCount}};}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00014}\mbox{\hyperlink{vehicle_8h_a48a9ef4b71413cbc1d2cac1c56b541d1}{00014}}\ \}\ \mbox{\hyperlink{structvehicle}{vehicle}};}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00016}00016\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ \mbox{\hyperlink{vehicle_8h_af0740a75defe24708df5577107ed9ba7}{CreateVehicle}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ Vector3\ pos,\ Vector3\ carScale,\ \textcolor{keywordtype}{float}\ wheelRadius,\ \textcolor{keywordtype}{float}\ wheelWidth);}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00017}00017\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8h_a9c16065d67848dde985d9a21631eb01c}{UpdateVehicle}}(\mbox{\hyperlink{structvehicle}{vehicle}}*\ car,\ \textcolor{keywordtype}{float}\ accel,\ \textcolor{keywordtype}{float}\ steer);}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00018}00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8h_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car);}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00019}00019\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8h_a0419ed48c974e9d5efab4263b4cee46f}{UnflipVehicle}}\ (\mbox{\hyperlink{structvehicle}{vehicle}}\ *car);}
-\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00020}00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00007}00007\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ \mbox{\hyperlink{vehicle_8h_af0740a75defe24708df5577107ed9ba7}{CreateVehicle}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ Vector3\ pos,\ Vector3\ carScale,\ \textcolor{keywordtype}{float}\ wheelRadius,\ \textcolor{keywordtype}{float}\ wheelWidth);}
+\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00008}00008\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8h_a9c16065d67848dde985d9a21631eb01c}{UpdateVehicle}}(\mbox{\hyperlink{structvehicle}{vehicle}}*\ car,\ \textcolor{keywordtype}{float}\ accel,\ \textcolor{keywordtype}{float}\ steer);}
+\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00009}00009\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8h_ab0b188b6b47157b4f3c4aae241a933c8}{FreeVehicle}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx,\ \mbox{\hyperlink{structvehicle}{vehicle}}*\ car);}
+\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00010}00010\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{vehicle_8h_a0419ed48c974e9d5efab4263b4cee46f}{UnflipVehicle}}\ (\mbox{\hyperlink{structvehicle}{vehicle}}\ *car);}
+\DoxyCodeLine{\Hypertarget{vehicle_8h_source_l00011}00011\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -16,20 +16,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="64" column="14" bodyfile="raylibODE.h" bodystart="64" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="284" endline="291">CreateBaseEntity</referencedby>
+        <location file="raylibODE.h" line="66" column="14" bodyfile="raylibODE.h" bodystart="66" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="303" endline="310">CreateBaseEntity</referencedby>
         <referencedby refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</referencedby>
-        <referencedby refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1126" endline="1160">CreatePiston</referencedby>
+        <referencedby refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1201" endline="1235">CreatePiston</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" compoundref="raylibODE_8c" startline="981" endline="1001">CreateRotor</referencedby>
+        <referencedby refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" compoundref="raylibODE_8c" startline="1056" endline="1076">CreateRotor</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
-        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
-        <referencedby refid="raylibODE_8c_1a4fdbdf714b807f26feab3176718e274c" compoundref="raylibODE_8c" startline="1329" endline="1335">PinEntities</referencedby>
-        <referencedby refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" compoundref="raylibODE_8c" startline="1311" endline="1317">PinEntityToWorld</referencedby>
-        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</referencedby>
-        <referencedby refid="arm_8c_1ab295c09645dc1cb3f5e2495e25e2c2b9" compoundref="arm_8c" startline="44" endline="63">triggerCallback</referencedby>
+        <referencedby refid="raylibODE_8c_1a4fdbdf714b807f26feab3176718e274c" compoundref="raylibODE_8c" startline="1404" endline="1410">PinEntities</referencedby>
+        <referencedby refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" compoundref="raylibODE_8c" startline="1386" endline="1392">PinEntityToWorld</referencedby>
+        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="260" endline="283">StepPhysics</referencedby>
+        <referencedby refid="arm_8c_1ab295c09645dc1cb3f5e2495e25e2c2b9" compoundref="arm_8c" startline="42" endline="61">triggerCallback</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" prot="public" static="no" mutable="no">
         <type>dSpaceID</type>
@@ -43,23 +43,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="65" column="14" bodyfile="raylibODE.h" bodystart="65" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="398" endline="418">CreateBox</referencedby>
-        <referencedby refid="raylibODE_8c_1a37e31d3074a98d5f5a40096dc9b342f7" compoundref="raylibODE_8c" startline="364" endline="374">CreateBoxGeom</referencedby>
-        <referencedby refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="529" endline="548">CreateCapsule</referencedby>
-        <referencedby refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="485" endline="506">CreateCylinder</referencedby>
-        <referencedby refid="raylibODE_8c_1a8928fb910d045f15136fd02999b7ffa6" compoundref="raylibODE_8c" startline="337" endline="348">CreateCylinderGeom</referencedby>
-        <referencedby refid="raylibODE_8c_1a04c854eee30cf8430f2d978c4259459b" compoundref="raylibODE_8c" startline="575" endline="610">CreateDumbbell</referencedby>
+        <location file="raylibODE.h" line="67" column="14" bodyfile="raylibODE.h" bodystart="67" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a2b934e0acb1163c93b0f2613ce850a2c" compoundref="raylibODE_8c" startline="874" endline="882">CastRay</referencedby>
+        <referencedby refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="417" endline="437">CreateBox</referencedby>
+        <referencedby refid="raylibODE_8c_1a37e31d3074a98d5f5a40096dc9b342f7" compoundref="raylibODE_8c" startline="383" endline="393">CreateBoxGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1adec02d5fa7b8838d8f98956b68e2246c" compoundref="raylibODE_8c" startline="548" endline="567">CreateCapsule</referencedby>
+        <referencedby refid="raylibODE_8c_1a6985c096003040ae46ed46b117f01d69" compoundref="raylibODE_8c" startline="504" endline="525">CreateCylinder</referencedby>
+        <referencedby refid="raylibODE_8c_1a8928fb910d045f15136fd02999b7ffa6" compoundref="raylibODE_8c" startline="356" endline="367">CreateCylinderGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1a04c854eee30cf8430f2d978c4259459b" compoundref="raylibODE_8c" startline="594" endline="629">CreateDumbbell</referencedby>
         <referencedby refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="441" endline="461">CreateSphere</referencedby>
-        <referencedby refid="raylibODE_8c_1a0201472030d3c51d3b13c7f807b59b01" compoundref="raylibODE_8c" startline="310" endline="320">CreateSphereGeom</referencedby>
-        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="695" endline="720">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="460" endline="480">CreateSphere</referencedby>
+        <referencedby refid="raylibODE_8c_1a0201472030d3c51d3b13c7f807b59b01" compoundref="raylibODE_8c" startline="329" endline="339">CreateSphereGeom</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="714" endline="739">CreateStaticTrimesh</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
-        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
-        <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="774" endline="807">PickEntity</referencedby>
-        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</referencedby>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
+        <referencedby refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" compoundref="raylibODE_8c" startline="794" endline="827">PickEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="260" endline="283">StepPhysics</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" prot="public" static="no" mutable="no">
         <type>dJointGroupID</type>
@@ -73,11 +74,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="66" column="19" bodyfile="raylibODE.h" bodystart="66" bodyend="-1"/>
+        <location file="raylibODE.h" line="68" column="19" bodyfile="raylibODE.h" bodystart="68" bodyend="-1"/>
         <referencedby refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
         <referencedby refid="collision_8c_1ad6680ae487b581622710e22bdfdb3146" compoundref="collision_8c" startline="43" endline="107">nearCallback</referencedby>
-        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</referencedby>
+        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="260" endline="283">StepPhysics</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structPhysicsContext_1a9d9d8a36dbf5ada397c97512528ee62b" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -91,8 +92,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="67" column="11" bodyfile="raylibODE.h" bodystart="67" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</referencedby>
+        <location file="raylibODE.h" line="69" column="11" bodyfile="raylibODE.h" bodystart="69" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="260" endline="283">StepPhysics</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" prot="public" static="no" mutable="no">
         <type><ref refid="clist_8h_1ae641c9c28a8009771acb03aa32e12e80" kindref="member">clist_t</ref> *</type>
@@ -106,17 +107,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="68" column="9" bodyfile="raylibODE.h" bodystart="68" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="284" endline="291">CreateBaseEntity</referencedby>
+        <location file="raylibODE.h" line="70" column="9" bodyfile="raylibODE.h" bodystart="70" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" compoundref="raylibODE_8c" startline="303" endline="310">CreateBaseEntity</referencedby>
         <referencedby refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</referencedby>
         <referencedby refid="ragdoll_8c_1a280e6f0bf4084257707b2e69342bfa61" compoundref="ragdoll_8c" startline="117" endline="395">CreateRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1af0740a75defe24708df5577107ed9ba7" compoundref="vehicle_8c" startline="56" endline="175">CreateVehicle</referencedby>
-        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1050" endline="1061">DrawBodies</referencedby>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1107" endline="1112">FreeEntity</referencedby>
+        <referencedby refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1125" endline="1136">DrawBodies</referencedby>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1182" endline="1187">FreeEntity</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="233" endline="249">FreeVehicle</referencedby>
-        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
         <referencedby refid="gravity_8c_1a335d70770f61bc5f2de93dac31fbfa52" compoundref="gravity_8c" startline="167" endline="229">updateGravity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" prot="public" static="no" mutable="no">
@@ -131,14 +132,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="69" column="9" bodyfile="raylibODE.h" bodystart="69" bodyend="-1"/>
+        <location file="raylibODE.h" line="71" column="9" bodyfile="raylibODE.h" bodystart="71" bodyend="-1"/>
         <referencedby refid="marbles_8c_1aff4f938c7169a18032e8016ba3a2ede6" compoundref="marbles_8c" startline="378" endline="513">CreateLift</referencedby>
         <referencedby refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</referencedby>
-        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="695" endline="720">CreateStaticTrimesh</referencedby>
-        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1086" endline="1095">DrawStatics</referencedby>
+        <referencedby refid="raylibODE_8c_1ae8b06665a78b486c57e6795da4b3e265" compoundref="raylibODE_8c" startline="714" endline="739">CreateStaticTrimesh</referencedby>
+        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1161" endline="1170">DrawStatics</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
         <referencedby refid="marbles_8c_1abac6925a410fdbe4f0bc5bdf2d8f5ff6" compoundref="marbles_8c" startline="249" endline="374">LoadLevel</referencedby>
-        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structPhysicsContext_1a700dab42e1cd527f86163f6359cac5c6" prot="public" static="no" mutable="no">
         <type>void *</type>
@@ -152,10 +153,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="70" column="6" bodyfile="raylibODE.h" bodystart="70" bodyend="-1"/>
-        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="66" endline="296">main</referencedby>
-        <referencedby refid="fountain_8c_1a0c279e80849ff972e19e0aa15b17925b" compoundref="fountain_8c" startline="34" endline="43">triggerCallback</referencedby>
-        <referencedby refid="arm_8c_1ab295c09645dc1cb3f5e2495e25e2c2b9" compoundref="arm_8c" startline="44" endline="63">triggerCallback</referencedby>
+        <location file="raylibODE.h" line="72" column="6" bodyfile="raylibODE.h" bodystart="72" bodyend="-1"/>
+        <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
+        <referencedby refid="fountain_8c_1a0c279e80849ff972e19e0aa15b17925b" compoundref="fountain_8c" startline="33" endline="42">triggerCallback</referencedby>
+        <referencedby refid="arm_8c_1ab295c09645dc1cb3f5e2495e25e2c2b9" compoundref="arm_8c" startline="42" endline="61">triggerCallback</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -188,7 +189,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="raylibODE.h" line="63" column="1" bodyfile="raylibODE.h" bodystart="63" bodyend="71"/>
+    <location file="raylibODE.h" line="65" column="1" bodyfile="raylibODE.h" bodystart="65" bodyend="73"/>
     <listofallmembers>
       <member refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" prot="public" virt="non-virtual"><scope>PhysicsContext</scope><name>contactgroup</name></member>
       <member refid="structPhysicsContext_1a700dab42e1cd527f86163f6359cac5c6" prot="public" virt="non-virtual"><scope>PhysicsContext</scope><name>data</name></member>

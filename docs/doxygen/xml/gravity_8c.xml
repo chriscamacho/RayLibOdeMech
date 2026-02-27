@@ -2,9 +2,9 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.14.0" xml:lang="en-US">
   <compounddef id="gravity_8c" kind="file" language="C++">
     <compoundname>gravity.c</compoundname>
+    <includes local="no">stdlib.h</includes>
     <includes local="no">math.h</includes>
-    <includes refid="init_8h" local="yes">init.h</includes>
-    <includes refid="exampleCamera_8h" local="yes">exampleCamera.h</includes>
+    <includes refid="raylibODE_8h" local="yes">raylibODE.h</includes>
     <incdepgraph>
       <node id="1">
         <label>/home/chris/development/RayLibOdeMech/examples/gravity.c</label>
@@ -13,7 +13,7 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -26,35 +26,25 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>init.h</label>
-        <link refid="init_8h"/>
-        <childnode refid="4" relation="include">
-        </childnode>
+      <node id="4">
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="6">
-        <label>raylibODE.h</label>
-        <link refid="raylibODE_8h"/>
-        <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
-      <node id="8">
+      <node id="7">
         <label>rlights.h</label>
         <link refid="rlights_8h"/>
       </node>
@@ -65,20 +55,23 @@
       <node id="12">
         <label>vehicle.h</label>
         <link refid="vehicle_8h"/>
-        <childnode refid="6" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="2">
+      <node id="3">
         <label>math.h</label>
       </node>
-      <node id="5">
+      <node id="8">
         <label>ode/ode.h</label>
       </node>
-      <node id="4">
+      <node id="5">
         <label>raylib.h</label>
       </node>
-      <node id="7">
+      <node id="6">
         <label>raymath.h</label>
+      </node>
+      <node id="2">
+        <label>stdlib.h</label>
       </node>
     </incdepgraph>
     <sectiondef kind="define">
@@ -203,7 +196,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/chris/development/RayLibOdeMech/examples/gravity.c" line="90" column="5" bodyfile="/home/chris/development/RayLibOdeMech/examples/gravity.c" bodystart="90" bodyend="-1"/>
-        <referencedby refid="derby_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="derby_8c" startline="58" endline="278">main</referencedby>
+        <referencedby refid="derby_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="derby_8c" startline="56" endline="276">main</referencedby>
         <referencedby refid="gravity_8c_1a335d70770f61bc5f2de93dac31fbfa52" compoundref="gravity_8c" startline="167" endline="229">updateGravity</referencedby>
       </memberdef>
     </sectiondef>
@@ -228,7 +221,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/chris/development/RayLibOdeMech/examples/gravity.c" line="41" column="9" bodyfile="/home/chris/development/RayLibOdeMech/examples/gravity.c" bodystart="41" bodyend="54"/>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="219" endline="222">rndf</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="238" endline="241">rndf</references>
         <referencedby refid="gravity_8c_1ab6639462e293ab35eda53aea3c029a23" compoundref="gravity_8c" startline="56" endline="88">CreateOrbiter</referencedby>
       </memberdef>
       <memberdef kind="function" id="gravity_8c_1ab6639462e293ab35eda53aea3c029a23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -251,13 +244,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/chris/development/RayLibOdeMech/examples/gravity.c" line="56" column="8" bodyfile="/home/chris/development/RayLibOdeMech/examples/gravity.c" bodystart="56" bodyend="88"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
-        <references refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="441" endline="461">CreateSphere</references>
-        <references refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" compoundref="raylibODE_8h" startline="59">entity::data</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
+        <references refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="460" endline="480">CreateSphere</references>
+        <references refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" compoundref="raylibODE_8h" startline="61">entity::data</references>
         <references refid="gravity_8c_1a060fbd74071544413b43fd6aca32f2c7" compoundref="gravity_8c" startline="41" endline="54">GetSpawnOnSphereBorder</references>
         <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
-        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="219" endline="222">rndf</references>
-        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
+        <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="238" endline="241">rndf</references>
+        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="105">geomInfo::surface</references>
         <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" compoundref="surface_8h" startline="44">SURFACE_RUBBER</references>
         <references refid="gravity_8c_1ad85d56ddac2d76c54730ac9927952064" compoundref="gravity_8c" startline="39">trailSize</references>
         <referencedby refid="gravity_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="gravity_8c" startline="93" endline="165">main</referencedby>
@@ -283,16 +276,16 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/chris/development/RayLibOdeMech/examples/gravity.c" line="167" column="6" bodyfile="/home/chris/development/RayLibOdeMech/examples/gravity.c" bodystart="167" bodyend="229" declfile="/home/chris/development/RayLibOdeMech/examples/gravity.c" declline="91" declcolumn="6"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="gravity_8c_1ab6639462e293ab35eda53aea3c029a23" compoundref="gravity_8c" startline="56" endline="88">CreateOrbiter</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" compoundref="raylibODE_8h" startline="59">entity::data</references>
+        <references refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" compoundref="raylibODE_8h" startline="61">entity::data</references>
         <references refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" compoundref="gravity_8c" startline="90">frameCount</references>
-        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1107" endline="1112">FreeEntity</references>
+        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1182" endline="1187">FreeEntity</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
-        <references refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
+        <references refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="260" endline="283">StepPhysics</references>
         <references refid="gravity_8c_1ad85d56ddac2d76c54730ac9927952064" compoundref="gravity_8c" startline="39">trailSize</references>
         <referencedby refid="gravity_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="gravity_8c" startline="93" endline="165">main</referencedby>
       </memberdef>
@@ -311,28 +304,28 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/chris/development/RayLibOdeMech/examples/gravity.c" line="93" column="5" bodyfile="/home/chris/development/RayLibOdeMech/examples/gravity.c" bodystart="93" bodyend="165"/>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="144">GraphicsContext::camera</references>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="159">GraphicsContext::camera</references>
         <references refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</references>
         <references refid="gravity_8c_1ab6639462e293ab35eda53aea3c029a23" compoundref="gravity_8c" startline="56" endline="88">CreateOrbiter</references>
         <references refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" compoundref="raylibODE_8h" startline="59">entity::data</references>
-        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1050" endline="1061">DrawBodies</references>
-        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1086" endline="1095">DrawStatics</references>
+        <references refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" compoundref="raylibODE_8h" startline="61">entity::data</references>
+        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1125" endline="1136">DrawBodies</references>
+        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1161" endline="1170">DrawStatics</references>
         <references refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" compoundref="gravity_8c" startline="90">frameCount</references>
         <references refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</references>
         <references refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
-        <references refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" compoundref="raylibODE_8h" startline="39">NUM_OBJ</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
-        <references refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" compoundref="arm_8c" startline="30">screenHeight</references>
-        <references refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" compoundref="arm_8c" startline="29">screenWidth</references>
-        <references refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="81" endline="93">SetupCamera</references>
+        <references refid="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" compoundref="raylibODE_8h" startline="41">NUM_OBJ</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
+        <references refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" compoundref="arm_8c" startline="28">screenHeight</references>
+        <references refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" compoundref="arm_8c" startline="27">screenWidth</references>
+        <references refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="82" endline="94">SetupCamera</references>
         <references refid="gravity_8c_1ad85d56ddac2d76c54730ac9927952064" compoundref="gravity_8c" startline="39">trailSize</references>
-        <references refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" compoundref="exampleCamera_8c" startline="168" endline="218">UpdateExampleCamera</references>
+        <references refid="exampleCamera_8c_1a577102dfa73642e5465f7d33ba01465e" compoundref="exampleCamera_8c" startline="169" endline="219">UpdateCameraControl</references>
         <references refid="gravity_8c_1a335d70770f61bc5f2de93dac31fbfa52" compoundref="gravity_8c" startline="167" endline="229">updateGravity</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="64">PhysicsContext::world</references>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="66">PhysicsContext::world</references>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -362,11 +355,11 @@
 <codeline lineno="20"><highlight class="comment"><sp/>*<sp/>SOFTWARE.</highlight></codeline>
 <codeline lineno="21"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="init_8h" kindref="compound">init.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="exampleCamera_8h" kindref="compound">exampleCamera.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="raylibODE_8h" kindref="compound">raylibODE.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="28"><highlight class="normal"></highlight></codeline>
 <codeline lineno="29" refid="gravity_8c_1a76da26d519b3a4158847daa8783a7a5b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>screenWidth<sp/>1920/1.2</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30" refid="gravity_8c_1a8c472bd07ea66dbb884992785271e1d1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>screenHeight<sp/>1080/1.2</highlight><highlight class="normal"></highlight></codeline>
@@ -432,7 +425,7 @@
 <codeline lineno="90" refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" kindref="member">frameCount</ref><sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="gravity_8c_1a335d70770f61bc5f2de93dac31fbfa52" kindref="member">updateGravity</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics<sp/>);</highlight></codeline>
 <codeline lineno="92"><highlight class="normal"></highlight></codeline>
-<codeline lineno="93" refid="gravity_8c_1a840291bc02cba5474a4cb46a9b9566fe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="gravity_8c_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="93" refid="gravity_8c_1a840291bc02cba5474a4cb46a9b9566fe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="94"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>init</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kindref="member">CreatePhysics</ref>();</highlight></codeline>
@@ -453,7 +446,7 @@
 <codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(!WindowShouldClose())</highlight></codeline>
 <codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
 <codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" kindref="member">frameCount</ref>++;</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kindref="member">UpdateExampleCamera</ref>(graphics);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1a577102dfa73642e5465f7d33ba01465e" kindref="member">UpdateCameraControl</ref>(graphics);</highlight></codeline>
 <codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gravity_8c_1a335d70770f61bc5f2de93dac31fbfa52" kindref="member">updateGravity</ref>(physCtx,<sp/>graphics);</highlight></codeline>
 <codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(IsKeyDown(KEY_F))<sp/>{</highlight></codeline>

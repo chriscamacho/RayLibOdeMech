@@ -16,11 +16,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="152" column="12" bodyfile="raylibODE.h" bodystart="152" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1208" endline="1245">CreateMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1187" endline="1192">FreeMultiPiston</referencedby>
-        <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="34" endline="199">main</referencedby>
-        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1256" endline="1262">SetMultiPistonVelocity</referencedby>
+        <location file="raylibODE.h" line="167" column="12" bodyfile="raylibODE.h" bodystart="167" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1262" endline="1267">FreeMultiPiston</referencedby>
+        <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="33" endline="198">main</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1331" endline="1337">SetMultiPistonVelocity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" prot="public" static="no" mutable="no">
         <type>dJointID *</type>
@@ -34,10 +34,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="153" column="14" bodyfile="raylibODE.h" bodystart="153" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1208" endline="1245">CreateMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1187" endline="1192">FreeMultiPiston</referencedby>
-        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1256" endline="1262">SetMultiPistonVelocity</referencedby>
+        <location file="raylibODE.h" line="168" column="14" bodyfile="raylibODE.h" bodystart="168" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1262" endline="1267">FreeMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1331" endline="1337">SetMultiPistonVelocity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -51,10 +51,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="154" column="9" bodyfile="raylibODE.h" bodystart="154" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1208" endline="1245">CreateMultiPiston</referencedby>
-        <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="34" endline="199">main</referencedby>
-        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1256" endline="1262">SetMultiPistonVelocity</referencedby>
+        <location file="raylibODE.h" line="169" column="9" bodyfile="raylibODE.h" bodystart="169" bodyend="-1"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="33" endline="198">main</referencedby>
+        <referencedby refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1331" endline="1337">SetMultiPistonVelocity</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structMultiPiston_1ad3e235df247bc80c0c47bc0b45a195ce" prot="public" static="no" mutable="no">
         <type>Vector3</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="155" column="13" bodyfile="raylibODE.h" bodystart="155" bodyend="-1"/>
+        <location file="raylibODE.h" line="170" column="13" bodyfile="raylibODE.h" bodystart="170" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -99,7 +99,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="raylibODE.h" line="151" column="1" bodyfile="raylibODE.h" bodystart="151" bodyend="156"/>
+    <location file="raylibODE.h" line="166" column="1" bodyfile="raylibODE.h" bodystart="166" bodyend="171"/>
     <listofallmembers>
       <member refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" prot="public" virt="non-virtual"><scope>MultiPiston</scope><name>count</name></member>
       <member refid="structMultiPiston_1ad3e235df247bc80c0c47bc0b45a195ce" prot="public" virt="non-virtual"><scope>MultiPiston</scope><name>direction</name></member>

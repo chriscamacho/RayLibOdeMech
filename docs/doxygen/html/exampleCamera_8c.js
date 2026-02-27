@@ -5,6 +5,6 @@ var exampleCamera_8c =
     [ "SetCameraPitch", "exampleCamera_8c.html#a7caa09910fec92084c165ade48d9c375", null ],
     [ "SetCameraYaw", "exampleCamera_8c.html#aaadc2473185a23c67ec11371dd33d09e", null ],
     [ "SetupCamera", "exampleCamera_8c.html#af155bf31f5a69e64716e1eb1a010f647", null ],
-    [ "UpdateExampleCamera", "exampleCamera_8c.html#ad0a902b3760c7a5f8725bdb73ddc174b", null ],
+    [ "UpdateCameraControl", "exampleCamera_8c.html#a577102dfa73642e5465f7d33ba01465e", null ],
     [ "UpdateVehicleCamera", "exampleCamera_8c.html#afa1b8031e4fc015dfe8093339c904e50", null ]
 ];

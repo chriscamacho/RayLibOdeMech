@@ -10,6 +10,12 @@
         <label>clist.h</label>
         <link refid="clist_8h"/>
       </node>
+      <node id="10">
+        <label>exampleCamera.h</label>
+        <link refid="exampleCamera_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="3">
         <label>raylibODE.h</label>
         <link refid="raylibODE_8h"/>
@@ -24,6 +30,8 @@
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -45,12 +53,12 @@
         <link refid="vehicle_8c"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
         <childnode refid="11" relation="include">
         </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
       </node>
-      <node id="11">
+      <node id="12">
         <label>math.h</label>
       </node>
       <node id="7">
@@ -62,7 +70,7 @@
       <node id="5">
         <label>raymath.h</label>
       </node>
-      <node id="10">
+      <node id="11">
         <label>stdlib.h</label>
       </node>
     </incdepgraph>
@@ -167,23 +175,23 @@
         <inbodydescription>
         </inbodydescription>
         <location file="vehicle.c" line="56" column="9" bodyfile="vehicle.c" bodystart="56" bodyend="175"/>
-        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
-        <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
-        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="140">GraphicsContext::boxTextures</references>
+        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="raylibODE_8h" startline="177">vehicle::bodies</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
+        <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="raylibODE_8h" startline="180">vehicle::bodyCount</references>
+        <references refid="structGraphicsContext_1acef5b7178754c6babfd8e4745f7b3612" compoundref="raylibODE_8h" startline="155">GraphicsContext::boxTextures</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
-        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="732" endline="744">CreateGeomInfo</references>
-        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="141">GraphicsContext::cylinderTextures</references>
-        <references refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" compoundref="vehicle_8h" startline="11">vehicle::geoms</references>
+        <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="751" endline="763">CreateGeomInfo</references>
+        <references refid="structGraphicsContext_1a5e593f3ae02930886863f6b381db3a71" compoundref="raylibODE_8h" startline="156">GraphicsContext::cylinderTextures</references>
+        <references refid="structvehicle_1a058cc60e3227703b2d840ce60600a29a" compoundref="raylibODE_8h" startline="178">vehicle::geoms</references>
         <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
-        <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="vehicle_8h" startline="12">vehicle::joints</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="58">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
-        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="65">PhysicsContext::space</references>
-        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
+        <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="raylibODE_8h" startline="179">vehicle::joints</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="60">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
+        <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="67">PhysicsContext::space</references>
+        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="105">geomInfo::surface</references>
         <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa284531caf2ebecf264c2b9c0951041b1" compoundref="surface_8h" startline="44">SURFACE_RUBBER</references>
-        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="64">PhysicsContext::world</references>
-        <referencedby refid="car_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="car_8c" startline="34" endline="168">main</referencedby>
+        <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="66">PhysicsContext::world</references>
+        <referencedby refid="car_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="car_8c" startline="33" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="vehicle_8c_1a9c16065d67848dde985d9a21631eb01c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -241,8 +249,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="vehicle.c" line="190" column="6" bodyfile="vehicle.c" bodystart="190" bodyend="225"/>
-        <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="vehicle_8h" startline="12">vehicle::joints</references>
-        <referencedby refid="car_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="car_8c" startline="34" endline="168">main</referencedby>
+        <references refid="structvehicle_1a0317690c9ddade2a37344024197942e2" compoundref="raylibODE_8h" startline="179">vehicle::joints</references>
+        <referencedby refid="car_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="car_8c" startline="33" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -283,13 +291,13 @@
         <inbodydescription>
         </inbodydescription>
         <location file="vehicle.c" line="233" column="6" bodyfile="vehicle.c" bodystart="233" bodyend="249"/>
-        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
-        <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="vehicle_8h" startline="13">vehicle::bodyCount</references>
+        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="raylibODE_8h" startline="177">vehicle::bodies</references>
+        <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="raylibODE_8h" startline="180">vehicle::bodyCount</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="820" endline="833">FreeBodyAndGeoms</references>
-        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="58">entity::node</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
-        <referencedby refid="car_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="car_8c" startline="34" endline="168">main</referencedby>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="895" endline="908">FreeBodyAndGeoms</references>
+        <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="60">entity::node</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
+        <referencedby refid="car_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="car_8c" startline="33" endline="167">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="vehicle_8c_1a0419ed48c974e9d5efab4263b4cee46f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -320,8 +328,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="vehicle.c" line="258" column="6" bodyfile="vehicle.c" bodystart="258" bodyend="284"/>
-        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="vehicle_8h" startline="10">vehicle::bodies</references>
-        <referencedby refid="derby_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="derby_8c" startline="58" endline="278">main</referencedby>
+        <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="raylibODE_8h" startline="177">vehicle::bodies</references>
+        <referencedby refid="derby_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="derby_8c" startline="56" endline="276">main</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>

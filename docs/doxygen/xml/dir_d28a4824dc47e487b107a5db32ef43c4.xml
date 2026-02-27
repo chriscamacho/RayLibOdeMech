@@ -12,6 +12,7 @@
     <innerfile refid="piston_8c">piston.c</innerfile>
     <innerfile refid="placer_8c">placer.c</innerfile>
     <innerfile refid="ragdolls_8c">ragdolls.c</innerfile>
+    <innerfile refid="raycasting_8c">raycasting.c</innerfile>
     <innerfile refid="rotor_8c">rotor.c</innerfile>
     <innerfile refid="surfaces_8c">surfaces.c</innerfile>
     <innerfile refid="template_8c">template.c</innerfile>

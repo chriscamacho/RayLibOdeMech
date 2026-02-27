@@ -13,7 +13,7 @@ var searchData=
   ['plane_5fthickness_10',['PLANE_THICKNESS',['../raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298',1,'raylibODE.h']]],
   ['planegeom_11',['planeGeom',['../structgrabberData.html#ad5f2a9c6087f11d2347347c4ea49b2ee',1,'grabberData']]],
   ['pos_12',['pos',['../structRayHit.html#adcef8883ac52e6d421436e08b1b6201e',1,'RayHit']]],
-  ['position_13',['position',['../structLight.html#aaf0e960606cf34ba827b5fef2c74b042',1,'Light']]],
+  ['position_13',['position',['../structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b',1,'RayCast::position'],['../structLight.html#aaf0e960606cf34ba827b5fef2c74b042',1,'Light::position']]],
   ['positionloc_14',['positionLoc',['../structLight.html#a448d502e227576d9ffa8627e050065ef',1,'Light']]],
   ['prev_15',['prev',['../struct____cnode.html#ab4ad4dacef59b181bf678d4f5eeda2fa',1,'__cnode']]]
 ];

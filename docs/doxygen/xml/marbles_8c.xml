@@ -4,8 +4,7 @@
     <compoundname>marbles.c</compoundname>
     <includes local="no">stdlib.h</includes>
     <includes local="no">math.h</includes>
-    <includes refid="init_8h" local="yes">init.h</includes>
-    <includes refid="exampleCamera_8h" local="yes">exampleCamera.h</includes>
+    <includes refid="raylibODE_8h" local="yes">raylibODE.h</includes>
     <incdepgraph>
       <node id="1">
         <label>/home/chris/development/RayLibOdeMech/examples/marbles.c</label>
@@ -16,71 +15,59 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
       </node>
-      <node id="10">
+      <node id="9">
         <label>clist.h</label>
         <link refid="clist_8h"/>
       </node>
-      <node id="12">
+      <node id="11">
         <label>exampleCamera.h</label>
         <link refid="exampleCamera_8h"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="4">
-        <label>init.h</label>
-        <link refid="init_8h"/>
+        <label>raylibODE.h</label>
+        <link refid="raylibODE_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="7">
-        <label>raylibODE.h</label>
-        <link refid="raylibODE_8h"/>
-        <childnode refid="5" relation="include">
-        </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="7">
         <label>rlights.h</label>
         <link refid="rlights_8h"/>
       </node>
-      <node id="11">
+      <node id="10">
         <label>surface.h</label>
         <link refid="surface_8h"/>
       </node>
-      <node id="13">
+      <node id="12">
         <label>vehicle.h</label>
         <link refid="vehicle_8h"/>
-        <childnode refid="7" relation="include">
+        <childnode refid="4" relation="include">
         </childnode>
       </node>
       <node id="3">
         <label>math.h</label>
       </node>
-      <node id="6">
+      <node id="8">
         <label>ode/ode.h</label>
       </node>
       <node id="5">
         <label>raylib.h</label>
       </node>
-      <node id="8">
+      <node id="6">
         <label>raymath.h</label>
       </node>
       <node id="2">
@@ -229,7 +216,7 @@
         <references refid="structLevelElement_1a6e25bcc9e5e5dba96caa47c85c17d9b0" compoundref="marbles_8c" startline="54">LevelElement::angle</references>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
         <references refid="marbles_8c_1a24f376ccef7a39450a2fcdbf5ba97ceda91c566614c1c87c437ab3d686408e9ea" compoundref="marbles_8c" startline="47">CORNER</references>
-        <references refid="raylibODE_8c_1a8928fb910d045f15136fd02999b7ffa6" compoundref="raylibODE_8c" startline="337" endline="348">CreateCylinderGeom</references>
+        <references refid="raylibODE_8c_1a8928fb910d045f15136fd02999b7ffa6" compoundref="raylibODE_8c" startline="356" endline="367">CreateCylinderGeom</references>
         <references refid="structLevelElement_1a67e19f29936b4653f96bd92d7594fdfe" compoundref="marbles_8c" startline="51">LevelElement::gridX</references>
         <references refid="structLevelElement_1a3ce9993b2d632fea668910a38133d900" compoundref="marbles_8c" startline="52">LevelElement::gridY</references>
         <references refid="structLevelElement_1ac63ed2f7a3634b640da0cdb56dca1b98" compoundref="marbles_8c" startline="53">LevelElement::gridZ</references>
@@ -237,9 +224,9 @@
         <references refid="marbles_8c_1a577686ba60ae8772f0078a474d3aff97" compoundref="marbles_8c" startline="59" endline="123">levelData</references>
         <references refid="marbles_8c_1aff0dc55dc38a2313b97620b8856f701a" compoundref="marbles_8c" startline="44">levelSurface</references>
         <references refid="marbles_8c_1a24f376ccef7a39450a2fcdbf5ba97ceda99231f09ee2e40643fa578adc2095194" compoundref="marbles_8c" startline="47">SLOPE</references>
-        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="69">PhysicsContext::statics</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="71">PhysicsContext::statics</references>
         <references refid="marbles_8c_1a24f376ccef7a39450a2fcdbf5ba97ceda08707fd429345dc72f3d7b0cc867ef05" compoundref="marbles_8c" startline="47">STRAIGHT</references>
-        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
+        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="105">geomInfo::surface</references>
         <references refid="structLevelElement_1a46c67baf96e2ae166a66fdc0c4fbc0b0" compoundref="marbles_8c" startline="50">LevelElement::type</references>
         <referencedby refid="marbles_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="marbles_8c" startline="132" endline="246">main</referencedby>
       </memberdef>
@@ -276,11 +263,11 @@
         </inbodydescription>
         <location file="/home/chris/development/RayLibOdeMech/examples/marbles.c" line="378" column="13" bodyfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" bodystart="378" bodyend="513" declfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" declline="35" declcolumn="13"/>
         <references refid="clist_8c_1a264922774fdf767e31797fe81f2231be" compoundref="clist_8c" startline="47" endline="66">clistAddNode</references>
-        <references refid="raylibODE_8c_1a37e31d3074a98d5f5a40096dc9b342f7" compoundref="raylibODE_8c" startline="364" endline="374">CreateBoxGeom</references>
-        <references refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1208" endline="1245">CreateMultiPiston</references>
+        <references refid="raylibODE_8c_1a37e31d3074a98d5f5a40096dc9b342f7" compoundref="raylibODE_8c" startline="383" endline="393">CreateBoxGeom</references>
+        <references refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</references>
         <references refid="marbles_8c_1a0b8b9c89bad94e57bcb490bb29704e00" compoundref="marbles_8c" startline="45">MAX_PISTON</references>
-        <references refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" compoundref="raylibODE_8c" startline="1311" endline="1317">PinEntityToWorld</references>
-        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="69">PhysicsContext::statics</references>
+        <references refid="raylibODE_8c_1a57b8ac137f7e79fc8deb53b7ba410166" compoundref="raylibODE_8c" startline="1386" endline="1392">PinEntityToWorld</references>
+        <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="71">PhysicsContext::statics</references>
         <referencedby refid="marbles_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="marbles_8c" startline="132" endline="246">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="marbles_8c_1a840291bc02cba5474a4cb46a9b9566fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -298,35 +285,35 @@
         <inbodydescription>
         </inbodydescription>
         <location file="/home/chris/development/RayLibOdeMech/examples/marbles.c" line="132" column="5" bodyfile="/home/chris/development/RayLibOdeMech/examples/marbles.c" bodystart="132" bodyend="246"/>
-        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="57">entity::body</references>
-        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="144">GraphicsContext::camera</references>
+        <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
+        <references refid="structGraphicsContext_1a67da4b710a791d954415259ae540976c" compoundref="raylibODE_8h" startline="159">GraphicsContext::camera</references>
         <references refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</references>
         <references refid="marbles_8c_1aff4f938c7169a18032e8016ba3a2ede6" compoundref="marbles_8c" startline="378" endline="513">CreateLift</references>
         <references refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</references>
-        <references refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="441" endline="461">CreateSphere</references>
+        <references refid="raylibODE_8c_1ad03521efcc05b3315d24f47d0eed52a6" compoundref="raylibODE_8c" startline="460" endline="480">CreateSphere</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1050" endline="1061">DrawBodies</references>
-        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1086" endline="1095">DrawStatics</references>
+        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1125" endline="1136">DrawBodies</references>
+        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1161" endline="1170">DrawStatics</references>
         <references refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" compoundref="gravity_8c" startline="90">frameCount</references>
-        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1107" endline="1112">FreeEntity</references>
+        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1182" endline="1187">FreeEntity</references>
         <references refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</references>
-        <references refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1187" endline="1192">FreeMultiPiston</references>
+        <references refid="raylibODE_8c_1a710981c5db9781e25b27318e8d56dfbb" compoundref="raylibODE_8c" startline="1262" endline="1267">FreeMultiPiston</references>
         <references refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</references>
         <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="marbles_8c_1abac6925a410fdbe4f0bc5bdf2d8f5ff6" compoundref="marbles_8c" startline="249" endline="374">LoadLevel</references>
         <references refid="marbles_8c_1a0b8b9c89bad94e57bcb490bb29704e00" compoundref="marbles_8c" startline="45">MAX_PISTON</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
-        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="68">PhysicsContext::objList</references>
-        <references refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" compoundref="arm_8c" startline="30">screenHeight</references>
-        <references refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" compoundref="arm_8c" startline="29">screenWidth</references>
-        <references refid="exampleCamera_8c_1aaadc2473185a23c67ec11371dd33d09e" compoundref="exampleCamera_8c" startline="61" endline="61">SetCameraYaw</references>
-        <references refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1256" endline="1262">SetMultiPistonVelocity</references>
-        <references refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="81" endline="93">SetupCamera</references>
-        <references refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="241" endline="264">StepPhysics</references>
-        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="100">geomInfo::surface</references>
+        <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
+        <references refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" compoundref="arm_8c" startline="28">screenHeight</references>
+        <references refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" compoundref="arm_8c" startline="27">screenWidth</references>
+        <references refid="exampleCamera_8c_1aaadc2473185a23c67ec11371dd33d09e" compoundref="exampleCamera_8c" startline="62" endline="62">SetCameraYaw</references>
+        <references refid="raylibODE_8c_1a801a17c097329ca4d55d35f1c5ae7b5a" compoundref="raylibODE_8c" startline="1331" endline="1337">SetMultiPistonVelocity</references>
+        <references refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="82" endline="94">SetupCamera</references>
+        <references refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" compoundref="raylibODE_8c" startline="260" endline="283">StepPhysics</references>
+        <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="105">geomInfo::surface</references>
         <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" compoundref="surface_8h" startline="42">SURFACE_METAL</references>
-        <references refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" compoundref="exampleCamera_8c" startline="168" endline="218">UpdateExampleCamera</references>
+        <references refid="exampleCamera_8c_1a577102dfa73642e5465f7d33ba01465e" compoundref="exampleCamera_8c" startline="169" endline="219">UpdateCameraControl</references>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -360,8 +347,8 @@
 <codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;math.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="init_8h" kindref="compound">init.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="exampleCamera_8h" kindref="compound">exampleCamera.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="raylibODE_8h" kindref="compound">raylibODE.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>instances<sp/>slops,<sp/>level<sp/>sections<sp/>and<sp/>corners<sp/>from<sp/>an<sp/>array<sp/>of<sp/>coordinates</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="marbles_8c_1abac6925a410fdbe4f0bc5bdf2d8f5ff6" kindref="member">LoadLevel</ref>(<ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx,<sp/><ref refid="structGraphicsContext" kindref="compound">GraphicsContext</ref>*<sp/>graphics);</highlight></codeline>
@@ -465,7 +452,7 @@
 <codeline lineno="129"><highlight class="comment"><sp/>*<sp/>main<sp/>!</highlight></codeline>
 <codeline lineno="130"><highlight class="comment"><sp/>**********************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132" refid="marbles_8c_1a840291bc02cba5474a4cb46a9b9566fe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="marbles_8c_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="132" refid="marbles_8c_1a840291bc02cba5474a4cb46a9b9566fe" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" kindref="member">main</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
 <codeline lineno="133"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>init</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structPhysicsContext" kindref="compound">PhysicsContext</ref>*<sp/>physCtx<sp/>=<sp/><ref refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" kindref="member">CreatePhysics</ref>();</highlight></codeline>
@@ -526,8 +513,8 @@
 <codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" kindref="member">frameCount</ref>++;</highlight></codeline>
-<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kindref="member">UpdateExampleCamera</ref>(graphics);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="exampleCamera_8c_1a577102dfa73642e5465f7d33ba01465e" kindref="member">UpdateCameraControl</ref>(graphics);</highlight></codeline>
 <codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" kindref="member">StepPhysics</ref>(physCtx);</highlight></codeline>
 <codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
 <codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="clist_8h_1a9957c4c04b6e17b9b8fa99e68b94aa9a" kindref="member">cnode_t</ref>*<sp/>node<sp/>=<sp/>physCtx-&gt;<ref refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" kindref="member">objList</ref>-&gt;<ref refid="struct____clist_1a87719175a9395449ee1db0221b39688a" kindref="member">head</ref>;</highlight></codeline>

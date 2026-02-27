@@ -1,8 +1,8 @@
 \doxysection{/home/chris/development/\+Ray\+Lib\+Ode\+Mech/examples/gravity.c File Reference}
 \hypertarget{gravity_8c}{}\label{gravity_8c}\index{/home/chris/development/RayLibOdeMech/examples/gravity.c@{/home/chris/development/RayLibOdeMech/examples/gravity.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
-{\ttfamily \#include "{}init.\+h"{}}\newline
-{\ttfamily \#include "{}example\+Camera.\+h"{}}\newline
+{\ttfamily \#include "{}raylib\+ODE.\+h"{}}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -59,6 +59,9 @@ Definition at line \mbox{\hyperlink{gravity_8c_source_l00029}{29}} of file \mbox
 {\footnotesize\ttfamily \label{gravity_8c_ad85d56ddac2d76c54730ac9927952064} 
 \#define trail\+Size~8}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{gravity_8c-example}{gravity.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{gravity_8c_source_l00039}{39}} of file \mbox{\hyperlink{gravity_8c_source}{gravity.\+c}}.
@@ -78,13 +81,16 @@ Referenced by \mbox{\hyperlink{gravity_8c_source_l00056}{Create\+Orbiter()}}, \m
 {\footnotesize\ttfamily \label{gravity_8c_ab6639462e293ab35eda53aea3c029a23} 
 \mbox{\hyperlink{structentity}{entity}} \texorpdfstring{$\ast$}{*} Create\+Orbiter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{phys\+Ctx}{, }\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{graphics}{}\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{gravity_8c-example}{gravity.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{gravity_8c_source_l00056}{56}} of file \mbox{\hyperlink{gravity_8c_source}{gravity.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00441}{Create\+Sphere()}}, \mbox{\hyperlink{raylibODE_8h_source_l00059}{entity\+::data}}, \mbox{\hyperlink{gravity_8c_source_l00041}{Get\+Spawn\+On\+Sphere\+Border()}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{raylibODE_8c_source_l00219}{rndf()}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00044}{SURFACE\+\_\+\+RUBBER}}, and \mbox{\hyperlink{gravity_8c_source_l00039}{trail\+Size}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00059}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8c_source_l00460}{Create\+Sphere()}}, \mbox{\hyperlink{raylibODE_8h_source_l00061}{entity\+::data}}, \mbox{\hyperlink{gravity_8c_source_l00041}{Get\+Spawn\+On\+Sphere\+Border()}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{raylibODE_8c_source_l00238}{rndf()}}, \mbox{\hyperlink{raylibODE_8h_source_l00105}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00044}{SURFACE\+\_\+\+RUBBER}}, and \mbox{\hyperlink{gravity_8c_source_l00039}{trail\+Size}}.
 
 
 
@@ -96,13 +102,16 @@ Referenced by \mbox{\hyperlink{gravity_8c_source_l00093}{main()}}, and \mbox{\hy
 {\footnotesize\ttfamily \label{gravity_8c_a060fbd74071544413b43fd6aca32f2c7} 
 Vector3 Get\+Spawn\+On\+Sphere\+Border (\begin{DoxyParamCaption}\item[{Vector3}]{center}{, }\item[{float}]{radius}{}\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{gravity_8c-example}{gravity.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{gravity_8c_source_l00041}{41}} of file \mbox{\hyperlink{gravity_8c_source}{gravity.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8c_source_l00219}{rndf()}}.
+References \mbox{\hyperlink{raylibODE_8c_source_l00238}{rndf()}}.
 
 
 
@@ -120,7 +129,7 @@ Definition at line \mbox{\hyperlink{gravity_8c_source_l00093}{93}} of file \mbox
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00144}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{gravity_8c_source_l00056}{Create\+Orbiter()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8h_source_l00059}{entity\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l01050}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01086}{Draw\+Statics()}}, \mbox{\hyperlink{gravity_8c_source_l00090}{frame\+Count}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00039}{NUM\+\_\+\+OBJ}}, \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{arm_8c_source_l00030}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00029}{screen\+Width}}, \mbox{\hyperlink{exampleCamera_8c_source_l00081}{Setup\+Camera()}}, \mbox{\hyperlink{gravity_8c_source_l00039}{trail\+Size}}, \mbox{\hyperlink{exampleCamera_8c_source_l00168}{Update\+Example\+Camera()}}, \mbox{\hyperlink{gravity_8c_source_l00167}{update\+Gravity()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00064}{Physics\+Context\+::world}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00159}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{gravity_8c_source_l00056}{Create\+Orbiter()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8h_source_l00061}{entity\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l01125}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01161}{Draw\+Statics()}}, \mbox{\hyperlink{gravity_8c_source_l00090}{frame\+Count}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00041}{NUM\+\_\+\+OBJ}}, \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{arm_8c_source_l00028}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00027}{screen\+Width}}, \mbox{\hyperlink{exampleCamera_8c_source_l00082}{Setup\+Camera()}}, \mbox{\hyperlink{gravity_8c_source_l00039}{trail\+Size}}, \mbox{\hyperlink{exampleCamera_8c_source_l00169}{Update\+Camera\+Control()}}, \mbox{\hyperlink{gravity_8c_source_l00167}{update\+Gravity()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00066}{Physics\+Context\+::world}}.
 
 \Hypertarget{gravity_8c_a335d70770f61bc5f2de93dac31fbfa52}\index{gravity.c@{gravity.c}!updateGravity@{updateGravity}}
 \index{updateGravity@{updateGravity}!gravity.c@{gravity.c}}
@@ -128,13 +137,16 @@ References \mbox{\hyperlink{raylibODE_8h_source_l00144}{Graphics\+Context\+::cam
 {\footnotesize\ttfamily \label{gravity_8c_a335d70770f61bc5f2de93dac31fbfa52} 
 void update\+Gravity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{phys\+Ctx}{, }\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{graphics}{}\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{gravity_8c-example}{gravity.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{gravity_8c_source_l00167}{167}} of file \mbox{\hyperlink{gravity_8c_source}{gravity.\+c}}.
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{gravity_8c_source_l00056}{Create\+Orbiter()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8h_source_l00059}{entity\+::data}}, \mbox{\hyperlink{gravity_8c_source_l00090}{frame\+Count}}, \mbox{\hyperlink{raylibODE_8c_source_l01107}{Free\+Entity()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8c_source_l00241}{Step\+Physics()}}, and \mbox{\hyperlink{gravity_8c_source_l00039}{trail\+Size}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00059}{entity\+::body}}, \mbox{\hyperlink{gravity_8c_source_l00056}{Create\+Orbiter()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8h_source_l00061}{entity\+::data}}, \mbox{\hyperlink{gravity_8c_source_l00090}{frame\+Count}}, \mbox{\hyperlink{raylibODE_8c_source_l01182}{Free\+Entity()}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8c_source_l00260}{Step\+Physics()}}, and \mbox{\hyperlink{gravity_8c_source_l00039}{trail\+Size}}.
 
 
 
@@ -153,12 +165,12 @@ int frame\+Count = 0}
 
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{derby_8c-example}{derby.\+c}}.\end{Desc}
+\mbox{\hyperlink{derby_8c-example}{derby.\+c}}, \mbox{\hyperlink{gravity_8c-example}{gravity.\+c}}, \mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}, and \mbox{\hyperlink{raycasting_8c-example}{raycasting.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{gravity_8c_source_l00090}{90}} of file \mbox{\hyperlink{gravity_8c_source}{gravity.\+c}}.
 
 
 
-Referenced by \mbox{\hyperlink{derby_8c_source_l00058}{main()}}, and \mbox{\hyperlink{gravity_8c_source_l00167}{update\+Gravity()}}.
+Referenced by \mbox{\hyperlink{derby_8c_source_l00056}{main()}}, and \mbox{\hyperlink{gravity_8c_source_l00167}{update\+Gravity()}}.
 

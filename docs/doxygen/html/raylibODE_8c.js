@@ -1,5 +1,6 @@
 var raylibODE_8c =
 [
+    [ "CastRay", "raylibODE_8c.html#a2b934e0acb1163c93b0f2613ce850a2c", null ],
     [ "CreateBaseEntity", "raylibODE_8c.html#a9a4fddcfd406e6bfb1987111e4ad64f1", null ],
     [ "CreateBox", "raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3", null ],
     [ "CreateBoxGeom", "raylibODE_8c.html#a37e31d3074a98d5f5a40096dc9b342f7", null ],
@@ -11,12 +12,14 @@ var raylibODE_8c =
     [ "CreateMultiPiston", "raylibODE_8c.html#a8d2339918b2d47fcaea5c861ccfbc3d8", null ],
     [ "CreatePiston", "raylibODE_8c.html#aa35dd966752d4afeffcb8f39e474594c", null ],
     [ "CreateRandomEntity", "raylibODE_8c.html#ae7890e5cf20ab8875b9d08bf80d9d018", null ],
+    [ "CreateRayCast", "raylibODE_8c.html#aae31409e8c5cfe1cf9148f2c18207e61", null ],
     [ "CreateRotor", "raylibODE_8c.html#a70760bcdbb95dca2cd9cbb1a640485d2", null ],
     [ "CreateRotorPID", "raylibODE_8c.html#a51c7fa5bc9007621b52ed19bceadc142", null ],
     [ "CreateSphere", "raylibODE_8c.html#ad03521efcc05b3315d24f47d0eed52a6", null ],
     [ "CreateSphereGeom", "raylibODE_8c.html#a0201472030d3c51d3b13c7f807b59b01", null ],
     [ "CreateStaticTrimesh", "raylibODE_8c.html#ae8b06665a78b486c57e6795da4b3e265", null ],
     [ "DrawBodies", "raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b", null ],
+    [ "DrawGeom", "raylibODE_8c.html#a5a3f56ed394d3d2c1400e25d83fc05af", null ],
     [ "DrawStatics", "raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa", null ],
     [ "FreeBodyAndGeoms", "raylibODE_8c.html#a8f1b86adbb51b8bd80405329b31c87d1", null ],
     [ "FreeEntity", "raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed", null ],

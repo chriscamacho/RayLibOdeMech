@@ -1,23 +1,6 @@
 \doxysection{vehicle.\+h File Reference}
 \hypertarget{vehicle_8h}{}\label{vehicle_8h}\index{vehicle.h@{vehicle.h}}
 {\ttfamily \#include "{}raylib\+ODE.\+h"{}}\newline
-\doxysubsubsection*{Data Structures}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{structvehicle}{vehicle}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{vehicle_8h_ab457cfa8f57435d5385ae9ae2babb18b}{VEH\+\_\+\+PART\+\_\+\+COUNT}}~7
-\item 
-\#define \mbox{\hyperlink{vehicle_8h_a2cc43825b9f0c5d1dfbb6dd03eeb35b6}{WHEEL\+\_\+\+COUNT}}~5
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef struct vehicle \mbox{\hyperlink{vehicle_8h_a48a9ef4b71413cbc1d2cac1c56b541d1}{vehicle}}
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,42 +12,6 @@ void \mbox{\hyperlink{vehicle_8h_ab0b188b6b47157b4f3c4aae241a933c8}{Free\+Vehicl
 \begin{DoxyCompactList}\small\item\em this releases all resources in use by a vehicle struct \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{vehicle_8h_a0419ed48c974e9d5efab4263b4cee46f}{Unflip\+Vehicle}} (\mbox{\hyperlink{structvehicle}{vehicle}} \texorpdfstring{$\ast$}{*}car)
 \begin{DoxyCompactList}\small\item\em flips an upside down vehicle \end{DoxyCompactList}\end{DoxyCompactItemize}
-
-
-\label{doc-define-members}
-\Hypertarget{vehicle_8h_doc-define-members}
-\doxysubsection{Macro Definition Documentation}
-\Hypertarget{vehicle_8h_ab457cfa8f57435d5385ae9ae2babb18b}\index{vehicle.h@{vehicle.h}!VEH\_PART\_COUNT@{VEH\_PART\_COUNT}}
-\index{VEH\_PART\_COUNT@{VEH\_PART\_COUNT}!vehicle.h@{vehicle.h}}
-\doxysubsubsection{\texorpdfstring{VEH\_PART\_COUNT}{VEH\_PART\_COUNT}}
-{\footnotesize\ttfamily \label{vehicle_8h_ab457cfa8f57435d5385ae9ae2babb18b} 
-\#define VEH\+\_\+\+PART\+\_\+\+COUNT~7}
-
-
-
-Definition at line \mbox{\hyperlink{vehicle_8h_source_l00006}{6}} of file \mbox{\hyperlink{vehicle_8h_source}{vehicle.\+h}}.
-
-\Hypertarget{vehicle_8h_a2cc43825b9f0c5d1dfbb6dd03eeb35b6}\index{vehicle.h@{vehicle.h}!WHEEL\_COUNT@{WHEEL\_COUNT}}
-\index{WHEEL\_COUNT@{WHEEL\_COUNT}!vehicle.h@{vehicle.h}}
-\doxysubsubsection{\texorpdfstring{WHEEL\_COUNT}{WHEEL\_COUNT}}
-{\footnotesize\ttfamily \label{vehicle_8h_a2cc43825b9f0c5d1dfbb6dd03eeb35b6} 
-\#define WHEEL\+\_\+\+COUNT~5}
-
-
-
-Definition at line \mbox{\hyperlink{vehicle_8h_source_l00007}{7}} of file \mbox{\hyperlink{vehicle_8h_source}{vehicle.\+h}}.
-
-
-
-\label{doc-typedef-members}
-\Hypertarget{vehicle_8h_doc-typedef-members}
-\doxysubsection{Typedef Documentation}
-\Hypertarget{vehicle_8h_a48a9ef4b71413cbc1d2cac1c56b541d1}\index{vehicle.h@{vehicle.h}!vehicle@{vehicle}}
-\index{vehicle@{vehicle}!vehicle.h@{vehicle.h}}
-\doxysubsubsection{\texorpdfstring{vehicle}{vehicle}}
-{\footnotesize\ttfamily \label{vehicle_8h_a48a9ef4b71413cbc1d2cac1c56b541d1} 
-typedef struct vehicle vehicle}
-
 
 
 \label{doc-func-members}
@@ -118,11 +65,11 @@ Definition at line \mbox{\hyperlink{vehicle_8c_source_l00056}{56}} of file \mbox
 
 
 
-References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{vehicle_8h_source_l00013}{vehicle\+::body\+Count}}, \mbox{\hyperlink{raylibODE_8h_source_l00140}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00732}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00141}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{vehicle_8h_source_l00011}{vehicle\+::geoms}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{vehicle_8h_source_l00012}{vehicle\+::joints}}, \mbox{\hyperlink{raylibODE_8h_source_l00058}{entity\+::node}}, \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8h_source_l00065}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00044}{SURFACE\+\_\+\+RUBBER}}, and \mbox{\hyperlink{raylibODE_8h_source_l00064}{Physics\+Context\+::world}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00177}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00059}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00180}{vehicle\+::body\+Count}}, \mbox{\hyperlink{raylibODE_8h_source_l00155}{Graphics\+Context\+::box\+Textures}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00751}{Create\+Geom\+Info()}}, \mbox{\hyperlink{raylibODE_8h_source_l00156}{Graphics\+Context\+::cylinder\+Textures}}, \mbox{\hyperlink{raylibODE_8h_source_l00178}{vehicle\+::geoms}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{raylibODE_8h_source_l00179}{vehicle\+::joints}}, \mbox{\hyperlink{raylibODE_8h_source_l00060}{entity\+::node}}, \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{raylibODE_8h_source_l00067}{Physics\+Context\+::space}}, \mbox{\hyperlink{raylibODE_8h_source_l00105}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00044}{SURFACE\+\_\+\+RUBBER}}, and \mbox{\hyperlink{raylibODE_8h_source_l00066}{Physics\+Context\+::world}}.
 
 
 
-Referenced by \mbox{\hyperlink{car_8c_source_l00034}{main()}}.
+Referenced by \mbox{\hyperlink{car_8c_source_l00033}{main()}}.
 
 \Hypertarget{vehicle_8h_ab0b188b6b47157b4f3c4aae241a933c8}\index{vehicle.h@{vehicle.h}!FreeVehicle@{FreeVehicle}}
 \index{FreeVehicle@{FreeVehicle}!vehicle.h@{vehicle.h}}
@@ -147,11 +94,11 @@ Definition at line \mbox{\hyperlink{vehicle_8c_source_l00233}{233}} of file \mbo
 
 
 
-References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}, \mbox{\hyperlink{vehicle_8h_source_l00013}{vehicle\+::body\+Count}}, \mbox{\hyperlink{clist_8c_source_l00146}{clist\+Delete\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00820}{Free\+Body\+And\+Geoms()}}, \mbox{\hyperlink{raylibODE_8h_source_l00058}{entity\+::node}}, and \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00177}{vehicle\+::bodies}}, \mbox{\hyperlink{raylibODE_8h_source_l00180}{vehicle\+::body\+Count}}, \mbox{\hyperlink{clist_8c_source_l00146}{clist\+Delete\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00895}{Free\+Body\+And\+Geoms()}}, \mbox{\hyperlink{raylibODE_8h_source_l00060}{entity\+::node}}, and \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::obj\+List}}.
 
 
 
-Referenced by \mbox{\hyperlink{car_8c_source_l00034}{main()}}.
+Referenced by \mbox{\hyperlink{car_8c_source_l00033}{main()}}.
 
 \Hypertarget{vehicle_8h_a0419ed48c974e9d5efab4263b4cee46f}\index{vehicle.h@{vehicle.h}!UnflipVehicle@{UnflipVehicle}}
 \index{UnflipVehicle@{UnflipVehicle}!vehicle.h@{vehicle.h}}
@@ -177,11 +124,11 @@ Definition at line \mbox{\hyperlink{vehicle_8c_source_l00258}{258}} of file \mbo
 
 
 
-References \mbox{\hyperlink{vehicle_8h_source_l00010}{vehicle\+::bodies}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00177}{vehicle\+::bodies}}.
 
 
 
-Referenced by \mbox{\hyperlink{derby_8c_source_l00058}{main()}}.
+Referenced by \mbox{\hyperlink{derby_8c_source_l00056}{main()}}.
 
 \Hypertarget{vehicle_8h_a9c16065d67848dde985d9a21631eb01c}\index{vehicle.h@{vehicle.h}!UpdateVehicle@{UpdateVehicle}}
 \index{UpdateVehicle@{UpdateVehicle}!vehicle.h@{vehicle.h}}
@@ -215,9 +162,9 @@ Definition at line \mbox{\hyperlink{vehicle_8c_source_l00190}{190}} of file \mbo
 
 
 
-References \mbox{\hyperlink{vehicle_8h_source_l00012}{vehicle\+::joints}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00179}{vehicle\+::joints}}.
 
 
 
-Referenced by \mbox{\hyperlink{car_8c_source_l00034}{main()}}.
+Referenced by \mbox{\hyperlink{car_8c_source_l00033}{main()}}.
 

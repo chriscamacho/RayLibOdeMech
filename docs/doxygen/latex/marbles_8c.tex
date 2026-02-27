@@ -2,8 +2,7 @@
 \hypertarget{marbles_8c}{}\label{marbles_8c}\index{/home/chris/development/RayLibOdeMech/examples/marbles.c@{/home/chris/development/RayLibOdeMech/examples/marbles.c}}
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
-{\ttfamily \#include "{}init.\+h"{}}\newline
-{\ttfamily \#include "{}example\+Camera.\+h"{}}\newline
+{\ttfamily \#include "{}raylib\+ODE.\+h"{}}\newline
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
@@ -58,6 +57,9 @@ const \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Ty
 {\footnotesize\ttfamily \label{marbles_8c_a0b8b9c89bad94e57bcb490bb29704e00} 
 \#define MAX\+\_\+\+PISTON~6}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{marbles_8c_source_l00045}{45}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
@@ -122,6 +124,9 @@ CORNER&\\
 \hline
 
 \end{DoxyEnumFields}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{marbles_8c_source_l00047}{47}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
@@ -137,13 +142,16 @@ Definition at line \mbox{\hyperlink{marbles_8c_source_l00047}{47}} of file \mbox
 {\footnotesize\ttfamily \label{marbles_8c_aff4f938c7169a18032e8016ba3a2ede6} 
 \mbox{\hyperlink{structMultiPiston}{Multi\+Piston}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} Create\+Lift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{phys\+Ctx}{, }\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{graphics}{, }\item[{Vector3}]{position}{, }\item[{float}]{yaw}{, }\item[{float}]{strength}{}\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{marbles_8c_source_l00378}{378}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
 
 
 
-References \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00364}{Create\+Box\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l01208}{Create\+Multi\+Piston()}}, \mbox{\hyperlink{marbles_8c_source_l00045}{MAX\+\_\+\+PISTON}}, \mbox{\hyperlink{raylibODE_8c_source_l01311}{Pin\+Entity\+To\+World()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00069}{Physics\+Context\+::statics}}.
+References \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{raylibODE_8c_source_l00383}{Create\+Box\+Geom()}}, \mbox{\hyperlink{raylibODE_8c_source_l01283}{Create\+Multi\+Piston()}}, \mbox{\hyperlink{marbles_8c_source_l00045}{MAX\+\_\+\+PISTON}}, \mbox{\hyperlink{raylibODE_8c_source_l01386}{Pin\+Entity\+To\+World()}}, and \mbox{\hyperlink{raylibODE_8h_source_l00071}{Physics\+Context\+::statics}}.
 
 
 
@@ -155,13 +163,16 @@ Referenced by \mbox{\hyperlink{marbles_8c_source_l00132}{main()}}.
 {\footnotesize\ttfamily \label{marbles_8c_abac6925a410fdbe4f0bc5bdf2d8f5ff6} 
 void Load\+Level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPhysicsContext}{Physics\+Context}} \texorpdfstring{$\ast$}{*}}]{phys\+Ctx}{, }\item[{\mbox{\hyperlink{structGraphicsContext}{Graphics\+Context}} \texorpdfstring{$\ast$}{*}}]{graphics}{}\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{marbles_8c_source_l00249}{249}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
 
 
 
-References \mbox{\hyperlink{marbles_8c_source_l00054}{Level\+Element\+::angle}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{marbles_8c_source_l00047}{CORNER}}, \mbox{\hyperlink{raylibODE_8c_source_l00337}{Create\+Cylinder\+Geom()}}, \mbox{\hyperlink{marbles_8c_source_l00051}{Level\+Element\+::gridX}}, \mbox{\hyperlink{marbles_8c_source_l00052}{Level\+Element\+::gridY}}, \mbox{\hyperlink{marbles_8c_source_l00053}{Level\+Element\+::gridZ}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{marbles_8c_source_l00059}{level\+Data}}, \mbox{\hyperlink{marbles_8c_source_l00044}{level\+Surface}}, \mbox{\hyperlink{marbles_8c_source_l00047}{SLOPE}}, \mbox{\hyperlink{raylibODE_8h_source_l00069}{Physics\+Context\+::statics}}, \mbox{\hyperlink{marbles_8c_source_l00047}{STRAIGHT}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{geom\+Info\+::surface}}, and \mbox{\hyperlink{marbles_8c_source_l00050}{Level\+Element\+::type}}.
+References \mbox{\hyperlink{marbles_8c_source_l00054}{Level\+Element\+::angle}}, \mbox{\hyperlink{clist_8c_source_l00047}{clist\+Add\+Node()}}, \mbox{\hyperlink{marbles_8c_source_l00047}{CORNER}}, \mbox{\hyperlink{raylibODE_8c_source_l00356}{Create\+Cylinder\+Geom()}}, \mbox{\hyperlink{marbles_8c_source_l00051}{Level\+Element\+::gridX}}, \mbox{\hyperlink{marbles_8c_source_l00052}{Level\+Element\+::gridY}}, \mbox{\hyperlink{marbles_8c_source_l00053}{Level\+Element\+::gridZ}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{marbles_8c_source_l00059}{level\+Data}}, \mbox{\hyperlink{marbles_8c_source_l00044}{level\+Surface}}, \mbox{\hyperlink{marbles_8c_source_l00047}{SLOPE}}, \mbox{\hyperlink{raylibODE_8h_source_l00071}{Physics\+Context\+::statics}}, \mbox{\hyperlink{marbles_8c_source_l00047}{STRAIGHT}}, \mbox{\hyperlink{raylibODE_8h_source_l00105}{geom\+Info\+::surface}}, and \mbox{\hyperlink{marbles_8c_source_l00050}{Level\+Element\+::type}}.
 
 
 
@@ -179,7 +190,7 @@ Definition at line \mbox{\hyperlink{marbles_8c_source_l00132}{132}} of file \mbo
 
 
 
-References \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00144}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{marbles_8c_source_l00378}{Create\+Lift()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00441}{Create\+Sphere()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l01050}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01086}{Draw\+Statics()}}, \mbox{\hyperlink{gravity_8c_source_l00090}{frame\+Count}}, \mbox{\hyperlink{raylibODE_8c_source_l01107}{Free\+Entity()}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{raylibODE_8c_source_l01187}{Free\+Multi\+Piston()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{marbles_8c_source_l00249}{Load\+Level()}}, \mbox{\hyperlink{marbles_8c_source_l00045}{MAX\+\_\+\+PISTON}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00068}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{arm_8c_source_l00030}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00029}{screen\+Width}}, \mbox{\hyperlink{exampleCamera_8c_source_l00061}{Set\+Camera\+Yaw()}}, \mbox{\hyperlink{raylibODE_8c_source_l01256}{Set\+Multi\+Piston\+Velocity()}}, \mbox{\hyperlink{exampleCamera_8c_source_l00081}{Setup\+Camera()}}, \mbox{\hyperlink{raylibODE_8c_source_l00241}{Step\+Physics()}}, \mbox{\hyperlink{raylibODE_8h_source_l00100}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00042}{SURFACE\+\_\+\+METAL}}, and \mbox{\hyperlink{exampleCamera_8c_source_l00168}{Update\+Example\+Camera()}}.
+References \mbox{\hyperlink{raylibODE_8h_source_l00059}{entity\+::body}}, \mbox{\hyperlink{raylibODE_8h_source_l00159}{Graphics\+Context\+::camera}}, \mbox{\hyperlink{init_8c_source_l00077}{Create\+Graphics()}}, \mbox{\hyperlink{marbles_8c_source_l00378}{Create\+Lift()}}, \mbox{\hyperlink{init_8c_source_l00158}{Create\+Physics()}}, \mbox{\hyperlink{raylibODE_8c_source_l00460}{Create\+Sphere()}}, \mbox{\hyperlink{clist_8h_source_l00014}{\+\_\+\+\_\+cnode\+::data}}, \mbox{\hyperlink{raylibODE_8c_source_l01125}{Draw\+Bodies()}}, \mbox{\hyperlink{raylibODE_8c_source_l01161}{Draw\+Statics()}}, \mbox{\hyperlink{gravity_8c_source_l00090}{frame\+Count}}, \mbox{\hyperlink{raylibODE_8c_source_l01182}{Free\+Entity()}}, \mbox{\hyperlink{init_8c_source_l00246}{Free\+Graphics()}}, \mbox{\hyperlink{raylibODE_8c_source_l01262}{Free\+Multi\+Piston()}}, \mbox{\hyperlink{init_8c_source_l00195}{Free\+Physics()}}, \mbox{\hyperlink{surface_8c_source_l00026}{g\+Surfaces}}, \mbox{\hyperlink{clist_8h_source_l00027}{\+\_\+\+\_\+clist\+::head}}, \mbox{\hyperlink{marbles_8c_source_l00249}{Load\+Level()}}, \mbox{\hyperlink{marbles_8c_source_l00045}{MAX\+\_\+\+PISTON}}, \mbox{\hyperlink{clist_8h_source_l00013}{\+\_\+\+\_\+cnode\+::next}}, \mbox{\hyperlink{raylibODE_8h_source_l00070}{Physics\+Context\+::obj\+List}}, \mbox{\hyperlink{arm_8c_source_l00028}{screen\+Height}}, \mbox{\hyperlink{arm_8c_source_l00027}{screen\+Width}}, \mbox{\hyperlink{exampleCamera_8c_source_l00062}{Set\+Camera\+Yaw()}}, \mbox{\hyperlink{raylibODE_8c_source_l01331}{Set\+Multi\+Piston\+Velocity()}}, \mbox{\hyperlink{exampleCamera_8c_source_l00082}{Setup\+Camera()}}, \mbox{\hyperlink{raylibODE_8c_source_l00260}{Step\+Physics()}}, \mbox{\hyperlink{raylibODE_8h_source_l00105}{geom\+Info\+::surface}}, \mbox{\hyperlink{surface_8h_source_l00042}{SURFACE\+\_\+\+METAL}}, and \mbox{\hyperlink{exampleCamera_8c_source_l00169}{Update\+Camera\+Control()}}.
 
 
 
@@ -192,6 +203,9 @@ References \mbox{\hyperlink{raylibODE_8h_source_l00057}{entity\+::body}}, \mbox{
 {\footnotesize\ttfamily \label{marbles_8c_a577686ba60ae8772f0078a474d3aff97} 
 \mbox{\hyperlink{structLevelElement}{Level\+Element}} level\+Data\mbox{[}$\,$\mbox{]}}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{marbles_8c_source_l00059}{59}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.
@@ -206,6 +220,9 @@ Referenced by \mbox{\hyperlink{marbles_8c_source_l00249}{Load\+Level()}}.
 {\footnotesize\ttfamily \label{marbles_8c_aff0dc55dc38a2313b97620b8856f701a} 
 const \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169f}{Surface\+Type}} level\+Surface = \mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa51e788aafe32eaa17dbd2f8c91312ebe}{SURFACE\+\_\+\+WOOD}}}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{marbles_8c-example}{marbles.\+c}}.\end{Desc}
 
 
 Definition at line \mbox{\hyperlink{marbles_8c_source_l00044}{44}} of file \mbox{\hyperlink{marbles_8c_source}{marbles.\+c}}.

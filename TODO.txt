@@ -1,5 +1,12 @@
 
 Please feel free to make suggestions for this ! (in fact I'd appreciate it)
 
+
 Improved raycasting (not just via the camera)
+
 height field support
+
+frame work uses a set of textures, the examples rely on these
+as does CreateRandomEntity, someone creating their own project
+may well not need these look at ways this could be done
+without adding a lot of boiler plate to each example

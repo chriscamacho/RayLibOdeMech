@@ -95,7 +95,7 @@ $(function(){initNavTree('exampleCamera_8c.html','',''); });
 
 <p>Camera control implementations.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="vehicle_8h_source.html">vehicle.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="raylibODE_8h_source.html">raylibODE.h</a>&quot;</code><br />
 </div>
 <p><a href="exampleCamera_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -111,8 +111,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:af155bf31f5a69e64716e1eb1a010f647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the camera.  <br /></td></tr>
 <tr class="memitem:afa1b8031e4fc015dfe8093339c904e50" id="r_afa1b8031e4fc015dfe8093339c904e50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa1b8031e4fc015dfe8093339c904e50">UpdateVehicleCamera</a> (struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx, <a class="el" href="structvehicle.html">vehicle</a> *car)</td></tr>
 <tr class="memdesc:afa1b8031e4fc015dfe8093339c904e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">update a camera but attach it to a vehicle  <br /></td></tr>
-<tr class="memitem:ad0a902b3760c7a5f8725bdb73ddc174b" id="r_ad0a902b3760c7a5f8725bdb73ddc174b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0a902b3760c7a5f8725bdb73ddc174b">UpdateExampleCamera</a> (struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx)</td></tr>
-<tr class="memdesc:ad0a902b3760c7a5f8725bdb73ddc174b"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the camera  <br /></td></tr>
+<tr class="memitem:a577102dfa73642e5465f7d33ba01465e" id="r_a577102dfa73642e5465f7d33ba01465e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a577102dfa73642e5465f7d33ba01465e">UpdateCameraControl</a> (struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *ctx)</td></tr>
+<tr class="memdesc:a577102dfa73642e5465f7d33ba01465e"><td class="mdescLeft">&#160;</td><td class="mdescRight">update the camera  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Camera control implementations. </p>
@@ -153,7 +153,7 @@ Camera Controls</h1>
 <p>Get current camera pitch angle. </p>
 <dl class="section return"><dt>Returns</dt><dd>Current pitch angle in radians </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00067">67</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00068">68</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
 
 </div>
 </div>
@@ -177,7 +177,7 @@ Camera Controls</h1>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="placer_8c-example.html#a21">placer.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00060">60</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00061">61</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="placer_8c_source.html#l00032">main()</a>.</p>
 
@@ -198,7 +198,7 @@ Camera Controls</h1>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00068">68</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00069">69</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
 
 </div>
 </div>
@@ -216,8 +216,10 @@ Camera Controls</h1>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="marbles_8c-example.html#a26">marbles.c</a>.</dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00061">61</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00062">62</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="marbles_8c_source.html#l00132">main()</a>.</p>
 
@@ -249,25 +251,25 @@ Camera Controls</h1>
 <dl class="section note"><dt>Note</dt><dd>Camera looks at origin by default </dd>
 <dd>
 Initializes yaw/pitch based on initial look direction </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#a15">arm.c</a>, <a class="el" href="car_8c-example.html#a7">car.c</a>, <a class="el" href="derby_8c-example.html#a8">derby.c</a>, <a class="el" href="fountain_8c-example.html#a11">fountain.c</a>, <a class="el" href="piston_8c-example.html#a7">piston.c</a>, <a class="el" href="placer_8c-example.html#a7">placer.c</a>, <a class="el" href="ragdolls_8c-example.html#a7">ragdolls.c</a>, <a class="el" href="rotor_8c-example.html#a7">rotor.c</a>, <a class="el" href="template_8c-example.html#a7">template.c</a>, and <a class="el" href="terrain_8c-example.html#a7">terrain.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#a15">arm.c</a>, <a class="el" href="car_8c-example.html#a7">car.c</a>, <a class="el" href="derby_8c-example.html#a8">derby.c</a>, <a class="el" href="fountain_8c-example.html#a11">fountain.c</a>, <a class="el" href="gravity_8c-example.html#a21">gravity.c</a>, <a class="el" href="marbles_8c-example.html#a24">marbles.c</a>, <a class="el" href="piston_8c-example.html#a7">piston.c</a>, <a class="el" href="placer_8c-example.html#a7">placer.c</a>, <a class="el" href="ragdolls_8c-example.html#a7">ragdolls.c</a>, <a class="el" href="raycasting_8c-example.html#a7">raycasting.c</a>, <a class="el" href="rotor_8c-example.html#a7">rotor.c</a>, <a class="el" href="surfaces_8c-example.html#a7">surfaces.c</a>, <a class="el" href="template_8c-example.html#a7">template.c</a>, and <a class="el" href="terrain_8c-example.html#a7">terrain.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00081">81</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00082">82</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00144">GraphicsContext::camera</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00159">GraphicsContext::camera</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="arm_8c_source.html#l00066">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="arm_8c_source.html#l00064">main()</a>.</p>
 
 </div>
 </div>
-<a id="ad0a902b3760c7a5f8725bdb73ddc174b" name="ad0a902b3760c7a5f8725bdb73ddc174b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0a902b3760c7a5f8725bdb73ddc174b">&#9670;&#160;</a></span>UpdateExampleCamera()</h2>
+<a id="a577102dfa73642e5465f7d33ba01465e" name="a577102dfa73642e5465f7d33ba01465e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a577102dfa73642e5465f7d33ba01465e">&#9670;&#160;</a></span>UpdateCameraControl()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void UpdateExampleCamera </td>
+          <td class="memname">void UpdateCameraControl </td>
           <td>(</td>
           <td class="paramtype">struct <a class="el" href="structGraphicsContext.html">GraphicsContext</a> *</td>          <td class="paramname"><span class="paramname"><em>ctx</em></span></td><td>)</td>
           <td></td>
@@ -283,14 +285,14 @@ Initializes yaw/pitch based on initial look direction </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#a36">arm.c</a>, <a class="el" href="derby_8c-example.html#a30">derby.c</a>, <a class="el" href="fountain_8c-example.html#a24">fountain.c</a>, <a class="el" href="piston_8c-example.html#a38">piston.c</a>, <a class="el" href="placer_8c-example.html#a19">placer.c</a>, <a class="el" href="ragdolls_8c-example.html#a19">ragdolls.c</a>, <a class="el" href="rotor_8c-example.html#a33">rotor.c</a>, <a class="el" href="template_8c-example.html#a15">template.c</a>, and <a class="el" href="terrain_8c-example.html#a14">terrain.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="arm_8c-example.html#a36">arm.c</a>, <a class="el" href="derby_8c-example.html#a30">derby.c</a>, <a class="el" href="fountain_8c-example.html#a24">fountain.c</a>, <a class="el" href="gravity_8c-example.html#a24">gravity.c</a>, <a class="el" href="marbles_8c-example.html#a37">marbles.c</a>, <a class="el" href="piston_8c-example.html#a38">piston.c</a>, <a class="el" href="placer_8c-example.html#a19">placer.c</a>, <a class="el" href="ragdolls_8c-example.html#a19">ragdolls.c</a>, <a class="el" href="raycasting_8c-example.html#a26">raycasting.c</a>, <a class="el" href="rotor_8c-example.html#a33">rotor.c</a>, <a class="el" href="surfaces_8c-example.html#a25">surfaces.c</a>, <a class="el" href="template_8c-example.html#a15">template.c</a>, and <a class="el" href="terrain_8c-example.html#a14">terrain.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00168">168</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00169">169</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
 
-<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00144">GraphicsContext::camera</a>, and <a class="el" href="raylibODE_8h_source.html#l00145">GraphicsContext::shader</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00159">GraphicsContext::camera</a>, and <a class="el" href="raylibODE_8h_source.html#l00160">GraphicsContext::shader</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="arm_8c_source.html#l00066">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="arm_8c_source.html#l00064">main()</a>.</p>
 
 </div>
 </div>
@@ -325,11 +327,11 @@ Initializes yaw/pitch based on initial look direction </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="car_8c-example.html#a16">car.c</a>.</dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00104">104</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="exampleCamera_8c_source.html#l00105">105</a> of file <a class="el" href="exampleCamera_8c_source.html">exampleCamera.c</a>.</p>
 
-<p class="reference">References <a class="el" href="vehicle_8h_source.html#l00010">vehicle::bodies</a>, <a class="el" href="raylibODE_8h_source.html#l00144">GraphicsContext::camera</a>, and <a class="el" href="raylibODE_8h_source.html#l00145">GraphicsContext::shader</a>.</p>
+<p class="reference">References <a class="el" href="raylibODE_8h_source.html#l00177">vehicle::bodies</a>, <a class="el" href="raylibODE_8h_source.html#l00159">GraphicsContext::camera</a>, and <a class="el" href="raylibODE_8h_source.html#l00160">GraphicsContext::shader</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="car_8c_source.html#l00034">main()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="car_8c_source.html#l00033">main()</a>.</p>
 
 </div>
 </div>

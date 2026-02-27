@@ -89,6 +89,14 @@
     <member refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" kind="variable"><name>jointCount</name></member>
     <member refid="structRagDoll_1a48922d5094768dcacf07717590dccd00" kind="variable"><name>motorCount</name></member>
   </compound>
+  <compound refid="structRayCast" kind="struct"><name>RayCast</name>
+    <member refid="structRayCast_1a1c3db63edf08a000f6c66b7c92550628" kind="variable"><name>maxHits</name></member>
+    <member refid="structRayCast_1a29020fd2803e3c920f2062aeae6b7db5" kind="variable"><name>count</name></member>
+    <member refid="structRayCast_1ad462fddf059c2869e85e01ca5a56d12b" kind="variable"><name>position</name></member>
+    <member refid="structRayCast_1a751c178a9bc21a4359de943eda31ae1a" kind="variable"><name>direction</name></member>
+    <member refid="structRayCast_1abc0fa92554941dedbef1a17241c86543" kind="variable"><name>length</name></member>
+    <member refid="structRayCast_1ad75ba1adf10c04564d8dd8ba2a959b57" kind="variable"><name>hits</name></member>
+  </compound>
   <compound refid="structRayHit" kind="struct"><name>RayHit</name>
     <member refid="structRayHit_1a86f485fd67387a8c18d90b717d891015" kind="variable"><name>geom</name></member>
     <member refid="structRayHit_1adbc494bc1bad81d80a620b42d71f29b4" kind="variable"><name>depth</name></member>
@@ -195,6 +203,11 @@
     <member refid="ragdolls_8c_1ad406bed34c14b9c8fc59247845d3c639" kind="define"><name>NRAGDOLLS</name></member>
     <member refid="ragdolls_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
   </compound>
+  <compound refid="raycasting_8c" kind="file"><name>raycasting.c</name>
+    <member refid="raycasting_8c_1a76da26d519b3a4158847daa8783a7a5b" kind="define"><name>screenWidth</name></member>
+    <member refid="raycasting_8c_1a8c472bd07ea66dbb884992785271e1d1" kind="define"><name>screenHeight</name></member>
+    <member refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" kind="function"><name>main</name></member>
+  </compound>
   <compound refid="rotor_8c" kind="file"><name>rotor.c</name>
     <member refid="rotor_8c_1a76da26d519b3a4158847daa8783a7a5b" kind="define"><name>screenWidth</name></member>
     <member refid="rotor_8c_1a8c472bd07ea66dbb884992785271e1d1" kind="define"><name>screenHeight</name></member>
@@ -239,18 +252,12 @@
   </compound>
   <compound refid="exampleCamera_8h" kind="file"><name>exampleCamera.h</name>
     <member refid="exampleCamera_8h_1af155bf31f5a69e64716e1eb1a010f647" kind="function"><name>SetupCamera</name></member>
-    <member refid="exampleCamera_8h_1ad0a902b3760c7a5f8725bdb73ddc174b" kind="function"><name>UpdateExampleCamera</name></member>
+    <member refid="exampleCamera_8h_1a577102dfa73642e5465f7d33ba01465e" kind="function"><name>UpdateCameraControl</name></member>
     <member refid="exampleCamera_8h_1afa1b8031e4fc015dfe8093339c904e50" kind="function"><name>UpdateVehicleCamera</name></member>
     <member refid="exampleCamera_8h_1a9904774abec2bae71c6d75094d47cbe3" kind="function"><name>GetCameraYaw</name></member>
     <member refid="exampleCamera_8h_1afbfa8af7ad686732f5ddcea617d03d1b" kind="function"><name>GetCameraPitch</name></member>
     <member refid="exampleCamera_8h_1aaadc2473185a23c67ec11371dd33d09e" kind="function"><name>SetCameraYaw</name></member>
     <member refid="exampleCamera_8h_1a7caa09910fec92084c165ade48d9c375" kind="function"><name>SetCameraPitch</name></member>
-  </compound>
-  <compound refid="init_8h" kind="file"><name>init.h</name>
-    <member refid="init_8h_1a0c011796e9f74e7eb4b5bb26305193f9" kind="function"><name>CreateGraphics</name></member>
-    <member refid="init_8h_1a57d526245eb2f059fac1e6bb3f64ae42" kind="function"><name>CreatePhysics</name></member>
-    <member refid="init_8h_1aadcc246e22ab4be2dd926a25c5bc9bad" kind="function"><name>FreePhysics</name></member>
-    <member refid="init_8h_1a6569bf61ca03001b6fabedc21aff855a" kind="function"><name>FreeGraphics</name></member>
   </compound>
   <compound refid="ragdoll_8h" kind="file"><name>ragdoll.h</name>
     <member refid="ragdoll_8h_1a62ae838f84574f00dc0b59766651ae8d" kind="define"><name>RAGDOLL_SPAWN_CENTER_X</name></member>
@@ -284,6 +291,8 @@
     <member refid="raylibODE_8h_1a0c734b6e492fcd4bfaeeb1e858978a40" kind="define"><name>PLANE_SIZE</name></member>
     <member refid="raylibODE_8h_1aeca363633c4fad02497dc3ebd42fa298" kind="define"><name>PLANE_THICKNESS</name></member>
     <member refid="raylibODE_8h_1afeff8fa28bbbf9c2ddbc85a38993d92e" kind="define"><name>maxPsteps</name></member>
+    <member refid="raylibODE_8h_1ab457cfa8f57435d5385ae9ae2babb18b" kind="define"><name>VEH_PART_COUNT</name></member>
+    <member refid="raylibODE_8h_1a2cc43825b9f0c5d1dfbb6dd03eeb35b6" kind="define"><name>WHEEL_COUNT</name></member>
     <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391b" kind="enum"><name>SHAPE_TYPE</name></member>
     <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391bacd064d47d06a6cf0cb539ae3335d26b5" kind="enumvalue"><name>SHAPE_BOX</name></member>
     <member refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391bac7a9839306104e6733f1adc2bb66274b" kind="enumvalue"><name>SHAPE_SPHERE</name></member>
@@ -297,8 +306,14 @@
     <member refid="raylibODE_8h_1a7db85dfed979eba9e4954e9af045e215" kind="typedef"><name>geomInfo</name></member>
     <member refid="raylibODE_8h_1ad292e4e6fd1ef03a883a0b515382cf48" kind="typedef"><name>RotorPID</name></member>
     <member refid="raylibODE_8h_1a4697631c336e0354cd1eb1bc2743d5ba" kind="typedef"><name>RayHit</name></member>
+    <member refid="raylibODE_8h_1ae62366fb752ff404e16a22487fa85bbe" kind="typedef"><name>RayCast</name></member>
     <member refid="raylibODE_8h_1a92862474db45e097a7381460ac67f859" kind="typedef"><name>GraphicsContext</name></member>
     <member refid="raylibODE_8h_1a2570bb818f3867a7373604ee19b4f8b4" kind="typedef"><name>MultiPiston</name></member>
+    <member refid="raylibODE_8h_1a48a9ef4b71413cbc1d2cac1c56b541d1" kind="typedef"><name>vehicle</name></member>
+    <member refid="raylibODE_8h_1a0c011796e9f74e7eb4b5bb26305193f9" kind="function"><name>CreateGraphics</name></member>
+    <member refid="raylibODE_8h_1a57d526245eb2f059fac1e6bb3f64ae42" kind="function"><name>CreatePhysics</name></member>
+    <member refid="raylibODE_8h_1aadcc246e22ab4be2dd926a25c5bc9bad" kind="function"><name>FreePhysics</name></member>
+    <member refid="raylibODE_8h_1a6569bf61ca03001b6fabedc21aff855a" kind="function"><name>FreeGraphics</name></member>
     <member refid="raylibODE_8h_1a9a4fddcfd406e6bfb1987111e4ad64f1" kind="function"><name>CreateBaseEntity</name></member>
     <member refid="raylibODE_8h_1a79db70091e3c86494f485979529984c8" kind="function"><name>CreateGeomInfo</name></member>
     <member refid="raylibODE_8h_1a0201472030d3c51d3b13c7f807b59b01" kind="function"><name>CreateSphereGeom</name></member>
@@ -315,7 +330,6 @@
     <member refid="raylibODE_8h_1a8f1b86adbb51b8bd80405329b31c87d1" kind="function"><name>FreeBodyAndGeoms</name></member>
     <member refid="raylibODE_8h_1a5a3f56ed394d3d2c1400e25d83fc05af" kind="function"><name>DrawGeom</name></member>
     <member refid="raylibODE_8h_1aa01114b518b93c528e9e85382ce46b4b" kind="function"><name>DrawBodies</name></member>
-    <member refid="raylibODE_8h_1a01fc58efa7854e13c41c4b40bc5c8b62" kind="function"><name>DrawBodyGeoms</name></member>
     <member refid="raylibODE_8h_1a1232d8000138fdc6d2f9741548a263aa" kind="function"><name>DrawStatics</name></member>
     <member refid="raylibODE_8h_1a4a4933f37c736fd2d311be9eaf9b7fa8" kind="function"><name>rndf</name></member>
     <member refid="raylibODE_8h_1ad087bfe56f8c97e250f6dd5054fdf76e" kind="function"><name>StepPhysics</name></member>
@@ -337,6 +351,8 @@
     <member refid="raylibODE_8h_1aa8656255a05c3f38ce0b13825642acdf" kind="function"><name>SetEntitySurfaces</name></member>
     <member refid="raylibODE_8h_1a3c235bbe76330e3669fb881394ab8767" kind="function"><name>UpdateRotorPID</name></member>
     <member refid="raylibODE_8h_1a51c7fa5bc9007621b52ed19bceadc142" kind="function"><name>CreateRotorPID</name></member>
+    <member refid="raylibODE_8h_1aae31409e8c5cfe1cf9148f2c18207e61" kind="function"><name>CreateRayCast</name></member>
+    <member refid="raylibODE_8h_1a2b934e0acb1163c93b0f2613ce850a2c" kind="function"><name>CastRay</name></member>
   </compound>
   <compound refid="rlights_8h" kind="file"><name>rlights.h</name>
     <member refid="rlights_8h_1a737b417f16ea225cf15e8d4c23df53dc" kind="define"><name>MAX_LIGHTS</name></member>
@@ -358,9 +374,6 @@
     <member refid="surface_8h_1aa26755a73be46b483bf7098bcbf679dd" kind="variable"><name>gSurfaces</name></member>
   </compound>
   <compound refid="vehicle_8h" kind="file"><name>vehicle.h</name>
-    <member refid="vehicle_8h_1ab457cfa8f57435d5385ae9ae2babb18b" kind="define"><name>VEH_PART_COUNT</name></member>
-    <member refid="vehicle_8h_1a2cc43825b9f0c5d1dfbb6dd03eeb35b6" kind="define"><name>WHEEL_COUNT</name></member>
-    <member refid="vehicle_8h_1a48a9ef4b71413cbc1d2cac1c56b541d1" kind="typedef"><name>vehicle</name></member>
     <member refid="vehicle_8h_1af0740a75defe24708df5577107ed9ba7" kind="function"><name>CreateVehicle</name></member>
     <member refid="vehicle_8h_1a9c16065d67848dde985d9a21631eb01c" kind="function"><name>UpdateVehicle</name></member>
     <member refid="vehicle_8h_1ab0b188b6b47157b4f3c4aae241a933c8" kind="function"><name>FreeVehicle</name></member>
@@ -394,7 +407,7 @@
     <member refid="exampleCamera_8c_1a7caa09910fec92084c165ade48d9c375" kind="function"><name>SetCameraPitch</name></member>
     <member refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" kind="function"><name>SetupCamera</name></member>
     <member refid="exampleCamera_8c_1afa1b8031e4fc015dfe8093339c904e50" kind="function"><name>UpdateVehicleCamera</name></member>
-    <member refid="exampleCamera_8c_1ad0a902b3760c7a5f8725bdb73ddc174b" kind="function"><name>UpdateExampleCamera</name></member>
+    <member refid="exampleCamera_8c_1a577102dfa73642e5465f7d33ba01465e" kind="function"><name>UpdateCameraControl</name></member>
   </compound>
   <compound refid="init_8c" kind="file"><name>init.c</name>
     <member refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" kind="function"><name>CreateGraphics</name></member>
@@ -411,6 +424,7 @@
   </compound>
   <compound refid="raylibODE_8c" kind="file"><name>raylibODE.c</name>
     <member refid="raylibODE_8c_1ad4efdb006e87d1e0709eb9a32edb2f2d" kind="variable"><name>physSlice</name></member>
+    <member refid="raylibODE_8c_1ab68ea2864e3ad930f35c4dbad16b6f73" kind="function"><name>DrawBodyGeoms</name></member>
     <member refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" kind="function"><name>rndf</name></member>
     <member refid="raylibODE_8c_1ad087bfe56f8c97e250f6dd5054fdf76e" kind="function"><name>StepPhysics</name></member>
     <member refid="raylibODE_8c_1a9a4fddcfd406e6bfb1987111e4ad64f1" kind="function"><name>CreateBaseEntity</name></member>
@@ -427,16 +441,18 @@
     <member refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" kind="function"><name>CreateGeomInfo</name></member>
     <member refid="raylibODE_8c_1a3c34ddfaf3a71bac062e99f033d28030" kind="function"><name>rayCallback</name></member>
     <member refid="raylibODE_8c_1a6038bcb143e6ca12696aa65bf164f488" kind="function"><name>PickEntity</name></member>
+    <member refid="raylibODE_8c_1aae31409e8c5cfe1cf9148f2c18207e61" kind="function"><name>CreateRayCast</name></member>
+    <member refid="raylibODE_8c_1a65989b7a2fa4d66cf4b271c76335e32a" kind="function"><name>rayCastCallback</name></member>
+    <member refid="raylibODE_8c_1a2b934e0acb1163c93b0f2613ce850a2c" kind="function"><name>CastRay</name></member>
     <member refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" kind="function"><name>FreeBodyAndGeoms</name></member>
     <member refid="raylibODE_8c_1a3b61e431f9b3c349b3e55888b9b93a4e" kind="function"><name>DrawModelTinted</name></member>
     <member refid="raylibODE_8c_1a261ecb0743898782ddf0e56b07f32f2b" kind="function"><name>RayToOdeMat</name></member>
     <member refid="raylibODE_8c_1aeaef389f404abef038f38518fc1a0421" kind="function"><name>OdeToRayMat</name></member>
-    <member refid="raylibODE_8c_1ab9e180dd7d59f892f27826b15cb99ef1" kind="function"><name>DrawGeom</name></member>
+    <member refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" kind="function"><name>DrawGeom</name></member>
     <member refid="raylibODE_8c_1a70760bcdbb95dca2cd9cbb1a640485d2" kind="function"><name>CreateRotor</name></member>
     <member refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" kind="function"><name>SetEntityHew</name></member>
     <member refid="raylibODE_8c_1aa8656255a05c3f38ce0b13825642acdf" kind="function"><name>SetEntitySurfaces</name></member>
     <member refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" kind="function"><name>DrawBodies</name></member>
-    <member refid="raylibODE_8c_1ab68ea2864e3ad930f35c4dbad16b6f73" kind="function"><name>DrawBodyGeoms</name></member>
     <member refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" kind="function"><name>DrawStatics</name></member>
     <member refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" kind="function"><name>FreeEntity</name></member>
     <member refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" kind="function"><name>CreatePiston</name></member>
@@ -476,13 +492,21 @@
   </compound>
   <compound refid="fountain_8c-example" kind="example"><name>fountain.c</name>
   </compound>
+  <compound refid="gravity_8c-example" kind="example"><name>gravity.c</name>
+  </compound>
+  <compound refid="marbles_8c-example" kind="example"><name>marbles.c</name>
+  </compound>
   <compound refid="piston_8c-example" kind="example"><name>piston.c</name>
   </compound>
   <compound refid="placer_8c-example" kind="example"><name>placer.c</name>
   </compound>
   <compound refid="ragdolls_8c-example" kind="example"><name>ragdolls.c</name>
   </compound>
+  <compound refid="raycasting_8c-example" kind="example"><name>raycasting.c</name>
+  </compound>
   <compound refid="rotor_8c-example" kind="example"><name>rotor.c</name>
+  </compound>
+  <compound refid="surfaces_8c-example" kind="example"><name>surfaces.c</name>
   </compound>
   <compound refid="template_8c-example" kind="example"><name>template.c</name>
   </compound>

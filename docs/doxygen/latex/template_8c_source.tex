@@ -25,51 +25,50 @@
 \DoxyCodeLine{\Hypertarget{template_8c_source_l00021}00021\ \textcolor{comment}{\ *}}
 \DoxyCodeLine{\Hypertarget{template_8c_source_l00022}00022\ \textcolor{comment}{\ */}}
 \DoxyCodeLine{\Hypertarget{template_8c_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{init_8h}{init.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exampleCamera_8h}{exampleCamera.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00027}\mbox{\hyperlink{template_8c_a76da26d519b3a4158847daa8783a7a5b}{00027}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00028}\mbox{\hyperlink{template_8c_a8c472bd07ea66dbb884992785271e1d1}{00028}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raylibODE_8h}{raylibODE.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00026}\mbox{\hyperlink{template_8c_a76da26d519b3a4158847daa8783a7a5b}{00026}}\ \textcolor{preprocessor}{\#define\ screenWidth\ 1920/1.2}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00027}\mbox{\hyperlink{template_8c_a8c472bd07ea66dbb884992785271e1d1}{00027}}\ \textcolor{preprocessor}{\#define\ screenHeight\ 1080/1.2}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00028}00028\ }
 \DoxyCodeLine{\Hypertarget{template_8c_source_l00029}00029\ }
 \DoxyCodeLine{\Hypertarget{template_8c_source_l00030}00030\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00032}\mbox{\hyperlink{template_8c_a840291bc02cba5474a4cb46a9b9566fe}{00032}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00033}00033\ \{}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ init}}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Create\ ground\ plane}}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00040}00040\ \ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00041}00041\ \ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00042}00042\ \ \ \ \ dGeomSetData(planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f));}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00031}\mbox{\hyperlink{template_8c_a840291bc02cba5474a4cb46a9b9566fe}{00031}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{arm_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00032}00032\ \{}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00033}00033\ \ \ \ \ \textcolor{comment}{//\ init}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx\ =\ \mbox{\hyperlink{init_8c_a57d526245eb2f059fac1e6bb3f64ae42}{CreatePhysics}}();}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics\ =\ \mbox{\hyperlink{init_8c_a0c011796e9f74e7eb4b5bb26305193f9}{CreateGraphics}}(\mbox{\hyperlink{arm_8c_a76da26d519b3a4158847daa8783a7a5b}{screenWidth}},\ \mbox{\hyperlink{arm_8c_a8c472bd07ea66dbb884992785271e1d1}{screenHeight}},\ \textcolor{stringliteral}{"{}Raylib\ and\ OpenDE\ Sandbox"{}});}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00036}00036\ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00038}00038\ \ \ \ \ \textcolor{comment}{//\ Create\ ground\ plane}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00039}00039\ \ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00040}00040\ \ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00041}00041\ \ \ \ \ dGeomSetData(planeGeom,\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&graphics-\/>\mbox{\hyperlink{structGraphicsContext_ad3030611b0418e63e186207a3ce3b9b6}{groundTexture}},\ 25.0f,\ 25.0f));}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00043}00043\ }
 \DoxyCodeLine{\Hypertarget{template_8c_source_l00044}00044\ }
 \DoxyCodeLine{\Hypertarget{template_8c_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00048}00048\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_ad0a902b3760c7a5f8725bdb73ddc174b}{UpdateExampleCamera}}(graphics);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ drawing}}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ BeginDrawing();}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ EndMode3D();}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00059}00059\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}This\ does\ nothing\ use\ it\ for\ your\ own\ experiments!"{}},\ 10,\ 40,\ 20,\ RAYWHITE);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00061}00061\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ EndDrawing();}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00063}00063\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00064}00064\ }
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00067}00067\ \ \ \ \ CloseWindow();}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{template_8c_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{while}\ (!WindowShouldClose())}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00047}00047\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_a577102dfa73642e5465f7d33ba01465e}{UpdateCameraControl}}(graphics);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ drawing}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ BeginDrawing();}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ ClearBackground(BLACK);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ BeginMode3D(graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}});}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(graphics,\ physCtx);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ EndMode3D();}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ DrawText(\textcolor{stringliteral}{"{}This\ does\ nothing\ use\ it\ for\ your\ own\ experiments!"{}},\ 10,\ 40,\ 20,\ RAYWHITE);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ EndDrawing();}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{init_8c_aadcc246e22ab4be2dd926a25c5bc9bad}{FreePhysics}}(physCtx);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{init_8c_a6569bf61ca03001b6fabedc21aff855a}{FreeGraphics}}(graphics);}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00066}00066\ \ \ \ \ CloseWindow();}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{template_8c_source_l00068}00068\ \}}
 
 \end{DoxyCode}
