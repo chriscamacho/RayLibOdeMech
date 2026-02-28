@@ -56,7 +56,7 @@ int main(void)
 
 	// Create random simple objects with random textures
 	for (int i = 0; i < NUM_OBJ; i++) {
-		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-3, 3), rndf(6, 12), rndf(-3, 3)}, SHAPE_ALL);
+		CreateRandomEntity(physCtx, graphics, (Vector3){rndf(-6, 6), rndf(6, 12), rndf(-6, 6)}, SHAPE_ALL);
 	}
 
 
