@@ -17,8 +17,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="120" column="11" bodyfile="raylibODE.h" bodystart="120" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1465" endline="1476">CreateRotorPID</referencedby>
-        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1485" endline="1509">UpdateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1467" endline="1478">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1487" endline="1511">UpdateRotorPID</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRotorPID_1a2d5ed52841172c4d8b866a298d664414" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -33,8 +33,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="120" column="14" bodyfile="raylibODE.h" bodystart="120" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1465" endline="1476">CreateRotorPID</referencedby>
-        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1485" endline="1509">UpdateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1467" endline="1478">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1487" endline="1511">UpdateRotorPID</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRotorPID_1ada89e789ba855cf729f920fc1c1bb929" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -49,8 +49,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="120" column="17" bodyfile="raylibODE.h" bodystart="120" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1465" endline="1476">CreateRotorPID</referencedby>
-        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1485" endline="1509">UpdateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1467" endline="1478">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1487" endline="1511">UpdateRotorPID</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRotorPID_1ab110cb5e184bcd5145e6ed3b89e2cf82" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -65,7 +65,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="121" column="11" bodyfile="raylibODE.h" bodystart="121" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1465" endline="1476">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1467" endline="1478">CreateRotorPID</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRotorPID_1af2941ac4e0f3caf388abbf8c6a3fdba8" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -80,8 +80,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="122" column="11" bodyfile="raylibODE.h" bodystart="122" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1465" endline="1476">CreateRotorPID</referencedby>
-        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1485" endline="1509">UpdateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1467" endline="1478">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1487" endline="1511">UpdateRotorPID</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRotorPID_1abb76a89765c6b44add67c2a0bc21ef96" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -96,8 +96,8 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="122" column="14" bodyfile="raylibODE.h" bodystart="122" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1465" endline="1476">CreateRotorPID</referencedby>
-        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1485" endline="1509">UpdateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a51c7fa5bc9007621b52ed19bceadc142" compoundref="raylibODE_8c" startline="1467" endline="1478">CreateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1487" endline="1511">UpdateRotorPID</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRotorPID_1a7ea2978fd04b56af0f7adc741b9bd69a" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -113,7 +113,7 @@
         </inbodydescription>
         <location file="raylibODE.h" line="123" column="11" bodyfile="raylibODE.h" bodystart="123" bodyend="-1"/>
         <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="33" endline="198">main</referencedby>
-        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1485" endline="1509">UpdateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1487" endline="1511">UpdateRotorPID</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRotorPID_1acb043fd74456df5ff732c47777e734a8" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -128,7 +128,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="124" column="11" bodyfile="raylibODE.h" bodystart="124" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1485" endline="1509">UpdateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1487" endline="1511">UpdateRotorPID</referencedby>
       </memberdef>
       <memberdef kind="variable" id="structRotorPID_1afdb6e3aebf5da57db2d769fc8a74a05b" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -143,7 +143,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="125" column="11" bodyfile="raylibODE.h" bodystart="125" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1485" endline="1509">UpdateRotorPID</referencedby>
+        <referencedby refid="raylibODE_8c_1a3c235bbe76330e3669fb881394ab8767" compoundref="raylibODE_8c" startline="1487" endline="1511">UpdateRotorPID</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>

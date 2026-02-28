@@ -870,6 +870,8 @@ static void rayCastCallback(void* data, dGeomID o1, dGeomID o2)
 /** cast a ray into the world building an array of results
  * @param physCtx physics context
  * @param rc raycast holding ray properties and results
+ * @note the array of hits produced is not in depth order, and built
+ * as ode iterates the world body list which is in no particular order
  */
 void CastRay(PhysicsContext* physCtx, RayCast* rc)
 {

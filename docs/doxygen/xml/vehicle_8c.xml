@@ -294,7 +294,7 @@
         <references refid="structvehicle_1a26952b98198ea34cf69e135ff78a3ba6" compoundref="raylibODE_8h" startline="177">vehicle::bodies</references>
         <references refid="structvehicle_1a734bcc32ada0399492de70cbb42e5c90" compoundref="raylibODE_8h" startline="180">vehicle::bodyCount</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="895" endline="908">FreeBodyAndGeoms</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="897" endline="910">FreeBodyAndGeoms</references>
         <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="60">entity::node</references>
         <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
         <referencedby refid="car_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="car_8c" startline="33" endline="167">main</referencedby>

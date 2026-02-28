@@ -45,7 +45,8 @@
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{exampleCamera_8c_af155bf31f5a69e64716e1eb1a010f647}{SetupCamera}}(graphics);}
 \DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ =\ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ \ -\/\ 8.f;}
+\DoxyCodeLine{\ \ \ \ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ =\ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.y\ \ -\/\ 7.f;}
+\DoxyCodeLine{\ \ \ \ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.x\ =\ graphics-\/>\mbox{\hyperlink{structGraphicsContext_a67da4b710a791d954415259ae540976c}{camera}}.position.x\ \ -\/\ 16.f;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ set\ up\ for\ the\ items\ in\ the\ world}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
@@ -56,7 +57,7 @@
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ dGeomID\ planeGeom\ =\ dCreateBox(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}},\ \mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}},\ \mbox{\hyperlink{raylibODE_8h_a0c734b6e492fcd4bfaeeb1e858978a40}{PLANE\_SIZE}});}
 \DoxyCodeLine{\ \ \ \ dGeomSetPosition(planeGeom,\ 0,\ -\/\mbox{\hyperlink{raylibODE_8h_aeca363633c4fad02497dc3ebd42fa298}{PLANE\_THICKNESS}}\ /\ 2.0,\ 0);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5b5b0b12adc7119a13eaacef8d097499}{SetGeomOrientationEuler}}(planeGeom,\ -\/22.5f,\ 0,\ 0);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5b5b0b12adc7119a13eaacef8d097499}{SetGeomOrientationEuler}}(planeGeom,\ -\/M\_PI/10.0f,\ 0,\ 0);}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ groundInfo\ =\ \mbox{\hyperlink{raylibODE_8c_a79db70091e3c86494f485979529984c8}{CreateGeomInfo}}(\textcolor{keyword}{true},\ \&dotTex,\ 25.0f,\ 25.0f);}
 \DoxyCodeLine{\ \ \ \ groundInfo-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5}{SURFACE\_ICE}}];}
@@ -65,25 +66,37 @@
 \DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{clist_8c_a264922774fdf767e31797fe81f2231be}{clistAddNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}},\ planeGeom);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ }
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRayCast}{RayCast}}*\ redCast\ =\ \mbox{\hyperlink{raylibODE_8c_aae31409e8c5cfe1cf9148f2c18207e61}{CreateRayCast}}(12,\ (Vector3)\{-\/5,.5,0\},(Vector3)\{1,0,0\},\ 3);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRayCast}{RayCast}}*\ redCast\ =\ \mbox{\hyperlink{raylibODE_8c_aae31409e8c5cfe1cf9148f2c18207e61}{CreateRayCast}}(12,\ (Vector3)\{-\/5,.5,0\},(Vector3)\{1,0,0\},\ 6);}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ pre\ calculate\ end\ point\ as\ we're\ not\ moving\ the\ ray\ around}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ (used\ for\ drawing\ the\ visual)}}
 \DoxyCodeLine{\ \ \ \ Vector3\ redEnd\ =\ Vector3Scale(redCast-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}},\ redCast-\/>\mbox{\hyperlink{structRayCast_abc0fa92554941dedbef1a17241c86543}{length}});}
 \DoxyCodeLine{\ \ \ \ redEnd\ =\ Vector3Add(redEnd,\ redCast-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}});}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRayCast}{RayCast}}*\ greenCast\ =\ \mbox{\hyperlink{raylibODE_8c_aae31409e8c5cfe1cf9148f2c18207e61}{CreateRayCast}}(12,\ (Vector3)\{-\/2,.5,0\},(Vector3)\{1,0,0\},\ 3);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRayCast}{RayCast}}*\ greenCast\ =\ \mbox{\hyperlink{raylibODE_8c_aae31409e8c5cfe1cf9148f2c18207e61}{CreateRayCast}}(12,\ (Vector3)\{1.5,2,-\/5\},(Vector3)\{-\/1,0,0\},\ 3);}
 \DoxyCodeLine{\ \ \ \ Vector3\ greenEnd\ =\ Vector3Scale(greenCast-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}},\ greenCast-\/>\mbox{\hyperlink{structRayCast_abc0fa92554941dedbef1a17241c86543}{length}});}
 \DoxyCodeLine{\ \ \ \ greenEnd\ =\ Vector3Add(greenEnd,\ greenCast-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}});}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRayCast}{RayCast}}*\ blueCast\ =\ \mbox{\hyperlink{raylibODE_8c_aae31409e8c5cfe1cf9148f2c18207e61}{CreateRayCast}}(12,\ (Vector3)\{-\/2,-\/0.5,2\},(Vector3)\{1,0,0\},\ 7);}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ Quaternion\ q\ =\ QuaternionFromEuler(0,-\/M\_PI*.8,M\_PI*.1);}
+\DoxyCodeLine{\ \ \ \ Vector3\ d\ =\ (Vector3)\{1,0,0\};}
+\DoxyCodeLine{\ \ \ \ d\ =\ Vector3RotateByQuaternion(d,\ q);\ }
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRayCast}{RayCast}}*\ blueCast\ =\ \mbox{\hyperlink{raylibODE_8c_aae31409e8c5cfe1cf9148f2c18207e61}{CreateRayCast}}(12,\ (Vector3)\{8,1.65,-\/1.5\},\ d,\ 24);}
 \DoxyCodeLine{\ \ \ \ Vector3\ blueEnd\ =\ Vector3Scale(blueCast-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}},\ blueCast-\/>\mbox{\hyperlink{structRayCast_abc0fa92554941dedbef1a17241c86543}{length}});}
 \DoxyCodeLine{\ \ \ \ blueEnd\ =\ Vector3Add(blueEnd,\ blueCast-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}});}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ physTime\ =\ 0;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ lastFrameCount\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ paused\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ stepFrame\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ lastBlueCount\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ lastRedCount\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRayHit}{RayHit}}\ lastBlueHit[blueCast-\/>\mbox{\hyperlink{structRayCast_a1c3db63edf08a000f6c66b7c92550628}{maxHits}}];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{structRayHit}{RayHit}}\ lastRedHit[redCast-\/>\mbox{\hyperlink{structRayCast_a1c3db63edf08a000f6c66b7c92550628}{maxHits}}];}
 \DoxyCodeLine{\ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//s}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Main\ game\ loop}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
@@ -96,6 +109,11 @@
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ baked\ in\ controls\ (example\ camera)}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{exampleCamera_8c_a577102dfa73642e5465f7d33ba01465e}{UpdateCameraControl}}(graphics);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_SPACE))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ paused\ =\ !paused;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ stepFrame\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (IsKeyPressed(KEY\_T))\ stepFrame\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
@@ -114,20 +132,30 @@
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ node\ =\ next;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}\ \%\ 60\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}\ \%\ 60\ ==\ 0\ \&\&\ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}!=lastFrameCount)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i\ <\ 3;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ pos\ =\ (Vector3)\{-\/4.0f\ +\ i\ *4.0f,\ 6.5,\ -\/7.5\};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ box\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ (Vector3)\{1,1,1\},\ pos,\ Vector3Zero(),\ 20.f);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aa8656255a05c3f38ce0b13825642acdf}{SetEntitySurfaces}}(box,\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5}{SURFACE\_ICE}}]);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastFrameCount\ =\ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dGeomID\ g\ =\ dBodyGetFirstGeom(box-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(g);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}}\ =\ \&dotTex;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ the\ physics}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pSteps\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!paused\ ||\ stepFrame)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ physTime\ =\ GetTime();\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ pSteps\ =\ \mbox{\hyperlink{raylibODE_8c_ad087bfe56f8c97e250f6dd5054fdf76e}{StepPhysics}}(physCtx);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ physTime\ =\ GetTime()\ -\/\ physTime;\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}++;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a2b934e0acb1163c93b0f2613ce850a2c}{CastRay}}(physCtx,\ redCast);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ redCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};\ i++)\ \{}
@@ -159,7 +187,21 @@
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ rays\ probably\ more\ useful\ invisible\ but\ in\ this\ example\ we\ show\ them}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawLine3D(redCast-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}},\ redEnd,\ RED);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawLine3D(greenCast-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}},\ greenEnd,\ GREEN);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawLine3D(blueCast-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}},\ blueEnd,\ BLUE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawCube(blueCast-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}},.2f,\ .2f,\ .2f,\ WHITE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawCube(blueEnd,.2f,\ .2f,\ .2f,\ RED);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ blueCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawCube(blueCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}},.2f,\ .2f,\ .2f,\ BLUE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ greenCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawCube(greenCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}},.2f,\ .2f,\ .2f,\ GREEN);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ redCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawCube(redCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}},.2f,\ .2f,\ .2f,\ RED);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \ \ \ \ EndMode3D();}
 \DoxyCodeLine{}
 \DoxyCodeLine{}
@@ -169,9 +211,56 @@
 \DoxyCodeLine{\ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}Phys\ time\ per\ frame\ \%f"{}},physTime),\ 10,\ 140,\ 20,\ WHITE);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}total\ time\ per\ frame\ \%f"{}},GetFrameTime()),\ 10,\ 160,\ 20,\ WHITE);}
 \DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ function!}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ blueCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}pos:\%.2f,\ \%.2f,\ \%.2f,\ \ \ \ depth:\%.2f"{}},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blueCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.x,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blueCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.y,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blueCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.z,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ blueCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adbc494bc1bad81d80a620b42d71f29b4}{depth}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ),\ 30,\ 200+i*30,\ 30,\ SKYBLUE);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastBlueHit[i]\ =\ blueCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (blueCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}}\ >\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ lastBlueCount\ =\ blueCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ lastBlueCount;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}pos:\%.2f,\ \%.2f,\ \%.2f,\ \ \ \ depth:\%.2f"{}},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastBlueHit[i].pos.x,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastBlueHit[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.y,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastBlueHit[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.z,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastBlueHit[i].\mbox{\hyperlink{structRayHit_adbc494bc1bad81d80a620b42d71f29b4}{depth}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ),\ 30,\ 200+i*30,\ 30,\ BLUE);\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ redCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}pos:\%.2f,\ \%.2f,\ \%.2f,\ \ \ \ depth:\%.2f"{}},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ redCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.x,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ redCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.y,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ redCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.z,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ redCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i].\mbox{\hyperlink{structRayHit_adbc494bc1bad81d80a620b42d71f29b4}{depth}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ),\ 630,\ 200+i*30,\ 30,\ PINK);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastRedHit[i]\ =\ redCast-\/>\mbox{\hyperlink{structRayCast_ad75ba1adf10c04564d8dd8ba2a959b57}{hits}}[i];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (redCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}}\ >\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ lastRedCount\ =\ redCast-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ lastRedCount;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DrawText(TextFormat(\textcolor{stringliteral}{"{}pos:\%.2f,\ \%.2f,\ \%.2f,\ \ \ \ depth:\%.2f"{}},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastRedHit[i].pos.x,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastRedHit[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.y,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastRedHit[i].\mbox{\hyperlink{structRayHit_adcef8883ac52e6d421436e08b1b6201e}{pos}}.z,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lastRedHit[i].\mbox{\hyperlink{structRayHit_adbc494bc1bad81d80a620b42d71f29b4}{depth}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ),\ 630,\ 200+i*30,\ 30,\ RED);\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ EndDrawing();}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{gravity_8c_abaf7d77bd2fc7eb6125fa605bd645b67}{frameCount}}++;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ UnloadTexture(dotTex);}

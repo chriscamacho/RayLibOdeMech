@@ -308,7 +308,7 @@
         </inbodydescription>
         <location file="ragdoll.c" line="454" column="6" bodyfile="ragdoll.c" bodystart="454" bodyend="463"/>
         <references refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" compoundref="ragdoll_8h" startline="39">RagDoll::bodyCount</references>
-        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="958" endline="1040">DrawGeom</references>
+        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="960" endline="1042">DrawGeom</references>
         <references refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" compoundref="ragdoll_8h" startline="36">RagDoll::geoms</references>
       </memberdef>
       <memberdef kind="function" id="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -360,7 +360,7 @@
         <references refid="structRagDoll_1a6701b87f385a57ac96ab8a1574eae1c8" compoundref="ragdoll_8h" startline="35">RagDoll::bodies</references>
         <references refid="structRagDoll_1aade79e1e4b9a10bdb14353e5c982c392" compoundref="ragdoll_8h" startline="39">RagDoll::bodyCount</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="895" endline="908">FreeBodyAndGeoms</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="897" endline="910">FreeBodyAndGeoms</references>
         <references refid="structRagDoll_1adac575b2a7d8284989639922b01e43cf" compoundref="ragdoll_8h" startline="36">RagDoll::geoms</references>
         <references refid="structRagDoll_1a16ba8728cb9c85ca6550882c8d839a15" compoundref="ragdoll_8h" startline="40">RagDoll::jointCount</references>
         <references refid="structRagDoll_1aa69098e87adb53384c9de0f5f833a9f1" compoundref="ragdoll_8h" startline="37">RagDoll::joints</references>

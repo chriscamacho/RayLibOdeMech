@@ -135,7 +135,8 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="line">    </div>
 <div class="line">    <a id="a7" name="a7"></a><a class="code hl_function" href="exampleCamera_8c.html#af155bf31f5a69e64716e1eb1a010f647">SetupCamera</a>(graphics);</div>
 <div class="line">    </div>
-<div class="line">    graphics-&gt;<a id="a8" name="a8"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>.position.y = graphics-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>.position.y  - 8.f;</div>
+<div class="line">    graphics-&gt;<a id="a8" name="a8"></a><a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>.position.y = graphics-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>.position.y  - 7.f;</div>
+<div class="line">    graphics-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>.position.x = graphics-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>.position.x  - 16.f;</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// set up for the items in the world</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
@@ -146,7 +147,7 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="line">    </div>
 <div class="line">    dGeomID planeGeom = dCreateBox(physCtx-&gt;<a id="a9" name="a9"></a><a class="code hl_variable" href="structPhysicsContext.html#a2812915a2d632b88d05433459a1f0b7e">space</a>, <a id="_a10" name="_a10"></a><a class="code hl_define" href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a>, <a id="_a11" name="_a11"></a><a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a>, <a class="code hl_define" href="raylibODE_8h.html#a0c734b6e492fcd4bfaeeb1e858978a40">PLANE_SIZE</a>);</div>
 <div class="line">    dGeomSetPosition(planeGeom, 0, -<a class="code hl_define" href="raylibODE_8h.html#aeca363633c4fad02497dc3ebd42fa298">PLANE_THICKNESS</a> / 2.0, 0);</div>
-<div class="line">    <a id="a12" name="a12"></a><a class="code hl_function" href="raylibODE_8c.html#a5b5b0b12adc7119a13eaacef8d097499">SetGeomOrientationEuler</a>(planeGeom, -22.5f, 0, 0);</div>
+<div class="line">    <a id="a12" name="a12"></a><a class="code hl_function" href="raylibODE_8c.html#a5b5b0b12adc7119a13eaacef8d097499">SetGeomOrientationEuler</a>(planeGeom, -M_PI/10.0f, 0, 0);</div>
 <div class="line">    </div>
 <div class="line">    <a id="_a13" name="_a13"></a><a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* groundInfo = <a id="a14" name="a14"></a><a class="code hl_function" href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a>(<span class="keyword">true</span>, &amp;dotTex, 25.0f, 25.0f);</div>
 <div class="line">    groundInfo-&gt;<a id="a15" name="a15"></a><a class="code hl_variable" href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">surface</a> = &amp;<a id="_a16" name="_a16"></a><a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a id="_a17" name="_a17"></a><a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5">SURFACE_ICE</a>];</div>
@@ -155,25 +156,37 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="line">    <a id="a18" name="a18"></a><a class="code hl_function" href="clist_8c.html#a264922774fdf767e31797fe81f2231be">clistAddNode</a>(physCtx-&gt;<a id="a19" name="a19"></a><a class="code hl_variable" href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">statics</a>, planeGeom);</div>
 <div class="line"> </div>
 <div class="line">    </div>
-<div class="line">    <a id="_a20" name="_a20"></a><a class="code hl_struct" href="structRayCast.html">RayCast</a>* redCast = <a id="a21" name="a21"></a><a class="code hl_function" href="raylibODE_8c.html#aae31409e8c5cfe1cf9148f2c18207e61">CreateRayCast</a>(12, (Vector3){-5,.5,0},(Vector3){1,0,0}, 3);</div>
+<div class="line">    <a id="_a20" name="_a20"></a><a class="code hl_struct" href="structRayCast.html">RayCast</a>* redCast = <a id="a21" name="a21"></a><a class="code hl_function" href="raylibODE_8c.html#aae31409e8c5cfe1cf9148f2c18207e61">CreateRayCast</a>(12, (Vector3){-5,.5,0},(Vector3){1,0,0}, 6);</div>
 <div class="line">    <span class="comment">// pre calculate end point as we&#39;re not moving the ray around</span></div>
 <div class="line">    <span class="comment">// (used for drawing the visual)</span></div>
 <div class="line">    Vector3 redEnd = Vector3Scale(redCast-&gt;<a id="a22" name="a22"></a><a class="code hl_variable" href="structRayCast.html#a751c178a9bc21a4359de943eda31ae1a">direction</a>, redCast-&gt;<a id="a23" name="a23"></a><a class="code hl_variable" href="structRayCast.html#abc0fa92554941dedbef1a17241c86543">length</a>);</div>
 <div class="line">    redEnd = Vector3Add(redEnd, redCast-&gt;<a id="a24" name="a24"></a><a class="code hl_variable" href="structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b">position</a>);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_struct" href="structRayCast.html">RayCast</a>* greenCast = <a class="code hl_function" href="raylibODE_8c.html#aae31409e8c5cfe1cf9148f2c18207e61">CreateRayCast</a>(12, (Vector3){-2,.5,0},(Vector3){1,0,0}, 3);</div>
+<div class="line">    <a class="code hl_struct" href="structRayCast.html">RayCast</a>* greenCast = <a class="code hl_function" href="raylibODE_8c.html#aae31409e8c5cfe1cf9148f2c18207e61">CreateRayCast</a>(12, (Vector3){1.5,2,-5},(Vector3){-1,0,0}, 3);</div>
 <div class="line">    Vector3 greenEnd = Vector3Scale(greenCast-&gt;<a class="code hl_variable" href="structRayCast.html#a751c178a9bc21a4359de943eda31ae1a">direction</a>, greenCast-&gt;<a class="code hl_variable" href="structRayCast.html#abc0fa92554941dedbef1a17241c86543">length</a>);</div>
 <div class="line">    greenEnd = Vector3Add(greenEnd, greenCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b">position</a>);</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_struct" href="structRayCast.html">RayCast</a>* blueCast = <a class="code hl_function" href="raylibODE_8c.html#aae31409e8c5cfe1cf9148f2c18207e61">CreateRayCast</a>(12, (Vector3){-2,-0.5,2},(Vector3){1,0,0}, 7);</div>
+<div class="line">    </div>
+<div class="line">    Quaternion q = QuaternionFromEuler(0,-M_PI*.8,M_PI*.1);</div>
+<div class="line">    Vector3 d = (Vector3){1,0,0};</div>
+<div class="line">    d = Vector3RotateByQuaternion(d, q); </div>
+<div class="line">    <a class="code hl_struct" href="structRayCast.html">RayCast</a>* blueCast = <a class="code hl_function" href="raylibODE_8c.html#aae31409e8c5cfe1cf9148f2c18207e61">CreateRayCast</a>(12, (Vector3){8,1.65,-1.5}, d, 24);</div>
 <div class="line">    Vector3 blueEnd = Vector3Scale(blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#a751c178a9bc21a4359de943eda31ae1a">direction</a>, blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#abc0fa92554941dedbef1a17241c86543">length</a>);</div>
 <div class="line">    blueEnd = Vector3Add(blueEnd, blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b">position</a>);</div>
 <div class="line">        </div>
 <div class="line">    <span class="keywordtype">float</span> physTime = 0;</div>
 <div class="line">    <span class="keywordtype">int</span> <a id="_a25" name="_a25"></a><a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a> = 0;</div>
+<div class="line">    <span class="keywordtype">int</span> lastFrameCount = 0;</div>
+<div class="line">    <span class="keywordtype">bool</span> paused = <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordtype">bool</span> stepFrame = <span class="keyword">false</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">int</span> lastBlueCount = 0;</div>
+<div class="line">    <span class="keywordtype">int</span> lastRedCount = 0;</div>
+<div class="line">    <a id="_a26" name="_a26"></a><a class="code hl_struct" href="structRayHit.html">RayHit</a> lastBlueHit[blueCast-&gt;<a id="a27" name="a27"></a><a class="code hl_variable" href="structRayCast.html#a1c3db63edf08a000f6c66b7c92550628">maxHits</a>];</div>
+<div class="line">    <a class="code hl_struct" href="structRayHit.html">RayHit</a> lastRedHit[redCast-&gt;<a class="code hl_variable" href="structRayCast.html#a1c3db63edf08a000f6c66b7c92550628">maxHits</a>];</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
-<div class="line">    <span class="comment">//</span></div>
+<div class="line">    <span class="comment">//s</span></div>
 <div class="line">    <span class="comment">// Main game loop</span></div>
 <div class="line">    <span class="comment">//</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
@@ -184,45 +197,60 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="line">        <span class="comment">//----------------------------------------------------------------------------------</span></div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">// baked in controls (example camera)</span></div>
-<div class="line">        <a id="a26" name="a26"></a><a class="code hl_function" href="exampleCamera_8c.html#a577102dfa73642e5465f7d33ba01465e">UpdateCameraControl</a>(graphics);</div>
+<div class="line">        <a id="a28" name="a28"></a><a class="code hl_function" href="exampleCamera_8c.html#a577102dfa73642e5465f7d33ba01465e">UpdateCameraControl</a>(graphics);</div>
 <div class="line">        </div>
-<div class="line">        <a id="_a27" name="_a27"></a><a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = physCtx-&gt;<a id="a28" name="a28"></a><a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>-&gt;<a id="a29" name="a29"></a><a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
+<div class="line">        <span class="keywordflow">if</span> (IsKeyPressed(KEY_SPACE)) {</div>
+<div class="line">            paused = !paused;</div>
+<div class="line">        }</div>
+<div class="line">        stepFrame = <span class="keyword">false</span>;</div>
+<div class="line">        <span class="keywordflow">if</span> (IsKeyPressed(KEY_T)) stepFrame = <span class="keyword">true</span>;</div>
+<div class="line">        <a id="_a29" name="_a29"></a><a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* node = physCtx-&gt;<a id="a30" name="a30"></a><a class="code hl_variable" href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">objList</a>-&gt;<a id="a31" name="a31"></a><a class="code hl_variable" href="struct____clist.html#a87719175a9395449ee1db0221b39688a">head</a>;</div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">        </div>
 <div class="line">        <span class="keywordflow">while</span> (node != NULL) {</div>
-<div class="line">            <a id="_a30" name="_a30"></a><a class="code hl_struct" href="structentity.html">entity</a>* ent = node-&gt;<a id="a31" name="a31"></a><a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
-<div class="line">            dBodyID bdy = ent-&gt;<a id="a32" name="a32"></a><a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>;</div>
+<div class="line">            <a id="_a32" name="_a32"></a><a class="code hl_struct" href="structentity.html">entity</a>* ent = node-&gt;<a id="a33" name="a33"></a><a class="code hl_variable" href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">data</a>;</div>
+<div class="line">            dBodyID bdy = ent-&gt;<a id="a34" name="a34"></a><a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>;</div>
 <div class="line">                        </div>
-<div class="line">            <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* next = node-&gt;<a id="a33" name="a33"></a><a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>; <span class="comment">// get the next node now in case we delete this one</span></div>
+<div class="line">            <a class="code hl_typedef" href="clist_8h.html#a9957c4c04b6e17b9b8fa99e68b94aa9a">cnode_t</a>* next = node-&gt;<a id="a35" name="a35"></a><a class="code hl_variable" href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">next</a>; <span class="comment">// get the next node now in case we delete this one</span></div>
 <div class="line">            <span class="keyword">const</span> dReal* pos = dBodyGetPosition(bdy);</div>
 <div class="line"> </div>
 <div class="line">            <span class="keywordflow">if</span>(pos[1]&lt;-10) {</div>
-<div class="line">                <a id="a34" name="a34"></a><a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(physCtx, ent); <span class="comment">// warning deletes global entity list entry, get your next node before doing this!</span></div>
+<div class="line">                <a id="a36" name="a36"></a><a class="code hl_function" href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a>(physCtx, ent); <span class="comment">// warning deletes global entity list entry, get your next node before doing this!</span></div>
 <div class="line">            }</div>
 <div class="line">            </div>
 <div class="line">            node = next;</div>
 <div class="line">        }</div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">if</span> (<a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a> % 60 == 0) {</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a> % 60 == 0 &amp;&amp; <a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a>!=lastFrameCount) {</div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0; i &lt; 3; i++) {</div>
 <div class="line">                Vector3 pos = (Vector3){-4.0f + i *4.0f, 6.5, -7.5};</div>
-<div class="line">                <a class="code hl_struct" href="structentity.html">entity</a>* box = <a id="a35" name="a35"></a><a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics, (Vector3){1,1,1}, pos, Vector3Zero(), 20.f);</div>
-<div class="line">                <a id="a36" name="a36"></a><a class="code hl_function" href="raylibODE_8c.html#aa8656255a05c3f38ce0b13825642acdf">SetEntitySurfaces</a>(box, &amp;<a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5">SURFACE_ICE</a>]);</div>
+<div class="line">                <a class="code hl_struct" href="structentity.html">entity</a>* box = <a id="a37" name="a37"></a><a class="code hl_function" href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a>(physCtx, graphics, (Vector3){1,1,1}, pos, Vector3Zero(), 20.f);</div>
+<div class="line">                <a id="a38" name="a38"></a><a class="code hl_function" href="raylibODE_8c.html#aa8656255a05c3f38ce0b13825642acdf">SetEntitySurfaces</a>(box, &amp;<a class="code hl_variable" href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a>[<a class="code hl_enumvalue" href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5">SURFACE_ICE</a>]);</div>
+<div class="line">                lastFrameCount = <a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a>;</div>
+<div class="line">                dGeomID g = dBodyGetFirstGeom(box-&gt;<a class="code hl_variable" href="structentity.html#ada0e6866acb68b3f1e2bff5d70b2b760">body</a>);</div>
+<div class="line">                <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = (<a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>*)dGeomGetData(g);</div>
+<div class="line">                gi-&gt;<a id="a39" name="a39"></a><a class="code hl_variable" href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">texture</a> = &amp;dotTex;</div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line"> </div>
 <div class="line">        <span class="comment">// Step the physics</span></div>
 <div class="line">        <span class="comment">//----------------------------------------------------------------------------------</span></div>
 <div class="line"> </div>
-<div class="line">        physTime = GetTime(); </div>
-<div class="line">        <span class="keywordtype">int</span> pSteps = <a id="a37" name="a37"></a><a class="code hl_function" href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a>(physCtx);</div>
-<div class="line">        physTime = GetTime() - physTime;    </div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">int</span> pSteps = 0;</div>
+<div class="line">        <span class="keywordflow">if</span> (!paused || stepFrame) {</div>
+<div class="line">            physTime = GetTime(); </div>
+<div class="line">            pSteps = <a id="a40" name="a40"></a><a class="code hl_function" href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a>(physCtx);</div>
+<div class="line">            physTime = GetTime() - physTime; </div>
+<div class="line">            <a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a>++;</div>
+<div class="line">        }</div>
+<div class="line">           </div>
 <div class="line"> </div>
-<div class="line">        <a id="a38" name="a38"></a><a class="code hl_function" href="raylibODE_8c.html#a2b934e0acb1163c93b0f2613ce850a2c">CastRay</a>(physCtx, redCast);</div>
-<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; redCast-&gt;<a id="a39" name="a39"></a><a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>; i++) {</div>
-<div class="line">            <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(redCast-&gt;<a id="a40" name="a40"></a><a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a id="a41" name="a41"></a><a class="code hl_variable" href="structRayHit.html#a86f485fd67387a8c18d90b717d891015">geom</a>);</div>
-<div class="line">            <span class="keywordflow">if</span> (gi) gi-&gt;<a id="a42" name="a42"></a><a class="code hl_variable" href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a> = RED;</div>
+<div class="line">        <a id="a41" name="a41"></a><a class="code hl_function" href="raylibODE_8c.html#a2b934e0acb1163c93b0f2613ce850a2c">CastRay</a>(physCtx, redCast);</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; redCast-&gt;<a id="a42" name="a42"></a><a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>; i++) {</div>
+<div class="line">            <a class="code hl_struct" href="structgeomInfo.html">geomInfo</a>* gi = dGeomGetData(redCast-&gt;<a id="a43" name="a43"></a><a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a id="a44" name="a44"></a><a class="code hl_variable" href="structRayHit.html#a86f485fd67387a8c18d90b717d891015">geom</a>);</div>
+<div class="line">            <span class="keywordflow">if</span> (gi) gi-&gt;<a id="a45" name="a45"></a><a class="code hl_variable" href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">hew</a> = RED;</div>
 <div class="line">        }</div>
 <div class="line">        <a class="code hl_function" href="raylibODE_8c.html#a2b934e0acb1163c93b0f2613ce850a2c">CastRay</a>(physCtx, greenCast);</div>
 <div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; greenCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>; i++) {</div>
@@ -243,25 +271,86 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="line">        ClearBackground(BLACK);</div>
 <div class="line"> </div>
 <div class="line">        BeginMode3D(graphics-&gt;<a class="code hl_variable" href="structGraphicsContext.html#a67da4b710a791d954415259ae540976c">camera</a>);</div>
-<div class="line">            <a id="a43" name="a43"></a><a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(graphics, physCtx);</div>
-<div class="line">            <a id="a44" name="a44"></a><a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(graphics, physCtx);</div>
+<div class="line">            <a id="a46" name="a46"></a><a class="code hl_function" href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a>(graphics, physCtx);</div>
+<div class="line">            <a id="a47" name="a47"></a><a class="code hl_function" href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a>(graphics, physCtx);</div>
 <div class="line">            </div>
 <div class="line">            <span class="comment">// rays probably more useful invisible but in this example we show them</span></div>
 <div class="line">            DrawLine3D(redCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b">position</a>, redEnd, RED);</div>
 <div class="line">            DrawLine3D(greenCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b">position</a>, greenEnd, GREEN);</div>
+<div class="line">            </div>
 <div class="line">            DrawLine3D(blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b">position</a>, blueEnd, BLUE);</div>
+<div class="line">            DrawCube(blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b">position</a>,.2f, .2f, .2f, WHITE);</div>
+<div class="line">            DrawCube(blueEnd,.2f, .2f, .2f, RED);</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>; i++) {</div>
+<div class="line">                    DrawCube(blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a id="a48" name="a48"></a><a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>,.2f, .2f, .2f, BLUE);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; greenCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>; i++) {</div>
+<div class="line">                    DrawCube(greenCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>,.2f, .2f, .2f, GREEN);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; redCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>; i++) {</div>
+<div class="line">                    DrawCube(redCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>,.2f, .2f, .2f, RED);</div>
+<div class="line">            }</div>
+<div class="line">        </div>
 <div class="line">        EndMode3D();</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">        <span class="keywordflow">if</span> (pSteps &gt; <a id="_a45" name="_a45"></a><a class="code hl_define" href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a>) DrawText(<span class="stringliteral">&quot;WARNING CPU overloaded lagging real time&quot;</span>, 10, 0, 20, RED);</div>
+<div class="line">        <span class="keywordflow">if</span> (pSteps &gt; <a id="_a49" name="_a49"></a><a class="code hl_define" href="raylibODE_8h.html#afeff8fa28bbbf9c2ddbc85a38993d92e">maxPsteps</a>) DrawText(<span class="stringliteral">&quot;WARNING CPU overloaded lagging real time&quot;</span>, 10, 0, 20, RED);</div>
 <div class="line">        DrawText(TextFormat(<span class="stringliteral">&quot;%2i FPS&quot;</span>, GetFPS()), 10, 20, 20, WHITE);</div>
 <div class="line">        DrawText(TextFormat(<span class="stringliteral">&quot;Phys steps per frame %i&quot;</span>,pSteps), 10, 120, 20, WHITE);</div>
 <div class="line">        DrawText(TextFormat(<span class="stringliteral">&quot;Phys time per frame %f&quot;</span>,physTime), 10, 140, 20, WHITE);</div>
 <div class="line">        DrawText(TextFormat(<span class="stringliteral">&quot;total time per frame %f&quot;</span>,GetFrameTime()), 10, 160, 20, WHITE);</div>
 <div class="line"> </div>
+<div class="line">        <span class="comment">// TODO function!</span></div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>; i++) {</div>
+<div class="line">            DrawText(TextFormat(<span class="stringliteral">&quot;pos:%.2f, %.2f, %.2f,    depth:%.2f&quot;</span>, </div>
+<div class="line">                blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.x, </div>
+<div class="line">                blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.y, </div>
+<div class="line">                blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.z, </div>
+<div class="line">                blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a id="a50" name="a50"></a><a class="code hl_variable" href="structRayHit.html#adbc494bc1bad81d80a620b42d71f29b4">depth</a></div>
+<div class="line">                ), 30, 200+i*30, 30, SKYBLUE);</div>
+<div class="line">                lastBlueHit[i] = blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i];</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a> &gt; 0) {</div>
+<div class="line">            lastBlueCount = blueCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>;</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; lastBlueCount; i++) {</div>
+<div class="line">                DrawText(TextFormat(<span class="stringliteral">&quot;pos:%.2f, %.2f, %.2f,    depth:%.2f&quot;</span>, </div>
+<div class="line">                    lastBlueHit[i].pos.x, </div>
+<div class="line">                    lastBlueHit[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.y, </div>
+<div class="line">                    lastBlueHit[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.z, </div>
+<div class="line">                    lastBlueHit[i].<a class="code hl_variable" href="structRayHit.html#adbc494bc1bad81d80a620b42d71f29b4">depth</a></div>
+<div class="line">                    ), 30, 200+i*30, 30, BLUE);     </div>
+<div class="line">            }   </div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; redCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>; i++) {</div>
+<div class="line">            DrawText(TextFormat(<span class="stringliteral">&quot;pos:%.2f, %.2f, %.2f,    depth:%.2f&quot;</span>, </div>
+<div class="line">                redCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.x, </div>
+<div class="line">                redCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.y, </div>
+<div class="line">                redCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.z, </div>
+<div class="line">                redCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i].<a class="code hl_variable" href="structRayHit.html#adbc494bc1bad81d80a620b42d71f29b4">depth</a></div>
+<div class="line">                ), 630, 200+i*30, 30, PINK);</div>
+<div class="line">                lastRedHit[i] = redCast-&gt;<a class="code hl_variable" href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">hits</a>[i];</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">if</span> (redCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a> &gt; 0) {</div>
+<div class="line">            lastRedCount = redCast-&gt;<a class="code hl_variable" href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">count</a>;</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; lastRedCount; i++) {</div>
+<div class="line">                DrawText(TextFormat(<span class="stringliteral">&quot;pos:%.2f, %.2f, %.2f,    depth:%.2f&quot;</span>, </div>
+<div class="line">                    lastRedHit[i].pos.x, </div>
+<div class="line">                    lastRedHit[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.y, </div>
+<div class="line">                    lastRedHit[i].<a class="code hl_variable" href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">pos</a>.z, </div>
+<div class="line">                    lastRedHit[i].<a class="code hl_variable" href="structRayHit.html#adbc494bc1bad81d80a620b42d71f29b4">depth</a></div>
+<div class="line">                    ), 630, 200+i*30, 30, RED);     </div>
+<div class="line">            }   </div>
+<div class="line">        }</div>
+<div class="line"> </div>
 <div class="line">        EndDrawing();</div>
 <div class="line"> </div>
-<div class="line">        <a class="code hl_variable" href="gravity_8c.html#abaf7d77bd2fc7eb6125fa605bd645b67">frameCount</a>++;</div>
+<div class="line">        </div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    UnloadTexture(dotTex);</div>
@@ -270,8 +359,8 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="line">    free(blueCast);</div>
 <div class="line">    <span class="comment">// De-Initialization</span></div>
 <div class="line">    <span class="comment">//--------------------------------------------------------------------------------------</span></div>
-<div class="line">    <a id="a46" name="a46"></a><a class="code hl_function" href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a>(physCtx);</div>
-<div class="line">    <a id="a47" name="a47"></a><a class="code hl_function" href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a>(graphics);</div>
+<div class="line">    <a id="a51" name="a51"></a><a class="code hl_function" href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a>(physCtx);</div>
+<div class="line">    <a id="a52" name="a52"></a><a class="code hl_function" href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a>(graphics);</div>
 <div class="line"> </div>
 <div class="line">    CloseWindow();              <span class="comment">// Close window and OpenGL context</span></div>
 <div class="line">    </div>
@@ -289,13 +378,13 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="ttc" id="ainit_8c_html_a57d526245eb2f059fac1e6bb3f64ae42"><div class="ttname"><a href="init_8c.html#a57d526245eb2f059fac1e6bb3f64ae42">CreatePhysics</a></div><div class="ttdeci">PhysicsContext * CreatePhysics()</div><div class="ttdoc">Initialize physics world and context.</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00158">init.c:158</a></div></div>
 <div class="ttc" id="ainit_8c_html_a6569bf61ca03001b6fabedc21aff855a"><div class="ttname"><a href="init_8c.html#a6569bf61ca03001b6fabedc21aff855a">FreeGraphics</a></div><div class="ttdeci">void FreeGraphics(GraphicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00246">init.c:246</a></div></div>
 <div class="ttc" id="ainit_8c_html_aadcc246e22ab4be2dd926a25c5bc9bad"><div class="ttname"><a href="init_8c.html#aadcc246e22ab4be2dd926a25c5bc9bad">FreePhysics</a></div><div class="ttdeci">void FreePhysics(PhysicsContext *ctx)</div><div class="ttdef"><b>Definition</b> <a href="init_8c_source.html#l00195">init.c:195</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">draws the static geometries</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01161">raylibODE.c:1161</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a2b934e0acb1163c93b0f2613ce850a2c"><div class="ttname"><a href="raylibODE_8c.html#a2b934e0acb1163c93b0f2613ce850a2c">CastRay</a></div><div class="ttdeci">void CastRay(PhysicsContext *physCtx, RayCast *rc)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00874">raylibODE.c:874</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_a5b5b0b12adc7119a13eaacef8d097499"><div class="ttname"><a href="raylibODE_8c.html#a5b5b0b12adc7119a13eaacef8d097499">SetGeomOrientationEuler</a></div><div class="ttdeci">void SetGeomOrientationEuler(dGeomID g, float p, float y, float r)</div><div class="ttdoc">sets a geoms orientation</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01440">raylibODE.c:1440</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a1232d8000138fdc6d2f9741548a263aa"><div class="ttname"><a href="raylibODE_8c.html#a1232d8000138fdc6d2f9741548a263aa">DrawStatics</a></div><div class="ttdeci">void DrawStatics(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">draws the static geometries</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01163">raylibODE.c:1163</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a2b934e0acb1163c93b0f2613ce850a2c"><div class="ttname"><a href="raylibODE_8c.html#a2b934e0acb1163c93b0f2613ce850a2c">CastRay</a></div><div class="ttdeci">void CastRay(PhysicsContext *physCtx, RayCast *rc)</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00876">raylibODE.c:876</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_a5b5b0b12adc7119a13eaacef8d097499"><div class="ttname"><a href="raylibODE_8c.html#a5b5b0b12adc7119a13eaacef8d097499">SetGeomOrientationEuler</a></div><div class="ttdeci">void SetGeomOrientationEuler(dGeomID g, float p, float y, float r)</div><div class="ttdoc">sets a geoms orientation</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01442">raylibODE.c:1442</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_a79db70091e3c86494f485979529984c8"><div class="ttname"><a href="raylibODE_8c.html#a79db70091e3c86494f485979529984c8">CreateGeomInfo</a></div><div class="ttdeci">geomInfo * CreateGeomInfo(bool collidable, Texture *texture, float uvScaleU, float uvScaleV)</div><div class="ttdoc">Helper to allocate geomInfo with collision flag, optional texture, and UV scale this is useful when g...</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00751">raylibODE.c:751</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">Draws all the dynamic bodies the framework is tracking.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01125">raylibODE.c:1125</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa8656255a05c3f38ce0b13825642acdf"><div class="ttname"><a href="raylibODE_8c.html#aa8656255a05c3f38ce0b13825642acdf">SetEntitySurfaces</a></div><div class="ttdeci">void SetEntitySurfaces(entity *ent, SurfaceMaterial *mat)</div><div class="ttdoc">changes the surface material of all an entities geoms</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01109">raylibODE.c:1109</a></div></div>
-<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01182">raylibODE.c:1182</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa01114b518b93c528e9e85382ce46b4b"><div class="ttname"><a href="raylibODE_8c.html#aa01114b518b93c528e9e85382ce46b4b">DrawBodies</a></div><div class="ttdeci">void DrawBodies(struct GraphicsContext *ctx, PhysicsContext *pctx)</div><div class="ttdoc">Draws all the dynamic bodies the framework is tracking.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01127">raylibODE.c:1127</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa8656255a05c3f38ce0b13825642acdf"><div class="ttname"><a href="raylibODE_8c.html#aa8656255a05c3f38ce0b13825642acdf">SetEntitySurfaces</a></div><div class="ttdeci">void SetEntitySurfaces(entity *ent, SurfaceMaterial *mat)</div><div class="ttdoc">changes the surface material of all an entities geoms</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01111">raylibODE.c:1111</a></div></div>
+<div class="ttc" id="araylibODE_8c_html_aa86cbb92909da330ef988d813fb7baed"><div class="ttname"><a href="raylibODE_8c.html#aa86cbb92909da330ef988d813fb7baed">FreeEntity</a></div><div class="ttdeci">void FreeEntity(PhysicsContext *physCtx, entity *ent)</div><div class="ttdoc">frees an entity</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l01184">raylibODE.c:1184</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_aae31409e8c5cfe1cf9148f2c18207e61"><div class="ttname"><a href="raylibODE_8c.html#aae31409e8c5cfe1cf9148f2c18207e61">CreateRayCast</a></div><div class="ttdeci">RayCast * CreateRayCast(int maxHits, Vector3 pos, Vector3 direction, dReal length)</div><div class="ttdoc">find the entities that collide with a ray</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00839">raylibODE.c:839</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ad087bfe56f8c97e250f6dd5054fdf76e"><div class="ttname"><a href="raylibODE_8c.html#ad087bfe56f8c97e250f6dd5054fdf76e">StepPhysics</a></div><div class="ttdeci">int StepPhysics(PhysicsContext *physCtx)</div><div class="ttdoc">Step the physics simulation forward.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00260">raylibODE.c:260</a></div></div>
 <div class="ttc" id="araylibODE_8c_html_ae436b97d6296f4b3c35e493dde37cee3"><div class="ttname"><a href="raylibODE_8c.html#ae436b97d6296f4b3c35e493dde37cee3">CreateBox</a></div><div class="ttdeci">entity * CreateBox(PhysicsContext *ctx, GraphicsContext *gfxCtx, Vector3 size, Vector3 pos, Vector3 rot, float mass)</div><div class="ttdoc">Add a box-shaped physics body to the world.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8c_source.html#l00417">raylibODE.c:417</a></div></div>
@@ -310,12 +399,16 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="ttc" id="astructPhysicsContext_html_a9b8d81159eec734cb1b95c95203b7f50"><div class="ttname"><a href="structPhysicsContext.html#a9b8d81159eec734cb1b95c95203b7f50">PhysicsContext::objList</a></div><div class="ttdeci">clist_t * objList</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00070">raylibODE.h:70</a></div></div>
 <div class="ttc" id="astructPhysicsContext_html_aa88cec7da4225aa5c1f2bbdabe55b35d"><div class="ttname"><a href="structPhysicsContext.html#aa88cec7da4225aa5c1f2bbdabe55b35d">PhysicsContext::statics</a></div><div class="ttdeci">clist_t * statics</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00071">raylibODE.h:71</a></div></div>
 <div class="ttc" id="astructRayCast_html"><div class="ttname"><a href="structRayCast.html">RayCast</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00135">raylibODE.h:135</a></div></div>
+<div class="ttc" id="astructRayCast_html_a1c3db63edf08a000f6c66b7c92550628"><div class="ttname"><a href="structRayCast.html#a1c3db63edf08a000f6c66b7c92550628">RayCast::maxHits</a></div><div class="ttdeci">int maxHits</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00136">raylibODE.h:136</a></div></div>
 <div class="ttc" id="astructRayCast_html_a29020fd2803e3c920f2062aeae6b7db5"><div class="ttname"><a href="structRayCast.html#a29020fd2803e3c920f2062aeae6b7db5">RayCast::count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00137">raylibODE.h:137</a></div></div>
 <div class="ttc" id="astructRayCast_html_a751c178a9bc21a4359de943eda31ae1a"><div class="ttname"><a href="structRayCast.html#a751c178a9bc21a4359de943eda31ae1a">RayCast::direction</a></div><div class="ttdeci">Vector3 direction</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00139">raylibODE.h:139</a></div></div>
 <div class="ttc" id="astructRayCast_html_abc0fa92554941dedbef1a17241c86543"><div class="ttname"><a href="structRayCast.html#abc0fa92554941dedbef1a17241c86543">RayCast::length</a></div><div class="ttdeci">float length</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00140">raylibODE.h:140</a></div></div>
 <div class="ttc" id="astructRayCast_html_ad462fddf059c2869e85e01ca5a56d12b"><div class="ttname"><a href="structRayCast.html#ad462fddf059c2869e85e01ca5a56d12b">RayCast::position</a></div><div class="ttdeci">Vector3 position</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00138">raylibODE.h:138</a></div></div>
 <div class="ttc" id="astructRayCast_html_ad75ba1adf10c04564d8dd8ba2a959b57"><div class="ttname"><a href="structRayCast.html#ad75ba1adf10c04564d8dd8ba2a959b57">RayCast::hits</a></div><div class="ttdeci">RayHit hits[]</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00141">raylibODE.h:141</a></div></div>
+<div class="ttc" id="astructRayHit_html"><div class="ttname"><a href="structRayHit.html">RayHit</a></div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00129">raylibODE.h:129</a></div></div>
 <div class="ttc" id="astructRayHit_html_a86f485fd67387a8c18d90b717d891015"><div class="ttname"><a href="structRayHit.html#a86f485fd67387a8c18d90b717d891015">RayHit::geom</a></div><div class="ttdeci">dGeomID geom</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00130">raylibODE.h:130</a></div></div>
+<div class="ttc" id="astructRayHit_html_adbc494bc1bad81d80a620b42d71f29b4"><div class="ttname"><a href="structRayHit.html#adbc494bc1bad81d80a620b42d71f29b4">RayHit::depth</a></div><div class="ttdeci">dReal depth</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00131">raylibODE.h:131</a></div></div>
+<div class="ttc" id="astructRayHit_html_adcef8883ac52e6d421436e08b1b6201e"><div class="ttname"><a href="structRayHit.html#adcef8883ac52e6d421436e08b1b6201e">RayHit::pos</a></div><div class="ttdeci">Vector3 pos</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00132">raylibODE.h:132</a></div></div>
 <div class="ttc" id="astruct____clist_html_a87719175a9395449ee1db0221b39688a"><div class="ttname"><a href="struct____clist.html#a87719175a9395449ee1db0221b39688a">__clist::head</a></div><div class="ttdeci">cnode_t * head</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00027">clist.h:27</a></div></div>
 <div class="ttc" id="astruct____cnode_html_aabe3d86831d46a328c4a8764acf66ac4"><div class="ttname"><a href="struct____cnode.html#aabe3d86831d46a328c4a8764acf66ac4">__cnode::next</a></div><div class="ttdeci">struct __cnode * next</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00013">clist.h:13</a></div></div>
 <div class="ttc" id="astruct____cnode_html_ae59520f57274323a159b336ee81f565b"><div class="ttname"><a href="struct____cnode.html#ae59520f57274323a159b336ee81f565b">__cnode::data</a></div><div class="ttdeci">void * data</div><div class="ttdef"><b>Definition</b> <a href="clist_8h_source.html#l00014">clist.h:14</a></div></div>
@@ -324,6 +417,7 @@ $(function(){initNavTree('raycasting_8c-example.html','',''); });
 <div class="ttc" id="astructgeomInfo_html"><div class="ttname"><a href="structgeomInfo.html">geomInfo</a></div><div class="ttdoc">Stores geometry metadata for collision, texturing, and trimesh data.</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00098">raylibODE.h:98</a></div></div>
 <div class="ttc" id="astructgeomInfo_html_a8e530854793906e8d625e058ac7b616c"><div class="ttname"><a href="structgeomInfo.html#a8e530854793906e8d625e058ac7b616c">geomInfo::surface</a></div><div class="ttdeci">SurfaceMaterial * surface</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00105">raylibODE.h:105</a></div></div>
 <div class="ttc" id="astructgeomInfo_html_a97039a3fbf7a1f1c905762a6f4adb0c3"><div class="ttname"><a href="structgeomInfo.html#a97039a3fbf7a1f1c905762a6f4adb0c3">geomInfo::hew</a></div><div class="ttdeci">Color hew</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00104">raylibODE.h:104</a></div></div>
+<div class="ttc" id="astructgeomInfo_html_aa45560155b17f9ab8b46896d89b60b14"><div class="ttname"><a href="structgeomInfo.html#aa45560155b17f9ab8b46896d89b60b14">geomInfo::texture</a></div><div class="ttdeci">Texture * texture</div><div class="ttdef"><b>Definition</b> <a href="raylibODE_8h_source.html#l00100">raylibODE.h:100</a></div></div>
 <div class="ttc" id="asurface_8c_html_aa26755a73be46b483bf7098bcbf679dd"><div class="ttname"><a href="surface_8c.html#aa26755a73be46b483bf7098bcbf679dd">gSurfaces</a></div><div class="ttdeci">SurfaceMaterial gSurfaces[SURFACE_COUNT]</div><div class="ttdoc">Global lookup table for surface properties. This array is indexed by SurfaceType. and contains defaul...</div><div class="ttdef"><b>Definition</b> <a href="surface_8c_source.html#l00026">surface.c:26</a></div></div>
 <div class="ttc" id="asurface_8h_html_a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5"><div class="ttname"><a href="surface_8h.html#a24dfdcf13ae4e2b7985a3868a1b5169fa786f480b7900aa78e32975d8567bb3a5">SURFACE_ICE</a></div><div class="ttdeci">@ SURFACE_ICE</div><div class="ttdef"><b>Definition</b> <a href="surface_8h_source.html#l00043">surface.h:43</a></div></div>
 </div><!-- fragment --> </div><!-- contents -->

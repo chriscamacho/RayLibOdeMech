@@ -873,643 +873,645 @@
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00870}00870\ \textcolor{comment}{/**\ cast\ a\ ray\ into\ the\ world\ building\ an\ array\ of\ results}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00871}00871\ \textcolor{comment}{\ *\ @param\ physCtx\ physics\ context}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00872}00872\ \textcolor{comment}{\ *\ @param\ rc\ raycast\ holding\ ray\ properties\ and\ results}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00873}00873\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00874}\mbox{\hyperlink{raylibODE_8c_a2b934e0acb1163c93b0f2613ce850a2c}{00874}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a2b934e0acb1163c93b0f2613ce850a2c}{CastRay}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structRayCast}{RayCast}}*\ rc)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00875}00875\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00876}00876\ \ \ \ \ dGeomID\ odeRay\ =\ dCreateRay(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ rc-\/>\mbox{\hyperlink{structRayCast_abc0fa92554941dedbef1a17241c86543}{length}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00877}00877\ \ \ \ \ dGeomRaySet(odeRay,\ rc-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}}.x,\ rc-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}}.y,\ rc-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}}.z,}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00878}00878\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rc-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}}.x,\ rc-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}}.y,\ rc-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}}.z);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00879}00879\ \ \ \ \ rc-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}}\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00880}00880\ \ \ \ \ dSpaceCollide2(odeRay,\ (dGeomID)physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ rc,\ \&rayCastCallback);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00881}00881\ \ \ \ \ dGeomDestroy(odeRay);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00882}00882\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00883}00883\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00884}00884\ \textcolor{comment}{/**\ @brief\ given\ a\ body\ it\ will\ remove\ it\ and\ its\ geoms\ from\ ODE's\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00885}00885\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00886}00886\ \textcolor{comment}{\ *\ @note\ this\ is\ intended\ to\ be\ an\ internal\ function\ that\ might\ have\ use\ externally}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00887}00887\ \textcolor{comment}{\ *\ you\ would\ normally\ use\ FreeEntity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00888}00888\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00889}00889\ \textcolor{comment}{\ *\ As\ well\ as\ freeing\ all\ associated\ metadata\ it\ will\ also\ remove\ the\ body\ and}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00890}00890\ \textcolor{comment}{\ *\ its\ geoms\ from\ the\ physics\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00891}00891\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00892}00892\ \textcolor{comment}{\ *\ @param\ bdy\ the\ dBodyID\ you\ want\ to\ free\ the\ attached\ meta\ data\ for}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00873}00873\ \textcolor{comment}{\ *\ @note\ the\ array\ of\ hits\ produced\ is\ not\ in\ depth\ order,\ and\ built}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00874}00874\ \textcolor{comment}{\ *\ as\ ode\ iterates\ the\ world\ body\ list\ which\ is\ in\ no\ particular\ order}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00875}00875\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00876}\mbox{\hyperlink{raylibODE_8c_a2b934e0acb1163c93b0f2613ce850a2c}{00876}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a2b934e0acb1163c93b0f2613ce850a2c}{CastRay}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structRayCast}{RayCast}}*\ rc)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00877}00877\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00878}00878\ \ \ \ \ dGeomID\ odeRay\ =\ dCreateRay(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ rc-\/>\mbox{\hyperlink{structRayCast_abc0fa92554941dedbef1a17241c86543}{length}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00879}00879\ \ \ \ \ dGeomRaySet(odeRay,\ rc-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}}.x,\ rc-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}}.y,\ rc-\/>\mbox{\hyperlink{structRayCast_ad462fddf059c2869e85e01ca5a56d12b}{position}}.z,}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00880}00880\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rc-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}}.x,\ rc-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}}.y,\ rc-\/>\mbox{\hyperlink{structRayCast_a751c178a9bc21a4359de943eda31ae1a}{direction}}.z);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00881}00881\ \ \ \ \ rc-\/>\mbox{\hyperlink{structRayCast_a29020fd2803e3c920f2062aeae6b7db5}{count}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00882}00882\ \ \ \ \ dSpaceCollide2(odeRay,\ (dGeomID)physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a2812915a2d632b88d05433459a1f0b7e}{space}},\ rc,\ \&rayCastCallback);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00883}00883\ \ \ \ \ dGeomDestroy(odeRay);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00884}00884\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00885}00885\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00886}00886\ \textcolor{comment}{/**\ @brief\ given\ a\ body\ it\ will\ remove\ it\ and\ its\ geoms\ from\ ODE's\ world}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00887}00887\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00888}00888\ \textcolor{comment}{\ *\ @note\ this\ is\ intended\ to\ be\ an\ internal\ function\ that\ might\ have\ use\ externally}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00889}00889\ \textcolor{comment}{\ *\ you\ would\ normally\ use\ FreeEntity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00890}00890\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00891}00891\ \textcolor{comment}{\ *\ As\ well\ as\ freeing\ all\ associated\ metadata\ it\ will\ also\ remove\ the\ body\ and}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00892}00892\ \textcolor{comment}{\ *\ its\ geoms\ from\ the\ physics\ world}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00893}00893\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00894}00894\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00895}\mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{00895}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(dBodyID\ bdy)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00896}00896\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00897}00897\ \ \ \ \ dGeomID\ geom\ =\ dBodyGetFirstGeom(bdy);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00898}00898\ \ \ \ \ \textcolor{keywordflow}{while}(geom)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00899}00899\ \ \ \ \ \ \ \ \ dGeomID\ next\ =\ dBodyGetNextGeom(geom);\ \textcolor{comment}{//\ get\ next\ now\ as\ about\ to\ destroy...}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00900}00900\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00901}00901\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gi)\ free(gi);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00902}00902\ \ \ \ \ \ \ \ \ dGeomSetBody(geom,\ 0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00903}00903\ \ \ \ \ \ \ \ \ dGeomDestroy(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00904}00904\ \ \ \ \ \ \ \ \ geom\ =\ next;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00905}00905\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00906}00906\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00907}00907\ \ \ \ \ dBodyDestroy(bdy);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00908}00908\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00909}00909\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00910}00910\ \textcolor{comment}{//\ position\ rotation\ scale\ all\ done\ with\ the\ models\ transform...}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00911}00911\ \textcolor{comment}{//\ TODO\ check\ there\ isn't\ a\ new\ raylib\ function\ that\ does\ this\ now\ \_pro\ \_ex\ or\ similar!}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00912}00912\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawModelTinted(Model\ model,\ Color\ tint)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00913}00913\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00914}00914\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ model.meshCount;\ i++)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00915}00915\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00916}00916\ \ \ \ \ \ \ \ \ Color\ color\ =\ model.materials[model.meshMaterial[i]].maps[MATERIAL\_MAP\_DIFFUSE].color;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00917}00917\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00918}00918\ \ \ \ \ \ \ \ \ Color\ colorTint\ =\ WHITE;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00919}00919\ \ \ \ \ \ \ \ \ colorTint.r\ =\ (\textcolor{keywordtype}{unsigned}\ char)((((\textcolor{keywordtype}{float})color.r/255.0)*((\textcolor{keywordtype}{float})tint.r/255.0))*255.0f);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00920}00920\ \ \ \ \ \ \ \ \ colorTint.g\ =\ (\textcolor{keywordtype}{unsigned}\ char)((((\textcolor{keywordtype}{float})color.g/255.0)*((\textcolor{keywordtype}{float})tint.g/255.0))*255.0f);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00921}00921\ \ \ \ \ \ \ \ \ colorTint.b\ =\ (\textcolor{keywordtype}{unsigned}\ char)((((\textcolor{keywordtype}{float})color.b/255.0)*((\textcolor{keywordtype}{float})tint.b/255.0))*255.0f);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00922}00922\ \ \ \ \ \ \ \ \ colorTint.a\ =\ (\textcolor{keywordtype}{unsigned}\ char)((((\textcolor{keywordtype}{float})color.a/255.0)*((\textcolor{keywordtype}{float})tint.a/255.0))*255.0f);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00923}00923\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00924}00924\ \ \ \ \ \ \ \ \ model.materials[model.meshMaterial[i]].maps[MATERIAL\_MAP\_DIFFUSE].color\ =\ colorTint;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00925}00925\ \ \ \ \ \ \ \ \ DrawMesh(model.meshes[i],\ model.materials[model.meshMaterial[i]],\ model.transform);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00926}00926\ \ \ \ \ \ \ \ \ model.materials[model.meshMaterial[i]].maps[MATERIAL\_MAP\_DIFFUSE].color\ =\ color;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00927}00927\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00928}00928\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00929}00929\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00930}00930\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00931}00931\ \textcolor{comment}{//\ these\ two\ just\ convert\ to\ column\ major\ and\ minor}\textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00932}00932\ \textcolor{comment}{/**\ @brief\ set\ an\ ODE\ matrix\ to\ the\ same\ as\ a\ Raylib\ Matrix}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00933}00933\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00934}00934\ \textcolor{comment}{\ *\ @param\ m\ a\ pointer\ to\ the\ Raylib\ matrix}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00935}00935\ \textcolor{comment}{\ *\ @param\ R\ a\ pointer\ to\ an\ ODE\ matrix}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00936}00936\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00937}\mbox{\hyperlink{raylibODE_8c_a261ecb0743898782ddf0e56b07f32f2b}{00937}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a261ecb0743898782ddf0e56b07f32f2b}{RayToOdeMat}}(Matrix*\ m,\ dReal*\ R)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00938}00938\ \ \ \ \ R[\ 0]\ =\ m-\/>m0;\ \ \ R[\ 1]\ =\ m-\/>m4;\ \ \ R[\ 2]\ =\ m-\/>m8;\ \ \ \ R[\ 3]\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00939}00939\ \ \ \ \ R[\ 4]\ =\ m-\/>m1;\ \ \ R[\ 5]\ =\ m-\/>m5;\ \ \ R[\ 6]\ =\ m-\/>m9;\ \ \ \ R[\ 7]\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00940}00940\ \ \ \ \ R[\ 8]\ =\ m-\/>m2;\ \ \ R[\ 9]\ =\ m-\/>m6;\ \ \ R[10]\ =\ m-\/>m10;\ \ \ R[11]\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00941}00941\ \ \ \ \ R[12]\ =\ 0;\ \ \ \ \ \ \ R[13]\ =\ 0;\ \ \ \ \ \ \ R[14]\ =\ 0;\ \ \ \ \ \ \ \ R[15]\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00942}00942\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00943}00943\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00944}00944\ \textcolor{comment}{/**\ @brief\ sets\ a\ raylib\ matrix\ from\ an\ ODE\ rotation\ matrix}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00945}00945\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00946}00946\ \textcolor{comment}{\ *\ @param\ R\ a\ pointer\ to\ the\ ODE\ matrix}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00947}00947\ \textcolor{comment}{\ *\ @param\ m\ a\ pointer\ to\ a\ Raylib\ Matrix}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00948}00948\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00949}\mbox{\hyperlink{raylibODE_8c_aeaef389f404abef038f38518fc1a0421}{00949}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aeaef389f404abef038f38518fc1a0421}{OdeToRayMat}}(\textcolor{keyword}{const}\ dReal*\ R,\ Matrix*\ m)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00950}00950\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00951}00951\ \ \ \ \ m-\/>m0\ =\ R[0];\ \ m-\/>m1\ =\ R[4];\ \ m-\/>m2\ =\ R[8];\ \ \ \ \ \ m-\/>m3\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00952}00952\ \ \ \ \ m-\/>m4\ =\ R[1];\ \ m-\/>m5\ =\ R[5];\ \ m-\/>m6\ =\ R[9];\ \ \ \ \ \ m-\/>m7\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00953}00953\ \ \ \ \ m-\/>m8\ =\ R[2];\ \ m-\/>m9\ =\ R[6];\ \ m-\/>m10\ =\ R[10];\ \ \ \ m-\/>m11\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00954}00954\ \ \ \ \ m-\/>m12\ =\ 0;\ \ \ \ m-\/>m13\ =\ 0;\ \ \ \ m-\/>m14\ =\ 0;\ \ \ \ \ \ \ \ m-\/>m15\ =\ 1;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00955}00955\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00956}00956\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00957}00957\ \textcolor{comment}{//\ called\ by\ draw\ all\ geoms}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00958}\mbox{\hyperlink{raylibODE_8c_a5a3f56ed394d3d2c1400e25d83fc05af}{00958}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a5a3f56ed394d3d2c1400e25d83fc05af}{DrawGeom}}(dGeomID\ geom,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00959}00959\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00960}00960\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00961}00961\ \ \ \ \ \textcolor{keywordflow}{if}\ (!gi)\ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Silently\ bail\ if\ no\ metadata}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00962}00962\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00963}00963\ \ \ \ \ \textcolor{comment}{//\ If\ it's\ a\ trigger,\ don't\ render\ anything}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00964}00964\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}})\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00965}00965\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00966}00966\ \ \ \ \ \textcolor{comment}{//\ if\ its\ texture\ has\ been\ nulled\ its\ an\ invisible}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00967}00967\ \ \ \ \ \textcolor{keywordflow}{if}\ (!gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}})\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00968}00968\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00969}00969\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dGeomGetPosition(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00970}00970\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ rot\ =\ dGeomGetRotation(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00971}00971\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keyword}{class\ }=\ dGeomGetClass(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00972}00972\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00973}00973\ \ \ \ \ Matrix\ matRot;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00974}00974\ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aeaef389f404abef038f38518fc1a0421}{OdeToRayMat}}(rot,\ \&matRot);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00975}00975\ \ \ \ \ Matrix\ matTran\ =\ MatrixTranslate(pos[0],\ pos[1],\ pos[2]);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00976}00976\ \ \ \ \ Matrix\ matWorld\ =\ MatrixMultiply(matRot,\ matTran);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00977}00977\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00978}00978\ \ \ \ \ Color\ c\ =\ gi-\/>\mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{hew}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00894}00894\ \textcolor{comment}{\ *\ @param\ bdy\ the\ dBodyID\ you\ want\ to\ free\ the\ attached\ meta\ data\ for}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00895}00895\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00896}00896\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00897}\mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{00897}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(dBodyID\ bdy)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00898}00898\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00899}00899\ \ \ \ \ dGeomID\ geom\ =\ dBodyGetFirstGeom(bdy);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00900}00900\ \ \ \ \ \textcolor{keywordflow}{while}(geom)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00901}00901\ \ \ \ \ \ \ \ \ dGeomID\ next\ =\ dBodyGetNextGeom(geom);\ \textcolor{comment}{//\ get\ next\ now\ as\ about\ to\ destroy...}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00902}00902\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00903}00903\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (gi)\ free(gi);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00904}00904\ \ \ \ \ \ \ \ \ dGeomSetBody(geom,\ 0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00905}00905\ \ \ \ \ \ \ \ \ dGeomDestroy(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00906}00906\ \ \ \ \ \ \ \ \ geom\ =\ next;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00907}00907\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00908}00908\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00909}00909\ \ \ \ \ dBodyDestroy(bdy);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00910}00910\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00911}00911\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00912}00912\ \textcolor{comment}{//\ position\ rotation\ scale\ all\ done\ with\ the\ models\ transform...}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00913}00913\ \textcolor{comment}{//\ TODO\ check\ there\ isn't\ a\ new\ raylib\ function\ that\ does\ this\ now\ \_pro\ \_ex\ or\ similar!}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00914}00914\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawModelTinted(Model\ model,\ Color\ tint)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00915}00915\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00916}00916\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ model.meshCount;\ i++)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00917}00917\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00918}00918\ \ \ \ \ \ \ \ \ Color\ color\ =\ model.materials[model.meshMaterial[i]].maps[MATERIAL\_MAP\_DIFFUSE].color;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00919}00919\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00920}00920\ \ \ \ \ \ \ \ \ Color\ colorTint\ =\ WHITE;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00921}00921\ \ \ \ \ \ \ \ \ colorTint.r\ =\ (\textcolor{keywordtype}{unsigned}\ char)((((\textcolor{keywordtype}{float})color.r/255.0)*((\textcolor{keywordtype}{float})tint.r/255.0))*255.0f);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00922}00922\ \ \ \ \ \ \ \ \ colorTint.g\ =\ (\textcolor{keywordtype}{unsigned}\ char)((((\textcolor{keywordtype}{float})color.g/255.0)*((\textcolor{keywordtype}{float})tint.g/255.0))*255.0f);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00923}00923\ \ \ \ \ \ \ \ \ colorTint.b\ =\ (\textcolor{keywordtype}{unsigned}\ char)((((\textcolor{keywordtype}{float})color.b/255.0)*((\textcolor{keywordtype}{float})tint.b/255.0))*255.0f);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00924}00924\ \ \ \ \ \ \ \ \ colorTint.a\ =\ (\textcolor{keywordtype}{unsigned}\ char)((((\textcolor{keywordtype}{float})color.a/255.0)*((\textcolor{keywordtype}{float})tint.a/255.0))*255.0f);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00925}00925\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00926}00926\ \ \ \ \ \ \ \ \ model.materials[model.meshMaterial[i]].maps[MATERIAL\_MAP\_DIFFUSE].color\ =\ colorTint;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00927}00927\ \ \ \ \ \ \ \ \ DrawMesh(model.meshes[i],\ model.materials[model.meshMaterial[i]],\ model.transform);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00928}00928\ \ \ \ \ \ \ \ \ model.materials[model.meshMaterial[i]].maps[MATERIAL\_MAP\_DIFFUSE].color\ =\ color;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00929}00929\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00930}00930\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00931}00931\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00932}00932\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00933}00933\ \textcolor{comment}{//\ these\ two\ just\ convert\ to\ column\ major\ and\ minor}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00934}00934\ \textcolor{comment}{/**\ @brief\ set\ an\ ODE\ matrix\ to\ the\ same\ as\ a\ Raylib\ Matrix}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00935}00935\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00936}00936\ \textcolor{comment}{\ *\ @param\ m\ a\ pointer\ to\ the\ Raylib\ matrix}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00937}00937\ \textcolor{comment}{\ *\ @param\ R\ a\ pointer\ to\ an\ ODE\ matrix}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00938}00938\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00939}\mbox{\hyperlink{raylibODE_8c_a261ecb0743898782ddf0e56b07f32f2b}{00939}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a261ecb0743898782ddf0e56b07f32f2b}{RayToOdeMat}}(Matrix*\ m,\ dReal*\ R)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00940}00940\ \ \ \ \ R[\ 0]\ =\ m-\/>m0;\ \ \ R[\ 1]\ =\ m-\/>m4;\ \ \ R[\ 2]\ =\ m-\/>m8;\ \ \ \ R[\ 3]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00941}00941\ \ \ \ \ R[\ 4]\ =\ m-\/>m1;\ \ \ R[\ 5]\ =\ m-\/>m5;\ \ \ R[\ 6]\ =\ m-\/>m9;\ \ \ \ R[\ 7]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00942}00942\ \ \ \ \ R[\ 8]\ =\ m-\/>m2;\ \ \ R[\ 9]\ =\ m-\/>m6;\ \ \ R[10]\ =\ m-\/>m10;\ \ \ R[11]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00943}00943\ \ \ \ \ R[12]\ =\ 0;\ \ \ \ \ \ \ R[13]\ =\ 0;\ \ \ \ \ \ \ R[14]\ =\ 0;\ \ \ \ \ \ \ \ R[15]\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00944}00944\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00945}00945\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00946}00946\ \textcolor{comment}{/**\ @brief\ sets\ a\ raylib\ matrix\ from\ an\ ODE\ rotation\ matrix}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00947}00947\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00948}00948\ \textcolor{comment}{\ *\ @param\ R\ a\ pointer\ to\ the\ ODE\ matrix}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00949}00949\ \textcolor{comment}{\ *\ @param\ m\ a\ pointer\ to\ a\ Raylib\ Matrix}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00950}00950\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00951}\mbox{\hyperlink{raylibODE_8c_aeaef389f404abef038f38518fc1a0421}{00951}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aeaef389f404abef038f38518fc1a0421}{OdeToRayMat}}(\textcolor{keyword}{const}\ dReal*\ R,\ Matrix*\ m)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00952}00952\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00953}00953\ \ \ \ \ m-\/>m0\ =\ R[0];\ \ m-\/>m1\ =\ R[4];\ \ m-\/>m2\ =\ R[8];\ \ \ \ \ \ m-\/>m3\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00954}00954\ \ \ \ \ m-\/>m4\ =\ R[1];\ \ m-\/>m5\ =\ R[5];\ \ m-\/>m6\ =\ R[9];\ \ \ \ \ \ m-\/>m7\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00955}00955\ \ \ \ \ m-\/>m8\ =\ R[2];\ \ m-\/>m9\ =\ R[6];\ \ m-\/>m10\ =\ R[10];\ \ \ \ m-\/>m11\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00956}00956\ \ \ \ \ m-\/>m12\ =\ 0;\ \ \ \ m-\/>m13\ =\ 0;\ \ \ \ m-\/>m14\ =\ 0;\ \ \ \ \ \ \ \ m-\/>m15\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00957}00957\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00958}00958\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00959}00959\ \textcolor{comment}{//\ called\ by\ draw\ all\ geoms}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00960}\mbox{\hyperlink{raylibODE_8c_a5a3f56ed394d3d2c1400e25d83fc05af}{00960}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a5a3f56ed394d3d2c1400e25d83fc05af}{DrawGeom}}(dGeomID\ geom,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00961}00961\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00962}00962\ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ (\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00963}00963\ \ \ \ \ \textcolor{keywordflow}{if}\ (!gi)\ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Silently\ bail\ if\ no\ metadata}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00964}00964\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00965}00965\ \ \ \ \ \textcolor{comment}{//\ If\ it's\ a\ trigger,\ don't\ render\ anything}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00966}00966\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi-\/>\mbox{\hyperlink{structgeomInfo_a520884eb761f24547c835107a37d024c}{triggerOnCollide}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00967}00967\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00968}00968\ \ \ \ \ \textcolor{comment}{//\ if\ its\ texture\ has\ been\ nulled\ its\ an\ invisible}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00969}00969\ \ \ \ \ \textcolor{keywordflow}{if}\ (!gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}})\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00970}00970\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00971}00971\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dGeomGetPosition(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00972}00972\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ rot\ =\ dGeomGetRotation(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00973}00973\ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keyword}{class\ }=\ dGeomGetClass(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00974}00974\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00975}00975\ \ \ \ \ Matrix\ matRot;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00976}00976\ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aeaef389f404abef038f38518fc1a0421}{OdeToRayMat}}(rot,\ \&matRot);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00977}00977\ \ \ \ \ Matrix\ matTran\ =\ MatrixTranslate(pos[0],\ pos[1],\ pos[2]);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00978}00978\ \ \ \ \ Matrix\ matWorld\ =\ MatrixMultiply(matRot,\ matTran);}
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00979}00979\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00980}00980\ \ \ \ \ \textcolor{comment}{//\ Handle\ Texture/Shader\ setup\ once\ per\ geom}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00981}00981\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}})\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00982}00982\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ cache\ shader\ location}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00983}00983\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ uvLoc\ =\ GetShaderLocation(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}},\ \textcolor{stringliteral}{"{}texCoordScale"{}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00984}00984\ \ \ \ \ \ \ \ \ Vector2\ uvScale\ =\ \{\ gi-\/>\mbox{\hyperlink{structgeomInfo_ab566e6f3debd1b3092ec83aa09e961b9}{uvScaleU}},\ gi-\/>\mbox{\hyperlink{structgeomInfo_a0670722f17ac3020238ee399bd93f32e}{uvScaleV}}\ \};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00985}00985\ \ \ \ \ \ \ \ \ SetShaderValue(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}},\ uvLoc,\ \&uvScale.x,\ SHADER\_UNIFORM\_VEC2);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00986}00986\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00987}00987\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ texture\ to\ whichever\ models\ might\ be\ used}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00988}00988\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dBoxClass)\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00989}00989\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dSphereClass)\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00990}00990\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dCylinderClass)\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00991}00991\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dCapsuleClass)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00992}00992\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00993}00993\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00994}00994\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00995}00995\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00996}00996\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00997}00997\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi-\/>\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}}.meshCount)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00998}00998\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}}.transform\ =\ matWorld;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00999}00999\ \ \ \ \ \ \ \ \ DrawModelTinted(gi-\/>\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}},\ c);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01000}01000\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01001}01001\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01002}01002\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dBoxClass)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01003}01003\ \ \ \ \ \ \ \ \ \ \ \ \ dVector3\ size;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01004}01004\ \ \ \ \ \ \ \ \ \ \ \ \ dGeomBoxGetLengths(geom,\ size);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01005}01005\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}}.transform\ =\ MatrixMultiply(MatrixScale(size[0],\ size[1],\ size[2]),\ matWorld);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01006}01006\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}},\ c);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01007}01007\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01008}01008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dSphereClass)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01009}01009\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r\ =\ dGeomSphereGetRadius(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01010}01010\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.transform\ =\ MatrixMultiply(MatrixScale(r*2,\ r*2,\ r*2),\ matWorld);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01011}01011\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}},\ c);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01012}01012\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01013}01013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dCylinderClass)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01014}01014\ \ \ \ \ \ \ \ \ \ \ \ \ dReal\ l,\ r;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01015}01015\ \ \ \ \ \ \ \ \ \ \ \ \ dGeomCylinderGetParams(geom,\ \&r,\ \&l);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01016}01016\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}}.transform\ =\ MatrixMultiply(MatrixScale(r*2,\ r*2,\ l),\ matWorld);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01017}01017\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}},\ c);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01018}01018\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01019}01019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dCapsuleClass)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01020}01020\ \ \ \ \ \ \ \ \ \ \ \ \ dReal\ l,\ r;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01021}01021\ \ \ \ \ \ \ \ \ \ \ \ \ dGeomCapsuleGetParams(geom,\ \&r,\ \&l);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01022}01022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ r\ *\ 2;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01023}01023\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01024}01024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cylinder}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01025}01025\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}}.transform\ =\ MatrixMultiply(MatrixScale(d,\ d,\ l),\ matWorld);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01026}01026\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}},\ c);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01027}01027\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01028}01028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cap\ 1\ (Local\ Z+)}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01029}01029\ \ \ \ \ \ \ \ \ \ \ \ \ Matrix\ matCap1\ =\ MatrixMultiply(MatrixTranslate(0,\ 0,\ l/2),\ matWorld);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01030}01030\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.transform\ =\ MatrixMultiply(MatrixScale(d,\ d,\ d),\ matCap1);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01031}01031\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}},\ c);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01032}01032\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01033}01033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cap\ 2\ (Local\ Z-\/)}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01034}01034\ \ \ \ \ \ \ \ \ \ \ \ \ Matrix\ matCap2\ =\ MatrixMultiply(MatrixTranslate(0,\ 0,\ -\/l/2),\ matWorld);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01035}01035\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.transform\ =\ MatrixMultiply(MatrixScale(d,\ d,\ d),\ matCap2);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01036}01036\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}},\ c);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01037}01037\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01038}01038\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01039}01039\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01040}01040\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01041}01041\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01042}01042\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01043}01043\ \textcolor{comment}{/**\ @brief\ crates\ a\ rotor\ joint}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01044}01044\ \textcolor{comment}{\ *\ the\ joint\ is\ created\ with\ the\ anchor\ at\ the\ from\ enties\ location}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01045}01045\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01046}01046\ \textcolor{comment}{\ *\ @param\ physCtx\ physics\ context\ holds\ all\ the\ physics\ globals}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01047}01047\ \textcolor{comment}{\ *\ @param\ from\ the\ anchor\ entity\ for\ the\ joint}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01048}01048\ \textcolor{comment}{\ *\ @param\ to\ if\ this\ is\ null\ the\ joint\ attaches\ to\ the\ world\ and\ is\ static}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01049}01049\ \textcolor{comment}{\ *\ @param\ axis\ this\ determines\ the\ direction\ of\ rotation\ for\ the\ rotor}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01050}01050\ \textcolor{comment}{\ *\ you\ can\ think\ of\ it\ as\ the\ direction\ of\ the\ axle}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01051}01051\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01052}01052\ \textcolor{comment}{\ *\ @note\ joints\ will\ get\ tidied\ up\ during\ world\ destruction,\ do\ destroy\ them}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01053}01053\ \textcolor{comment}{\ *\ if\ you\ no\ longer\ require\ them,\ in\ the\ arm\ example\ a\ joint\ is\ created\ and}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01054}01054\ \textcolor{comment}{\ *\ destroyed\ every\ time\ an\ object\ is\ caught\ and\ released}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01055}01055\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01056}\mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{01056}}\ dJointID\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ from,\ \mbox{\hyperlink{structentity}{entity}}*\ to,\ Vector3\ axis)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01057}01057\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01058}01058\ \ \ \ \ \textcolor{comment}{//\ Use\ a\ Hinge\ to\ rotate\ around\ (no\ stops)}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01059}01059\ \ \ \ \ dJointID\ rotor\ =\ dJointCreateHinge(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01060}01060\ \ \ \ \ \textcolor{keywordflow}{if}\ (!to)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01061}01061\ \ \ \ \ \ \ \ \ dJointAttach(rotor,\ from-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01062}01062\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01063}01063\ \ \ \ \ \ \ \ \ dJointAttach(rotor,\ from-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ to-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01064}01064\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01065}01065\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01066}01066\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(from-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00980}00980\ \ \ \ \ Color\ c\ =\ gi-\/>\mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{hew}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00981}00981\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00982}00982\ \ \ \ \ \textcolor{comment}{//\ Handle\ Texture/Shader\ setup\ once\ per\ geom}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00983}00983\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}})\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00984}00984\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO\ cache\ shader\ location}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00985}00985\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ uvLoc\ =\ GetShaderLocation(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}},\ \textcolor{stringliteral}{"{}texCoordScale"{}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00986}00986\ \ \ \ \ \ \ \ \ Vector2\ uvScale\ =\ \{\ gi-\/>\mbox{\hyperlink{structgeomInfo_ab566e6f3debd1b3092ec83aa09e961b9}{uvScaleU}},\ gi-\/>\mbox{\hyperlink{structgeomInfo_a0670722f17ac3020238ee399bd93f32e}{uvScaleV}}\ \};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00987}00987\ \ \ \ \ \ \ \ \ SetShaderValue(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a2fa19905aad6c696c90a4ba1286c2b70}{shader}},\ uvLoc,\ \&uvScale.x,\ SHADER\_UNIFORM\_VEC2);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00988}00988\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00989}00989\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assign\ the\ texture\ to\ whichever\ models\ might\ be\ used}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00990}00990\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dBoxClass)\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00991}00991\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dSphereClass)\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00992}00992\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dCylinderClass)\ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00993}00993\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dCapsuleClass)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00994}00994\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00995}00995\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.materials[0].maps[MATERIAL\_MAP\_DIFFUSE].texture\ =\ *gi-\/>\mbox{\hyperlink{structgeomInfo_aa45560155b17f9ab8b46896d89b60b14}{texture}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00996}00996\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00997}00997\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00998}00998\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l00999}00999\ \ \ \ \ \textcolor{keywordflow}{if}\ (gi-\/>\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}}.meshCount)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01000}01000\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}}.transform\ =\ matWorld;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01001}01001\ \ \ \ \ \ \ \ \ DrawModelTinted(gi-\/>\mbox{\hyperlink{structgeomInfo_aac9cece1fdb9d0079901008842994523}{visual}},\ c);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01002}01002\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01003}01003\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01004}01004\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dBoxClass)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01005}01005\ \ \ \ \ \ \ \ \ \ \ \ \ dVector3\ size;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01006}01006\ \ \ \ \ \ \ \ \ \ \ \ \ dGeomBoxGetLengths(geom,\ size);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01007}01007\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}}.transform\ =\ MatrixMultiply(MatrixScale(size[0],\ size[1],\ size[2]),\ matWorld);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01008}01008\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a5ff7c73c82a7595e803b07c953ec0693}{box}},\ c);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01009}01009\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01010}01010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dSphereClass)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01011}01011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r\ =\ dGeomSphereGetRadius(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01012}01012\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.transform\ =\ MatrixMultiply(MatrixScale(r*2,\ r*2,\ r*2),\ matWorld);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01013}01013\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}},\ c);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01014}01014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01015}01015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dCylinderClass)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01016}01016\ \ \ \ \ \ \ \ \ \ \ \ \ dReal\ l,\ r;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01017}01017\ \ \ \ \ \ \ \ \ \ \ \ \ dGeomCylinderGetParams(geom,\ \&r,\ \&l);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01018}01018\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}}.transform\ =\ MatrixMultiply(MatrixScale(r*2,\ r*2,\ l),\ matWorld);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01019}01019\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}},\ c);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01020}01020\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01021}01021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{class}\ ==\ dCapsuleClass)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01022}01022\ \ \ \ \ \ \ \ \ \ \ \ \ dReal\ l,\ r;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01023}01023\ \ \ \ \ \ \ \ \ \ \ \ \ dGeomCapsuleGetParams(geom,\ \&r,\ \&l);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01024}01024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ r\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01025}01025\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01026}01026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cylinder}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01027}01027\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}}.transform\ =\ MatrixMultiply(MatrixScale(d,\ d,\ l),\ matWorld);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01028}01028\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_a06643972947afcd3a8cef634cce65ed8}{cylinder}},\ c);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01029}01029\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01030}01030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cap\ 1\ (Local\ Z+)}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01031}01031\ \ \ \ \ \ \ \ \ \ \ \ \ Matrix\ matCap1\ =\ MatrixMultiply(MatrixTranslate(0,\ 0,\ l/2),\ matWorld);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01032}01032\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.transform\ =\ MatrixMultiply(MatrixScale(d,\ d,\ d),\ matCap1);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01033}01033\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}},\ c);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01034}01034\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01035}01035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cap\ 2\ (Local\ Z-\/)}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01036}01036\ \ \ \ \ \ \ \ \ \ \ \ \ Matrix\ matCap2\ =\ MatrixMultiply(MatrixTranslate(0,\ 0,\ -\/l/2),\ matWorld);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01037}01037\ \ \ \ \ \ \ \ \ \ \ \ \ ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}}.transform\ =\ MatrixMultiply(MatrixScale(d,\ d,\ d),\ matCap2);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01038}01038\ \ \ \ \ \ \ \ \ \ \ \ \ DrawModelTinted(ctx-\/>\mbox{\hyperlink{structGraphicsContext_af8476f2872146a217a97ad92cbf0a4a0}{ball}},\ c);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01039}01039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01040}01040\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01041}01041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01042}01042\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01043}01043\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01044}01044\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01045}01045\ \textcolor{comment}{/**\ @brief\ crates\ a\ rotor\ joint}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01046}01046\ \textcolor{comment}{\ *\ the\ joint\ is\ created\ with\ the\ anchor\ at\ the\ from\ enties\ location}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01047}01047\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01048}01048\ \textcolor{comment}{\ *\ @param\ physCtx\ physics\ context\ holds\ all\ the\ physics\ globals}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01049}01049\ \textcolor{comment}{\ *\ @param\ from\ the\ anchor\ entity\ for\ the\ joint}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01050}01050\ \textcolor{comment}{\ *\ @param\ to\ if\ this\ is\ null\ the\ joint\ attaches\ to\ the\ world\ and\ is\ static}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01051}01051\ \textcolor{comment}{\ *\ @param\ axis\ this\ determines\ the\ direction\ of\ rotation\ for\ the\ rotor}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01052}01052\ \textcolor{comment}{\ *\ you\ can\ think\ of\ it\ as\ the\ direction\ of\ the\ axle}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01053}01053\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01054}01054\ \textcolor{comment}{\ *\ @note\ joints\ will\ get\ tidied\ up\ during\ world\ destruction,\ do\ destroy\ them}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01055}01055\ \textcolor{comment}{\ *\ if\ you\ no\ longer\ require\ them,\ in\ the\ arm\ example\ a\ joint\ is\ created\ and}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01056}01056\ \textcolor{comment}{\ *\ destroyed\ every\ time\ an\ object\ is\ caught\ and\ released}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01057}01057\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01058}\mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{01058}}\ dJointID\ \mbox{\hyperlink{raylibODE_8c_a70760bcdbb95dca2cd9cbb1a640485d2}{CreateRotor}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ from,\ \mbox{\hyperlink{structentity}{entity}}*\ to,\ Vector3\ axis)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01059}01059\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01060}01060\ \ \ \ \ \textcolor{comment}{//\ Use\ a\ Hinge\ to\ rotate\ around\ (no\ stops)}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01061}01061\ \ \ \ \ dJointID\ rotor\ =\ dJointCreateHinge(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01062}01062\ \ \ \ \ \textcolor{keywordflow}{if}\ (!to)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01063}01063\ \ \ \ \ \ \ \ \ dJointAttach(rotor,\ from-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01064}01064\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01065}01065\ \ \ \ \ \ \ \ \ dJointAttach(rotor,\ from-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ to-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01066}01066\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01067}01067\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01068}01068\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01069}01069\ \ \ \ \ dJointSetHingeAnchor(rotor,\ pos[0],\ pos[1],\ pos[2]);\ \textcolor{comment}{//\ world\ coordinates}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01070}01070\ \ \ \ \ dJointSetHingeAxis(rotor,\ axis.x,\ axis.y,\ axis.z);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01071}01071\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01072}01072\ \ \ \ \ dJointSetHingeParam(rotor,\ dParamVel,\ 0.0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01073}01073\ \ \ \ \ dJointSetHingeParam(rotor,\ dParamFMax,\ 100000.0);\ \textcolor{comment}{//\ POOOWWWWEEERRRR!}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01074}01074\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01075}01075\ \ \ \ \ \textcolor{keywordflow}{return}\ rotor;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01076}01076\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01077}01077\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01078}01078\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01079}01079\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01080}01080\ \textcolor{comment}{\ *\ @brief\ changes\ the\ hew\ (tint)\ of\ all\ anentities\ geoms}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01081}01081\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01082}01082\ \textcolor{comment}{\ *\ go\ through\ each\ geom\ attached\ to\ the\ entities\ body\ and\ change}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01083}01083\ \textcolor{comment}{\ *\ their\ hew\ or\ tint}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01084}01084\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01085}01085\ \textcolor{comment}{\ *\ @param\ ent\ pointer\ to\ the\ entity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01086}01086\ \textcolor{comment}{\ *\ @param\ c\ new\ colour\ to\ use}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01087}01087\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01088}01088\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01089}\mbox{\hyperlink{raylibODE_8c_a227dded5dce29a7e3b71e9589e2b4c22}{01089}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a227dded5dce29a7e3b71e9589e2b4c22}{SetEntityHew}}(\mbox{\hyperlink{structentity}{entity}}*\ ent,\ Color\ c)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01090}01090\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01091}01091\ \ \ \ \ dGeomID\ geom\ =\ dBodyGetFirstGeom(ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01092}01092\ \ \ \ \ \textcolor{keywordflow}{while}(geom)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01093}01093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01094}01094\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{hew}}\ =\ c;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01095}01095\ \ \ \ \ \ \ \ \ geom\ =\ dBodyGetNextGeom(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01096}01096\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01097}01097\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01098}01098\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01099}01099\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01100}01100\ \textcolor{comment}{\ *\ @brief\ changes\ the\ surface\ material\ of\ all\ an\ entities\ geoms}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01101}01101\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01102}01102\ \textcolor{comment}{\ *\ go\ through\ each\ geom\ attached\ to\ the\ entities\ body\ and\ change}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01103}01103\ \textcolor{comment}{\ *\ their\ surface\ properties}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01104}01104\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01105}01105\ \textcolor{comment}{\ *\ @param\ ent\ pointer\ to\ the\ entity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01106}01106\ \textcolor{comment}{\ *\ @param\ mat\ new\ surface\ material\ to\ use}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01107}01107\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01108}01108\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01109}\mbox{\hyperlink{raylibODE_8c_aa8656255a05c3f38ce0b13825642acdf}{01109}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aa8656255a05c3f38ce0b13825642acdf}{SetEntitySurfaces}}(\mbox{\hyperlink{structentity}{entity}}*\ ent,\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}*\ mat)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01110}01110\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01111}01111\ \ \ \ \ dGeomID\ geom\ =\ dBodyGetFirstGeom(ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01112}01112\ \ \ \ \ \textcolor{keywordflow}{while}(geom)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01113}01113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01114}01114\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ mat;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01115}01115\ \ \ \ \ \ \ \ \ geom\ =\ dBodyGetNextGeom(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01116}01116\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01117}01117\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01118}01118\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01119}01119\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01120}01120\ \textcolor{comment}{\ *\ @brief\ Draws\ all\ the\ dynamic\ bodies\ the\ framework\ is\ tracking}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01121}01121\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01122}01122\ \textcolor{comment}{\ *\ @param\ ctx\ the\ graphics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01123}01123\ \textcolor{comment}{\ *\ @param\ pctx\ the\ physics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01124}01124\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01125}\mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{01125}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01126}01126\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01127}01127\ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ pctx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01128}01128\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01129}01129\ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01130}01130\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ e\ =\ (\mbox{\hyperlink{structentity}{entity}}*)node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01131}01131\ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ e-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01132}01132\ \ \ \ \ \ \ \ \ DrawBodyGeoms(bdy,\ ctx);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01133}01133\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01134}01134\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01135}01135\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01136}01136\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01137}01137\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01138}01138\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawBodyGeoms(dBodyID\ bdy,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01139}01139\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01140}01140\ \ \ \ \ dGeomID\ geom\ =\ dBodyGetFirstGeom(bdy);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01141}01141\ \ \ \ \ \textcolor{keywordflow}{while}(geom)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01142}01142\ \ \ \ \ \ \ \ \ dGeomID\ next\ =\ dBodyGetNextGeom(geom);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01143}01143\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01144}01144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5a3f56ed394d3d2c1400e25d83fc05af}{DrawGeom}}(geom,\ ctx);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01145}01145\ \ \ \ \ \ \ \ \ geom\ =\ next;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01146}01146\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01147}01147\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01148}01148\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01149}01149\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01150}01150\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01151}01151\ \textcolor{comment}{\ *\ @brief\ draws\ the\ static\ geometries}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01152}01152\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01153}01153\ \textcolor{comment}{\ *\ As\ static\ geometries\ have\ no\ bodies\ they\ are\ handled\ a\ little\ different}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01154}01154\ \textcolor{comment}{\ *\ this\ will\ draw\ all\ the\ dGeomID's\ that\ are\ registed\ on\ the\ physics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01155}01155\ \textcolor{comment}{\ *\ static\ lists}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01156}01156\ \textcolor{comment}{\ *\ @note\ all\ geoms\ on\ the\ statics\ list\ must\ have\ attached\ geomInfo}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01157}01157\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01158}01158\ \textcolor{comment}{\ *\ @param\ ctx\ the\ graphics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01159}01159\ \textcolor{comment}{\ *\ @param\ pctx\ the\ physics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01160}01160\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01161}\mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{01161}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01162}01162\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01163}01163\ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ pctx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01164}01164\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01165}01165\ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01166}01166\ \ \ \ \ \ \ \ \ dGeomID\ geom\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01167}01167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5a3f56ed394d3d2c1400e25d83fc05af}{DrawGeom}}(geom,\ ctx);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01168}01168\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01169}01169\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01170}01170\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01171}01171\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01172}01172\ \textcolor{comment}{/**\ @brief\ frees\ an\ entity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01173}01173\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01174}01174\ \textcolor{comment}{\ *\ this\ is\ essentially\ destroying\ the\ entity\ it\ is\ no\ longer\ part\ of\ the\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01175}01175\ \textcolor{comment}{\ *\ @note\ if\ iterrating\ through\ the\ global\ entity\ list\ while\ calling\ this,}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01176}01176\ \textcolor{comment}{\ *\ ensure\ you\ have\ stored\ the\ next\ node\ in\ the\ chain,\ for\ use\ at\ the\ end\ of\ the}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01177}01177\ \textcolor{comment}{\ *\ while\ loop\ as\ obviously\ node-\/>next\ won't\ work}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01178}01178\ \textcolor{comment}{\ *}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01179}01179\ \textcolor{comment}{\ *\ @param\ physCtx\ physics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01180}01180\ \textcolor{comment}{\ *\ @param\ ent\ the\ entity\ to\ destroy}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01181}01181\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01182}\mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{01182}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ ent)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01183}01183\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01184}01184\ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01185}01185\ \ \ \ \ \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clistDeleteNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ \&ent-\/>\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01186}01186\ \ \ \ \ free(ent);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01187}01187\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01188}01188\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01189}01189\ \textcolor{comment}{/**\ @brief\ creates\ a\ piston\ using\ two\ entities\ as\ its\ base\ on\ extending\ sections}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01190}01190\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01191}01191\ \textcolor{comment}{\ *\ both\ entities\ should\ be\ positioned\ and\ oriented\ before\ calling\ this,\ they\ MUST\ NOT}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01192}01192\ \textcolor{comment}{\ *\ be\ in\ exactly\ the\ same\ position,\ as\ the\ vector\ between\ them\ is\ used\ as\ the\ axis\ for}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01193}01193\ \textcolor{comment}{\ *\ the\ piston}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01194}01194\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01195}01195\ \textcolor{comment}{\ *\ @param\ physCtx\ the\ physics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01196}01196\ \textcolor{comment}{\ *\ @param\ entA\ the\ base\ entity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01197}01197\ \textcolor{comment}{\ *\ @param\ entB\ the\ extending\ entity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01198}01198\ \textcolor{comment}{\ *\ @param\ strength\ the\ maximum\ force\ the\ piston\ can\ use}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01199}01199\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01200}01200\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01201}\mbox{\hyperlink{raylibODE_8c_aa35dd966752d4afeffcb8f39e474594c}{01201}}\ dJointID\ \mbox{\hyperlink{raylibODE_8c_aa35dd966752d4afeffcb8f39e474594c}{CreatePiston}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ entA,\ \mbox{\hyperlink{structentity}{entity}}*\ entB,\ \textcolor{keywordtype}{float}\ strength)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01202}01202\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01203}01203\ \ \ \ \ dJointID\ joint\ =\ dJointCreateSlider(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01204}01204\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01205}01205\ \ \ \ \ dBodyID\ bodyA\ =\ entA-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01206}01206\ \ \ \ \ dBodyID\ bodyB\ =\ (entB\ !=\ NULL)\ ?\ entB-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}}\ :\ 0;\ \textcolor{comment}{//\ 0\ =\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01207}01207\ \ \ \ \ dJointAttach(joint,\ bodyA,\ bodyB);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01208}01208\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01209}01209\ \ \ \ \ ((\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(dBodyGetFirstGeom(bodyA)))-\/>surface\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d}{SURFACE\_METAL}}];}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01210}01210\ \ \ \ \ ((\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(dBodyGetFirstGeom(bodyB)))-\/>surface\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d}{SURFACE\_METAL}}];}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01211}01211\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01212}01212\ \ \ \ \ dReal\ axis[3];}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01213}01213\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ posA\ =\ dBodyGetPosition(bodyA);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01214}01214\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01215}01215\ \ \ \ \ \textcolor{keywordflow}{if}\ (entB\ !=\ NULL)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01216}01216\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ posB\ =\ dBodyGetPosition(bodyB);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01217}01217\ \ \ \ \ \ \ \ \ axis[0]\ =\ posA[0]\ -\/\ posB[0];}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01218}01218\ \ \ \ \ \ \ \ \ axis[1]\ =\ posA[1]\ -\/\ posB[1];}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01219}01219\ \ \ \ \ \ \ \ \ axis[2]\ =\ posA[2]\ -\/\ posB[2];}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01220}01220\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01221}01221\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ to\ "{}Up"{}\ or\ a\ specific\ direction\ if\ B\ is\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01222}01222\ \ \ \ \ \ \ \ \ axis[0]\ =\ 0;\ axis[1]\ =\ 1;\ axis[2]\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01223}01223\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01224}01224\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01225}01225\ \ \ \ \ \textcolor{comment}{//\ Normalize\ and\ set\ the\ axis}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01226}01226\ \ \ \ \ dReal\ length\ =\ sqrt(axis[0]*axis[0]\ +\ axis[1]*axis[1]\ +\ axis[2]*axis[2]);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01227}01227\ \ \ \ \ \textcolor{keywordflow}{if}\ (length\ >\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01228}01228\ \ \ \ \ \ \ \ \ dJointSetSliderAxis(joint,\ axis[0]/length,\ axis[1]/length,\ axis[2]/length);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01229}01229\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01230}01230\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01231}01231\ \ \ \ \ dJointSetSliderParam(joint,\ dParamVel,\ 0.0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01232}01232\ \ \ \ \ dJointSetSliderParam(joint,\ dParamFMax,\ strength);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01233}01233\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01234}01234\ \ \ \ \ \textcolor{keywordflow}{return}\ joint;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01235}01235\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01236}01236\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01237}01237\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01238}01238\ \textcolor{comment}{\ *\ @brief\ sets\ the\ limits\ of\ travel\ for\ a\ piston}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01239}01239\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01240}01240\ \textcolor{comment}{\ *\ min\ must\ be\ smaller\ than\ max\ values\ can\ be\ negative}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01068}01068\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ pos\ =\ dBodyGetPosition(from-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01069}01069\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01070}01070\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01071}01071\ \ \ \ \ dJointSetHingeAnchor(rotor,\ pos[0],\ pos[1],\ pos[2]);\ \textcolor{comment}{//\ world\ coordinates}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01072}01072\ \ \ \ \ dJointSetHingeAxis(rotor,\ axis.x,\ axis.y,\ axis.z);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01073}01073\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01074}01074\ \ \ \ \ dJointSetHingeParam(rotor,\ dParamVel,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01075}01075\ \ \ \ \ dJointSetHingeParam(rotor,\ dParamFMax,\ 100000.0);\ \textcolor{comment}{//\ POOOWWWWEEERRRR!}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01076}01076\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01077}01077\ \ \ \ \ \textcolor{keywordflow}{return}\ rotor;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01078}01078\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01079}01079\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01080}01080\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01081}01081\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01082}01082\ \textcolor{comment}{\ *\ @brief\ changes\ the\ hew\ (tint)\ of\ all\ anentities\ geoms}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01083}01083\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01084}01084\ \textcolor{comment}{\ *\ go\ through\ each\ geom\ attached\ to\ the\ entities\ body\ and\ change}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01085}01085\ \textcolor{comment}{\ *\ their\ hew\ or\ tint}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01086}01086\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01087}01087\ \textcolor{comment}{\ *\ @param\ ent\ pointer\ to\ the\ entity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01088}01088\ \textcolor{comment}{\ *\ @param\ c\ new\ colour\ to\ use}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01089}01089\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01090}01090\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01091}\mbox{\hyperlink{raylibODE_8c_a227dded5dce29a7e3b71e9589e2b4c22}{01091}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a227dded5dce29a7e3b71e9589e2b4c22}{SetEntityHew}}(\mbox{\hyperlink{structentity}{entity}}*\ ent,\ Color\ c)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01092}01092\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01093}01093\ \ \ \ \ dGeomID\ geom\ =\ dBodyGetFirstGeom(ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01094}01094\ \ \ \ \ \textcolor{keywordflow}{while}(geom)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01095}01095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01096}01096\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a97039a3fbf7a1f1c905762a6f4adb0c3}{hew}}\ =\ c;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01097}01097\ \ \ \ \ \ \ \ \ geom\ =\ dBodyGetNextGeom(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01098}01098\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01099}01099\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01100}01100\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01101}01101\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01102}01102\ \textcolor{comment}{\ *\ @brief\ changes\ the\ surface\ material\ of\ all\ an\ entities\ geoms}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01103}01103\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01104}01104\ \textcolor{comment}{\ *\ go\ through\ each\ geom\ attached\ to\ the\ entities\ body\ and\ change}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01105}01105\ \textcolor{comment}{\ *\ their\ surface\ properties}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01106}01106\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01107}01107\ \textcolor{comment}{\ *\ @param\ ent\ pointer\ to\ the\ entity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01108}01108\ \textcolor{comment}{\ *\ @param\ mat\ new\ surface\ material\ to\ use}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01109}01109\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01110}01110\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01111}\mbox{\hyperlink{raylibODE_8c_aa8656255a05c3f38ce0b13825642acdf}{01111}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aa8656255a05c3f38ce0b13825642acdf}{SetEntitySurfaces}}(\mbox{\hyperlink{structentity}{entity}}*\ ent,\ \mbox{\hyperlink{structSurfaceMaterial}{SurfaceMaterial}}*\ mat)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01112}01112\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01113}01113\ \ \ \ \ dGeomID\ geom\ =\ dBodyGetFirstGeom(ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01114}01114\ \ \ \ \ \textcolor{keywordflow}{while}(geom)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01115}01115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structgeomInfo}{geomInfo}}*\ gi\ =\ dGeomGetData(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01116}01116\ \ \ \ \ \ \ \ \ gi-\/>\mbox{\hyperlink{structgeomInfo_a8e530854793906e8d625e058ac7b616c}{surface}}\ =\ mat;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01117}01117\ \ \ \ \ \ \ \ \ geom\ =\ dBodyGetNextGeom(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01118}01118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01119}01119\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01120}01120\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01121}01121\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01122}01122\ \textcolor{comment}{\ *\ @brief\ Draws\ all\ the\ dynamic\ bodies\ the\ framework\ is\ tracking}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01123}01123\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01124}01124\ \textcolor{comment}{\ *\ @param\ ctx\ the\ graphics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01125}01125\ \textcolor{comment}{\ *\ @param\ pctx\ the\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01126}01126\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01127}\mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{01127}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aa01114b518b93c528e9e85382ce46b4b}{DrawBodies}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01128}01128\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01129}01129\ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ pctx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01130}01130\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01131}01131\ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01132}01132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structentity}{entity}}*\ e\ =\ (\mbox{\hyperlink{structentity}{entity}}*)node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01133}01133\ \ \ \ \ \ \ \ \ dBodyID\ bdy\ =\ e-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01134}01134\ \ \ \ \ \ \ \ \ DrawBodyGeoms(bdy,\ ctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01135}01135\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01136}01136\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01137}01137\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01138}01138\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01139}01139\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01140}01140\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ DrawBodyGeoms(dBodyID\ bdy,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01141}01141\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01142}01142\ \ \ \ \ dGeomID\ geom\ =\ dBodyGetFirstGeom(bdy);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01143}01143\ \ \ \ \ \textcolor{keywordflow}{while}(geom)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01144}01144\ \ \ \ \ \ \ \ \ dGeomID\ next\ =\ dBodyGetNextGeom(geom);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01145}01145\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01146}01146\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5a3f56ed394d3d2c1400e25d83fc05af}{DrawGeom}}(geom,\ ctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01147}01147\ \ \ \ \ \ \ \ \ geom\ =\ next;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01148}01148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01149}01149\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01150}01150\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01151}01151\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01152}01152\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01153}01153\ \textcolor{comment}{\ *\ @brief\ draws\ the\ static\ geometries}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01154}01154\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01155}01155\ \textcolor{comment}{\ *\ As\ static\ geometries\ have\ no\ bodies\ they\ are\ handled\ a\ little\ different}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01156}01156\ \textcolor{comment}{\ *\ this\ will\ draw\ all\ the\ dGeomID's\ that\ are\ registed\ on\ the\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01157}01157\ \textcolor{comment}{\ *\ static\ lists}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01158}01158\ \textcolor{comment}{\ *\ @note\ all\ geoms\ on\ the\ statics\ list\ must\ have\ attached\ geomInfo}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01159}01159\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01160}01160\ \textcolor{comment}{\ *\ @param\ ctx\ the\ graphics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01161}01161\ \textcolor{comment}{\ *\ @param\ pctx\ the\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01162}01162\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01163}\mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{01163}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a1232d8000138fdc6d2f9741548a263aa}{DrawStatics}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ ctx,\ \mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ pctx)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01164}01164\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01165}01165\ \ \ \ \ \mbox{\hyperlink{clist_8h_a9957c4c04b6e17b9b8fa99e68b94aa9a}{cnode\_t}}*\ node\ =\ pctx-\/>\mbox{\hyperlink{structPhysicsContext_aa88cec7da4225aa5c1f2bbdabe55b35d}{statics}}-\/>\mbox{\hyperlink{struct____clist_a87719175a9395449ee1db0221b39688a}{head}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01166}01166\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01167}01167\ \ \ \ \ \textcolor{keywordflow}{while}\ (node\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01168}01168\ \ \ \ \ \ \ \ \ dGeomID\ geom\ =\ node-\/>\mbox{\hyperlink{struct____cnode_ae59520f57274323a159b336ee81f565b}{data}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01169}01169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a5a3f56ed394d3d2c1400e25d83fc05af}{DrawGeom}}(geom,\ ctx);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01170}01170\ \ \ \ \ \ \ \ \ node\ =\ node-\/>\mbox{\hyperlink{struct____cnode_aabe3d86831d46a328c4a8764acf66ac4}{next}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01171}01171\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01172}01172\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01173}01173\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01174}01174\ \textcolor{comment}{/**\ @brief\ frees\ an\ entity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01175}01175\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01176}01176\ \textcolor{comment}{\ *\ this\ is\ essentially\ destroying\ the\ entity\ it\ is\ no\ longer\ part\ of\ the\ world}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01177}01177\ \textcolor{comment}{\ *\ @note\ if\ iterrating\ through\ the\ global\ entity\ list\ while\ calling\ this,}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01178}01178\ \textcolor{comment}{\ *\ ensure\ you\ have\ stored\ the\ next\ node\ in\ the\ chain,\ for\ use\ at\ the\ end\ of\ the}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01179}01179\ \textcolor{comment}{\ *\ while\ loop\ as\ obviously\ node-\/>next\ won't\ work}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01180}01180\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01181}01181\ \textcolor{comment}{\ *\ @param\ physCtx\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01182}01182\ \textcolor{comment}{\ *\ @param\ ent\ the\ entity\ to\ destroy}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01183}01183\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01184}\mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{01184}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aa86cbb92909da330ef988d813fb7baed}{FreeEntity}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ ent)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01185}01185\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01186}01186\ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a8f1b86adbb51b8bd80405329b31c87d1}{FreeBodyAndGeoms}}(ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01187}01187\ \ \ \ \ \mbox{\hyperlink{clist_8c_a15dab01e10aa1d60e2d66c5cbfa3a738}{clistDeleteNode}}(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_a9b8d81159eec734cb1b95c95203b7f50}{objList}},\ \&ent-\/>\mbox{\hyperlink{structentity_a4ba0008223828f414cf5303ca935bcd8}{node}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01188}01188\ \ \ \ \ free(ent);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01189}01189\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01190}01190\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01191}01191\ \textcolor{comment}{/**\ @brief\ creates\ a\ piston\ using\ two\ entities\ as\ its\ base\ on\ extending\ sections}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01192}01192\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01193}01193\ \textcolor{comment}{\ *\ both\ entities\ should\ be\ positioned\ and\ oriented\ before\ calling\ this,\ they\ MUST\ NOT}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01194}01194\ \textcolor{comment}{\ *\ be\ in\ exactly\ the\ same\ position,\ as\ the\ vector\ between\ them\ is\ used\ as\ the\ axis\ for}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01195}01195\ \textcolor{comment}{\ *\ the\ piston}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01196}01196\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01197}01197\ \textcolor{comment}{\ *\ @param\ physCtx\ the\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01198}01198\ \textcolor{comment}{\ *\ @param\ entA\ the\ base\ entity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01199}01199\ \textcolor{comment}{\ *\ @param\ entB\ the\ extending\ entity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01200}01200\ \textcolor{comment}{\ *\ @param\ strength\ the\ maximum\ force\ the\ piston\ can\ use}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01201}01201\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01202}01202\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01203}\mbox{\hyperlink{raylibODE_8c_aa35dd966752d4afeffcb8f39e474594c}{01203}}\ dJointID\ \mbox{\hyperlink{raylibODE_8c_aa35dd966752d4afeffcb8f39e474594c}{CreatePiston}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ entA,\ \mbox{\hyperlink{structentity}{entity}}*\ entB,\ \textcolor{keywordtype}{float}\ strength)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01204}01204\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01205}01205\ \ \ \ \ dJointID\ joint\ =\ dJointCreateSlider(physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01206}01206\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01207}01207\ \ \ \ \ dBodyID\ bodyA\ =\ entA-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01208}01208\ \ \ \ \ dBodyID\ bodyB\ =\ (entB\ !=\ NULL)\ ?\ entB-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}}\ :\ 0;\ \textcolor{comment}{//\ 0\ =\ world}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01209}01209\ \ \ \ \ dJointAttach(joint,\ bodyA,\ bodyB);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01210}01210\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01211}01211\ \ \ \ \ ((\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(dBodyGetFirstGeom(bodyA)))-\/>surface\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d}{SURFACE\_METAL}}];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01212}01212\ \ \ \ \ ((\mbox{\hyperlink{structgeomInfo}{geomInfo}}*)dGeomGetData(dBodyGetFirstGeom(bodyB)))-\/>surface\ =\ \&\mbox{\hyperlink{surface_8c_aa26755a73be46b483bf7098bcbf679dd}{gSurfaces}}[\mbox{\hyperlink{surface_8h_a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d}{SURFACE\_METAL}}];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01213}01213\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01214}01214\ \ \ \ \ dReal\ axis[3];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01215}01215\ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ posA\ =\ dBodyGetPosition(bodyA);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01216}01216\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01217}01217\ \ \ \ \ \textcolor{keywordflow}{if}\ (entB\ !=\ NULL)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01218}01218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ dReal*\ posB\ =\ dBodyGetPosition(bodyB);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01219}01219\ \ \ \ \ \ \ \ \ axis[0]\ =\ posA[0]\ -\/\ posB[0];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01220}01220\ \ \ \ \ \ \ \ \ axis[1]\ =\ posA[1]\ -\/\ posB[1];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01221}01221\ \ \ \ \ \ \ \ \ axis[2]\ =\ posA[2]\ -\/\ posB[2];}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01222}01222\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01223}01223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Default\ to\ "{}Up"{}\ or\ a\ specific\ direction\ if\ B\ is\ world}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01224}01224\ \ \ \ \ \ \ \ \ axis[0]\ =\ 0;\ axis[1]\ =\ 1;\ axis[2]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01225}01225\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01226}01226\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01227}01227\ \ \ \ \ \textcolor{comment}{//\ Normalize\ and\ set\ the\ axis}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01228}01228\ \ \ \ \ dReal\ length\ =\ sqrt(axis[0]*axis[0]\ +\ axis[1]*axis[1]\ +\ axis[2]*axis[2]);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01229}01229\ \ \ \ \ \textcolor{keywordflow}{if}\ (length\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01230}01230\ \ \ \ \ \ \ \ \ dJointSetSliderAxis(joint,\ axis[0]/length,\ axis[1]/length,\ axis[2]/length);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01231}01231\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01232}01232\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01233}01233\ \ \ \ \ dJointSetSliderParam(joint,\ dParamVel,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01234}01234\ \ \ \ \ dJointSetSliderParam(joint,\ dParamFMax,\ strength);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01235}01235\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01236}01236\ \ \ \ \ \textcolor{keywordflow}{return}\ joint;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01237}01237\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01238}01238\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01239}01239\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01240}01240\ \textcolor{comment}{\ *\ @brief\ sets\ the\ limits\ of\ travel\ for\ a\ piston}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01241}01241\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01242}01242\ \textcolor{comment}{\ *\ @param\ joint\ the\ ODE\ joint\ id\ of\ the\ joint\ you\ want\ to\ change}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01243}01243\ \textcolor{comment}{\ *\ @param\ min\ the\ low\ end\ stop\ point}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01244}01244\ \textcolor{comment}{\ *\ @param\ max\ the\ high\ end\ stop\ point}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01245}01245\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01246}01246\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01247}\mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{01247}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(dJointID\ joint,\ \textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01248}01248\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01249}01249\ \ \ \ \ dJointSetSliderParam(joint,\ dParamLoStop,\ min);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01250}01250\ \ \ \ \ dJointSetSliderParam(joint,\ dParamHiStop,\ max);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01251}01251\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01252}01252\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01253}01253\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01254}01254\ \textcolor{comment}{\ *\ @brief\ frees\ all\ the\ internal\ resources\ of\ a\ multipiston}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01255}01255\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01256}01256\ \textcolor{comment}{\ *\ @param\ mp\ the\ multipiston\ to\ free}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01242}01242\ \textcolor{comment}{\ *\ min\ must\ be\ smaller\ than\ max\ values\ can\ be\ negative}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01243}01243\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01244}01244\ \textcolor{comment}{\ *\ @param\ joint\ the\ ODE\ joint\ id\ of\ the\ joint\ you\ want\ to\ change}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01245}01245\ \textcolor{comment}{\ *\ @param\ min\ the\ low\ end\ stop\ point}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01246}01246\ \textcolor{comment}{\ *\ @param\ max\ the\ high\ end\ stop\ point}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01247}01247\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01248}01248\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01249}\mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{01249}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(dJointID\ joint,\ \textcolor{keywordtype}{float}\ min,\ \textcolor{keywordtype}{float}\ max)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01250}01250\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01251}01251\ \ \ \ \ dJointSetSliderParam(joint,\ dParamLoStop,\ min);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01252}01252\ \ \ \ \ dJointSetSliderParam(joint,\ dParamHiStop,\ max);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01253}01253\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01254}01254\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01255}01255\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01256}01256\ \textcolor{comment}{\ *\ @brief\ frees\ all\ the\ internal\ resources\ of\ a\ multipiston}}
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01257}01257\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01258}01258\ \textcolor{comment}{\ *\ @note\ this\ is\ not\ done\ automagically\ (like\ dynamic\ bodies\ for\ example)}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01259}01259\ \textcolor{comment}{\ *\ when\ you\ create\ a\ multipiston\ add\ a\ call\ to\ this\ function\ in\ your}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01260}01260\ \textcolor{comment}{\ *\ exit\ path}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01261}01261\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01262}\mbox{\hyperlink{raylibODE_8c_a710981c5db9781e25b27318e8d56dfbb}{01262}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a710981c5db9781e25b27318e8d56dfbb}{FreeMultiPiston}}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01263}01263\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01264}01264\ \ \ \ \ free(mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01265}01265\ \ \ \ \ free(mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01266}01266\ \ \ \ \ free(mp);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01267}01267\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01268}01268\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01269}01269\ \textcolor{comment}{/**\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01270}01270\ \textcolor{comment}{\ *\ @brief\ add\ a\ multi\ section\ piston}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01271}01271\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01272}01272\ \textcolor{comment}{\ *\ @param\ physCtx\ the\ physics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01273}01273\ \textcolor{comment}{\ *\ @param\ graphics\ the\ graphical\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01274}01274\ \textcolor{comment}{\ *\ @param\ pos\ where\ the\ base\ of\ the\ piston\ should\ be\ positioned}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01275}01275\ \textcolor{comment}{\ *\ @param\ direction\ a\ vector\ pointing\ from\ the\ base\ towards\ the\ end\ of\ the\ piston}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01276}01276\ \textcolor{comment}{\ *\ @param\ count\ the\ number\ of\ sections\ for\ the\ piston}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01277}01277\ \textcolor{comment}{\ *\ @param\ sectionLen\ How\ far\ each\ section\ extends\ fully\ retracted\ it\ will\ be\ a\ little\ longer\ than\ this}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01278}01278\ \textcolor{comment}{\ *\ as\ each\ section\ doesn't\ go\ into\ its\ parent\ 100\%\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01279}01279\ \textcolor{comment}{\ *\ @param\ baseWidth\ the\ width\ of\ the\ base}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01280}01280\ \textcolor{comment}{\ *\ @param\ strength\ the\ maximum\ force\ the\ piston\ can\ use\ to\ extend\ or\ retract}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01281}01281\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01282}01282\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01283}\mbox{\hyperlink{raylibODE_8c_a8d2339918b2d47fcaea5c861ccfbc3d8}{01283}}\ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ \mbox{\hyperlink{raylibODE_8c_a8d2339918b2d47fcaea5c861ccfbc3d8}{CreateMultiPiston}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics,\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01284}01284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ pos,\ Vector3\ direction,\ \textcolor{keywordtype}{int}\ count,\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01285}01285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sectionLen,\ \textcolor{keywordtype}{float}\ baseWidth,\ \textcolor{keywordtype}{float}\ strength)\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01286}01286\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01287}01287\ \ \ \ \ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}));}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01288}01288\ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}}\ =\ count;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01289}01289\ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structentity}{entity}}*)\ *\ count);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01290}01290\ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}}\ =\ malloc(\textcolor{keyword}{sizeof}(dJointID)\ *\ (count\ -\/\ 1));}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01291}01291\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01292}01292\ \ \ \ \ Vector3\ dir\ =\ Vector3Normalize(direction);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01258}01258\ \textcolor{comment}{\ *\ @param\ mp\ the\ multipiston\ to\ free}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01259}01259\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01260}01260\ \textcolor{comment}{\ *\ @note\ this\ is\ not\ done\ automagically\ (like\ dynamic\ bodies\ for\ example)}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01261}01261\ \textcolor{comment}{\ *\ when\ you\ create\ a\ multipiston\ add\ a\ call\ to\ this\ function\ in\ your}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01262}01262\ \textcolor{comment}{\ *\ exit\ path}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01263}01263\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01264}\mbox{\hyperlink{raylibODE_8c_a710981c5db9781e25b27318e8d56dfbb}{01264}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a710981c5db9781e25b27318e8d56dfbb}{FreeMultiPiston}}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01265}01265\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01266}01266\ \ \ \ \ free(mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01267}01267\ \ \ \ \ free(mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01268}01268\ \ \ \ \ free(mp);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01269}01269\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01270}01270\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01271}01271\ \textcolor{comment}{/**\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01272}01272\ \textcolor{comment}{\ *\ @brief\ add\ a\ multi\ section\ piston}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01273}01273\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01274}01274\ \textcolor{comment}{\ *\ @param\ physCtx\ the\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01275}01275\ \textcolor{comment}{\ *\ @param\ graphics\ the\ graphical\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01276}01276\ \textcolor{comment}{\ *\ @param\ pos\ where\ the\ base\ of\ the\ piston\ should\ be\ positioned}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01277}01277\ \textcolor{comment}{\ *\ @param\ direction\ a\ vector\ pointing\ from\ the\ base\ towards\ the\ end\ of\ the\ piston}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01278}01278\ \textcolor{comment}{\ *\ @param\ count\ the\ number\ of\ sections\ for\ the\ piston}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01279}01279\ \textcolor{comment}{\ *\ @param\ sectionLen\ How\ far\ each\ section\ extends\ fully\ retracted\ it\ will\ be\ a\ little\ longer\ than\ this}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01280}01280\ \textcolor{comment}{\ *\ as\ each\ section\ doesn't\ go\ into\ its\ parent\ 100\%\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01281}01281\ \textcolor{comment}{\ *\ @param\ baseWidth\ the\ width\ of\ the\ base}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01282}01282\ \textcolor{comment}{\ *\ @param\ strength\ the\ maximum\ force\ the\ piston\ can\ use\ to\ extend\ or\ retract}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01283}01283\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01284}01284\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01285}\mbox{\hyperlink{raylibODE_8c_a8d2339918b2d47fcaea5c861ccfbc3d8}{01285}}\ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ \mbox{\hyperlink{raylibODE_8c_a8d2339918b2d47fcaea5c861ccfbc3d8}{CreateMultiPiston}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structGraphicsContext}{GraphicsContext}}*\ graphics,\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01286}01286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vector3\ pos,\ Vector3\ direction,\ \textcolor{keywordtype}{int}\ count,\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01287}01287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sectionLen,\ \textcolor{keywordtype}{float}\ baseWidth,\ \textcolor{keywordtype}{float}\ strength)\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01288}01288\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01289}01289\ \ \ \ \ \mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}));}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01290}01290\ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}}\ =\ count;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01291}01291\ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structentity}{entity}}*)\ *\ count);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01292}01292\ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}}\ =\ malloc(\textcolor{keyword}{sizeof}(dJointID)\ *\ (count\ -\/\ 1));}
 \DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01293}01293\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01294}01294\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01295}01295\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scale\ =\ 1.0f\ -\/\ (i\ *\ 0.1f);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01296}01296\ \ \ \ \ \ \ \ \ Vector3\ size\ =\ \{\ sectionLen,\ baseWidth\ *\ scale,\ baseWidth\ *\ scale\ \};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01297}01297\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01298}01298\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stagger\ each\ section\ 0.1\ units\ along\ the\ direction\ vector}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01299}01299\ \ \ \ \ \ \ \ \ Vector3\ sPos\ =\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01300}01300\ \ \ \ \ \ \ \ \ \ \ \ \ pos.x\ +\ (dir.x\ *\ i\ *\ 0.1f),}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01301}01301\ \ \ \ \ \ \ \ \ \ \ \ \ pos.y\ +\ (dir.y\ *\ i\ *\ 0.1f),}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01302}01302\ \ \ \ \ \ \ \ \ \ \ \ \ pos.z\ +\ (dir.z\ *\ i\ *\ 0.1f)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01303}01303\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01304}01304\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01305}01305\ \ \ \ \ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i]\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ size,\ sPos,\ (Vector3)\{0,0,0\},\ 4);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01306}01306\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01307}01307\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Orient\ the\ box\ to\ face\ the\ direction\ of\ travel}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01308}01308\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ dir);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01309}01309\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01310}01310\ \ \ \ \ \ \ \ \ dGeomID\ g\ =\ dBodyGetFirstGeom(mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01311}01311\ \ \ \ \ \ \ \ \ dGeomSetCategoryBits(g,\ \mbox{\hyperlink{raylibODE_8h_ad7a3394d1169a116327a236fc91cad61}{PISTON\_GROUP}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01312}01312\ \ \ \ \ \ \ \ \ dGeomSetCollideBits(g,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01313}01313\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01314}01314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01315}01315\ \ \ \ \ \ \ \ \ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}}[i-\/1]\ =\ \mbox{\hyperlink{raylibODE_8c_aa35dd966752d4afeffcb8f39e474594c}{CreatePiston}}(physCtx,\ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i-\/1],\ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i],\ strength);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01316}01316\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}}[i-\/1],\ 0,\ sectionLen\ -\/\ 0.3f);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01317}01317\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01318}01318\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01319}01319\ \ \ \ \ \textcolor{keywordflow}{return}\ mp;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01320}01320\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01321}01321\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01322}01322\ \textcolor{comment}{/**\ @brief\ set\ a\ MultiPiston's\ velocity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01323}01323\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01324}01324\ \textcolor{comment}{\ *\ While\ setting\ all\ the\ join\ velocities\ in\ the\ piston\ it\ also}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01325}01325\ \textcolor{comment}{\ *\ ensures\ all\ the\ bodies\ are\ active}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01326}01326\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01327}01327\ \textcolor{comment}{\ *\ @param\ mp\ the\ multipiston\ you\ want\ to\ change\ the\ speed\ of}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01328}01328\ \textcolor{comment}{\ *\ @param\ velocity\ the\ speed\ you\ want\ the\ piston\ set\ to}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01329}01329\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01330}01330\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01331}\mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{01331}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp,\ \textcolor{keywordtype}{float}\ velocity)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01332}01332\ \ \ \ \ \textcolor{keywordflow}{if}\ (!mp)\ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01333}01333\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ mp-\/>\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}}\ -\/\ 1;\ i++)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01334}01334\ \ \ \ \ \ \ \ \ dJointSetSliderParam(mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}}[i],\ dParamVel,\ velocity);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01335}01335\ \ \ \ \ \ \ \ \ dBodyEnable(mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i+1]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01336}01336\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01337}01337\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01338}01338\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01339}01339\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01340}01340\ \textcolor{comment}{\ *\ @brief\ sets\ to\ bodies\ orientation\ to\ align\ with\ a\ vector}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01341}01341\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01342}01342\ \textcolor{comment}{\ *\ @param\ body\ the\ ODE\ body\ id\ you\ want\ to\ orient}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01343}01343\ \textcolor{comment}{\ *\ @param\ direction\ the\ vector\ you\ want\ the\ body\ oriented\ along}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01344}01344\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01345}01345\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01346}\mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{01346}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(dBodyID\ body,\ Vector3\ direction)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01347}01347\ \ \ \ \ Vector3\ source\ =\ \{1,\ 0,\ 0\};\ \textcolor{comment}{//\ The\ default\ "{}length"{}\ axis\ of\ your\ box}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01348}01348\ \ \ \ \ direction\ =\ Vector3Normalize(direction);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01349}01349\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01350}01350\ \ \ \ \ \textcolor{comment}{//\ Find\ the\ rotation\ axis\ (perpendicular\ to\ both\ vectors)}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01351}01351\ \ \ \ \ Vector3\ rotAxis\ =\ Vector3CrossProduct(source,\ direction);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01352}01352\ \ \ \ \ \textcolor{keywordtype}{float}\ cosTheta\ =\ Vector3DotProduct(source,\ direction);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01353}01353\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01354}01354\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ angle\ in\ radians}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01355}01355\ \ \ \ \ \textcolor{keywordtype}{float}\ angle\ =\ acosf(fminf(1.0f,\ fmaxf(-\/1.0f,\ cosTheta)));}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01356}01356\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01357}01357\ \ \ \ \ \textcolor{comment}{//\ Handle\ the\ "{}Parallel"{}\ case\ (if\ target\ is\ -\/source,\ cross\ product\ is\ zero)}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01358}01358\ \ \ \ \ \textcolor{keywordflow}{if}\ (Vector3Length(rotAxis)\ <\ 0.001f)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01359}01359\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cosTheta\ <\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01360}01360\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Target\ is\ exactly\ opposite,\ rotate\ 180\ degrees\ around\ Any\ perpendicular\ axis}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01361}01361\ \ \ \ \ \ \ \ \ \ \ \ \ rotAxis\ =\ (Vector3)\{0,\ 1,\ 0\};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01362}01362\ \ \ \ \ \ \ \ \ \ \ \ \ angle\ =\ PI;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01363}01363\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01364}01364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Target\ is\ same\ as\ source,\ no\ rotation\ needed}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01365}01365\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01366}01366\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01367}01367\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01368}01368\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01369}01369\ \ \ \ \ dQuaternion\ q;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01370}01370\ \ \ \ \ dQFromAxisAndAngle(q,\ rotAxis.x,\ rotAxis.y,\ rotAxis.z,\ angle);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01371}01371\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01372}01372\ \ \ \ \ dBodySetQuaternion(body,\ q);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01373}01373\ \}\textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01374}01374\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01375}01375\ \textcolor{comment}{\ *\ @brief\ pins\ an\ entity\ to\ the\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01376}01376\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01377}01377\ \textcolor{comment}{\ *\ This\ joint\ will\ attempt\ to\ keep\ the\ position\ and\ orientation\ of}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01378}01378\ \textcolor{comment}{\ *\ the\ body\ static,\ position\ and\ rotate\ the\ body\ as\ needed\ before}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01379}01379\ \textcolor{comment}{\ *\ calling\ this}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01380}01380\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01381}01381\ \textcolor{comment}{\ *\ @param\ physCtx\ \ \ physics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01382}01382\ \textcolor{comment}{\ *\ @param\ ent\ \ \ The\ entity\ to\ pin\ to\ the\ world}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01383}01383\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01384}01384\ \textcolor{comment}{\ *\ @returns\ the\ joint\ id\ of\ the\ constraint\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01385}01385\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01386}\mbox{\hyperlink{raylibODE_8c_a57b8ac137f7e79fc8deb53b7ba410166}{01386}}\ dJointID\ \mbox{\hyperlink{raylibODE_8c_a57b8ac137f7e79fc8deb53b7ba410166}{PinEntityToWorld}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ ent)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01387}01387\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01388}01388\ \ \ \ \ dJointID\ pin\ =\ dJointCreateFixed\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01389}01389\ \ \ \ \ dJointAttach(pin,\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01390}01390\ \ \ \ \ dJointSetFixed(pin);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01391}01391\ \ \ \ \ \textcolor{keywordflow}{return}\ pin;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01392}01392\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01393}01393\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01394}01394\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01395}01395\ \textcolor{comment}{\ *\ @brief\ pin\ two\ entities\ together}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01396}01396\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01397}01397\ \textcolor{comment}{\ *\ @param\ physCtx\ the\ physics\ context}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01398}01398\ \textcolor{comment}{\ *\ @param\ entA\ the\ first\ entity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01399}01399\ \textcolor{comment}{\ *\ @param\ entB\ the\ second\ entity}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01400}01400\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01401}01401\ \textcolor{comment}{\ *\ The\ constraint\ will\ attempt\ to\ keep\ the\ relative}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01402}01402\ \textcolor{comment}{\ *\ position\ and\ orientation\ of\ the\ two\ entities\ as\ it\ was\ when\ this\ is\ called.\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01403}01403\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01404}\mbox{\hyperlink{raylibODE_8c_a4fdbdf714b807f26feab3176718e274c}{01404}}\ dJointID\ \mbox{\hyperlink{raylibODE_8c_a4fdbdf714b807f26feab3176718e274c}{PinEntities}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ entA,\ \mbox{\hyperlink{structentity}{entity}}*\ entB)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01405}01405\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01406}01406\ \ \ \ \ dJointID\ pin\ =\ dJointCreateFixed\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01407}01407\ \ \ \ \ dJointAttach(pin,\ entA-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ entB-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01408}01408\ \ \ \ \ dJointSetFixed(pin);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01409}01409\ \ \ \ \ \textcolor{keywordflow}{return}\ pin;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01410}01410\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01411}01411\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01412}01412\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01413}01413\ \textcolor{comment}{\ *\ @brief\ sets\ a\ bodies\ orientation}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01414}01414\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01415}01415\ \textcolor{comment}{\ *\ @param\ bdy\ the\ body\ id}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01416}01416\ \textcolor{comment}{\ *\ @param\ p\ the\ pitch}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01417}01417\ \textcolor{comment}{\ *\ @param\ y\ the\ yaw}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01418}01418\ \textcolor{comment}{\ *\ @param\ r\ the\ roll}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01419}01419\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01420}01420\ \textcolor{comment}{\ *\ @note\ you\ shouldn't\ be\ doing\ this\ every\ frame\ rather\ use\ forces\ (torque)}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01421}01421\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01422}\mbox{\hyperlink{raylibODE_8c_a3ae92d4efc27587000b0f3ca889d19e7}{01422}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a3ae92d4efc27587000b0f3ca889d19e7}{SetBodyOrientationEuler}}(dBodyID\ bdy,\ \textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01423}01423\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01424}01424\ \ \ \ \ dMatrix3\ R;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01425}01425\ \ \ \ \ dRFromEulerAngles(R,\ p,\ y,\ r);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01426}01426\ \ \ \ \ dBodySetRotation(bdy,\ R);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01427}01427\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01428}01428\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01429}01429\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01430}01430\ \textcolor{comment}{\ *\ @brief\ sets\ a\ geoms\ orientation}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01431}01431\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01432}01432\ \textcolor{comment}{\ *\ @param\ g\ the\ geom\ id}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01433}01433\ \textcolor{comment}{\ *\ @param\ p\ the\ pitch}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01434}01434\ \textcolor{comment}{\ *\ @param\ y\ the\ yaw}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01435}01435\ \textcolor{comment}{\ *\ @param\ r\ the\ roll}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01436}01436\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01437}01437\ \textcolor{comment}{\ *\ This\ is\ most\ useful\ when\ you\ are\ creating\ bodies\ with\ composite}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01438}01438\ \textcolor{comment}{\ *\ geoms\ or\ for\ use\ with\ a\ static\ geom}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01439}01439\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01440}\mbox{\hyperlink{raylibODE_8c_a5b5b0b12adc7119a13eaacef8d097499}{01440}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a5b5b0b12adc7119a13eaacef8d097499}{SetGeomOrientationEuler}}(dGeomID\ g,\ \textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r)}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01441}01441\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01442}01442\ \ \ \ \ dMatrix3\ R;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01443}01443\ \ \ \ \ dRFromEulerAngles(R,\ p,\ y,\ r);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01444}01444\ \ \ \ \ dGeomSetRotation(g,\ R);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01445}01445\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01446}01446\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01447}01447\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01448}01448\ \textcolor{comment}{\ *\ @brief\ create\ a\ rotor\ PID\ helper}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01449}01449\ \textcolor{comment}{\ *\ @param\ p\ proportional\ value\ for\ the\ PID}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01450}01450\ \textcolor{comment}{\ *\ @param\ i\ integral\ value}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01451}01451\ \textcolor{comment}{\ *\ @param\ d\ derivative}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01452}01452\ \textcolor{comment}{\ *\ @param\ lo\ the\ low\ stop}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01453}01453\ \textcolor{comment}{\ *\ @param\ hi\ the\ high\ stop}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01454}01454\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01455}01455\ \textcolor{comment}{\ *\ @note\ a\ rotorPID\ contains\ a\ targetAngle,\ set\ this\ for\ your\ desired\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01456}01456\ \textcolor{comment}{\ *\ rotor\ angle}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01457}01457\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01458}01458\ \textcolor{comment}{\ *\ @note\ tuning\ a\ PID\ can\ be\ a\ bit\ of\ a\ dark\ art!\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01459}01459\ \textcolor{comment}{\ *\ I\ recommend\ looking\ at\ https://pidexplained.com/how-\/to-\/tune-\/a-\/pid-\/controller/}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01460}01460\ \textcolor{comment}{\ *\ and\ the\ example}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01461}01461\ \textcolor{comment}{\ *\ <a\ href="{}pidJoint\_8c\_source.html"{}>pidJoint.c</a>}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01462}01462\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01463}01463\ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01464}01464\ \ \textcolor{comment}{//\ file:///home/chris/development/RayLibOdeMech/docs/doxygen/html/pidJoint\_8c\_source.html}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01465}\mbox{\hyperlink{raylibODE_8c_a51c7fa5bc9007621b52ed19bceadc142}{01465}}\ \mbox{\hyperlink{structRotorPID}{RotorPID}}\ \mbox{\hyperlink{raylibODE_8c_a51c7fa5bc9007621b52ed19bceadc142}{CreateRotorPID}}(\textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ i,\ \textcolor{keywordtype}{float}\ d,\ \textcolor{keywordtype}{float}\ lo,\ \textcolor{keywordtype}{float}\ hi)\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01466}01466\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01467}01467\ \ \ \ \ \mbox{\hyperlink{structRotorPID}{RotorPID}}\ pid\ =\ \{0\};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01468}01468\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_acfaa26f8f2115c47a4db93781231e406}{Kp}}\ =\ p;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01469}01469\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_a2d5ed52841172c4d8b866a298d664414}{Ki}}\ =\ i;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01470}01470\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_ada89e789ba855cf729f920fc1c1bb929}{Kd}}\ =\ d;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01471}01471\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_ab110cb5e184bcd5145e6ed3b89e2cf82}{antiWindup}}\ =\ 10.0f;\ \textcolor{comment}{//\ Prevents\ the\ motor\ from\ "{}over-\/charging"{}\ if\ stuck}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01472}01472\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_af2941ac4e0f3caf388abbf8c6a3fdba8}{lo}}\ =\ lo;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01473}01473\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{hi}}\ =\ hi;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01474}01474\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01475}01475\ \ \ \ \ \textcolor{keywordflow}{return}\ pid;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01476}01476\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01477}01477\ \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01478}01478\ \textcolor{comment}{/**}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01479}01479\ \textcolor{comment}{\ *\ @brief\ update\ rotor\ PID}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01480}01480\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01481}01481\ \textcolor{comment}{\ *\ @param\ pid\ the\ RotorPID\ to\ update}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01482}01482\ \textcolor{comment}{\ *\ @param\ joint\ the\ rotor\ joint\ to\ align\ with\ the\ targetAngle\ of\ the\ RotorPID}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01483}01483\ \textcolor{comment}{\ *\ }}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01484}01484\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01485}\mbox{\hyperlink{raylibODE_8c_a3c235bbe76330e3669fb881394ab8767}{01485}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a3c235bbe76330e3669fb881394ab8767}{UpdateRotorPID}}(\mbox{\hyperlink{structRotorPID}{RotorPID}}*\ pid,\ dJointID\ joint)\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01486}01486\ \{}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01487}01487\ \ \ \ \ \textcolor{keywordflow}{if}\ (pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ <\ pid-\/>\mbox{\hyperlink{structRotorPID_af2941ac4e0f3caf388abbf8c6a3fdba8}{lo}})\ pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ =\ pid-\/>\mbox{\hyperlink{structRotorPID_af2941ac4e0f3caf388abbf8c6a3fdba8}{lo}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01488}01488\ \ \ \ \ \textcolor{keywordflow}{if}\ (pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ >\ pid-\/>\mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{hi}})\ pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ =\ pid-\/>\mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{hi}};}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01489}01489\ \ \ \ \ \textcolor{keywordtype}{float}\ currentAngle\ =\ dJointGetHingeAngle(joint);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01490}01490\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01491}01491\ \ \ \ \ \textcolor{keywordtype}{float}\ error\ =\ pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ -\/\ currentAngle;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01492}01492\ \ \ \ \ \textcolor{keywordflow}{while}\ (error\ >\ \ PI)\ error\ -\/=\ 2.0f\ *\ PI;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01493}01493\ \ \ \ \ \textcolor{keywordflow}{while}\ (error\ <\ -\/PI)\ error\ +=\ 2.0f\ *\ PI;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01494}01494\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01495}01495\ \ \ \ \ \textcolor{comment}{//\ Integral\ term\ with\ Anti-\/Windup}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01496}01496\ \ \ \ \ pid-\/>\mbox{\hyperlink{structRotorPID_acb043fd74456df5ff732c47777e734a8}{integral}}\ +=\ error;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01497}01497\ \ \ \ \ \textcolor{comment}{//if\ (pid-\/>integral\ >\ \ pid-\/>antiWindup)\ pid-\/>integral\ =\ \ pid-\/>antiWindup;}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01498}01498\ \ \ \ \ \textcolor{comment}{//if\ (pid-\/>integral\ <\ -\/pid-\/>antiWindup)\ pid-\/>integral\ =\ -\/pid-\/>antiWindup;}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01499}01499\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01500}01500\ \ \ \ \ \textcolor{comment}{//\ Derivative\ term}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01501}01501\ \ \ \ \ \textcolor{keywordtype}{float}\ derivative\ =\ (error\ -\/\ pid-\/>\mbox{\hyperlink{structRotorPID_afdb6e3aebf5da57db2d769fc8a74a05b}{lastError}});}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01502}01502\ \ \ \ \ pid-\/>\mbox{\hyperlink{structRotorPID_afdb6e3aebf5da57db2d769fc8a74a05b}{lastError}}\ =\ error;}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01503}01503\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01504}01504\ \ \ \ \ \textcolor{comment}{//\ Calculate\ Output\ (Velocity)}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01505}01505\ \ \ \ \ \textcolor{keywordtype}{float}\ outputVel\ =\ (pid-\/>\mbox{\hyperlink{structRotorPID_acfaa26f8f2115c47a4db93781231e406}{Kp}}\ *\ error)\ +\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01506}01506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pid-\/>\mbox{\hyperlink{structRotorPID_a2d5ed52841172c4d8b866a298d664414}{Ki}}\ *\ pid-\/>\mbox{\hyperlink{structRotorPID_acb043fd74456df5ff732c47777e734a8}{integral}})\ +\ }
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01507}01507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pid-\/>\mbox{\hyperlink{structRotorPID_ada89e789ba855cf729f920fc1c1bb929}{Kd}}\ *\ derivative);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01508}01508\ \ \ \ \ dJointSetHingeParam(joint,\ dParamVel,\ outputVel);}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01509}01509\ \}}
-\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01510}01510\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01294}01294\ \ \ \ \ Vector3\ dir\ =\ Vector3Normalize(direction);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01295}01295\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01296}01296\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01297}01297\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scale\ =\ 1.0f\ -\/\ (i\ *\ 0.1f);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01298}01298\ \ \ \ \ \ \ \ \ Vector3\ size\ =\ \{\ sectionLen,\ baseWidth\ *\ scale,\ baseWidth\ *\ scale\ \};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01299}01299\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01300}01300\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stagger\ each\ section\ 0.1\ units\ along\ the\ direction\ vector}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01301}01301\ \ \ \ \ \ \ \ \ Vector3\ sPos\ =\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01302}01302\ \ \ \ \ \ \ \ \ \ \ \ \ pos.x\ +\ (dir.x\ *\ i\ *\ 0.1f),}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01303}01303\ \ \ \ \ \ \ \ \ \ \ \ \ pos.y\ +\ (dir.y\ *\ i\ *\ 0.1f),}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01304}01304\ \ \ \ \ \ \ \ \ \ \ \ \ pos.z\ +\ (dir.z\ *\ i\ *\ 0.1f)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01305}01305\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01306}01306\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01307}01307\ \ \ \ \ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i]\ =\ \mbox{\hyperlink{raylibODE_8c_ae436b97d6296f4b3c35e493dde37cee3}{CreateBox}}(physCtx,\ graphics,\ size,\ sPos,\ (Vector3)\{0,0,0\},\ 4);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01308}01308\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01309}01309\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Orient\ the\ box\ to\ face\ the\ direction\ of\ travel}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01310}01310\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ dir);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01311}01311\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01312}01312\ \ \ \ \ \ \ \ \ dGeomID\ g\ =\ dBodyGetFirstGeom(mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01313}01313\ \ \ \ \ \ \ \ \ dGeomSetCategoryBits(g,\ \mbox{\hyperlink{raylibODE_8h_ad7a3394d1169a116327a236fc91cad61}{PISTON\_GROUP}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01314}01314\ \ \ \ \ \ \ \ \ dGeomSetCollideBits(g,\ \mbox{\hyperlink{raylibODE_8h_a7641bec378d3900deed756ce9ce5369f}{WORLD\_GROUP}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01315}01315\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01316}01316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01317}01317\ \ \ \ \ \ \ \ \ \ \ \ \ mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}}[i-\/1]\ =\ \mbox{\hyperlink{raylibODE_8c_aa35dd966752d4afeffcb8f39e474594c}{CreatePiston}}(physCtx,\ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i-\/1],\ mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i],\ strength);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01318}01318\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raylibODE_8c_a878892d1015e3c9349f667325d129d43}{SetPistonLimits}}(mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}}[i-\/1],\ 0,\ sectionLen\ -\/\ 0.3f);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01319}01319\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01320}01320\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01321}01321\ \ \ \ \ \textcolor{keywordflow}{return}\ mp;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01322}01322\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01323}01323\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01324}01324\ \textcolor{comment}{/**\ @brief\ set\ a\ MultiPiston's\ velocity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01325}01325\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01326}01326\ \textcolor{comment}{\ *\ While\ setting\ all\ the\ join\ velocities\ in\ the\ piston\ it\ also}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01327}01327\ \textcolor{comment}{\ *\ ensures\ all\ the\ bodies\ are\ active}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01328}01328\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01329}01329\ \textcolor{comment}{\ *\ @param\ mp\ the\ multipiston\ you\ want\ to\ change\ the\ speed\ of}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01330}01330\ \textcolor{comment}{\ *\ @param\ velocity\ the\ speed\ you\ want\ the\ piston\ set\ to}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01331}01331\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01332}01332\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01333}\mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{01333}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a801a17c097329ca4d55d35f1c5ae7b5a}{SetMultiPistonVelocity}}(\mbox{\hyperlink{structMultiPiston}{MultiPiston}}*\ mp,\ \textcolor{keywordtype}{float}\ velocity)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01334}01334\ \ \ \ \ \textcolor{keywordflow}{if}\ (!mp)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01335}01335\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ mp-\/>\mbox{\hyperlink{structMultiPiston_a96962d42f96ba90adb333956b1c3ddd4}{count}}\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01336}01336\ \ \ \ \ \ \ \ \ dJointSetSliderParam(mp-\/>\mbox{\hyperlink{structMultiPiston_a96e58d4cda391573b7ac1f4d9b469a56}{joints}}[i],\ dParamVel,\ velocity);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01337}01337\ \ \ \ \ \ \ \ \ dBodyEnable(mp-\/>\mbox{\hyperlink{structMultiPiston_ab70dd6653285ac49e434852b22a70148}{sections}}[i+1]-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01338}01338\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01339}01339\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01340}01340\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01341}01341\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01342}01342\ \textcolor{comment}{\ *\ @brief\ sets\ to\ bodies\ orientation\ to\ align\ with\ a\ vector}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01343}01343\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01344}01344\ \textcolor{comment}{\ *\ @param\ body\ the\ ODE\ body\ id\ you\ want\ to\ orient}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01345}01345\ \textcolor{comment}{\ *\ @param\ direction\ the\ vector\ you\ want\ the\ body\ oriented\ along}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01346}01346\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01347}01347\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01348}\mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{01348}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_aea5e471f2ffcadf7bcce5b25993d1d0f}{SetBodyOrientation}}(dBodyID\ body,\ Vector3\ direction)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01349}01349\ \ \ \ \ Vector3\ source\ =\ \{1,\ 0,\ 0\};\ \textcolor{comment}{//\ The\ default\ "{}length"{}\ axis\ of\ your\ box}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01350}01350\ \ \ \ \ direction\ =\ Vector3Normalize(direction);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01351}01351\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01352}01352\ \ \ \ \ \textcolor{comment}{//\ Find\ the\ rotation\ axis\ (perpendicular\ to\ both\ vectors)}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01353}01353\ \ \ \ \ Vector3\ rotAxis\ =\ Vector3CrossProduct(source,\ direction);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01354}01354\ \ \ \ \ \textcolor{keywordtype}{float}\ cosTheta\ =\ Vector3DotProduct(source,\ direction);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01355}01355\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01356}01356\ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ angle\ in\ radians}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01357}01357\ \ \ \ \ \textcolor{keywordtype}{float}\ angle\ =\ acosf(fminf(1.0f,\ fmaxf(-\/1.0f,\ cosTheta)));}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01358}01358\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01359}01359\ \ \ \ \ \textcolor{comment}{//\ Handle\ the\ "{}Parallel"{}\ case\ (if\ target\ is\ -\/source,\ cross\ product\ is\ zero)}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01360}01360\ \ \ \ \ \textcolor{keywordflow}{if}\ (Vector3Length(rotAxis)\ <\ 0.001f)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01361}01361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cosTheta\ <\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01362}01362\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Target\ is\ exactly\ opposite,\ rotate\ 180\ degrees\ around\ Any\ perpendicular\ axis}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01363}01363\ \ \ \ \ \ \ \ \ \ \ \ \ rotAxis\ =\ (Vector3)\{0,\ 1,\ 0\};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01364}01364\ \ \ \ \ \ \ \ \ \ \ \ \ angle\ =\ PI;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01365}01365\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01366}01366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Target\ is\ same\ as\ source,\ no\ rotation\ needed}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01367}01367\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01368}01368\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01369}01369\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01370}01370\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01371}01371\ \ \ \ \ dQuaternion\ q;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01372}01372\ \ \ \ \ dQFromAxisAndAngle(q,\ rotAxis.x,\ rotAxis.y,\ rotAxis.z,\ angle);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01373}01373\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01374}01374\ \ \ \ \ dBodySetQuaternion(body,\ q);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01375}01375\ \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01376}01376\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01377}01377\ \textcolor{comment}{\ *\ @brief\ pins\ an\ entity\ to\ the\ world}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01378}01378\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01379}01379\ \textcolor{comment}{\ *\ This\ joint\ will\ attempt\ to\ keep\ the\ position\ and\ orientation\ of}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01380}01380\ \textcolor{comment}{\ *\ the\ body\ static,\ position\ and\ rotate\ the\ body\ as\ needed\ before}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01381}01381\ \textcolor{comment}{\ *\ calling\ this}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01382}01382\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01383}01383\ \textcolor{comment}{\ *\ @param\ physCtx\ \ \ physics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01384}01384\ \textcolor{comment}{\ *\ @param\ ent\ \ \ The\ entity\ to\ pin\ to\ the\ world}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01385}01385\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01386}01386\ \textcolor{comment}{\ *\ @returns\ the\ joint\ id\ of\ the\ constraint\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01387}01387\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01388}\mbox{\hyperlink{raylibODE_8c_a57b8ac137f7e79fc8deb53b7ba410166}{01388}}\ dJointID\ \mbox{\hyperlink{raylibODE_8c_a57b8ac137f7e79fc8deb53b7ba410166}{PinEntityToWorld}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ ent)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01389}01389\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01390}01390\ \ \ \ \ dJointID\ pin\ =\ dJointCreateFixed\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01391}01391\ \ \ \ \ dJointAttach(pin,\ ent-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ 0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01392}01392\ \ \ \ \ dJointSetFixed(pin);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01393}01393\ \ \ \ \ \textcolor{keywordflow}{return}\ pin;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01394}01394\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01395}01395\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01396}01396\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01397}01397\ \textcolor{comment}{\ *\ @brief\ pin\ two\ entities\ together}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01398}01398\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01399}01399\ \textcolor{comment}{\ *\ @param\ physCtx\ the\ physics\ context}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01400}01400\ \textcolor{comment}{\ *\ @param\ entA\ the\ first\ entity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01401}01401\ \textcolor{comment}{\ *\ @param\ entB\ the\ second\ entity}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01402}01402\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01403}01403\ \textcolor{comment}{\ *\ The\ constraint\ will\ attempt\ to\ keep\ the\ relative}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01404}01404\ \textcolor{comment}{\ *\ position\ and\ orientation\ of\ the\ two\ entities\ as\ it\ was\ when\ this\ is\ called.\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01405}01405\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01406}\mbox{\hyperlink{raylibODE_8c_a4fdbdf714b807f26feab3176718e274c}{01406}}\ dJointID\ \mbox{\hyperlink{raylibODE_8c_a4fdbdf714b807f26feab3176718e274c}{PinEntities}}(\mbox{\hyperlink{structPhysicsContext}{PhysicsContext}}*\ physCtx,\ \mbox{\hyperlink{structentity}{entity}}*\ entA,\ \mbox{\hyperlink{structentity}{entity}}*\ entB)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01407}01407\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01408}01408\ \ \ \ \ dJointID\ pin\ =\ dJointCreateFixed\ (physCtx-\/>\mbox{\hyperlink{structPhysicsContext_ae036c70d830c45f16ea1fbeafd94680f}{world}},\ 0);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01409}01409\ \ \ \ \ dJointAttach(pin,\ entA-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}},\ entB-\/>\mbox{\hyperlink{structentity_ada0e6866acb68b3f1e2bff5d70b2b760}{body}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01410}01410\ \ \ \ \ dJointSetFixed(pin);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01411}01411\ \ \ \ \ \textcolor{keywordflow}{return}\ pin;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01412}01412\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01413}01413\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01414}01414\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01415}01415\ \textcolor{comment}{\ *\ @brief\ sets\ a\ bodies\ orientation}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01416}01416\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01417}01417\ \textcolor{comment}{\ *\ @param\ bdy\ the\ body\ id}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01418}01418\ \textcolor{comment}{\ *\ @param\ p\ the\ pitch}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01419}01419\ \textcolor{comment}{\ *\ @param\ y\ the\ yaw}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01420}01420\ \textcolor{comment}{\ *\ @param\ r\ the\ roll}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01421}01421\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01422}01422\ \textcolor{comment}{\ *\ @note\ you\ shouldn't\ be\ doing\ this\ every\ frame\ rather\ use\ forces\ (torque)}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01423}01423\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01424}\mbox{\hyperlink{raylibODE_8c_a3ae92d4efc27587000b0f3ca889d19e7}{01424}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a3ae92d4efc27587000b0f3ca889d19e7}{SetBodyOrientationEuler}}(dBodyID\ bdy,\ \textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01425}01425\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01426}01426\ \ \ \ \ dMatrix3\ R;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01427}01427\ \ \ \ \ dRFromEulerAngles(R,\ p,\ y,\ r);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01428}01428\ \ \ \ \ dBodySetRotation(bdy,\ R);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01429}01429\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01430}01430\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01431}01431\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01432}01432\ \textcolor{comment}{\ *\ @brief\ sets\ a\ geoms\ orientation}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01433}01433\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01434}01434\ \textcolor{comment}{\ *\ @param\ g\ the\ geom\ id}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01435}01435\ \textcolor{comment}{\ *\ @param\ p\ the\ pitch}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01436}01436\ \textcolor{comment}{\ *\ @param\ y\ the\ yaw}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01437}01437\ \textcolor{comment}{\ *\ @param\ r\ the\ roll}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01438}01438\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01439}01439\ \textcolor{comment}{\ *\ This\ is\ most\ useful\ when\ you\ are\ creating\ bodies\ with\ composite}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01440}01440\ \textcolor{comment}{\ *\ geoms\ or\ for\ use\ with\ a\ static\ geom}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01441}01441\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01442}\mbox{\hyperlink{raylibODE_8c_a5b5b0b12adc7119a13eaacef8d097499}{01442}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a5b5b0b12adc7119a13eaacef8d097499}{SetGeomOrientationEuler}}(dGeomID\ g,\ \textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r)}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01443}01443\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01444}01444\ \ \ \ \ dMatrix3\ R;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01445}01445\ \ \ \ \ dRFromEulerAngles(R,\ p,\ y,\ r);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01446}01446\ \ \ \ \ dGeomSetRotation(g,\ R);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01447}01447\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01448}01448\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01449}01449\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01450}01450\ \textcolor{comment}{\ *\ @brief\ create\ a\ rotor\ PID\ helper}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01451}01451\ \textcolor{comment}{\ *\ @param\ p\ proportional\ value\ for\ the\ PID}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01452}01452\ \textcolor{comment}{\ *\ @param\ i\ integral\ value}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01453}01453\ \textcolor{comment}{\ *\ @param\ d\ derivative}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01454}01454\ \textcolor{comment}{\ *\ @param\ lo\ the\ low\ stop}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01455}01455\ \textcolor{comment}{\ *\ @param\ hi\ the\ high\ stop}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01456}01456\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01457}01457\ \textcolor{comment}{\ *\ @note\ a\ rotorPID\ contains\ a\ targetAngle,\ set\ this\ for\ your\ desired\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01458}01458\ \textcolor{comment}{\ *\ rotor\ angle}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01459}01459\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01460}01460\ \textcolor{comment}{\ *\ @note\ tuning\ a\ PID\ can\ be\ a\ bit\ of\ a\ dark\ art!\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01461}01461\ \textcolor{comment}{\ *\ I\ recommend\ looking\ at\ https://pidexplained.com/how-\/to-\/tune-\/a-\/pid-\/controller/}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01462}01462\ \textcolor{comment}{\ *\ and\ the\ example}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01463}01463\ \textcolor{comment}{\ *\ <a\ href="{}pidJoint\_8c\_source.html"{}>pidJoint.c</a>}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01464}01464\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01465}01465\ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01466}01466\ \ \textcolor{comment}{//\ file:///home/chris/development/RayLibOdeMech/docs/doxygen/html/pidJoint\_8c\_source.html}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01467}\mbox{\hyperlink{raylibODE_8c_a51c7fa5bc9007621b52ed19bceadc142}{01467}}\ \mbox{\hyperlink{structRotorPID}{RotorPID}}\ \mbox{\hyperlink{raylibODE_8c_a51c7fa5bc9007621b52ed19bceadc142}{CreateRotorPID}}(\textcolor{keywordtype}{float}\ p,\ \textcolor{keywordtype}{float}\ i,\ \textcolor{keywordtype}{float}\ d,\ \textcolor{keywordtype}{float}\ lo,\ \textcolor{keywordtype}{float}\ hi)\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01468}01468\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01469}01469\ \ \ \ \ \mbox{\hyperlink{structRotorPID}{RotorPID}}\ pid\ =\ \{0\};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01470}01470\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_acfaa26f8f2115c47a4db93781231e406}{Kp}}\ =\ p;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01471}01471\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_a2d5ed52841172c4d8b866a298d664414}{Ki}}\ =\ i;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01472}01472\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_ada89e789ba855cf729f920fc1c1bb929}{Kd}}\ =\ d;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01473}01473\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_ab110cb5e184bcd5145e6ed3b89e2cf82}{antiWindup}}\ =\ 10.0f;\ \textcolor{comment}{//\ Prevents\ the\ motor\ from\ "{}over-\/charging"{}\ if\ stuck}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01474}01474\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_af2941ac4e0f3caf388abbf8c6a3fdba8}{lo}}\ =\ lo;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01475}01475\ \ \ \ \ pid.\mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{hi}}\ =\ hi;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01476}01476\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01477}01477\ \ \ \ \ \textcolor{keywordflow}{return}\ pid;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01478}01478\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01479}01479\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01480}01480\ \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01481}01481\ \textcolor{comment}{\ *\ @brief\ update\ rotor\ PID}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01482}01482\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01483}01483\ \textcolor{comment}{\ *\ @param\ pid\ the\ RotorPID\ to\ update}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01484}01484\ \textcolor{comment}{\ *\ @param\ joint\ the\ rotor\ joint\ to\ align\ with\ the\ targetAngle\ of\ the\ RotorPID}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01485}01485\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01486}01486\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01487}\mbox{\hyperlink{raylibODE_8c_a3c235bbe76330e3669fb881394ab8767}{01487}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{raylibODE_8c_a3c235bbe76330e3669fb881394ab8767}{UpdateRotorPID}}(\mbox{\hyperlink{structRotorPID}{RotorPID}}*\ pid,\ dJointID\ joint)\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01488}01488\ \{}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01489}01489\ \ \ \ \ \textcolor{keywordflow}{if}\ (pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ <\ pid-\/>\mbox{\hyperlink{structRotorPID_af2941ac4e0f3caf388abbf8c6a3fdba8}{lo}})\ pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ =\ pid-\/>\mbox{\hyperlink{structRotorPID_af2941ac4e0f3caf388abbf8c6a3fdba8}{lo}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01490}01490\ \ \ \ \ \textcolor{keywordflow}{if}\ (pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ >\ pid-\/>\mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{hi}})\ pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ =\ pid-\/>\mbox{\hyperlink{structRotorPID_abb76a89765c6b44add67c2a0bc21ef96}{hi}};}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01491}01491\ \ \ \ \ \textcolor{keywordtype}{float}\ currentAngle\ =\ dJointGetHingeAngle(joint);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01492}01492\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01493}01493\ \ \ \ \ \textcolor{keywordtype}{float}\ error\ =\ pid-\/>\mbox{\hyperlink{structRotorPID_a7ea2978fd04b56af0f7adc741b9bd69a}{targetAngle}}\ -\/\ currentAngle;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01494}01494\ \ \ \ \ \textcolor{keywordflow}{while}\ (error\ >\ \ PI)\ error\ -\/=\ 2.0f\ *\ PI;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01495}01495\ \ \ \ \ \textcolor{keywordflow}{while}\ (error\ <\ -\/PI)\ error\ +=\ 2.0f\ *\ PI;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01496}01496\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01497}01497\ \ \ \ \ \textcolor{comment}{//\ Integral\ term\ with\ Anti-\/Windup}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01498}01498\ \ \ \ \ pid-\/>\mbox{\hyperlink{structRotorPID_acb043fd74456df5ff732c47777e734a8}{integral}}\ +=\ error;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01499}01499\ \ \ \ \ \textcolor{comment}{//if\ (pid-\/>integral\ >\ \ pid-\/>antiWindup)\ pid-\/>integral\ =\ \ pid-\/>antiWindup;}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01500}01500\ \ \ \ \ \textcolor{comment}{//if\ (pid-\/>integral\ <\ -\/pid-\/>antiWindup)\ pid-\/>integral\ =\ -\/pid-\/>antiWindup;}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01501}01501\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01502}01502\ \ \ \ \ \textcolor{comment}{//\ Derivative\ term}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01503}01503\ \ \ \ \ \textcolor{keywordtype}{float}\ derivative\ =\ (error\ -\/\ pid-\/>\mbox{\hyperlink{structRotorPID_afdb6e3aebf5da57db2d769fc8a74a05b}{lastError}});}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01504}01504\ \ \ \ \ pid-\/>\mbox{\hyperlink{structRotorPID_afdb6e3aebf5da57db2d769fc8a74a05b}{lastError}}\ =\ error;}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01505}01505\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01506}01506\ \ \ \ \ \textcolor{comment}{//\ Calculate\ Output\ (Velocity)}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01507}01507\ \ \ \ \ \textcolor{keywordtype}{float}\ outputVel\ =\ (pid-\/>\mbox{\hyperlink{structRotorPID_acfaa26f8f2115c47a4db93781231e406}{Kp}}\ *\ error)\ +\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01508}01508\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pid-\/>\mbox{\hyperlink{structRotorPID_a2d5ed52841172c4d8b866a298d664414}{Ki}}\ *\ pid-\/>\mbox{\hyperlink{structRotorPID_acb043fd74456df5ff732c47777e734a8}{integral}})\ +\ }
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01509}01509\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (pid-\/>\mbox{\hyperlink{structRotorPID_ada89e789ba855cf729f920fc1c1bb929}{Kd}}\ *\ derivative);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01510}01510\ \ \ \ \ dJointSetHingeParam(joint,\ dParamVel,\ outputVel);}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01511}01511\ \}}
+\DoxyCodeLine{\Hypertarget{raylibODE_8c_source_l01512}01512\ }
 
 \end{DoxyCode}

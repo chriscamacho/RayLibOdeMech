@@ -107,8 +107,8 @@
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="751" endline="763">CreateGeomInfo</references>
         <references refid="init_8c_1a0c011796e9f74e7eb4b5bb26305193f9" compoundref="init_8c" startline="77" endline="137">CreateGraphics</references>
         <references refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</references>
-        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1125" endline="1136">DrawBodies</references>
-        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1161" endline="1170">DrawStatics</references>
+        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1127" endline="1138">DrawBodies</references>
+        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1163" endline="1172">DrawStatics</references>
         <references refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</references>
         <references refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</references>
         <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="157">GraphicsContext::groundTexture</references>

@@ -249,7 +249,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="37" column="9" bodyfile="raylibODE.h" bodystart="37" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1285" endline="1322">CreateMultiPiston</referencedby>
         <referencedby refid="piston_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="piston_8c" startline="32" endline="178">main</referencedby>
       </memberdef>
       <memberdef kind="define" id="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" prot="public" static="no">
@@ -262,7 +262,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="raylibODE.h" line="38" column="9" bodyfile="raylibODE.h" bodystart="38" bodyend="-1"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1285" endline="1322">CreateMultiPiston</referencedby>
         <referencedby refid="piston_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="piston_8c" startline="32" endline="178">main</referencedby>
       </memberdef>
       <memberdef kind="define" id="raylibODE_8h_1a5c3a0114b1e58dd42011cae154c7827e" prot="public" static="no">
@@ -696,7 +696,7 @@
         <references refid="clist_8c_1a50196c474127f9c1924abae6a1b74b69" compoundref="clist_8c" startline="219" endline="224">clistFreeList</references>
         <references refid="structPhysicsContext_1a7127872c521cd13698a53ceba9113a0e" compoundref="raylibODE_8h" startline="68">PhysicsContext::contactgroup</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="895" endline="908">FreeBodyAndGeoms</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="897" endline="910">FreeBodyAndGeoms</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="structgeomInfo_1abb6babda7d8a31c2ea76ed4654d9b55e" compoundref="raylibODE_8h" startline="110">geomInfo::indices</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
@@ -1134,7 +1134,7 @@
         <references refid="raylibODE_8c_1a79db70091e3c86494f485979529984c8" compoundref="raylibODE_8c" startline="751" endline="763">CreateGeomInfo</references>
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="238" endline="241">rndf</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="67">PhysicsContext::space</references>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1285" endline="1322">CreateMultiPiston</referencedby>
         <referencedby refid="raylibODE_8c_1ae7890e5cf20ab8875b9d08bf80d9d018" compoundref="raylibODE_8c" startline="649" endline="690">CreateRandomEntity</referencedby>
         <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
       </memberdef>
@@ -1789,7 +1789,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="221" column="6" bodyfile="raylibODE.c" bodystart="1089" bodyend="1097" declfile="raylibODE.h" declline="221" declcolumn="6"/>
+        <location file="raylibODE.h" line="221" column="6" bodyfile="raylibODE.c" bodystart="1091" bodyend="1099" declfile="raylibODE.h" declline="221" declcolumn="6"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="104">geomInfo::hew</references>
         <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
@@ -1858,7 +1858,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="223" column="10" bodyfile="raylibODE.c" bodystart="1056" bodyend="1076" declfile="raylibODE.h" declline="223" declcolumn="10"/>
+        <location file="raylibODE.h" line="223" column="10" bodyfile="raylibODE.c" bodystart="1058" bodyend="1078" declfile="raylibODE.h" declline="223" declcolumn="10"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="66">PhysicsContext::world</references>
         <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
@@ -1892,8 +1892,8 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="226" column="6" bodyfile="raylibODE.c" bodystart="895" bodyend="908" declfile="raylibODE.h" declline="226" declcolumn="6"/>
-        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1182" endline="1187">FreeEntity</referencedby>
+        <location file="raylibODE.h" line="226" column="6" bodyfile="raylibODE.c" bodystart="897" bodyend="910" declfile="raylibODE.h" declline="226" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1184" endline="1189">FreeEntity</referencedby>
         <referencedby refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</referencedby>
         <referencedby refid="ragdoll_8c_1ab17f6d5cfecd7a8573b900f78460c816" compoundref="ragdoll_8c" startline="482" endline="522">FreeRagdoll</referencedby>
         <referencedby refid="vehicle_8c_1ab0b188b6b47157b4f3c4aae241a933c8" compoundref="vehicle_8c" startline="233" endline="249">FreeVehicle</referencedby>
@@ -1917,12 +1917,12 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="229" column="6" bodyfile="raylibODE.c" bodystart="958" bodyend="1040" declfile="raylibODE.h" declline="229" declcolumn="6"/>
+        <location file="raylibODE.h" line="229" column="6" bodyfile="raylibODE.c" bodystart="960" bodyend="1042" declfile="raylibODE.h" declline="229" declcolumn="6"/>
         <references refid="structGraphicsContext_1af8476f2872146a217a97ad92cbf0a4a0" compoundref="raylibODE_8h" startline="148">GraphicsContext::ball</references>
         <references refid="structGraphicsContext_1a5ff7c73c82a7595e803b07c953ec0693" compoundref="raylibODE_8h" startline="147">GraphicsContext::box</references>
         <references refid="structGraphicsContext_1a06643972947afcd3a8cef634cce65ed8" compoundref="raylibODE_8h" startline="149">GraphicsContext::cylinder</references>
         <references refid="structgeomInfo_1a97039a3fbf7a1f1c905762a6f4adb0c3" compoundref="raylibODE_8h" startline="104">geomInfo::hew</references>
-        <references refid="raylibODE_8c_1aeaef389f404abef038f38518fc1a0421" compoundref="raylibODE_8c" startline="949" endline="955">OdeToRayMat</references>
+        <references refid="raylibODE_8c_1aeaef389f404abef038f38518fc1a0421" compoundref="raylibODE_8c" startline="951" endline="957">OdeToRayMat</references>
         <references refid="structGraphicsContext_1a2fa19905aad6c696c90a4ba1286c2b70" compoundref="raylibODE_8h" startline="160">GraphicsContext::shader</references>
         <references refid="structgeomInfo_1aa45560155b17f9ab8b46896d89b60b14" compoundref="raylibODE_8h" startline="100">geomInfo::texture</references>
         <references refid="structgeomInfo_1a520884eb761f24547c835107a37d024c" compoundref="raylibODE_8h" startline="114">geomInfo::triggerOnCollide</references>
@@ -1930,7 +1930,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         <references refid="structgeomInfo_1a0670722f17ac3020238ee399bd93f32e" compoundref="raylibODE_8h" startline="102">geomInfo::uvScaleV</references>
         <references refid="structgeomInfo_1aac9cece1fdb9d0079901008842994523" compoundref="raylibODE_8h" startline="103">geomInfo::visual</references>
         <referencedby refid="ragdoll_8c_1a15a95f2545a01b96973e728cdd451bf9" compoundref="ragdoll_8c" startline="454" endline="463">DrawRagdoll</referencedby>
-        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1161" endline="1170">DrawStatics</referencedby>
+        <referencedby refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1163" endline="1172">DrawStatics</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1aa01114b518b93c528e9e85382ce46b4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1970,7 +1970,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="232" column="6" bodyfile="raylibODE.c" bodystart="1125" bodyend="1136" declfile="raylibODE.h" declline="232" declcolumn="6"/>
+        <location file="raylibODE.h" line="232" column="6" bodyfile="raylibODE.c" bodystart="1127" bodyend="1138" declfile="raylibODE.h" declline="232" declcolumn="6"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
@@ -2018,9 +2018,9 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="236" column="6" bodyfile="raylibODE.c" bodystart="1161" bodyend="1170" declfile="raylibODE.h" declline="236" declcolumn="6"/>
+        <location file="raylibODE.h" line="236" column="6" bodyfile="raylibODE.c" bodystart="1163" bodyend="1172" declfile="raylibODE.h" declline="236" declcolumn="6"/>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
-        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="958" endline="1040">DrawGeom</references>
+        <references refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="960" endline="1042">DrawGeom</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
         <references refid="structPhysicsContext_1aa88cec7da4225aa5c1f2bbdabe55b35d" compoundref="raylibODE_8h" startline="71">PhysicsContext::statics</references>
@@ -2171,10 +2171,10 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="244" column="6" bodyfile="raylibODE.c" bodystart="1182" bodyend="1187" declfile="raylibODE.h" declline="244" declcolumn="6"/>
+        <location file="raylibODE.h" line="244" column="6" bodyfile="raylibODE.c" bodystart="1184" bodyend="1189" declfile="raylibODE.h" declline="244" declcolumn="6"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="clist_8c_1a15dab01e10aa1d60e2d66c5cbfa3a738" compoundref="clist_8c" startline="146" endline="164">clistDeleteNode</references>
-        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="895" endline="908">FreeBodyAndGeoms</references>
+        <references refid="raylibODE_8c_1a8f1b86adbb51b8bd80405329b31c87d1" compoundref="raylibODE_8c" startline="897" endline="910">FreeBodyAndGeoms</references>
         <references refid="structentity_1a4ba0008223828f414cf5303ca935bcd8" compoundref="raylibODE_8h" startline="60">entity::node</references>
         <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
         <referencedby refid="arm_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="arm_8c" startline="64" endline="294">main</referencedby>
@@ -2231,8 +2231,8 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="246" column="6" bodyfile="raylibODE.c" bodystart="1247" bodyend="1251" declfile="raylibODE.h" declline="246" declcolumn="6"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <location file="raylibODE.h" line="246" column="6" bodyfile="raylibODE.c" bodystart="1249" bodyend="1253" declfile="raylibODE.h" declline="246" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1285" endline="1322">CreateMultiPiston</referencedby>
         <referencedby refid="piston_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="piston_8c" startline="32" endline="178">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1aa35dd966752d4afeffcb8f39e474594c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -2298,12 +2298,12 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="247" column="10" bodyfile="raylibODE.c" bodystart="1201" bodyend="1235" declfile="raylibODE.h" declline="247" declcolumn="10"/>
+        <location file="raylibODE.h" line="247" column="10" bodyfile="raylibODE.c" bodystart="1203" bodyend="1237" declfile="raylibODE.h" declline="247" declcolumn="10"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="surface_8c_1aa26755a73be46b483bf7098bcbf679dd" compoundref="surface_8c" startline="26" endline="72">gSurfaces</references>
         <references refid="surface_8h_1a24dfdcf13ae4e2b7985a3868a1b5169fa73cad190d8af3fc82d9ce3a4ce27e48d" compoundref="surface_8h" startline="42">SURFACE_METAL</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="66">PhysicsContext::world</references>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1285" endline="1322">CreateMultiPiston</referencedby>
         <referencedby refid="piston_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="piston_8c" startline="32" endline="178">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ac18f122edccf31f40c3ce18ea1be58cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -2345,7 +2345,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="249" column="6" bodyfile="raylibODE.c" bodystart="937" bodyend="942" declfile="raylibODE.h" declline="249" declcolumn="6"/>
+        <location file="raylibODE.h" line="249" column="6" bodyfile="raylibODE.c" bodystart="939" bodyend="944" declfile="raylibODE.h" declline="249" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1ae64d38b48236f4a10077e64b19b953b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -2386,8 +2386,8 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="250" column="6" bodyfile="raylibODE.c" bodystart="949" bodyend="955" declfile="raylibODE.h" declline="250" declcolumn="6"/>
-        <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="958" endline="1040">DrawGeom</referencedby>
+        <location file="raylibODE.h" line="250" column="6" bodyfile="raylibODE.c" bodystart="951" bodyend="957" declfile="raylibODE.h" declline="250" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1a5a3f56ed394d3d2c1400e25d83fc05af" compoundref="raylibODE_8c" startline="960" endline="1042">DrawGeom</referencedby>
         <referencedby refid="derby_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="derby_8c" startline="56" endline="276">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a8d2339918b2d47fcaea5c861ccfbc3d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -2500,16 +2500,16 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="252" column="13" bodyfile="raylibODE.c" bodystart="1283" bodyend="1320" declfile="raylibODE.h" declline="252" declcolumn="13"/>
+        <location file="raylibODE.h" line="252" column="13" bodyfile="raylibODE.c" bodystart="1285" bodyend="1322" declfile="raylibODE.h" declline="252" declcolumn="13"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" compoundref="raylibODE_8h" startline="169">MultiPiston::count</references>
         <references refid="raylibODE_8c_1ae436b97d6296f4b3c35e493dde37cee3" compoundref="raylibODE_8c" startline="417" endline="437">CreateBox</references>
-        <references refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1201" endline="1235">CreatePiston</references>
+        <references refid="raylibODE_8c_1aa35dd966752d4afeffcb8f39e474594c" compoundref="raylibODE_8c" startline="1203" endline="1237">CreatePiston</references>
         <references refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" compoundref="raylibODE_8h" startline="168">MultiPiston::joints</references>
         <references refid="raylibODE_8h_1ad7a3394d1169a116327a236fc91cad61" compoundref="raylibODE_8h" startline="38">PISTON_GROUP</references>
         <references refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" compoundref="raylibODE_8h" startline="167">MultiPiston::sections</references>
-        <references refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" compoundref="raylibODE_8c" startline="1346" endline="1373">SetBodyOrientation</references>
-        <references refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" compoundref="raylibODE_8c" startline="1247" endline="1251">SetPistonLimits</references>
+        <references refid="raylibODE_8c_1aea5e471f2ffcadf7bcce5b25993d1d0f" compoundref="raylibODE_8c" startline="1348" endline="1375">SetBodyOrientation</references>
+        <references refid="raylibODE_8c_1a878892d1015e3c9349f667325d129d43" compoundref="raylibODE_8c" startline="1249" endline="1253">SetPistonLimits</references>
         <references refid="raylibODE_8h_1a7641bec378d3900deed756ce9ce5369f" compoundref="raylibODE_8h" startline="37">WORLD_GROUP</references>
         <referencedby refid="marbles_8c_1aff4f938c7169a18032e8016ba3a2ede6" compoundref="marbles_8c" startline="378" endline="513">CreateLift</referencedby>
         <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="33" endline="198">main</referencedby>
@@ -2553,7 +2553,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="255" column="6" bodyfile="raylibODE.c" bodystart="1331" bodyend="1337" declfile="raylibODE.h" declline="255" declcolumn="6"/>
+        <location file="raylibODE.h" line="255" column="6" bodyfile="raylibODE.c" bodystart="1333" bodyend="1339" declfile="raylibODE.h" declline="255" declcolumn="6"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="structMultiPiston_1a96962d42f96ba90adb333956b1c3ddd4" compoundref="raylibODE_8h" startline="169">MultiPiston::count</references>
         <references refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" compoundref="raylibODE_8h" startline="168">MultiPiston::joints</references>
@@ -2598,8 +2598,8 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="257" column="6" bodyfile="raylibODE.c" bodystart="1346" bodyend="1373" declfile="raylibODE.h" declline="257" declcolumn="6"/>
-        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1283" endline="1320">CreateMultiPiston</referencedby>
+        <location file="raylibODE.h" line="257" column="6" bodyfile="raylibODE.c" bodystart="1348" bodyend="1375" declfile="raylibODE.h" declline="257" declcolumn="6"/>
+        <referencedby refid="raylibODE_8c_1a8d2339918b2d47fcaea5c861ccfbc3d8" compoundref="raylibODE_8c" startline="1285" endline="1322">CreateMultiPiston</referencedby>
         <referencedby refid="piston_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="piston_8c" startline="32" endline="178">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a57b8ac137f7e79fc8deb53b7ba410166" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -2643,7 +2643,7 @@ As well as freeing all associated metadata it will also remove the body and its 
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="259" column="10" bodyfile="raylibODE.c" bodystart="1386" bodyend="1392" declfile="raylibODE.h" declline="259" declcolumn="10"/>
+        <location file="raylibODE.h" line="259" column="10" bodyfile="raylibODE.c" bodystart="1388" bodyend="1394" declfile="raylibODE.h" declline="259" declcolumn="10"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="66">PhysicsContext::world</references>
         <referencedby refid="marbles_8c_1aff4f938c7169a18032e8016ba3a2ede6" compoundref="marbles_8c" startline="378" endline="513">CreateLift</referencedby>
@@ -2699,7 +2699,7 @@ The constraint will attempt to keep the relative position and orientation of the
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="260" column="10" bodyfile="raylibODE.c" bodystart="1404" bodyend="1410" declfile="raylibODE.h" declline="260" declcolumn="10"/>
+        <location file="raylibODE.h" line="260" column="10" bodyfile="raylibODE.c" bodystart="1406" bodyend="1412" declfile="raylibODE.h" declline="260" declcolumn="10"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="structPhysicsContext_1ae036c70d830c45f16ea1fbeafd94680f" compoundref="raylibODE_8h" startline="66">PhysicsContext::world</references>
         <referencedby refid="pidJoint_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="pidJoint_8c" startline="33" endline="198">main</referencedby>
@@ -2852,7 +2852,7 @@ The constraint will attempt to keep the relative position and orientation of the
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="264" column="6" bodyfile="raylibODE.c" bodystart="1422" bodyend="1427" declfile="raylibODE.h" declline="264" declcolumn="6"/>
+        <location file="raylibODE.h" line="264" column="6" bodyfile="raylibODE.c" bodystart="1424" bodyend="1429" declfile="raylibODE.h" declline="264" declcolumn="6"/>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a37e31d3074a98d5f5a40096dc9b342f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>dGeomID</type>
@@ -2988,8 +2988,8 @@ This is most useful when you are creating bodies with composite geoms or for use
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="268" column="6" bodyfile="raylibODE.c" bodystart="1440" bodyend="1445" declfile="raylibODE.h" declline="268" declcolumn="6"/>
-        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+        <location file="raylibODE.h" line="268" column="6" bodyfile="raylibODE.c" bodystart="1442" bodyend="1447" declfile="raylibODE.h" declline="268" declcolumn="6"/>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="273">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a710981c5db9781e25b27318e8d56dfbb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3019,7 +3019,7 @@ This is most useful when you are creating bodies with composite geoms or for use
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="270" column="6" bodyfile="raylibODE.c" bodystart="1262" bodyend="1267" declfile="raylibODE.h" declline="270" declcolumn="6"/>
+        <location file="raylibODE.h" line="270" column="6" bodyfile="raylibODE.c" bodystart="1264" bodyend="1269" declfile="raylibODE.h" declline="270" declcolumn="6"/>
         <references refid="structMultiPiston_1a96e58d4cda391573b7ac1f4d9b469a56" compoundref="raylibODE_8h" startline="168">MultiPiston::joints</references>
         <references refid="structMultiPiston_1ab70dd6653285ac49e434852b22a70148" compoundref="raylibODE_8h" startline="167">MultiPiston::sections</references>
         <referencedby refid="marbles_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="marbles_8c" startline="132" endline="246">main</referencedby>
@@ -3063,10 +3063,10 @@ This is most useful when you are creating bodies with composite geoms or for use
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="272" column="6" bodyfile="raylibODE.c" bodystart="1109" bodyend="1117" declfile="raylibODE.h" declline="272" declcolumn="6"/>
+        <location file="raylibODE.h" line="272" column="6" bodyfile="raylibODE.c" bodystart="1111" bodyend="1119" declfile="raylibODE.h" declline="272" declcolumn="6"/>
         <references refid="structentity_1ada0e6866acb68b3f1e2bff5d70b2b760" compoundref="raylibODE_8h" startline="59">entity::body</references>
         <references refid="structgeomInfo_1a8e530854793906e8d625e058ac7b616c" compoundref="raylibODE_8h" startline="105">geomInfo::surface</references>
-        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="273">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a3c235bbe76330e3669fb881394ab8767" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3106,7 +3106,7 @@ This is most useful when you are creating bodies with composite geoms or for use
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="274" column="6" bodyfile="raylibODE.c" bodystart="1485" bodyend="1509" declfile="raylibODE.h" declline="274" declcolumn="6"/>
+        <location file="raylibODE.h" line="274" column="6" bodyfile="raylibODE.c" bodystart="1487" bodyend="1511" declfile="raylibODE.h" declline="274" declcolumn="6"/>
         <references refid="structRotorPID_1abb76a89765c6b44add67c2a0bc21ef96" compoundref="raylibODE_8h" startline="122">RotorPID::hi</references>
         <references refid="structRotorPID_1acb043fd74456df5ff732c47777e734a8" compoundref="raylibODE_8h" startline="124">RotorPID::integral</references>
         <references refid="structRotorPID_1ada89e789ba855cf729f920fc1c1bb929" compoundref="raylibODE_8h" startline="120">RotorPID::Kd</references>
@@ -3195,7 +3195,7 @@ This is most useful when you are creating bodies with composite geoms or for use
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="275" column="10" bodyfile="raylibODE.c" bodystart="1465" bodyend="1476" declfile="raylibODE.h" declline="275" declcolumn="10"/>
+        <location file="raylibODE.h" line="275" column="10" bodyfile="raylibODE.c" bodystart="1467" bodyend="1478" declfile="raylibODE.h" declline="275" declcolumn="10"/>
         <references refid="structRotorPID_1ab110cb5e184bcd5145e6ed3b89e2cf82" compoundref="raylibODE_8h" startline="121">RotorPID::antiWindup</references>
         <references refid="structRotorPID_1abb76a89765c6b44add67c2a0bc21ef96" compoundref="raylibODE_8h" startline="122">RotorPID::hi</references>
         <references refid="structRotorPID_1ada89e789ba855cf729f920fc1c1bb929" compoundref="raylibODE_8h" startline="120">RotorPID::Kd</references>
@@ -3273,7 +3273,7 @@ This is most useful when you are creating bodies with composite geoms or for use
         <references refid="structRayCast_1abc0fa92554941dedbef1a17241c86543" compoundref="raylibODE_8h" startline="140">RayCast::length</references>
         <references refid="structRayCast_1a1c3db63edf08a000f6c66b7c92550628" compoundref="raylibODE_8h" startline="136">RayCast::maxHits</references>
         <references refid="structRayCast_1ad462fddf059c2869e85e01ca5a56d12b" compoundref="raylibODE_8h" startline="138">RayCast::position</references>
-        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="273">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="raylibODE_8h_1a2b934e0acb1163c93b0f2613ce850a2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -3308,17 +3308,19 @@ This is most useful when you are creating bodies with composite geoms or for use
 </parameterdescription>
 </parameteritem>
 </parameterlist>
+<simplesect kind="note"><para>the array of hits produced is not in depth order, and built as ode iterates the world body list which is in no particular order </para>
+</simplesect>
 </para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="raylibODE.h" line="278" column="6" bodyfile="raylibODE.c" bodystart="874" bodyend="882" declfile="raylibODE.h" declline="278" declcolumn="6"/>
+        <location file="raylibODE.h" line="278" column="6" bodyfile="raylibODE.c" bodystart="876" bodyend="884" declfile="raylibODE.h" declline="278" declcolumn="6"/>
         <references refid="structRayCast_1a29020fd2803e3c920f2062aeae6b7db5" compoundref="raylibODE_8h" startline="137">RayCast::count</references>
         <references refid="structRayCast_1a751c178a9bc21a4359de943eda31ae1a" compoundref="raylibODE_8h" startline="139">RayCast::direction</references>
         <references refid="structRayCast_1abc0fa92554941dedbef1a17241c86543" compoundref="raylibODE_8h" startline="140">RayCast::length</references>
         <references refid="structRayCast_1ad462fddf059c2869e85e01ca5a56d12b" compoundref="raylibODE_8h" startline="138">RayCast::position</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="67">PhysicsContext::space</references>
-        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="184">main</referencedby>
+        <referencedby refid="raycasting_8c_1a840291bc02cba5474a4cb46a9b9566fe" compoundref="raycasting_8c" startline="32" endline="273">main</referencedby>
       </memberdef>
     </sectiondef>
     <briefdescription>

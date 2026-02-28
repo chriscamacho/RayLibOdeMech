@@ -138,9 +138,9 @@
         <references refid="raylibODE_8c_1ae7890e5cf20ab8875b9d08bf80d9d018" compoundref="raylibODE_8c" startline="649" endline="690">CreateRandomEntity</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
         <references refid="structPhysicsContext_1a700dab42e1cd527f86163f6359cac5c6" compoundref="raylibODE_8h" startline="72">PhysicsContext::data</references>
-        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1125" endline="1136">DrawBodies</references>
-        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1161" endline="1170">DrawStatics</references>
-        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1182" endline="1187">FreeEntity</references>
+        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1127" endline="1138">DrawBodies</references>
+        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1163" endline="1172">DrawStatics</references>
+        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1184" endline="1189">FreeEntity</references>
         <references refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</references>
         <references refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</references>
         <references refid="structGraphicsContext_1ad3030611b0418e63e186207a3ce3b9b6" compoundref="raylibODE_8h" startline="157">GraphicsContext::groundTexture</references>
@@ -154,7 +154,7 @@
         <references refid="raylibODE_8c_1a4a4933f37c736fd2d311be9eaf9b7fa8" compoundref="raylibODE_8c" startline="238" endline="241">rndf</references>
         <references refid="arm_8c_1a8c472bd07ea66dbb884992785271e1d1" compoundref="arm_8c" startline="28">screenHeight</references>
         <references refid="arm_8c_1a76da26d519b3a4158847daa8783a7a5b" compoundref="arm_8c" startline="27">screenWidth</references>
-        <references refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" compoundref="raylibODE_8c" startline="1089" endline="1097">SetEntityHew</references>
+        <references refid="raylibODE_8c_1a227dded5dce29a7e3b71e9589e2b4c22" compoundref="raylibODE_8c" startline="1091" endline="1099">SetEntityHew</references>
         <references refid="exampleCamera_8c_1af155bf31f5a69e64716e1eb1a010f647" compoundref="exampleCamera_8c" startline="82" endline="94">SetupCamera</references>
         <references refid="raylibODE_8h_1a733713fb5a6f60fae1f1fe872b3e391baf8fa9b753eda935c618574340db361bf" compoundref="raylibODE_8h" startline="55">SHAPE_ALL</references>
         <references refid="structPhysicsContext_1a2812915a2d632b88d05433459a1f0b7e" compoundref="raylibODE_8h" startline="67">PhysicsContext::space</references>

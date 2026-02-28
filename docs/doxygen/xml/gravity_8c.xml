@@ -281,7 +281,7 @@
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
         <references refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" compoundref="raylibODE_8h" startline="61">entity::data</references>
         <references refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" compoundref="gravity_8c" startline="90">frameCount</references>
-        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1182" endline="1187">FreeEntity</references>
+        <references refid="raylibODE_8c_1aa86cbb92909da330ef988d813fb7baed" compoundref="raylibODE_8c" startline="1184" endline="1189">FreeEntity</references>
         <references refid="struct____clist_1a87719175a9395449ee1db0221b39688a" compoundref="clist_8h" startline="27">__clist::head</references>
         <references refid="struct____cnode_1aabe3d86831d46a328c4a8764acf66ac4" compoundref="clist_8h" startline="13">__cnode::next</references>
         <references refid="structPhysicsContext_1a9b8d81159eec734cb1b95c95203b7f50" compoundref="raylibODE_8h" startline="70">PhysicsContext::objList</references>
@@ -310,8 +310,8 @@
         <references refid="init_8c_1a57d526245eb2f059fac1e6bb3f64ae42" compoundref="init_8c" startline="158" endline="193">CreatePhysics</references>
         <references refid="struct____cnode_1ae59520f57274323a159b336ee81f565b" compoundref="clist_8h" startline="14">__cnode::data</references>
         <references refid="structentity_1a9a2f7fbcb9768c13b8ab45108dcdce44" compoundref="raylibODE_8h" startline="61">entity::data</references>
-        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1125" endline="1136">DrawBodies</references>
-        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1161" endline="1170">DrawStatics</references>
+        <references refid="raylibODE_8c_1aa01114b518b93c528e9e85382ce46b4b" compoundref="raylibODE_8c" startline="1127" endline="1138">DrawBodies</references>
+        <references refid="raylibODE_8c_1a1232d8000138fdc6d2f9741548a263aa" compoundref="raylibODE_8c" startline="1163" endline="1172">DrawStatics</references>
         <references refid="gravity_8c_1abaf7d77bd2fc7eb6125fa605bd645b67" compoundref="gravity_8c" startline="90">frameCount</references>
         <references refid="init_8c_1a6569bf61ca03001b6fabedc21aff855a" compoundref="init_8c" startline="246" endline="267">FreeGraphics</references>
         <references refid="init_8c_1aadcc246e22ab4be2dd926a25c5bc9bad" compoundref="init_8c" startline="195" endline="244">FreePhysics</references>
